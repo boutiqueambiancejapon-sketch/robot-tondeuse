@@ -48,10 +48,8 @@ const ROBOTS: Robot[] = [
   { nom: 'Vision Cloud 2WD WR318E', marque: 'Worx', surfaceMax: 1800, penteMax: '35%', prix: 1499, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG4B9XR' },
   { nom: 'Vision Cloud 2WD WR330E', marque: 'Worx', surfaceMax: 3000, penteMax: '35%', prix: 2299, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG4WYT4' },
   { nom: 'Vision Cloud 4WD WR340E', marque: 'Worx', surfaceMax: 600, penteMax: '84%', prix: 1499, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG3XLBJ' },
-  // Ecovacs
-  { nom: 'GOAT G1', marque: 'Ecovacs', surfaceMax: 800, penteMax: '45%', prix: 999, bruit: '55 dB', sansFil: true, url: '', badge: 'Sans fil' },
-  { nom: 'GOAT G1-2000', marque: 'Ecovacs', surfaceMax: 2000, penteMax: '45%', prix: 1499, bruit: '55 dB', sansFil: true, url: '' },
   // Bosch
+  { nom: 'VISIMOW 18V-100', marque: 'Bosch', surfaceMax: 100, penteMax: '25%', prix: 480, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0G4RDLH3R' },
   { nom: 'Indego S+ 500', marque: 'Bosch', surfaceMax: 500, penteMax: '27%', prix: 450, bruit: '63 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B08VJJKFBX' },
 ]
 

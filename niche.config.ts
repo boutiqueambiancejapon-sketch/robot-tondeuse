@@ -107,17 +107,17 @@ export const niche: NicheConfig = {
 
   heroPrefix: 'Choisir votre',
   heroSuffix: 'en 10 minutes',
-  rotatingWords: ['Mammotion', 'Husqvarna', 'Gardena', 'Worx', 'Ecovacs Goat'],
+  rotatingWords: ['Mammotion', 'Husqvarna', 'Gardena', 'Worx', 'Bosch'],
   subtitle: 'Comparatifs honnêtes, quiz rapide et simulateur de surface. Le bon robot tondeuse pour votre jardin, sans prise de tête.',
   ctaPrimary: { text: 'Comparer →', url: '/comparer' },
   ctaSecondary: { text: 'Quel robot pour moi ?', url: '/quiz' },
 
   categories: [
-    { slug: 'mammotion', label: 'Mammotion', accent: '#16A34A', description: 'Luba et Yuka : robots tondeuses sans fil avec navigation RTK' },
+    { slug: 'mammotion', label: 'Mammotion', accent: '#16A34A', description: 'Yuka et Luba : robots tondeuses sans fil avec navigation vision et RTK' },
     { slug: 'husqvarna', label: 'Husqvarna', accent: '#FF6A00', description: 'Automower : la référence suédoise depuis 1995' },
     { slug: 'gardena', label: 'Gardena', accent: '#0891B2', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
-    { slug: 'worx', label: 'Worx', accent: '#D97706', description: 'Landroid : robots modulaires au meilleur rapport qualité-prix' },
-    { slug: 'ecovacs', label: 'Ecovacs Goat', accent: '#7C3AED', description: 'GOAT : robots sans fil périphérique avec navigation RTK' },
+    { slug: 'worx', label: 'Worx', accent: '#D97706', description: 'Landroid et Vision Cloud : robots modulaires et sans fil' },
+    { slug: 'bosch', label: 'Bosch', accent: '#7C3AED', description: 'Indego et VISIMOW : robots tondeuses connectés et compacts' },
   ],
 
   quiz: {

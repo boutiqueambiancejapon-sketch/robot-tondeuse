@@ -441,52 +441,10 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       },
     ],
   },
-  ecovacs: {
-    id: 'ecovacs',
-    label: 'Ecovacs GOAT',
-    description: 'Les GOAT d\'Ecovacs : navigation RTK sans fil, détection d\'obstacles par IA, autonomie record.',
-    specsLabels: {
-      surface: 'Surface max',
-      pente: 'Pente max',
-      bruit: 'Niveau sonore',
-      navigation: 'Navigation',
-      connectivite: 'Connectivité',
-      autonomie: 'Autonomie',
-    },
-    modeles: [
-      {
-        nom: 'GOAT G1',
-        prix: 999,
-        amazonUrl: '',
-        specs: {
-          surface: '800 m²',
-          pente: '45%',
-          bruit: '55 dB',
-          navigation: 'RTK + vision (sans fil)',
-          connectivite: 'WiFi + 4G',
-          autonomie: '180 min',
-        },
-      },
-      {
-        nom: 'GOAT G1-2000',
-        prix: 1499,
-        nouveaute: true,
-        amazonUrl: '',
-        specs: {
-          surface: '2000 m²',
-          pente: '45%',
-          bruit: '55 dB',
-          navigation: 'RTK + vision (sans fil)',
-          connectivite: 'WiFi + 4G',
-          autonomie: '180 min',
-        },
-      },
-    ],
-  },
   bosch: {
     id: 'bosch',
-    label: 'Bosch Indego',
-    description: 'Les Indego de Bosch : tonte en lignes parallèles, navigation LogiCut et intégration domotique.',
+    label: 'Bosch',
+    description: 'Indego et VISIMOW : robots tondeuses connectés, tonte en lignes parallèles et navigation intelligente.',
     specsLabels: {
       surface: 'Surface max',
       pente: 'Pente max',
@@ -496,6 +454,19 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       autonomie: 'Autonomie',
     },
     modeles: [
+      {
+        nom: 'VISIMOW 18V-100',
+        prix: 480,
+        amazonUrl: 'https://www.amazon.fr/dp/B0G4RDLH3R',
+        specs: {
+          surface: '100 m²',
+          pente: '25%',
+          bruit: '57 dB',
+          navigation: 'Caméra (sans fil)',
+          connectivite: 'Bluetooth',
+          autonomie: '30 min',
+        },
+      },
       {
         nom: 'Indego S+ 500',
         prix: 450,

@@ -85,12 +85,12 @@ function recommend(answers: Answers): Recommendation {
   if (installation === 'wireless' && budget === 'mid') {
     if (surface === 'small' || surface === 'medium') {
       return {
-        produit: 'Ecovacs',
-        modele: 'Ecovacs GOAT G1',
-        pourquoi: 'Navigation RTK sans fil, installation en 30 minutes, détection d\'obstacles par caméra IA. Parfait pour les jardins jusqu\'à 800 m² sans vouloir poser de fil.',
-        prix: '~999 €',
-        href: '/choisir/ecovacs',
-        comparerHref: '/comparer/ecovacs',
+        produit: 'Mammotion',
+        modele: 'Mammotion YUKA Mini 2 500',
+        pourquoi: 'Sans fil avec caméra IA, installation en 30 minutes. Le plus accessible des robots sans fil à 699 €. Parfait pour les jardins jusqu\'à 500 m².',
+        prix: '~699 €',
+        href: '/choisir/mammotion',
+        comparerHref: '/comparer/mammotion',
       }
     }
     return {
@@ -118,12 +118,12 @@ function recommend(answers: Answers): Recommendation {
   // Sans fil + petit budget
   if (installation === 'wireless' && budget === 'eco') {
     return {
-      produit: 'Ecovacs',
-      modele: 'Ecovacs GOAT G1',
-      pourquoi: 'Le GOAT G1 est le robot sans fil le plus accessible à 999 €. Navigation RTK, 800 m², installation rapide.',
-      prix: '~999 €',
-      href: '/choisir/ecovacs',
-      comparerHref: '/comparer/ecovacs',
+      produit: 'Mammotion',
+      modele: 'Mammotion YUKA Mini 2 500',
+      pourquoi: 'Le robot sans fil le plus accessible à 699 €. Caméra IA triple, pas de fil à poser, 500 m².',
+      prix: '~699 €',
+      href: '/choisir/mammotion',
+      comparerHref: '/comparer/mammotion',
     }
   }
 
