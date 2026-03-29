@@ -22,20 +22,20 @@ const ROBOTS: Robot[] = [
   { nom: 'Luba 2 AWD 3000', marque: 'Mammotion', surfaceMax: 3000, penteMax: '75%', prix: 2499, bruit: '55 dB', sansFil: true, url: '', badge: 'Pentes extrêmes' },
   { nom: 'Luba 2 AWD 5000', marque: 'Mammotion', surfaceMax: 5000, penteMax: '75%', prix: 2999, bruit: '55 dB', sansFil: true, url: '' },
   // Husqvarna
-  { nom: 'Automower 305', marque: 'Husqvarna', surfaceMax: 600, penteMax: '40%', prix: 999, bruit: '59 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE1' },
-  { nom: 'Automower 415X', marque: 'Husqvarna', surfaceMax: 1500, penteMax: '40%', prix: 1899, bruit: '57 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE2', badge: 'Valeur sûre' },
-  { nom: 'Automower 435X AWD', marque: 'Husqvarna', surfaceMax: 3500, penteMax: '70%', prix: 3499, bruit: '55 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE3' },
+  { nom: 'Automower 305', marque: 'Husqvarna', surfaceMax: 600, penteMax: '40%', prix: 999, bruit: '59 dB', sansFil: false, url: '' },
+  { nom: 'Automower 415X', marque: 'Husqvarna', surfaceMax: 1500, penteMax: '40%', prix: 1899, bruit: '57 dB', sansFil: false, url: '', badge: 'Valeur sûre' },
+  { nom: 'Automower 435X AWD', marque: 'Husqvarna', surfaceMax: 3500, penteMax: '70%', prix: 3499, bruit: '55 dB', sansFil: false, url: '' },
   // Gardena
-  { nom: 'SILENO minimo 250', marque: 'Gardena', surfaceMax: 250, penteMax: '25%', prix: 649, bruit: '57 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE4', badge: 'Petit budget' },
-  { nom: 'SILENO city 600', marque: 'Gardena', surfaceMax: 600, penteMax: '35%', prix: 899, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE5' },
+  { nom: 'SILENO minimo 250', marque: 'Gardena', surfaceMax: 250, penteMax: '25%', prix: 649, bruit: '57 dB', sansFil: false, url: '', badge: 'Petit budget' },
+  { nom: 'SILENO city 600', marque: 'Gardena', surfaceMax: 600, penteMax: '35%', prix: 899, bruit: '58 dB', sansFil: false, url: '' },
   { nom: 'SILENO life 1500', marque: 'Gardena', surfaceMax: 1500, penteMax: '35%', prix: 1499, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE6' },
   // Worx
-  { nom: 'Landroid S300', marque: 'Worx', surfaceMax: 300, penteMax: '35%', prix: 549, bruit: '65 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE7', badge: 'Meilleur prix' },
-  { nom: 'Landroid M700', marque: 'Worx', surfaceMax: 700, penteMax: '35%', prix: 899, bruit: '65 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE8' },
-  { nom: 'Landroid Vision L1600', marque: 'Worx', surfaceMax: 1600, penteMax: '30%', prix: 1699, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B09EXAMPLE9', badge: 'Sans fil' },
+  { nom: 'Landroid S300', marque: 'Worx', surfaceMax: 300, penteMax: '35%', prix: 549, bruit: '65 dB', sansFil: false, url: '', badge: 'Meilleur prix' },
+  { nom: 'Landroid M700', marque: 'Worx', surfaceMax: 700, penteMax: '35%', prix: 899, bruit: '65 dB', sansFil: false, url: '' },
+  { nom: 'Landroid Vision L1600', marque: 'Worx', surfaceMax: 1600, penteMax: '30%', prix: 1699, bruit: '62 dB', sansFil: true, url: '', badge: 'Sans fil' },
   // Ecovacs
-  { nom: 'GOAT G1', marque: 'Ecovacs', surfaceMax: 800, penteMax: '45%', prix: 999, bruit: '55 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B09EXAMPLEC', badge: 'Sans fil' },
-  { nom: 'GOAT G1-2000', marque: 'Ecovacs', surfaceMax: 2000, penteMax: '45%', prix: 1499, bruit: '55 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B09EXAMPLED' },
+  { nom: 'GOAT G1', marque: 'Ecovacs', surfaceMax: 800, penteMax: '45%', prix: 999, bruit: '55 dB', sansFil: true, url: '', badge: 'Sans fil' },
+  { nom: 'GOAT G1-2000', marque: 'Ecovacs', surfaceMax: 2000, penteMax: '45%', prix: 1499, bruit: '55 dB', sansFil: true, url: '' },
 ]
 
 export function SurfaceCalculator() {

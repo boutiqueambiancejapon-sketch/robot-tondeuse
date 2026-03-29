@@ -105,7 +105,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'Automower 305',
         prix: 999,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE1',
+        amazonUrl: '',
         specs: {
           surface: '600 m²',
           pente: '40%',
@@ -118,7 +118,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'Automower 415X',
         prix: 1899,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE2',
+        amazonUrl: '',
         specs: {
           surface: '1500 m²',
           pente: '40%',
@@ -131,7 +131,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'Automower 435X AWD',
         prix: 3499,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE3',
+        amazonUrl: '',
         specs: {
           surface: '3500 m²',
           pente: '70%',
@@ -159,7 +159,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'SILENO minimo 250',
         prix: 649,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE4',
+        amazonUrl: '',
         specs: {
           surface: '250 m²',
           pente: '25%',
@@ -172,7 +172,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'SILENO city 600',
         prix: 899,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE5',
+        amazonUrl: '',
         specs: {
           surface: '600 m²',
           pente: '35%',
@@ -185,7 +185,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'SILENO life 1500',
         prix: 1499,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE6',
+        amazonUrl: '',
         specs: {
           surface: '1500 m²',
           pente: '35%',
@@ -213,7 +213,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'Landroid S300',
         prix: 549,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE7',
+        amazonUrl: '',
         specs: {
           surface: '300 m²',
           pente: '35%',
@@ -226,7 +226,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'Landroid M700',
         prix: 899,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE8',
+        amazonUrl: '',
         specs: {
           surface: '700 m²',
           pente: '35%',
@@ -240,7 +240,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
         nom: 'Landroid Vision L1600',
         prix: 1699,
         nouveaute: true,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE9',
+        amazonUrl: '',
         specs: {
           surface: '1600 m²',
           pente: '30%',
@@ -268,7 +268,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'GOAT G1',
         prix: 999,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLEC',
+        amazonUrl: '',
         specs: {
           surface: '800 m²',
           pente: '45%',
@@ -282,7 +282,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
         nom: 'GOAT G1-2000',
         prix: 1499,
         nouveaute: true,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLED',
+        amazonUrl: '',
         specs: {
           surface: '2000 m²',
           pente: '45%',

@@ -1,19 +1,13 @@
 'use client'
 
 /**
- * QuizEngine — moteur interactif du quiz.
+ * QuizEngine — moteur interactif du quiz robot tondeuse.
  * 'use client' isolé — la page /quiz reste Server Component.
- * Flux : questions dynamiques → résultat avec recommandation.
- * Pas de librairie externe — useState + transitions CSS.
- *
- * Les questions et recommandations sont des placeholders.
- * Le prompt d'init les remplace avec du contenu spécifique à la niche.
+ * Questions lues depuis quiz.yaml, recommandations basées sur les réponses.
  */
 
 import { useState } from 'react'
 import Link from 'next/link'
-
-/* ─── Types ─────────────────────────────────────────── */
 
 type Step = {
   id: string
@@ -32,68 +26,210 @@ type Recommendation = {
   comparerHref: string
 }
 
-/* ─── Questions (placeholder — à adapter par niche) ──── */
-
 const DEFAULT_STEPS: Step[] = [
   {
-    id: 'categorie',
-    question: 'Quelle catégorie vous intéresse ?',
+    id: 'surface',
+    question: 'Quelle surface de pelouse ?',
     options: [
-      { label: 'Catégorie A', value: 'cat-a' },
-      { label: 'Catégorie B', value: 'cat-b' },
-      { label: 'Catégorie C', value: 'cat-c' },
+      { label: 'Moins de 400 m²', value: 'small' },
+      { label: '400 à 1000 m²', value: 'medium' },
+      { label: '1000 à 3000 m²', value: 'large' },
+      { label: 'Plus de 3000 m²', value: 'xlarge' },
+    ],
+  },
+  {
+    id: 'pente',
+    question: 'Votre terrain est en pente ?',
+    options: [
+      { label: 'Plutôt plat (moins de 15%)', value: 'flat' },
+      { label: 'Quelques pentes (15-25%)', value: 'moderate' },
+      { label: 'Grosses pentes (25%+)', value: 'steep' },
     ],
   },
   {
     id: 'budget',
-    question: 'Quel est votre budget ?',
+    question: 'Quel budget ?',
     options: [
-      { label: 'Petit budget', value: 'eco' },
-      { label: 'Budget moyen', value: 'mid' },
-      { label: 'Budget élevé', value: 'high' },
+      { label: 'Moins de 1000 €', value: 'eco' },
+      { label: '1000 à 2000 €', value: 'mid' },
+      { label: 'Plus de 2000 €', value: 'high' },
     ],
   },
   {
-    id: 'usage',
-    question: 'Votre usage principal ?',
+    id: 'installation',
+    question: 'Prêt à poser un fil périphérique ?',
     options: [
-      { label: 'Usage quotidien', value: 'daily' },
-      { label: 'Usage professionnel', value: 'pro' },
-      { label: 'Loisirs', value: 'leisure' },
+      { label: 'Oui, pas de souci', value: 'wire' },
+      { label: 'Non, je veux du sans fil', value: 'wireless' },
+      { label: 'Peu importe', value: 'any' },
     ],
   },
 ]
 
-/* ─── Moteur de recommandation (placeholder) ───────── */
-
 function recommend(answers: Answers): Recommendation {
-  const { categorie } = answers
-  const comparerHref = `/comparer/${categorie ?? ''}`
+  const { surface, pente, budget, installation } = answers
 
-  // Placeholder — le prompt d'init remplace cette logique
+  // Grandes surfaces + pentes fortes
+  if ((surface === 'xlarge' || surface === 'large') && pente === 'steep') {
+    return {
+      produit: 'Mammotion',
+      modele: 'Mammotion Luba 2 AWD 3000',
+      pourquoi: 'C\'est le seul robot qui grimpe à 75% de pente tout en couvrant 3000 m². Transmission intégrale, navigation RTK sans fil. Idéal pour les grands terrains vallonnés.',
+      prix: '~2 499 €',
+      href: '/choisir/mammotion',
+      comparerHref: '/comparer/mammotion',
+    }
+  }
+
+  // Sans fil + budget moyen
+  if (installation === 'wireless' && budget === 'mid') {
+    if (surface === 'small' || surface === 'medium') {
+      return {
+        produit: 'Ecovacs',
+        modele: 'Ecovacs GOAT G1',
+        pourquoi: 'Navigation RTK sans fil, installation en 30 minutes, détection d\'obstacles par caméra IA. Parfait pour les jardins jusqu\'à 800 m² sans vouloir poser de fil.',
+        prix: '~999 €',
+        href: '/choisir/ecovacs',
+        comparerHref: '/comparer/ecovacs',
+      }
+    }
+    return {
+      produit: 'Mammotion',
+      modele: 'Mammotion Yuka 1500',
+      pourquoi: 'Sans fil avec navigation RTK, jusqu\'à 1500 m². Le meilleur rapport qualité-prix en sans fil pour les jardins moyens à grands.',
+      prix: '~1 099 €',
+      href: '/choisir/mammotion',
+      comparerHref: '/comparer/mammotion',
+    }
+  }
+
+  // Sans fil + gros budget
+  if (installation === 'wireless' && budget === 'high') {
+    return {
+      produit: 'Mammotion',
+      modele: 'Mammotion Luba 2 AWD 5000',
+      pourquoi: 'Le haut de gamme sans fil. 5000 m², pentes à 75%, autonomie 300 min. Si vous avez un grand terrain et le budget, c\'est le meilleur choix.',
+      prix: '~2 999 €',
+      href: '/choisir/mammotion',
+      comparerHref: '/comparer/mammotion',
+    }
+  }
+
+  // Sans fil + petit budget
+  if (installation === 'wireless' && budget === 'eco') {
+    return {
+      produit: 'Ecovacs',
+      modele: 'Ecovacs GOAT G1',
+      pourquoi: 'Le GOAT G1 est le robot sans fil le plus accessible à 999 €. Navigation RTK, 800 m², installation rapide.',
+      prix: '~999 €',
+      href: '/choisir/ecovacs',
+      comparerHref: '/comparer/ecovacs',
+    }
+  }
+
+  // Petit budget + petit jardin
+  if (budget === 'eco' && surface === 'small') {
+    return {
+      produit: 'Worx',
+      modele: 'Worx Landroid S300',
+      pourquoi: 'Le meilleur prix du marché pour les petits jardins. Connecté WiFi, modulaire. Ajoutez le capteur anticollision si vous avez des obstacles.',
+      prix: '~549 €',
+      href: '/choisir/worx',
+      comparerHref: '/comparer/worx',
+    }
+  }
+
+  // Petit budget + jardin moyen
+  if (budget === 'eco' && (surface === 'medium' || surface === 'large')) {
+    return {
+      produit: 'Worx',
+      modele: 'Worx Landroid M700',
+      pourquoi: 'Excellent rapport qualité-prix pour 700 m². Système modulaire, appli WiFi, mises à jour OTA. Le choix malin sous 1000 €.',
+      prix: '~899 €',
+      href: '/choisir/worx',
+      comparerHref: '/comparer/worx',
+    }
+  }
+
+  // Budget moyen + jardin moyen + veut du fiable
+  if (budget === 'mid' && (surface === 'medium' || surface === 'small') && installation === 'wire') {
+    return {
+      produit: 'Gardena',
+      modele: 'Gardena SILENO city 600',
+      pourquoi: 'Ultra-silencieux (58 dB), fiable et simple. Le groupe Husqvarna à prix plus doux. Parfait pour les jardins résidentiels classiques.',
+      prix: '~899 €',
+      href: '/choisir/gardena',
+      comparerHref: '/comparer/gardena',
+    }
+  }
+
+  // Budget moyen/haut + grande surface + fil OK
+  if ((budget === 'mid' || budget === 'high') && (surface === 'large' || surface === 'xlarge') && installation === 'wire') {
+    return {
+      produit: 'Husqvarna',
+      modele: 'Husqvarna Automower 415X',
+      pourquoi: '30 ans de fiabilité, 4G + GPS intégré, pentes à 40%. La référence pour les grands jardins quand on veut du solide et éprouvé.',
+      prix: '~1 899 €',
+      href: '/choisir/husqvarna',
+      comparerHref: '/comparer/husqvarna',
+    }
+  }
+
+  // Gros budget + pentes
+  if (budget === 'high' && pente === 'steep') {
+    return {
+      produit: 'Mammotion',
+      modele: 'Mammotion Luba 2 AWD 3000',
+      pourquoi: 'Pentes à 75%, sans fil, navigation RTK. Le meilleur robot pour les terrains difficiles.',
+      prix: '~2 499 €',
+      href: '/choisir/mammotion',
+      comparerHref: '/comparer/mammotion',
+    }
+  }
+
+  // Gros budget + grande surface
+  if (budget === 'high' && (surface === 'large' || surface === 'xlarge')) {
+    return {
+      produit: 'Husqvarna',
+      modele: 'Husqvarna Automower 435X AWD',
+      pourquoi: 'Transmission intégrale, 3500 m², pentes à 70%. Le top de la fiabilité pour les très grands terrains.',
+      prix: '~3 499 €',
+      href: '/choisir/husqvarna',
+      comparerHref: '/comparer/husqvarna',
+    }
+  }
+
+  // Défaut : recommandation polyvalente
+  if (budget === 'mid' || budget === 'high') {
+    return {
+      produit: 'Mammotion',
+      modele: 'Mammotion Yuka 1500',
+      pourquoi: 'Sans fil, navigation RTK, 1500 m². Un bon choix polyvalent qui évite la corvée du fil périphérique.',
+      prix: '~1 099 €',
+      href: '/choisir/mammotion',
+      comparerHref: '/comparer/mammotion',
+    }
+  }
+
   return {
-    produit: 'Produit recommandé',
-    modele: 'Modèle placeholder',
-    pourquoi: 'Ce produit correspond à vos critères. Le prompt d\'initialisation remplacera cette recommandation par du contenu spécifique à votre niche.',
-    prix: 'À définir',
-    href: `/choisir/${categorie ?? ''}`,
-    comparerHref,
+    produit: 'Worx',
+    modele: 'Worx Landroid M700',
+    pourquoi: 'Le meilleur rapport qualité-prix du marché. 700 m², WiFi, système modulaire. Difficile de trouver mieux sous 900 €.',
+    prix: '~899 €',
+    href: '/choisir/worx',
+    comparerHref: '/comparer/worx',
   }
 }
 
-/* ─── Composant ──────────────────────────────────────── */
-
 type QuizEngineProps = {
-  /** Pré-sélectionne la catégorie et saute l'étape 0. */
   defaultProduit?: string
-  /** Steps du quiz — passés depuis le Server Component (quiz.yaml). Fallback sur DEFAULT_STEPS. */
   steps?: Step[]
 }
 
 export function QuizEngine({ defaultProduit, steps }: QuizEngineProps = {}) {
   const STEPS = steps && steps.length > 0 ? steps : DEFAULT_STEPS
   const initialStep = defaultProduit ? 1 : 0
-  const initialAnswers: Answers = defaultProduit ? { categorie: defaultProduit } : {}
+  const initialAnswers: Answers = defaultProduit ? { surface: defaultProduit } : {}
 
   const [step, setStep] = useState(initialStep)
   const [answers, setAnswers] = useState<Answers>(initialAnswers)
@@ -211,7 +347,7 @@ export function QuizEngine({ defaultProduit, steps }: QuizEngineProps = {}) {
             onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
               const el = e.currentTarget
               el.style.borderColor = 'var(--accent-4)'
-              el.style.background = 'rgba(123,97,255,0.06)'
+              el.style.background = 'rgba(124,58,237,0.06)'
             }}
             onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
               const el = e.currentTarget
@@ -262,8 +398,6 @@ export function QuizEngine({ defaultProduit, steps }: QuizEngineProps = {}) {
   )
 }
 
-/* ─── Résultat ───────────────────────────────────────── */
-
 function Result({
   rec,
   onRestart,
@@ -273,7 +407,6 @@ function Result({
 }) {
   return (
     <div>
-      {/* Badge résultat */}
       <div
         style={{
           fontSize: '11px',
@@ -287,7 +420,6 @@ function Result({
         Notre recommandation
       </div>
 
-      {/* Modèle recommandé */}
       <h2
         style={{
           fontFamily: 'var(--next-font-display), system-ui, sans-serif',
@@ -302,7 +434,7 @@ function Result({
       </h2>
       <div
         style={{
-          fontFamily: 'var(--next-font-mono), monospace',
+          fontFamily: 'var(--next-font-primary), system-ui, sans-serif',
           fontVariantNumeric: 'tabular-nums',
           fontSize: '16px',
           color: 'var(--accent-2)',
@@ -312,7 +444,6 @@ function Result({
         {rec.prix}
       </div>
 
-      {/* Verdict */}
       <div
         style={{
           background: 'var(--bg-surface)',
@@ -328,7 +459,6 @@ function Result({
         {rec.pourquoi}
       </div>
 
-      {/* CTAs */}
       <div
         style={{
           display: 'flex',
@@ -350,7 +480,7 @@ function Result({
             textDecoration: 'none',
           }}
         >
-          Comparer maintenant →
+          Comparer les modèles →
         </Link>
         <Link
           href={rec.href}
@@ -366,11 +496,10 @@ function Result({
             textDecoration: 'none',
           }}
         >
-          Voir le guide d&apos;achat
+          Guide d&apos;achat {rec.produit}
         </Link>
       </div>
 
-      {/* Recommencer */}
       <button
         onClick={onRestart}
         style={{
