@@ -160,7 +160,7 @@ export const niche: NicheConfig = {
     formulations: ['Concrètement,', 'Le vrai critère :', 'Sur le terrain,'],
   },
 
-  affiliateTag: 'monrobotton-21',
+  affiliateTag: 'ambiancejap0a-21',
   defaultStore: 'Amazon',
 
   defaultLocale: 'fr',
