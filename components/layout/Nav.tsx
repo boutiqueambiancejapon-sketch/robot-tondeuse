@@ -78,9 +78,8 @@ export function Nav() {
   const isGroupActive = (items: { href: string }[]) =>
     items.some(({ href }) => isActive(href))
 
-  // Extract short name from siteName (e.g. "10minutesvoyage" → "10min" + "voyage")
-  const shortPrefix = '10min'
-  const shortSuffix = niche.siteName.replace(/^10minutes?/i, '') || 'template'
+  // Logo text from siteName
+  const logoText = niche.siteName
 
   return (
     <>
@@ -98,10 +97,8 @@ export function Nav() {
         <nav aria-label="Navigation principale" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)', height: '60px', display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
 
           {/* Logo */}
-          <Link href="/" aria-label={`${niche.siteName} — accueil`} style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'baseline', gap: '2px' }}>
-            <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontWeight: 800, fontSize: '16px', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{shortPrefix}</span>
-            <span style={{ color: 'var(--accent-1)', fontWeight: 800, fontSize: '18px', lineHeight: 1 }} className="nav-logo-dot">·</span>
-            <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontWeight: 400, fontSize: '16px', color: 'var(--text-secondary)' }}>{shortSuffix}</span>
+          <Link href="/" aria-label={`${niche.siteName} — accueil`} style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'baseline', gap: '0' }}>
+            <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontWeight: 800, fontSize: '16px', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{logoText}</span>
           </Link>
 
           {/* Desktop */}

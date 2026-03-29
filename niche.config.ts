@@ -148,7 +148,7 @@ export const niche: NicheConfig = {
     textSecondary: '#8FA88F',
     textMuted: '#4D664D',
   },
-  fonts: { display: 'Syne', body: 'DM Sans' },
+  fonts: { display: 'Plus Jakarta Sans', body: 'DM Sans' },
 
   author: {
     name: 'Thomas',
