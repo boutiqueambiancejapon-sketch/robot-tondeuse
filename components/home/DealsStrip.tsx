@@ -13,10 +13,14 @@ type Deal = {
   badgeColor?: string
 }
 
-// Placeholder deals — will be replaced by CMS content
+// Deals statiques — à remplacer par le CMS quand les vrais deals arrivent
 const DEALS: Deal[] = [
-  { label: `${niche.dealWord.charAt(0).toUpperCase() + niche.dealWord.slice(1)} en cours`, badge: 'Bientôt', badgeColor: 'var(--accent-3)' },
-  { label: 'Contenu à venir', badge: 'Template', badgeColor: 'var(--accent-2)' },
+  { label: 'Mammotion YUKA Mini 2 500 à 699 €', badge: 'Promo', badgeColor: 'var(--accent-1)' },
+  { label: 'Gardena SILENO life 750 à 700 €', badge: '-28%', badgeColor: 'var(--accent-3)' },
+  { label: 'Worx Landroid Plus WR169E à 424 €', badge: 'Petit prix', badgeColor: 'var(--accent-2)' },
+  { label: 'Husqvarna Aspire R4 à 699 €', badge: 'Nouveau', badgeColor: 'var(--accent-1)' },
+  { label: 'Mammotion YUKA 2000 à 1385 €', badge: '-23%', badgeColor: 'var(--accent-3)' },
+  { label: 'Worx Vision Cloud WR305E à 799 €', badge: 'Sans fil', badgeColor: 'var(--accent-2)' },
 ]
 
 function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {

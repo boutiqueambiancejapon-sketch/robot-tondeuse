@@ -43,7 +43,7 @@ export function CategorySection({ slug, label, index }: CategorySectionProps) {
         {articles.length > 0 ? (
           <ArticleCarousel articles={articles} />
         ) : (
-          <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Articles {label.toLowerCase()} en cours de rédaction.</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Nos guides {label.toLowerCase()} arrivent bientôt.</p>
         )}
 
         <Link href={`/blog/${slug}`} style={{ fontSize: '12px', color: 'var(--text-muted)', textDecoration: 'none', display: 'block', textAlign: 'center', paddingTop: 'var(--space-4)' }}>
