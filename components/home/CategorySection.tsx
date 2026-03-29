@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { getAllArticles } from '@/lib/blog'
 import { ArticleCarousel } from './ArticleCarousel'
 import { categoryAccent } from '@/niche.config'
+import { COMPARATEURS } from '@/lib/comparateur'
 
 type CategorySectionProps = {
   slug: string
@@ -17,6 +18,7 @@ type CategorySectionProps = {
 export function CategorySection({ slug, label, index }: CategorySectionProps) {
   const accent = categoryAccent(index)
   const articles = getAllArticles().filter((a) => a.categorie === slug).slice(0, 6)
+  const hasComparateur = slug in COMPARATEURS
 
   return (
     <section style={{ borderTop: '1px solid var(--border)', padding: 'var(--space-16) 0' }}>
@@ -32,18 +34,20 @@ export function CategorySection({ slug, label, index }: CategorySectionProps) {
               {label}
             </h2>
           </div>
-          <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-            <Link href={`/comparer/${slug}`} style={{ fontSize: '13px', fontWeight: 700, color: '#fff', textDecoration: 'none', background: accent, borderRadius: 'var(--radius-full)', padding: 'var(--space-2) var(--space-4)', whiteSpace: 'nowrap' }}>
-              Comparer →
-            </Link>
-          </div>
+          {hasComparateur && (
+            <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+              <Link href={`/comparer/${slug}`} style={{ fontSize: '13px', fontWeight: 700, color: '#fff', textDecoration: 'none', background: accent, borderRadius: 'var(--radius-full)', padding: 'var(--space-2) var(--space-4)', whiteSpace: 'nowrap' }}>
+                Comparer →
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Content */}
         {articles.length > 0 ? (
           <ArticleCarousel articles={articles} />
         ) : (
-          <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Articles {label.toLowerCase()} en cours de rédaction.</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Nos guides {label.toLowerCase()} arrivent bientôt.</p>
         )}
 
         <Link href={`/blog/${slug}`} style={{ fontSize: '12px', color: 'var(--text-muted)', textDecoration: 'none', display: 'block', textAlign: 'center', paddingTop: 'var(--space-4)' }}>
