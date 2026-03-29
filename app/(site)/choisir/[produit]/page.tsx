@@ -45,20 +45,30 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
-const HERO_CONFIG: Record<string, { emoji: string; accentRgba: string }> = {
-  iphone:  { emoji: '📱', accentRgba: 'rgba(255,61,87,0.14)' },
-  mac:     { emoji: '💻', accentRgba: 'rgba(123,97,255,0.14)' },
-  ipad:    { emoji: '🖥', accentRgba: 'rgba(61,255,192,0.12)' },
-  watch:   { emoji: '⌚', accentRgba: 'rgba(255,210,63,0.12)' },
-  airpods: { emoji: '🎧', accentRgba: 'rgba(123,97,255,0.14)' },
+const HERO_CONFIG: Record<string, { accentRgba: string }> = {
+  mammotion: { accentRgba: 'rgba(22,163,74,0.14)' },
+  husqvarna: { accentRgba: 'rgba(255,106,0,0.14)' },
+  gardena:   { accentRgba: 'rgba(8,145,178,0.14)' },
+  worx:      { accentRgba: 'rgba(217,119,6,0.14)' },
+  bosch:     { accentRgba: 'rgba(124,58,237,0.14)' },
 }
 
+const HeroIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true" style={{ color: 'var(--accent-1)' }}>
+    <rect x="12" y="16" width="24" height="16" rx="8" />
+    <circle cx="18" cy="36" r="3" />
+    <circle cx="30" cy="36" r="3" />
+    <path d="M8 24h4M36 24h4" />
+    <path d="M20 10v6M28 10v6" />
+  </svg>
+)
+
 const PUBLISHED_DATES: Record<string, string> = {
-  iphone: '2026-03-24',
-  mac: '2026-03-24',
-  ipad: '2026-03-24',
-  watch: '2026-03-24',
-  airpods: '2026-03-24',
+  mammotion: '2026-03-29',
+  husqvarna: '2026-03-29',
+  gardena: '2026-03-29',
+  worx: '2026-03-29',
+  bosch: '2026-03-29',
 }
 
 export default async function ChoisirPage({ params }: { params: Params }) {
@@ -67,7 +77,7 @@ export default async function ChoisirPage({ params }: { params: Params }) {
   if (!data) notFound()
 
   const year = currentYear()
-  const hero = HERO_CONFIG[produit] ?? HERO_CONFIG.iphone
+  const hero = HERO_CONFIG[produit] ?? { accentRgba: 'rgba(22,163,74,0.14)' }
   const editorial = getChoisirContent(produit, year)
 
   const breadcrumbJsonLd = {
@@ -96,12 +106,12 @@ export default async function ChoisirPage({ params }: { params: Params }) {
         }}
       >
         <div style={{ maxWidth: '680px', margin: '0 auto' }}>
-          <span
+          <div
             aria-hidden="true"
-            style={{ fontSize: '48px', display: 'block', marginBottom: 'var(--space-4)' }}
+            style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--space-4)' }}
           >
-            {hero.emoji}
-          </span>
+            <HeroIcon />
+          </div>
           <h1
             style={{
               fontFamily: 'var(--next-font-display), system-ui, sans-serif',
