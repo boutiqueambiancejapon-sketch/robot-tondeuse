@@ -20,6 +20,9 @@ export function CategorySection({ slug, label, index }: CategorySectionProps) {
   const articles = getAllArticles().filter((a) => a.categorie === slug).slice(0, 6)
   const hasComparateur = slug in COMPARATEURS
 
+  // Ne pas afficher la section s'il n'y a pas encore d'articles
+  if (articles.length === 0) return null
+
   return (
     <section style={{ borderTop: '1px solid var(--border)', padding: 'var(--space-16) 0' }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)' }}>
