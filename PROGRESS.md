@@ -1,21 +1,22 @@
-# Progression — 10min-template
+# Progression : Mon Robot Tondeuse
 
-## Complété — Template cleanup
+## Complété : initialisation du site
 
-### Nettoyage et abstraction
-- [x] Suppression de tout le contenu Apple (articles, produits, blog)
-- [x] Création de `niche.config.ts` — fichier de configuration central
-- [x] Abstraction de tous les composants (Hero, Nav, Footer, FeaturedTools, DealsStrip, AuthorTeaser)
-- [x] Remplacement des 5 sections Apple hardcodées par 1 `CategorySection` générique
-- [x] Mise à jour configs (cms.config, layout, sitemap, robots, package.json)
-- [x] Nettoyage content/ (settings.yaml, pages/*.yaml, exemples)
-- [x] Fichiers exemples (_example.mdx, _example.yaml)
-- [x] Nettoyage docs et SVGs
+### Configuration
+- [x] `niche.config.ts` rempli (identité, vocabulaire, catégories, outils, auteur, palette, fonts, affiliation)
+- [x] Palette nature premium (vert forêt #16A34A, ambre #D97706, violet #7C3AED)
+- [x] Fonts : Syne (display) + DM Sans (body)
+- [x] Variables CSS mises à jour (dark + light + forced modes)
+- [x] OG image avec nouvelle palette
 
-## Architecture
+### Contenu
+- [x] 5 catégories : Mammotion, Husqvarna, Gardena, Worx, Ecovacs Goat
+- [x] Comparateur avec 5 marques et 15 modèles
+- [x] Contenu éditorial /choisir/ pour les 5 marques
+- [x] Quiz configuré (surface, pente, budget, installation)
+- [x] Auteur Thomas créé
+- [x] Premier article : "Meilleur robot tondeuse 2026" (1000+ mots, 8 FAQ)
+- [x] Navigation : Blog, Comparer, Bons plans, Quiz, Simulateur
 
-Le template est prêt à être forké. Pour initialiser un nouveau site :
-1. Fork ce repo
-2. Donner le prompt d'init (`docs/PROMPT-INIT.md`) à Claude Code
-3. Répondre aux questions → `niche.config.ts` est rempli automatiquement
-4. Le site est buildable et déployable
+### Nettoyage
+- [x] Suppression _example.mdx et _example.yaml
