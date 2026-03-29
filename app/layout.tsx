@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Outfit } from 'next/font/google'
+import { DM_Sans, Syne } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { niche } from '@/niche.config'
 import './globals.css'
@@ -14,7 +14,7 @@ const fontPrimary = DM_Sans({
   display: 'swap',
 })
 
-const fontDisplay = Outfit({
+const fontDisplay = Syne({
   subsets: ['latin'],
   weight: ['400', '700', '800'],
   variable: '--next-font-display',

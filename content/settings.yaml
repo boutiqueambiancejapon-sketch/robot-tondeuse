@@ -1,6 +1,6 @@
-siteName: "10minTondeuse"
-siteDescription: "Trouvez le meilleur robot tondeuse en 10 minutes — comparateur indépendant, quiz personnalisé et simulateur de surface."
-siteUrl: "https://10minutestondeuse.com"
+siteName: "Mon Robot Tondeuse"
+siteDescription: "Votre pelouse mérite un robot. On vous aide à choisir. Comparatifs, quiz et simulateur pour trouver le bon robot tondeuse."
+siteUrl: "https://mon-robot-tondeuse.be"
 nav:
   - label: "Blog"
     url: "/blog"

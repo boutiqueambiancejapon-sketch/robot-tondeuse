@@ -96,9 +96,9 @@ export type NicheConfig = {
 // Le prompt d'init remplace ces valeurs. Le site build même avec des valeurs vides.
 
 export const niche: NicheConfig = {
-  siteName: '10minTondeuse',
-  domain: '10minutestondeuse.com',
-  tagline: 'Trouvez le meilleur robot tondeuse en 10 minutes',
+  siteName: 'Mon Robot Tondeuse',
+  domain: 'mon-robot-tondeuse.be',
+  tagline: 'Votre pelouse mérite un robot. On vous aide à choisir.',
 
   entity: 'robot tondeuse',
   entities: 'robots tondeuses',
@@ -107,17 +107,17 @@ export const niche: NicheConfig = {
 
   heroPrefix: 'Choisir votre',
   heroSuffix: 'en 10 minutes',
-  rotatingWords: ['Husqvarna', 'Gardena', 'Worx', 'Robomow', 'Ecovacs Goat'],
-  subtitle: 'Comparateur indépendant, quiz personnalisé et simulateur de surface — tout pour choisir le bon robot tondeuse.',
+  rotatingWords: ['Mammotion', 'Husqvarna', 'Gardena', 'Worx', 'Ecovacs Goat'],
+  subtitle: 'Comparatifs honnêtes, quiz rapide et simulateur de surface. Le bon robot tondeuse pour votre jardin, sans prise de tête.',
   ctaPrimary: { text: 'Comparer →', url: '/comparer' },
-  ctaSecondary: { text: 'Quiz personnalisé', url: '/quiz' },
+  ctaSecondary: { text: 'Quel robot pour moi ?', url: '/quiz' },
 
   categories: [
-    { slug: 'husqvarna', label: 'Husqvarna', accent: '#FF6A00', description: 'Automower : la référence suédoise des robots tondeuses' },
-    { slug: 'gardena', label: 'Gardena', accent: '#00B8D4', description: 'SILENO : robots fiables et accessibles du groupe Husqvarna' },
-    { slug: 'worx', label: 'Worx', accent: '#76FF03', description: 'Landroid : robots connectés et modulaires' },
-    { slug: 'robomow', label: 'Robomow', accent: '#FF3D57', description: 'Robots puissants pour grands jardins' },
-    { slug: 'ecovacs', label: 'Ecovacs Goat', accent: '#7B61FF', description: 'GOAT : robots sans fil périphérique avec navigation RTK' },
+    { slug: 'mammotion', label: 'Mammotion', accent: '#16A34A', description: 'Luba et Yuka : robots tondeuses sans fil avec navigation RTK' },
+    { slug: 'husqvarna', label: 'Husqvarna', accent: '#FF6A00', description: 'Automower : la référence suédoise depuis 1995' },
+    { slug: 'gardena', label: 'Gardena', accent: '#0891B2', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
+    { slug: 'worx', label: 'Worx', accent: '#D97706', description: 'Landroid : robots modulaires au meilleur rapport qualité-prix' },
+    { slug: 'ecovacs', label: 'Ecovacs Goat', accent: '#7C3AED', description: 'GOAT : robots sans fil périphérique avec navigation RTK' },
   ],
 
   quiz: {
@@ -131,36 +131,36 @@ export const niche: NicheConfig = {
   },
   simulator: {
     enabled: true,
-    title: 'Calculer votre budget robot tondeuse',
-    description: 'Estimez le budget nécessaire en fonction de la surface et des contraintes de votre jardin.',
+    title: 'Estimez votre budget robot tondeuse',
+    description: 'Quelques infos sur votre jardin et on vous donne une fourchette de prix réaliste.',
   },
 
   palette: {
-    accent1: '#22C55E',
-    accent2: '#F59E0B',
-    accent3: '#10B981',
-    accent4: '#6366F1',
-    accent5: '#06B6D4',
-    bgPrimary: '#0A0F0A',
-    bgSurface: '#111A11',
-    bgSurface2: '#1A261A',
+    accent1: '#16A34A',
+    accent2: '#D97706',
+    accent3: '#15803D',
+    accent4: '#7C3AED',
+    accent5: '#0891B2',
+    bgPrimary: '#080E08',
+    bgSurface: '#0F1A0F',
+    bgSurface2: '#182618',
     textPrimary: '#F0F5F0',
-    textSecondary: '#90A890',
-    textMuted: '#556A55',
+    textSecondary: '#8FA88F',
+    textMuted: '#4D664D',
   },
-  fonts: { display: 'Outfit', body: 'DM Sans' },
+  fonts: { display: 'Syne', body: 'DM Sans' },
 
   author: {
     name: 'Thomas',
     slug: 'thomas',
     title: 'Expert robots tondeuses',
-    bio: 'Passionné de jardinage connecté depuis 2018. J\'ai testé plus de 30 robots tondeuses pour aider les propriétaires à faire le bon choix.',
+    bio: 'Je teste des robots tondeuses depuis 2018. Plus de 30 modèles passés au crible pour vous éviter les mauvais achats.',
     tone: ['direct', 'pragmatique', 'technique'],
     noGo: ['révolutionnaire', 'incroyable', 'game-changer'],
-    formulations: ['Honnêtement,', 'Le vrai critère :', 'En pratique,'],
+    formulations: ['Concrètement,', 'Le vrai critère :', 'Sur le terrain,'],
   },
 
-  affiliateTag: 'tondeuse10m-21',
+  affiliateTag: 'monrobotton-21',
   defaultStore: 'Amazon',
 
   defaultLocale: 'fr',

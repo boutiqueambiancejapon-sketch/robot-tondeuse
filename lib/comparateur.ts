@@ -20,10 +20,79 @@ export type ProduitComparateur = {
 }
 
 export const COMPARATEURS: Record<string, ProduitComparateur> = {
+  mammotion: {
+    id: 'mammotion',
+    label: 'Mammotion',
+    description: 'Luba et Yuka : robots tondeuses sans fil avec navigation RTK et vision IA. La nouvelle génération.',
+    specsLabels: {
+      surface: 'Surface max',
+      pente: 'Pente max',
+      bruit: 'Niveau sonore',
+      navigation: 'Navigation',
+      connectivite: 'Connectivité',
+      autonomie: 'Autonomie',
+    },
+    modeles: [
+      {
+        nom: 'Yuka 1500',
+        prix: 1099,
+        amazonUrl: '',
+        specs: {
+          surface: '1500 m²',
+          pente: '45%',
+          bruit: '57 dB',
+          navigation: 'RTK + vision (sans fil)',
+          connectivite: 'WiFi + 4G + App',
+          autonomie: '180 min',
+        },
+      },
+      {
+        nom: 'Yuka 2000',
+        prix: 1499,
+        amazonUrl: '',
+        specs: {
+          surface: '2000 m²',
+          pente: '45%',
+          bruit: '57 dB',
+          navigation: 'RTK + vision (sans fil)',
+          connectivite: 'WiFi + 4G + App',
+          autonomie: '210 min',
+        },
+      },
+      {
+        nom: 'Luba 2 AWD 3000',
+        prix: 2499,
+        nouveaute: true,
+        amazonUrl: '',
+        specs: {
+          surface: '3000 m²',
+          pente: '75%',
+          bruit: '55 dB',
+          navigation: 'RTK + vision (sans fil)',
+          connectivite: 'WiFi + 4G + App',
+          autonomie: '240 min',
+        },
+      },
+      {
+        nom: 'Luba 2 AWD 5000',
+        prix: 2999,
+        nouveaute: true,
+        amazonUrl: '',
+        specs: {
+          surface: '5000 m²',
+          pente: '75%',
+          bruit: '55 dB',
+          navigation: 'RTK + vision (sans fil)',
+          connectivite: 'WiFi + 4G + App',
+          autonomie: '300 min',
+        },
+      },
+    ],
+  },
   husqvarna: {
     id: 'husqvarna',
     label: 'Husqvarna Automower',
-    description: 'La gamme Automower de Husqvarna, référence suédoise des robots tondeuses depuis 1995.',
+    description: 'La gamme Automower, référence du marché depuis 1995. Fiabilité éprouvée sur des millions de jardins.',
     specsLabels: {
       surface: 'Surface max',
       pente: 'Pente max',
@@ -62,7 +131,6 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       {
         nom: 'Automower 435X AWD',
         prix: 3499,
-        nouveaute: true,
         amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLE3',
         specs: {
           surface: '3500 m²',
@@ -78,7 +146,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
   gardena: {
     id: 'gardena',
     label: 'Gardena SILENO',
-    description: 'Les robots SILENO de Gardena : fiables, silencieux et accessibles pour les petits et moyens jardins.',
+    description: 'Les SILENO de Gardena : silencieux, fiables et accessibles. Parfaits pour les petits et moyens jardins.',
     specsLabels: {
       surface: 'Surface max',
       pente: 'Pente max',
@@ -132,7 +200,7 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
   worx: {
     id: 'worx',
     label: 'Worx Landroid',
-    description: 'Les Landroid de Worx : robots modulaires et connectés avec un excellent rapport qualité-prix.',
+    description: 'Les Landroid de Worx : modulaires, connectés et au meilleur rapport qualité-prix du marché.',
     specsLabels: {
       surface: 'Surface max',
       pente: 'Pente max',
@@ -184,51 +252,10 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
       },
     ],
   },
-  robomow: {
-    id: 'robomow',
-    label: 'Robomow',
-    description: 'Robomow : des robots tondeuses puissants avec lame à coupe large, idéaux pour les grands terrains.',
-    specsLabels: {
-      surface: 'Surface max',
-      pente: 'Pente max',
-      bruit: 'Niveau sonore',
-      navigation: 'Navigation',
-      connectivite: 'Connectivité',
-      autonomie: 'Autonomie',
-    },
-    modeles: [
-      {
-        nom: 'RK1000',
-        prix: 999,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLEA',
-        specs: {
-          surface: '1000 m²',
-          pente: '35%',
-          bruit: '64 dB',
-          navigation: 'Edge + fil',
-          connectivite: 'Bluetooth + App',
-          autonomie: '65 min',
-        },
-      },
-      {
-        nom: 'RS630',
-        prix: 2199,
-        amazonUrl: 'https://www.amazon.fr/dp/B09EXAMPLEB',
-        specs: {
-          surface: '3000 m²',
-          pente: '36%',
-          bruit: '66 dB',
-          navigation: 'GPS + fil',
-          connectivite: 'WiFi + App',
-          autonomie: '80 min',
-        },
-      },
-    ],
-  },
   ecovacs: {
     id: 'ecovacs',
     label: 'Ecovacs GOAT',
-    description: 'Les GOAT d\'Ecovacs : robots sans fil périphérique avec navigation RTK ultra-précise.',
+    description: 'Les GOAT d\'Ecovacs : navigation RTK sans fil, détection d\'obstacles par IA, autonomie record.',
     specsLabels: {
       surface: 'Surface max',
       pente: 'Pente max',

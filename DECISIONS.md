@@ -1,75 +1,66 @@
-# Décisions — 10minTondeuse
+# Décisions : Mon Robot Tondeuse
 
 ## Architecture
-- [x] Next.js ~16.2.1 patch auto · Vercel fra1 · GitHub Actions CI
-- [x] Tailwind v4.2.2 + variables CSS · dark-only (pas de next-themes)
-- [x] Langue FR uniquement · pas de segment [locale] · routes racine
-- [x] Configuration centralisée dans `niche.config.ts` — seul fichier à modifier par site
-- [x] Catégories dynamiques — 1 composant `CategorySection` générique au lieu de sections hardcodées
-- [x] CMS portable dans `packages/cms/` — copier tel quel entre sites
+- [x] Next.js ~16.2.1 patch auto, Vercel fra1
+- [x] Tailwind v4.2.2 + variables CSS
+- [x] Langue FR uniquement, pas de segment [locale], routes racine
+- [x] Configuration centralisée dans `niche.config.ts`
+- [x] Catégories dynamiques via `CategorySection`
+- [x] CMS portable dans `packages/cms/`
 
-## DA — Palette nature/tech
+## DA : palette nature premium
 
-**Contexte** : Site sur les robots tondeuses — univers jardin + technologie.
+**Contexte** : robots tondeuses, univers jardin + technologie. Ambiance premium et chaleureuse.
 
 **Palette dark** :
-- accent1 `#22C55E` (vert — pelouse, CTA principal)
-- accent2 `#F59E0B` (ambre — badges, deals, warnings)
-- accent3 `#10B981` (emerald — succès, validation)
-- accent4 `#6366F1` (indigo — quiz, éléments interactifs)
-- accent5 `#06B6D4` (cyan — liens secondaires)
-- bgPrimary `#0A0F0A` (vert-noir profond)
-- bgSurface `#111A11` (surface cartes — teinte verte subtile)
-- bgSurface2 `#1A261A` (surface secondaire)
+- accent1 `#16A34A` (vert forêt, CTA principal)
+- accent2 `#D97706` (ambre, badges et deals)
+- accent3 `#15803D` (vert foncé, succès)
+- accent4 `#7C3AED` (violet, quiz et interactif)
+- accent5 `#0891B2` (cyan, liens secondaires)
+- bgPrimary `#080E08` (noir-vert profond)
+- bgSurface `#0F1A0F` (cartes)
+- bgSurface2 `#182618` (cartes secondaires)
 
 **Palette light** :
 - Accents assombris pour WCAG AA sur fond blanc
-- accent1 `#15803D` (5.3:1), accent4 `#4338CA` (7.2:1)
+- accent1 `#116932` (6.2:1), accent4 `#5B21B6` (8.4:1)
 
 **Fonts** :
-- Display : Outfit (géométrique, moderne, lisible)
+- Display : Syne (bold, géométrique, personnalité forte)
 - Body : DM Sans (clean, excellente lisibilité)
 
 **Effets** :
-- Aurora : vert `#22C55E` → indigo `#6366F1` → emerald `#10B981`
+- Aurora : `#16A34A` → `#7C3AED` → `#15803D`
 - Noise : 0.03 (subtil)
-- Style : dark nature tech
 
-**Justification** : Le vert évoque la pelouse/nature, l'indigo apporte la dimension tech. Les fonds légèrement teintés vert (0A0F0A au lieu de 0A0A0F) renforcent la cohérence thématique sans nuire à la lisibilité.
-
-## DA — effets retenus par section
-- effect-hero → aurora CSS animée + noise 0.03 + H1 clip gradient
-- effect-comparateur → bento grid + border animée pulse lent
-- effect-quiz → radial gradient + glassmorphism cards
-- effect-deals → watermark + MarqueeStrip + badge
-- effect-articles → grille asymétrique + cards border-top 3px accent
-- effect-footer → --bg-surface + diagonal clip-path
-- effect-404 → watermark "404" clamp Outfit 800 opacity 0.08
-
-## DA — traitements typographiques
-- typo-h1-home → clamp + background-clip:text gradient
-- typo-prix → font-variant-numeric:tabular-nums + --font-mono
-- typo-watermark → numéro 200px Outfit 800 opacity 0.05
-- typo-article-intro → lettrine CSS ::first-letter + --font-display
+## DA : effets par section
+- effect-hero : aurora CSS animée + noise 0.03 + H1 clip gradient
+- effect-comparateur : bento grid + border animée
+- effect-quiz : radial gradient + glassmorphism cards
+- effect-deals : watermark + MarqueeStrip + badge
+- effect-articles : grille asymétrique + cards border-top 3px accent
+- effect-footer : --bg-surface + diagonal clip-path
 
 ## Fonts
-- Next.js variables : `--next-font-primary` (DM Sans) / `--next-font-display` (Outfit) / `--next-font-mono`
-- Préfixe `next-` pour éviter la référence circulaire avec @theme Tailwind
+- Next.js variables : `--next-font-primary` (DM Sans) / `--next-font-display` (Syne) / `--next-font-mono`
 
 ## Light mode
-- Via `@media (prefers-color-scheme: light)` dans globals.css — aucun JS
-- Accents assombris pour WCAG AA sur fond clair
-- OG image toujours dark, indépendant du mode
+- Via `@media (prefers-color-scheme: light)` dans globals.css
+- OG image toujours dark
 
-## Catégories — 5 marques principales
+## Catégories : 5 marques
 
-Les 5 marques couvrent >90% du marché français des robots tondeuses :
-- Husqvarna (référence historique, accent orange #FF6A00)
-- Gardena (entrée de gamme Husqvarna, accent cyan #00B8D4)
-- Worx (meilleur rapport Q/P, accent vert vif #76FF03)
-- Robomow (puissance grands terrains, accent rouge #FF3D57)
-- Ecovacs Goat (innovation sans fil RTK, accent indigo #7B61FF)
+- **Mammotion** (affiliation directe, bon taux de commission)
+- **Husqvarna** (référence historique, Amazon)
+- **Gardena** (entrée de gamme Husqvarna, Amazon)
+- **Worx** (rapport qualité-prix, Amazon)
+- **Ecovacs Goat** (innovation sans fil RTK, Amazon)
+
+## Ton éditorial
+
+Pas de tirets cadratins. Ton direct et naturel, pas lissé. Phrases courtes. On tutoie pas mais on reste accessible.
 
 ## Section backgrounds
 
-Toutes les sections utilisent les variables CSS `--bg-primary`, `--bg-surface` et `--bg-surface-2` en alternance, avec les effets aurora et noise configurés dans globals.css. Pas de fond hardcodé.
+Variables CSS `--bg-primary`, `--bg-surface` et `--bg-surface-2` en alternance. Pas de fond hardcodé.

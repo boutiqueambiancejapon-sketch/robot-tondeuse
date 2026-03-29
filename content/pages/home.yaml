@@ -1,13 +1,13 @@
 eyebrow: "Guides indépendants · Comparatifs honnêtes"
 h1_prefix: "Choisir votre"
 h1_suffix: "en 10 minutes"
-rotating_words: ["Husqvarna", "Gardena", "Worx", "Robomow", "Ecovacs Goat"]
-subtitle: "Comparateur indépendant, quiz personnalisé et simulateur de surface — tout pour choisir le bon robot tondeuse."
+rotating_words: ["Mammotion", "Husqvarna", "Gardena", "Worx", "Ecovacs Goat"]
+subtitle: "Comparatifs honnêtes, quiz rapide et simulateur de surface. Le bon robot tondeuse pour votre jardin, sans prise de tête."
 cta_primary: "Comparer →"
 cta_primary_url: "/comparer"
-cta_secondary: "Quiz personnalisé"
+cta_secondary: "Quel robot pour moi ?"
 cta_secondary_url: "/quiz"
 tools_eyebrow: "Outils interactifs"
-tools_title: "Décidez en connaissance de cause"
+tools_title: "Tout pour bien choisir"
 tools_cta: "Voir tous les guides →"
 tools_cta_url: "/blog"

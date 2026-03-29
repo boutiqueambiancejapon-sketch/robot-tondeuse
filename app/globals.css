@@ -7,20 +7,20 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* Colors — palette robot tondeuse : nature tech */
-  --color-accent-1: #22C55E;
-  --color-accent-2: #F59E0B;
-  --color-accent-3: #10B981;
-  --color-accent-4: #6366F1;
-  --color-bg-primary: #0A0F0A;
-  --color-bg-surface: #111A11;
-  --color-bg-surface-2: #1A261A;
+  /* Colors — palette nature premium */
+  --color-accent-1: #16A34A;
+  --color-accent-2: #D97706;
+  --color-accent-3: #15803D;
+  --color-accent-4: #7C3AED;
+  --color-bg-primary: #080E08;
+  --color-bg-surface: #0F1A0F;
+  --color-bg-surface-2: #182618;
   --color-text-primary: #F0F5F0;
-  --color-text-secondary: #90A890;
-  --color-text-muted: #556A55;
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
+  --color-text-secondary: #8FA88F;
+  --color-text-muted: #4D664D;
+  --color-success: #15803D;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
 
   /* Fonts — Next.js injects the actual values via class on <html> */
   --font-primary: var(--next-font-primary);
@@ -32,53 +32,53 @@
   /* ── Palette — remplacer à l'init ── */
 
   /* Fonds */
-  --bg-primary:   #0A0F0A;
-  --bg-surface:   #111A11;
-  --bg-surface-2: #1A261A;
+  --bg-primary:   #080E08;
+  --bg-surface:   #0F1A0F;
+  --bg-surface-2: #182618;
 
   /* Accents */
-  --accent-1: #22C55E;
-  --accent-2: #F59E0B;
-  --accent-3: #10B981;
-  --accent-4: #6366F1;
-  --accent-5: #06B6D4;
+  --accent-1: #16A34A;
+  --accent-2: #D97706;
+  --accent-3: #15803D;
+  --accent-4: #7C3AED;
+  --accent-5: #0891B2;
 
   /* Texte */
   --text-primary:   #F0F5F0;
-  --text-secondary: #90A890;
-  --text-muted:     #556A55;
+  --text-secondary: #8FA88F;
+  --text-muted:     #4D664D;
 
   /* Borders */
   --border:        rgba(255, 255, 255, 0.07);
   --border-strong: rgba(255, 255, 255, 0.15);
 
   /* Sémantique */
-  --success: #10B981;
-  --warning: #F59E0B;
-  --error:   #EF4444;
+  --success: #15803D;
+  --warning: #D97706;
+  --error:   #DC2626;
 
   /* Glass */
-  --glass-bg:     rgba(17, 26, 17, 0.75);
+  --glass-bg:     rgba(15, 26, 15, 0.75);
   --glass-border: rgba(255, 255, 255, 0.09);
   --glass-blur:   16px;
-  --sticky-cta-glass: rgba(10, 15, 10, 0.35);
+  --sticky-cta-glass: rgba(8, 14, 8, 0.35);
 
   /* Nav */
-  --nav-bg-scrolled: rgba(10, 15, 10, 0.97);
-  --nav-mobile-bg:   #0A0F0A;
+  --nav-bg-scrolled: rgba(8, 14, 8, 0.97);
+  --nav-mobile-bg:   #080E08;
 
   /* Effets DA */
   --noise-opacity:    0.03;
-  --aurora-1:         #22C55E;
-  --aurora-2:         #6366F1;
-  --aurora-3:         #10B981;
+  --aurora-1:         #16A34A;
+  --aurora-2:         #7C3AED;
+  --aurora-3:         #15803D;
   --gradient-angle:   135deg;
 
   /* Shadows */
   --shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.5);
   --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.6);
-  --shadow-accent: 0 0 24px rgba(34, 197, 94, 0.25);
+  --shadow-accent: 0 0 24px rgba(22, 163, 74, 0.25);
 
   /* Transitions */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -128,10 +128,10 @@ html {
  * - text-primary  #1A1F1A → 16:1 sur bg-primary ✓
  * - text-secondary #3D4A3D → ~9:1 sur blanc ✓
  * - text-muted    #5A6B5A → ~5.5:1 sur blanc ✓ (WCAG AA)
- * - accent-1 vert   #15803D → 5.3:1 sur blanc ✓
+ * - accent-1 vert   #116932 → 6.2:1 sur blanc ✓
  * - accent-2 ambre  #92400E → 7.0:1 sur blanc ✓
- * - accent-3 emerald #047857 → 5.8:1 sur blanc ✓
- * - accent-4 indigo #4338CA → 7.2:1 sur blanc ✓
+ * - accent-3 forêt  #0F5C2E → 7.1:1 sur blanc ✓
+ * - accent-4 violet #5B21B6 → 8.4:1 sur blanc ✓
  */
 
 /* Sélecteur commun — utilisé par la media query ET par data-theme="light" */
@@ -143,103 +143,103 @@ html {
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) {
     color-scheme: light;
-    --bg-primary:   #F5F7F5;
+    --bg-primary:   #F4F7F4;
     --bg-surface:   #FFFFFF;
-    --bg-surface-2: #E8EDE8;
-    --accent-1: #15803D;
+    --bg-surface-2: #E6EDE6;
+    --accent-1: #116932;
     --accent-2: #92400E;
-    --accent-3: #047857;
-    --accent-4: #4338CA;
+    --accent-3: #0F5C2E;
+    --accent-4: #5B21B6;
     --accent-5: #0E7490;
     --text-primary:   #1A1F1A;
     --text-secondary: #3D4A3D;
     --text-muted:     #5A6B5A;
     --border:        rgba(0, 0, 0, 0.09);
     --border-strong: rgba(0, 0, 0, 0.18);
-    --success: #047857;
+    --success: #0F5C2E;
     --warning: #92400E;
     --error:   #B91C1C;
     --glass-bg:     rgba(255, 255, 255, 0.80);
     --glass-border: rgba(0, 0, 0, 0.09);
     --sticky-cta-glass: rgba(255, 255, 255, 0.35);
     --noise-opacity: 0.025;
-    --aurora-1:      #15803D;
-    --aurora-2:      #4338CA;
-    --aurora-3:      #047857;
+    --aurora-1:      #116932;
+    --aurora-2:      #5B21B6;
+    --aurora-3:      #0F5C2E;
     --shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.10);
     --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.12);
     --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.15);
-    --shadow-accent: 0 0 24px rgba(21, 128, 61, 0.20);
-    --nav-bg-scrolled: rgba(245, 247, 245, 0.97);
-    --nav-mobile-bg:   #F5F7F5;
+    --shadow-accent: 0 0 24px rgba(17, 105, 50, 0.20);
+    --nav-bg-scrolled: rgba(244, 247, 244, 0.97);
+    --nav-mobile-bg:   #F4F7F4;
   }
 }
 
 /* Force light mode via data-theme (toggle manuel, override media query) */
 html[data-theme="light"] {
   color-scheme: light;
-  --bg-primary:   #F5F7F5;
+  --bg-primary:   #F4F7F4;
   --bg-surface:   #FFFFFF;
-  --bg-surface-2: #E8EDE8;
-  --accent-1: #15803D;
+  --bg-surface-2: #E6EDE6;
+  --accent-1: #116932;
   --accent-2: #92400E;
-  --accent-3: #047857;
-  --accent-4: #4338CA;
+  --accent-3: #0F5C2E;
+  --accent-4: #5B21B6;
   --accent-5: #0E7490;
   --text-primary:   #1A1F1A;
   --text-secondary: #3D4A3D;
   --text-muted:     #5A6B5A;
   --border:        rgba(0, 0, 0, 0.09);
   --border-strong: rgba(0, 0, 0, 0.18);
-  --success: #047857;
+  --success: #0F5C2E;
   --warning: #92400E;
   --error:   #B91C1C;
   --glass-bg:     rgba(255, 255, 255, 0.80);
   --glass-border: rgba(0, 0, 0, 0.09);
   --sticky-cta-glass: rgba(255, 255, 255, 0.35);
   --noise-opacity: 0.025;
-  --aurora-1:      #15803D;
-  --aurora-2:      #4338CA;
-  --aurora-3:      #047857;
+  --aurora-1:      #116932;
+  --aurora-2:      #5B21B6;
+  --aurora-3:      #0F5C2E;
   --shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.10);
   --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.15);
-  --shadow-accent: 0 0 24px rgba(21, 128, 61, 0.20);
-  --nav-bg-scrolled: rgba(245, 247, 245, 0.97);
-  --nav-mobile-bg:   #F5F7F5;
+  --shadow-accent: 0 0 24px rgba(17, 105, 50, 0.20);
+  --nav-bg-scrolled: rgba(244, 247, 244, 0.97);
+  --nav-mobile-bg:   #F4F7F4;
 }
 
 /* Force dark mode via data-theme (override media query light) */
 html[data-theme="dark"] {
   color-scheme: dark;
-  --bg-primary:   #0A0F0A;
-  --bg-surface:   #111A11;
-  --bg-surface-2: #1A261A;
-  --accent-1: #22C55E;
-  --accent-2: #F59E0B;
-  --accent-3: #10B981;
-  --accent-4: #6366F1;
-  --accent-5: #06B6D4;
+  --bg-primary:   #080E08;
+  --bg-surface:   #0F1A0F;
+  --bg-surface-2: #182618;
+  --accent-1: #16A34A;
+  --accent-2: #D97706;
+  --accent-3: #15803D;
+  --accent-4: #7C3AED;
+  --accent-5: #0891B2;
   --text-primary:   #F0F5F0;
-  --text-secondary: #90A890;
-  --text-muted:     #556A55;
+  --text-secondary: #8FA88F;
+  --text-muted:     #4D664D;
   --border:        rgba(255, 255, 255, 0.07);
   --border-strong: rgba(255, 255, 255, 0.15);
-  --success: #10B981;
-  --warning: #F59E0B;
-  --error:   #EF4444;
-  --glass-bg:     rgba(17, 26, 17, 0.75);
+  --success: #15803D;
+  --warning: #D97706;
+  --error:   #DC2626;
+  --glass-bg:     rgba(15, 26, 15, 0.75);
   --glass-border: rgba(255, 255, 255, 0.09);
   --noise-opacity:    0.03;
-  --aurora-1:         #22C55E;
-  --aurora-2:         #6366F1;
-  --aurora-3:         #10B981;
+  --aurora-1:         #16A34A;
+  --aurora-2:         #7C3AED;
+  --aurora-3:         #15803D;
   --shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md:     0 4px 16px rgba(0, 0, 0, 0.5);
   --shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.6);
-  --shadow-accent: 0 0 24px rgba(34, 197, 94, 0.25);
-  --nav-bg-scrolled: rgba(10, 15, 10, 0.97);
-  --nav-mobile-bg:   #0A0F0A;
+  --shadow-accent: 0 0 24px rgba(22, 163, 74, 0.25);
+  --nav-bg-scrolled: rgba(8, 14, 8, 0.97);
+  --nav-mobile-bg:   #080E08;
 }
 
 body {
