@@ -118,6 +118,7 @@ export const niche: NicheConfig = {
     { slug: 'gardena', label: 'Gardena', accent: '#0891B2', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
     { slug: 'worx', label: 'Worx', accent: '#D97706', description: 'Landroid et Vision Cloud : robots modulaires et sans fil' },
     { slug: 'bosch', label: 'Bosch', accent: '#7C3AED', description: 'Indego et VISIMOW : robots tondeuses connectés et compacts' },
+    { slug: 'entretien-pelouse', label: 'Entretien pelouse', accent: '#059669', description: 'Guides et astuces pour une pelouse en pleine forme toute l\'année' },
   ],
 
   quiz: {
