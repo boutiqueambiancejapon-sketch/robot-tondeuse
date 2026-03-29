@@ -28,7 +28,7 @@ const ROBOTS: Robot[] = [
   // Gardena
   { nom: 'SILENO minimo 250', marque: 'Gardena', surfaceMax: 250, penteMax: '25%', prix: 649, bruit: '57 dB', sansFil: false, url: '', badge: 'Petit budget' },
   { nom: 'SILENO city 600', marque: 'Gardena', surfaceMax: 600, penteMax: '35%', prix: 899, bruit: '58 dB', sansFil: false, url: '' },
-  { nom: 'SILENO life 1500', marque: 'Gardena', surfaceMax: 1500, penteMax: '35%', prix: 1499, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09EXAMPLE6' },
+  { nom: 'SILENO life 1500', marque: 'Gardena', surfaceMax: 1500, penteMax: '35%', prix: 1499, bruit: '58 dB', sansFil: false, url: '' },
   // Worx
   { nom: 'Landroid S300', marque: 'Worx', surfaceMax: 300, penteMax: '35%', prix: 549, bruit: '65 dB', sansFil: false, url: '', badge: 'Meilleur prix' },
   { nom: 'Landroid M700', marque: 'Worx', surfaceMax: 700, penteMax: '35%', prix: 899, bruit: '65 dB', sansFil: false, url: '' },
@@ -38,6 +38,14 @@ const ROBOTS: Robot[] = [
   { nom: 'GOAT G1-2000', marque: 'Ecovacs', surfaceMax: 2000, penteMax: '45%', prix: 1499, bruit: '55 dB', sansFil: true, url: '' },
 ]
 
+const labelStyle = {
+  fontSize: '11px',
+  color: 'var(--text-muted)',
+  marginBottom: '2px',
+  textTransform: 'uppercase' as const,
+  letterSpacing: '0.04em',
+}
+
 export function SurfaceCalculator() {
   const [surface, setSurface] = useState('')
   const [pente, setPente] = useState(false)
@@ -46,7 +54,6 @@ export function SurfaceCalculator() {
   const surfaceNum = parseInt(surface, 10)
   const hasInput = !isNaN(surfaceNum) && surfaceNum > 0
 
-  // Filtrer les robots adaptés (surface max >= surface saisie * 1.2 pour la marge)
   const results = hasInput
     ? ROBOTS
         .filter((r) => r.surfaceMax >= surfaceNum)
@@ -174,74 +181,43 @@ export function SurfaceCalculator() {
                   border: '1px solid var(--border)',
                   borderRadius: 'var(--radius-lg)',
                   padding: 'var(--space-5) var(--space-6)',
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                  gap: 'var(--space-4)',
-                  alignItems: 'center',
                 }}
               >
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', marginBottom: '2px' }}>
-                    <h2
-                      style={{
-                        fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                        fontSize: '16px',
-                        fontWeight: 700,
-                        color: 'var(--text-primary)',
-                      }}
-                    >
-                      {r.nom}
-                    </h2>
-                    {r.badge && (
-                      <span
+                {/* Row 1 : Nom + badge + prix */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', flexWrap: 'wrap', marginBottom: '2px' }}>
+                      <h2
                         style={{
-                          fontSize: '10px',
+                          fontFamily: 'var(--next-font-display), system-ui, sans-serif',
+                          fontSize: '16px',
                           fontWeight: 700,
-                          letterSpacing: '0.04em',
-                          textTransform: 'uppercase',
-                          color: 'var(--accent-1)',
-                          background: 'rgba(22, 163, 74, 0.1)',
-                          padding: '2px 8px',
-                          borderRadius: 'var(--radius-full)',
-                          border: '1px solid rgba(22, 163, 74, 0.2)',
-                          whiteSpace: 'nowrap',
+                          color: 'var(--text-primary)',
                         }}
                       >
-                        {r.badge}
-                      </span>
-                    )}
+                        {r.nom}
+                      </h2>
+                      {r.badge && (
+                        <span
+                          style={{
+                            fontSize: '10px',
+                            fontWeight: 700,
+                            letterSpacing: '0.04em',
+                            textTransform: 'uppercase',
+                            color: 'var(--accent-1)',
+                            background: 'rgba(22, 163, 74, 0.1)',
+                            padding: '2px 8px',
+                            borderRadius: 'var(--radius-full)',
+                            border: '1px solid rgba(22, 163, 74, 0.2)',
+                            whiteSpace: 'nowrap',
+                          }}
+                        >
+                          {r.badge}
+                        </span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{r.marque}</div>
                   </div>
-                  <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{r.marque}</div>
-                </div>
-
-                <div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    Surface
-                  </div>
-                  <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
-                    {r.surfaceMax.toLocaleString('fr-FR')} m²
-                  </div>
-                </div>
-
-                <div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    Pente / Bruit
-                  </div>
-                  <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
-                    {r.penteMax} / {r.bruit}
-                  </div>
-                </div>
-
-                <div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '2px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    Installation
-                  </div>
-                  <div style={{ fontSize: '14px', color: r.sansFil ? 'var(--accent-1)' : 'var(--text-secondary)' }}>
-                    {r.sansFil ? 'Sans fil (RTK)' : 'Fil périphérique'}
-                  </div>
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 'var(--space-2)' }}>
                   <div
                     style={{
                       fontFamily: 'var(--next-font-primary), system-ui, sans-serif',
@@ -249,26 +225,59 @@ export function SurfaceCalculator() {
                       fontSize: '20px',
                       fontWeight: 700,
                       color: 'var(--accent-2)',
+                      whiteSpace: 'nowrap',
                     }}
                   >
                     {r.prix.toLocaleString('fr-FR')} €
                   </div>
-                  {r.url && (
-                    <AffiliateLink
-                      href={r.url}
-                      style={{
-                        fontSize: '12px',
-                        fontWeight: 600,
-                        color: 'var(--accent-1)',
-                        textDecoration: 'none',
-                        borderBottom: '1px solid rgba(22, 163, 74, 0.35)',
-                        paddingBottom: '1px',
-                      }}
-                    >
-                      Voir le prix →
-                    </AffiliateLink>
-                  )}
                 </div>
+
+                {/* Row 2 : Specs en grille 2x2 */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+                  <div>
+                    <div style={labelStyle}>Surface</div>
+                    <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
+                      {r.surfaceMax.toLocaleString('fr-FR')} m²
+                    </div>
+                  </div>
+                  <div>
+                    <div style={labelStyle}>Pente max</div>
+                    <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
+                      {r.penteMax}
+                    </div>
+                  </div>
+                  <div>
+                    <div style={labelStyle}>Bruit</div>
+                    <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
+                      {r.bruit}
+                    </div>
+                  </div>
+                  <div>
+                    <div style={labelStyle}>Installation</div>
+                    <div style={{ fontSize: '14px', color: r.sansFil ? 'var(--accent-1)' : 'var(--text-secondary)' }}>
+                      {r.sansFil ? 'Sans fil (RTK)' : 'Fil périphérique'}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Row 3 : Bouton */}
+                <AffiliateLink
+                  href={r.url || '#'}
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    color: '#fff',
+                    background: 'var(--accent-1)',
+                    padding: 'var(--space-2) var(--space-5)',
+                    borderRadius: 'var(--radius-md)',
+                    textDecoration: 'none',
+                    opacity: r.url ? 1 : 0.5,
+                    pointerEvents: r.url ? 'auto' : 'none',
+                  }}
+                >
+                  Voir sur Amazon →
+                </AffiliateLink>
               </article>
             ))}
           </div>
@@ -286,7 +295,6 @@ export function SurfaceCalculator() {
         </>
       )}
 
-      {/* CTA vers quiz */}
       {!hasInput && (
         <div
           style={{
