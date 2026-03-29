@@ -166,32 +166,32 @@ export const CHOISIR_CONTENT: Record<string, ChoisirProductContent> = {
       { q: 'Le Landroid est bruyant ?', a: '65 dB, c\'est plus que les Husqvarna ou Gardena (57 dB). Ça s\'entend en journée mais ça reste correct.' },
     ],
   },
-  ecovacs: {
+  bosch: {
     tldr: [
-      'Navigation RTK sans fil. Installation en 30 minutes.',
-      'Détection d\'obstacles par vision IA.',
-      'Autonomie record de 180 minutes par charge.',
+      'Marque de confiance. Indego et VISIMOW disponibles partout.',
+      'L\'Indego S+ 500 tond en lignes parallèles (LogiCut), résultat très propre.',
+      'Le VISIMOW est un petit robot sans fil pour les très petits jardins (100 m²).',
     ],
     sections: [
       {
         id: 'pourquoi',
-        title: 'Pourquoi choisir un Ecovacs GOAT ?',
-        intro: 'Ecovacs, c\'est le leader mondial des robots aspirateurs. Avec le GOAT, ils appliquent leur expertise navigation IA aux robots tondeuses.',
+        title: 'Pourquoi choisir un Bosch ?',
+        intro: 'Bosch est une marque que tout le monde connaît. Leur gamme de robots tondeuses est plus restreinte que Mammotion ou Worx, mais les produits sont solides.',
         paragraphs: [
-          'Le GOAT se repère avec une précision de 2 cm grâce à la navigation RTK et les balises UWB. Pas de fil à enterrer.',
-          'L\'installation est rapide : plantez les balises aux coins du jardin, tracez les zones dans l\'appli, et c\'est parti. Comptez 30 minutes max.',
+          'L\'Indego S+ 500 se distingue par sa navigation LogiCut : il tond en lignes parallèles au lieu de tourner au hasard. Le résultat est visuellement plus propre et la tonte est plus rapide.',
+          'Le VISIMOW 18V-100 est un petit robot sans fil avec caméra, pensé pour les très petits jardins (100 m²). C\'est un format compact, presque un jouet, mais il fait le job sur une petite surface.',
         ],
-        tip: 'Les balises UWB fournies couvrent un jardin standard. Pour les formes complexes, des balises supplémentaires sont disponibles.',
-        internalLink: { text: 'Comparer les modèles Ecovacs GOAT', href: '/comparer/ecovacs' },
+        tip: 'L\'Indego S+ 500 est compatible Alexa. Pratique si vous avez déjà un écosystème domotique Amazon.',
+        internalLink: { text: 'Comparer les modèles Bosch', href: '/comparer/bosch' },
       },
     ],
     faq: [
-      { q: 'Le GOAT est vraiment sans fil ?', a: 'Oui. Balises UWB + navigation RTK. Pas de tranchée à creuser dans votre pelouse.' },
-      { q: 'La navigation RTK est fiable ?', a: 'Oui, précision de 2 cm. Le robot tond en bandes parallèles, résultat très uniforme.' },
-      { q: 'Le GOAT détecte les obstacles ?', a: 'Oui, la caméra IA contourne les obstacles (animaux, jouets, arroseurs) sans les heurter.' },
-      { q: 'Quelle autonomie ?', a: '180 minutes par charge. Il peut couvrir 2000 m² en une seule session.' },
-      { q: 'Le GOAT gère les pentes ?', a: 'Jusqu\'à 45%. Mieux que la plupart des robots à fil, mais moins que le Mammotion Luba 2 (75%).' },
-      { q: 'Quel prix pour le GOAT ?', a: 'À partir de 999 € pour le G1 (800 m²) et 1499 € pour le G1-2000. Compétitif vu qu\'il n\'y a pas de frais d\'installation du fil.' },
+      { q: 'Le Bosch Indego tond en lignes droites ?', a: 'Oui, grâce à la technologie LogiCut. C\'est un des rares robots à fil qui tond en bandes parallèles, comme une tondeuse classique.' },
+      { q: 'Le VISIMOW fonctionne sans fil ?', a: 'Oui, il utilise une caméra pour se repérer. Pas de fil à installer. Mais il est limité à 100 m².' },
+      { q: 'L\'Indego est bruyant ?', a: '63 dB, c\'est dans la moyenne. Plus bruyant qu\'un Gardena (58 dB), moins qu\'un Worx Landroid (65 dB).' },
+      { q: 'Quelle est la garantie Bosch ?', a: '2 ans constructeur. Les pièces détachées sont facilement disponibles.' },
+      { q: 'L\'Indego gère les pentes ?', a: 'Jusqu\'à 27% seulement. C\'est le point faible des Bosch par rapport à la concurrence.' },
+      { q: 'L\'Indego est compatible avec la domotique ?', a: 'Oui, le modèle S+ est compatible Alexa et IFTTT via l\'appli Bosch Smart Gardening.' },
     ],
   },
 }
