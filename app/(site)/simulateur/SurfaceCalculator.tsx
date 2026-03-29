@@ -16,26 +16,43 @@ type Robot = {
 }
 
 const ROBOTS: Robot[] = [
-  // Mammotion
-  { nom: 'Yuka 1500', marque: 'Mammotion', surfaceMax: 1500, penteMax: '45%', prix: 1099, bruit: '57 dB', sansFil: true, url: '', badge: 'Sans fil' },
-  { nom: 'Yuka 2000', marque: 'Mammotion', surfaceMax: 2000, penteMax: '45%', prix: 1499, bruit: '57 dB', sansFil: true, url: '' },
-  { nom: 'Luba 2 AWD 3000', marque: 'Mammotion', surfaceMax: 3000, penteMax: '75%', prix: 2499, bruit: '55 dB', sansFil: true, url: '', badge: 'Pentes extrêmes' },
-  { nom: 'Luba 2 AWD 5000', marque: 'Mammotion', surfaceMax: 5000, penteMax: '75%', prix: 2999, bruit: '55 dB', sansFil: true, url: '' },
+  // Mammotion — Yuka (vision, sans fil, 45%)
+  { nom: 'YUKA Mini 2 500', marque: 'Mammotion', surfaceMax: 500, penteMax: '45%', prix: 699, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0GCCLW2PL', badge: 'Sans fil' },
+  { nom: 'YUKA Mini Vision', marque: 'Mammotion', surfaceMax: 700, penteMax: '45%', prix: 1099, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FKTBKDQ1' },
+  { nom: 'YUKA Mini 2 1000', marque: 'Mammotion', surfaceMax: 1000, penteMax: '45%', prix: 1299, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0GJ4TWVVV' },
+  { nom: 'YUKA 2000', marque: 'Mammotion', surfaceMax: 2000, penteMax: '45%', prix: 1385, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FJFW87T4' },
+  { nom: 'YUKA 3000', marque: 'Mammotion', surfaceMax: 3000, penteMax: '45%', prix: 1449, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0DT47TX7V' },
+  // Mammotion — Luba (LiDAR+RTK, sans fil, 80%)
+  { nom: 'LUBA Mini AWD LiDAR', marque: 'Mammotion', surfaceMax: 1500, penteMax: '80%', prix: 1699, bruit: '55 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FCFRC4HP', badge: 'Pentes extrêmes' },
+  { nom: 'LUBA Mini 2 AWD 1000', marque: 'Mammotion', surfaceMax: 1000, penteMax: '80%', prix: 1799, bruit: '55 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0GJ5T8DRC' },
+  { nom: 'LUBA 3 AWD 1500', marque: 'Mammotion', surfaceMax: 1500, penteMax: '80%', prix: 2299, bruit: '55 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0GHMGVHWN' },
+  { nom: 'LUBA 3 AWD 3000', marque: 'Mammotion', surfaceMax: 3000, penteMax: '80%', prix: 2699, bruit: '55 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0GCZSSZRZ' },
   // Husqvarna
-  { nom: 'Automower 305', marque: 'Husqvarna', surfaceMax: 600, penteMax: '40%', prix: 999, bruit: '59 dB', sansFil: false, url: '' },
-  { nom: 'Automower 415X', marque: 'Husqvarna', surfaceMax: 1500, penteMax: '40%', prix: 1899, bruit: '57 dB', sansFil: false, url: '', badge: 'Valeur sûre' },
-  { nom: 'Automower 435X AWD', marque: 'Husqvarna', surfaceMax: 3500, penteMax: '70%', prix: 3499, bruit: '55 dB', sansFil: false, url: '' },
+  { nom: 'Automower Aspire R4', marque: 'Husqvarna', surfaceMax: 400, penteMax: '40%', prix: 699, bruit: '59 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B0D9BRY75Y' },
+  { nom: 'Automower 310 Mark II', marque: 'Husqvarna', surfaceMax: 1000, penteMax: '40%', prix: 1173, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B0BWKF1VWS', badge: 'Valeur sûre' },
   // Gardena
-  { nom: 'SILENO minimo 250', marque: 'Gardena', surfaceMax: 250, penteMax: '25%', prix: 649, bruit: '57 dB', sansFil: false, url: '', badge: 'Petit budget' },
-  { nom: 'SILENO city 600', marque: 'Gardena', surfaceMax: 600, penteMax: '35%', prix: 899, bruit: '58 dB', sansFil: false, url: '' },
-  { nom: 'SILENO life 1500', marque: 'Gardena', surfaceMax: 1500, penteMax: '35%', prix: 1499, bruit: '58 dB', sansFil: false, url: '' },
+  { nom: 'SILENO city 500', marque: 'Gardena', surfaceMax: 500, penteMax: '35%', prix: 850, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B078BC3XDQ' },
+  { nom: 'SILENO city 600', marque: 'Gardena', surfaceMax: 600, penteMax: '35%', prix: 880, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09M75W6QD' },
+  { nom: 'SILENO life 750', marque: 'Gardena', surfaceMax: 750, penteMax: '35%', prix: 700, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B07MXR9S5K', badge: 'Bon rapport qualité-prix' },
+  { nom: 'SILENO life 1000 smart set', marque: 'Gardena', surfaceMax: 1000, penteMax: '35%', prix: 1000, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B09M76JPSB' },
+  { nom: 'SILENO life 1250', marque: 'Gardena', surfaceMax: 1250, penteMax: '35%', prix: 825, bruit: '58 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B07MXR49QW' },
+  { nom: 'Smart SILENO Free 600', marque: 'Gardena', surfaceMax: 600, penteMax: '35%', prix: 1100, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0DMF8HN4T', badge: 'Sans fil' },
+  { nom: 'Smart SILENO Free 750', marque: 'Gardena', surfaceMax: 750, penteMax: '35%', prix: 1250, bruit: '57 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0DMF6FRCX' },
   // Worx
-  { nom: 'Landroid S300', marque: 'Worx', surfaceMax: 300, penteMax: '35%', prix: 549, bruit: '65 dB', sansFil: false, url: '', badge: 'Meilleur prix' },
-  { nom: 'Landroid M700', marque: 'Worx', surfaceMax: 700, penteMax: '35%', prix: 899, bruit: '65 dB', sansFil: false, url: '' },
-  { nom: 'Landroid Vision L1600', marque: 'Worx', surfaceMax: 1600, penteMax: '30%', prix: 1699, bruit: '62 dB', sansFil: true, url: '', badge: 'Sans fil' },
+  { nom: 'Landroid Plus WR169E', marque: 'Worx', surfaceMax: 250, penteMax: '35%', prix: 424, bruit: '65 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B0DPMTL3HZ', badge: 'Meilleur prix' },
+  { nom: 'Landroid Plus WR165E', marque: 'Worx', surfaceMax: 500, penteMax: '35%', prix: 449, bruit: '65 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B0913J9BTB' },
+  { nom: 'Landroid Vision WR205E', marque: 'Worx', surfaceMax: 500, penteMax: '35%', prix: 812, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0DHLM3NT5', badge: 'Sans fil' },
+  { nom: 'Vision Cloud 2WD WR305E', marque: 'Worx', surfaceMax: 500, penteMax: '35%', prix: 799, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG2L52Q' },
+  { nom: 'Vision Cloud 2WD WR308E', marque: 'Worx', surfaceMax: 800, penteMax: '35%', prix: 999, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG31S3K' },
+  { nom: 'Vision Cloud 2WD WR312E', marque: 'Worx', surfaceMax: 1200, penteMax: '35%', prix: 1199, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG6VC6M' },
+  { nom: 'Vision Cloud 2WD WR318E', marque: 'Worx', surfaceMax: 1800, penteMax: '35%', prix: 1499, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG4B9XR' },
+  { nom: 'Vision Cloud 2WD WR330E', marque: 'Worx', surfaceMax: 3000, penteMax: '35%', prix: 2299, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG4WYT4' },
+  { nom: 'Vision Cloud 4WD WR340E', marque: 'Worx', surfaceMax: 600, penteMax: '84%', prix: 1499, bruit: '62 dB', sansFil: true, url: 'https://www.amazon.fr/dp/B0FVG3XLBJ' },
   // Ecovacs
   { nom: 'GOAT G1', marque: 'Ecovacs', surfaceMax: 800, penteMax: '45%', prix: 999, bruit: '55 dB', sansFil: true, url: '', badge: 'Sans fil' },
   { nom: 'GOAT G1-2000', marque: 'Ecovacs', surfaceMax: 2000, penteMax: '45%', prix: 1499, bruit: '55 dB', sansFil: true, url: '' },
+  // Bosch
+  { nom: 'Indego S+ 500', marque: 'Bosch', surfaceMax: 500, penteMax: '27%', prix: 450, bruit: '63 dB', sansFil: false, url: 'https://www.amazon.fr/dp/B08VJJKFBX' },
 ]
 
 const labelStyle = {
