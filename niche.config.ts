@@ -96,54 +96,79 @@ export type NicheConfig = {
 // Le prompt d'init remplace ces valeurs. Le site build même avec des valeurs vides.
 
 export const niche: NicheConfig = {
-  siteName: '10min-template',
-  domain: 'example.com',
-  tagline: 'Trouvez le bon choix en 10 minutes',
+  siteName: '10minTondeuse',
+  domain: '10minutestondeuse.com',
+  tagline: 'Trouvez le meilleur robot tondeuse en 10 minutes',
 
-  entity: 'produit',
-  entities: 'produits',
-  entityVerb: 'choisir',
-  dealWord: 'deals',
+  entity: 'robot tondeuse',
+  entities: 'robots tondeuses',
+  entityVerb: 'acheter',
+  dealWord: 'bons plans',
 
   heroPrefix: 'Choisir votre',
   heroSuffix: 'en 10 minutes',
-  rotatingWords: ['produit'],
-  subtitle: 'Comparateur indépendant, quiz personnalisé et simulateur — tout pour décider vite et bien.',
+  rotatingWords: ['Husqvarna', 'Gardena', 'Worx', 'Robomow', 'Ecovacs Goat'],
+  subtitle: 'Comparateur indépendant, quiz personnalisé et simulateur de surface — tout pour choisir le bon robot tondeuse.',
   ctaPrimary: { text: 'Comparer →', url: '/comparer' },
   ctaSecondary: { text: 'Quiz personnalisé', url: '/quiz' },
 
-  categories: [],
+  categories: [
+    { slug: 'husqvarna', label: 'Husqvarna', accent: '#FF6A00', description: 'Automower : la référence suédoise des robots tondeuses' },
+    { slug: 'gardena', label: 'Gardena', accent: '#00B8D4', description: 'SILENO : robots fiables et accessibles du groupe Husqvarna' },
+    { slug: 'worx', label: 'Worx', accent: '#76FF03', description: 'Landroid : robots connectés et modulaires' },
+    { slug: 'robomow', label: 'Robomow', accent: '#FF3D57', description: 'Robots puissants pour grands jardins' },
+    { slug: 'ecovacs', label: 'Ecovacs Goat', accent: '#7B61FF', description: 'GOAT : robots sans fil périphérique avec navigation RTK' },
+  ],
 
-  quiz: { enabled: true, question: '', criteria: [] },
-  comparator: { enabled: true, criteria: [] },
-  simulator: { enabled: true, title: '', description: '' },
+  quiz: {
+    enabled: true,
+    question: 'Quel robot tondeuse pour votre jardin ?',
+    criteria: ['surface', 'pente', 'budget', 'connectivité'],
+  },
+  comparator: {
+    enabled: true,
+    criteria: ['prix', 'surface max', 'pente max', 'bruit', 'navigation', 'connectivité'],
+  },
+  simulator: {
+    enabled: true,
+    title: 'Calculer votre budget robot tondeuse',
+    description: 'Estimez le budget nécessaire en fonction de la surface et des contraintes de votre jardin.',
+  },
 
   palette: {
-    accent1: '#FF3D57',
-    accent2: '#FFD23F',
-    accent3: '#3DFFC0',
-    accent4: '#7B61FF',
-    accent5: '#3D9BFF',
-    bgPrimary: '#0A0A0F',
-    bgSurface: '#13131A',
-    bgSurface2: '#1C1C26',
-    textPrimary: '#F0F0F5',
-    textSecondary: '#9090A8',
-    textMuted: '#55556A',
+    accent1: '#22C55E',
+    accent2: '#F59E0B',
+    accent3: '#10B981',
+    accent4: '#6366F1',
+    accent5: '#06B6D4',
+    bgPrimary: '#0A0F0A',
+    bgSurface: '#111A11',
+    bgSurface2: '#1A261A',
+    textPrimary: '#F0F5F0',
+    textSecondary: '#90A890',
+    textMuted: '#556A55',
   },
-  fonts: { display: 'Unbounded', body: 'Space Grotesk' },
+  fonts: { display: 'Outfit', body: 'DM Sans' },
 
-  author: { name: '', slug: '', title: '', bio: '', tone: [], noGo: [], formulations: [] },
+  author: {
+    name: 'Thomas',
+    slug: 'thomas',
+    title: 'Expert robots tondeuses',
+    bio: 'Passionné de jardinage connecté depuis 2018. J\'ai testé plus de 30 robots tondeuses pour aider les propriétaires à faire le bon choix.',
+    tone: ['direct', 'pragmatique', 'technique'],
+    noGo: ['révolutionnaire', 'incroyable', 'game-changer'],
+    formulations: ['Honnêtement,', 'Le vrai critère :', 'En pratique,'],
+  },
 
-  affiliateTag: '',
+  affiliateTag: 'tondeuse10m-21',
   defaultStore: 'Amazon',
 
   defaultLocale: 'fr',
   locales: ['fr'],
 
   vercelRegion: 'fra1',
-  repo: '',
-  branch: 'main',
+  repo: 'boutiqueambiancejapon-sketch/robot-tondeuse',
+  branch: 'claude/lawn-mower-robot-site-4OSfv',
 }
 
 // ─── Helpers ────────────────────────────────────────────────────────────

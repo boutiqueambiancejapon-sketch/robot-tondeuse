@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Unbounded } from 'next/font/google'
+import { DM_Sans, Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { niche } from '@/niche.config'
 import './globals.css'
 
 // ── Fonts — remplacer à l'init par les fonts choisies pour la niche ──
-const fontPrimary = Space_Grotesk({
+const fontPrimary = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--next-font-primary',
@@ -14,7 +14,7 @@ const fontPrimary = Space_Grotesk({
   display: 'swap',
 })
 
-const fontDisplay = Unbounded({
+const fontDisplay = Outfit({
   subsets: ['latin'],
   weight: ['400', '700', '800'],
   variable: '--next-font-display',

@@ -1,8 +1,8 @@
 eyebrow: "Guides indépendants · Comparatifs honnêtes"
 h1_prefix: "Choisir votre"
 h1_suffix: "en 10 minutes"
-rotating_words: ["produit"]
-subtitle: "Comparateur indépendant, quiz personnalisé et simulateur — tout pour décider vite et bien."
+rotating_words: ["Husqvarna", "Gardena", "Worx", "Robomow", "Ecovacs Goat"]
+subtitle: "Comparateur indépendant, quiz personnalisé et simulateur de surface — tout pour choisir le bon robot tondeuse."
 cta_primary: "Comparer →"
 cta_primary_url: "/comparer"
 cta_secondary: "Quiz personnalisé"
