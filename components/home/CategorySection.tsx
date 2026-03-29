@@ -29,7 +29,7 @@ export function CategorySection({ slug, label, index }: CategorySectionProps) {
               {label}
             </span>
             <h2 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(22px, 3vw, 38px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1, margin: 0 }}>
-              Guides &amp; tests {label.toLowerCase()}
+              {label}
             </h2>
           </div>
           <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
