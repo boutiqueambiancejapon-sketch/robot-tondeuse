@@ -1,5 +1,5 @@
 /**
- * ProductCTA — carte produit affilié inline avec DA aurora.
+ * ProductCTA — carte produit affilié inline.
  * Si image fournie → affiche image + nom + description + prix + CTA.
  * Sinon → design typographique pur.
  * Usage MDX :
@@ -37,9 +37,8 @@ export function ProductCTA({ name, price, url, image, badge, hook }: ProductCTAP
             textAlign: image ? 'left' : 'center',
           }}
         >
-          {/* Aurora glow background */}
-          <div aria-hidden="true" style={{ position: 'absolute', top: '-40%', left: '10%', width: '80%', height: '120%', background: 'radial-gradient(ellipse, var(--aurora-1) 0%, transparent 70%)', opacity: 0.06, filter: 'blur(40px)', pointerEvents: 'none' }} />
-          <div aria-hidden="true" style={{ position: 'absolute', bottom: '-30%', right: '5%', width: '60%', height: '100%', background: 'radial-gradient(ellipse, var(--aurora-3) 0%, transparent 70%)', opacity: 0.05, filter: 'blur(40px)', pointerEvents: 'none' }} />
+          {/* Subtle accent glow */}
+          <div aria-hidden="true" style={{ position: 'absolute', top: '-40%', left: '10%', width: '80%', height: '120%', background: 'radial-gradient(ellipse, var(--accent-1) 0%, transparent 70%)', opacity: 0.06, filter: 'blur(40px)', pointerEvents: 'none' }} />
 
           {/* Product image */}
           {image && (
@@ -81,12 +80,12 @@ export function ProductCTA({ name, price, url, image, badge, hook }: ProductCTAP
             )}
 
             {/* Price */}
-            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: image ? 'clamp(24px, 5vw, 32px)' : 'clamp(36px, 8vw, 52px)', fontWeight: 700, background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.03em', lineHeight: 1 }}>
+            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: image ? 'clamp(24px, 5vw, 32px)' : 'clamp(36px, 8vw, 52px)', fontWeight: 700, color: 'var(--accent-1)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.03em', lineHeight: 1 }}>
               {price}
             </span>
 
             {/* CTA button */}
-            <AffiliateLink href={url} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))', color: '#fff', fontWeight: 700, fontSize: '14px', padding: 'var(--space-3) var(--space-8)', textDecoration: 'none', whiteSpace: 'nowrap', letterSpacing: '0.02em' }}>
+            <AffiliateLink href={url} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', background: 'var(--accent-1)', color: '#fff', fontWeight: 700, fontSize: '14px', padding: 'var(--space-3) var(--space-8)', borderRadius: 'var(--radius-md)', textDecoration: 'none', whiteSpace: 'nowrap', letterSpacing: '0.02em' }}>
               Voir le prix →
             </AffiliateLink>
           </div>

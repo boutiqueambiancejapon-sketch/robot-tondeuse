@@ -63,7 +63,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
               flexDirection: 'column',
             }}
           >
-            {/* Aurora glow */}
+            {/* Subtle accent glow */}
             <div
               aria-hidden="true"
               style={{
@@ -72,8 +72,8 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
                 left: '10%',
                 width: '80%',
                 height: '100%',
-                background: 'radial-gradient(ellipse, var(--aurora-1) 0%, transparent 70%)',
-                opacity: 0.05,
+                background: 'radial-gradient(ellipse, var(--accent-1) 0%, transparent 70%)',
+                opacity: 0.04,
                 filter: 'blur(30px)',
                 pointerEvents: 'none',
               }}
@@ -164,7 +164,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
                   fontFamily: 'var(--next-font-mono), monospace',
                   fontSize: 'clamp(20px, 4vw, 26px)',
                   fontWeight: 700,
-                  background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))',
+                  background: 'var(--accent-1)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -186,7 +186,7 @@ export function ProductCarousel({ products }: ProductCarouselProps) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: 'var(--space-2)',
-                  background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))',
+                  background: 'var(--accent-1)',
                   color: '#fff',
                   fontWeight: 700,
                   fontSize: '13px',

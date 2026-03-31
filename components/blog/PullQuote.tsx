@@ -1,6 +1,6 @@
 /**
  * PullQuote — citation extraite du texte, affichée en grand.
- * Ligne verticale gradient aurora à gauche + texte italic display.
+ * Ligne verticale accent à gauche + texte italic display.
  * Usage MDX : <PullQuote>Le choix dépend de l'écosystème, pas des specs.</PullQuote>
  * Server Component.
  */
@@ -16,7 +16,7 @@ export function PullQuote({ children }: { children: ReactNode }) {
         borderLeft: 'none',
       }}
     >
-      {/* Ligne verticale gradient aurora */}
+      {/* Ligne verticale accent terrain */}
       <span
         aria-hidden="true"
         style={{
@@ -25,7 +25,7 @@ export function PullQuote({ children }: { children: ReactNode }) {
           top: 0,
           bottom: 0,
           width: '3px',
-          background: 'linear-gradient(180deg, var(--aurora-1), var(--aurora-2), var(--aurora-3))',
+          background: 'linear-gradient(180deg, var(--accent-1), var(--accent-3))',
           borderRadius: '2px',
         }}
       />

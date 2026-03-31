@@ -52,30 +52,17 @@ export function StickyCTA({ items, message }: Props) {
         style={{
           position: 'relative',
           overflow: 'hidden',
-          backdropFilter: 'blur(40px) saturate(1.8)',
-          WebkitBackdropFilter: 'blur(40px) saturate(1.8)',
-          background: 'var(--sticky-cta-glass)',
+          background: 'var(--bg-surface)',
           padding: 'var(--space-3) var(--space-5)',
           display: 'flex',
           alignItems: 'center',
           gap: 'var(--space-3)',
           flexWrap: 'wrap',
-          border: '1px solid rgba(255,255,255,0.12)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)',
-          borderRadius: '16px',
+          border: '1px solid var(--border-strong)',
+          boxShadow: 'var(--shadow-lg)',
+          borderRadius: 'var(--radius-xl)',
         }}
       >
-        {/* Specular highlight — light hitting glass from top */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(175deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.03) 35%, transparent 55%)',
-            pointerEvents: 'none',
-            borderRadius: '16px',
-          }}
-        />
 
         {message && (
           <span
@@ -116,10 +103,10 @@ export function StickyCTA({ items, message }: Props) {
                   flex: '1 1 auto',
                   minWidth: 0,
                   background: i === 0
-                    ? 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))'
-                    : 'rgba(255,255,255,0.08)',
+                    ? 'var(--accent-1)'
+                    : 'var(--bg-surface-2)',
                   color: i === 0 ? '#fff' : 'var(--text-primary)',
-                  border: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.12)',
+                  border: i === 0 ? 'none' : '1px solid var(--border)',
                   borderRadius: '10px',
                   fontSize: '12px',
                   fontWeight: 700,

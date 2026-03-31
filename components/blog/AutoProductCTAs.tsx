@@ -35,7 +35,7 @@ function CTACard({ cta }: { cta: ArticleCTA }) {
             gap: 'var(--space-3)',
           }}
         >
-          {/* Aurora glow background */}
+          {/* Subtle accent glow */}
           <div
             aria-hidden="true"
             style={{
@@ -44,21 +44,7 @@ function CTACard({ cta }: { cta: ArticleCTA }) {
               left: '10%',
               width: '80%',
               height: '120%',
-              background: 'radial-gradient(ellipse, var(--aurora-1) 0%, transparent 70%)',
-              opacity: 0.06,
-              filter: 'blur(40px)',
-              pointerEvents: 'none',
-            }}
-          />
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              bottom: '-30%',
-              right: '5%',
-              width: '60%',
-              height: '100%',
-              background: 'radial-gradient(ellipse, var(--aurora-3) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse, var(--accent-1) 0%, transparent 70%)',
               opacity: 0.05,
               filter: 'blur(40px)',
               pointerEvents: 'none',
@@ -76,7 +62,7 @@ function CTACard({ cta }: { cta: ArticleCTA }) {
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
               color: '#fff',
-              background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))',
+              background: 'var(--accent-1)',
               padding: '3px 12px',
               borderRadius: '2px',
             }}
@@ -124,7 +110,7 @@ function CTACard({ cta }: { cta: ArticleCTA }) {
               fontFamily: 'var(--next-font-mono), monospace',
               fontSize: 'clamp(36px, 8vw, 52px)',
               fontWeight: 700,
-              background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))',
+              background: 'var(--accent-1)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -160,7 +146,7 @@ function CTACard({ cta }: { cta: ArticleCTA }) {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 'var(--space-2)',
-              background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))',
+              background: 'var(--accent-1)',
               color: '#fff',
               fontWeight: 700,
               fontSize: '14px',
