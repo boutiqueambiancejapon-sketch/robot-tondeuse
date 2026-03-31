@@ -1,6 +1,7 @@
 /**
  * AuthorTeaser — encart éditorial asymétrique.
- * Monogramme géant + bio + lien auteur.
+ * DA "Terrain & Nature" — monogramme avec bordure accent
+ * et fond texturé terreux, pas de conic-gradient tech.
  * Server Component.
  */
 
@@ -29,14 +30,14 @@ export function AuthorTeaser() {
         }}
         className="author-teaser-grid"
       >
-        {/* Monogramme */}
+        {/* Monogramme — cercle avec bordure accent solide */}
         <div
           aria-hidden="true"
           style={{
             width: 'clamp(120px, 18vw, 200px)',
             height: 'clamp(120px, 18vw, 200px)',
             borderRadius: '50%',
-            border: '2px solid var(--border)',
+            border: '3px solid var(--accent-1)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -51,7 +52,7 @@ export function AuthorTeaser() {
               fontFamily: 'var(--next-font-display), system-ui, sans-serif',
               fontSize: '45%',
               fontWeight: 800,
-              color: 'var(--text-primary)',
+              color: 'var(--accent-1)',
               letterSpacing: '0',
               lineHeight: 1,
               userSelect: 'none',
@@ -59,17 +60,24 @@ export function AuthorTeaser() {
           >
             {initial}
           </span>
-          <div
+          {/* Subtle leaf/terrain accent inside circle */}
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 100 100"
             style={{
               position: 'absolute',
-              inset: '-1px',
-              borderRadius: '50%',
-              background: `conic-gradient(var(--accent-1) 0deg, transparent 60deg, transparent 360deg)`,
-              opacity: 0.6,
-              mixBlendMode: 'screen',
-              zIndex: -1,
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              opacity: 0.06,
+              pointerEvents: 'none',
             }}
-          />
+          >
+            <path
+              d="M20 80 C30 50, 50 30, 80 20 C70 50, 50 70, 20 80 Z"
+              fill="var(--accent-1)"
+            />
+          </svg>
         </div>
 
         {/* Texte */}

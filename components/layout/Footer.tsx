@@ -1,10 +1,12 @@
 /**
  * Footer — 3 colonnes éditoriales + disclaimer affilié.
- * Fond --bg-surface avec diagonal clip-path en haut pour raccordement visuel.
+ * Wave divider organique en haut pour raccordement visuel.
+ * DA "Terrain & Nature" — ondulation terrain au lieu du diagonal clip-path.
  * Server Component — zéro JS.
  */
 
 import Link from 'next/link'
+import { WaveDivider } from '@/components/effects/WaveDivider'
 import { niche } from '@/niche.config'
 
 function currentYear() {
@@ -76,69 +78,72 @@ const logoText = niche.siteName
 
 export function Footer() {
   return (
-    <footer
-      style={{
-        position: 'relative',
-        backgroundColor: 'var(--bg-surface)',
-        marginTop: 'var(--space-24)',
-        clipPath: 'polygon(0 32px, 100% 0, 100% 100%, 0 100%)',
-        paddingTop: 'calc(var(--space-16) + 32px)',
-        paddingBottom: 'var(--space-12)',
-      }}
-    >
+    <footer style={{ position: 'relative', marginTop: 'var(--space-24)' }}>
+      {/* Wave séparatrice organique */}
+      <WaveDivider fill="var(--bg-surface)" />
+
       <div
         style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: '0 var(--space-6)',
+          backgroundColor: 'var(--bg-surface)',
+          paddingTop: 'var(--space-12)',
+          paddingBottom: 'var(--space-12)',
         }}
       >
-        {/* Grille 3 colonnes + logo */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-            gap: 'var(--space-10)',
-            marginBottom: 'var(--space-12)',
+            maxWidth: '1280px',
+            margin: '0 auto',
+            padding: '0 var(--space-6)',
           }}
         >
-          {/* Identité */}
-          <div>
-            <Link
-              href="/"
-              aria-label={`${niche.siteName} — accueil`}
-              style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'baseline', gap: '1px', marginBottom: 'var(--space-4)' }}
-            >
-              <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontWeight: 800, fontSize: '15px', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{logoText}</span>
-            </Link>
-            <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '220px' }}>
-              {niche.tagline}
-            </p>
+          {/* Grille 3 colonnes + logo */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+              gap: 'var(--space-10)',
+              marginBottom: 'var(--space-12)',
+            }}
+          >
+            {/* Identité */}
+            <div>
+              <Link
+                href="/"
+                aria-label={`${niche.siteName} — accueil`}
+                style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'baseline', gap: '1px', marginBottom: 'var(--space-4)' }}
+              >
+                <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontWeight: 800, fontSize: '15px', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{logoText}</span>
+              </Link>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '220px' }}>
+                {niche.tagline}
+              </p>
+            </div>
+
+            <FooterCol title="Outils" links={COL_OUTILS} />
+            {COL_BLOG.length > 0 && <FooterCol title="Blog" links={COL_BLOG} />}
+            <FooterCol title="À propos" links={COL_APROPOS} />
           </div>
 
-          <FooterCol title="Outils" links={COL_OUTILS} />
-          {COL_BLOG.length > 0 && <FooterCol title="Blog" links={COL_BLOG} />}
-          <FooterCol title="À propos" links={COL_APROPOS} />
-        </div>
-
-        {/* Bas — séparateur + disclaimer */}
-        <div
-          style={{
-            borderTop: '1px solid var(--border)',
-            paddingTop: 'var(--space-6)',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 'var(--space-4)',
-          }}
-        >
-          <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0 }}>
-            © {currentYear()} {niche.siteName} — Site indépendant.
-          </p>
-          <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0, textAlign: 'right' }}>
-            Liens affiliés {niche.defaultStore}. En achetant via nos liens, vous soutenez le site sans surcoût.
-          </p>
+          {/* Bas — séparateur + disclaimer */}
+          <div
+            style={{
+              borderTop: '1px solid var(--border)',
+              paddingTop: 'var(--space-6)',
+              display: 'flex',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: 'var(--space-4)',
+            }}
+            className="footer-disclaimer"
+          >
+            <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0 }}>
+              © {currentYear()} {niche.siteName} — Site indépendant.
+            </p>
+            <p style={{ fontSize: '12px', color: 'var(--text-muted)', margin: 0, textAlign: 'right' }}>
+              Liens affiliés {niche.defaultStore}. En achetant via nos liens, vous soutenez le site sans surcoût.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

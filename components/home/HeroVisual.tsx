@@ -1,7 +1,8 @@
 /**
  * HeroVisual — colonne droite du héro.
- * Navigation typographique éditoriale : catégories en grand type.
- * Pas d'images, pas de boîtes — pure typographie + séparateurs.
+ * Navigation catégories avec indicateurs de terrain (lignes organiques).
+ * Chaque catégorie a une barre latérale accent + sous-texte.
+ * DA "Terrain & Nature" — cartes terreuses avec bordure gauche.
  * Server Component.
  */
 import Link from 'next/link'
@@ -24,7 +25,7 @@ export function HeroVisual() {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: 0,
+        gap: 'var(--space-2)',
       }}
     >
       {families.map(({ label, sub, href, accent, index }) => (
@@ -36,13 +37,15 @@ export function HeroVisual() {
         >
           <div
             style={{
-              borderTop: '1px solid var(--border)',
-              padding: 'var(--space-4) 0',
+              padding: 'var(--space-4) var(--space-5)',
               display: 'grid',
               gridTemplateColumns: '28px 1fr auto',
               gap: 'var(--space-4)',
               alignItems: 'center',
-              transition: 'padding-left 180ms ease',
+              borderLeft: `3px solid var(--border)`,
+              borderRadius: '0 var(--radius-md) var(--radius-md) 0',
+              backgroundColor: 'var(--bg-surface)',
+              transition: 'border-color 200ms ease, background-color 200ms ease',
             }}
           >
             {/* Index */}
@@ -63,11 +66,11 @@ export function HeroVisual() {
                 className="hero-family-label"
                 style={{
                   fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                  fontSize: 'clamp(18px, 2.2vw, 26px)',
-                  fontWeight: 800,
+                  fontSize: 'clamp(16px, 2vw, 22px)',
+                  fontWeight: 700,
                   color: 'var(--text-primary)',
                   margin: '0 0 2px',
-                  lineHeight: 1.1,
+                  lineHeight: 1.2,
                   transition: 'color 150ms ease',
                 }}
               >
@@ -102,9 +105,6 @@ export function HeroVisual() {
           </div>
         </Link>
       ))}
-
-      {/* Dernière ligne séparatrice */}
-      <div style={{ borderTop: '1px solid var(--border)' }} />
     </nav>
   )
 }

@@ -1,10 +1,10 @@
 /**
- * DealsStrip — bandeau de deals en défilement continu (MarqueeStrip).
- * Données statiques placeholder — remplacées par ISR + API deals ensuite.
+ * DealsStrip — bandeau statique de deals en grille horizontale scrollable.
+ * DA "Terrain & Nature" — pas de marquee, scroll natif avec snap.
  * Server Component.
  */
 
-import { MarqueeStrip } from '@/components/effects/MarqueeStrip'
+import Link from 'next/link'
 import { niche } from '@/niche.config'
 
 type Deal = {
@@ -33,7 +33,7 @@ function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
         padding: 'var(--space-2) var(--space-5)',
         backgroundColor: 'var(--bg-surface)',
         border: '1px solid var(--border)',
-        borderRadius: '999px',
+        borderRadius: 'var(--radius-lg)',
         color: 'var(--text-primary)',
         fontSize: '13px',
         fontWeight: 500,
@@ -46,7 +46,7 @@ function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
           padding: '2px 8px',
           backgroundColor: badgeColor,
           color: '#fff',
-          borderRadius: '999px',
+          borderRadius: 'var(--radius-sm)',
           fontSize: '11px',
           fontWeight: 700,
           letterSpacing: '0.04em',
@@ -61,12 +61,44 @@ function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
 
 export function DealsStrip() {
   return (
-    <section aria-label="Bons plans du moment" style={{ paddingBlock: 'var(--space-4)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
-      <MarqueeStrip speed="slow" gap="var(--space-3)">
+    <section aria-label="Bons plans du moment" style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: 'var(--space-3)',
+          padding: 'var(--space-4) var(--space-6)',
+          overflowX: 'auto',
+          scrollSnapType: 'x mandatory',
+          maxWidth: '1280px',
+          margin: '0 auto',
+        }}
+      >
+        {/* Label fixe */}
+        <Link
+          href="/deals"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 'var(--space-2)',
+            flexShrink: 0,
+            fontSize: '11px',
+            fontWeight: 700,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--accent-2)',
+            textDecoration: 'none',
+            paddingRight: 'var(--space-4)',
+            borderRight: '1px solid var(--border)',
+          }}
+        >
+          {niche.dealWord}
+        </Link>
         {DEALS.map((deal) => (
-          <DealChip key={deal.label} {...deal} />
+          <span key={deal.label} style={{ scrollSnapAlign: 'start' }}>
+            <DealChip {...deal} />
+          </span>
         ))}
-      </MarqueeStrip>
+      </div>
     </section>
   )
 }

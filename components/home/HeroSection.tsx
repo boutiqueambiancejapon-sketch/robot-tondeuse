@@ -1,12 +1,12 @@
 /**
  * HeroSection — above-fold.
- * Aurora + bruit + heading wipe + mots qui tournent + 2 CTAs.
+ * Topographie terrain + texture herbe + fade-up doux + mots qui tournent + 2 CTAs.
+ * DA "Terrain & Nature" — évoque un jardin de nuit premium.
  * Server Component (les enfants clients sont importés inline).
  */
 
-import { AuroraBackground } from '@/components/effects/AuroraBackground'
-import { NoiseOverlay } from '@/components/effects/NoiseOverlay'
-import { AnimatedHeading } from '@/components/effects/AnimatedHeading'
+import { TopographyBackground } from '@/components/effects/TopographyBackground'
+import { GrassTexture } from '@/components/effects/GrassTexture'
 import { RotatingWords } from '@/components/effects/RotatingWords'
 import { HeroVisual } from './HeroVisual'
 import Link from 'next/link'
@@ -14,10 +14,11 @@ import { niche } from '@/niche.config'
 
 export function HeroSection() {
   return (
-    <AuroraBackground
-      className="hero-aurora"
+    <TopographyBackground
+      className="hero-terrain"
+      intensity="medium"
     >
-      <NoiseOverlay opacity={0.035} />
+      <GrassTexture opacity={0.025} />
 
       <div
         style={{
@@ -33,10 +34,8 @@ export function HeroSection() {
         {/* ── Colonne gauche — texte ── */}
         <div>
         {/* Eyebrow */}
-        <AnimatedHeading
-          as="p"
-          delay={0}
-          duration={600}
+        <p
+          className="hero-fade-up"
           style={{
             fontSize: '12px',
             fontWeight: 600,
@@ -44,45 +43,45 @@ export function HeroSection() {
             textTransform: 'uppercase',
             color: 'var(--accent-1)',
             marginBottom: 'var(--space-5)',
+            animationDelay: '0ms',
           }}
         >
           Guides indépendants · Comparatifs honnêtes
-        </AnimatedHeading>
+        </p>
 
         {/* H1 — ligne 1 */}
-        <AnimatedHeading
-          as="h1"
-          delay={120}
-          duration={900}
+        <h1
+          className="hero-fade-up"
           style={{
             fontFamily: 'var(--next-font-display), system-ui, sans-serif',
             fontSize: 'clamp(2rem, 5.5vw, 4.5rem)',
             fontWeight: 800,
             lineHeight: 1.1,
-            letterSpacing: '0',
+            letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
             marginBottom: '0.15em',
+            animationDelay: '100ms',
           }}
         >
           {niche.heroPrefix}
-        </AnimatedHeading>
+        </h1>
 
         {/* H1 — ligne 2 avec mot rotatif */}
-        <AnimatedHeading
-          as="h1"
-          delay={280}
-          duration={900}
+        <p
+          className="hero-fade-up"
+          aria-hidden="true"
           style={{
             fontFamily: 'var(--next-font-display), system-ui, sans-serif',
             fontSize: 'clamp(2rem, 5.5vw, 4.5rem)',
             fontWeight: 800,
             lineHeight: 1.1,
-            letterSpacing: '0',
+            letterSpacing: '-0.02em',
             marginBottom: 'var(--space-8)',
             display: 'flex',
             alignItems: 'baseline',
             flexWrap: 'wrap',
             gap: '0.25em',
+            animationDelay: '200ms',
           }}
         >
           <RotatingWords
@@ -90,35 +89,33 @@ export function HeroSection() {
             interval={2600}
             style={{ color: 'var(--accent-1)' }}
           />
-          <span className="text-gradient-hero">{niche.heroSuffix}</span>
-        </AnimatedHeading>
+          <span className="text-gradient-terrain">{niche.heroSuffix}</span>
+        </p>
 
         {/* Sous-titre */}
-        <AnimatedHeading
-          as="p"
-          delay={440}
-          duration={700}
+        <p
+          className="hero-fade-up"
           style={{
             fontSize: 'clamp(1rem, 2vw, 1.2rem)',
             color: 'var(--text-secondary)',
             maxWidth: '520px',
             lineHeight: 1.65,
             marginBottom: 'var(--space-10)',
+            animationDelay: '300ms',
           }}
         >
           {niche.subtitle}
-        </AnimatedHeading>
+        </p>
 
         {/* CTAs */}
-        <AnimatedHeading
-          as="p"
-          delay={580}
-          duration={600}
+        <div
+          className="hero-fade-up"
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             gap: 'var(--space-4)',
             alignItems: 'center',
+            animationDelay: '400ms',
           }}
         >
           <Link
@@ -132,7 +129,7 @@ export function HeroSection() {
               color: '#fff',
               fontWeight: 700,
               fontSize: '15px',
-              borderRadius: '8px',
+              borderRadius: 'var(--radius-lg)',
               textDecoration: 'none',
               letterSpacing: '-0.01em',
               transition: 'opacity 150ms ease, transform 150ms ease',
@@ -148,11 +145,11 @@ export function HeroSection() {
               alignItems: 'center',
               gap: 'var(--space-2)',
               padding: 'var(--space-3) var(--space-6)',
-              border: '1px solid var(--border)',
+              border: '1px solid var(--border-strong)',
               color: 'var(--text-primary)',
               fontWeight: 500,
               fontSize: '15px',
-              borderRadius: '8px',
+              borderRadius: 'var(--radius-lg)',
               textDecoration: 'none',
               letterSpacing: '-0.01em',
               transition: 'border-color 150ms ease',
@@ -160,7 +157,7 @@ export function HeroSection() {
           >
             {niche.ctaSecondary.text}
           </Link>
-        </AnimatedHeading>
+        </div>
         </div>{/* /colonne gauche */}
 
         {/* ── Colonne droite — navigation familles ── */}
@@ -168,6 +165,6 @@ export function HeroSection() {
 
         </div>{/* /hero-grid */}
       </div>
-    </AuroraBackground>
+    </TopographyBackground>
   )
 }

@@ -84,14 +84,11 @@ export function Nav() {
   return (
     <>
       <header
-        className={scrolled || open ? 'nav-glass-active' : ''}
         style={{
           position: 'sticky', top: 0, zIndex: 40,
-          backgroundColor: (scrolled || open) ? 'var(--sticky-cta-glass)' : 'transparent',
-          backdropFilter: (scrolled || open) ? 'blur(40px) saturate(1.8)' : 'none',
-          WebkitBackdropFilter: (scrolled || open) ? 'blur(40px) saturate(1.8)' : 'none',
-          borderBottom: (scrolled || open) ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
-          transition: 'background-color 300ms ease, backdrop-filter 300ms ease, border-color 300ms ease',
+          backgroundColor: (scrolled || open) ? 'var(--nav-bg-scrolled)' : 'transparent',
+          borderBottom: (scrolled || open) ? '1px solid var(--border)' : '1px solid transparent',
+          transition: 'background-color 300ms ease, border-color 300ms ease',
         }}
       >
         <nav aria-label="Navigation principale" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)', height: '60px', display: 'flex', alignItems: 'center', gap: 'var(--space-6)' }}>
@@ -149,15 +146,13 @@ export function Nav() {
           </button>
         </nav>
 
-        {/* Ligne gradient aurora — signature DA */}
+        {/* Ligne terrain — accent solide, pas de gradient animé */}
         <div
           aria-hidden="true"
           style={{
             height: '2px',
-            background: 'linear-gradient(90deg, var(--aurora-1), var(--aurora-2), var(--aurora-3), var(--aurora-1))',
-            backgroundSize: '200% 100%',
-            animation: 'nav-gradient-shift 8s linear infinite',
-            opacity: scrolled || open ? 0.8 : 0.3,
+            background: `linear-gradient(90deg, transparent 0%, var(--accent-1) 20%, var(--accent-3) 80%, transparent 100%)`,
+            opacity: scrolled || open ? 0.6 : 0.15,
             transition: 'opacity 300ms ease',
           }}
         />

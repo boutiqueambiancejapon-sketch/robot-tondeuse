@@ -1,7 +1,7 @@
 /**
- * FeaturedTools — bento grid asymétrique.
- * Grande cellule Comparateur (2/3) + 2 petites (Quiz + Simulateur) en 1/3.
- * Chaque cellule a une icône SVG, un titre et un CTA.
+ * FeaturedTools — grille asymétrique d'outils.
+ * DA "Terrain & Nature" — cartes avec bordure gauche accent,
+ * fond terreux, ombre douce. Pas de radial glow.
  * Server Component.
  */
 
@@ -29,32 +29,18 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
         justifyContent: 'space-between',
         padding: large ? 'var(--space-10)' : 'var(--space-7)',
         backgroundColor: 'var(--bg-surface)',
-        border: '1px solid var(--border)',
-        borderRadius: '16px',
+        borderLeft: `4px solid ${accent}`,
+        borderRadius: 'var(--radius-lg)',
         textDecoration: 'none',
         color: 'inherit',
         overflow: 'hidden',
         position: 'relative',
         minHeight: large ? '320px' : '220px',
-        transition: 'border-color 200ms ease, transform 200ms ease',
+        boxShadow: 'var(--shadow-sm)',
+        transition: 'box-shadow 200ms ease, transform 200ms ease',
       }}
       className="tool-card"
     >
-      {/* Accent glow */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: '-60px',
-          right: '-60px',
-          width: '200px',
-          height: '200px',
-          borderRadius: '50%',
-          background: `radial-gradient(circle, ${accent}30 0%, transparent 70%)`,
-          pointerEvents: 'none',
-        }}
-      />
-
       {/* Icône */}
       <div
         style={{
