@@ -1,7 +1,7 @@
 /**
  * FeaturedTools — grille asymétrique d'outils.
- * DA "Terrain & Nature" — cartes avec bordure gauche accent,
- * fond terreux, ombre douce. Pas de radial glow.
+ * DA "Terrain & Nature" — design éditorial sobre :
+ * border-top fine, index numéroté, typographie claire.
  * Server Component.
  */
 
@@ -10,7 +10,7 @@ import { niche } from '@/niche.config'
 
 type ToolCardProps = {
   href: string
-  eyebrow: string
+  index: string
   title: string
   description: string
   cta: string
@@ -19,7 +19,7 @@ type ToolCardProps = {
   icon: React.ReactNode
 }
 
-function ToolCard({ href, eyebrow, title, description, cta, accent, large = false, icon }: ToolCardProps) {
+function ToolCard({ href, index, title, description, cta, accent, large = false, icon }: ToolCardProps) {
   return (
     <Link
       href={href}
@@ -27,52 +27,51 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: large ? 'var(--space-10)' : 'var(--space-7)',
+        padding: large ? 'var(--space-8)' : 'var(--space-6)',
+        paddingTop: large ? 'var(--space-6)' : 'var(--space-5)',
         backgroundColor: 'var(--bg-surface)',
-        borderLeft: `4px solid ${accent}`,
-        borderRadius: 'var(--radius-lg)',
+        borderTop: `2px solid ${accent}`,
         textDecoration: 'none',
         color: 'inherit',
         overflow: 'hidden',
         position: 'relative',
-        minHeight: large ? '320px' : '220px',
-        boxShadow: 'var(--shadow-sm)',
-        transition: 'box-shadow 200ms ease, transform 200ms ease',
+        minHeight: large ? '300px' : '200px',
+        transition: 'background-color 200ms ease',
       }}
       className="tool-card"
     >
-      {/* Icône */}
-      <div
-        style={{
-          width: large ? '48px' : '36px',
-          height: large ? '48px' : '36px',
-          color: accent,
-          marginBottom: 'var(--space-5)',
-          flexShrink: 0,
-        }}
-      >
-        {icon}
+      {/* Header : index + icône */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-6)' }}>
+        <span
+          style={{
+            fontFamily: 'var(--next-font-mono, monospace)',
+            fontSize: '11px',
+            fontWeight: 500,
+            color: 'var(--text-muted)',
+            letterSpacing: '0.04em',
+          }}
+        >
+          {index}
+        </span>
+        <div
+          style={{
+            width: large ? '40px' : '32px',
+            height: large ? '40px' : '32px',
+            color: accent,
+            opacity: 0.7,
+          }}
+        >
+          {icon}
+        </div>
       </div>
 
       <div>
-        <p
-          style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: accent,
-            marginBottom: 'var(--space-2)',
-          }}
-        >
-          {eyebrow}
-        </p>
         <h3
           style={{
             fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: large ? 'clamp(1.3rem, 2.2vw, 1.8rem)' : '1rem',
+            fontSize: large ? 'clamp(1.2rem, 2vw, 1.6rem)' : 'clamp(0.95rem, 1.8vw, 1.1rem)',
             fontWeight: 700,
-            letterSpacing: '0',
+            letterSpacing: '-0.01em',
             color: 'var(--text-primary)',
             marginBottom: 'var(--space-3)',
             lineHeight: 1.25,
@@ -93,10 +92,10 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
         </p>
         <span
           style={{
-            fontSize: '14px',
+            fontSize: '13px',
             fontWeight: 600,
             color: accent,
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
             gap: 'var(--space-1)',
           }}
@@ -183,7 +182,8 @@ export function FeaturedTools() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'var(--space-4)',
+          gap: '1px',
+          backgroundColor: 'var(--border)',
         }}
         className="bento-grid"
       >
@@ -191,7 +191,7 @@ export function FeaturedTools() {
         <div className="bento-featured">
           <ToolCard
             href="/comparer"
-            eyebrow="Comparateur"
+            index="01"
             title={comparatorTitle}
             description={`Comparez côte à côte les specs, prix et usages. Filtres par budget et besoin.`}
             cta="Lancer le comparateur"
@@ -205,7 +205,7 @@ export function FeaturedTools() {
         {niche.quiz.enabled && (
           <ToolCard
             href="/quiz"
-            eyebrow="Quiz"
+            index="02"
             title={quizTitle}
             description={`Quelques questions pour identifier le ${niche.entity} fait pour vous.`}
             cta="Démarrer le quiz"
@@ -218,7 +218,7 @@ export function FeaturedTools() {
         {niche.simulator.enabled && (
           <ToolCard
             href="/simulateur"
-            eyebrow="Simulateur"
+            index="03"
             title={simulatorTitle}
             description={simulatorDesc}
             cta="Simuler"

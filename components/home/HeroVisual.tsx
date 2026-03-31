@@ -37,15 +37,13 @@ export function HeroVisual() {
         >
           <div
             style={{
-              padding: 'var(--space-4) var(--space-5)',
+              padding: 'var(--space-3) 0',
               display: 'grid',
               gridTemplateColumns: '28px 1fr auto',
               gap: 'var(--space-4)',
               alignItems: 'center',
-              borderLeft: `3px solid var(--border)`,
-              borderRadius: '0 var(--radius-md) var(--radius-md) 0',
-              backgroundColor: 'var(--bg-surface)',
-              transition: 'border-color 200ms ease, background-color 200ms ease',
+              borderBottom: '1px solid var(--border)',
+              transition: 'border-color 200ms ease',
             }}
           >
             {/* Index */}

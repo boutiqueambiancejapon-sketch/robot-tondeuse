@@ -386,11 +386,7 @@ body {
   }
 }
 
-/* Hover sur hero-family-item — accent sur la bordure gauche */
-.hero-family-item:hover > div {
-  border-left-color: var(--accent-1) !important;
-  background-color: var(--bg-surface-2);
-}
+/* Hover sur hero-family-item */
 .hero-family-item:hover .hero-family-label {
   color: var(--accent-1);
 }
@@ -523,10 +519,7 @@ body {
   transform: translateY(-1px);
 }
 
-.tool-card:hover {
-  border-color: var(--border-strong) !important;
-  transform: translateY(-2px);
-}
+/* tool-card hover — see below */
 
 .footer-link:hover {
   color: var(--text-primary) !important;
@@ -806,9 +799,9 @@ body {
   color: var(--accent-1);
 }
 
-/* Hover sur tool-card — border-left s'intensifie */
+/* Hover sur tool-card — fond s'éclaircit */
 .tool-card:hover {
-  border-left-width: 4px;
+  background-color: var(--bg-surface-2) !important;
 }
 
 /* Hover sur product-affiliate — border-left pleine couleur */
