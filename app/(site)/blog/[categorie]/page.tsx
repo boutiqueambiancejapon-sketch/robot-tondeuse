@@ -1,6 +1,6 @@
 /**
  * /blog/[categorie] — hub catégorie.
- * Grille complète des articles de la catégorie + breadcrumb + pagination.
+ * Grille 2 colonnes + pills catégories colorées + breadcrumb.
  * Server Component · ISR 3600s.
  */
 
@@ -17,7 +17,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
 export const revalidate = 3600
 
-const ARTICLES_PER_PAGE = 12
+const ARTICLES_PER_PAGE = 10
 
 type Params = Promise<{ categorie: string }>
 type SearchParams = Promise<{ page?: string }>
@@ -54,6 +54,7 @@ export default async function CategoryPage({
 
   const label = CATEGORY_LABELS[categorie] ?? categorie
   const accent = CATEGORY_ACCENT[categorie] ?? 'var(--accent-1)'
+  const catDescription = niche.categories.find(c => c.slug === categorie)?.description
   const totalPages = Math.ceil(all.length / ARTICLES_PER_PAGE)
   const paged = all.slice(
     (currentPage - 1) * ARTICLES_PER_PAGE,
@@ -79,10 +80,9 @@ export default async function CategoryPage({
         <section
           style={{
             background: `radial-gradient(ellipse 100% 80% at 0% 0%, color-mix(in srgb, ${accent} 10%, transparent) 0%, transparent 65%)`,
-            borderBottom: '1px solid var(--border)',
           }}
         >
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'var(--space-14) var(--space-6) var(--space-10)' }} className="blog-hero-inner">
+          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'var(--space-14) var(--space-6) var(--space-8)' }} className="blog-hero-inner">
             {/* Breadcrumb */}
             <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
               <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
@@ -96,12 +96,22 @@ export default async function CategoryPage({
 
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 'var(--space-6)', flexWrap: 'wrap' }}>
               <div>
-                <span style={{ display: 'inline-block', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent, marginBottom: 'var(--space-3)' }}>
+                <span style={{
+                  display: 'inline-block', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase',
+                  color: accent, marginBottom: 'var(--space-3)',
+                  background: `color-mix(in srgb, ${accent} 12%, transparent)`,
+                  padding: '3px 10px', borderRadius: 'var(--radius-full)',
+                }}>
                   Catégorie
                 </span>
-                <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(28px, 4vw, 52px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1 }}>
+                <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: catDescription ? 'var(--space-3)' : 0 }}>
                   {label}
                 </h1>
+                {catDescription && (
+                  <p style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '480px', lineHeight: 1.6 }}>
+                    {catDescription}
+                  </p>
+                )}
               </div>
               <p style={{ fontSize: '14px', color: 'var(--text-muted)', flexShrink: 0 }}>
                 {all.length} article{all.length > 1 ? 's' : ''}
@@ -110,10 +120,26 @@ export default async function CategoryPage({
           </div>
         </section>
 
-        {/* Onglets — liens vers les autres catégories */}
-        <nav aria-label="Autres catégories" style={{ borderBottom: '1px solid var(--border)', marginBottom: 'var(--space-10)' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)', display: 'flex', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
-            <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', padding: 'var(--space-3) var(--space-4)', fontSize: '13px', fontWeight: 500, color: 'var(--text-muted)', borderBottom: '2px solid transparent', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+        {/* Category pills */}
+        <nav aria-label="Autres catégories" style={{ marginBottom: 'var(--space-10)', paddingTop: 'var(--space-4)' }}>
+          <div style={{
+            maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)',
+            display: 'flex', gap: 'var(--space-2)', overflowX: 'auto', WebkitOverflowScrolling: 'touch',
+            paddingBottom: 'var(--space-2)',
+          }}>
+            <Link
+              href="/blog"
+              style={{
+                display: 'inline-flex', alignItems: 'center',
+                padding: '6px 16px', fontSize: '13px', fontWeight: 500,
+                color: 'var(--text-muted)',
+                background: 'transparent',
+                border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-full)',
+                textDecoration: 'none', whiteSpace: 'nowrap',
+                transition: 'background 200ms ease',
+              }}
+            >
               Tous
             </Link>
             {Object.entries(CATEGORY_LABELS).map(([slug, lbl]) => {
@@ -124,7 +150,17 @@ export default async function CategoryPage({
                   key={slug}
                   href={`/blog/${slug}`}
                   aria-current={isActive ? 'page' : undefined}
-                  style={{ display: 'inline-flex', alignItems: 'center', padding: 'var(--space-3) var(--space-4)', fontSize: '13px', fontWeight: isActive ? 700 : 500, color: isActive ? a : 'var(--text-secondary)', borderBottom: isActive ? `2px solid ${a}` : '2px solid transparent', textDecoration: 'none', whiteSpace: 'nowrap' }}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center',
+                    padding: '6px 16px', fontSize: '13px',
+                    fontWeight: isActive ? 700 : 500,
+                    color: isActive ? 'var(--bg-primary)' : a,
+                    background: isActive ? a : `color-mix(in srgb, ${a} 10%, transparent)`,
+                    border: `1px solid ${isActive ? a : `color-mix(in srgb, ${a} 25%, transparent)`}`,
+                    borderRadius: 'var(--radius-full)',
+                    textDecoration: 'none', whiteSpace: 'nowrap',
+                    transition: 'background 200ms ease, transform 150ms ease',
+                  }}
                 >
                   {lbl}
                 </Link>
@@ -133,9 +169,18 @@ export default async function CategoryPage({
           </div>
         </nav>
 
-        {/* Grille */}
+        {/* Grille 2 colonnes */}
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6) var(--space-24)' }}>
-          <ul role="list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--space-6)', listStyle: 'none', margin: 0, padding: 0 }}>
+          <ul
+            role="list"
+            className="article-grid-2col"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: 'var(--space-5)',
+              listStyle: 'none', margin: 0, padding: 0,
+            }}
+          >
             {paged.map((article) => (
               <li key={article.slug}>
                 <ArticleCard article={article} showCategory={false} />

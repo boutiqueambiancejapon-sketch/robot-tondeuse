@@ -807,8 +807,22 @@ body {
   }
 }
 @media (max-width: 560px) {
-  .article-grid {
-    grid-template-columns: 1fr;
+  .article-grid, .article-grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 2-col blog grid — responsive */
+@media (max-width: 700px) {
+  .article-grid-2col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Featured card — single column on mobile */
+@media (max-width: 700px) {
+  .article-card--featured {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -823,9 +837,29 @@ body {
   margin-bottom: var(--space-5);
 }
 
-/* Hover sur article-card — titre change de couleur, zéro box-shadow */
+/* Hover sur article-card — lift + glow + titre accent */
+.article-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--card-accent, var(--accent-1)) 40%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--card-accent, var(--accent-1)) 10%, transparent);
+}
 .article-card:hover .article-card-title {
-  color: var(--accent-1);
+  color: var(--card-accent, var(--accent-1));
+}
+
+/* Category pill hover */
+.category-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .article-card, .category-pill {
+    transition: none !important;
+  }
+  .article-card:hover {
+    transform: none;
+  }
 }
 
 /* Hover sur tool-card — border-left s'intensifie */

@@ -1,6 +1,6 @@
 /**
  * /blog — hub éditorial principal.
- * Article featured + grille paginée + onglets catégories.
+ * Article featured (hero card) + grille 2 colonnes + pills catégories colorées.
  * Server Component · ISR 3600s · searchParams: page
  */
 
@@ -16,7 +16,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
 export const revalidate = 3600
 
-const ARTICLES_PER_PAGE = 9
+const ARTICLES_PER_PAGE = 8
 
 type SearchParams = Promise<{ page?: string }>
 
@@ -66,7 +66,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
 
       <main id="main-content">
         {/* ── Hero ── */}
-        <section style={{ maxWidth: '1280px', margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-10)' }} className="blog-hero-inner">
+        <section style={{ maxWidth: '1280px', margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-8)' }} className="blog-hero-inner">
           <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
             <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
               <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Accueil</Link></li>
@@ -74,33 +74,58 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
               <li aria-current="page" style={{ color: 'var(--text-secondary)' }}>Blog</li>
             </ol>
           </nav>
-          <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(32px, 5vw, 60px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 'var(--space-3)' }}>
-            Blog
+          <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 'var(--space-3)' }}>
+            Nos articles
           </h1>
           <p style={{ fontSize: 'clamp(15px, 2vw, 17px)', color: 'var(--text-secondary)', maxWidth: '520px', lineHeight: 1.6 }}>
-            Tests, guides et analyses.
+            Tests terrain, comparatifs par marque et guides d'entretien.
+            {' '}<span style={{ color: 'var(--text-muted)' }}>{allArticles.length} articles publiés.</span>
           </p>
         </section>
 
-        {/* ── Onglets catégories ── */}
-        <nav aria-label="Filtrer par catégorie" style={{ borderBottom: '1px solid var(--border)', marginBottom: 'var(--space-10)' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)', display: 'flex', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+        {/* ── Category pills ── */}
+        <nav aria-label="Filtrer par catégorie" style={{ marginBottom: 'var(--space-10)' }}>
+          <div style={{
+            maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)',
+            display: 'flex', gap: 'var(--space-2)', overflowX: 'auto', WebkitOverflowScrolling: 'touch',
+            paddingBottom: 'var(--space-2)',
+          }}>
             <Link
               href="/blog"
               aria-current="page"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', padding: 'var(--space-3) var(--space-4)', fontSize: '13px', fontWeight: 700, color: 'var(--accent-1)', borderBottom: '2px solid var(--accent-1)', textDecoration: 'none', whiteSpace: 'nowrap' }}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                padding: '6px 16px', fontSize: '13px', fontWeight: 700,
+                color: 'var(--bg-primary)',
+                background: 'var(--accent-1)',
+                borderRadius: 'var(--radius-full)',
+                textDecoration: 'none', whiteSpace: 'nowrap',
+                transition: 'transform 150ms ease',
+              }}
             >
               Tous
-              <span style={{ fontSize: '11px', background: 'rgba(255,61,87,0.10)', borderRadius: 'var(--radius-full)', padding: '1px 6px' }}>
-                {allArticles.length}
-              </span>
+              <span style={{ fontSize: '11px', opacity: 0.8 }}>{allArticles.length}</span>
             </Link>
             {categories.map(({ slug, label, count }) => {
               const accent = CATEGORY_ACCENT[slug] ?? 'var(--accent-1)'
               return (
-                <Link key={slug} href={`/blog/${slug}`} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', padding: 'var(--space-3) var(--space-4)', fontSize: '13px', fontWeight: 500, color: 'var(--text-secondary)', borderBottom: '2px solid transparent', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                <Link
+                  key={slug}
+                  href={`/blog/${slug}`}
+                  className="category-pill"
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: '6px',
+                    padding: '6px 16px', fontSize: '13px', fontWeight: 600,
+                    color: accent,
+                    background: `color-mix(in srgb, ${accent} 10%, transparent)`,
+                    border: `1px solid color-mix(in srgb, ${accent} 25%, transparent)`,
+                    borderRadius: 'var(--radius-full)',
+                    textDecoration: 'none', whiteSpace: 'nowrap',
+                    transition: 'background 200ms ease, transform 150ms ease',
+                  }}
+                >
                   {label}
-                  <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{count}</span>
+                  <span style={{ fontSize: '11px', opacity: 0.6 }}>{count}</span>
                 </Link>
               )
             })}
@@ -114,14 +139,23 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
             <>
               {/* Article featured — page 1 uniquement */}
               {featured && currentPage === 1 && (
-                <div style={{ marginBottom: 'var(--space-10)' }}>
+                <div style={{ marginBottom: 'var(--space-8)' }}>
                   <ArticleCard article={featured} featured />
                 </div>
               )}
 
-              {/* Grille */}
+              {/* Grille 2 colonnes */}
               {paged.length > 0 && (
-                <ul role="list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 'var(--space-6)', listStyle: 'none', margin: 0, padding: 0 }}>
+                <ul
+                  role="list"
+                  className="article-grid-2col"
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: 'var(--space-5)',
+                    listStyle: 'none', margin: 0, padding: 0,
+                  }}
+                >
                   {paged.map((article) => (
                     <li key={`${article.categorie}/${article.slug}`}>
                       <ArticleCard article={article} />

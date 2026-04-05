@@ -1,7 +1,7 @@
 /**
- * ArticleCard — carte article éditoriale.
- * Si featureImage est présente → affiche l'image en haut de la carte.
- * Sinon → design typographique pur avec border-left/top accent.
+ * ArticleCard — carte article style magazine.
+ * Fond surface, tag coloré par type, hover glow + lift.
+ * Sans images : le type de contenu et la couleur font le travail visuel.
  * Server Component.
  */
 import Link from 'next/link'
@@ -16,90 +16,149 @@ type Props = {
   index?: number
 }
 
+/** Déduit le type d'article à partir du slug et de la catégorie. */
+function articleType(article: ArticleMeta): { label: string; icon: string } {
+  const s = article.slug
+  if (s.startsWith('test-') || s.includes('-avis')) return { label: 'Test', icon: '🔬' }
+  if (s.includes('-vs-') || s.includes('comparatif')) return { label: 'Comparatif', icon: '⚖️' }
+  if (article.categorie === 'entretien-pelouse') return { label: 'Entretien', icon: '🌱' }
+  return { label: 'Guide', icon: '📖' }
+}
+
 export function ArticleCard({ article, featured = false, showCategory = true, index }: Props) {
   const accent = CATEGORY_ACCENT[article.categorie] ?? 'var(--accent-1)'
   const label = CATEGORY_LABELS[article.categorie] ?? article.categorie
+  const type = articleType(article)
 
   if (featured) {
     return (
       <Link href={articleHref(article)} style={{ textDecoration: 'none', display: 'block' }}>
         <article
-          className="article-card"
+          className="article-card article-card--featured"
           style={{
-            borderLeft: article.featureImage ? 'none' : `4px solid ${accent}`,
-            paddingLeft: article.featureImage ? 0 : 'var(--space-6)',
-            paddingTop: 'var(--space-2)',
-            paddingBottom: 'var(--space-2)',
+            position: 'relative',
             overflow: 'hidden',
+            background: 'var(--bg-surface)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-lg)',
+            padding: 0,
+            display: 'grid',
+            gridTemplateColumns: article.featureImage ? '1fr 1fr' : '1fr',
+            transition: 'border-color 250ms ease, box-shadow 250ms ease',
           }}
         >
-          {article.featureImage && (
-            <Image
-              src={article.featureImage}
-              alt={article.title}
-              width={960}
-              height={540}
-              style={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border)',
-                marginBottom: 'var(--space-4)',
-              }}
-            />
-          )}
-          {showCategory && (
-            <p style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent, margin: '0 0 var(--space-3)' }}>
-              {label}
-            </p>
-          )}
-          <h2
+          {/* Gradient overlay */}
+          <div
+            aria-hidden="true"
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(24px, 3.5vw, 44px)',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
-              lineHeight: 1.1,
-              margin: '0 0 var(--space-4)',
-              textWrap: 'balance',
-              transition: 'color 180ms ease',
+              position: 'absolute',
+              inset: 0,
+              background: `radial-gradient(ellipse 80% 80% at 10% 20%, color-mix(in srgb, ${accent} 12%, transparent) 0%, transparent 70%)`,
+              pointerEvents: 'none',
+              zIndex: 0,
             }}
-            className="article-card-title"
-          >
-            {article.title}
-          </h2>
-          {article.description && (
-            <p style={{ fontSize: 'clamp(14px, 1.5vw, 16px)', color: 'var(--text-secondary)', lineHeight: 1.65, margin: '0 0 var(--space-4)', maxWidth: '680px' }}>
-              {article.description}
-            </p>
+          />
+
+          {article.featureImage && (
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <Image
+                src={article.featureImage}
+                alt={article.title}
+                width={960}
+                height={540}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: 'var(--radius-lg) 0 0 var(--radius-lg)',
+                }}
+              />
+            </div>
           )}
-          <div style={{ display: 'flex', gap: 'var(--space-3)', fontSize: '12px', color: 'var(--text-muted)', alignItems: 'center' }}>
-            <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-            <span aria-hidden="true">·</span>
-            <span>{article.readingTimeMin} min de lecture</span>
+
+          <div style={{ position: 'relative', zIndex: 1, padding: 'var(--space-8) var(--space-8) var(--space-6)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'var(--space-3)' }}>
+            {/* Type + Category pills */}
+            <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', gap: '4px',
+                fontSize: '11px', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase',
+                background: `color-mix(in srgb, ${accent} 15%, transparent)`,
+                color: accent, padding: '3px 10px', borderRadius: 'var(--radius-full)',
+              }}>
+                {type.label}
+              </span>
+              {showCategory && (
+                <span style={{
+                  fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase',
+                  color: 'var(--text-muted)', padding: '3px 10px', borderRadius: 'var(--radius-full)',
+                  border: '1px solid var(--border)',
+                }}>
+                  {label}
+                </span>
+              )}
+            </div>
+
+            <h2
+              className="article-card-title"
+              style={{
+                fontFamily: 'var(--next-font-display), system-ui, sans-serif',
+                fontSize: 'clamp(22px, 3vw, 36px)',
+                fontWeight: 800,
+                color: 'var(--text-primary)',
+                lineHeight: 1.15,
+                margin: 0,
+                textWrap: 'balance',
+                transition: 'color 200ms ease',
+              }}
+            >
+              {article.title}
+            </h2>
+
+            {article.description && (
+              <p style={{
+                fontSize: 'clamp(13px, 1.3vw, 15px)',
+                color: 'var(--text-secondary)',
+                lineHeight: 1.6,
+                margin: 0,
+                maxWidth: '540px',
+                display: '-webkit-box',
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }}>
+                {article.description}
+              </p>
+            )}
+
+            <div style={{ display: 'flex', gap: 'var(--space-3)', fontSize: '12px', color: 'var(--text-muted)', alignItems: 'center', marginTop: 'var(--space-2)' }}>
+              <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+              <span aria-hidden="true">·</span>
+              <span>{article.readingTimeMin} min de lecture</span>
+            </div>
           </div>
         </article>
       </Link>
     )
   }
 
-  const num = index !== undefined ? String(index + 1).padStart(2, '0') : null
-
+  // ── Standard card ──
   return (
     <Link href={articleHref(article)} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <article
         className="article-card"
         style={{
+          '--card-accent': accent,
           position: 'relative',
           overflow: 'hidden',
-          borderTop: article.featureImage ? 'none' : `3px solid ${accent}`,
-          paddingTop: article.featureImage ? 0 : 'var(--space-5)',
-          paddingBottom: 'var(--space-4)',
+          background: 'var(--bg-surface)',
+          border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)',
+          padding: 0,
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          gap: 'var(--space-2)',
-        }}
+          transition: 'border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease',
+        } as React.CSSProperties}
       >
         {article.featureImage ? (
           <Image
@@ -109,60 +168,86 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             height={270}
             style={{
               width: '100%',
-              height: 'auto',
-              borderRadius: 'var(--radius-sm)',
-              border: '1px solid var(--border)',
-              marginBottom: 'var(--space-2)',
+              height: '180px',
+              objectFit: 'cover',
+              borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
             }}
           />
         ) : (
-          /* Numéro oversize en watermark — seulement sans image */
-          num && (
-            <span
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                top: '-8px',
-                right: 'var(--space-2)',
-                fontFamily: 'var(--next-font-mono), monospace',
-                fontSize: '72px',
-                fontWeight: 800,
-                color: accent,
-                opacity: 0.06,
-                lineHeight: 1,
-                pointerEvents: 'none',
-                userSelect: 'none',
-              }}
-            >
-              {num}
+          /* Visual band — colored accent stripe at top */
+          <div
+            aria-hidden="true"
+            style={{
+              height: '4px',
+              background: `linear-gradient(90deg, ${accent}, color-mix(in srgb, ${accent} 40%, transparent))`,
+              borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
+            }}
+          />
+        )}
+
+        <div style={{ padding: 'var(--space-5) var(--space-5) var(--space-4)', flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+          {/* Type + Category pills */}
+          <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', gap: '3px',
+              fontSize: '10px', fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase',
+              background: `color-mix(in srgb, ${accent} 12%, transparent)`,
+              color: accent, padding: '2px 8px', borderRadius: 'var(--radius-full)',
+            }}>
+              {type.label}
             </span>
-          )
-        )}
-        {showCategory && (
-          <p style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: '10px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent, margin: 0 }}>
-            {label}
-          </p>
-        )}
-        <h2
-          className="article-card-title"
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '16px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            lineHeight: 1.25,
-            textWrap: 'balance',
-            flex: 1,
-            margin: 0,
-            transition: 'color 180ms ease',
-          }}
-        >
-          {article.title}
-        </h2>
-        <div style={{ display: 'flex', gap: 'var(--space-3)', fontSize: '11px', color: 'var(--text-muted)', marginTop: 'auto', alignItems: 'center' }}>
-          <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
-          <span aria-hidden="true">·</span>
-          <span>{article.readingTimeMin} min</span>
+            {showCategory && (
+              <span style={{
+                fontSize: '10px', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase',
+                color: 'var(--text-muted)', padding: '2px 8px', borderRadius: 'var(--radius-full)',
+                border: '1px solid var(--border)',
+              }}>
+                {label}
+              </span>
+            )}
+          </div>
+
+          <h2
+            className="article-card-title"
+            style={{
+              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
+              fontSize: '17px',
+              fontWeight: 700,
+              color: 'var(--text-primary)',
+              lineHeight: 1.3,
+              flex: 1,
+              margin: 0,
+              textWrap: 'balance',
+              transition: 'color 200ms ease',
+            }}
+          >
+            {article.title}
+          </h2>
+
+          {article.description && (
+            <p style={{
+              fontSize: '13px',
+              color: 'var(--text-muted)',
+              lineHeight: 1.5,
+              margin: 0,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}>
+              {article.description}
+            </p>
+          )}
+
+          <div style={{
+            display: 'flex', gap: 'var(--space-3)', fontSize: '11px', color: 'var(--text-muted)',
+            marginTop: 'auto', paddingTop: 'var(--space-3)', alignItems: 'center',
+            borderTop: '1px solid var(--border)',
+          }}>
+            <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
+            <span aria-hidden="true">·</span>
+            <span>{article.readingTimeMin} min</span>
+          </div>
         </div>
       </article>
     </Link>
