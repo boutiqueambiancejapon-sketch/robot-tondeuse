@@ -837,9 +837,22 @@ body {
   margin-bottom: var(--space-5);
 }
 
-/* Hover sur article-card — titre accent, pas de lift excessif */
+/* Aurora separator — slow drift animation */
+.aurora-line {
+  animation: aurora-drift 6s ease-in-out infinite alternate;
+}
+@keyframes aurora-drift {
+  0% { background-position: 0% 50%; opacity: 0.35; }
+  50% { opacity: 0.6; }
+  100% { background-position: 100% 50%; opacity: 0.35; }
+}
+
+/* Hover sur article-card — titre accent + aurora brightens */
 .article-card:hover .article-card-title {
   color: var(--card-accent, var(--accent-1));
+}
+.article-card:hover .aurora-line {
+  opacity: 0.9 !important;
 }
 
 /* Category pill hover */
@@ -851,6 +864,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .article-card, .category-pill {
     transition: none !important;
+  }
+  .aurora-line {
+    animation: none !important;
   }
 }
 

@@ -136,6 +136,22 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
               <span>{article.readingTimeMin} min de lecture</span>
             </div>
           </div>
+
+          {/* Aurora separator */}
+          <div
+            className="aurora-line"
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '2px',
+              background: `linear-gradient(90deg, transparent 0%, ${accent} 30%, color-mix(in srgb, ${accent} 50%, var(--accent-2)) 60%, transparent 100%)`,
+              backgroundSize: '200% 100%',
+              opacity: 0.5,
+            }}
+          />
         </article>
       </Link>
     )
@@ -154,13 +170,13 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
           borderTop: 'none',
           borderLeft: 'none',
           borderRight: 'none',
-          borderBottom: '1px solid var(--border)',
+          borderBottom: 'none',
           borderRadius: 0,
           padding: 0,
+          paddingBottom: 'var(--space-5)',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          transition: 'border-color 250ms ease, transform 250ms ease',
         } as React.CSSProperties}
       >
         {article.featureImage && (
@@ -240,6 +256,18 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             <span>{article.readingTimeMin} min</span>
           </div>
         </div>
+
+        {/* Aurora separator */}
+        <div
+          className="aurora-line"
+          aria-hidden="true"
+          style={{
+            height: '2px',
+            background: `linear-gradient(90deg, transparent 0%, ${accent} 30%, color-mix(in srgb, ${accent} 50%, var(--accent-2)) 60%, transparent 100%)`,
+            backgroundSize: '200% 100%',
+            opacity: 0.5,
+          }}
+        />
       </article>
     </Link>
   )
