@@ -39,12 +39,12 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             position: 'relative',
             overflow: 'hidden',
             background: 'var(--bg-surface)',
-            border: '1px solid var(--border)',
-            borderRadius: 'var(--radius-lg)',
+            border: 'none',
+            borderBottom: '1px solid var(--border)',
+            borderRadius: 0,
             padding: 0,
             display: 'grid',
             gridTemplateColumns: article.featureImage ? '1fr 1fr' : '1fr',
-            transition: 'border-color 250ms ease, box-shadow 250ms ease',
           }}
         >
           {/* Gradient overlay */}
@@ -150,17 +150,20 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
           '--card-accent': accent,
           position: 'relative',
           overflow: 'hidden',
-          background: 'var(--bg-surface)',
-          border: '1px solid var(--border)',
-          borderRadius: 'var(--radius-lg)',
+          background: 'transparent',
+          borderTop: 'none',
+          borderLeft: 'none',
+          borderRight: 'none',
+          borderBottom: '1px solid var(--border)',
+          borderRadius: 0,
           padding: 0,
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          transition: 'border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease',
+          transition: 'border-color 250ms ease, transform 250ms ease',
         } as React.CSSProperties}
       >
-        {article.featureImage ? (
+        {article.featureImage && (
           <Image
             src={article.featureImage}
             alt={article.title}
@@ -170,22 +173,11 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
               width: '100%',
               height: '180px',
               objectFit: 'cover',
-              borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
-            }}
-          />
-        ) : (
-          /* Visual band — colored accent stripe at top */
-          <div
-            aria-hidden="true"
-            style={{
-              height: '4px',
-              background: `linear-gradient(90deg, ${accent}, color-mix(in srgb, ${accent} 40%, transparent))`,
-              borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
             }}
           />
         )}
 
-        <div style={{ padding: 'var(--space-5) var(--space-5) var(--space-4)', flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+        <div style={{ padding: 'var(--space-4) 0 var(--space-5)', flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
           {/* Type + Category pills */}
           <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
             <span style={{
@@ -241,8 +233,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
 
           <div style={{
             display: 'flex', gap: 'var(--space-3)', fontSize: '11px', color: 'var(--text-muted)',
-            marginTop: 'auto', paddingTop: 'var(--space-3)', alignItems: 'center',
-            borderTop: '1px solid var(--border)',
+            marginTop: 'auto', paddingTop: 'var(--space-2)', alignItems: 'center',
           }}>
             <time dateTime={article.publishedAt}>{formatDate(article.publishedAt)}</time>
             <span aria-hidden="true">·</span>

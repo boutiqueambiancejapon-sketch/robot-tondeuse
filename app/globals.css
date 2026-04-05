@@ -837,12 +837,7 @@ body {
   margin-bottom: var(--space-5);
 }
 
-/* Hover sur article-card — lift + glow + titre accent */
-.article-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--card-accent, var(--accent-1)) 40%, transparent);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--card-accent, var(--accent-1)) 10%, transparent);
-}
+/* Hover sur article-card — titre accent, pas de lift excessif */
 .article-card:hover .article-card-title {
   color: var(--card-accent, var(--accent-1));
 }
@@ -856,9 +851,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .article-card, .category-pill {
     transition: none !important;
-  }
-  .article-card:hover {
-    transform: none;
   }
 }
 
