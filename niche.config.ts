@@ -97,7 +97,7 @@ export type NicheConfig = {
 
 export const niche: NicheConfig = {
   siteName: 'Mon Robot Tondeuse',
-  domain: 'mon-robot-tondeuse.be',
+  domain: 'quel-robot-tondeuse.com',
   tagline: 'Votre pelouse mérite un robot. On vous aide à choisir.',
 
   entity: 'robot tondeuse',

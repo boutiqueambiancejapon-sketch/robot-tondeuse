@@ -1,6 +1,6 @@
 siteName: "Mon Robot Tondeuse"
 siteDescription: "Votre pelouse mérite un robot. On vous aide à choisir. Comparatifs, quiz et simulateur pour trouver le bon robot tondeuse."
-siteUrl: "https://mon-robot-tondeuse.be"
+siteUrl: "https://quel-robot-tondeuse.com"
 nav:
   - label: "Blog"
     url: "/blog"
