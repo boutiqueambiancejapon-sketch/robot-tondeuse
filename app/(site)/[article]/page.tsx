@@ -1,8 +1,7 @@
 /**
- * /[article] — articles standalone (ex-WordPress).
- * Sert les MDX depuis content/articles/[slug].mdx aux mêmes URLs que WordPress.
- * Intégré au système blog : apparaît dans listings, auteur, articles liés.
- * Server Component.
+ * /[article] — articles standalone (content/articles/[slug].mdx).
+ * Layout 2 colonnes : contenu + sidebar (TOC, CTA, related).
+ * Server Component · ISR 86400s.
  */
 
 import { notFound } from 'next/navigation'
@@ -17,6 +16,7 @@ import { AISummarize } from '@/components/blog/AISummarize'
 import { getCTAsForCategory } from '@/lib/article-ctas'
 import { getStandaloneArticle, getAllStandaloneSlugs } from '@/lib/articles'
 import { niche } from '@/niche.config'
+import { extractToc } from '@/lib/toc'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 import { Tip } from '@/components/blog/Tip'
@@ -35,6 +35,7 @@ import { FaqAccordion } from '@/components/blog/FaqAccordion'
 import { AuthorByline } from '@/components/ui/AuthorByline'
 import { AuthorCard } from '@/components/ui/AuthorCard'
 import { StickyCTA } from '@/components/blog/StickyCTA'
+import { ArticleSidebar } from '@/components/blog/ArticleSidebar'
 import type { ReactNode } from 'react'
 
 export const revalidate = 86400
@@ -69,17 +70,33 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
+/** Generates a URL-safe slug matching the TOC extraction. */
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
 export default async function StandaloneArticlePage({ params }: { params: Params }) {
   const { article: slug } = await params
   const data = getStandaloneArticle(slug)
   if (!data) notFound()
 
   const { meta, content } = data
+  const toc = extractToc(content)
   const { content: mdxContent } = await compileMDX({
     source: content,
     options: { mdxOptions: { remarkPlugins: [remarkGfm, remarkAmazonAffiliate] } },
     components: {
       Tip, Warning, Verdict, ProConTable, PullQuote, StatCard, StatRow, CompareBar, CompareBarGroup, ProductCTA, ArticleImage, ProductCarousel,
+      h2: ({ children }: { children: ReactNode }) => {
+        const text = typeof children === 'string' ? children : String(children)
+        const id = slugify(text)
+        return <h2 id={id}>{children}</h2>
+      },
       table: ({ children }: { children: ReactNode }) => (
         <div className="table-scroll-wrap"><table>{children}</table></div>
       ),
@@ -95,7 +112,8 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL },
-        { '@type': 'ListItem', position: 2, name: meta.title, item: `${SITE_URL}/${slug}` },
+        { '@type': 'ListItem', position: 2, name: catLabel, item: `${SITE_URL}/blog/${meta.categorie}` },
+        { '@type': 'ListItem', position: 3, name: meta.title, item: `${SITE_URL}/${slug}` },
       ],
     },
     {
@@ -136,15 +154,16 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       <ReadingProgress />
       <main id="main-content">
         <article>
+          {/* Header — bande pleine largeur */}
           <div className="article-hero-band">
-            <header style={{ maxWidth: '760px', margin: '0 auto', padding: 'var(--space-12) var(--space-6) var(--space-8)' }}>
+            <header style={{ maxWidth: '1120px', margin: '0 auto', padding: 'var(--space-12) var(--space-6) var(--space-8)' }}>
               <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
                 <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
                   <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Accueil</Link></li>
                   <li aria-hidden="true">›</li>
                   <li><Link href="/blog" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Blog</Link></li>
                   <li aria-hidden="true">›</li>
-                  <li style={{ color: 'var(--text-secondary)' }}>{catLabel}</li>
+                  <li><Link href={`/blog/${meta.categorie}`} style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{catLabel}</Link></li>
                 </ol>
               </nav>
 
@@ -152,7 +171,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
                 {catLabel}
               </span>
 
-              <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.15, marginBottom: 'var(--space-5)', textWrap: 'balance' }}>
+              <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.15, marginBottom: 'var(--space-5)', textWrap: 'balance', maxWidth: '760px' }}>
                 {meta.title}
               </h1>
 
@@ -162,78 +181,91 @@ export default async function StandaloneArticlePage({ params }: { params: Params
 
           {/* Feature Image */}
           {meta.featureImage && (
-            <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 var(--space-6) var(--space-6)' }}>
+            <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 var(--space-6) var(--space-6)' }}>
               <Image
                 src={meta.featureImage}
                 alt={meta.title}
                 width={760}
                 height={400}
                 priority
-                style={{ width: '100%', height: 'auto', borderRadius: 'var(--radius-lg, 12px)', objectFit: 'cover' }}
+                style={{ width: '100%', maxWidth: '760px', height: 'auto', borderRadius: 'var(--radius-lg, 12px)', objectFit: 'cover' }}
               />
             </div>
           )}
 
-          <div style={{ maxWidth: '760px', margin: '0 auto', padding: '0 var(--space-6) var(--space-12)' }}>
-            {meta.aiSummary && meta.aiSummary.length > 0 && (
-              <AISummarize
-                points={meta.aiSummary}
-                articleTitle={meta.title}
-                articleUrl={`${SITE_URL}/${slug}`}
-              />
-            )}
+          {/* ── Body : content + sidebar ── */}
+          <div className="article-layout">
+            {/* Main content column */}
+            <div className="article-content">
+              {meta.aiSummary && meta.aiSummary.length > 0 && (
+                <AISummarize
+                  points={meta.aiSummary}
+                  articleTitle={meta.title}
+                  articleUrl={`${SITE_URL}/${slug}`}
+                />
+              )}
 
-            <div className="prose-article">{mdxContent}</div>
-            <AutoProductCTAs ctas={getCTAsForCategory(meta.categorie)} />
+              <div className="prose-article">{mdxContent}</div>
+              <AutoProductCTAs ctas={getCTAsForCategory(meta.categorie)} />
 
-            {/* FAQ */}
-            {meta.faq && meta.faq.length > 0 && (
-              <section aria-labelledby="faq-titre" style={{ marginTop: 'var(--space-12)' }}>
-                <h2 id="faq-titre" style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 'var(--space-6)' }}>
-                  Questions fréquentes
-                </h2>
-                <FaqAccordion items={meta.faq} />
-              </section>
-            )}
+              {/* FAQ */}
+              {meta.faq && meta.faq.length > 0 && (
+                <section aria-labelledby="faq-titre" style={{ marginTop: 'var(--space-12)' }}>
+                  <h2 id="faq-titre" style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 'var(--space-6)' }}>
+                    Questions fréquentes
+                  </h2>
+                  <FaqAccordion items={meta.faq} />
+                </section>
+              )}
 
-            {/* Continuer votre lecture */}
-            {related.length > 0 && (
-              <section aria-labelledby="related-titre" style={{ marginTop: 'var(--space-12)' }}>
-                <h2 id="related-titre" style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 'var(--space-5)' }}>
-                  Continuer votre lecture
-                </h2>
-                <ul role="list" style={{ display: 'flex', flexDirection: 'column', gap: 0, listStyle: 'none', borderTop: '1px solid var(--border)' }}>
-                  {related.map((a, i) => (
-                    <li key={a.slug} style={{ borderBottom: '1px solid var(--border)' }}>
-                      <Link href={articleHref(a)} className="related-link" style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: 'var(--space-4)', padding: 'var(--space-4) 0' }}>
-                        <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: '12px', color: 'var(--text-muted)', flexShrink: 0, minWidth: '24px' }}>
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                        <span style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                          <span style={{ fontFamily: 'var(--next-font-primary), system-ui, sans-serif', fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.35 }}>
-                            {a.title}
+              {/* Related — mobile only (desktop shows in sidebar) */}
+              {related.length > 0 && (
+                <section aria-labelledby="related-titre" className="article-related-mobile" style={{ marginTop: 'var(--space-12)' }}>
+                  <h2 id="related-titre" style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 'var(--space-5)' }}>
+                    Continuer votre lecture
+                  </h2>
+                  <ul role="list" style={{ display: 'flex', flexDirection: 'column', gap: 0, listStyle: 'none', borderTop: '1px solid var(--border)' }}>
+                    {related.map((a, i) => (
+                      <li key={a.slug} style={{ borderBottom: '1px solid var(--border)' }}>
+                        <Link href={articleHref(a)} className="related-link" style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: 'var(--space-4)', padding: 'var(--space-4) 0' }}>
+                          <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: '12px', color: 'var(--text-muted)', flexShrink: 0, minWidth: '24px' }}>
+                            {String(i + 1).padStart(2, '0')}
                           </span>
-                          <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-                            {CATEGORY_LABELS[a.categorie] ?? a.categorie} · {a.readingTimeMin} min
+                          <span style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                            <span style={{ fontFamily: 'var(--next-font-primary), system-ui, sans-serif', fontSize: '15px', fontWeight: 600, color: 'var(--text-primary)', lineHeight: 1.35 }}>
+                              {a.title}
+                            </span>
+                            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                              {CATEGORY_LABELS[a.categorie] ?? a.categorie} · {a.readingTimeMin} min
+                            </span>
                           </span>
-                        </span>
-                        <span style={{ color: 'var(--text-muted)', fontSize: '14px', flexShrink: 0 }} aria-hidden="true">→</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+                          <span style={{ color: 'var(--text-muted)', fontSize: '14px', flexShrink: 0 }} aria-hidden="true">→</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
-            {/* AuthorCard */}
-            <div style={{ marginTop: 'var(--space-10)' }}>
-              <AuthorCard authorSlug={niche.author.slug || 'auteur'} bio={niche.author.bio || ''} variant="inline" />
+              {/* AuthorCard */}
+              <div style={{ marginTop: 'var(--space-10)' }}>
+                <AuthorCard authorSlug={niche.author.slug || 'auteur'} bio={niche.author.bio || ''} variant="inline" />
+              </div>
             </div>
+
+            {/* Sidebar — desktop only */}
+            <ArticleSidebar
+              toc={toc}
+              stickyCta={meta.stickyCta}
+              stickyCtaMessage={meta.stickyCtaMessage}
+              related={related}
+              affiliateTag={niche.affiliateTag}
+            />
           </div>
         </article>
       </main>
 
-      {/* Sticky CTA */}
+      {/* Sticky CTA — mobile only */}
       {meta.stickyCta && meta.stickyCta.length > 0 && (
         <StickyCTA
           items={meta.stickyCta}
