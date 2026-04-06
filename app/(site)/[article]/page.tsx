@@ -80,6 +80,16 @@ function slugify(text: string): string {
     .replace(/(^-|-$)/g, '')
 }
 
+/** Recursively extracts text from React children. */
+function extractText(node: ReactNode): string {
+  if (typeof node === 'string') return node
+  if (typeof node === 'number') return String(node)
+  if (!node) return ''
+  if (Array.isArray(node)) return node.map(extractText).join('')
+  if (typeof node === 'object' && 'props' in node) return extractText(node.props.children)
+  return ''
+}
+
 export default async function StandaloneArticlePage({ params }: { params: Params }) {
   const { article: slug } = await params
   const data = getStandaloneArticle(slug)
@@ -93,8 +103,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
     components: {
       Tip, Warning, Verdict, ProConTable, PullQuote, StatCard, StatRow, CompareBar, CompareBarGroup, ProductCTA, ArticleImage, ProductCarousel,
       h2: ({ children }: { children: ReactNode }) => {
-        const text = typeof children === 'string' ? children : String(children)
-        const id = slugify(text)
+        const id = slugify(extractText(children))
         return <h2 id={id}>{children}</h2>
       },
       table: ({ children }: { children: ReactNode }) => (
