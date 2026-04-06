@@ -837,6 +837,60 @@ body {
   margin-bottom: var(--space-5);
 }
 
+/* ── Article layout: content + sidebar ── */
+.article-layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--space-6) var(--space-12);
+  display: grid;
+  grid-template-columns: minmax(0, 760px) 280px;
+  gap: var(--space-12);
+  align-items: start;
+}
+.article-content {
+  min-width: 0;
+}
+.article-sidebar {
+  display: block;
+}
+.article-sidebar-inner {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-top: var(--space-2);
+}
+/* Hide related articles in main content on desktop (sidebar has them) */
+.article-related-mobile {
+  display: none;
+}
+/* Sidebar hover effects */
+.toc-link:hover {
+  color: var(--accent-1) !important;
+  border-left-color: var(--accent-1) !important;
+}
+.sidebar-cta-link:hover {
+  border-color: var(--accent-1) !important;
+}
+.sidebar-related-link:hover .sidebar-related-title {
+  color: var(--accent-1) !important;
+}
+
+/* ── Responsive: sidebar hidden under 1100px ── */
+@media (max-width: 1100px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    gap: 0;
+  }
+  .article-sidebar {
+    display: none;
+  }
+  .article-related-mobile {
+    display: block;
+  }
+}
+
 /* Aurora separator — slow drift animation */
 .aurora-line {
   animation: aurora-drift 6s ease-in-out infinite alternate;

@@ -1,7 +1,7 @@
 /**
  * /blog/[categorie]/[slug] — article MDX.
- * Rendu serveur : AISummarize · AuthorByline · MDX content · FAQ · related · AuthorCard · JSON-LD.
- * next-mdx-remote/rsc pour le rendu MDX côté serveur (App Router).
+ * Layout 2 colonnes : contenu + sidebar (TOC, CTA, related).
+ * Server Component · ISR 86400s.
  */
 
 import { notFound } from 'next/navigation'
@@ -14,6 +14,7 @@ import { remarkAmazonAffiliate } from '@/lib/plugins/remarkAmazonAffiliate'
 import { getAllArticles, getArticleRaw, articleExists, getRelatedArticles, articleHref } from '@/lib/blog'
 import { currentYear } from '@/lib/utils/year'
 import { niche } from '@/niche.config'
+import { extractToc } from '@/lib/toc'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 import { AISummarize } from '@/components/blog/AISummarize'
@@ -35,6 +36,7 @@ import { getCTAsForCategory } from '@/lib/article-ctas'
 import { AuthorByline } from '@/components/ui/AuthorByline'
 import { AuthorCard } from '@/components/ui/AuthorCard'
 import { StickyCTA } from '@/components/blog/StickyCTA'
+import { ArticleSidebar } from '@/components/blog/ArticleSidebar'
 import type { ReactNode } from 'react'
 
 export const revalidate = 86400
@@ -81,11 +83,22 @@ const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
   niche.categories.map((c) => [c.slug, c.label])
 )
 
+/** Generates a URL-safe slug matching the TOC extraction. */
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
 export default async function ArticlePage({ params }: { params: Params }) {
   const { categorie, slug } = await params
   if (!articleExists(categorie, slug)) notFound()
 
   const { meta, content } = getArticleRaw(categorie, slug)
+  const toc = extractToc(content)
   const { content: mdxContent } = await compileMDX({
     source: content,
     options: { mdxOptions: { remarkPlugins: [remarkGfm, remarkAmazonAffiliate] } },
@@ -95,6 +108,11 @@ export default async function ArticlePage({ params }: { params: Params }) {
       Verdict,
       ProConTable,
       PullQuote, StatCard, StatRow, CompareBar, CompareBarGroup, ProductCTA, ArticleImage, ProductCarousel,
+      h2: ({ children }: { children: ReactNode }) => {
+        const text = typeof children === 'string' ? children : String(children)
+        const id = slugify(text)
+        return <h2 id={id}>{children}</h2>
+      },
       table: ({ children }: { children: ReactNode }) => (
         <div className="table-scroll-wrap">
           <table>{children}</table>
@@ -176,11 +194,11 @@ export default async function ArticlePage({ params }: { params: Params }) {
       <ReadingProgress />
       <main id="main-content">
         <article>
-          {/* Header — bande gradient accent-4 pleine largeur */}
+          {/* Header — bande pleine largeur */}
           <div className="article-hero-band">
           <header
             style={{
-              maxWidth: '760px',
+              maxWidth: '1120px',
               margin: '0 auto',
               padding: 'var(--space-12) var(--space-6) var(--space-8)',
             }}
@@ -212,7 +230,14 @@ export default async function ArticlePage({ params }: { params: Params }) {
                   </Link>
                 </li>
                 <li aria-hidden="true">›</li>
-                <li style={{ color: 'var(--text-secondary)' }}>{catLabel}</li>
+                <li>
+                  <Link
+                    href={`/blog/${categorie}`}
+                    style={{ color: 'var(--text-muted)', textDecoration: 'none' }}
+                  >
+                    {catLabel}
+                  </Link>
+                </li>
               </ol>
             </nav>
 
@@ -243,6 +268,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                 lineHeight: 1.15,
                 marginBottom: 'var(--space-5)',
                 textWrap: 'balance',
+                maxWidth: '760px',
               }}
             >
               {meta.title}
@@ -260,7 +286,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
           {/* Feature Image */}
           {meta.featureImage && (
-            <div style={{ maxWidth: '960px', margin: '0 auto', padding: '0 var(--space-6) var(--space-8)' }}>
+            <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 var(--space-6) var(--space-8)' }}>
               <Image
                 src={meta.featureImage}
                 alt={meta.title}
@@ -269,6 +295,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                 priority
                 style={{
                   width: '100%',
+                  maxWidth: '760px',
                   height: 'auto',
                   borderRadius: 'var(--radius-lg)',
                   border: '1px solid var(--border)',
@@ -277,144 +304,151 @@ export default async function ArticlePage({ params }: { params: Params }) {
             </div>
           )}
 
-          {/* Body */}
-          <div
-            style={{
-              maxWidth: '760px',
-              margin: '0 auto',
-              padding: '0 var(--space-6) var(--space-12)',
-            }}
-          >
-            {/* AISummarize */}
-            {meta.aiSummary && meta.aiSummary.length > 0 && (
-              <AISummarize
-                points={meta.aiSummary}
-                articleTitle={meta.title}
-                articleUrl={`${SITE_URL}/blog/${categorie}/${slug}`}
-              />
-            )}
+          {/* ── Body : content + sidebar ── */}
+          <div className="article-layout">
+            {/* Main content column */}
+            <div className="article-content">
+              {/* AISummarize */}
+              {meta.aiSummary && meta.aiSummary.length > 0 && (
+                <AISummarize
+                  points={meta.aiSummary}
+                  articleTitle={meta.title}
+                  articleUrl={`${SITE_URL}/blog/${categorie}/${slug}`}
+                />
+              )}
 
-            {/* MDX content */}
-            <div className="prose-article">{mdxContent}</div>
-            <AutoProductCTAs ctas={getCTAsForCategory(categorie)} />
+              {/* MDX content */}
+              <div className="prose-article">{mdxContent}</div>
+              <AutoProductCTAs ctas={getCTAsForCategory(categorie)} />
 
-            {/* CTA outil contextuel */}
-            <ToolCTA categorie={categorie} />
+              {/* CTA outil contextuel */}
+              <ToolCTA categorie={categorie} />
 
-            {/* FAQ */}
-            {meta.faq && meta.faq.length > 0 && (
-              <section
-                aria-labelledby="faq-titre"
-                style={{ marginTop: 'var(--space-12)' }}
-              >
-                <h2
-                  id="faq-titre"
-                  style={{
-                    fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                    fontSize: 'clamp(20px, 3vw, 28px)',
-                    fontWeight: 800,
-                    color: 'var(--text-primary)',
-                    marginBottom: 'var(--space-6)',
-                    textWrap: 'balance',
-                  }}
+              {/* FAQ */}
+              {meta.faq && meta.faq.length > 0 && (
+                <section
+                  aria-labelledby="faq-titre"
+                  style={{ marginTop: 'var(--space-12)' }}
                 >
-                  Questions fréquentes
-                </h2>
-                <FaqAccordion items={meta.faq} />
-              </section>
-            )}
+                  <h2
+                    id="faq-titre"
+                    style={{
+                      fontFamily: 'var(--next-font-display), system-ui, sans-serif',
+                      fontSize: 'clamp(20px, 3vw, 28px)',
+                      fontWeight: 800,
+                      color: 'var(--text-primary)',
+                      marginBottom: 'var(--space-6)',
+                      textWrap: 'balance',
+                    }}
+                  >
+                    Questions fréquentes
+                  </h2>
+                  <FaqAccordion items={meta.faq} />
+                </section>
+              )}
 
-            {/* Continuer votre lecture */}
-            {related.length > 0 && (
-              <section
-                aria-labelledby="related-titre"
-                style={{ marginTop: 'var(--space-12)' }}
-              >
-                <h2
-                  id="related-titre"
-                  style={{
-                    fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                    fontSize: 'clamp(18px, 2.5vw, 22px)',
-                    fontWeight: 800,
-                    color: 'var(--text-primary)',
-                    marginBottom: 'var(--space-5)',
-                    letterSpacing: '-0.01em',
-                  }}
+              {/* Related — visible only on mobile (desktop shows in sidebar) */}
+              {related.length > 0 && (
+                <section
+                  aria-labelledby="related-titre"
+                  className="article-related-mobile"
+                  style={{ marginTop: 'var(--space-12)' }}
                 >
-                  Continuer votre lecture
-                </h2>
-                <ul
-                  role="list"
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 0,
-                    listStyle: 'none',
-                    borderTop: '1px solid var(--border)',
-                  }}
-                >
-                  {related.map((a, i) => (
-                    <li key={`${a.categorie}/${a.slug}`} style={{ borderBottom: '1px solid var(--border)' }}>
-                      <Link
-                        href={articleHref(a)}
-                        className="related-link"
-                        style={{
-                          textDecoration: 'none',
-                          display: 'flex',
-                          alignItems: 'baseline',
-                          gap: 'var(--space-4)',
-                          padding: 'var(--space-4) 0',
-                        }}
-                      >
-                        <span
+                  <h2
+                    id="related-titre"
+                    style={{
+                      fontFamily: 'var(--next-font-display), system-ui, sans-serif',
+                      fontSize: 'clamp(18px, 2.5vw, 22px)',
+                      fontWeight: 800,
+                      color: 'var(--text-primary)',
+                      marginBottom: 'var(--space-5)',
+                      letterSpacing: '-0.01em',
+                    }}
+                  >
+                    Continuer votre lecture
+                  </h2>
+                  <ul
+                    role="list"
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 0,
+                      listStyle: 'none',
+                      borderTop: '1px solid var(--border)',
+                    }}
+                  >
+                    {related.map((a, i) => (
+                      <li key={`${a.categorie}/${a.slug}`} style={{ borderBottom: '1px solid var(--border)' }}>
+                        <Link
+                          href={articleHref(a)}
+                          className="related-link"
                           style={{
-                            fontFamily: 'var(--next-font-mono), monospace',
-                            fontSize: '12px',
-                            color: 'var(--text-muted)',
-                            flexShrink: 0,
-                            minWidth: '24px',
+                            textDecoration: 'none',
+                            display: 'flex',
+                            alignItems: 'baseline',
+                            gap: 'var(--space-4)',
+                            padding: 'var(--space-4) 0',
                           }}
                         >
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
-                        <span style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2px' }}>
                           <span
                             style={{
-                              fontFamily: 'var(--next-font-primary), system-ui, sans-serif',
-                              fontSize: '15px',
-                              fontWeight: 600,
-                              color: 'var(--text-primary)',
-                              lineHeight: 1.35,
+                              fontFamily: 'var(--next-font-mono), monospace',
+                              fontSize: '12px',
+                              color: 'var(--text-muted)',
+                              flexShrink: 0,
+                              minWidth: '24px',
                             }}
                           >
-                            {a.title}
+                            {String(i + 1).padStart(2, '0')}
                           </span>
-                          <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-                            {CATEGORY_LABELS[a.categorie] ?? a.categorie} · {a.readingTimeMin} min
+                          <span style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                            <span
+                              style={{
+                                fontFamily: 'var(--next-font-primary), system-ui, sans-serif',
+                                fontSize: '15px',
+                                fontWeight: 600,
+                                color: 'var(--text-primary)',
+                                lineHeight: 1.35,
+                              }}
+                            >
+                              {a.title}
+                            </span>
+                            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
+                              {CATEGORY_LABELS[a.categorie] ?? a.categorie} · {a.readingTimeMin} min
+                            </span>
                           </span>
-                        </span>
-                        <span style={{ color: 'var(--text-muted)', fontSize: '14px', flexShrink: 0 }} aria-hidden="true">→</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+                          <span style={{ color: 'var(--text-muted)', fontSize: '14px', flexShrink: 0 }} aria-hidden="true">→</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
-            {/* AuthorCard */}
-            <div style={{ marginTop: 'var(--space-10)' }}>
-              <AuthorCard
-                authorSlug={niche.author.slug || 'auteur'}
-                authorName={niche.author.name || 'Auteur'}
-                bio={niche.author.bio || ''}
-                variant="inline"
-              />
+              {/* AuthorCard */}
+              <div style={{ marginTop: 'var(--space-10)' }}>
+                <AuthorCard
+                  authorSlug={niche.author.slug || 'auteur'}
+                  authorName={niche.author.name || 'Auteur'}
+                  bio={niche.author.bio || ''}
+                  variant="inline"
+                />
+              </div>
             </div>
+
+            {/* Sidebar — desktop only */}
+            <ArticleSidebar
+              toc={toc}
+              stickyCta={meta.stickyCta}
+              stickyCtaMessage={meta.stickyCtaMessage}
+              related={related}
+              affiliateTag={niche.affiliateTag}
+            />
           </div>
         </article>
       </main>
 
-      {/* Sticky CTA */}
+      {/* Sticky CTA — mobile only (sidebar has CTAs on desktop) */}
       {meta.stickyCta && meta.stickyCta.length > 0 && (
         <StickyCTA
           items={meta.stickyCta}
