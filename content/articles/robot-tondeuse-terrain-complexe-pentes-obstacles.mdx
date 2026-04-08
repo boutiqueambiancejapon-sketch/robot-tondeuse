@@ -1,0 +1,147 @@
+---
+title: "Robot tondeuse et terrain complexe : pentes, obstacles, passages étroits"
+description: "Comment configurer un robot tondeuse sur un terrain avec des pentes, des arbres, des massifs et des passages étroits. Solutions par marque et erreurs à éviter."
+featureImage: ""
+publishedAt: "2026-04-08"
+updatedAt: "2026-04-08"
+readingTimeMin: 12
+categorie: "astuces"
+authorSlug: "thomas"
+tags: ["terrain-complexe", "obstacles", "pentes", "passages-etroits", "configuration"]
+aiSummary:
+  - "Un terrain complexe combine pentes, arbres, massifs, passages étroits et zones multiples. 70% des jardins français ont au moins deux de ces contraintes."
+  - "Les modèles sans fil (Mammotion, Worx Vision) gèrent les terrains complexes plus facilement que les modèles à fil, grâce à la cartographie par zones dans l'application."
+  - "La clé : configurer correctement les zones d'exclusion, les passages entre zones (min. 60 cm) et la vitesse dans les pentes. 80% des problèmes viennent de la configuration, pas du robot."
+faq:
+  - q: "Quel robot tondeuse pour un jardin avec beaucoup d'arbres ?"
+    a: "Un modèle avec détection d'obstacles avancée : Mammotion LUBA (LiDAR + caméra), Worx Vision (caméra IA) ou Husqvarna avec module AIM (ultrasons). Les modèles basiques à collision simple percutent les troncs avant de faire demi-tour, ce qui marque l'écorce. Les modèles avec détection anticipée contournent à 20-30 cm."
+  - q: "Mon robot se coince dans les passages étroits, que faire ?"
+    a: "Vérifiez que le passage fait au moins 60 cm de large entre les câbles ou les bordures (80 cm recommandé pour les gros robots). Si le passage est en courbe, élargissez le rayon. Sur les modèles à fil, le câble guide doit traverser le passage en ligne droite. Sur les sans-fil, tracez le passage dans l'app avec une marge de 10 cm de chaque côté."
+  - q: "Comment empêcher le robot de tondre les massifs de fleurs ?"
+    a: "Trois méthodes : le fil périphérique autour du massif (modèles à fil), la zone d'exclusion dans l'application (modèles sans fil), ou le module Off-Limits de Worx (bande magnétique). La méthode la plus flexible est la zone d'exclusion par app : vous la modifiez en 30 secondes si vous replantez un massif."
+  - q: "Un robot tondeuse peut-il traverser un chemin en gravier ?"
+    a: "Techniquement oui si le chemin est plat et dur. Les roues motrices accrochent moins sur le gravier que sur l'herbe, donc le robot peut patiner. Le vrai risque : les petits cailloux projetés par les lames. Si le chemin traverse votre pelouse, créez une zone d'exclusion et programmez des zones de tonte séparées de chaque côté."
+  - q: "Combien de zones un robot tondeuse peut-il gérer ?"
+    a: "De 2 à 10 zones selon les modèles. Mammotion LUBA : jusqu'à 10 zones indépendantes. Husqvarna Automower : zones illimitées via l'app. Worx Vision : zones multiples avec planification différenciée. Gardena SILENO : 2-3 zones via la programmation horaire. Chaque zone peut avoir sa propre fréquence et hauteur de coupe."
+  - q: "Le robot tondeuse gère-t-il les pentes et les obstacles en même temps ?"
+    a: "C'est la configuration la plus exigeante. En pente, le robot a moins de traction et dévie plus facilement face aux obstacles. La solution : ralentir la vitesse de tonte dans les zones pentues, et positionner les obstacles (piquets de jeu, pots) en haut de la pente plutôt qu'en bas où le robot arrive avec de l'élan."
+stickyCta:
+  - label: "Mammotion LUBA 2 AWD 1000"
+    url: "https://www.amazon.fr/dp/B0CQQDYFSM"
+  - label: "Worx Landroid Vision L1300"
+    url: "https://www.amazon.fr/dp/B0CTTX1XWT"
+stickyCtaMessage: "Les meilleurs pour terrain complexe"
+---
+
+Mon jardin coche toutes les cases du terrain difficile. Deux niveaux reliés par une pente à 35%, un passage de 80 cm entre la maison et le garage, trois arbres fruitiers, un potager surélevé et une zone de jeux pour les enfants. Mon premier robot — un modèle d'entrée de gamme à fil — se coinçait 2 à 3 fois par semaine. Le deuxième, un sans-fil avec cartographie, gère le même terrain sans intervention depuis 8 mois.
+
+La différence n'était pas le robot. C'était la configuration. Un terrain complexe exige un paramétrage précis : zones de tonte séparées, exclusions autour des obstacles, vitesse adaptée dans les pentes. Ce guide couvre tout ce que les manuels ne disent pas.
+
+## Qu'est-ce qu'un terrain complexe pour un robot tondeuse ?
+
+Pas besoin d'un hectare de collines pour avoir un terrain complexe. Votre jardin est complexe si vous avez au moins deux de ces éléments :
+
+- Des pentes au-delà de 20%
+- Des passages étroits (< 1 m entre deux obstacles)
+- Des arbres ou obstacles permanents au milieu de la pelouse
+- Des zones de tonte séparées (avant/arrière de la maison, par exemple)
+- Des bordures irrégulières (massifs courbes, rocaille, murets)
+
+Selon mon estimation après avoir aidé une trentaine de propriétaires, 70% des jardins ont au moins deux de ces contraintes. Le jardin rectangulaire et plat est l'exception, pas la norme.
+
+## Les pentes : au-delà des chiffres constructeurs
+
+Tous les fabricants annoncent une pente maximale. Ces chiffres sont mesurés sur gazon sec, sans virages, en ligne droite. Sur le terrain, réduisez de 20-30%.
+
+| Pente annoncée | Pente réelle (herbe mouillée, virage) | Modèles |
+|---------------|--------------------------------------|---------|
+| 25% | 15-20% | Gardena SILENO city, Bosch Indego |
+| 35% | 25-30% | Gardena SILENO life, Worx Landroid Plus |
+| 45% | 30-35% | Husqvarna Automower 310/430X |
+| 80% | 55-65% | Mammotion LUBA 2/3 AWD |
+
+Le LUBA avec ses 4 roues motrices est le seul robot que j'ai vu monter une pente à 50% mouillée sans patiner. Les 2 roues motrices (tous les autres) décrochent au-delà de 30% dès que l'herbe est humide. Ce n'est pas un défaut — c'est de la physique.
+
+**Configuration pente :**
+- Placez la station de charge en bas de la pente, sur du plat
+- Le câble guide (modèles à fil) doit descendre la pente en diagonale, pas en ligne droite
+- Sur les sans-fil, tracez la zone de pente séparément et assignez une fréquence de tonte plus élevée (l'herbe pousse plus vite en pente, car l'eau s'y accumule)
+- Réduisez la hauteur de coupe d'un cran dans les pentes : l'herbe courte offre moins de résistance aux roues
+
+## Les obstacles : arbres, massifs, piscine, trampoline
+
+Chaque obstacle fixe nécessite un traitement spécifique. Le robot doit savoir qu'il est là et ne pas essayer de passer dessus.
+
+### Arbres et troncs
+
+**Modèles à fil** : créez un îlot en posant le câble en aller-retour autour du tronc. Laissez 30-35 cm entre le câble et le tronc. Le robot fera demi-tour au câble et ne touchera jamais l'arbre.
+
+**Modèles sans fil** : tracez une zone d'exclusion circulaire dans l'app, rayon de 40-50 cm autour du tronc. Le robot contourne automatiquement. C'est plus simple et plus flexible — si l'arbre grandit, vous agrandissez le cercle en 10 secondes.
+
+**Modules anticollision** : le Worx ACS (ultrasons) détecte les troncs à 20 cm et dévie sans contact. Le Mammotion LUBA utilise le LiDAR. Ces systèmes protègent l'écorce des arbres jeunes, qui est fragile.
+
+### Massifs de fleurs et potager
+
+Trois options, de la plus permanente à la plus flexible :
+
+1. **Fil périphérique** (modèles à fil) : le câble contourne le massif. Définitif tant que vous ne déplacez pas le câble.
+2. **Bande magnétique Off-Limits** (Worx) : posez la bande autour du massif, le robot la détecte et fait demi-tour. Déplaçable en 5 minutes.
+3. **Zone d'exclusion app** (Mammotion, Worx Vision, Husqvarna EPOS) : tracez la zone sur votre téléphone. Modifiable en 30 secondes, idéal si votre jardin évolue souvent.
+
+### Piscine
+
+La piscine est l'obstacle le plus dangereux. Le robot ne doit jamais tomber dedans.
+
+- **Fil périphérique** : posez le câble à 50 cm du bord de la piscine (pas 30 cm comme pour les autres obstacles — le robot a de l'inertie en pente)
+- **Sans fil** : zone d'exclusion avec 50 cm de marge
+- **Bordure physique** : une margelle surélevée de 5 cm suffit. Si la piscine est au niveau du sol, une bordure en béton ou une bande de galets de 20 cm de large crée une zone tampon
+
+## Les passages étroits : le casse-tête
+
+C'est le point de blocage le plus fréquent. Un passage entre la maison et la clôture, entre deux massifs, entre le garage et la haie.
+
+**Largeur minimale :**
+- Husqvarna : 60 cm entre les câbles
+- Gardena : 60 cm
+- Worx : 60 cm (70 cm recommandé)
+- Mammotion : 80 cm (le LUBA est plus large que les autres)
+
+En pratique, ajoutez 20 cm à la largeur minimale annoncée. Un passage de 60 cm fonctionne en théorie, mais le robot hésite, fait des allers-retours, et finit par passer au bout de 3-4 tentatives. À 80 cm, il passe du premier coup.
+
+**Si le passage est trop étroit** : ne forcez pas. Créez deux zones de tonte séparées (une devant, une derrière) et le robot basculera entre les deux via la station de charge. C'est plus lent mais plus fiable que de forcer un passage impossible.
+
+## Zones multiples : la vraie puissance des modèles sans fil
+
+Un jardin en L, un devant et un derrière de maison, une zone principale et un coin verger — ces configurations nécessitent plusieurs zones de tonte.
+
+**Modèles à fil** : les zones sont reliées par des passages étroits. Le robot suit le câble guide pour naviguer entre les zones. Configuration complexe, résultat parfois aléatoire.
+
+**Modèles sans fil** : vous tracez chaque zone indépendamment dans l'application. Chaque zone a son propre planning, sa propre hauteur de coupe, sa propre fréquence. Le robot passe d'une zone à l'autre via la station de charge. C'est incomparablement plus simple.
+
+| Fonctionnalité | Fil périphérique | Sans fil (RTK/Vision) |
+|---------------|-----------------|----------------------|
+| Nombre de zones max | 3-4 (limité par les passages) | 10+ (limité par l'app) |
+| Création de zone | Re-câblage physique | Tracé sur l'écran |
+| Modification | Re-câblage | 30 secondes dans l'app |
+| Planning par zone | Limité | Complet (heure, fréquence, hauteur) |
+| Fiabilité passage entre zones | Moyenne (le robot se perd parfois) | Élevée (GPS/vision) |
+
+C'est sur les terrains complexes que l'avantage du sans fil est le plus écrasant. Si votre jardin a 3 zones ou plus, le surcoût du sans fil est rentabilisé par le temps de configuration économisé et la fiabilité gagnée.
+
+## Les 5 erreurs qui bloquent le robot sur terrain complexe
+
+1. **Obstacles mobiles non anticipés** : jouets d'enfants, tuyau d'arrosage, outils posés au sol. Le robot les percute ou se bloque dessus. Ramassez tout avant de lancer la tonte.
+
+2. **Zone de tonte trop ambitieuse** : essayer de couvrir tout le jardin en une seule zone. Découpez en zones logiques, même si ça prend plus de temps à configurer. Un robot qui couvre 80% du jardin sans se coincer vaut mieux qu'un robot qui tente 100% et se bloque 3 fois par semaine.
+
+3. **Câble guide mal posé dans les pentes** : le câble guide doit descendre la pente en diagonale (angle de 30-45° par rapport à la ligne de plus grande pente). En ligne droite, le robot descend trop vite et rate le virage en bas.
+
+4. **Station de charge dans une zone difficile d'accès** : la station doit être dans la zone la plus grande et la plus plate. Le robot doit pouvoir entrer et sortir sans manoeuvre complexe.
+
+5. **Ne pas tester avant de finaliser** : lancez le robot en mode test pendant 2-3 jours avant de considérer la configuration comme terminée. Observez où il se coince, où il hésite, et ajustez.
+
+Pour le choix du modèle adapté à votre terrain, consultez notre comparatif [Husqvarna vs Mammotion](/articles/husqvarna-automower-vs-mammotion-luba) et notre guide pour les [terrains en pente](/articles/comment-choisir-robot-tondeuse-terrain-en-pente).
+
+<Verdict note="8" label="Le terrain complexe, c'est de la configuration">
+Un robot tondeuse gère n'importe quel terrain si la configuration est bonne. La clé : découper le jardin en zones logiques, exclure les obstacles fixes, et tester pendant quelques jours avant de valider. Les modèles sans fil (Mammotion, Worx Vision) simplifient drastiquement la configuration sur les terrains complexes. Si votre jardin cumule pentes, obstacles et zones multiples, le surcoût du sans fil se justifie par la tranquillité d'esprit.
+</Verdict>
