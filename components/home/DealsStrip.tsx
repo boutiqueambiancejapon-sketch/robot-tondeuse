@@ -50,7 +50,7 @@ function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
           color: '#fff',
           borderRadius: 'var(--radius-full)',
           fontSize: '10px',
-          fontWeight: 800,
+          fontWeight: 700,
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
         }}
@@ -82,7 +82,7 @@ export function DealsStrip() {
           left: 'var(--space-6)',
           zIndex: 3,
           fontSize: '10px',
-          fontWeight: 800,
+          fontWeight: 700,
           letterSpacing: '0.14em',
           textTransform: 'uppercase',
           color: 'var(--text-muted)',

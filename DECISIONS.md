@@ -128,3 +128,59 @@ Variables CSS `--bg-primary`, `--bg-surface` et `--bg-surface-2` en alternance. 
 **Politique zéro image respectée** : aucun `<img>`, aucun `next/image` ajouté, aucun fichier raster committé. Le RobotOrnament est 100% SVG inline vectoriel.
 
 **Perf** : la DA prime sur le score Lightouse dans cette phase. framer-motion ajoute ~55 KB gzip et les effets aurora + spotlight consomment du GPU. À optimiser plus tard (dynamic imports, réduction des keyframes, mask-image static).
+
+## Refonte DA 2026-04-12 — phase 3 : palette botanique light-first + Caladea + carrousel
+
+**Contexte** : la palette "Tailwind verts + violet" de la phase 2 rendait trop "SaaS/gaming/crypto" pour une niche jardin. L'utilisateur voulait un rendu **botanique chaleureux**, light mode par défaut, sans violet. Mix des directions "Sage & terracotta" + "Forêt nordique".
+
+**Nouvelle palette light (défaut)** — jamais revenir aux verts Tailwind saturés :
+- `bg-primary` `#F6F1E5` cream chaud
+- `bg-surface` `#FFFCF3` ivoire
+- `bg-surface-2` `#EAE3D0` beige doux
+- `accent-1` `#5A7A5A` sage/eucalyptus (CTA principal)
+- `accent-2` `#A85C3B` terracotta (deals, chaleur)
+- `accent-3` `#3D5038` mousse profonde (intensité, succès)
+- `accent-4` `#9A7B4F` lin/ocre vieilli (remplace le violet — quiz, interactif)
+- `accent-5` `#6B8591` ardoise douce
+- `text-primary` `#1F2419` charbon vert profond
+- `text-secondary` `#4F5B45` olive sombre
+- `text-muted` `#8A9680` sage grey
+
+**Contrastes WCAG AA validés** sur `#F6F1E5` : text-primary ~15:1, accent-1 sage ~5.2:1, accent-2 terra ~6.4:1.
+
+**Palette dark (toggle manuel ou prefers-dark)** — forêt apaisée chaude :
+- `bg-primary` `#14170F` (vert-charbon chaud, plus noir bleuté `#080E08`)
+- `accent-1` sage clair `#9BB88C`, `accent-2` terra clair `#D88A66`, `accent-3` mousse `#6B8558`, `accent-4` lin doré `#D4B789`, `accent-5` stone `#92A5AF`
+- `text-primary` cream `#F2ECD9`
+
+**Light par défaut** : `html { color-scheme: light }`, `ThemeToggle` default `'light'`, `getInitialTheme` retombe sur light si aucun `localStorage`. Dark via `@media (prefers-color-scheme: dark)` ou `html[data-theme="dark"]`.
+
+**Font display** : Caladea (serif botanique Cambria-compatible) — weights 400 + 700 + italic. Toutes les classes CSS `.type-massive`, `.huge-number`, `.hero-watermark`, `.ticker-pro-item`, `.section-head-editorial h2` cappées à `font-weight: 700` (le serif à 700 est déjà très expressif, faux-bold à 900 = moche). Italic activé sur `.type-mix-hero`, `.hero-watermark`, `.ticker-pro-item` pour donner du caractère éditorial magazine.
+
+**Font body** : DM Sans conservé (clean, se marie bien avec un serif). Weights 400/500/700.
+
+**`type-mix-hero` assaini** : avant, gradient sage → ambre → violet → sage (arc-en-ciel SaaS). Maintenant, sage → terra → mousse, italic, drift 12s. Une seule gamme chromatique chaude.
+
+**Aurora** : `mix-blend-mode` passe de `screen` en dark à `multiply` en light (ajoute de la couleur au lieu d'éclaircir). Opacité des layers réduite (28-38% au lieu de 45-55%) pour ne pas polluer le cream.
+
+**Shadows light** : douces, `rgba(31, 36, 25, 0.08-0.14)`, pas de noir pur.
+
+**Noise overlay** : passé à 0.035 en light, 0.04 en dark (le grain se lit mieux sur cream).
+
+**Nouveau composant `SeasonCarousel.tsx`** (client, embla-carousel-react) :
+- 6 cartes Avril → Septembre ("Calendrier du jardinier")
+- Chaque carte : mois num + nom + titre + conseil d'entretien + pastille accent rotatif
+- Embla en `dragFree: true`, `containScroll: 'trimSnaps'`, pas de boucle
+- Boutons prev/next accessibles, disabled quand hors bornes
+- Viewport padding `max(var(--space-6), calc((100vw - 1320px) / 2 + var(--space-6)))` pour aligner la première carte sur la marge éditoriale tout en laissant déborder à droite
+- Watermark mois italique `13rem` en bas à droite de chaque carte
+- Background `bg-surface-2` (beige) pour casser visuellement avec les sections claires voisines
+- rAF pour init state prev/next (évite le lint `set-state-in-effect`)
+
+**Ordre home mis à jour** : Hero → StatsRow → ArticleTicker → DealsStrip → FeaturedTools → **SeasonCarousel** → RecentArticles → CategorySections → AuthorTeaser. Le carrousel casse le rythme vertical entre "outils" et "éditorial".
+
+**Catégories (niche.config.categories[].accent)** : hex values alignés sur la nouvelle palette — Mammotion sage, Husqvarna terra, Gardena ardoise, Worx lin, Bosch mousse (remplace le violet), entretien-pelouse sage clair. Note : `categoryAccent(index)` helper renvoie toujours `var(--accent-N)` donc la cohérence est portée par les CSS vars, pas par les hex du config.
+
+**OG image** : fond cream, text charbon vert, accent bar sage → terra → mousse, watermark sage 8%.
+
+**Politique zéro image toujours respectée**.

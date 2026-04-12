@@ -49,7 +49,7 @@ export function CategorySection({ slug, label, index }: Props) {
           style={{
             fontFamily: 'var(--next-font-display), system-ui, sans-serif',
             fontSize: 'clamp(14rem, 28vw, 26rem)',
-            fontWeight: 900,
+            fontWeight: 700,
             lineHeight: 0.8,
             letterSpacing: '-0.08em',
             color: `color-mix(in srgb, ${accent} 5%, transparent)`,
@@ -97,7 +97,7 @@ export function CategorySection({ slug, label, index }: Props) {
                 style={{
                   fontFamily: 'var(--next-font-display), system-ui, sans-serif',
                   fontSize: 'clamp(2rem, 5vw, 3.8rem)',
-                  fontWeight: 900,
+                  fontWeight: 700,
                   letterSpacing: '-0.03em',
                   color: 'var(--text-primary)',
                   lineHeight: 0.95,

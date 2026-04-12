@@ -32,7 +32,7 @@ export function AuthorTeaser() {
           transform: 'translate(-50%, -50%)',
           fontFamily: 'var(--next-font-display), system-ui, sans-serif',
           fontSize: 'clamp(12rem, 30vw, 26rem)',
-          fontWeight: 900,
+          fontWeight: 700,
           letterSpacing: '-0.08em',
           color: 'color-mix(in srgb, var(--accent-1) 4%, transparent)',
           pointerEvents: 'none',
@@ -98,7 +98,7 @@ export function AuthorTeaser() {
                 style={{
                   fontFamily: 'var(--next-font-display), system-ui, sans-serif',
                   fontSize: '50%',
-                  fontWeight: 900,
+                  fontWeight: 700,
                   color: 'var(--text-primary)',
                   lineHeight: 1,
                   background: 'linear-gradient(135deg, var(--accent-1), var(--accent-4))',
@@ -133,7 +133,7 @@ export function AuthorTeaser() {
               style={{
                 fontFamily: 'var(--next-font-display), system-ui, sans-serif',
                 fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-                fontWeight: 900,
+                fontWeight: 700,
                 letterSpacing: '-0.02em',
                 color: 'var(--text-primary)',
                 marginBottom: 'var(--space-5)',

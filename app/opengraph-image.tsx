@@ -14,7 +14,7 @@ export default function OGImage() {
     (
       <div
         style={{
-          background: '#080E08',
+          background: '#F6F1E5',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -31,7 +31,7 @@ export default function OGImage() {
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, #16A34A, #7C3AED, #15803D)',
+            background: 'linear-gradient(90deg, #5A7A5A, #A85C3B, #3D5038)',
           }}
         />
 
@@ -39,7 +39,7 @@ export default function OGImage() {
         <div
           style={{
             fontSize: 18,
-            color: '#16A34A',
+            color: '#A85C3B',
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             marginBottom: 28,
@@ -53,8 +53,8 @@ export default function OGImage() {
         <div
           style={{
             fontSize: 72,
-            fontWeight: 800,
-            color: '#F0F5F0',
+            fontWeight: 700,
+            color: '#1F2419',
             lineHeight: 1.1,
             marginBottom: 24,
           }}
@@ -63,7 +63,7 @@ export default function OGImage() {
         </div>
 
         {/* Tagline */}
-        <div style={{ fontSize: 24, color: '#8FA88F', fontWeight: 400 }}>
+        <div style={{ fontSize: 24, color: '#4F5B45', fontWeight: 400 }}>
           Comparateur · Quiz · Simulateur · {niche.dealWord.charAt(0).toUpperCase() + niche.dealWord.slice(1)}
         </div>
 
@@ -74,9 +74,9 @@ export default function OGImage() {
             right: '60px',
             bottom: '40px',
             fontSize: '280px',
-            fontWeight: 800,
-            color: '#D97706',
-            opacity: 0.05,
+            fontWeight: 700,
+            color: '#5A7A5A',
+            opacity: 0.08,
             lineHeight: 1,
           }}
         >

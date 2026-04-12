@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Plus_Jakarta_Sans } from 'next/font/google'
+import { DM_Sans, Caladea } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { niche } from '@/niche.config'
 import './globals.css'
 
-// ── Fonts — remplacer à l'init par les fonts choisies pour la niche ──
+// ── Fonts — Caladea (serif botanique) + DM Sans (body) ──
 const fontPrimary = DM_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
@@ -14,9 +14,10 @@ const fontPrimary = DM_Sans({
   display: 'swap',
 })
 
-const fontDisplay = Plus_Jakarta_Sans({
+const fontDisplay = Caladea({
   subsets: ['latin'],
-  weight: ['400', '700', '800'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
   variable: '--next-font-display',
   adjustFontFallback: true,
   preload: true,

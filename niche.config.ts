@@ -113,12 +113,12 @@ export const niche: NicheConfig = {
   ctaSecondary: { text: 'Quel robot pour moi ?', url: '/quiz' },
 
   categories: [
-    { slug: 'mammotion', label: 'Mammotion', accent: '#16A34A', description: 'Yuka et Luba : robots tondeuses sans fil avec navigation vision et RTK' },
-    { slug: 'husqvarna', label: 'Husqvarna', accent: '#FF6A00', description: 'Automower : la référence suédoise depuis 1995' },
-    { slug: 'gardena', label: 'Gardena', accent: '#0891B2', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
-    { slug: 'worx', label: 'Worx', accent: '#D97706', description: 'Landroid et Vision Cloud : robots modulaires et sans fil' },
-    { slug: 'bosch', label: 'Bosch', accent: '#7C3AED', description: 'Indego et VISIMOW : robots tondeuses connectés et compacts' },
-    { slug: 'entretien-pelouse', label: 'Entretien pelouse', accent: '#059669', description: 'Guides et astuces pour une pelouse en pleine forme toute l\'année' },
+    { slug: 'mammotion', label: 'Mammotion', accent: '#5A7A5A', description: 'Yuka et Luba : robots tondeuses sans fil avec navigation vision et RTK' },
+    { slug: 'husqvarna', label: 'Husqvarna', accent: '#A85C3B', description: 'Automower : la référence suédoise depuis 1995' },
+    { slug: 'gardena', label: 'Gardena', accent: '#6B8591', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
+    { slug: 'worx', label: 'Worx', accent: '#9A7B4F', description: 'Landroid et Vision Cloud : robots modulaires et sans fil' },
+    { slug: 'bosch', label: 'Bosch', accent: '#3D5038', description: 'Indego et VISIMOW : robots tondeuses connectés et compacts' },
+    { slug: 'entretien-pelouse', label: 'Entretien pelouse', accent: '#7A9B72', description: 'Guides et astuces pour une pelouse en pleine forme toute l\'année' },
   ],
 
   quiz: {
@@ -137,19 +137,20 @@ export const niche: NicheConfig = {
   },
 
   palette: {
-    accent1: '#16A34A',
-    accent2: '#D97706',
-    accent3: '#15803D',
-    accent4: '#7C3AED',
-    accent5: '#0891B2',
-    bgPrimary: '#080E08',
-    bgSurface: '#0F1A0F',
-    bgSurface2: '#182618',
-    textPrimary: '#F0F5F0',
-    textSecondary: '#8FA88F',
-    textMuted: '#4D664D',
+    // Light mode (par défaut) — botanique jardin, sage + terracotta + lin warm
+    accent1: '#5A7A5A',   // sage/eucalyptus principal (CTA)
+    accent2: '#A85C3B',   // terracotta (deals, chaleur)
+    accent3: '#3D5038',   // mousse/pin foncé (succès, intensité)
+    accent4: '#9A7B4F',   // lin/ocre vieilli (quiz, interactif — remplace le violet)
+    accent5: '#6B8591',   // ardoise douce (liens secondaires)
+    bgPrimary: '#F6F1E5',   // cream chaud
+    bgSurface: '#FFFCF3',   // ivoire
+    bgSurface2: '#EAE3D0',  // beige doux
+    textPrimary: '#1F2419',    // charbon vert profond
+    textSecondary: '#4F5B45',  // olive sombre
+    textMuted: '#8A9680',      // sage grey
   },
-  fonts: { display: 'Plus Jakarta Sans', body: 'DM Sans' },
+  fonts: { display: 'Caladea', body: 'DM Sans' },
 
   author: {
     name: 'Thomas',

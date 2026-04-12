@@ -34,7 +34,7 @@ export function StatsRow() {
                 style={{
                   fontFamily: 'var(--next-font-display), system-ui, sans-serif',
                   fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)',
-                  fontWeight: 900,
+                  fontWeight: 700,
                   lineHeight: 1,
                   letterSpacing: '-0.03em',
                   color: 'var(--text-primary)',

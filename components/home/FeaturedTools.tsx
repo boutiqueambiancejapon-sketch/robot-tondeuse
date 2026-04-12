@@ -70,7 +70,7 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
           right: '-10px',
           fontFamily: 'var(--next-font-display), system-ui, sans-serif',
           fontSize: large ? '14rem' : '10rem',
-          fontWeight: 900,
+          fontWeight: 700,
           lineHeight: 0.8,
           color: `color-mix(in srgb, ${accent} 6%, transparent)`,
           userSelect: 'none',
@@ -114,7 +114,7 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
           style={{
             fontFamily: 'var(--next-font-display), system-ui, sans-serif',
             fontSize: large ? 'clamp(1.6rem, 2.8vw, 2.4rem)' : '1.25rem',
-            fontWeight: 900,
+            fontWeight: 700,
             letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
             marginBottom: 'var(--space-4)',
