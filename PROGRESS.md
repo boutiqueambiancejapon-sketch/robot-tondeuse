@@ -20,3 +20,24 @@
 
 ### Nettoyage
 - [x] Suppression _example.mdx et _example.yaml
+
+## Refonte DA 2026-04-12 — phase 2 motion
+
+### Ajouts
+- [x] Libs : framer-motion, react-wrap-balancer, react-intersection-observer, embla-carousel-react
+- [x] Dossier `components/motion/` : FadeIn, Stagger/StaggerItem, ScrollReveal, MagneticButton, Parallax
+- [x] Effets : RotatingWordsMotion (framer), SpotlightCursor, RobotOrnament (SVG inline)
+- [x] Nouvelle section `StatsRow` (4 cells + CountUp scroll)
+
+### Refontes home (zéro image)
+- [x] HeroSection : aurora-advanced + massive type + magnetic CTAs + RobotOrnament parallaxé + spotlight
+- [x] FeaturedTools : cards card-lift + corner-marks + huge number watermark + stagger
+- [x] CategorySection : huge number parallax + rule-vertical + H2 massif
+- [x] RecentArticles : section-head-editorial + stagger grid
+- [x] AuthorTeaser : monogram ring rotatif + gradient initial + watermark
+- [x] ArticleTicker : ticker-pro massive display + pastilles colorées
+- [x] DealsStrip : chips glass + Live label + edge fade
+
+### globals.css
+- [x] ~470 lignes d'effets DA pro : aurora-advanced, grid-ornament, type-massive, pill-accent, card-lift, corner-marks, section-head-editorial, bento-pro, stats-row, ticker-pro, etc.
+- [x] Toutes les animations respectent prefers-reduced-motion

@@ -1,11 +1,10 @@
 /**
- * DealsStrip — bandeau de deals en défilement continu (MarqueeStrip).
- * Données statiques placeholder — remplacées par ISR + API deals ensuite.
+ * DealsStrip — bandeau de bons plans en marquee + hover glow.
+ * Double sens : bandeau dense qui défile horizontalement.
  * Server Component.
  */
 
 import { MarqueeStrip } from '@/components/effects/MarqueeStrip'
-import { niche } from '@/niche.config'
 
 type Deal = {
   label: string
@@ -13,7 +12,6 @@ type Deal = {
   badgeColor?: string
 }
 
-// Deals statiques — à remplacer par le CMS quand les vrais deals arrivent
 const DEALS: Deal[] = [
   { label: 'Mammotion YUKA Mini 2 500 à 699 €', badge: 'Promo', badgeColor: 'var(--accent-1)' },
   { label: 'Gardena SILENO life 750 à 700 €', badge: '-28%', badgeColor: 'var(--accent-3)' },
@@ -21,19 +19,23 @@ const DEALS: Deal[] = [
   { label: 'Husqvarna Aspire R4 à 699 €', badge: 'Nouveau', badgeColor: 'var(--accent-1)' },
   { label: 'Mammotion YUKA 2000 à 1385 €', badge: '-23%', badgeColor: 'var(--accent-3)' },
   { label: 'Worx Vision Cloud WR305E à 799 €', badge: 'Sans fil', badgeColor: 'var(--accent-2)' },
+  { label: 'Bosch Indego S+ 500 à 559 €', badge: 'Connecté', badgeColor: 'var(--accent-4)' },
+  { label: 'Husqvarna Automower 305 à 849 €', badge: 'Stock', badgeColor: 'var(--accent-1)' },
 ]
 
 function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
   return (
     <span
+      className="deal-chip"
       style={{
         display: 'inline-flex',
         alignItems: 'center',
         gap: 'var(--space-3)',
         padding: 'var(--space-2) var(--space-5)',
-        backgroundColor: 'var(--bg-surface)',
+        background: 'color-mix(in srgb, var(--bg-surface) 80%, transparent)',
+        backdropFilter: 'blur(6px)',
         border: '1px solid var(--border)',
-        borderRadius: '999px',
+        borderRadius: 'var(--radius-full)',
         color: 'var(--text-primary)',
         fontSize: '13px',
         fontWeight: 500,
@@ -43,13 +45,14 @@ function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
     >
       <span
         style={{
-          padding: '2px 8px',
-          backgroundColor: badgeColor,
+          padding: '3px 10px',
+          background: badgeColor,
           color: '#fff',
-          borderRadius: '999px',
-          fontSize: '11px',
-          fontWeight: 700,
-          letterSpacing: '0.04em',
+          borderRadius: 'var(--radius-full)',
+          fontSize: '10px',
+          fontWeight: 800,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
         }}
       >
         {badge}
@@ -61,12 +64,40 @@ function DealChip({ label, badge, badgeColor = 'var(--accent-1)' }: Deal) {
 
 export function DealsStrip() {
   return (
-    <section aria-label="Bons plans du moment" style={{ paddingBlock: 'var(--space-4)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
-      <MarqueeStrip speed="slow" gap="var(--space-3)">
-        {DEALS.map((deal) => (
-          <DealChip key={deal.label} {...deal} />
-        ))}
-      </MarqueeStrip>
+    <section
+      aria-label="Bons plans du moment"
+      style={{
+        position: 'relative',
+        paddingBlock: 'var(--space-5)',
+        borderTop: '1px solid var(--border)',
+        borderBottom: '1px solid var(--border)',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Label flottant */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 'var(--space-2)',
+          left: 'var(--space-6)',
+          zIndex: 3,
+          fontSize: '10px',
+          fontWeight: 800,
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          color: 'var(--text-muted)',
+          pointerEvents: 'none',
+        }}
+      >
+        · Live · Bons plans
+      </div>
+      <div className="marquee-edge-fade" style={{ paddingTop: 'var(--space-4)' }}>
+        <MarqueeStrip speed="slow" gap="var(--space-3)">
+          {DEALS.map((deal) => (
+            <DealChip key={deal.label} {...deal} />
+          ))}
+        </MarqueeStrip>
+      </div>
     </section>
   )
 }

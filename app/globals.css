@@ -968,3 +968,664 @@ body {
   border-color: var(--accent-4) !important;
   color: var(--text-primary) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   REFONTE DA — PHASE 2 (2026-04-12)
+   Effets avancés : grille ornementale, spotlight, massive type,
+   liquid glass, ornements SVG, scanlines, gradients animés.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Grille ornementale de fond (décor) ──────────────────── */
+.grid-ornament {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 80%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Dot-grid alternative */
+.dot-ornament {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border-strong) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ── Massive display type (hero, watermarks) ─────────────── */
+.type-massive {
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.type-outline {
+  -webkit-text-stroke: 1px var(--text-primary);
+  color: transparent;
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-weight: 900;
+}
+
+.type-chrome {
+  background: linear-gradient(
+    180deg,
+    var(--text-primary) 0%,
+    var(--text-primary) 40%,
+    var(--text-secondary) 55%,
+    var(--text-primary) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.type-mix-hero {
+  background: linear-gradient(
+    115deg,
+    var(--accent-1) 0%,
+    var(--accent-2) 35%,
+    var(--accent-4) 70%,
+    var(--accent-1) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: hero-gradient-drift 8s ease-in-out infinite;
+}
+
+@keyframes hero-gradient-drift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .type-mix-hero { animation: none; }
+}
+
+/* ── Aurora layered — version avancée hero ──────────────── */
+.aurora-advanced {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+.aurora-advanced::before,
+.aurora-advanced::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora-advanced::before {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%, color-mix(in srgb, var(--aurora-1) 55%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 45% at 85% 15%, color-mix(in srgb, var(--aurora-2) 45%, transparent) 0%, transparent 65%),
+    radial-gradient(ellipse 80% 55% at 50% 95%, color-mix(in srgb, var(--aurora-3) 45%, transparent) 0%, transparent 70%);
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  animation: aurora-layer-drift 16s ease-in-out infinite alternate;
+}
+.aurora-advanced::after {
+  background:
+    conic-gradient(
+      from 90deg at 50% 50%,
+      transparent 0deg,
+      color-mix(in srgb, var(--accent-1) 15%, transparent) 90deg,
+      transparent 180deg,
+      color-mix(in srgb, var(--accent-4) 12%, transparent) 270deg,
+      transparent 360deg
+    );
+  filter: blur(120px);
+  opacity: 0.7;
+  animation: aurora-spin 40s linear infinite;
+}
+@keyframes aurora-layer-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-3%, 2%, 0) scale(1.08); }
+}
+@keyframes aurora-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-advanced::before,
+  .aurora-advanced::after { animation: none; }
+}
+.aurora-advanced > * { position: relative; z-index: 1; }
+
+/* ── Spotlight cursor (hero) ─────────────────────────────── */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--spot-x, 50%) var(--spot-y, 30%),
+    color-mix(in srgb, var(--accent-1) 14%, transparent) 0%,
+    transparent 40%
+  );
+  transition: background 300ms ease;
+  z-index: 2;
+}
+
+/* ── Liquid glass card ───────────────────────────────────── */
+.liquid-glass {
+  position: relative;
+  background: color-mix(in srgb, var(--bg-surface) 70%, transparent);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, white 8%, transparent) 0%,
+    transparent 35%,
+    transparent 65%,
+    color-mix(in srgb, white 3%, transparent) 100%
+  );
+  pointer-events: none;
+}
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, white 30%, transparent) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Scanlines overlay ───────────────────────────────────── */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    color-mix(in srgb, white 2%, transparent) 2px,
+    color-mix(in srgb, white 2%, transparent) 3px
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* ── Hover card — lift + glow ────────────────────────────── */
+.card-lift {
+  transition: transform 400ms var(--ease-out), border-color 400ms var(--ease-out);
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+.card-lift::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-1) 40%, transparent),
+    transparent 40%,
+    color-mix(in srgb, var(--accent-4) 30%, transparent) 100%
+  );
+  opacity: 0;
+  transition: opacity 400ms var(--ease-out);
+  z-index: -1;
+  filter: blur(12px);
+}
+.card-lift:hover::before {
+  opacity: 1;
+}
+
+/* ── Gradient border animé (outil card, featured) ────────── */
+.gradient-border {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--accent-1),
+    var(--accent-2),
+    var(--accent-4),
+    var(--accent-1)
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 10s ease infinite;
+}
+.gradient-border > .gradient-border-inner {
+  border-radius: calc(var(--radius-xl) - 1px);
+  background: var(--bg-surface);
+  height: 100%;
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gradient-border { animation: none; }
+}
+
+/* ── Marquee édition — mask + fade ───────────────────────── */
+.marquee-edge-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* ── Section heading — éditorial avec filet ──────────────── */
+.section-head-editorial {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-5);
+  margin-bottom: var(--space-10);
+}
+.section-head-editorial::before {
+  content: '';
+  flex: 0 0 40px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent-1), transparent);
+  align-self: center;
+}
+.section-head-editorial h2 {
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+/* ── Pill accent label ───────────────────────────────────── */
+.pill-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--bg-surface) 60%, transparent);
+  backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-1);
+}
+.pill-accent::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-1);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-1) 20%, transparent);
+  animation: pulse-accent 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pill-accent::before { animation: none; }
+}
+
+/* ── Huge number decoration (stats, watermarks) ──────────── */
+.huge-number {
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-size: clamp(5rem, 14vw, 13rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  background: linear-gradient(
+    180deg,
+    var(--accent-1) 0%,
+    var(--accent-4) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ── Hero ambitieux : layout + ornements ─────────────────── */
+.hero-advanced {
+  position: relative;
+  min-height: min(100svh, 920px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-24) var(--space-6) var(--space-20);
+}
+
+.hero-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-size: clamp(18rem, 40vw, 36rem);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.08em;
+  color: color-mix(in srgb, var(--accent-1) 4%, transparent);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+/* ── Sticky nav marquee rule ─────────────────────────────── */
+.edge-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-strong) 20%,
+    var(--border-strong) 80%,
+    transparent
+  );
+}
+
+/* ── Vertical rule decoration ────────────────────────────── */
+.rule-vertical {
+  position: relative;
+  padding-left: var(--space-6);
+}
+.rule-vertical::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    var(--accent-1),
+    color-mix(in srgb, var(--accent-1) 30%, transparent) 50%,
+    transparent
+  );
+}
+
+/* ── Section pro padding ─────────────────────────────────── */
+.section-pro {
+  position: relative;
+  padding: clamp(var(--space-16), 10vw, var(--space-24)) var(--space-6);
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ── Diagonal stripe divider (SVG ambient) ───────────────── */
+.diagonal-stripe {
+  position: relative;
+  height: 80px;
+  background:
+    linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--accent-1) 10%, transparent) 50%, transparent 100%);
+  mask-image: repeating-linear-gradient(
+    -45deg,
+    black 0 8px,
+    transparent 8px 16px
+  );
+  -webkit-mask-image: repeating-linear-gradient(
+    -45deg,
+    black 0 8px,
+    transparent 8px 16px
+  );
+}
+
+/* ── Accent corner marks (card decoration) ───────────────── */
+.corner-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.corner-marks::before,
+.corner-marks::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--accent-1);
+}
+.corner-marks::before {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+.corner-marks::after {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+/* ── Bento grid pro — dense avec rows asymétriques ───────── */
+.bento-pro {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(160px, auto);
+  gap: var(--space-4);
+}
+.bento-pro > .bento-xl { grid-column: span 4; grid-row: span 2; }
+.bento-pro > .bento-lg { grid-column: span 3; grid-row: span 2; }
+.bento-pro > .bento-md { grid-column: span 2; grid-row: span 1; }
+.bento-pro > .bento-sm { grid-column: span 2; grid-row: span 1; }
+.bento-pro > .bento-wide { grid-column: span 6; grid-row: span 1; }
+@media (max-width: 900px) {
+  .bento-pro { grid-template-columns: repeat(2, 1fr); }
+  .bento-pro > .bento-xl,
+  .bento-pro > .bento-lg,
+  .bento-pro > .bento-md,
+  .bento-pro > .bento-sm,
+  .bento-pro > .bento-wide { grid-column: span 2; grid-row: auto; }
+}
+
+/* ── Stats row ───────────────────────────────────────────── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-10) 0;
+}
+@media (max-width: 800px) {
+  .stats-row { grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
+}
+.stat-cell {
+  padding: 0 var(--space-5);
+  border-right: 1px solid var(--border);
+}
+.stat-cell:last-child { border-right: none; }
+@media (max-width: 800px) {
+  .stat-cell:nth-child(2) { border-right: none; }
+}
+
+/* ── Deal chip hover glow ────────────────────────────────── */
+.deal-chip {
+  transition: transform 200ms var(--ease-out), border-color 200ms var(--ease-out);
+}
+.deal-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-1);
+}
+
+/* ── Ticker — version éditoriale ──────────────────────────── */
+.ticker-pro {
+  display: flex;
+  gap: var(--space-8);
+  white-space: nowrap;
+  animation: ticker-scroll 50s linear infinite;
+  will-change: transform;
+}
+.ticker-pro:hover { animation-play-state: paused; }
+.ticker-pro-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.ticker-pro-item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--accent-1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-1) 20%, transparent);
+}
+.ticker-pro-item:nth-child(3n)::before { background: var(--accent-2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-2) 20%, transparent); }
+.ticker-pro-item:nth-child(3n+1)::before { background: var(--accent-4); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-4) 20%, transparent); }
+.ticker-pro-item:hover { color: var(--accent-1); }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-pro { animation: none; }
+}
+
+/* ── Nav pill modernisé ──────────────────────────────────── */
+.nav-pill {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  transition: background 200ms var(--ease-out), color 200ms var(--ease-out);
+}
+.nav-pill:hover {
+  background: var(--bg-surface-2);
+  color: var(--text-primary);
+}
+
+/* ── Monogram ring rotation ──────────────────────────────── */
+@keyframes monogram-spin {
+  to { transform: rotate(360deg); }
+}
+.monogram-ring {
+  animation: monogram-spin 20s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .monogram-ring { animation: none; }
+}
+
+/* ── Robot ornament SVG (purement décoratif) ─────────────── */
+.robot-glow {
+  filter: drop-shadow(0 0 40px color-mix(in srgb, var(--accent-1) 50%, transparent));
+}
+
+/* ── Hero layout avancé ──────────────────────────────────── */
+.hero-advanced-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-12);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .hero-advanced-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: var(--space-16);
+  }
+}
+
+.hero-visual-wrap {
+  position: relative;
+}
+.hero-visual-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    ellipse at center,
+    color-mix(in srgb, var(--accent-1) 20%, transparent) 0%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ── Hero families — typographie éditoriale ──────────────── */
+.hero-families {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0;
+  margin-top: var(--space-10);
+  border-top: 1px solid var(--border);
+}
+.hero-family-link {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4) var(--space-3);
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: padding-left 250ms var(--ease-out), background 250ms var(--ease-out);
+}
+.hero-family-link:hover {
+  padding-left: var(--space-5);
+  background: color-mix(in srgb, var(--accent-1) 5%, transparent);
+}
+.hero-family-index {
+  font-family: var(--next-font-mono), monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+.hero-family-label {
+  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-size: clamp(14px, 1.3vw, 18px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.hero-family-arrow {
+  color: var(--accent-1);
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 250ms, transform 250ms;
+}
+.hero-family-link:hover .hero-family-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (max-width: 480px) {
+  .hero-families {
+    grid-template-columns: 1fr;
+  }
+  .hero-family-link { border-right: none; }
+}

@@ -1,12 +1,13 @@
 /**
- * FeaturedTools — bento grid asymétrique.
- * Grande cellule Comparateur (2/3) + 2 petites (Quiz + Simulateur) en 1/3.
- * Chaque cellule a une icône SVG, un titre et un CTA.
+ * FeaturedTools — bento pro, cartes avec gradient border + hover glow.
+ * Intègre FadeIn/Stagger framer-motion + corner marks + liquid-glass.
  * Server Component.
  */
 
 import Link from 'next/link'
 import { niche } from '@/niche.config'
+import { FadeIn } from '@/components/motion/FadeIn'
+import { Stagger, StaggerItem } from '@/components/motion/Stagger'
 
 type ToolCardProps = {
   href: string
@@ -17,66 +18,94 @@ type ToolCardProps = {
   accent: string
   large?: boolean
   icon: React.ReactNode
+  number: string
 }
 
-function ToolCard({ href, eyebrow, title, description, cta, accent, large = false, icon }: ToolCardProps) {
+function ToolCard({ href, eyebrow, title, description, cta, accent, large = false, icon, number }: ToolCardProps) {
   return (
     <Link
       href={href}
+      className="tool-card card-lift"
       style={{
+        position: 'relative',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: large ? 'var(--space-10)' : 'var(--space-7)',
-        backgroundColor: 'var(--bg-surface)',
+        background: 'var(--bg-surface)',
         border: '1px solid var(--border)',
-        borderRadius: '16px',
+        borderRadius: 'var(--radius-xl)',
         textDecoration: 'none',
         color: 'inherit',
         overflow: 'hidden',
-        position: 'relative',
-        minHeight: large ? '320px' : '220px',
-        transition: 'border-color 200ms ease, transform 200ms ease',
+        minHeight: large ? '360px' : '240px',
+        height: '100%',
       }}
-      className="tool-card"
     >
+      {/* Corner marks */}
+      <div className="corner-marks" aria-hidden="true" style={{ color: accent }} />
+
       {/* Accent glow */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
-          top: '-60px',
-          right: '-60px',
-          width: '200px',
-          height: '200px',
+          top: '-80px',
+          right: '-80px',
+          width: '260px',
+          height: '260px',
           borderRadius: '50%',
-          background: `radial-gradient(circle, ${accent}30 0%, transparent 70%)`,
+          background: `radial-gradient(circle, color-mix(in srgb, ${accent} 35%, transparent) 0%, transparent 70%)`,
+          filter: 'blur(20px)',
           pointerEvents: 'none',
         }}
       />
 
-      {/* Icône */}
+      {/* Number watermark */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          bottom: '-30px',
+          right: '-10px',
+          fontFamily: 'var(--next-font-display), system-ui, sans-serif',
+          fontSize: large ? '14rem' : '10rem',
+          fontWeight: 900,
+          lineHeight: 0.8,
+          color: `color-mix(in srgb, ${accent} 6%, transparent)`,
+          userSelect: 'none',
+          pointerEvents: 'none',
+          letterSpacing: '-0.08em',
+        }}
+      >
+        {number}
+      </div>
+
+      {/* Icon */}
       <div
         style={{
-          width: large ? '48px' : '36px',
-          height: large ? '48px' : '36px',
+          width: large ? '56px' : '42px',
+          height: large ? '56px' : '42px',
           color: accent,
-          marginBottom: 'var(--space-5)',
+          marginBottom: 'var(--space-6)',
           flexShrink: 0,
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         {icon}
       </div>
 
-      <div>
+      <div style={{ position: 'relative', zIndex: 1 }}>
         <p
           style={{
-            fontSize: '11px',
+            fontFamily: 'var(--next-font-mono), monospace',
+            fontSize: '10px',
             fontWeight: 700,
-            letterSpacing: '0.12em',
+            letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: accent,
-            marginBottom: 'var(--space-2)',
+            marginBottom: 'var(--space-3)',
           }}
         >
           {eyebrow}
@@ -84,12 +113,13 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
         <h3
           style={{
             fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: large ? 'clamp(1.3rem, 2.2vw, 1.8rem)' : '1rem',
-            fontWeight: 700,
-            letterSpacing: '0',
+            fontSize: large ? 'clamp(1.6rem, 2.8vw, 2.4rem)' : '1.25rem',
+            fontWeight: 900,
+            letterSpacing: '-0.02em',
             color: 'var(--text-primary)',
-            marginBottom: 'var(--space-3)',
-            lineHeight: 1.25,
+            marginBottom: 'var(--space-4)',
+            lineHeight: 1.1,
+            textWrap: 'balance',
           }}
         >
           {title}
@@ -98,21 +128,23 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
           style={{
             fontSize: '14px',
             color: 'var(--text-secondary)',
-            lineHeight: 1.6,
-            marginBottom: 'var(--space-5)',
-            maxWidth: large ? '400px' : 'none',
+            lineHeight: 1.65,
+            marginBottom: 'var(--space-6)',
+            maxWidth: large ? '440px' : 'none',
           }}
         >
           {description}
         </p>
         <span
           style={{
-            fontSize: '14px',
-            fontWeight: 600,
-            color: accent,
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
-            gap: 'var(--space-1)',
+            gap: 'var(--space-2)',
+            fontSize: '13px',
+            fontWeight: 700,
+            color: accent,
+            borderBottom: `1px solid ${accent}`,
+            paddingBottom: '4px',
           }}
         >
           {cta} →
@@ -122,7 +154,6 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
   )
 }
 
-/* SVG icons — inline, zero raster */
 const IconCompare = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" width="100%" height="100%">
     <rect x="2" y="3" width="8" height="18" rx="2" />
@@ -141,9 +172,9 @@ const IconQuiz = () => (
 
 const IconSimulator = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" width="100%" height="100%">
-    <path d="M12 2v20M2 12h20" />
-    <circle cx="12" cy="12" r="4" />
-    <path d="M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07" />
+    <path d="M3 3v18h18" />
+    <path d="M7 14l3-3 3 3 5-5" />
+    <circle cx="18" cy="9" r="1.5" fill="currentColor" />
   </svg>
 )
 
@@ -158,89 +189,75 @@ export function FeaturedTools() {
   const simulatorDesc = niche.simulator.description || `Simulez le coût réel de votre ${niche.entity}.`
 
   return (
-    <section
-      style={{
-        maxWidth: '1280px',
-        margin: '0 auto',
-        padding: 'var(--space-20) var(--space-6)',
-      }}
-    >
-      {/* En-tête de section */}
-      <div style={{ marginBottom: 'var(--space-10)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
-        <div>
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent-1)', marginBottom: 'var(--space-2)' }}>
-            Outils interactifs
-          </p>
-          <h2
-            style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(1.3rem, 2.5vw, 2rem)',
-              fontWeight: 700,
-              letterSpacing: '0',
-              color: 'var(--text-primary)',
-              lineHeight: 1.2,
-            }}
-          >
-            Décidez en connaissance<br />de cause
-          </h2>
+    <section className="section-pro">
+      <FadeIn>
+        <div className="section-head-editorial">
+          <div>
+            <span className="pill-accent" style={{ marginBottom: 'var(--space-4)' }}>
+              · Outils interactifs
+            </span>
+            <h2>
+              Décidez en<br />
+              <span className="type-mix-hero">connaissance de cause</span>
+            </h2>
+          </div>
         </div>
-        <Link
-          href="/blog"
-          style={{ fontSize: '14px', color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, whiteSpace: 'nowrap' }}
+      </FadeIn>
+
+      <Stagger staggerDelay={0.1}>
+        <div
+          className="bento-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 'var(--space-5)',
+          }}
         >
-          Voir tous les guides →
-        </Link>
-      </div>
+          <StaggerItem className="bento-featured" style={{ height: '100%' }}>
+            <ToolCard
+              href="/comparer"
+              eyebrow="01 — Comparateur"
+              title={comparatorTitle}
+              description="Mettez côte à côte specs, prix, surface maximale et navigation. Filtrez par budget et type de jardin."
+              cta="Lancer le comparateur"
+              accent="var(--accent-1)"
+              large
+              icon={<IconCompare />}
+              number="1"
+            />
+          </StaggerItem>
 
-      {/* Grille bento asymétrique */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'var(--space-4)',
-        }}
-        className="bento-grid"
-      >
-        {/* Grande cellule Comparateur */}
-        <div className="bento-featured">
-          <ToolCard
-            href="/comparer"
-            eyebrow="Comparateur"
-            title={comparatorTitle}
-            description={`Comparez côte à côte les specs, prix et usages. Filtres par budget et besoin.`}
-            cta="Lancer le comparateur"
-            accent="var(--accent-1)"
-            large
-            icon={<IconCompare />}
-          />
+          {niche.quiz.enabled && (
+            <StaggerItem style={{ height: '100%' }}>
+              <ToolCard
+                href="/quiz"
+                eyebrow="02 — Quiz"
+                title={quizTitle}
+                description={`Quelques questions pour identifier le ${niche.entity} fait pour vous.`}
+                cta="Démarrer"
+                accent="var(--accent-2)"
+                icon={<IconQuiz />}
+                number="2"
+              />
+            </StaggerItem>
+          )}
+
+          {niche.simulator.enabled && (
+            <StaggerItem style={{ height: '100%' }}>
+              <ToolCard
+                href="/simulateur"
+                eyebrow="03 — Simulateur"
+                title={simulatorTitle}
+                description={simulatorDesc}
+                cta="Simuler"
+                accent="var(--accent-4)"
+                icon={<IconSimulator />}
+                number="3"
+              />
+            </StaggerItem>
+          )}
         </div>
-
-        {/* Quiz */}
-        {niche.quiz.enabled && (
-          <ToolCard
-            href="/quiz"
-            eyebrow="Quiz"
-            title={quizTitle}
-            description={`Quelques questions pour identifier le ${niche.entity} fait pour vous.`}
-            cta="Démarrer le quiz"
-            accent="var(--accent-2)"
-            icon={<IconQuiz />}
-          />
-        )}
-
-        {/* Simulateur */}
-        {niche.simulator.enabled && (
-          <ToolCard
-            href="/simulateur"
-            eyebrow="Simulateur"
-            title={simulatorTitle}
-            description={simulatorDesc}
-            cta="Simuler"
-            accent="var(--accent-3)"
-            icon={<IconSimulator />}
-          />
-        )}
-      </div>
+      </Stagger>
     </section>
   )
 }

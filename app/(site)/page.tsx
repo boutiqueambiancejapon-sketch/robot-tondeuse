@@ -1,4 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection'
+import { StatsRow } from '@/components/home/StatsRow'
 import { ArticleTicker } from '@/components/home/ArticleTicker'
 import { DealsStrip } from '@/components/home/DealsStrip'
 import { RecentArticles } from '@/components/home/RecentArticles'
@@ -11,16 +12,14 @@ export default function HomePage() {
   return (
     <main id="main-content">
       <HeroSection />
+      <StatsRow />
       <ArticleTicker />
       <DealsStrip />
-      {/* Éditorial — derniers articles featured + grille */}
+      <FeaturedTools />
       <RecentArticles />
-      {/* Sections par catégorie — dynamique depuis niche.config */}
       {niche.categories.map((cat, i) => (
         <CategorySection key={cat.slug} slug={cat.slug} label={cat.label} index={i} />
       ))}
-      {/* Outils interactifs */}
-      <FeaturedTools />
       <AuthorTeaser />
     </main>
   )

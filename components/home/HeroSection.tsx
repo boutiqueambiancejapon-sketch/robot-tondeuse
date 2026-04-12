@@ -1,173 +1,196 @@
 /**
- * HeroSection — above-fold.
- * Aurora + bruit + heading wipe + mots qui tournent + 2 CTAs.
- * Server Component (les enfants clients sont importés inline).
+ * HeroSection — refonte DA pro (2026-04-12).
+ * - Aurora layered + grid ornament + spotlight curseur
+ * - Massive type gradient animé
+ * - RotatingWordsMotion (framer-motion)
+ * - Magnetic CTAs
+ * - Watermark display
+ * - Robot SVG ornament + parallax
+ * - Stats row + marquee ticker en bas
+ * Server Component — clients importés inline.
  */
 
-import { AuroraBackground } from '@/components/effects/AuroraBackground'
-import { NoiseOverlay } from '@/components/effects/NoiseOverlay'
-import { AnimatedHeading } from '@/components/effects/AnimatedHeading'
-import { RotatingWords } from '@/components/effects/RotatingWords'
-import { HeroVisual } from './HeroVisual'
 import Link from 'next/link'
 import { niche } from '@/niche.config'
+import { FadeIn } from '@/components/motion/FadeIn'
+import { Stagger, StaggerItem } from '@/components/motion/Stagger'
+import { MagneticButton } from '@/components/motion/MagneticButton'
+import { Parallax } from '@/components/motion/Parallax'
+import { RotatingWordsMotion } from '@/components/effects/RotatingWordsMotion'
+import { SpotlightCursor } from '@/components/effects/SpotlightCursor'
+import { NoiseOverlay } from '@/components/effects/NoiseOverlay'
+import { RobotOrnament } from '@/components/effects/RobotOrnament'
 
 export function HeroSection() {
   return (
-    <AuroraBackground
-      className="hero-aurora"
-    >
-      <NoiseOverlay opacity={0.035} />
+    <section className="aurora-advanced hero-advanced" aria-labelledby="hero-title">
+      {/* Ornements décoratifs */}
+      <div className="grid-ornament" aria-hidden="true" />
+      <NoiseOverlay opacity={0.04} />
+      <SpotlightCursor />
 
+      {/* Watermark massif en fond */}
+      <div className="hero-watermark" aria-hidden="true">
+        {niche.entity.split(' ')[0].toUpperCase()}
+      </div>
+
+      {/* Contenu */}
       <div
         style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: 'var(--space-20) var(--space-6)',
-          width: '100%',
           position: 'relative',
           zIndex: 3,
+          maxWidth: '1320px',
+          margin: '0 auto',
+          width: '100%',
+          padding: '0 var(--space-6)',
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1fr)',
+          gap: 'var(--space-10)',
         }}
       >
-        <div className="hero-grid">
-        {/* ── Colonne gauche — texte ── */}
-        <div>
-        {/* Eyebrow */}
-        <AnimatedHeading
-          as="p"
-          delay={0}
-          duration={600}
-          style={{
-            fontSize: '12px',
-            fontWeight: 600,
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--accent-1)',
-            marginBottom: 'var(--space-5)',
-          }}
-        >
-          Guides indépendants · Comparatifs honnêtes
-        </AnimatedHeading>
+        {/* Eyebrow pill */}
+        <FadeIn delay={0} duration={0.5} y={12}>
+          <span className="pill-accent">
+            Guides indépendants · Comparatifs honnêtes
+          </span>
+        </FadeIn>
 
-        {/* H1 — ligne 1 */}
-        <AnimatedHeading
-          as="h1"
-          delay={120}
-          duration={900}
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: 'clamp(2rem, 5.5vw, 4.5rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '0',
-            color: 'var(--text-primary)',
-            marginBottom: '0.15em',
-          }}
-        >
-          {niche.heroPrefix}
-        </AnimatedHeading>
+        <div className="hero-advanced-grid">
+          {/* Colonne gauche — typographie */}
+          <div>
+            <h1
+              id="hero-title"
+              className="type-massive"
+              style={{ margin: 0, color: 'var(--text-primary)' }}
+            >
+              <FadeIn as="span" delay={0.12} duration={0.8} y={30}>
+                <span style={{ display: 'block' }}>{niche.heroPrefix}</span>
+              </FadeIn>
+              <FadeIn as="span" delay={0.28} duration={0.8} y={30}>
+                <span
+                  style={{
+                    display: 'flex',
+                    alignItems: 'baseline',
+                    flexWrap: 'wrap',
+                    gap: '0.18em',
+                    marginTop: '0.1em',
+                  }}
+                >
+                  <RotatingWordsMotion
+                    words={niche.rotatingWords}
+                    interval={2800}
+                    style={{ color: 'var(--accent-1)' }}
+                  />
+                </span>
+              </FadeIn>
+              <FadeIn as="span" delay={0.42} duration={0.8} y={30}>
+                <span className="type-mix-hero" style={{ display: 'block' }}>
+                  {niche.heroSuffix}
+                </span>
+              </FadeIn>
+            </h1>
 
-        {/* H1 — ligne 2 avec mot rotatif */}
-        <AnimatedHeading
-          as="h1"
-          delay={280}
-          duration={900}
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: 'clamp(2rem, 5.5vw, 4.5rem)',
-            fontWeight: 800,
-            lineHeight: 1.1,
-            letterSpacing: '0',
-            marginBottom: 'var(--space-8)',
-            display: 'flex',
-            alignItems: 'baseline',
-            flexWrap: 'wrap',
-            gap: '0.25em',
-          }}
-        >
-          <RotatingWords
-            words={niche.rotatingWords}
-            interval={2600}
-            style={{ color: 'var(--accent-1)' }}
-          />
-          <span className="text-gradient-hero">{niche.heroSuffix}</span>
-        </AnimatedHeading>
+            <FadeIn delay={0.6} duration={0.7} y={18}>
+              <p
+                style={{
+                  fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
+                  color: 'var(--text-secondary)',
+                  maxWidth: '560px',
+                  lineHeight: 1.7,
+                  marginTop: 'var(--space-8)',
+                  marginBottom: 'var(--space-10)',
+                }}
+              >
+                {niche.subtitle}
+              </p>
+            </FadeIn>
 
-        {/* Sous-titre */}
-        <AnimatedHeading
-          as="p"
-          delay={440}
-          duration={700}
-          style={{
-            fontSize: 'clamp(1rem, 2vw, 1.2rem)',
-            color: 'var(--text-secondary)',
-            maxWidth: '520px',
-            lineHeight: 1.65,
-            marginBottom: 'var(--space-10)',
-          }}
-        >
-          {niche.subtitle}
-        </AnimatedHeading>
+            <FadeIn delay={0.76} duration={0.6} y={14}>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: 'var(--space-4)',
+                  flexWrap: 'wrap',
+                  alignItems: 'center',
+                }}
+              >
+                <MagneticButton
+                  href={niche.ctaPrimary.url}
+                  strength={0.35}
+                  style={{
+                    padding: '14px 26px',
+                    background: 'linear-gradient(135deg, var(--accent-1), var(--accent-3))',
+                    color: '#fff',
+                    fontWeight: 700,
+                    fontSize: '15px',
+                    borderRadius: 'var(--radius-full)',
+                    boxShadow: '0 10px 40px -10px color-mix(in srgb, var(--accent-1) 60%, transparent)',
+                  }}
+                >
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                    {niche.ctaPrimary.text}
+                  </span>
+                </MagneticButton>
 
-        {/* CTAs */}
-        <AnimatedHeading
-          as="p"
-          delay={580}
-          duration={600}
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 'var(--space-4)',
-            alignItems: 'center',
-          }}
-        >
-          <Link
-            href={niche.ctaPrimary.url}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 'var(--space-2)',
-              padding: 'var(--space-3) var(--space-6)',
-              backgroundColor: 'var(--accent-1)',
-              color: '#fff',
-              fontWeight: 700,
-              fontSize: '15px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-              letterSpacing: '-0.01em',
-              transition: 'opacity 150ms ease, transform 150ms ease',
-            }}
-            className="btn-primary"
+                <MagneticButton
+                  href={niche.ctaSecondary.url}
+                  strength={0.25}
+                  style={{
+                    padding: '14px 24px',
+                    border: '1px solid var(--border-strong)',
+                    color: 'var(--text-primary)',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    borderRadius: 'var(--radius-full)',
+                    background: 'color-mix(in srgb, var(--bg-surface) 40%, transparent)',
+                    backdropFilter: 'blur(8px)',
+                  }}
+                >
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                    {niche.ctaSecondary.text}
+                  </span>
+                </MagneticButton>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Colonne droite — Robot SVG + navigation catégories */}
+          <div className="hero-visual-wrap">
+            <Parallax speed={0.25}>
+              <RobotOrnament
+                className="robot-glow"
+                style={{
+                  width: '100%',
+                  maxWidth: '480px',
+                  height: 'auto',
+                  display: 'block',
+                  margin: '0 auto',
+                }}
+              />
+            </Parallax>
+          </div>
+        </div>
+
+        {/* Navigation familles — éditoriale */}
+        <FadeIn delay={0.9} duration={0.7} y={20}>
+          <nav
+            className="hero-families"
+            aria-label={`Catégories de ${niche.entities}`}
           >
-            {niche.ctaPrimary.text}
-          </Link>
-          <Link
-            href={niche.ctaSecondary.url}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 'var(--space-2)',
-              padding: 'var(--space-3) var(--space-6)',
-              border: '1px solid var(--border)',
-              color: 'var(--text-primary)',
-              fontWeight: 500,
-              fontSize: '15px',
-              borderRadius: '8px',
-              textDecoration: 'none',
-              letterSpacing: '-0.01em',
-              transition: 'border-color 150ms ease',
-            }}
-          >
-            {niche.ctaSecondary.text}
-          </Link>
-        </AnimatedHeading>
-        </div>{/* /colonne gauche */}
-
-        {/* ── Colonne droite — navigation familles ── */}
-        <HeroVisual />
-
-        </div>{/* /hero-grid */}
+            <Stagger staggerDelay={0.06}>
+              {niche.categories.map((cat, i) => (
+                <StaggerItem key={cat.slug} as="div">
+                  <Link href={`/comparer/${cat.slug}`} className="hero-family-link">
+                    <span className="hero-family-index">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="hero-family-label">{cat.label}</span>
+                    <span className="hero-family-arrow" aria-hidden="true">→</span>
+                  </Link>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </nav>
+        </FadeIn>
       </div>
-    </AuroraBackground>
+    </section>
   )
 }
