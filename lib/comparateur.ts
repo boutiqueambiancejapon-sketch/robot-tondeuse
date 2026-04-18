@@ -100,6 +100,32 @@ export const COMPARATEURS: Record<string, ProduitComparateur> = {
         },
       },
       {
+        nom: 'LUBA Mini AWD 800',
+        prix: 1099,
+        amazonUrl: 'https://www.amazon.fr/dp/B0DT45SCBS',
+        specs: {
+          surface: '800 m²',
+          pente: '80%',
+          bruit: '60 dB',
+          navigation: 'NetRTK + vision (sans fil)',
+          connectivite: 'WiFi + 4G + App',
+          autonomie: '120 min',
+        },
+      },
+      {
+        nom: 'LUBA Mini AWD 1500',
+        prix: 1399,
+        amazonUrl: 'https://www.amazon.fr/dp/B0DT469BGY',
+        specs: {
+          surface: '1500 m²',
+          pente: '80%',
+          bruit: '60 dB',
+          navigation: 'NetRTK + vision (sans fil)',
+          connectivite: 'WiFi + 4G + App',
+          autonomie: '150 min',
+        },
+      },
+      {
         nom: 'LUBA Mini AWD LiDAR',
         prix: 1699,
         amazonUrl: 'https://www.amazon.fr/dp/B0FCFRC4HP',
