@@ -1,0 +1,11 @@
+name: "Dreame A2 3000"
+categorie: "dreame"
+prix: "1 599-2 499 €"
+badge: "Le plus silencieux"
+hook: "3D LiDAR 70 m + caméra HDR IA pour 3 000 m². 58 dB, le robot tondeuse le plus discret du top LiDAR, parfait pour voisinage sensible et grand jardin plat."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DWFW56NX"
