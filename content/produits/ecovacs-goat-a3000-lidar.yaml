@@ -1,0 +1,11 @@
+name: "Ecovacs Goat A3000 LiDAR"
+categorie: "ecovacs"
+prix: "1 999-2 999 €"
+badge: "TruEdge bordures"
+hook: "Double LiDAR + caméra IA 150°, module TruEdge (version Pro) qui tond à 2 mm du rebord et élimine la bande non tondue. 3 000 m², charge rapide en 45 minutes."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DRFY1BDV"
