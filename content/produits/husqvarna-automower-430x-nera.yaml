@@ -1,0 +1,11 @@
+name: "Husqvarna Automower 430X NERA"
+categorie: "husqvarna"
+prix: "3 699-3 799 €"
+badge: "EPOS sans fil 3 200 m²"
+hook: "Haut de gamme sans fil Husqvarna EPOS. Couvre jusqu'à 3 200 m² avec limites virtuelles à 2-3 cm, pente 45 %, 800+ revendeurs SAV France. La fiabilité premium pour grand jardin complexe."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CF5NXFYS"
