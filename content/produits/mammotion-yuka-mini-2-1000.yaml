@@ -1,0 +1,11 @@
+name: "Mammotion Yuka Mini 2 1000"
+categorie: "mammotion"
+prix: "1 299 €"
+badge: "LiDAR entrée de gamme"
+hook: "LiDAR 360° + double caméra IA pour 1 000 m². Le LiDAR le moins cher du marché en 2026, avec l'écosystème Mammotion et 45 % de pente gérée."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GJ4TWVVV"
