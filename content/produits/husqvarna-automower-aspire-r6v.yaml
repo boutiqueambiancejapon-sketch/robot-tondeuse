@@ -1,0 +1,11 @@
+name: "Husqvarna Automower Aspire R6V"
+categorie: "husqvarna"
+prix: "1 099 €"
+badge: "Sans fil IA Vision"
+hook: "Première entrée de gamme Husqvarna 100 % sans fil. IA Vision + GPS, tonte systématique en bandes, damiers ou triangles, jusqu'à 600 m². Le ticket d'entrée vers le sans-fil Husqvarna."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GMGZT5Q4"
