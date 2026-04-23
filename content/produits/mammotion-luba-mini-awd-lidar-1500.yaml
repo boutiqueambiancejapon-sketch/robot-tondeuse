@@ -1,0 +1,11 @@
+name: "Mammotion Luba Mini AWD LiDAR 1500"
+categorie: "mammotion"
+prix: "2 299 €"
+badge: "Solid-state LiDAR"
+hook: "Solid-state LiDAR 144 canaux sans RTK ni câble périphérique. 1 500 m², pente jusqu'à 80 %, quatre roues motrices. Idéal pour jardins couverts et terrains complexes."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0FCFRC4HP"
