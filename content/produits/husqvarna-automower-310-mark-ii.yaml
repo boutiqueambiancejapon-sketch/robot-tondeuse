@@ -1,0 +1,11 @@
+name: "Husqvarna Automower 310 Mark II"
+categorie: "husqvarna"
+prix: "1 399-1 599 €"
+badge: "La fiabilité Husqvarna"
+hook: "Grand classique à fil périphérique. 1 000 m², 40 % de pente, 59 dB, 800+ revendeurs SAV et pièces détachées en France. Le robot qu'on achète pour 7 à 10 ans sans se poser de questions."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0BWKF1VWS"
