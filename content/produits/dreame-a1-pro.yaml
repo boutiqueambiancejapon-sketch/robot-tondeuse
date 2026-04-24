@@ -1,0 +1,11 @@
+name: "Dreame A1 Pro"
+categorie: "dreame"
+prix: "1 599-1 799 €"
+badge: "LiDAR 2 000 m² silencieux"
+hook: "LiDAR 3D 360° OmniSense, 2 000 m², 55-57 dB mesurés. Installation en 20 minutes sans fil ni antenne RTK. Le robot sans fil le plus discret pour jardin pavillonnaire plat ou arboré."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DR35G7P3"
