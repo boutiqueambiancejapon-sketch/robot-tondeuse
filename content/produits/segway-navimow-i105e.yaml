@@ -1,0 +1,11 @@
+name: "Segway Navimow i105E"
+categorie: "segway"
+prix: "799-999 €"
+badge: "RTK + Vision 58 dB"
+hook: "RTK + Vision IA sans câble périmétrique, 500 m² recommandés (600 m² max), 58 dB. Installation guidée 15-30 minutes. Le robot sans fil le plus accessible pour petit jardin silencieux."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CXDNFZLL"
