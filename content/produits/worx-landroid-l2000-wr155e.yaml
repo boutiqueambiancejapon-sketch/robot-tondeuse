@@ -1,0 +1,11 @@
+name: "Worx Landroid L2000 WR155E"
+categorie: "worx"
+prix: "749-899 €"
+badge: "Filaire 2 000 m²"
+hook: "Robot tondeuse filaire pour grands jardins jusqu'à 2 000 m² (2 400 m² max). 22 cm de coupe, 35 % de pente, 120 min d'autonomie, IPX5, app Landroid, écosystème PowerShare 20 V. Le rapport surface/prix le plus agressif du segment 2 000 m² en 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B07LFPKYC6"
