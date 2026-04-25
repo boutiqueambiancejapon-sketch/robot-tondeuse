@@ -1,0 +1,11 @@
+name: "Segway Navimow i220 LiDAR"
+categorie: "segway"
+prix: "1 599-1 899 €"
+badge: "Dual LiDAR 2 000 m²"
+hook: "Sans fil périphérique, dual LiDAR + Vision pour 2 000 m², roues tout-terrain, pente 45 %, batterie 10 Ah. Cartographie automatique sans antenne RTK extérieure, lancée février 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GDYYYT1R"
