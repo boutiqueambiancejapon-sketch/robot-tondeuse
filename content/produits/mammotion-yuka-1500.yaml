@@ -1,0 +1,11 @@
+name: "Mammotion Yuka 1500"
+categorie: "mammotion"
+prix: "1 499-1 699 €"
+badge: "RTK + 3D Vision sans fil"
+hook: "Sans fil périphérique pour 1 500 m², navigation RTK + 3D Vision, 45 % de pente, gestion multi-zones jusqu'à 10 zones, antivol 4G. Le compromis idéal entre prix et technologie sans-fil sur jardin moyen-grand."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0D455TVXL"
