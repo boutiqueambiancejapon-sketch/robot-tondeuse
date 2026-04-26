@@ -1,0 +1,11 @@
+name: "Mammotion Luba 3 AWD 3000"
+categorie: "mammotion"
+prix: "2 499-2 999 €"
+badge: "Tri-Fusion 4WD 3 000 m²"
+hook: "Tri-Fusion LiDAR 360° + NetRTK + double caméra IA, 4 roues motrices omnidirectionnelles, pente jusqu'à 80 %, jusqu'à 3 000 m² et 30 zones gérées. Le flagship Mammotion pour grand terrain complexe ou en pente."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GCZSSZRZ"
