@@ -1,0 +1,11 @@
+name: "Bosch Indego S+ 500"
+categorie: "bosch"
+prix: "449-549 €"
+badge: "LogiCut lignes parallèles"
+hook: "Le seul filaire sous 550 € qui tond en lignes parallèles grâce à LogiCut. 500 m², compatible Alexa et IFTTT, SAV Bosch dense en France. Pour jardins plats où le rendu visuel compte."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B08VJJKFBX"
