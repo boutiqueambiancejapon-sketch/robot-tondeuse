@@ -55,20 +55,20 @@ export function BottomNav() {
               href={item.href}
               aria-label={item.label}
               style={{
+                flex: 1,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: 2,
-                padding: '6px 14px',
-                minWidth: 64,
+                padding: '6px 4px',
                 background: 'var(--copper)',
                 color: 'var(--ivory)',
-                borderRadius: 18,
+                borderRadius: 14,
                 textDecoration: 'none',
-                transform: 'translateY(-10px)',
-                boxShadow: '0 6px 16px rgba(184, 98, 61, 0.35)',
-                transition: 'background 150ms ease, transform 150ms ease',
+                margin: '0 4px',
+                boxShadow: '0 4px 12px rgba(184, 98, 61, 0.30)',
+                transition: 'background 150ms ease',
               }}
             >
               <Icon size={20} aria-hidden="true" />
