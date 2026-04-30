@@ -1072,6 +1072,12 @@ body {
   border-left-width: 4px;
 }
 
+/* Hub cards — hover effect */
+.hub-card:hover {
+  border-color: var(--copper) !important;
+  transform: translateY(-2px);
+}
+
 /* Hover sur product-affiliate — border-left pleine couleur */
 .product-affiliate:hover {
   border-left-color: currentColor;
