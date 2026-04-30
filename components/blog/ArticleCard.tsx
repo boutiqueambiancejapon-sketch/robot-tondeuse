@@ -101,9 +101,10 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             <h2
               className="article-card-title"
               style={{
-                fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                fontSize: 'clamp(22px, 3vw, 36px)',
-                fontWeight: 800,
+                fontFamily: 'var(--next-font-display), Georgia, serif',
+                fontSize: 'clamp(24px, 3.2vw, 38px)',
+                fontWeight: 400,
+                letterSpacing: '-0.02em',
                 color: 'var(--text-primary)',
                 lineHeight: 1.15,
                 margin: 0,
@@ -218,11 +219,12 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
           <h2
             className="article-card-title"
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: '17px',
-              fontWeight: 700,
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontSize: '20px',
+              fontWeight: 400,
+              letterSpacing: '-0.01em',
               color: 'var(--text-primary)',
-              lineHeight: 1.3,
+              lineHeight: 1.25,
               flex: 1,
               margin: 0,
               textWrap: 'balance',

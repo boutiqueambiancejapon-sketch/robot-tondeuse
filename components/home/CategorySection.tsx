@@ -27,10 +27,10 @@ export function CategorySection({ slug, label, index }: CategorySectionProps) {
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 'var(--space-8)', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
           <div>
-            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: accent, display: 'block', marginBottom: 'var(--space-2)' }}>
+            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: '11px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: accent, display: 'block', marginBottom: 'var(--space-2)' }}>
               {label}
             </span>
-            <h2 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(22px, 3vw, 38px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1, margin: 0 }}>
+            <h2 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(28px, 3.6vw, 44px)', fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--text-primary)', lineHeight: 1.1, margin: 0 }}>
               Guides d&apos;achat &amp; astuces
             </h2>
           </div>

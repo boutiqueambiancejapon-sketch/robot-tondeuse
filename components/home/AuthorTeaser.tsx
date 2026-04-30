@@ -48,11 +48,12 @@ export function AuthorTeaser() {
         >
           <span
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: '45%',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
-              letterSpacing: '0',
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontSize: '50%',
+              fontWeight: 400,
+              fontStyle: 'italic',
+              color: 'var(--copper)',
+              letterSpacing: '-0.02em',
               lineHeight: 1,
               userSelect: 'none',
             }}
@@ -76,11 +77,12 @@ export function AuthorTeaser() {
         <div>
           <p
             style={{
+              fontFamily: 'var(--next-font-mono), monospace',
               fontSize: '11px',
-              fontWeight: 700,
-              letterSpacing: '0.12em',
+              fontWeight: 500,
+              letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: 'var(--accent-1)',
+              color: 'var(--moss)',
               marginBottom: 'var(--space-3)',
             }}
           >
@@ -88,10 +90,10 @@ export function AuthorTeaser() {
           </p>
           <h2
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(1.2rem, 2.2vw, 1.7rem)',
-              fontWeight: 700,
-              letterSpacing: '0',
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontSize: 'clamp(1.5rem, 2.6vw, 2rem)',
+              fontWeight: 400,
+              letterSpacing: '-0.015em',
               color: 'var(--text-primary)',
               marginBottom: 'var(--space-4)',
               lineHeight: 1.15,
