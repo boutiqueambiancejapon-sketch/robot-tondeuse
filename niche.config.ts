@@ -96,29 +96,29 @@ export type NicheConfig = {
 // Le prompt d'init remplace ces valeurs. Le site build même avec des valeurs vides.
 
 export const niche: NicheConfig = {
-  siteName: 'Mon Robot Tondeuse',
+  siteName: 'Quel Robot Tondeuse',
   domain: 'quel-robot-tondeuse.com',
-  tagline: 'Votre pelouse mérite un robot. On vous aide à choisir.',
+  tagline: 'Le guide indépendant pour bien choisir votre robot tondeuse.',
 
   entity: 'robot tondeuse',
   entities: 'robots tondeuses',
   entityVerb: 'acheter',
   dealWord: 'bons plans',
 
-  heroPrefix: 'Choisir votre',
-  heroSuffix: 'en 10 minutes',
-  rotatingWords: ['Mammotion', 'Husqvarna', 'Gardena', 'Worx', 'Bosch'],
-  subtitle: 'Comparatifs honnêtes, quiz rapide et simulateur de surface. Le bon robot tondeuse pour votre jardin, sans prise de tête.',
-  ctaPrimary: { text: 'Comparer →', url: '/comparer' },
-  ctaSecondary: { text: 'Quel robot pour moi ?', url: '/quiz' },
+  heroPrefix: 'Le robot qui tond',
+  heroSuffix: 'votre jardin',
+  rotatingWords: ['vraiment', 'enfin', 'tranquillement', 'sans bruit', 'tout seul'],
+  subtitle: 'On a testé des dizaines de modèles dans la boue, sur des pentes, sous la pluie. Voici ceux qui méritent vraiment leur place dans votre jardin — et nos outils pour trouver le vôtre en 2 minutes.',
+  ctaPrimary: { text: 'Trouver mon robot →', url: '/quiz' },
+  ctaSecondary: { text: 'Voir le top 2026', url: '/comparatifs' },
 
   categories: [
-    { slug: 'mammotion', label: 'Mammotion', accent: '#16A34A', description: 'Yuka et Luba : robots tondeuses sans fil avec navigation vision et RTK' },
-    { slug: 'husqvarna', label: 'Husqvarna', accent: '#FF6A00', description: 'Automower : la référence suédoise depuis 1995' },
-    { slug: 'gardena', label: 'Gardena', accent: '#0891B2', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
-    { slug: 'worx', label: 'Worx', accent: '#D97706', description: 'Landroid et Vision Cloud : robots modulaires et sans fil' },
-    { slug: 'bosch', label: 'Bosch', accent: '#7C3AED', description: 'Indego et VISIMOW : robots tondeuses connectés et compacts' },
-    { slug: 'entretien-pelouse', label: 'Entretien pelouse', accent: '#059669', description: 'Guides et astuces pour une pelouse en pleine forme toute l\'année' },
+    { slug: 'mammotion', label: 'Mammotion', accent: '#3a5a3d', description: 'Yuka et Luba : robots tondeuses sans fil avec navigation vision et RTK' },
+    { slug: 'husqvarna', label: 'Husqvarna', accent: '#b8623d', description: 'Automower : la référence suédoise depuis 1995' },
+    { slug: 'gardena', label: 'Gardena', accent: '#8ba88e', description: 'SILENO : robots fiables et silencieux pour petits et moyens jardins' },
+    { slug: 'worx', label: 'Worx', accent: '#d97742', description: 'Landroid et Vision Cloud : robots modulaires et sans fil' },
+    { slug: 'bosch', label: 'Bosch', accent: '#1a2e1f', description: 'Indego et VISIMOW : robots tondeuses connectés et compacts' },
+    { slug: 'entretien-pelouse', label: 'Entretien pelouse', accent: '#243b2a', description: 'Guides et astuces pour une pelouse en pleine forme toute l\'année' },
   ],
 
   quiz: {
@@ -137,19 +137,19 @@ export const niche: NicheConfig = {
   },
 
   palette: {
-    accent1: '#16A34A',
-    accent2: '#D97706',
-    accent3: '#15803D',
-    accent4: '#7C3AED',
-    accent5: '#0891B2',
-    bgPrimary: '#080E08',
-    bgSurface: '#0F1A0F',
-    bgSurface2: '#182618',
-    textPrimary: '#F0F5F0',
-    textSecondary: '#8FA88F',
-    textMuted: '#4D664D',
+    accent1: '#b8623d',  // copper — CTA primaire / affiliés
+    accent2: '#3a5a3d',  // moss — vert secondaire
+    accent3: '#1a2e1f',  // forest-deep — ancrage sombre
+    accent4: '#d97742',  // copper-bright — hover / highlight
+    accent5: '#8ba88e',  // sage — soft accent
+    bgPrimary: '#fbf8f0',   // paper
+    bgSurface: '#faf6ec',   // ivory
+    bgSurface2: '#f5efe1',  // cream
+    textPrimary: '#1a2e1f',    // ink (forest-deep)
+    textSecondary: '#3d4a3f',  // ink-soft
+    textMuted: '#6b7a6c',      // muted
   },
-  fonts: { display: 'Plus Jakarta Sans', body: 'DM Sans' },
+  fonts: { display: 'Instrument Serif', body: 'Inter' },
 
   author: {
     name: 'Thomas',
