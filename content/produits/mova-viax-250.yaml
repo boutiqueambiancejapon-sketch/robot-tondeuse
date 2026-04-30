@@ -1,0 +1,11 @@
+name: "Mova ViAX 250"
+categorie: "mova"
+prix: "489-579 €"
+badge: "Sans fil sous 600 €"
+hook: "Robot tondeuse sans fil pour 250 m². Double vision IA UltraEyes 1.0, 40 % de pente, 60 minutes d'autonomie, passages 60 cm, antivol TrueGuard. Le sans-fil le plus accessible du marché en 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0G5B2W2MD"
