@@ -3,11 +3,12 @@ import type { NextConfig } from 'next'
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
+  // unpkg.com pour le CSS Leaflet (chargé runtime sur /superficie)
+  "style-src 'self' 'unsafe-inline' https://unpkg.com",
   "img-src 'self' data: https:",
   "font-src 'self'",
   // Tuiles satellite Esri + geocoding Nominatim pour /superficie
-  "connect-src 'self' https://vitals.vercel-insights.com https://affiliate-api.amazon.fr https://api.github.com https://nominatim.openstreetmap.org https://server.arcgisonline.com",
+  "connect-src 'self' https://vitals.vercel-insights.com https://affiliate-api.amazon.fr https://api.github.com https://nominatim.openstreetmap.org https://server.arcgisonline.com https://services.arcgisonline.com",
 ].join('; ')
 
 const nextConfig: NextConfig = {

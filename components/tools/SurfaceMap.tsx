@@ -13,9 +13,9 @@
  */
 
 import { useEffect, useRef, useState } from 'react'
-import 'leaflet/dist/leaflet.css'
 
 type LatLng = [number, number]
+const LEAFLET_CSS_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
 
 const ESRI_TILES = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
 const ESRI_ATTR = 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, USDA, USGS'
@@ -38,6 +38,14 @@ export function SurfaceMap() {
     let map: import('leaflet').Map | null = null
 
     async function init() {
+      // Inject Leaflet CSS at runtime (CSP autorise unpkg.com en style-src)
+      if (typeof document !== 'undefined' && !document.getElementById('leaflet-css')) {
+        const link = document.createElement('link')
+        link.id = 'leaflet-css'
+        link.rel = 'stylesheet'
+        link.href = LEAFLET_CSS_URL
+        document.head.appendChild(link)
+      }
       const L = (await import('leaflet')).default
       if (cancelled || !mapRef.current) return
 
