@@ -13,6 +13,7 @@ import {
   PAR_BESOIN_ITEMS,
   COMPARATIFS_ITEMS,
   GUIDES_ITEMS,
+  PELOUSE_JARDIN_ITEMS,
 } from '@/lib/home-hubs'
 
 export default function HomePage() {
@@ -65,7 +66,7 @@ export default function HomePage() {
       {/* Derniers articles éditoriaux toutes catégories */}
       <RecentArticles />
 
-      {/* Guides & conseils */}
+      {/* Guides & conseils (autour du robot) */}
       <HomeHubSection
         eyebrow="08 — Guides & conseils"
         heading="Tout savoir avant d'acheter"
@@ -74,6 +75,17 @@ export default function HomePage() {
         background="paper"
         ctaHref="/blog"
         ctaLabel="Tous les articles →"
+      />
+
+      {/* Pelouse & jardin (astuces gazon, hors robot) */}
+      <HomeHubSection
+        eyebrow="09 — Pelouse & jardin"
+        heading="Astuces pour un beau gazon"
+        emHighlight="beau gazon"
+        items={PELOUSE_JARDIN_ITEMS}
+        background="cream"
+        ctaHref="/blog/entretien-pelouse"
+        ctaLabel="Tous nos conseils jardin →"
       />
 
       {/* Méthodologie test (radar chart) */}

@@ -37,7 +37,7 @@ export const COMPARATIFS_ITEMS: HubSectionItem[] = [
   { href: '/robot-tondeuse-haut-de-gamme', label: 'Haut de gamme', description: 'Husqvarna NERA, Mammotion Luba, Worx Vision.' },
 ]
 
-// ─── Guides & conseils ───────────────────────────────────────────────────
+// ─── Guides & conseils (autour du robot) ────────────────────────────────
 
 export const GUIDES_ITEMS: HubSectionItem[] = [
   { href: '/comment-choisir-robot-tondeuse', label: 'Comment choisir', description: 'Les 5 critères qui comptent vraiment.' },
@@ -46,4 +46,17 @@ export const GUIDES_ITEMS: HubSectionItem[] = [
   { href: '/entretien-robot-tondeuse', label: 'Entretien', description: 'Lames, batterie, nettoyage, mises à jour.' },
   { href: '/hivernage-robot-tondeuse', label: 'Hivernage', description: 'Comment remiser correctement votre robot.' },
   { href: '/horaires-tonte-reglementation', label: 'Réglementation FR', description: 'Horaires, voisinage, canicule, exemptions.' },
+]
+
+// ─── Pelouse & jardin (astuces gazon, hors robot) ────────────────────────
+
+export const PELOUSE_JARDIN_ITEMS: HubSectionItem[] = [
+  { href: '/comment-avoir-un-beau-gazon-bien-vert', label: 'Avoir un beau gazon', description: 'Les bons gestes pour une pelouse dense et bien verte.' },
+  { href: '/comment-bien-arroser-sa-pelouse', label: 'Bien arroser sa pelouse', description: 'Fréquence, dose, horaires — éviter les erreurs courantes.' },
+  { href: '/quand-et-comment-scarifier-sa-pelouse', label: 'Scarifier la pelouse', description: 'Quand, comment, avec quel outil — guide saisonnier.' },
+  { href: '/comment-enlever-mousse-gazon', label: 'Enlever la mousse', description: 'Solutions naturelles et chimiques selon le terrain.' },
+  { href: '/quel-gazon-semer-pour-robot-tondeuse', label: 'Quel gazon semer', description: 'Variétés rustiques, tontes courtes, ensoleillement.' },
+  { href: '/pelouse-abimee-comment-reparer-gazon', label: 'Réparer un gazon abîmé', description: 'Regarnissage, terreau, étapes pour récupérer une pelouse.' },
+  { href: '/pourquoi-mon-gazon-jaunit', label: 'Pourquoi mon gazon jaunit', description: 'Diagnostiquer les causes et redonner de la vigueur.' },
+  { href: '/premiere-tonte-printemps-robot-tondeuse', label: 'Première tonte du printemps', description: 'Hauteur, fréquence, démarrage de la saison.' },
 ]

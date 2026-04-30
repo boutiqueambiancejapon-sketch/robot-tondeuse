@@ -129,13 +129,25 @@ export function SurfaceMap() {
     setSearching(true)
     setSearchError(null)
     try {
+      // countrycodes restreint aux pays francophones européens (FR + BE + CH + LU + MC)
       const res = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=fr&q=${encodeURIComponent(search)}`,
+        `https://nominatim.openstreetmap.org/search?format=json&limit=5&countrycodes=fr,be,ch,lu,mc&q=${encodeURIComponent(search)}`,
         { headers: { Accept: 'application/json' } },
       )
       const data = await res.json()
       if (!data || data.length === 0) {
-        setSearchError('Adresse introuvable. Essayez avec la commune.')
+        // Fallback : recherche mondiale si rien trouvé en FR/BE/CH/LU/MC
+        const fallback = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&limit=1&q=${encodeURIComponent(search)}`,
+          { headers: { Accept: 'application/json' } },
+        ).then((r) => r.json()).catch(() => null)
+        if (!fallback || fallback.length === 0) {
+          setSearchError('Adresse introuvable. Essayez avec la commune ou le code postal.')
+          return
+        }
+        const { lat, lon } = fallback[0]
+        const map = mapInstance.current as import('leaflet').Map | null
+        if (map) map.setView([parseFloat(lat), parseFloat(lon)], 18)
         return
       }
       const { lat, lon } = data[0]
