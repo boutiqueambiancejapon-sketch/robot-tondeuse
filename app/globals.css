@@ -361,15 +361,16 @@ body {
 
 /* Watermark numéro — sections */
 .section-watermark {
-  font-family: var(--next-font-display), system-ui, sans-serif;
+  font-family: var(--next-font-display), Georgia, serif;
   font-size: clamp(120px, 18vw, 200px);
-  font-weight: 800;
+  font-weight: 400;
+  font-style: italic;
   line-height: 1;
-  opacity: 0.05;
-  color: var(--accent-2);
+  opacity: 0.08;
+  color: var(--moss);
   pointer-events: none;
   user-select: none;
-  letter-spacing: 0;
+  letter-spacing: -0.02em;
 }
 
 /* ===== RESPONSIVE & COMPOSANTS ===== */
@@ -391,12 +392,12 @@ body {
 }
 .related-link:hover span:first-child { color: var(--accent-1) !important; }
 .related-link:hover span:nth-child(2) > span:first-child { color: var(--accent-1) !important; }
-/* Nav glass specular highlight */
+/* Nav glass specular highlight (light theme) */
 .nav-glass-active::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(175deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 30%, transparent 50%);
+  background: linear-gradient(175deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.15) 30%, transparent 50%);
   pointer-events: none;
   z-index: 0;
 }
@@ -485,9 +486,11 @@ body {
   counter-reset: section-counter;
 }
 .prose-article h2 {
-  font-family: var(--next-font-display), system-ui, sans-serif;
-  font-size: clamp(20px, 3vw, 26px);
-  font-weight: 800;
+  font-family: var(--next-font-display), Georgia, serif;
+  font-size: clamp(26px, 3.6vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.18;
   color: var(--text-primary);
   margin-top: var(--space-12);
   margin-bottom: var(--space-4);
@@ -516,9 +519,11 @@ body {
   opacity: 0.6;
 }
 .prose-article h3 {
-  font-family: var(--next-font-display), system-ui, sans-serif;
-  font-size: clamp(17px, 2.5vw, 20px);
-  font-weight: 700;
+  font-family: var(--next-font-display), Georgia, serif;
+  font-size: clamp(20px, 2.8vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
   color: var(--text-primary);
   margin-top: var(--space-8);
   margin-bottom: var(--space-3);
@@ -564,14 +569,15 @@ body {
 }
 /* Lettrine première lettre — typo-article-intro */
 .prose-article > p:first-of-type::first-letter {
-  font-family: var(--next-font-display), system-ui, sans-serif;
-  font-size: 3.5em;
-  font-weight: 800;
-  color: var(--accent-1);
+  font-family: var(--next-font-display), Georgia, serif;
+  font-size: 4em;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--copper);
   float: left;
-  line-height: 0.8;
-  margin-right: 0.12em;
-  margin-top: 0.08em;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
 }
 
 /* --- Tables markdown dans prose-article --- */
@@ -588,12 +594,12 @@ body {
 .prose-article th {
   padding: var(--space-3) var(--space-4);
   text-align: left;
-  font-family: var(--next-font-display), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: var(--next-font-mono), monospace;
+  font-weight: 600;
   font-size: 11px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--ivory);
   white-space: nowrap;
 }
 .prose-article tbody tr:nth-child(odd) td {
