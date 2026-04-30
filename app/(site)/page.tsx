@@ -1,6 +1,7 @@
 import { HeroSection } from '@/components/home/HeroSection'
 import { ArticleTicker } from '@/components/home/ArticleTicker'
 import { FeaturedTools } from '@/components/home/FeaturedTools'
+import { HomeTopRobots } from '@/components/home/HomeTopRobots'
 import { RecentArticles } from '@/components/home/RecentArticles'
 import { HomeQuizTeaser } from '@/components/home/HomeQuizTeaser'
 import { CategorySection } from '@/components/home/CategorySection'
@@ -11,12 +12,14 @@ import { niche } from '@/niche.config'
 export default function HomePage() {
   return (
     <main id="main-content">
-      {/* Hero forest-deep + robot animé (Atelier Vert) */}
+      {/* Hero forest-deep + robot animé MON_JARDIN.LIVE */}
       <HeroSection />
       {/* Bandeau articles récents marquee */}
       <ArticleTicker />
       {/* Outils interactifs (quiz · superficie · comparer · rentabilité) */}
       <FeaturedTools />
+      {/* Le podium 2026 — 3 robots coups de cœur (signature) */}
+      <HomeTopRobots />
       {/* Derniers articles éditoriaux */}
       <RecentArticles />
       {/* Bloc forest-deep signature : "Le quiz qui ne se trompe jamais" */}

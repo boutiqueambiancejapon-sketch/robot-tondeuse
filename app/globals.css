@@ -1119,6 +1119,31 @@ body {
   }
 }
 
+/* Top Robots — grid responsive + hover */
+.top-robots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.top-robot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.top-robots-cta:hover {
+  background: var(--cream);
+  border-color: var(--copper);
+}
+@media (max-width: 900px) {
+  .top-robots-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .top-robots-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Hero pulse dot (EN MARCHE indicator) */
 .hero-pulse-dot {
   animation: hero-pulse 1.5s ease-in-out infinite;
