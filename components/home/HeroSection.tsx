@@ -1,70 +1,63 @@
 /**
- * HeroSection — above-fold Atelier Vert.
- * Light bg paper, accents copper, typo Instrument Serif italique.
- * Server Component.
+ * HeroSection — Atelier Vert : forest-deep gradient + animated robot.
+ * Server Component (les enfants client sont importés avec 'use client').
  */
 
-import { NoiseOverlay } from '@/components/effects/NoiseOverlay'
 import { AnimatedHeading } from '@/components/effects/AnimatedHeading'
-import { RotatingWords } from '@/components/effects/RotatingWords'
-import { HeroVisual } from './HeroVisual'
+import { HomeRobotMower } from './HomeRobotMower'
 import Link from 'next/link'
 import { niche } from '@/niche.config'
 
 export function HeroSection() {
   return (
     <section
-      className="hero-aurora"
       style={{
         position: 'relative',
-        background: 'var(--paper)',
+        background: 'linear-gradient(180deg, var(--forest-deep) 0%, var(--forest) 100%)',
+        color: 'var(--ivory)',
+        paddingTop: 96,
+        paddingBottom: 80,
         overflow: 'hidden',
+        minHeight: 'min(100svh, 760px)',
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      <NoiseOverlay opacity={0.02} />
-
-      {/* Halo subtil moss en haut-gauche, copper-pale bas-droite */}
-      <div
+      {/* Pattern grass ambient */}
+      <svg
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: '-200px',
-          left: '-200px',
-          width: '600px',
-          height: '600px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(58,90,61,0.10), transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          bottom: '-200px',
-          right: '-200px',
-          width: '600px',
-          height: '600px',
-          borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(184,98,61,0.10), transparent 70%)',
-          pointerEvents: 'none',
-        }}
-      />
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.08, pointerEvents: 'none' }}
+      >
+        <defs>
+          <pattern id="hero-grass" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+            <path d="M5 22 L5 13 M11 22 L11 8 M17 22 L17 15" stroke="var(--sage-light)" strokeWidth="1" strokeLinecap="round" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#hero-grass)" />
+      </svg>
 
       <div
         style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: 'var(--space-20) var(--space-6)',
+          maxWidth: 1280,
           width: '100%',
+          margin: '0 auto',
+          padding: '0 var(--space-6)',
           position: 'relative',
           zIndex: 3,
         }}
       >
-        <div className="hero-grid">
-          {/* ── Colonne gauche ── */}
+        <div
+          className="hero-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1.1fr 1fr',
+            gap: 64,
+            alignItems: 'center',
+          }}
+        >
+          {/* Colonne gauche */}
           <div>
-            {/* Eyebrow avec dot vert pulsant */}
+            {/* Eyebrow */}
             <AnimatedHeading
               as="p"
               delay={0}
@@ -78,7 +71,7 @@ export function HeroSection() {
                 fontWeight: 500,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
-                color: 'var(--moss)',
+                color: 'var(--copper-bright)',
                 marginBottom: 'var(--space-6)',
               }}
             >
@@ -95,64 +88,47 @@ export function HeroSection() {
               Live 2026 · Mis à jour cette semaine
             </AnimatedHeading>
 
-            {/* H1 — Instrument Serif italique */}
+            {/* H1 */}
             <AnimatedHeading
               as="h1"
               delay={120}
               duration={900}
               style={{
                 fontFamily: 'var(--next-font-display), Georgia, serif',
-                fontSize: 'clamp(2.5rem, 6vw, 5rem)',
+                fontSize: 'clamp(2.6rem, 6.5vw, 5.5rem)',
                 fontWeight: 400,
-                lineHeight: 1.08,
-                letterSpacing: '-0.02em',
-                color: 'var(--text-primary)',
-                marginBottom: 'var(--space-2)',
-              }}
-            >
-              {niche.heroPrefix}{' '}
-              <em style={{ color: 'var(--copper)', fontStyle: 'italic' }}>
-                <RotatingWords words={niche.rotatingWords} interval={2600} />
-              </em>
-            </AnimatedHeading>
-
-            <AnimatedHeading
-              as="h1"
-              delay={240}
-              duration={900}
-              style={{
-                fontFamily: 'var(--next-font-display), Georgia, serif',
-                fontSize: 'clamp(2.5rem, 6vw, 5rem)',
-                fontWeight: 400,
-                lineHeight: 1.08,
-                letterSpacing: '-0.02em',
-                color: 'var(--text-primary)',
+                lineHeight: 1.05,
+                letterSpacing: '-0.025em',
+                color: 'var(--ivory)',
                 marginBottom: 'var(--space-8)',
               }}
             >
-              {niche.heroSuffix}.
+              Le robot qui tond
+              <br />
+              <em style={{ color: 'var(--copper-bright)', fontStyle: 'italic' }}>vraiment</em>{' '}
+              votre jardin.
             </AnimatedHeading>
 
-            {/* Sous-titre */}
+            {/* Subtitle */}
             <AnimatedHeading
               as="p"
-              delay={400}
+              delay={320}
               duration={700}
               style={{
-                fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
-                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.4vw, 1.2rem)',
+                color: 'var(--sage-light)',
                 maxWidth: 540,
                 lineHeight: 1.6,
                 marginBottom: 'var(--space-10)',
               }}
             >
-              {niche.subtitle}
+              On a testé des dizaines de modèles dans la boue, sur des pentes, sous la pluie. Voici ceux qui méritent vraiment leur place dans votre jardin — et nos outils pour trouver le vôtre en 2&nbsp;minutes.
             </AnimatedHeading>
 
             {/* CTAs */}
             <AnimatedHeading
               as="p"
-              delay={560}
+              delay={480}
               duration={600}
               style={{
                 display: 'flex',
@@ -175,10 +151,9 @@ export function HeroSection() {
                   fontSize: 16,
                   borderRadius: 100,
                   textDecoration: 'none',
-                  boxShadow: '0 2px 0 0 #8c4a2c, 0 6px 16px rgba(184, 98, 61, 0.25)',
+                  boxShadow: '0 2px 0 0 #8c4a2c, 0 6px 16px rgba(184, 98, 61, 0.4)',
                   transition: 'background 150ms ease, transform 150ms ease',
                 }}
-                className="hero-cta-primary"
               >
                 {niche.ctaPrimary.text}
               </Link>
@@ -189,30 +164,30 @@ export function HeroSection() {
                   alignItems: 'center',
                   gap: 8,
                   padding: '16px 26px',
-                  background: 'transparent',
-                  color: 'var(--text-primary)',
-                  border: '1px solid var(--border-strong)',
+                  background: 'rgba(255,255,255,0.08)',
+                  color: 'var(--ivory)',
+                  border: '1px solid rgba(255,255,255,0.15)',
                   fontWeight: 500,
                   fontSize: 16,
                   borderRadius: 100,
                   textDecoration: 'none',
-                  transition: 'background 150ms ease, border-color 150ms ease',
+                  transition: 'background 150ms ease',
                 }}
               >
                 {niche.ctaSecondary.text}
               </Link>
             </AnimatedHeading>
 
-            {/* Stats row */}
+            {/* Stats */}
             <AnimatedHeading
               as="p"
-              delay={720}
+              delay={640}
               duration={700}
               style={{
                 display: 'flex',
                 gap: 'var(--space-8)',
                 paddingTop: 'var(--space-6)',
-                borderTop: '1px solid var(--border)',
+                borderTop: '1px solid rgba(255,255,255,0.10)',
                 flexWrap: 'wrap',
               }}
             >
@@ -221,36 +196,41 @@ export function HeroSection() {
                 { num: '6', label: 'Marques couvertes' },
                 { num: '100%', label: 'Indépendant' },
               ].map((s) => (
-                <div key={s.label}>
-                  <div
+                <span key={s.label} style={{ display: 'block' }}>
+                  <span
                     style={{
+                      display: 'block',
                       fontFamily: 'var(--next-font-display), Georgia, serif',
-                      fontSize: 32,
-                      color: 'var(--text-primary)',
+                      fontSize: 38,
+                      color: 'var(--ivory)',
                       lineHeight: 1,
+                      letterSpacing: '-0.02em',
                     }}
                   >
                     {s.num}
-                  </div>
-                  <div
+                  </span>
+                  <span
                     style={{
+                      display: 'block',
                       fontFamily: 'var(--next-font-mono), monospace',
                       fontSize: 10,
-                      color: 'var(--moss)',
+                      color: 'var(--sage)',
                       textTransform: 'uppercase',
-                      letterSpacing: '0.1em',
-                      marginTop: 4,
+                      letterSpacing: '0.12em',
+                      marginTop: 6,
                     }}
                   >
                     {s.label}
-                  </div>
-                </div>
+                  </span>
+                </span>
               ))}
             </AnimatedHeading>
           </div>
 
-          {/* ── Colonne droite — navigation familles ── */}
-          <HeroVisual />
+          {/* Colonne droite — robot animé */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <HomeRobotMower />
+          </div>
         </div>
       </div>
     </section>
