@@ -1119,6 +1119,58 @@ body {
   }
 }
 
+/* Hub sections (HomeHubSection) — grille de hub cards avec image */
+.hub-section-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+.hub-section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--copper) !important;
+}
+.hub-section-cta:hover {
+  background: var(--cream);
+  border-color: var(--copper);
+}
+@media (max-width: 1100px) {
+  .hub-section-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .hub-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .hub-section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Brands grid (HomeMarques) — 3 cols desktop, responsive */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+.brand-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--copper) !important;
+}
+@media (max-width: 900px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Top Robots — grid responsive + hover */
 .top-robots-grid {
   display: grid;
