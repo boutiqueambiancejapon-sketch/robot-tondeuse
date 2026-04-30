@@ -1,0 +1,11 @@
+name: "Worx Landroid M500 WR141E"
+categorie: "worx"
+prix: "389-499 €"
+badge: "Filaire 500 m² connecté"
+hook: "Robot tondeuse filaire pour jardins jusqu'à 500 m². 18 cm de coupe, 35 % de pente, moteur brushless, batterie PowerShare 20 V partagée avec les autres outils Worx, app Landroid. Le rapport surface/prix le plus agressif du segment filaire entrée de gamme."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B07LFPKYC1"
