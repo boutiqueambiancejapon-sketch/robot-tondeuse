@@ -912,13 +912,11 @@ body {
   }
 }
 
-/* --- Hero article — gradient header --- */
+/* --- Hero article — bande forest-deep avec image en fade --- */
 .article-hero-band {
-  background: radial-gradient(
-    ellipse 130% 100% at 50% 0%,
-    rgba(91, 63, 223, 0.10) 0%,
-    transparent 70%
-  );
+  background: var(--forest-deep);
+  color: var(--ivory);
+  margin-bottom: var(--space-12);
 }
 
 /* ── Home sections — layouts responsives ─────────────────── */
