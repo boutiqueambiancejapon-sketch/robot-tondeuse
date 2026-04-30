@@ -71,9 +71,10 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
       <div>
         <p
           style={{
+            fontFamily: 'var(--next-font-mono), monospace',
             fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '0.12em',
+            fontWeight: 500,
+            letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: accent,
             marginBottom: 'var(--space-2)',
@@ -83,13 +84,13 @@ function ToolCard({ href, eyebrow, title, description, cta, accent, large = fals
         </p>
         <h3
           style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: large ? 'clamp(1.3rem, 2.2vw, 1.8rem)' : '1rem',
-            fontWeight: 700,
-            letterSpacing: '0',
+            fontFamily: 'var(--next-font-display), Georgia, serif',
+            fontSize: large ? 'clamp(1.6rem, 2.6vw, 2.2rem)' : '1.15rem',
+            fontWeight: 400,
+            letterSpacing: '-0.015em',
             color: 'var(--text-primary)',
             marginBottom: 'var(--space-3)',
-            lineHeight: 1.25,
+            lineHeight: 1.2,
           }}
         >
           {title}
@@ -168,20 +169,20 @@ export function FeaturedTools() {
       {/* En-tête de section */}
       <div style={{ marginBottom: 'var(--space-10)', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 'var(--space-4)' }}>
         <div>
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--accent-1)', marginBottom: 'var(--space-2)' }}>
+          <p style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: '11px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--moss)', marginBottom: 'var(--space-2)' }}>
             Outils interactifs
           </p>
           <h2
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(1.3rem, 2.5vw, 2rem)',
-              fontWeight: 700,
-              letterSpacing: '0',
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontSize: 'clamp(28px, 3.6vw, 44px)',
+              fontWeight: 400,
+              letterSpacing: '-0.02em',
               color: 'var(--text-primary)',
-              lineHeight: 1.2,
+              lineHeight: 1.1,
             }}
           >
-            Décidez en connaissance<br />de cause
+            Décidez en <em style={{ color: 'var(--copper)' }}>connaissance</em><br />de cause
           </h2>
         </div>
         <Link

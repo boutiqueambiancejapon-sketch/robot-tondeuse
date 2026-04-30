@@ -62,12 +62,13 @@ export function HeroVisual() {
               <p
                 className="hero-family-label"
                 style={{
-                  fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                  fontSize: 'clamp(18px, 2.2vw, 26px)',
-                  fontWeight: 800,
+                  fontFamily: 'var(--next-font-display), Georgia, serif',
+                  fontSize: 'clamp(20px, 2.4vw, 28px)',
+                  fontWeight: 400,
+                  letterSpacing: '-0.015em',
                   color: 'var(--text-primary)',
                   margin: '0 0 2px',
-                  lineHeight: 1.1,
+                  lineHeight: 1.15,
                   transition: 'color 150ms ease',
                 }}
               >

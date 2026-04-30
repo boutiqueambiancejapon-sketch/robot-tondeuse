@@ -40,11 +40,12 @@ function FooterCol({ title, links }: FooterColProps) {
     <div>
       <p
         style={{
+          fontFamily: 'var(--next-font-mono), monospace',
           fontSize: '11px',
-          fontWeight: 700,
-          letterSpacing: '0.12em',
+          fontWeight: 500,
+          letterSpacing: '0.14em',
           textTransform: 'uppercase',
-          color: 'var(--text-secondary)',
+          color: 'var(--moss)',
           marginBottom: 'var(--space-4)',
         }}
       >
@@ -109,7 +110,7 @@ export function Footer() {
               aria-label={`${niche.siteName} — accueil`}
               style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'baseline', gap: '1px', marginBottom: 'var(--space-4)' }}
             >
-              <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontWeight: 800, fontSize: '15px', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{logoText}</span>
+              <span style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontWeight: 400, fontSize: '18px', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>{logoText}</span>
             </Link>
             <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.6, maxWidth: '220px' }}>
               {niche.tagline}

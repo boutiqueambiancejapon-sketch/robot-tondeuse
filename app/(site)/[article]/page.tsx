@@ -36,6 +36,7 @@ import { AuthorByline } from '@/components/ui/AuthorByline'
 import { AuthorCard } from '@/components/ui/AuthorCard'
 import { StickyCTA } from '@/components/blog/StickyCTA'
 import { ArticleSidebar } from '@/components/blog/ArticleSidebar'
+import { HubArtwork } from '@/components/blog/HubArtwork'
 import type { ReactNode } from 'react'
 
 export const revalidate = 86400
@@ -163,44 +164,60 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       <ReadingProgress />
       <main id="main-content">
         <article>
-          {/* Header — bande pleine largeur */}
-          <div className="article-hero-band">
-            <header style={{ maxWidth: '1120px', margin: '0 auto', padding: 'var(--space-12) var(--space-6) var(--space-8)' }}>
+          {/* Header — bande forest-deep avec image en fade + infos en surimpression */}
+          <div className="article-hero-band" style={{ position: 'relative', overflow: 'hidden', background: 'var(--forest-deep)', color: 'var(--ivory)', minHeight: 360 }}>
+            {/* Backdrop : featureImage si fournie, sinon HubArtwork génératif */}
+            <div aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
+              {meta.featureImage ? (
+                <Image
+                  src={meta.featureImage}
+                  alt=""
+                  fill
+                  priority
+                  sizes="100vw"
+                  style={{ objectFit: 'cover', opacity: 0.55 }}
+                />
+              ) : (
+                <div style={{ position: 'absolute', inset: 0, opacity: 0.65 }}>
+                  <HubArtwork slug={slug} variant="hero" />
+                </div>
+              )}
+            </div>
+            {/* Fade gradient pour lisibilité du texte */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(180deg, rgba(26,46,31,0.35) 0%, rgba(26,46,31,0.85) 100%)',
+                pointerEvents: 'none',
+              }}
+            />
+
+            <header style={{ position: 'relative', maxWidth: '1120px', margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-12)' }}>
               <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
-                <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-                  <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Accueil</Link></li>
-                  <li aria-hidden="true">›</li>
-                  <li><Link href="/blog" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Blog</Link></li>
-                  <li aria-hidden="true">›</li>
-                  <li><Link href={`/blog/${meta.categorie}`} style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>{catLabel}</Link></li>
+                <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--sage-light)', flexWrap: 'wrap' }}>
+                  <li><Link href="/" style={{ color: 'var(--sage-light)', textDecoration: 'none', opacity: 0.85 }}>Accueil</Link></li>
+                  <li aria-hidden="true" style={{ opacity: 0.5 }}>›</li>
+                  <li><Link href="/blog" style={{ color: 'var(--sage-light)', textDecoration: 'none', opacity: 0.85 }}>Blog</Link></li>
+                  <li aria-hidden="true" style={{ opacity: 0.5 }}>›</li>
+                  <li><Link href={`/blog/${meta.categorie}`} style={{ color: 'var(--sage-light)', textDecoration: 'none', opacity: 0.85 }}>{catLabel}</Link></li>
                 </ol>
               </nav>
 
-              <span style={{ display: 'inline-block', fontSize: '11px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent-1)', background: 'rgba(255,61,87,0.1)', padding: '3px 10px', borderRadius: 'var(--radius-full)', marginBottom: 'var(--space-4)' }}>
+              <span style={{ display: 'inline-block', fontFamily: 'var(--next-font-mono), monospace', fontSize: '11px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--copper-bright)', background: 'rgba(184, 98, 61, 0.15)', padding: '4px 12px', borderRadius: 'var(--radius-full)', marginBottom: 'var(--space-5)', backdropFilter: 'blur(4px)' }}>
                 {catLabel}
               </span>
 
-              <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(28px, 5vw, 48px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.15, marginBottom: 'var(--space-5)', textWrap: 'balance', maxWidth: '760px' }}>
+              <h1 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(32px, 5.5vw, 56px)', fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--ivory)', lineHeight: 1.1, marginBottom: 'var(--space-6)', textWrap: 'balance', maxWidth: '900px' }}>
                 {meta.title}
               </h1>
 
-              <AuthorByline authorSlug={niche.author.slug || 'auteur'} publishedAt={meta.publishedAt} updatedAt={meta.updatedAt} readingTimeMin={meta.readingTimeMin} />
+              <div style={{ color: 'var(--sage-light)' }}>
+                <AuthorByline authorSlug={niche.author.slug || 'auteur'} publishedAt={meta.publishedAt} updatedAt={meta.updatedAt} readingTimeMin={meta.readingTimeMin} />
+              </div>
             </header>
           </div>
-
-          {/* Feature Image */}
-          {meta.featureImage && (
-            <div style={{ maxWidth: '1120px', margin: '0 auto', padding: '0 var(--space-6) var(--space-6)' }}>
-              <Image
-                src={meta.featureImage}
-                alt={meta.title}
-                width={760}
-                height={400}
-                priority
-                style={{ width: '100%', maxWidth: '760px', height: 'auto', borderRadius: 'var(--radius-lg, 12px)', objectFit: 'cover' }}
-              />
-            </div>
-          )}
 
           {/* ── Body : content + sidebar ── */}
           <div className="article-layout">

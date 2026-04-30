@@ -1,23 +1,33 @@
 import type { Metadata } from 'next'
-import { DM_Sans, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { niche } from '@/niche.config'
 import './globals.css'
 
-// ── Fonts — remplacer à l'init par les fonts choisies pour la niche ──
-const fontPrimary = DM_Sans({
+// ── Fonts — Atelier Vert : Inter (body) + Instrument Serif (display) + JetBrains Mono (specs/prix) ──
+const fontPrimary = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--next-font-primary',
   adjustFontFallback: true,
   preload: true,
   display: 'swap',
 })
 
-const fontDisplay = Plus_Jakarta_Sans({
+const fontDisplay = Instrument_Serif({
   subsets: ['latin'],
-  weight: ['400', '700', '800'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
   variable: '--next-font-display',
+  adjustFontFallback: true,
+  preload: true,
+  display: 'swap',
+})
+
+const fontMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--next-font-mono',
   adjustFontFallback: true,
   preload: true,
   display: 'swap',
@@ -55,16 +65,8 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${fontPrimary.variable} ${fontDisplay.variable}`}
+      className={`${fontPrimary.variable} ${fontDisplay.variable} ${fontMono.variable}`}
     >
-      {/* Script inline : applique data-theme avant tout rendu pour éviter le flash */}
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()`,
-          }}
-        />
-      </head>
       <body>
         <a href="#main-content" className="skip-to-content">
           Aller au contenu principal

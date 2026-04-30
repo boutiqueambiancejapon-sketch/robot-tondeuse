@@ -8,6 +8,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import type { ArticleMeta } from '@/lib/blog'
 import { CATEGORY_LABELS, CATEGORY_ACCENT, formatDate, articleHref } from '@/lib/blog'
+import { HubArtwork } from './HubArtwork'
 
 type Props = {
   article: ArticleMeta
@@ -38,43 +39,39 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
           style={{
             position: 'relative',
             overflow: 'hidden',
-            background: 'var(--bg-surface)',
-            border: 'none',
-            borderBottom: '1px solid var(--border)',
-            borderRadius: 0,
+            background: 'var(--ivory)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-lg)',
             padding: 0,
             display: 'grid',
-            gridTemplateColumns: article.featureImage ? '1fr 1fr' : '1fr',
+            gridTemplateColumns: '1fr 1fr',
+            minHeight: 380,
           }}
         >
-          {/* Gradient overlay */}
-          <div
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: `radial-gradient(ellipse 80% 80% at 10% 20%, color-mix(in srgb, ${accent} 12%, transparent) 0%, transparent 70%)`,
-              pointerEvents: 'none',
-              zIndex: 0,
-            }}
-          />
-
-          {article.featureImage && (
-            <div style={{ position: 'relative', zIndex: 1 }}>
+          {/* Image : featureImage si fournie, sinon HubArtwork génératif */}
+          <div style={{ position: 'relative', overflow: 'hidden', background: 'var(--cream)' }}>
+            {article.featureImage ? (
               <Image
                 src={article.featureImage}
                 alt={article.title}
                 width={960}
-                height={540}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: 'var(--radius-lg) 0 0 var(--radius-lg)',
-                }}
+                height={720}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
-            </div>
-          )}
+            ) : (
+              <HubArtwork slug={article.slug} variant="card" />
+            )}
+            {/* Halo coloré accent en surimpression */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: `radial-gradient(ellipse 80% 60% at 50% 100%, color-mix(in srgb, ${accent} 18%, transparent), transparent 70%)`,
+                pointerEvents: 'none',
+              }}
+            />
+          </div>
 
           <div style={{ position: 'relative', zIndex: 1, padding: 'var(--space-8) var(--space-8) var(--space-6)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'var(--space-3)' }}>
             {/* Type + Category pills */}
@@ -101,9 +98,10 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             <h2
               className="article-card-title"
               style={{
-                fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                fontSize: 'clamp(22px, 3vw, 36px)',
-                fontWeight: 800,
+                fontFamily: 'var(--next-font-display), Georgia, serif',
+                fontSize: 'clamp(24px, 3.2vw, 38px)',
+                fontWeight: 400,
+                letterSpacing: '-0.02em',
                 color: 'var(--text-primary)',
                 lineHeight: 1.15,
                 margin: 0,
@@ -218,11 +216,12 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
           <h2
             className="article-card-title"
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: '17px',
-              fontWeight: 700,
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontSize: '20px',
+              fontWeight: 400,
+              letterSpacing: '-0.01em',
               color: 'var(--text-primary)',
-              lineHeight: 1.3,
+              lineHeight: 1.25,
               flex: 1,
               margin: 0,
               textWrap: 'balance',
