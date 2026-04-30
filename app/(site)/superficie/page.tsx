@@ -4,17 +4,12 @@
  */
 
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { niche } from '@/niche.config'
 import { currentYear } from '@/lib/utils/year'
+import { SurfaceMap } from '@/components/tools/SurfaceMap'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
-
-const SurfaceMap = dynamic(
-  () => import('@/components/tools/SurfaceMap').then((m) => m.SurfaceMap),
-  { ssr: false, loading: () => <MapPlaceholder /> },
-)
 
 export const revalidate = 3600
 
@@ -31,30 +26,6 @@ export function generateMetadata(): Metadata {
       type: 'website',
     },
   }
-}
-
-function MapPlaceholder() {
-  return (
-    <div
-      style={{
-        height: 'min(70vh, 520px)',
-        width: '100%',
-        borderRadius: 16,
-        border: '1px solid var(--border)',
-        background: 'var(--cream)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'var(--text-muted)',
-        fontFamily: 'var(--next-font-mono), monospace',
-        fontSize: 13,
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-      }}
-    >
-      Chargement de la carte…
-    </div>
-  )
 }
 
 export default function SuperficiePage() {
