@@ -1,0 +1,11 @@
+name: "Yard Force Classic 500B"
+categorie: "yard-force"
+prix: "299-399 €"
+badge: "Le moins cher 500 m²"
+hook: "Robot tondeuse filaire 500 m² avec Bluetooth. Batterie Samsung 28 V 2 Ah, 60 minutes d'autonomie, capteurs anti-collisions, hauteur 20-60 mm, antivol code PIN. Le ticket d'entrée le plus bas du marché filaire 500 m² en 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B09RFVFV1C"
