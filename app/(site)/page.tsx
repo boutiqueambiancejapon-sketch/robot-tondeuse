@@ -31,18 +31,19 @@ export default function HomePage() {
       {/* Bloc forest-deep signature : "Le quiz qui ne se trompe jamais" */}
       <HomeQuizTeaser />
 
-      {/* Comparatifs — top sélections par budget */}
+      {/* Comparatifs — FEATURED (Top 2026 en grand) */}
       <HomeHubSection
         eyebrow="04 — Comparatifs"
         heading="Top sélections testées"
         emHighlight="testées"
         items={COMPARATIFS_ITEMS}
         background="cream"
+        variant="featured"
         ctaHref="/comparatifs"
         ctaLabel="Tous les comparatifs →"
       />
 
-      {/* Par taille / terrain de jardin */}
+      {/* Par jardin — grille (8 cards) */}
       <HomeHubSection
         eyebrow="05 — Par jardin"
         heading="Trouvez par votre jardin"
@@ -54,30 +55,32 @@ export default function HomePage() {
       {/* Toutes les marques — section consolidée avec featured + grid */}
       <HomeMarques />
 
-      {/* Par technologie / besoin */}
+      {/* Par technologie — FEATURED (Sans fil péri en grand) */}
       <HomeHubSection
         eyebrow="07 — Par technologie"
         heading="Filtrer par techno"
         emHighlight="techno"
         items={PAR_BESOIN_ITEMS}
         background="cream"
+        variant="featured"
       />
 
       {/* Derniers articles éditoriaux toutes catégories */}
       <RecentArticles />
 
-      {/* Guides & conseils (autour du robot) */}
+      {/* Guides & conseils — FEATURED (Comment choisir en grand) */}
       <HomeHubSection
         eyebrow="08 — Guides & conseils"
         heading="Tout savoir avant d'acheter"
         emHighlight="avant"
         items={GUIDES_ITEMS}
         background="paper"
+        variant="featured"
         ctaHref="/blog"
         ctaLabel="Tous les articles →"
       />
 
-      {/* Pelouse & jardin (astuces gazon, hors robot) */}
+      {/* Pelouse & jardin — grille (8 cards) */}
       <HomeHubSection
         eyebrow="09 — Pelouse & jardin"
         heading="Astuces pour un beau gazon"

@@ -1134,6 +1134,10 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-5);
 }
+/* Variante "featured" : grille des cards secondaires (text-only, plus petites) */
+.hub-section-grid--small {
+  grid-template-columns: repeat(4, 1fr);
+}
 .hub-section-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
@@ -1147,15 +1151,31 @@ body {
   .hub-section-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .hub-section-grid--small {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 800px) {
   .hub-section-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hub-section-grid--small {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 480px) {
   .hub-section-grid {
     grid-template-columns: 1fr;
+  }
+  .hub-section-grid--small {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Featured hub card (variant) — responsive : 2 cols → 1 col sous 700px */
+@media (max-width: 700px) {
+  .hub-section-card[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
   }
 }
 
