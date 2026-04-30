@@ -13,11 +13,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Pages statiques ──────────────────────────────────────────────────
   entries.push(
     { url: SITE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
+    // Hubs cluster (Atelier Vert)
+    { url: `${SITE_URL}/comparatifs`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${SITE_URL}/marques`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    // Outils
+    { url: `${SITE_URL}/quiz`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/superficie`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/comparer`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${SITE_URL}/quiz`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${SITE_URL}/simulateur`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/calculateur-rentabilite-robot-tondeuse`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    // Éditorial
+    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: `${SITE_URL}/deals`, lastModified: now, changeFrequency: 'daily', priority: 0.7 },
+    // Légal
     { url: `${SITE_URL}/mentions-legales`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
     { url: `${SITE_URL}/confidentialite`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
   )
