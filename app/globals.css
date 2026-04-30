@@ -1078,6 +1078,25 @@ body {
   transform: translateY(-2px);
 }
 
+/* Surface map — Leaflet customisations */
+.surface-marker-label {
+  background: var(--forest-deep) !important;
+  border: 1px solid var(--copper) !important;
+  color: var(--ivory) !important;
+  font-family: var(--next-font-mono), monospace;
+  font-size: 10px !important;
+  font-weight: 600;
+  padding: 2px 6px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 6px rgba(26, 46, 31, 0.3) !important;
+}
+.surface-marker-label::before {
+  display: none !important;
+}
+.leaflet-container {
+  font-family: var(--next-font-primary), system-ui, sans-serif;
+}
+
 /* Hover sur product-affiliate — border-left pleine couleur */
 .product-affiliate:hover {
   border-left-color: currentColor;
