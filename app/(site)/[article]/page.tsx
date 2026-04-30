@@ -213,8 +213,8 @@ export default async function StandaloneArticlePage({ params }: { params: Params
                 {meta.title}
               </h1>
 
-              <div style={{ color: 'var(--sage-light)' }}>
-                <AuthorByline authorSlug={niche.author.slug || 'auteur'} publishedAt={meta.publishedAt} updatedAt={meta.updatedAt} readingTimeMin={meta.readingTimeMin} />
+              <div style={{ color: 'var(--ivory)', opacity: 0.92 }}>
+                <AuthorByline authorSlug={niche.author.slug || 'auteur'} authorName={niche.author.name} publishedAt={meta.publishedAt} updatedAt={meta.updatedAt} readingTimeMin={meta.readingTimeMin} />
               </div>
             </header>
           </div>

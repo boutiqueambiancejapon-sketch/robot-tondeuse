@@ -39,34 +39,37 @@ export function AuthorByline({
         alignItems: 'center',
         flexWrap: 'wrap',
         gap: 'var(--space-2)',
-        fontSize: '13px',
-        color: 'var(--text-secondary)',
+        fontSize: '14px',
+        color: 'currentColor',
+        opacity: 0.9,
       }}
     >
-      <span>Par</span>
-      <Link
-        href={`/auteurs/${authorSlug}`}
-        style={{
-          color: 'var(--text-primary)',
-          fontWeight: 700,
-          textDecoration: 'none',
-          borderBottom: '1px solid var(--accent-1)',
-          paddingBottom: '1px',
-        }}
-      >
-        {authorName}
-      </Link>
+      {authorName && <span style={{ opacity: 0.75 }}>Par</span>}
+      {authorName && (
+        <Link
+          href={`/auteurs/${authorSlug}`}
+          style={{
+            color: 'inherit',
+            fontWeight: 600,
+            textDecoration: 'none',
+            borderBottom: '1px solid var(--copper-bright)',
+            paddingBottom: '1px',
+          }}
+        >
+          {authorName}
+        </Link>
+      )}
 
       {readingTimeMin !== undefined && (
         <>
-          <span aria-hidden="true">·</span>
-          <span>{readingTimeMin} min de lecture</span>
+          {authorName && <span aria-hidden="true" style={{ opacity: 0.5 }}>·</span>}
+          <span style={{ opacity: 0.75 }}>{readingTimeMin} min de lecture</span>
         </>
       )}
 
-      <span aria-hidden="true">·</span>
+      <span aria-hidden="true" style={{ opacity: 0.5 }}>·</span>
 
-      <time dateTime={displayDate}>
+      <time dateTime={displayDate} style={{ opacity: 0.75 }}>
         {updatedAt && updatedAt !== publishedAt ? 'Màj le ' : ''}
         {formatDate(displayDate)}
       </time>

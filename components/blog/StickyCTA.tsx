@@ -72,9 +72,9 @@ export function StickyCTA({
         left: '50%',
         transform: visible
           ? 'translateX(-50%) translateY(0)'
-          : 'translateX(-50%) translateY(calc(100% + 32px))',
+          : 'translateX(-50%) translateY(calc(100% + 120px))',
         transition: 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        zIndex: 35,
+        zIndex: 39,
         width: '94%',
         maxWidth: '620px',
       }}
