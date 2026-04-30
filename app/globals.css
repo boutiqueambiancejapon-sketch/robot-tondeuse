@@ -403,10 +403,13 @@ body {
 }
 @media (min-width: 768px) {
   .nav-hamburger { display: none !important; }
+  .bottom-nav { display: none !important; }
 }
 @media (max-width: 767px) {
   .nav-desktop { display: none !important; }
+  .nav-quiz-cta { display: none !important; }
   .blog-hero-inner { padding-left: var(--space-8) !important; padding-right: var(--space-8) !important; }
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 
 /* --- Bento grid FeaturedTools --- */
