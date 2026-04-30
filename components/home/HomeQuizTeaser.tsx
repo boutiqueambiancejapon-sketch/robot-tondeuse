@@ -114,8 +114,11 @@ export function HomeQuizTeaser() {
             </div>
           </div>
 
-          {/* Preview quiz simulé */}
-          <div
+          {/* Preview quiz simulé — entièrement cliquable vers /quiz */}
+          <Link
+            href="/quiz"
+            aria-label="Lancer le quiz"
+            className="quiz-teaser-preview"
             style={{
               background: 'rgba(255,255,255,0.03)',
               borderRadius: 20,
@@ -125,8 +128,12 @@ export function HomeQuizTeaser() {
               flexDirection: 'column',
               justifyContent: 'space-between',
               minHeight: 420,
+              textDecoration: 'none',
+              color: 'inherit',
+              transition: 'border-color 200ms ease, transform 200ms ease',
+              cursor: 'pointer',
+              position: 'relative',
             }}
-            aria-hidden="true"
           >
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
@@ -191,7 +198,24 @@ export function HomeQuizTeaser() {
                 </div>
               ))}
             </div>
-          </div>
+            {/* Overlay hint au survol : "Cliquer pour lancer →" */}
+            <span
+              className="quiz-teaser-preview-hint"
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                bottom: 'var(--space-3)',
+                right: 'var(--space-4)',
+                fontFamily: 'var(--next-font-mono), monospace',
+                fontSize: 11,
+                color: 'var(--copper-bright)',
+                letterSpacing: '0.08em',
+                opacity: 0.85,
+              }}
+            >
+              Cliquer pour lancer →
+            </span>
+          </Link>
         </div>
       </div>
     </section>
