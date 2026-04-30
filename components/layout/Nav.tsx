@@ -44,10 +44,10 @@ export function Nav() {
       <header
         className={scrolled || open ? 'nav-glass-active' : ''}
         style={{
-          position: 'sticky', top: 0, zIndex: 40,
-          backgroundColor: (scrolled || open) ? 'var(--sticky-cta-glass)' : 'transparent',
-          backdropFilter: (scrolled || open) ? 'blur(20px) saturate(1.6)' : 'none',
-          WebkitBackdropFilter: (scrolled || open) ? 'blur(20px) saturate(1.6)' : 'none',
+          position: 'sticky', top: 0, zIndex: 1100,
+          backgroundColor: (scrolled || open) ? 'rgba(251, 248, 240, 0.96)' : 'transparent',
+          backdropFilter: (scrolled || open) ? 'blur(24px) saturate(1.6)' : 'none',
+          WebkitBackdropFilter: (scrolled || open) ? 'blur(24px) saturate(1.6)' : 'none',
           borderBottom: (scrolled || open) ? '1px solid var(--border)' : '1px solid transparent',
           transition: 'background-color 300ms ease, backdrop-filter 300ms ease, border-color 300ms ease',
         }}

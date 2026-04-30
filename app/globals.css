@@ -648,7 +648,7 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   padding: var(--space-2);
-  z-index: 50;
+  z-index: 1200;
   flex-direction: column;
   gap: 2px;
 }
@@ -699,9 +699,18 @@ body {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   padding: var(--space-5);
-  z-index: 50;
+  z-index: 1200;
   min-width: 320px;
   max-width: min(90vw, 720px);
+}
+
+/* Leaflet : forcer un z-index < nav (Leaflet utilise 1000 par défaut sur ses controls) */
+.leaflet-container,
+.leaflet-control-container {
+  z-index: 0;
+}
+.leaflet-pane {
+  z-index: auto;
 }
 .mega-panel::before {
   content: '';

@@ -224,6 +224,24 @@ export function SurfaceMap() {
         <p style={{ fontSize: 13, color: 'var(--copper)', margin: 0 }}>{searchError}</p>
       )}
 
+      {/* Indication d'usage — toujours visible au-dessus de la carte */}
+      <p
+        style={{
+          fontFamily: 'var(--next-font-mono), monospace',
+          fontSize: 12,
+          fontWeight: 500,
+          letterSpacing: '0.06em',
+          color: 'var(--moss)',
+          margin: 0,
+          padding: '10px 16px',
+          background: 'var(--cream)',
+          borderRadius: 12,
+          textAlign: 'center',
+        }}
+      >
+        Cliquez sur la carte pour tracer le contour de votre jardin (au moins 3 points). Zoomez pour plus de précision.
+      </p>
+
       {/* Map */}
       <div
         ref={mapRef}
@@ -288,12 +306,6 @@ export function SurfaceMap() {
         </div>
       </div>
 
-      {/* Indication d'usage */}
-      {points.length === 0 && (
-        <p style={{ fontSize: 13, color: 'var(--text-muted)', margin: 0, textAlign: 'center', padding: '8px 16px', background: 'var(--cream)', borderRadius: 12 }}>
-          Cliquez sur la carte pour tracer le contour de votre jardin (au moins 3 points). Zoomez pour plus de précision.
-        </p>
-      )}
     </div>
   )
 }

@@ -53,10 +53,10 @@ export default function SuperficiePage() {
             Quelle marge prendre ?
           </h2>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 'var(--space-4)' }}>
-            Prenez <strong>20 à 30 % de marge</strong> sur la surface que vous tracez. Un robot annoncé 1 000 m² fonctionne mieux sur 700-800 m² réels (passages étroits, formes complexes, zones d&rsquo;ombre rallongent la couverture).
+            {'Prenez '}<strong>20 à 30 % de marge</strong>{' sur la surface que vous tracez. Un robot annoncé 1 000 m² fonctionne mieux sur 700-800 m² réels (passages étroits, formes complexes, zones d’ombre rallongent la couverture).'}
           </p>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 'var(--space-6)' }}>
-            Le calcul ci-dessus est <strong>géodésique</strong> (m² réels au sol, prend en compte la courbure terrestre via turf.js).
+            {'Le calcul ci-dessus est '}<strong>géodésique</strong>{' (m² réels au sol, prend en compte la courbure terrestre via turf.js).'}
           </p>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Link
