@@ -14,9 +14,9 @@ import { categoryAccents } from '@/niche.config'
 
 // Top 3 produits mis en avant (slug ordonné — le 1er est notre choix éditorial #1)
 const TOP_3_SLUGS = [
-  'husqvarna-automower-310-mark-ii',     // Valeur sûre filaire
-  'mammotion-yuka-mini-2-1000',          // Sans fil moderne
-  'gardena-sileno-life-750',             // Rapport qualité-prix
+  'husqvarna-automower-310-mark-ii',     // La fiabilité Husqvarna (filaire, 1000 m²)
+  'mammotion-yuka-mini-2-1000',          // LiDAR entrée de gamme (sans fil, 1000 m²)
+  'gardena-sileno-minimo-250',           // Le plus silencieux (filaire, 250 m²)
 ]
 
 function getProductWithSlug(slug: string): (Product & { slug: string }) | null {
