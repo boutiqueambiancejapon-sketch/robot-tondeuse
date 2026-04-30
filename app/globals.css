@@ -1104,6 +1104,23 @@ body {
   }
 }
 
+/* Home Atelier Vert — responsive sections (Hero + QuizTeaser + Methodology) */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .quiz-teaser-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 40px !important;
+  }
+  .methodology-grid {
+    grid-template-columns: 1fr !important;
+    gap: 56px !important;
+  }
+}
+
 /* Hover sur product-affiliate — border-left pleine couleur */
 .product-affiliate:hover {
   border-left-color: currentColor;
