@@ -1,0 +1,11 @@
+name: "Worx Landroid Vision WR205E"
+categorie: "worx"
+prix: "799-899 €"
+badge: "Vision IA pure"
+hook: "Le seul robot tondeuse grand public 100 % vision : caméra 4K + IA, ni fil périphérique, ni antenne RTK, ni balise. Installation en 15 minutes pour 600 m² (450-500 m² conseillés en pratique)."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DHLM3NT5"
