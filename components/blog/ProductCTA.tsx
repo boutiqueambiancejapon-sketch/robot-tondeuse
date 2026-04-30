@@ -69,7 +69,7 @@ export function ProductCTA({ name, price, url, image, badge, hook }: ProductCTAP
             )}
 
             {/* Name */}
-            <span style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(18px, 3vw, 24px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.2 }}>
+            <span style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(20px, 3.2vw, 28px)', fontWeight: 400, letterSpacing: '-0.015em', color: 'var(--text-primary)', lineHeight: 1.2 }}>
               {name}
             </span>
 
@@ -81,12 +81,12 @@ export function ProductCTA({ name, price, url, image, badge, hook }: ProductCTAP
             )}
 
             {/* Price */}
-            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: image ? 'clamp(24px, 5vw, 32px)' : 'clamp(36px, 8vw, 52px)', fontWeight: 700, background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.03em', lineHeight: 1 }}>
+            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: image ? 'clamp(24px, 5vw, 32px)' : 'clamp(36px, 8vw, 52px)', fontWeight: 600, color: 'var(--copper)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.03em', lineHeight: 1 }}>
               {price}
             </span>
 
             {/* CTA button */}
-            <AffiliateLink href={url} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', background: 'linear-gradient(135deg, var(--aurora-1), var(--aurora-2))', color: '#fff', fontWeight: 700, fontSize: '14px', padding: 'var(--space-3) var(--space-8)', textDecoration: 'none', whiteSpace: 'nowrap', letterSpacing: '0.02em' }}>
+            <AffiliateLink href={url} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', background: 'var(--copper)', color: 'var(--ivory)', fontWeight: 500, fontSize: '14px', padding: 'var(--space-3) var(--space-8)', borderRadius: 100, textDecoration: 'none', whiteSpace: 'nowrap', letterSpacing: '0', boxShadow: '0 2px 0 0 #8c4a2c, 0 6px 16px rgba(184, 98, 61, 0.25)' }}>
               Voir le prix →
             </AffiliateLink>
           </div>

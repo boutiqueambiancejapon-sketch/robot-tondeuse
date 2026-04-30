@@ -33,12 +33,13 @@ function Monogram({ size, initial = '?' }: { size: number; initial?: string }) {
     >
       <span
         style={{
-          fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-          fontSize: size * 0.4,
-          fontWeight: 800,
-          color: 'var(--text-primary)',
+          fontFamily: 'var(--next-font-display), Georgia, serif',
+          fontSize: size * 0.45,
+          fontWeight: 400,
+          fontStyle: 'italic',
+          color: 'var(--copper)',
+          letterSpacing: '-0.02em',
           lineHeight: 1,
-          opacity: 0.85,
         }}
       >
         {initial}
@@ -72,9 +73,10 @@ export function AuthorCard({
           <Link
             href={`/auteurs/${authorSlug}`}
             style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontWeight: 700,
-              fontSize: isInline ? '15px' : '20px',
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontWeight: 400,
+              letterSpacing: '-0.01em',
+              fontSize: isInline ? '17px' : '22px',
               color: 'var(--text-primary)',
               textDecoration: 'none',
             }}

@@ -39,20 +39,20 @@ export function ProConTable({
       {/* Pour */}
       <div
         style={{
-          background: 'rgba(61,255,192,0.06)',
-          border: '1px solid rgba(61,255,192,0.20)',
+          background: 'var(--sage-pale)',
+          border: '1px solid rgba(58, 90, 61, 0.20)',
           borderRadius: 'var(--radius-md)',
           padding: 'var(--space-4) var(--space-5)',
         }}
       >
         <p
           style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontWeight: 700,
+            fontFamily: 'var(--next-font-mono), monospace',
+            fontWeight: 500,
             fontSize: '11px',
-            letterSpacing: '0.09em',
+            letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color: 'var(--accent-3)',
+            color: 'var(--moss)',
             margin: '0 0 var(--space-3)',
           }}
         >
@@ -85,20 +85,20 @@ export function ProConTable({
       {/* Contre */}
       <div
         style={{
-          background: 'rgba(255,61,87,0.05)',
-          border: '1px solid rgba(255,61,87,0.18)',
+          background: 'var(--copper-pale)',
+          border: '1px solid rgba(184, 98, 61, 0.18)',
           borderRadius: 'var(--radius-md)',
           padding: 'var(--space-4) var(--space-5)',
         }}
       >
         <p
           style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontWeight: 700,
+            fontFamily: 'var(--next-font-mono), monospace',
+            fontWeight: 500,
             fontSize: '11px',
-            letterSpacing: '0.09em',
+            letterSpacing: '0.14em',
             textTransform: 'uppercase',
-            color: 'var(--accent-1)',
+            color: 'var(--copper)',
             margin: '0 0 var(--space-3)',
           }}
         >
