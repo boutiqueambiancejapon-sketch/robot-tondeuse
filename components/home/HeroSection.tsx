@@ -151,7 +151,7 @@ export function HeroSection() {
 
             {/* CTAs */}
             <AnimatedHeading
-              as="div"
+              as="p"
               delay={560}
               duration={600}
               style={{
@@ -205,7 +205,7 @@ export function HeroSection() {
 
             {/* Stats row */}
             <AnimatedHeading
-              as="div"
+              as="p"
               delay={720}
               duration={700}
               style={{
