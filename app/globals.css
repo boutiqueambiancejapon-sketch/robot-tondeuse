@@ -1097,6 +1097,13 @@ body {
   font-family: var(--next-font-primary), system-ui, sans-serif;
 }
 
+/* Rentabilité calculator — responsive grid */
+@media (max-width: 768px) {
+  .rentabilite-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Hover sur product-affiliate — border-left pleine couleur */
 .product-affiliate:hover {
   border-left-color: currentColor;
