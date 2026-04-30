@@ -1121,6 +1121,18 @@ body {
   }
 }
 
+/* Hero pulse dot (EN MARCHE indicator) */
+.hero-pulse-dot {
+  animation: hero-pulse 1.5s ease-in-out infinite;
+}
+@keyframes hero-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-pulse-dot { animation: none; }
+}
+
 /* Hover sur product-affiliate — border-left pleine couleur */
 .product-affiliate:hover {
   border-left-color: currentColor;
