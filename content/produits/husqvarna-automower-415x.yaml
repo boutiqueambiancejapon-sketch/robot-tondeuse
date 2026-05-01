@@ -1,0 +1,11 @@
+name: "Husqvarna Automower 415X"
+categorie: "husqvarna"
+prix: "1 999-2 499 €"
+badge: "X-line filaire 1 500 m²"
+hook: "Le filaire grand jardin Husqvarna avec navigation GPS assistée et antivol intégré. 1 500 m², 40 % de pente, mode passage étroit pour couloirs, hauteur de coupe motorisée. La X-line filaire qui dure 10 ans."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0C438L6K8"
