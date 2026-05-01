@@ -1,0 +1,11 @@
+name: "Husqvarna Automower 305"
+categorie: "husqvarna"
+prix: "989-1 199 €"
+badge: "Filaire 600 m²"
+hook: "Le filaire compact Husqvarna pour petit jardin complexe. 600 m², 40 % de pente, mode passage étroit, capteur antigel, minuterie météo, app Automower Connect. La référence éprouvée sous 1 200 €."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B09YXGK9GT"
