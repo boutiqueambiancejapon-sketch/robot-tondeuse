@@ -1,0 +1,11 @@
+name: "Husqvarna Automower Aspire R4"
+categorie: "husqvarna"
+prix: "649-699 €"
+badge: "Compact filaire 400 m²"
+hook: "Le ticket d'entrée Husqvarna pour petit jardin. Filaire 400 m², 7 kg, 25 % de pente, app Automower Connect, capteur antigel. Le compact urbain qu'on installe en 2-3 heures pour ne plus jamais y toucher."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CDC2KH5Q"
