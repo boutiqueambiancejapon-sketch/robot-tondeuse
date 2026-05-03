@@ -1,0 +1,11 @@
+name: "Segway Navimow i208 LiDAR"
+categorie: "segway"
+prix: "999-1 149 €"
+badge: "LiDAR 800 m² + 4G"
+hook: "Solid-state LiDAR + Vision pour 800 m² sans antenne RTK, 45 % de pente, 4G intégré, mapping automatique. Le ticket d'entrée du LiDAR Navimow sous 1 000 € en promotion 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GDZ8167S"
