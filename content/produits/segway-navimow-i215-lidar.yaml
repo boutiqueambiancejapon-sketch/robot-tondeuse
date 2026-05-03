@@ -1,0 +1,11 @@
+name: "Segway Navimow i215 LiDAR"
+categorie: "segway"
+prix: "1 199-1 399 €"
+badge: "LiDAR 1 500 m²"
+hook: "Solid-state LiDAR + Vision dual fusion pour 1 500 m², roues tout-terrain, pente 45 %, sans antenne RTK ni câble. Le LiDAR Segway le mieux placé pour grand jardin résidentiel."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GDYL779G"
