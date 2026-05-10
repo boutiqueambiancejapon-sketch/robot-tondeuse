@@ -23,7 +23,38 @@ function addAffiliateTag(url: string, tag: string): string {
   return `${url}${sep}tag=${tag}`
 }
 
+/**
+ * Décode les entités HTML les plus courantes utilisées dans les frontmatter
+ * MDX (`&laquo;`, `&raquo;`, `&mdash;`, `&hellip;`, `&ccedil;`, etc.).
+ * Server-side safe (pas de DOMParser).
+ */
+function decodeHtmlEntities(input: string): string {
+  return input
+    .replace(/&laquo;/g, '«')
+    .replace(/&raquo;/g, '»')
+    .replace(/&mdash;/g, '—')
+    .replace(/&ndash;/g, '–')
+    .replace(/&hellip;/g, '…')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&ccedil;/g, 'ç')
+    .replace(/&Ccedil;/g, 'Ç')
+    .replace(/&ocirc;/g, 'ô')
+    .replace(/&Ocirc;/g, 'Ô')
+    .replace(/&ecirc;/g, 'ê')
+    .replace(/&Ecirc;/g, 'Ê')
+    .replace(/&acirc;/g, 'â')
+    .replace(/&icirc;/g, 'î')
+    .replace(/&ucirc;/g, 'û')
+    .replace(/&eacute;/g, 'é')
+    .replace(/&egrave;/g, 'è')
+    .replace(/&agrave;/g, 'à')
+    .replace(/&ugrave;/g, 'ù')
+    .replace(/&euro;/g, '€')
+    .replace(/&amp;/g, '&')
+}
+
 export function ArticleSidebar({ toc, stickyCta, stickyCtaMessage, related, affiliateTag }: Props) {
+  const decodedMessage = stickyCtaMessage ? decodeHtmlEntities(stickyCtaMessage) : undefined
   return (
     <aside className="article-sidebar" aria-label="Navigation de l'article">
       <div className="article-sidebar-inner">
@@ -82,7 +113,7 @@ export function ArticleSidebar({ toc, stickyCta, stickyCtaMessage, related, affi
             borderRadius: 'var(--radius-md)',
             border: '1px solid var(--border)',
           }}>
-            {stickyCtaMessage && (
+            {decodedMessage && (
               <p style={{
                 fontSize: '11px',
                 fontWeight: 700,
@@ -91,7 +122,7 @@ export function ArticleSidebar({ toc, stickyCta, stickyCtaMessage, related, affi
                 color: 'var(--accent-1)',
                 marginBottom: 'var(--space-3)',
               }}>
-                {stickyCtaMessage}
+                {decodedMessage}
               </p>
             )}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
