@@ -12,6 +12,11 @@
  *
  * Backward compat : accepte l'ancienne prop `items` (premier item devient le
  * buy CTA) — pas besoin de toucher aux pages tant qu'on migre pas.
+ *
+ * Note (mai 2026) : le message contextuel est désormais encapsulé dans sa
+ * propre pill avec fond opaque pour ne plus chevaucher le contenu de l'article
+ * lors du scroll. Les entités HTML (`&laquo;`, `&raquo;`, `&mdash;`, &hellip;)
+ * sont décodées avant rendu.
  */
 
 import { useState, useEffect } from 'react'
@@ -33,6 +38,37 @@ type Props = {
   message?: string
   /** Legacy : { label, url }[] — premier item utilisé comme buyUrl. */
   items?: StickyCTAItem[]
+}
+
+/**
+ * Décode les entités HTML les plus courantes utilisées dans les frontmatter
+ * MDX (`&laquo;`, `&raquo;`, `&mdash;`, `&hellip;`, `&ccedil;`, etc.).
+ * On reste volontairement minimaliste : pas de DOMParser côté client pour
+ * éviter un re-render et garder le composant léger.
+ */
+function decodeHtmlEntities(input: string): string {
+  return input
+    .replace(/&laquo;/g, '«')
+    .replace(/&raquo;/g, '»')
+    .replace(/&mdash;/g, '—')
+    .replace(/&ndash;/g, '–')
+    .replace(/&hellip;/g, '…')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&ccedil;/g, 'ç')
+    .replace(/&Ccedil;/g, 'Ç')
+    .replace(/&ocirc;/g, 'ô')
+    .replace(/&Ocirc;/g, 'Ô')
+    .replace(/&ecirc;/g, 'ê')
+    .replace(/&Ecirc;/g, 'Ê')
+    .replace(/&acirc;/g, 'â')
+    .replace(/&icirc;/g, 'î')
+    .replace(/&ucirc;/g, 'û')
+    .replace(/&eacute;/g, 'é')
+    .replace(/&egrave;/g, 'è')
+    .replace(/&agrave;/g, 'à')
+    .replace(/&ugrave;/g, 'ù')
+    .replace(/&euro;/g, '€')
+    .replace(/&amp;/g, '&')
 }
 
 export function StickyCTA({
@@ -61,6 +97,7 @@ export function StickyCTA({
 
   const isAmazon = finalBuyUrl.includes('amazon.fr') || finalBuyUrl.includes('amzn.to')
   const buyHref = isAmazon ? addAffiliateTag(finalBuyUrl) : finalBuyUrl
+  const decodedMessage = message ? decodeHtmlEntities(message) : undefined
 
   return (
     <div
@@ -80,17 +117,36 @@ export function StickyCTA({
       }}
       className="sticky-cta-wrap"
     >
-      {message && (
-        <p
+      {decodedMessage && (
+        <div
           style={{
+            display: 'flex',
+            justifyContent: 'center',
             margin: '0 0 var(--space-2)',
-            textAlign: 'center',
-            fontSize: 12,
-            color: 'var(--text-secondary)',
+            pointerEvents: 'none',
           }}
         >
-          {message}
-        </p>
+          <span
+            style={{
+              display: 'inline-block',
+              maxWidth: '90%',
+              padding: '6px 14px',
+              fontSize: 12,
+              lineHeight: 1.3,
+              color: 'var(--text-secondary)',
+              background: 'var(--bg-surface, #fff)',
+              border: '1px solid var(--border, rgba(0,0,0,0.08))',
+              borderRadius: '999px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+              textAlign: 'center',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
+          >
+            {decodedMessage}
+          </span>
+        </div>
       )}
 
       <div className="sticky-cta-pill">
