@@ -1,0 +1,11 @@
+name: "Worx Landroid Vision Cloud WR303E"
+categorie: "worx"
+prix: "699-849 €"
+badge: "VSLAM + RTK Cloud sans antenne"
+hook: "Le nouveau sans-fil Worx 2026 pour 300 m². VSLAM + RTK Cloud sans antenne extérieure ni câble périmétrique, caméra IA, cartographie automatique au premier passage, abonnement RTK gratuit à vie. La réponse Worx aux Mammotion et Navimow d'entrée de gamme."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0FVG36W3Z"
