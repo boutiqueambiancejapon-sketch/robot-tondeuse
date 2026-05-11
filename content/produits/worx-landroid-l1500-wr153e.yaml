@@ -1,0 +1,11 @@
+name: "Worx Landroid L1500 WR153E"
+categorie: "worx"
+prix: "1 019-1 199 €"
+badge: "Filaire 1 500 m²"
+hook: "Robot tondeuse filaire pour jardins jusqu'à 1 500 m². 22 cm de coupe, 35 % de pente, 90 min d'autonomie, IPX5, app Landroid, PowerShare 20 V. Le maillon manquant entre L1000 Plus et L2000 dans la gamme Worx filaire."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B07LFWSZ2K"
