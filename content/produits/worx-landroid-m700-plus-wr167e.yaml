@@ -1,0 +1,11 @@
+name: "Worx Landroid M700 Plus WR167E"
+categorie: "worx"
+prix: "479-599 €"
+badge: "Filaire 700 m² connecté"
+hook: "Robot tondeuse filaire pour jardins jusqu'à 700 m² (800 max). 18 cm de coupe, 35 % de pente, app Landroid, compatible Alexa et Google Home, écosystème PowerShare 20 V partagé. Le coeur de gamme M Worx, mieux placé que le M500 dès 600 m²."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0913K5V96"
