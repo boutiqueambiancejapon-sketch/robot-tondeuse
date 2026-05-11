@@ -1,0 +1,11 @@
+name: "Worx Landroid Vision Cloud 4WD WR340E"
+categorie: "worx"
+prix: "1 599-1 899 €"
+badge: "4WD pente 84 % VSLAM + RTK Cloud"
+hook: "Le 4 roues motrices Vision Cloud Worx pour 600 m² avec pente jusqu'à 84 %. Châssis adaptatif qui maintient les roues au sol, VSLAM + RTK Cloud, cartographie automatique sans antenne. La seule alternative Worx au Mammotion Luba AWD sur pentes extrêmes."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0FVG3XLBJ"
