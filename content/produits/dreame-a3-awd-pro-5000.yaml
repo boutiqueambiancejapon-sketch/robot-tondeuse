@@ -1,0 +1,11 @@
+name: "Dreame A3 AWD Pro 5000"
+categorie: "dreame"
+prix: "2 599-2 999 €"
+badge: "AWD 5 000 m² flagship"
+hook: "Quatre roues motrices à moteurs moyeu, LiDAR 3D 360° + double vision IA OmniSense 3.0, EdgeMaster 2.0, pente 80 %, jusqu'à 5 000 m² sans antenne RTK ni câble. Le plus grand Dreame du marché en 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GJRPFR8Y"
