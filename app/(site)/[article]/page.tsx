@@ -47,26 +47,62 @@ export function generateStaticParams() {
   return getAllStandaloneSlugs().map((article) => ({ article }))
 }
 
+/** Normalise une URL d'image en URL absolue à partir de SITE_URL. */
+function absolutizeImageUrl(url: string): string {
+  return url.startsWith('/') ? `${SITE_URL}${url}` : url
+}
+
+/** Extrait toutes les URLs d'images référencées dans le corps MDX (markdown ![alt](src) + composant <ArticleImage src="...">). */
+function extractBodyImageUrls(content: string): string[] {
+  const urls = new Set<string>()
+  // Syntaxe markdown : ![alt](src) — capture src, ignore les éventuelles parenthèses imbriquées simples.
+  const mdRegex = /!\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
+  let m: RegExpExecArray | null
+  while ((m = mdRegex.exec(content)) !== null) urls.add(m[1])
+  // Composant <ArticleImage src="..." /> ou <img src="..." />
+  const compRegex = /<(?:ArticleImage|img)[^>]*\ssrc=["']([^"']+)["']/g
+  while ((m = compRegex.exec(content)) !== null) urls.add(m[1])
+  return Array.from(urls)
+}
+
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { article: slug } = await params
   const data = getStandaloneArticle(slug)
   if (!data) return {}
 
-  const { meta } = data
+  const { meta, content } = data
+  const url = `${SITE_URL}/${slug}`
+
+  // Assemble toutes les images de l'article : featureImage en tête, puis images du corps.
+  const bodyImages = extractBodyImageUrls(content)
+  const allImageUrls = Array.from(
+    new Set(
+      [meta.featureImage, ...bodyImages]
+        .filter((u): u is string => Boolean(u))
+        .map(absolutizeImageUrl),
+    ),
+  )
+
   return {
     title: `${meta.title} | ${niche.siteName}`,
     description: meta.description,
-    alternates: { canonical: `${SITE_URL}/${slug}` },
+    alternates: { canonical: url },
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: `${SITE_URL}/${slug}`,
+      url,
       siteName: niche.siteName,
       type: 'article',
       publishedTime: meta.publishedAt,
       modifiedTime: meta.updatedAt ?? meta.publishedAt,
       ...(niche.author.name ? { authors: [niche.author.name] } : {}),
-      ...(meta.featureImage ? { images: [{ url: meta.featureImage.startsWith('/') ? `${SITE_URL}${meta.featureImage}` : meta.featureImage }] } : {}),
+      ...(allImageUrls.length ? { images: allImageUrls.map((u) => ({ url: u })) } : {}),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+      ...(allImageUrls.length ? { images: allImageUrls } : {}),
     },
   }
 }
@@ -76,7 +112,7 @@ function slugify(text: string): string {
   return text
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
 }
@@ -116,6 +152,16 @@ export default async function StandaloneArticlePage({ params }: { params: Params
   const catLabel = CATEGORY_LABELS[meta.categorie] ?? meta.categorie
   const related = getRelatedArticles(meta.categorie, slug, 3)
 
+  // Schema.org Article : featureImage + images du corps (Google recommande ≥1 image, idéalement plusieurs ratios).
+  const bodyImagesForSchema = extractBodyImageUrls(content)
+  const articleImages = Array.from(
+    new Set(
+      [meta.featureImage, ...bodyImagesForSchema]
+        .filter((u): u is string => Boolean(u))
+        .map(absolutizeImageUrl),
+    ),
+  )
+
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -134,6 +180,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       datePublished: meta.publishedAt,
       dateModified: meta.updatedAt ?? meta.publishedAt,
       url: `${SITE_URL}/${slug}`,
+      ...(articleImages.length ? { image: articleImages } : {}),
       author: {
         '@type': 'Person',
         name: niche.author.name || 'Auteur',
@@ -141,6 +188,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
         ...(niche.author.slug ? { url: `${SITE_URL}/auteurs/${niche.author.slug}` } : {}),
       },
       publisher: { '@type': 'Organization', name: niche.siteName, url: SITE_URL },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/${slug}` },
     },
     ...(meta.faq?.length
       ? [{
