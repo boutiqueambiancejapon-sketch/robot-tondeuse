@@ -1,0 +1,11 @@
+name: "Worx Landroid Vision M800 WR208E"
+categorie: "worx"
+prix: "699-1 099 €"
+badge: "Caméra 4K + IA"
+hook: "Caméra 4K + IA adaptative, 800 m² (900 m² max), sans fil ni antenne RTK, installation 30 minutes, tonte des bordures et sous la pluie, multi-zones. Le vision-IA le plus abouti à moins de 800 €."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CTTWLLZZ"
