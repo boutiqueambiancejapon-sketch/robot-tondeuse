@@ -1,0 +1,11 @@
+name: "Mammotion LUBA Mini AWD 800"
+categorie: "mammotion"
+prix: "1 099-1 299 €"
+badge: "80 % de pente"
+hook: "AWD 4 roues motrices, NetRTK + Vision IA sans antenne, 800 m² recommandés (1 000 m² max), 80 % de pente, module 4G antivol. Le seul robot 800 m² capable d'attaquer un terrain pentu accidenté."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DT45SCBS"
