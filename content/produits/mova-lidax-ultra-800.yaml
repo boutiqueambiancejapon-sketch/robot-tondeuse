@@ -1,0 +1,11 @@
+name: "MOVA LiDAX Ultra 800"
+categorie: "mova"
+prix: "849-949 €"
+badge: "LiDAR sous 950 €"
+hook: "UltraView 2.0 (LiDAR 3D 360° + caméra HDR 1080p + IA) sans RTK ni câble périphérique, 800 m² recommandés, coupe-bordures à 5 cm. Le LiDAR le plus accessible pour jardin moyen en 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GD2CXRNY"
