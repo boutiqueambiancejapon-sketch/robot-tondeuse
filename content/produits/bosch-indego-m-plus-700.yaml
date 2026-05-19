@@ -1,0 +1,11 @@
+name: "Bosch Indego M+ 700"
+categorie: "bosch"
+prix: "949-998 €"
+badge: "LogiCut + app 700 m²"
+hook: "Le filaire Bosch 700 m² avec batterie 18V remplaçable utilisateur, application Bosch Smart Gardening, compatibilité Alexa. La référence Bosch milieu de gamme pour jardin pavillonnaire connecté."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B08VJKC5RC"
