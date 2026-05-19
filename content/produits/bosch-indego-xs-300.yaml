@@ -1,0 +1,11 @@
+name: "Bosch Indego XS 300"
+categorie: "bosch"
+prix: "379-449 €"
+badge: "Filaire 300 m² urbain"
+hook: "L'entrée de gamme Bosch pour jardin de ville jusqu'à 300 m². Batterie 18V intégrée, station d'accueil incluse, largeur de coupe 19 cm. Le ticket le plus accessible du segment filaire SAV France."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B08XQYHFGZ"
