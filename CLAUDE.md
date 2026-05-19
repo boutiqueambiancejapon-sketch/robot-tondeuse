@@ -2,6 +2,7 @@
 
 Lis PROGRESS.md avant chaque session. Lis /docs/ selon ta tâche.
 Article ou page de contenu → lire SEO-GEO-REDACTION.md ET le fichier AUTHOR correspondant avant la première ligne.
+**Toute rédaction française (article MDX, page, FAQ, méta, copy CTA, scheduled task de génération de contenu) : charger le skill `boileau` (`.claude/skills/boileau/SKILL.md`) AVANT d'écrire — règles préventives à appliquer dès le premier jet, pas une correction post-rédaction.**
 
 ## Projet
 Template générique "10 minutes" · Stack : Next.js ~16.2.1 + Tailwind v4 + TypeScript strict
@@ -51,6 +52,7 @@ Pour personnaliser un site : modifier uniquement `niche.config.ts`, pas les comp
 - [ ] prefers-reduced-motion respecté sur toutes les animations
 - [ ] Contraste texte/fond vérifié pour chaque effet DA (dark-only)
 - [ ] middleware.ts présent et actif
+- [ ] **Rédaction FR : skill `boileau` chargé en amont · zéro mot de la liste #2 du skill sans détail concret · typographie FR correcte · au moins un défaut produit + un anti-conseil par article**
 
 ## Git
 Jamais direct sur main · feature = branche = PR · Conventional Commits anglais
