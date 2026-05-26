@@ -1,6 +1,6 @@
 ---
 name: boileau
-version: 0.2.0
+version: 0.3.0
 description: Règles de rédaction française anti-marques-IA pour le site robot tondeuse. À CHARGER AVANT D'ÉCRIRE — pas après. Se déclenche dès qu'une tâche implique de rédiger, drafter ou produire du texte français destiné au site (article MDX, page pilier, page cluster, guide d'achat, comparatif, test produit, FAQ, méta-description, copy CTA, bloc Verdict, scheduled task de génération d'article). Ne pas attendre une demande d'humanisation : appliquer les règles dès la première ligne pour éviter l'aller-retour rédaction → correction.
 allowed-tools:
   - Read
@@ -233,6 +233,78 @@ Si la conclusion n'apporte pas un fait neuf, un dernier rappel sécurité (enfan
 
 ---
 
+## 25. H3 en question par produit (anti-parallélisme + GEO)
+
+Sur un top X / guide d'achat / comparatif **multi-produits**, tu n'utilises **jamais** les mêmes étiquettes en gras inline répétées sous chaque H2 produit. Le trio classique `**Ce qui marche.** / **Ce qui cloche.** / **Pour qui.**` est **interdit dès qu'il apparaît dans deux sections produit consécutives** — c'est trois pertes simultanées :
+
+- **Parallélisme parfait répété N fois** = signature IA (cf. §2 + SEO-GEO-REDACTION.md §2).
+- **Aucun chunk autonome GEO** : un bloc en gras inline n'est pas un nœud de section, donc invisible pour le sommaire et non extractible par les LLM qui répondent à une requête type *« limites du Husqvarna Aspire R4 »*.
+- **Aucune capture PAA** : `**Ce qui marche.**` ne matche aucune requête réelle, alors que *« pourquoi choisir un Bosch Indego XS 300 »* en matche une.
+
+**À faire à la place.** Sous chaque H2 produit, 2 ou 3 **H3 formulés comme questions distinctes et variées d'un produit à l'autre**. Les questions reprennent des sous-requêtes plausibles (PAA, autocomplétion Google) liées au produit OU à un critère d'arbitrage du H1.
+
+**Formes autorisées (à alterner, pas une seule répétée N fois) :**
+
+- `### Pourquoi le [produit] tient encore en 2026 ?` (positif tranché)
+- `### Quelles sont les vraies limites du [produit] ?` (négatif factuel)
+- `### Pour quel jardin choisir le [produit] plutôt que le [concurrent] ?` (profil + comparatif)
+- `### Le [produit] est-il vraiment [argument marketing à vérifier] ?` (vérification claim)
+- `### Combien coûte vraiment le [produit] installé ?` (coût total réel)
+- `### [Produit] vs [concurrent direct] : qui gagne sur [critère] ?` (mini face à face)
+- `### Faut-il prendre le [produit] maintenant ou attendre [v2 / soldes] ?` (timing achat)
+- `### Le [produit] tient-il la route sur [contrainte concrète : pente / bordure / pluie / arbres / hivernage] ?`
+- `### Pour qui le [produit] est-il un mauvais choix ?` (anti-conseil, format Thomas)
+
+**Règles d'application :**
+
+1. **Pas plus de 2 H3 structurellement identiques** dans le même article. Si tu as utilisé *Pourquoi…* deux fois, le troisième doit changer de forme (*Pour quel…*, *Combien…*, *Est-il…*, *Vs…*, *Faut-il…*, *Quelles sont…*).
+2. Sous chaque H3, **réponse directe en moins de 60 mots** dans le premier paragraphe — c'est le chunk autonome GEO.
+3. **2 H3 ciblés > 3 H3 forcés.** Si un produit n'a qu'une vraie question d'arbitrage à 100 €, mets 1 H3 et une seule phrase d'anti-conseil derrière.
+4. Le tableau comparatif global de l'article ne dispense pas des H3 questions par produit — il les complète.
+
+**Exception conservée** : test produit **solo** (un seul modèle dans l'article, ex. `test-mammotion-yuka-mini-2-avis.mdx`), un `**Pour qui.**` final inline reste acceptable s'il est précédé de 3-4 H3 questions variés sur le produit (autonomie, app, bordures, SAV, hivernage…).
+
+**Exemple correct sur 3 produits consécutifs (varié, GEO-citable) :**
+
+```
+## 1. Bosch Indego XS 300 — l'urbain compact à 379 €
+
+### Pourquoi le Bosch Indego XS 300 reste pertinent sous 450 € ?
+[réponse < 60 mots avec chiffre clé]
+
+### Quelles sont les vraies limites du XS 300 face au S+ 500 ?
+[réponse < 60 mots avec chiffre clé]
+
+### Pour quel jardin urbain choisir le XS 300 ?
+[réponse < 60 mots avec profil précis]
+
+## 2. Worx Landroid M500 WR141E — le ticket filaire le moins cher à 389 €
+
+### Le Worx M500 est-il vraiment le meilleur rapport prix/surface ?
+[réponse avec comparatif chiffré vs concurrents]
+
+### Combien coûte vraiment un M500 installé sur 400 m² ?
+[réponse avec ventilation : 389 € catalogue + 100-200 € pose pro]
+
+### Pour qui le M500 est-il un mauvais choix ?
+[anti-conseil tranché : voisinage très proche, jardin trop pentu…]
+
+## 3. Husqvarna Aspire R4 — le seul vrai 400 m² Husqvarna à 649 €
+
+### Pourquoi payer 250 € de plus qu'un Bosch S+ 500 pour l'Aspire R4 ?
+[réponse : SAV France, fiabilité 10 ans, 800+ revendeurs]
+
+### L'Aspire R4 tient-il la route sur un talus arrière à 25 % ?
+[réponse factuelle pente]
+
+### Faut-il prendre l'Aspire R4 ou attendre un Aspire R6V dégonflé ?
+[réponse arbitrage gamme]
+```
+
+Trois produits, neuf H3 questions, **zéro répétition structurelle**. C'est ce qu'on vise.
+
+---
+
 ## VOIX ÉDITORIALE — THOMAS
 
 Tu écris depuis une voix éditoriale précise, documentée dans `docs/AUTHOR-thomas.md` :
@@ -254,10 +326,11 @@ Tu écris depuis une voix éditoriale précise, documentée dans `docs/AUTHOR-th
 1. J'ai lu le brief / la SERP / les 3-5 articles top-ranking concurrents
 2. J'ai lu `docs/SEO-GEO-REDACTION.md` et `docs/AUTHOR-thomas.md`
 3. J'ai en tête la voix Thomas (direct, factuel, chiffres avant adjectifs)
-4. J'ai banni mentalement les listes 1-24 ci-dessus
+4. J'ai banni mentalement les listes 1-25 ci-dessus
 5. Je sais quel détail concret je vais donner au lieu d'un mot vague
 6. J'ai validé les ASIN Amazon des produits cités (jamais d'ASIN inventé)
-7. J'attaque la rédaction direct, sans préambule chatbot
+7. Pour un guide multi-produits : j'ai préparé 2-3 H3 questions variées par produit (§25) — pas d'étiquettes parallèles
+8. J'attaque la rédaction direct, sans préambule chatbot
 
 ## CHECKLIST AVANT DE COMMITTER
 
@@ -268,7 +341,8 @@ Tu écris depuis une voix éditoriale précise, documentée dans `docs/AUTHOR-th
 5. Sources et chiffres cités précisément (#12) — prix à date, autonomie constructeur, mesures perso
 6. Au moins une prise de position tranchée par produit (#VOIX)
 7. Au moins un défaut par produit recommandé (#VOIX)
-8. Frontmatter complet : `featureImage`, `aiSummary`, `faq` (6+), `stickyCta`
+8. Sur un guide multi-produits : aucun trio `**Ce qui marche / Ce qui cloche / Pour qui.**` parallèle (#25) — uniquement des H3 questions variés
+9. Frontmatter complet : `featureImage`, `aiSummary`, `faq` (6+), `stickyCta`
 
 ---
 
