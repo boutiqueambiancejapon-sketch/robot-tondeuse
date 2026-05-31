@@ -1,0 +1,11 @@
+name: "Gardena Smart SILENO Free 1100"
+categorie: "gardena"
+prix: "1262 €"
+badge: "Sans fil LONA 1100 m²"
+hook: "Le sans-fil Gardena grand jardin. LONA Intelligence satellite, 1100 m², pente 30%, Smart Gateway incluse. Installation sans câble périphérique en 30 minutes."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DMFBHYBP"
