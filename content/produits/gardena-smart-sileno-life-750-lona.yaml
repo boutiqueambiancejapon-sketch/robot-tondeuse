@@ -1,0 +1,11 @@
+name: "Gardena Smart SILENO Life 750 LONA"
+categorie: "gardena"
+prix: "900-1100 €"
+badge: "Filaire 750 m² LONA IA"
+hook: "Le filaire Gardena milieu de gamme. LONA IA pour cartographier votre jardin, pente 35%, 58 dB ultra-silencieux, abri robot inclus. Fiabilité du groupe Husqvarna."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0D5M1645F"
