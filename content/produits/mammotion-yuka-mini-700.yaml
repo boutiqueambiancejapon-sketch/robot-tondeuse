@@ -1,0 +1,11 @@
+name: "Mammotion Yuka Mini 700"
+categorie: "mammotion"
+prix: "659-749 €"
+badge: "RTK+Vision IA sans fil 700 m²"
+hook: "Sans câble périphérique pour 700 m², navigation NetRTK + Vision IA UltraSense, 50 % de pente, 15 zones, module 4G intégré, garantie 3 ans. Le meilleur rapport qualité/prix du segment sans fil sous 800 €."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DT4BCVJN"
