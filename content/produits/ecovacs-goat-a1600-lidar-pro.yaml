@@ -1,0 +1,11 @@
+name: "Ecovacs Goat A1600 LiDAR Pro"
+categorie: "ecovacs"
+prix: "1 499-1 799 €"
+badge: "Dual-LiDAR 1 600 m²"
+hook: "Navigation Dual-LiDAR 360°, 1 600 m², charge rapide 45 min, évitement d'obstacles 3D IA, pente 50 %. La montée en gamme Ecovacs pour jardins moyens avec obstacles complexes."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0G62SN141"
