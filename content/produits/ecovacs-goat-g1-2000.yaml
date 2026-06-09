@@ -1,0 +1,11 @@
+name: "Ecovacs Goat G1-2000"
+categorie: "ecovacs"
+prix: "899-999 €"
+badge: "Meilleur rapport surface/prix"
+hook: "Navigation TrueMapping UWB + Vision IA + GPS, 2 000 m², 50 % de pente, 8 balises fournies, garage et module de connexion automatique inclus. Le meilleur rapport qualité-prix Ecovacs Goat 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CWPCT26H"
