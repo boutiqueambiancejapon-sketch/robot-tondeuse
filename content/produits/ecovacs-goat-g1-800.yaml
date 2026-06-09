@@ -1,0 +1,11 @@
+name: "Ecovacs Goat G1-800"
+categorie: "ecovacs"
+prix: "449-599 €"
+badge: "UWB balises, 800 m²"
+hook: "Navigation TrueMapping UWB + ToF + caméra IA, 800 m², 45 % de pente, installation en 30 minutes sans fil périmétrique. Le ticket d'entrée Ecovacs Goat pour petits jardins."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CQRD78P7"
