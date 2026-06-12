@@ -1,0 +1,11 @@
+name: "Mammotion LUBA 2 AWD 5000"
+categorie: "mammotion"
+prix: "1 999-2 499 €"
+badge: "AWD 5 000 m² RTK"
+hook: "Quatre roues motrices, navigation NetRTK + GPS multi-constellation, pente jusqu'à 80 %, jusqu'à 5 000 m² et zones multiples. L'option grand domaine 5 000 m² de la gamme Mammotion à prix accessible."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0CQRGMKSR"
