@@ -1,20 +1,24 @@
 /**
  * ArticleCard — carte article style magazine.
- * Fond surface, tag coloré par type, hover glow + lift.
- * Sans images : le type de contenu et la couleur font le travail visuel.
+ * Toujours une image : featureImage si fournie, sinon pool déterministe.
  * Server Component.
  */
 import Link from 'next/link'
 import Image from 'next/image'
 import type { ArticleMeta } from '@/lib/blog'
 import { CATEGORY_LABELS, CATEGORY_ACCENT, formatDate, articleHref } from '@/lib/blog'
-import { HubArtwork } from './HubArtwork'
+import { HubArtwork, IMAGE_POOL, hashSlug } from './HubArtwork'
 
 type Props = {
   article: ArticleMeta
   featured?: boolean
   showCategory?: boolean
   index?: number
+}
+
+/** Image de pool déterministe par slug */
+function poolImage(slug: string): string {
+  return IMAGE_POOL[hashSlug(slug) % IMAGE_POOL.length]
 }
 
 /** Déduit le type d'article à partir du slug et de la catégorie. */
@@ -30,6 +34,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
   const accent = CATEGORY_ACCENT[article.categorie] ?? 'var(--accent-1)'
   const label = CATEGORY_LABELS[article.categorie] ?? article.categorie
   const type = articleType(article)
+  const imgSrc = article.featureImage ?? poolImage(article.slug)
 
   if (featured) {
     return (
@@ -48,7 +53,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             minHeight: 380,
           }}
         >
-          {/* Image : featureImage si fournie, sinon HubArtwork génératif */}
+          {/* Image : featureImage si fournie, sinon HubArtwork (pool) */}
           <div style={{ position: 'relative', overflow: 'hidden', background: 'var(--cream)' }}>
             {article.featureImage ? (
               <Image
@@ -155,7 +160,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
     )
   }
 
-  // ── Standard card ──
+  // ── Standard card — toujours une image ──
   return (
     <Link href={articleHref(article)} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <article
@@ -164,34 +169,37 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
           '--card-accent': accent,
           position: 'relative',
           overflow: 'hidden',
-          background: 'transparent',
-          borderTop: 'none',
-          borderLeft: 'none',
-          borderRight: 'none',
-          borderBottom: 'none',
-          borderRadius: 0,
+          background: 'var(--ivory)',
+          border: '1px solid var(--border)',
+          borderRadius: 'var(--radius-lg)',
           padding: 0,
-          paddingBottom: 'var(--space-5)',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
         } as React.CSSProperties}
       >
-        {article.featureImage && (
+        {/* Image — featureImage ou pool déterministe */}
+        <div style={{ position: 'relative', overflow: 'hidden', flexShrink: 0, height: 180 }}>
           <Image
-            src={article.featureImage}
+            src={imgSrc}
             alt={article.title}
-            width={480}
-            height={270}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+          />
+          {/* Halo accent */}
+          <div
+            aria-hidden="true"
             style={{
-              width: '100%',
-              height: '180px',
-              objectFit: 'cover',
+              position: 'absolute',
+              inset: 0,
+              background: `linear-gradient(to top, color-mix(in srgb, ${accent} 30%, transparent) 0%, transparent 50%)`,
+              pointerEvents: 'none',
             }}
           />
-        )}
+        </div>
 
-        <div style={{ padding: 'var(--space-4) 0 var(--space-5)', flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+        <div style={{ padding: 'var(--space-4) var(--space-4) var(--space-5)', flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
           {/* Type + Category pills */}
           <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
             <span style={{
@@ -217,7 +225,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
             className="article-card-title"
             style={{
               fontFamily: 'var(--next-font-display), Georgia, serif',
-              fontSize: '20px',
+              fontSize: '18px',
               fontWeight: 400,
               letterSpacing: '-0.01em',
               color: 'var(--text-primary)',
