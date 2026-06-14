@@ -1,24 +1,25 @@
 import type { Metadata } from 'next'
-import { Inter, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import { Schibsted_Grotesk, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { niche } from '@/niche.config'
 import './globals.css'
 
-// ── Fonts — Atelier Vert : Inter (body) + Instrument Serif (display) + JetBrains Mono (specs/prix) ──
-const fontPrimary = Inter({
+// ── Fonts — Atelier Vert : Schibsted Grotesk (display/headings) + Hanken Grotesk (body) + JetBrains Mono (specs/prix) ──
+
+const fontDisplay = Schibsted_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--next-font-primary',
+  weight: ['400', '700', '900'],
+  style: ['normal', 'italic'],
+  variable: '--next-font-display',
   adjustFontFallback: true,
   preload: true,
   display: 'swap',
 })
 
-const fontDisplay = Instrument_Serif({
+const fontPrimary = Hanken_Grotesk({
   subsets: ['latin'],
-  weight: ['400'],
-  style: ['normal', 'italic'],
-  variable: '--next-font-display',
+  weight: ['400', '500', '600', '700'],
+  variable: '--next-font-primary',
   adjustFontFallback: true,
   preload: true,
   display: 'swap',
@@ -65,7 +66,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${fontPrimary.variable} ${fontDisplay.variable} ${fontMono.variable}`}
+      className={`${fontDisplay.variable} ${fontPrimary.variable} ${fontMono.variable}`}
     >
       <body>
         <a href="#main-content" className="skip-to-content">
