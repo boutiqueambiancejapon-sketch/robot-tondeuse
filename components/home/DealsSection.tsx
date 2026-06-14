@@ -13,7 +13,7 @@ export function DealsSection() {
       }}
       aria-label="Offres flash robot tondeuse"
     >
-      <div style={{ padding: '0 clamp(28px, 4vw, 80px)' }}>
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(28px, 4vw, 80px)' }}>
 
         {/* ── Header ── */}
         <div
