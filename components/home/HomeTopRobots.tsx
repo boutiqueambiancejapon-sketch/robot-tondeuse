@@ -1,10 +1,11 @@
 /**
  * HomeTopRobots — section "Le podium 2026" Atelier Vert.
- * 3 cartes robots en évidence avec badge + rang + image stylisée + specs + CTA.
+ * 3 cartes robots avec photo jardin en contexte + badge + specs + CTA.
  * Server Component — lit les YAML produits depuis content/produits.
  */
 
 import Link from 'next/link'
+import Image from 'next/image'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
@@ -18,6 +19,13 @@ const TOP_3_SLUGS = [
   'mammotion-yuka-mini-2-1000',
   'gardena-sileno-minimo-250',
 ]
+
+/** Photos jardin en contexte pour chaque robot du podium */
+const ROBOT_IMAGES: Record<string, string> = {
+  'husqvarna-automower-310-mark-ii': '/images/robots/husqvarna-automower-310-mark-ii-jardin.jpeg',
+  'mammotion-yuka-mini-2-1000':      '/images/robots/mammotion-yuka-mini-2-jardin.jpeg',
+  'gardena-sileno-minimo-250':       '/images/robots/gardena-sileno-minimo-250-jardin.jpeg',
+}
 
 function getProductWithSlug(slug: string): (Product & { slug: string }) | null {
   const filePath = path.join(process.cwd(), 'content/produits', `${slug}.yaml`)
@@ -113,6 +121,7 @@ export function HomeTopRobots() {
             const accent = accents[p.categorie] ?? 'var(--copper)'
             const buyUrl = getPrimaryLink(p)
             const rankLabels = ['#1 · Notre choix', '#2 · Excellent', '#3 · À considérer']
+            const imgSrc = ROBOT_IMAGES[p.slug]
 
             return (
               <article
@@ -173,36 +182,47 @@ export function HomeTopRobots() {
                   {rankLabels[i]}
                 </span>
 
-                {/* Visual stylisé */}
+                {/* Visual — photo jardin ou fallback SVG */}
                 <div
                   style={{
                     height: 210,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: `linear-gradient(135deg, color-mix(in srgb, ${accent} 14%, transparent) 0%, color-mix(in srgb, ${accent} 5%, transparent) 100%)`,
                     position: 'relative',
+                    overflow: 'hidden',
+                    background: `linear-gradient(135deg, color-mix(in srgb, ${accent} 14%, transparent) 0%, color-mix(in srgb, ${accent} 5%, transparent) 100%)`,
                     borderBottom: '1px solid var(--line-soft)',
                   }}
                 >
-                  <svg width="150" height="150" viewBox="0 0 160 160" aria-hidden="true">
-                    <ellipse cx="80" cy="80" rx="64" ry="50" fill={accent} opacity="0.82" />
-                    <ellipse cx="80" cy="74" rx="54" ry="40" fill={accent} opacity="0.5" />
-                    <rect x="65" y="52" width="30" height="5" rx="2" fill="var(--copper)" />
-                    <circle cx="80" cy="78" r="6" fill="var(--sage-light)" />
-                    <text
-                      x="80"
-                      y="140"
-                      textAnchor="middle"
-                      fontFamily="var(--next-font-mono), monospace"
-                      fontSize="9"
-                      letterSpacing="0.12em"
-                      fill={accent}
-                      opacity="0.6"
-                    >
-                      {p.categorie.toUpperCase()}
-                    </text>
-                  </svg>
+                  {imgSrc ? (
+                    <Image
+                      src={imgSrc}
+                      alt={`${p.name} — vue jardin en contexte`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      style={{ objectFit: 'cover' }}
+                      priority={i === 0}
+                    />
+                  ) : (
+                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <svg width="150" height="150" viewBox="0 0 160 160" aria-hidden="true">
+                        <ellipse cx="80" cy="80" rx="64" ry="50" fill={accent} opacity="0.82" />
+                        <ellipse cx="80" cy="74" rx="54" ry="40" fill={accent} opacity="0.5" />
+                        <rect x="65" y="52" width="30" height="5" rx="2" fill="var(--copper)" />
+                        <circle cx="80" cy="78" r="6" fill="var(--sage-light)" />
+                        <text
+                          x="80"
+                          y="140"
+                          textAnchor="middle"
+                          fontFamily="var(--next-font-mono), monospace"
+                          fontSize="9"
+                          letterSpacing="0.12em"
+                          fill={accent}
+                          opacity="0.6"
+                        >
+                          {p.categorie.toUpperCase()}
+                        </text>
+                      </svg>
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}

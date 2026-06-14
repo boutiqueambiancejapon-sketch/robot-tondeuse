@@ -76,6 +76,7 @@ export type NicheConfig = {
     tone: string[]          // ["direct", "honnête", "expert"]
     noGo: string[]          // ["révolutionnaire", "incroyable"]
     formulations: string[]  // ["Honnêtement,", "Le vrai tip :"]
+    photo?: string          // chemin relatif depuis public/ — ex: '/images/auteur-thomas-portrait.jpeg'
   }
 
   // Affiliation
@@ -159,6 +160,7 @@ export const niche: NicheConfig = {
     tone: ['direct', 'pragmatique', 'technique'],
     noGo: ['révolutionnaire', 'incroyable', 'game-changer'],
     formulations: ['Concrètement,', 'Le vrai critère :', 'Sur le terrain,'],
+    photo: '/images/auteur-thomas-portrait.jpeg',
   },
 
   affiliateTag: 'ambiancejap0a-21',

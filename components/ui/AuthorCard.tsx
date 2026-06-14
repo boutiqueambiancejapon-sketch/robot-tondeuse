@@ -1,11 +1,13 @@
 /**
- * AuthorCard — carte auteur sans photo.
- * Identité : monogramme CSS initiale en Syne 800.
+ * AuthorCard — carte auteur avec photo ou monogramme CSS.
+ * Si niche.author.photo est défini, affiche la photo ; sinon, initiale décorative.
  * Variants : 'inline' (en bas d'article) | 'full' (page auteur).
  * Server Component.
  */
 
 import Link from 'next/link'
+import Image from 'next/image'
+import { niche } from '@/niche.config'
 
 type AuthorCardVariant = 'inline' | 'full'
 
@@ -55,6 +57,8 @@ export function AuthorCard({
   variant = 'inline',
 }: AuthorCardProps) {
   const isInline = variant === 'inline'
+  const size = isInline ? 44 : 64
+  const authorPhoto = niche.author.photo
 
   return (
     <div
@@ -66,7 +70,22 @@ export function AuthorCard({
         borderTop: '1px solid var(--glass-border)',
       }}
     >
-      <Monogram size={isInline ? 44 : 64} initial={authorName.charAt(0).toUpperCase() || '?'} />
+      {authorPhoto ? (
+        <Image
+          src={authorPhoto}
+          alt={`Photo de ${authorName || 'l\'auteur'}`}
+          width={size}
+          height={size}
+          style={{
+            borderRadius: '50%',
+            objectFit: 'cover',
+            flexShrink: 0,
+            display: 'block',
+          }}
+        />
+      ) : (
+        <Monogram size={size} initial={authorName.charAt(0).toUpperCase() || '?'} />
+      )}
 
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ marginBottom: 'var(--space-1)' }}>

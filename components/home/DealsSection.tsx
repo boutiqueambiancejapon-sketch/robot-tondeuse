@@ -1,6 +1,15 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { DEALS, FLASH_SECONDS } from '@/lib/deals'
 import { Countdown } from '@/components/shared/Countdown'
+
+/** Photos jardin en contexte pour chaque deal (par deal.id) */
+const DEAL_IMAGES: Record<string, string> = {
+  'segway-i105e':       '/images/robots/segway-navimow-i105e-jardin.jpeg',
+  'mammotion-yuka-mini': '/images/robots/mammotion-yuka-mini-2-500-jardin.jpeg',
+  'worx-vision-m800':   '/images/robots/worx-landroid-vision-m800-jardin.jpeg',
+  'gardena-sileno-750': '/images/robots/gardena-sileno-life-750-jardin.jpeg',
+}
 
 export function DealsSection() {
   return (
@@ -96,6 +105,7 @@ export function DealsSection() {
           {DEALS.map((deal) => {
             const stockPct = Math.round((deal.stock / 12) * 100)
             const isUrgent = deal.stock <= 4
+            const imgSrc = DEAL_IMAGES[deal.id]
             return (
               <article
                 key={deal.id}
@@ -113,20 +123,33 @@ export function DealsSection() {
                 <div
                   style={{
                     position: 'relative',
-                    background: `color-mix(in srgb, ${deal.color} 10%, var(--ivory))`,
+                    background: imgSrc ? undefined : `color-mix(in srgb, ${deal.color} 10%, var(--ivory))`,
                     borderBottom: '1px solid var(--line-soft)',
                     height: 164,
+                    overflow: 'hidden',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}
                 >
+                  {/* Photo jardin en contexte */}
+                  {imgSrc && (
+                    <Image
+                      src={imgSrc}
+                      alt={`${deal.brand} ${deal.model} — vue jardin`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 25vw"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  )}
+
                   {/* Brand pill */}
                   <span
                     style={{
                       position: 'absolute',
                       top: 12,
                       left: 12,
+                      zIndex: 1,
                       background: deal.color,
                       color: '#fff',
                       fontSize: 11,
@@ -144,34 +167,36 @@ export function DealsSection() {
                   {/* Discount badge */}
                   <span
                     className="badge-deal lg"
-                    style={{ position: 'absolute', top: 12, right: 12 }}
+                    style={{ position: 'absolute', top: 12, right: 12, zIndex: 1 }}
                     aria-label={`Réduction de ${deal.discount} pourcent`}
                   >
                     −{deal.discount}%
                   </span>
 
-                  {/* Robot icon placeholder */}
-                  <div
-                    style={{
-                      width: 76,
-                      height: 76,
-                      borderRadius: '50%',
-                      background: `color-mix(in srgb, ${deal.color} 16%, transparent)`,
-                      border: `2px solid color-mix(in srgb, ${deal.color} 35%, transparent)`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 34,
-                    }}
-                    aria-hidden="true"
-                  >
-                    🤖
-                  </div>
+                  {/* Robot icon fallback */}
+                  {!imgSrc && (
+                    <div
+                      style={{
+                        width: 76,
+                        height: 76,
+                        borderRadius: '50%',
+                        background: `color-mix(in srgb, ${deal.color} 16%, transparent)`,
+                        border: `2px solid color-mix(in srgb, ${deal.color} 35%, transparent)`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: 34,
+                      }}
+                      aria-hidden="true"
+                    >
+                      🤖
+                    </div>
+                  )}
 
                   {/* Flash label */}
                   <span
                     className="badge-flash"
-                    style={{ position: 'absolute', bottom: 12, left: 12 }}
+                    style={{ position: 'absolute', bottom: 12, left: 12, zIndex: 1 }}
                   >
                     ⚡ {deal.label}
                   </span>
