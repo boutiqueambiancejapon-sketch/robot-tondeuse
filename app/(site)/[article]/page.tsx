@@ -214,7 +214,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
         <article>
           {/* Header — bande forest-deep avec image en fade + infos en surimpression */}
           <div className="article-hero-band" style={{ position: 'relative', overflow: 'hidden', background: 'var(--forest-deep)', color: 'var(--ivory)', minHeight: 360 }}>
-            {/* Backdrop : featureImage si fournie, sinon HubArtwork génératif */}
+            {/* Backdrop : featureImage si fournie, sinon HubArtwork (pool d'images) */}
             <div aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
               {meta.featureImage ? (
                 <Image
@@ -285,7 +285,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
               {/* FAQ */}
               {meta.faq && meta.faq.length > 0 && (
                 <section aria-labelledby="faq-titre" style={{ marginTop: 'var(--space-12)' }}>
-                  <h2 id="faq-titre" style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(20px, 3vw, 28px)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 'var(--space-6)' }}>
+                  <h2 id="faq-titre" style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(22px, 3vw, 30px)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-6)' }}>
                     Questions fréquentes
                   </h2>
                   <FaqAccordion items={meta.faq} />
@@ -295,7 +295,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
               {/* Related — mobile only (desktop shows in sidebar) */}
               {related.length > 0 && (
                 <section aria-labelledby="related-titre" className="article-related-mobile" style={{ marginTop: 'var(--space-12)' }}>
-                  <h2 id="related-titre" style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(18px, 2.5vw, 22px)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 'var(--space-5)' }}>
+                  <h2 id="related-titre" style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(20px, 2.5vw, 24px)', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-5)' }}>
                     Continuer votre lecture
                   </h2>
                   <ul role="list" style={{ display: 'flex', flexDirection: 'column', gap: 0, listStyle: 'none', borderTop: '1px solid var(--border)' }}>

@@ -622,9 +622,9 @@ body {
   counter-reset: section-counter;
 }
 .prose-article h2 {
-  font-family: var(--next-font-display), 'Helvetica Neue', sans-serif;
+  font-family: var(--next-font-display), Georgia, serif;
   font-size: clamp(26px, 3.6vw, 34px);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.08;
   color: var(--text-primary);
@@ -655,7 +655,7 @@ body {
   opacity: 0.6;
 }
 .prose-article h3 {
-  font-family: var(--next-font-display), 'Helvetica Neue', sans-serif;
+  font-family: var(--next-font-display), Georgia, serif;
   font-size: clamp(20px, 2.8vw, 24px);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -664,6 +664,11 @@ body {
   margin-top: var(--space-8);
   margin-bottom: var(--space-3);
   text-wrap: balance;
+}
+.prose-article h2 em,
+.prose-article h3 em {
+  color: var(--copper);
+  font-style: italic;
 }
 .prose-article p {
   margin-bottom: var(--space-5);
@@ -704,7 +709,7 @@ body {
   color: var(--accent-3);
 }
 .prose-article > p:first-of-type::first-letter {
-  font-family: var(--next-font-display), 'Helvetica Neue', sans-serif;
+  font-family: var(--next-font-display), Georgia, serif;
   font-size: 4em;
   font-weight: 700;
   font-style: italic;
