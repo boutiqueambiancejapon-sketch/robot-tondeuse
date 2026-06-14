@@ -1,5 +1,5 @@
 /**
- * HomeQuizTeaser — bloc forest-deep signature Atelier Vert.
+ * HomeQuizTeaser — bloc signature Atelier Vert.
  * 2 colonnes : pitch quiz (gauche) + preview quiz simulé (droite).
  * Server Component — visuel pur.
  */
@@ -16,24 +16,43 @@ const TESTER_DOTS = ['var(--copper)', 'var(--sage)', 'var(--moss)', 'var(--coppe
 
 export function HomeQuizTeaser() {
   return (
-    <section style={{ padding: 'var(--space-24) 0', background: 'var(--paper)', position: 'relative', overflow: 'hidden' }}>
-      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 var(--space-6)' }}>
+    <section
+      style={{
+        padding: 'clamp(40px, 5vw, 72px) 0',
+        background: 'var(--paper)',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(28px, 4vw, 80px)' }}>
         <div
           className="quiz-teaser-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap: 'var(--space-12)',
+            gap: 'clamp(32px, 5vw, 64px)',
             background: 'var(--forest-deep)',
             color: 'var(--ivory)',
-            borderRadius: 32,
-            padding: 'var(--space-16)',
+            borderRadius: 28,
+            padding: 'clamp(32px, 5vw, 64px)',
             position: 'relative',
             overflow: 'hidden',
           }}
         >
-          {/* Pitch quiz */}
-          <div>
+          {/* Subtle grain overlay */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: 28,
+              pointerEvents: 'none',
+              background: 'radial-gradient(ellipse at 70% 0%, rgba(194,90,50,0.12) 0%, transparent 60%)',
+            }}
+          />
+
+          {/* ── Left — pitch ── */}
+          <div style={{ position: 'relative', zIndex: 1 }}>
             <p
               style={{
                 display: 'inline-flex',
@@ -41,56 +60,96 @@ export function HomeQuizTeaser() {
                 gap: 8,
                 fontFamily: 'var(--next-font-mono), monospace',
                 fontSize: 11,
-                fontWeight: 500,
+                fontWeight: 700,
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
                 color: 'var(--copper-bright)',
-                marginBottom: 'var(--space-4)',
+                marginBottom: 16,
               }}
             >
-              <span aria-hidden="true" style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: 'var(--copper-bright)' }} />
+              <span
+                aria-hidden="true"
+                style={{
+                  display: 'inline-block',
+                  width: 7,
+                  height: 7,
+                  borderRadius: '50%',
+                  background: 'var(--copper-bright)',
+                }}
+              />
               Outil signature
             </p>
             <h2
               style={{
-                fontFamily: 'var(--next-font-display), Georgia, serif',
-                fontSize: 'clamp(2rem, 4.5vw, 3.5rem)',
-                fontWeight: 400,
-                letterSpacing: '-0.025em',
-                lineHeight: 1.05,
+                fontSize: 'clamp(26px, 3.5vw, 46px)',
+                fontWeight: 900,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.06,
                 color: 'var(--ivory)',
-                margin: '0 0 var(--space-6)',
+                marginBottom: 20,
               }}
             >
               Le quiz qui<br />
               <em style={{ color: 'var(--copper-bright)', fontStyle: 'italic' }}>ne se trompe jamais</em>.
             </h2>
-            <p style={{ fontSize: 16, color: 'var(--sage-light)', maxWidth: 460, lineHeight: 1.6, marginBottom: 'var(--space-8)' }}>
-              7 questions sur votre jardin, votre budget, vos contraintes. Notre algorithme croise les modèles testés et vous sort <em>le</em> robot fait pour vous. C&rsquo;est tout.
+            <p
+              style={{
+                fontSize: 15,
+                color: 'var(--sage-light)',
+                maxWidth: 440,
+                lineHeight: 1.65,
+                marginBottom: 32,
+              }}
+            >
+              7 questions sur votre jardin, votre budget, vos contraintes. Notre algorithme croise
+              les modèles testés et vous sort <em>le</em> robot fait pour vous. C&rsquo;est tout.
             </p>
-            <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 'var(--space-8)', flexWrap: 'wrap' }}>
+            <div
+              style={{
+                display: 'flex',
+                gap: 14,
+                alignItems: 'center',
+                marginBottom: 32,
+                flexWrap: 'wrap',
+              }}
+            >
               <Link
                 href="/quiz"
+                className="btn btn-primary"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  padding: '16px 24px',
+                  padding: '14px 24px',
                   background: 'var(--copper)',
                   color: 'var(--ivory)',
                   borderRadius: 100,
-                  fontSize: 16,
-                  fontWeight: 500,
+                  fontSize: 15,
+                  fontWeight: 700,
                   textDecoration: 'none',
-                  boxShadow: '0 2px 0 0 #8c4a2c, 0 6px 16px rgba(184, 98, 61, 0.4)',
                 }}
               >
                 Lancer le quiz →
               </Link>
-              <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 12, color: 'var(--sage)' }}>
-                2 min · 100% gratuit · sans email
+              <span
+                style={{
+                  fontFamily: 'var(--next-font-mono), monospace',
+                  fontSize: 12,
+                  color: 'var(--sage)',
+                  letterSpacing: '0.04em',
+                }}
+              >
+                2 min · gratuit · sans email
               </span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, paddingTop: 'var(--space-6)', borderTop: '1px solid rgba(255,255,255,0.10)' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 16,
+                paddingTop: 24,
+                borderTop: '1px solid rgba(255,255,255,0.09)',
+              }}
+            >
               <div style={{ display: 'flex' }}>
                 {TESTER_DOTS.map((bg, i) => (
                   <span
@@ -108,52 +167,96 @@ export function HomeQuizTeaser() {
                   />
                 ))}
               </div>
-              <div style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 12, color: 'var(--sage)', letterSpacing: '0.05em' }}>
+              <span
+                style={{
+                  fontFamily: 'var(--next-font-mono), monospace',
+                  fontSize: 12,
+                  color: 'var(--sage)',
+                  letterSpacing: '0.04em',
+                }}
+              >
                 +1 200 tests réalisés ce mois-ci
-              </div>
+              </span>
             </div>
           </div>
 
-          {/* Preview quiz simulé — entièrement cliquable vers /quiz */}
+          {/* ── Right — preview quiz ── */}
           <Link
             href="/quiz"
             aria-label="Lancer le quiz"
             className="quiz-teaser-preview"
             style={{
-              background: 'rgba(255,255,255,0.03)',
+              background: 'rgba(255,255,255,0.04)',
               borderRadius: 20,
-              padding: 'var(--space-8)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              padding: 'clamp(20px, 3vw, 32px)',
+              border: '1px solid rgba(255,255,255,0.09)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              minHeight: 420,
+              minHeight: 380,
               textDecoration: 'none',
               color: 'inherit',
               transition: 'border-color 200ms ease, transform 200ms ease',
               cursor: 'pointer',
               position: 'relative',
+              zIndex: 1,
             }}
           >
             <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 16 }}>
-                <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, color: 'var(--sage)', letterSpacing: '0.12em' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: 12,
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'var(--next-font-mono), monospace',
+                    fontSize: 11,
+                    color: 'var(--sage)',
+                    letterSpacing: '0.12em',
+                    fontWeight: 600,
+                  }}
+                >
                   QUESTION 3 / 7
                 </span>
-                <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, color: 'var(--copper-bright)' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--next-font-mono), monospace',
+                    fontSize: 11,
+                    color: 'var(--copper-bright)',
+                    fontWeight: 700,
+                  }}
+                >
                   43%
                 </span>
               </div>
-              <div style={{ height: 4, background: 'rgba(255,255,255,0.1)', borderRadius: 100, overflow: 'hidden', marginBottom: 'var(--space-8)' }}>
-                <div style={{ width: '43%', height: '100%', background: 'var(--copper)', borderRadius: 100 }} />
+              <div
+                style={{
+                  height: 4,
+                  background: 'rgba(255,255,255,0.1)',
+                  borderRadius: 100,
+                  overflow: 'hidden',
+                  marginBottom: 24,
+                }}
+              >
+                <div
+                  style={{
+                    width: '43%',
+                    height: '100%',
+                    background: 'var(--copper)',
+                    borderRadius: 100,
+                  }}
+                />
               </div>
               <h3
                 style={{
-                  fontFamily: 'var(--next-font-display), Georgia, serif',
-                  fontSize: 'clamp(1.4rem, 2vw, 1.8rem)',
-                  fontWeight: 400,
+                  fontSize: 'clamp(18px, 2vw, 24px)',
+                  fontWeight: 700,
                   letterSpacing: '-0.02em',
-                  marginBottom: 'var(--space-6)',
+                  lineHeight: 1.2,
+                  marginBottom: 20,
                   color: 'var(--ivory)',
                 }}
               >
@@ -165,18 +268,28 @@ export function HomeQuizTeaser() {
                 <div
                   key={opt.label}
                   style={{
-                    padding: '14px 16px',
+                    padding: '13px 16px',
                     background: opt.selected ? 'var(--copper)' : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${opt.selected ? 'var(--copper)' : 'rgba(255,255,255,0.1)'}`,
+                    border: `1px solid ${opt.selected ? 'var(--copper)' : 'rgba(255,255,255,0.10)'}`,
                     borderRadius: 12,
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
+                    transition: 'background 150ms ease',
                   }}
                 >
                   <div>
-                    <div style={{ fontSize: 14, fontWeight: 500 }}>{opt.label}</div>
-                    <div style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, color: opt.selected ? 'rgba(255,255,255,0.85)' : 'var(--sage)', marginTop: 2 }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: 'var(--ivory)' }}>
+                      {opt.label}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: 'var(--next-font-mono), monospace',
+                        fontSize: 11,
+                        color: opt.selected ? 'rgba(255,255,255,0.8)' : 'var(--sage)',
+                        marginTop: 2,
+                      }}
+                    >
                       {opt.sub}
                     </div>
                   </div>
@@ -189,23 +302,31 @@ export function HomeQuizTeaser() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
+                      flexShrink: 0,
                     }}
                   >
                     {opt.selected && (
-                      <span style={{ display: 'inline-block', width: 8, height: 8, borderRadius: '50%', background: 'var(--ivory)' }} />
+                      <span
+                        style={{
+                          display: 'inline-block',
+                          width: 8,
+                          height: 8,
+                          borderRadius: '50%',
+                          background: 'var(--ivory)',
+                        }}
+                      />
                     )}
                   </div>
                 </div>
               ))}
             </div>
-            {/* Overlay hint au survol : "Cliquer pour lancer →" */}
             <span
               className="quiz-teaser-preview-hint"
               aria-hidden="true"
               style={{
                 position: 'absolute',
-                bottom: 'var(--space-3)',
-                right: 'var(--space-4)',
+                bottom: 14,
+                right: 18,
                 fontFamily: 'var(--next-font-mono), monospace',
                 fontSize: 11,
                 color: 'var(--copper-bright)',
