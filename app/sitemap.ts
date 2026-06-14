@@ -6,6 +6,29 @@ import { PRODUIT_SLUGS } from '@/lib/comparateur'
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
+/**
+ * Slugs des articles-stubs (placeholders ~800-950 B) redirigés 301 vers un article complet.
+ * On les exclut du sitemap pour ne pas soumettre des URLs de redirection à Google.
+ * La liste miroir des redirects se trouve dans next.config.ts.
+ */
+const STUB_SLUGS = new Set([
+  'robot-tondeuse-pente',
+  'robot-tondeuse-rtk',
+  'robot-tondeuse-vision-ia',
+  'robot-tondeuse-multi-zones',
+  'robot-tondeuse-haut-de-gamme',
+  'robot-tondeuse-connecte',
+  'robot-tondeuse-grande-surface',
+  'entretien-robot-tondeuse',
+  'robot-tondeuse-rapport-qualite-prix',
+  'robot-tondeuse-500m2',
+  'installation-robot-tondeuse',
+  'robot-tondeuse-bruit-voisinage',
+  'depannage-robot-tondeuse',
+  'hivernage-robot-tondeuse',
+  'robot-tondeuse-pas-cher',
+])
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   const entries: MetadataRoute.Sitemap = []
@@ -39,8 +62,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
-  // ── Articles (standalone + blog) ─────────────────────────────────────
+  // ── Articles (standalone + blog) — stubs exclus ──────────────────────
   for (const article of getAllArticles()) {
+    if (STUB_SLUGS.has(article.slug)) continue
     entries.push({
       url: `${SITE_URL}${articleHref(article)}`,
       lastModified: new Date(article.updatedAt ?? article.publishedAt),
