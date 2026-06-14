@@ -1,6 +1,5 @@
 /**
- * RecentArticles — section éditoriale home : featured post + grille 4 derniers.
- * Layout magazine : grand featured (2 cols) + 4 cartes en dessous.
+ * RecentArticles — bento magazine : featured large (2 cols) + sidebar (1 col) + grille.
  * Server Component.
  */
 import Link from 'next/link'
@@ -11,56 +10,107 @@ export function RecentArticles() {
   const articles = getAllArticles().slice(0, 5)
   if (articles.length === 0) return null
 
-  const [featured, ...rest] = articles
+  const [featured, second, ...rest] = articles
 
   return (
-    <section style={{ borderTop: '1px solid var(--border)', padding: 'var(--space-16) 0' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 var(--space-6)' }}>
+    <section
+      style={{
+        borderTop: '1px solid var(--line-soft)',
+        padding: 'clamp(56px, 7vw, 104px) 0',
+        background: 'var(--cream)',
+      }}
+    >
+      <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 clamp(28px, 4vw, 80px)' }}>
 
         {/* En-tête */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--space-8)', flexWrap: 'wrap', gap: 'var(--space-3)' }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'baseline',
+            marginBottom: 36,
+            flexWrap: 'wrap',
+            gap: 12,
+          }}
+        >
           <div>
-            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: '11px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--moss)', display: 'block', marginBottom: 'var(--space-1)' }}>
+            <p
+              style={{
+                fontFamily: 'var(--next-font-mono), monospace',
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color: 'var(--moss)',
+                marginBottom: 8,
+              }}
+            >
               Éditorial
-            </span>
-            <h2 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(28px, 3.6vw, 44px)', fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--text-primary)', lineHeight: 1.1, margin: 0 }}>
+            </p>
+            <h2
+              style={{
+                fontSize: 'clamp(26px, 3vw, 40px)',
+                fontWeight: 900,
+                letterSpacing: '-0.03em',
+                lineHeight: 1.08,
+                color: 'var(--ink)',
+              }}
+            >
               Derniers articles
             </h2>
           </div>
-          <Link href="/blog" style={{ fontSize: '13px', fontWeight: 500, color: 'var(--copper)', textDecoration: 'none', borderBottom: '1px solid var(--copper)', paddingBottom: '2px', whiteSpace: 'nowrap' }}>
+          <Link
+            href="/blog"
+            style={{
+              fontSize: 13,
+              fontWeight: 600,
+              color: 'var(--copper)',
+              textDecoration: 'none',
+              borderBottom: '1.5px solid var(--copper)',
+              paddingBottom: 2,
+              whiteSpace: 'nowrap',
+            }}
+          >
             Tout le blog →
           </Link>
         </div>
 
-        {/* Magazine layout : featured large + grille petits */}
+        {/* Bento layout */}
         <div
           style={{
             display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
             gridTemplateRows: 'auto auto',
-            gap: 'var(--space-5)',
+            gap: 18,
           }}
+          className="recent-articles-bento"
         >
-          {/* Featured — pleine largeur */}
-          <ArticleCard article={featured} featured />
+          {/* Featured — 2 cols, 1 row */}
+          <div style={{ gridColumn: '1 / 3', gridRow: '1 / 2' }}>
+            <ArticleCard article={featured} featured />
+          </div>
 
-          {/* Grille 4 articles */}
+          {/* Second — 1 col, 1 row — stacked right */}
+          {second && (
+            <div style={{ gridColumn: '3 / 4', gridRow: '1 / 2' }}>
+              <ArticleCard article={second} />
+            </div>
+          )}
+
+          {/* Remaining — full 3 cols, row 2 */}
           {rest.length > 0 && (
-            <ul
-              role="list"
+            <div
               style={{
+                gridColumn: '1 / -1',
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-                gap: 'var(--space-5)',
-                listStyle: 'none',
-                margin: 0, padding: 0,
+                gridTemplateColumns: `repeat(${rest.length}, 1fr)`,
+                gap: 18,
               }}
             >
               {rest.map((article) => (
-                <li key={`${article.categorie}/${article.slug}`}>
-                  <ArticleCard article={article} />
-                </li>
+                <ArticleCard key={`${article.categorie}/${article.slug}`} article={article} />
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </div>
