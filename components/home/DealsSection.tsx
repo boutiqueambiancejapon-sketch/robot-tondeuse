@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { DEALS, FLASH_SECONDS } from '@/lib/deals'
 import { Countdown } from '@/components/shared/Countdown'
+import { AffiliateLink } from '@/components/ui/AffiliateLink'
 
 /** Photos jardin en contexte pour chaque deal (par deal.id) */
 const DEAL_IMAGES: Record<string, string> = {
@@ -132,7 +133,6 @@ export function DealsSection() {
                     justifyContent: 'center',
                   }}
                 >
-                  {/* Photo jardin en contexte */}
                   {imgSrc && (
                     <Image
                       src={imgSrc}
@@ -143,28 +143,18 @@ export function DealsSection() {
                     />
                   )}
 
-                  {/* Brand pill */}
                   <span
                     style={{
-                      position: 'absolute',
-                      top: 12,
-                      left: 12,
-                      zIndex: 1,
-                      background: deal.color,
-                      color: '#fff',
-                      fontSize: 11,
-                      fontWeight: 700,
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      padding: '4px 10px',
-                      borderRadius: 100,
-                      lineHeight: 1.4,
+                      position: 'absolute', top: 12, left: 12, zIndex: 1,
+                      background: deal.color, color: '#fff',
+                      fontSize: 11, fontWeight: 700, letterSpacing: '0.06em',
+                      textTransform: 'uppercase', padding: '4px 10px',
+                      borderRadius: 100, lineHeight: 1.4,
                     }}
                   >
                     {deal.brand}
                   </span>
 
-                  {/* Discount badge */}
                   <span
                     className="badge-deal lg"
                     style={{ position: 'absolute', top: 12, right: 12, zIndex: 1 }}
@@ -173,19 +163,13 @@ export function DealsSection() {
                     −{deal.discount}%
                   </span>
 
-                  {/* Robot icon fallback */}
                   {!imgSrc && (
                     <div
                       style={{
-                        width: 76,
-                        height: 76,
-                        borderRadius: '50%',
+                        width: 76, height: 76, borderRadius: '50%',
                         background: `color-mix(in srgb, ${deal.color} 16%, transparent)`,
                         border: `2px solid color-mix(in srgb, ${deal.color} 35%, transparent)`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: 34,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 34,
                       }}
                       aria-hidden="true"
                     >
@@ -193,37 +177,15 @@ export function DealsSection() {
                     </div>
                   )}
 
-                  {/* Flash label */}
-                  <span
-                    className="badge-flash"
-                    style={{ position: 'absolute', bottom: 12, left: 12, zIndex: 1 }}
-                  >
+                  <span className="badge-flash" style={{ position: 'absolute', bottom: 12, left: 12, zIndex: 1 }}>
                     ⚡ {deal.label}
                   </span>
                 </div>
 
                 {/* Content */}
-                <div
-                  style={{
-                    padding: '18px 18px 20px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 12,
-                    flex: 1,
-                  }}
-                >
-                  {/* Name + hook */}
+                <div style={{ padding: '18px 18px 20px', display: 'flex', flexDirection: 'column', gap: 12, flex: 1 }}>
                   <div>
-                    <h3
-                      style={{
-                        fontSize: 17,
-                        fontWeight: 700,
-                        color: 'var(--ink)',
-                        letterSpacing: '-0.02em',
-                        lineHeight: 1.2,
-                        marginBottom: 5,
-                      }}
-                    >
+                    <h3 style={{ fontSize: 17, fontWeight: 700, color: 'var(--ink)', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 5 }}>
                       {deal.model}
                     </h3>
                     <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.5 }}>
@@ -231,83 +193,35 @@ export function DealsSection() {
                     </p>
                   </div>
 
-                  {/* Price */}
                   <div style={{ display: 'flex', alignItems: 'baseline', gap: 8 }}>
-                    <span
-                      style={{
-                        fontSize: 14,
-                        fontWeight: 500,
-                        color: 'var(--muted)',
-                        textDecoration: 'line-through',
-                        fontVariantNumeric: 'tabular-nums',
-                      }}
-                    >
+                    <span style={{ fontSize: 14, fontWeight: 500, color: 'var(--muted)', textDecoration: 'line-through', fontVariantNumeric: 'tabular-nums' }}>
                       {deal.oldPrice} €
                     </span>
-                    <span
-                      style={{
-                        fontSize: 28,
-                        fontWeight: 800,
-                        color: 'var(--deal)',
-                        fontVariantNumeric: 'tabular-nums',
-                        letterSpacing: '-0.02em',
-                        lineHeight: 1,
-                      }}
-                    >
+                    <span style={{ fontSize: 28, fontWeight: 800, color: 'var(--deal)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.02em', lineHeight: 1 }}>
                       {deal.price} €
                     </span>
                   </div>
 
-                  {/* Stock */}
                   <div>
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        marginBottom: 6,
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: 12,
-                          fontWeight: 600,
-                          color: isUrgent ? 'var(--deal)' : 'var(--ink-soft)',
-                        }}
-                      >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: isUrgent ? 'var(--deal)' : 'var(--ink-soft)' }}>
                         {isUrgent ? '⚠️ ' : ''}Plus que {deal.stock} en stock
                       </span>
                       <Link
                         href={`/tests/${deal.slug}`}
-                        style={{
-                          fontSize: 12,
-                          color: 'var(--moss)',
-                          fontWeight: 600,
-                          textDecoration: 'underline',
-                          textDecorationStyle: 'dotted',
-                          textUnderlineOffset: 3,
-                        }}
+                        style={{ fontSize: 12, color: 'var(--moss)', fontWeight: 600, textDecoration: 'underline', textDecorationStyle: 'dotted', textUnderlineOffset: 3 }}
                       >
                         Voir le test →
                       </Link>
                     </div>
-                    <div
-                      className="stock-bar"
-                      role="meter"
-                      aria-valuenow={deal.stock}
-                      aria-valuemin={0}
-                      aria-valuemax={12}
-                      aria-label={`${deal.stock} unités restantes sur 12`}
-                    >
+                    <div className="stock-bar" role="meter" aria-valuenow={deal.stock} aria-valuemin={0} aria-valuemax={12} aria-label={`${deal.stock} unités restantes sur 12`}>
                       <span style={{ width: `${stockPct}%` }} />
                     </div>
                   </div>
 
-                  {/* CTA */}
-                  <a
+                  {/* CTA — AffiliateLink garantit le tag d’affiliation */}
+                  <AffiliateLink
                     href={deal.buyUrl}
-                    target="_blank"
-                    rel="nofollow noopener noreferrer"
                     className="btn btn-deal"
                     style={{
                       marginTop: 'auto',
@@ -321,26 +235,16 @@ export function DealsSection() {
                       fontWeight: 700,
                       textDecoration: 'none',
                     }}
-                    aria-label={`Voir l'offre ${deal.brand} ${deal.model} sur Amazon`}
                   >
-                    Voir l'offre Amazon →
-                  </a>
+                    Voir l’offre Amazon →
+                  </AffiliateLink>
                 </div>
               </article>
             )
           })}
         </div>
 
-        {/* ── Footer note ── */}
-        <p
-          style={{
-            textAlign: 'center',
-            fontSize: 12,
-            color: 'var(--muted)',
-            marginTop: 28,
-            lineHeight: 1.5,
-          }}
-        >
+        <p style={{ textAlign: 'center', fontSize: 12, color: 'var(--muted)', marginTop: 28, lineHeight: 1.5 }}>
           ✓ Liens affiliés — nous percevons une commission sans surcoût pour vous
           &nbsp;·&nbsp; Prix mis à jour quotidiennement
         </p>
