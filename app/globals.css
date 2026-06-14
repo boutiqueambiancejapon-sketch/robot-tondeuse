@@ -75,6 +75,11 @@
   --text-secondary: #3d4a3f;
   --text-muted:     #6e7a6c;
 
+  /* Ink aliases — shorthand utilisé dans les composants V2 */
+  --ink:      var(--forest-deep);
+  --ink-soft: var(--text-secondary);
+  --muted:    var(--text-muted);
+
   /* Borders */
   --border:        rgba(20, 36, 26, 0.10);
   --border-strong: rgba(20, 36, 26, 0.20);
