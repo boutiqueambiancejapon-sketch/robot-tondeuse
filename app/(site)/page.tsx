@@ -3,6 +3,7 @@ import { HeroSection } from '@/components/home/HeroSection'
 import { ArticleTicker } from '@/components/home/ArticleTicker'
 import { PressBand } from '@/components/home/PressBand'
 import { ReassuranceStrip } from '@/components/home/ReassuranceStrip'
+import { DealsSection } from '@/components/home/DealsSection'
 import { FeaturedTools } from '@/components/home/FeaturedTools'
 import { HomeTopRobots } from '@/components/home/HomeTopRobots'
 import { RecentArticles } from '@/components/home/RecentArticles'
@@ -39,13 +40,16 @@ export default function HomePage() {
         {/* 04 — 4 engagements éditoriaux (fond paper/ivory) */}
         <ReassuranceStrip />
 
-        {/* 05 — Outils interactifs bento : quiz · comparateur · superficie · rentabilité */}
+        {/* 05 — Ventes flash : 4 deal cards avec countdown (fond cream) */}
+        <DealsSection />
+
+        {/* 06 — Outils interactifs bento : quiz · comparateur · superficie · rentabilité */}
         <FeaturedTools />
 
-        {/* 06 — Le podium 2026 — 3 robots coups de cœur (fond cream) */}
+        {/* 07 — Le podium 2026 — 3 robots coups de cœur (fond cream) */}
         <HomeTopRobots />
 
-        {/* 07 — Comparatifs FEATURED (Top 2026 en grand — fond cream) */}
+        {/* 08 — Comparatifs FEATURED (Top 2026 en grand — fond cream) */}
         <HomeHubSection
           eyebrow="04 — Comparatifs"
           heading="Top sélections testées"
@@ -57,10 +61,10 @@ export default function HomePage() {
           ctaLabel="Tous les comparatifs →"
         />
 
-        {/* 08 — Quiz signature (dark block forest-deep) */}
+        {/* 09 — Quiz signature (dark block forest-deep) */}
         <HomeQuizTeaser />
 
-        {/* 09 — Par jardin — grille 8 cards (fond paper) */}
+        {/* 10 — Par jardin — grille 8 cards (fond paper) */}
         <HomeHubSection
           eyebrow="05 — Par jardin"
           heading="Trouvez par votre jardin"
@@ -69,10 +73,10 @@ export default function HomePage() {
           background="paper"
         />
 
-        {/* 10 — Toutes les marques : featured article + brand grid (fond cream) */}
+        {/* 11 — Toutes les marques : featured article + brand grid (fond cream) */}
         <HomeMarques />
 
-        {/* 11 — Par technologie FEATURED (fond cream) */}
+        {/* 12 — Par technologie FEATURED (fond cream) */}
         <HomeHubSection
           eyebrow="07 — Par technologie"
           heading="Filtrer par techno"
@@ -82,10 +86,10 @@ export default function HomePage() {
           variant="featured"
         />
 
-        {/* 12 — Derniers articles éditoriaux (fond cream) */}
+        {/* 13 — Derniers articles éditoriaux (fond cream) */}
         <RecentArticles />
 
-        {/* 13 — Guides & conseils FEATURED (fond paper) */}
+        {/* 14 — Guides & conseils FEATURED (fond paper) */}
         <HomeHubSection
           eyebrow="08 — Guides & conseils"
           heading="Tout savoir avant d'acheter"
@@ -97,7 +101,7 @@ export default function HomePage() {
           ctaLabel="Tous les articles →"
         />
 
-        {/* 14 — Pelouse & jardin grille (fond cream) */}
+        {/* 15 — Pelouse & jardin grille (fond cream) */}
         <HomeHubSection
           eyebrow="09 — Pelouse & jardin"
           heading="Astuces pour un beau gazon"
@@ -108,10 +112,10 @@ export default function HomePage() {
           ctaLabel="Tous nos conseils jardin →"
         />
 
-        {/* 15 — Méthodologie test (radar chart — fond paper) */}
+        {/* 16 — Méthodologie test (radar chart — fond paper) */}
         <HomeMethodology />
 
-        {/* 16 — Auteur / E-E-A-T (fond paper) */}
+        {/* 17 — Auteur / E-E-A-T (fond paper) */}
         <AuthorTeaser />
       </main>
 
