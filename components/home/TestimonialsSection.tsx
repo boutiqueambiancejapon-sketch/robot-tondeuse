@@ -60,7 +60,15 @@ export function TestimonialsSection() {
         Avis
       </span>
 
-      <div style={{ padding: '0 clamp(28px, 4vw, 80px)', position: 'relative', zIndex: 1 }}>
+      <div
+        style={{
+          maxWidth: 1280,
+          margin: '0 auto',
+          padding: '0 clamp(28px, 4vw, 80px)',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
 
         {/* ── Header ── */}
         <div
