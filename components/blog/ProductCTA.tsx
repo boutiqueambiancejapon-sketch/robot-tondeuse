@@ -1,7 +1,5 @@
 /**
- * ProductCTA — carte produit affilié inline avec DA aurora.
- * Si image fournie → affiche image + nom + description + prix + CTA.
- * Sinon → design typographique pur.
+ * ProductCTA — carte produit affilié inline, style éditorial magazine.
  * Usage MDX :
  *   <ProductCTA name="Produit X" price="999 €" url="https://..." badge="Recommandé" hook="Description courte." />
  *   <ProductCTA name="Produit X" price="999 €" url="https://..." image="/images/produits/x.webp" badge="Recommandé" hook="Description courte." />
@@ -22,74 +20,140 @@ type ProductCTAProps = {
 
 export function ProductCTA({ name, price, url, image, badge, hook }: ProductCTAProps) {
   return (
-    <div style={{ margin: 'var(--space-10) 0' }}>
-      <div className="comparateur-card-wrap">
+    <div
+      style={{
+        margin: 'var(--space-10) 0',
+        background: 'var(--cream)',
+        border: '1px solid var(--border)',
+        borderTop: '3px solid var(--copper)',
+        borderRadius: 'var(--radius-lg)',
+        overflow: 'hidden',
+      }}
+    >
+      <div
+        style={{
+          padding: 'var(--space-8) var(--space-6)',
+          display: image ? 'grid' : 'flex',
+          gridTemplateColumns: image ? 'minmax(100px, 160px) 1fr' : undefined,
+          gap: image ? 'var(--space-6)' : 'var(--space-3)',
+          flexDirection: image ? undefined : 'column',
+          alignItems: image ? 'center' : 'center',
+          textAlign: image ? 'left' : 'center',
+        }}
+      >
+        {/* Image produit */}
+        {image && (
+          <div style={{ flexShrink: 0 }}>
+            <Image
+              src={image}
+              alt={name}
+              width={160}
+              height={160}
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: 'var(--radius-md)',
+                objectFit: 'contain',
+              }}
+            />
+          </div>
+        )}
+
+        {/* Contenu */}
         <div
           style={{
-            position: 'relative',
-            overflow: 'hidden',
-            padding: 'var(--space-8) var(--space-6)',
-            display: image ? 'grid' : 'flex',
-            gridTemplateColumns: image ? 'minmax(120px, 200px) 1fr' : undefined,
-            gap: image ? 'var(--space-6)' : 'var(--space-3)',
-            flexDirection: image ? undefined : 'column',
-            alignItems: image ? 'center' : 'center',
-            textAlign: image ? 'left' : 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--space-3)',
+            alignItems: image ? 'flex-start' : 'center',
           }}
         >
-          {/* Aurora glow background */}
-          <div aria-hidden="true" style={{ position: 'absolute', top: '-40%', left: '10%', width: '80%', height: '120%', background: 'radial-gradient(ellipse, var(--aurora-1) 0%, transparent 70%)', opacity: 0.06, filter: 'blur(40px)', pointerEvents: 'none' }} />
-          <div aria-hidden="true" style={{ position: 'absolute', bottom: '-30%', right: '5%', width: '60%', height: '100%', background: 'radial-gradient(ellipse, var(--aurora-3) 0%, transparent 70%)', opacity: 0.05, filter: 'blur(40px)', pointerEvents: 'none' }} />
-
-          {/* Product image */}
-          {image && (
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <Image
-                src={image}
-                alt={name}
-                width={200}
-                height={200}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  borderRadius: 'var(--radius-md)',
-                  objectFit: 'contain',
-                }}
-              />
-            </div>
+          {/* Badge catégorie */}
+          {badge && (
+            <span
+              style={{
+                fontFamily: 'var(--next-font-mono), monospace',
+                fontSize: '10px',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--copper)',
+                background: 'var(--copper-pale)',
+                padding: '3px 10px',
+                borderRadius: 'var(--radius-full)',
+                alignSelf: image ? 'flex-start' : 'center',
+              }}
+            >
+              {badge}
+            </span>
           )}
 
-          {/* Content */}
-          <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', alignItems: image ? 'flex-start' : 'center' }}>
-            {/* Badge */}
-            {badge && (
-              <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: '10px', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent-3)' }}>
-                {badge}
-              </span>
-            )}
+          {/* Nom produit — serif display */}
+          <span
+            style={{
+              fontFamily: 'var(--next-font-display), Georgia, serif',
+              fontSize: image ? 'clamp(20px, 2.8vw, 26px)' : 'clamp(22px, 3vw, 30px)',
+              fontWeight: 400,
+              letterSpacing: '-0.02em',
+              color: 'var(--text-primary)',
+              lineHeight: 1.15,
+            }}
+          >
+            {name}
+          </span>
 
-            {/* Name */}
-            <span style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(20px, 3.2vw, 28px)', fontWeight: 400, letterSpacing: '-0.015em', color: 'var(--text-primary)', lineHeight: 1.2 }}>
-              {name}
-            </span>
+          {/* Hook / description */}
+          {hook && (
+            <p
+              style={{
+                fontSize: '13px',
+                color: 'var(--text-secondary)',
+                lineHeight: 1.6,
+                margin: 0,
+                maxWidth: '400px',
+              }}
+            >
+              {hook}
+            </p>
+          )}
 
-            {/* Hook / description */}
-            {hook && (
-              <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.5, margin: 0, maxWidth: '380px' }}>
-                {hook}
-              </p>
-            )}
+          {/* Prix — copper mono */}
+          <span
+            style={{
+              fontFamily: 'var(--next-font-mono), monospace',
+              fontSize: image ? 'clamp(24px, 4vw, 32px)' : 'clamp(32px, 6vw, 46px)',
+              fontWeight: 600,
+              color: 'var(--copper)',
+              fontVariantNumeric: 'tabular-nums',
+              letterSpacing: '-0.03em',
+              lineHeight: 1,
+            }}
+          >
+            {price}
+          </span>
 
-            {/* Price */}
-            <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: image ? 'clamp(24px, 5vw, 32px)' : 'clamp(36px, 8vw, 52px)', fontWeight: 600, color: 'var(--copper)', fontVariantNumeric: 'tabular-nums', letterSpacing: '-0.03em', lineHeight: 1 }}>
-              {price}
-            </span>
-
-            {/* CTA button */}
-            <AffiliateLink href={url} style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--space-2)', background: 'var(--copper)', color: 'var(--ivory)', fontWeight: 500, fontSize: '14px', padding: 'var(--space-3) var(--space-8)', borderRadius: 100, textDecoration: 'none', whiteSpace: 'nowrap', letterSpacing: '0', boxShadow: '0 2px 0 0 #8c4a2c, 0 6px 16px rgba(184, 98, 61, 0.25)' }}>
-              Voir le prix →
-            </AffiliateLink>
-          </div>
+          {/* CTA pill */}
+          <AffiliateLink
+            href={url}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 'var(--space-2)',
+              background: 'var(--forest-deep)',
+              color: 'var(--ivory)',
+              fontWeight: 500,
+              fontSize: '14px',
+              padding: 'var(--space-3) var(--space-8)',
+              borderRadius: 'var(--radius-full)',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+              letterSpacing: '0.01em',
+              marginTop: 'var(--space-1)',
+              boxShadow: '0 2px 0 0 #0a150e, 0 6px 16px rgba(20, 36, 26, 0.25)',
+            }}
+          >
+            Voir le prix →
+          </AffiliateLink>
         </div>
       </div>
     </div>
