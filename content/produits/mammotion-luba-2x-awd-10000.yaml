@@ -1,0 +1,11 @@
+name: "Mammotion LUBA 2X AWD 10000"
+categorie: "mammotion"
+prix: "4 400-4 700 €"
+badge: "AWD 10 000 m² RTK"
+hook: "Le seul robot grand public annoncé pour 10 000 m² (max 12 000 m²) : quatre roues motrices, RTK + UltraSense AI Vision, pente 80 %, 60 zones, batterie 15 Ah, 240 min d'autonomie, disque double 400 mm, 4G iNavi. La solution 1 hectare sans câble périphérique."
+image: ""
+active: true
+stickyCta: "site"
+links:
+  - store: "site"
+    url: "https://gardenmotion.fr/products/robot-tondeuse-sans-fil-mammotion-luba-2x-awd"
