@@ -1,0 +1,11 @@
+name: "Mammotion Yuka Mini 2 800 LiDAR"
+categorie: "mammotion"
+prix: "799-849 €"
+badge: "LiDAR sous 850 €"
+hook: "LiDAR 360° (portée 60 m, ±2 cm) + double caméra IA pour 800 m², sans RTK ni câble périphérique. 45 % de pente, passages 0,55 m, mode DropMow. Le LiDAR le moins cher de la gamme Mammotion en 2026."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0GJ519CND"
