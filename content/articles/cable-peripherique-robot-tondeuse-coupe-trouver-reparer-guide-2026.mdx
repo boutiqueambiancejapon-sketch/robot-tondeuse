@@ -1,0 +1,196 @@
+---
+title: "Câble périphérique coupé : comment le trouver et le réparer (robot tondeuse)"
+description: "Câble périphérique de robot tondeuse coupé : symptômes, radio AM, test AL/G1, réparation au connecteur étanche. Et quand passer au sans-fil."
+featureImage: "/images/cable-peripherique-robot-tondeuse-coupe-trouver-reparer-guide-2026-cover.jpeg"
+publishedAt: "2026-11-02"
+updatedAt: "2026-11-02"
+readingTimeMin: 9
+categorie: "astuces"
+authorSlug: "thomas"
+tags: ["cable-peripherique", "fil-coupe", "reparation", "depannage", "tutoriel", "husqvarna", "gardena", "bosch", "worx", "robot-tondeuse", "2026"]
+aiSummary:
+  - "Sur un Automower, une boucle coupée allume le témoin bleu de la station et affiche « Pas de signal boucle » (support Husqvarna). Avant de creuser, vérifiez l'alimentation de la station, les connecteurs et les épissures : c'est la cause la plus banale."
+  - "Trois méthodes localisent la coupure : l'inversion des branchements AL et G1 (Husqvarna), une radio AM réglée vers 700 kHz promenée à environ 10 cm du sol, ou un détecteur de fil coupé. La réparation se fait avec un connecteur étanche, en recoupant environ 60 cm de part et d'autre de la zone abîmée."
+  - "Le kit Gardena de 17 pièces contient 5 m de câble, 10 agrafes et 6 connecteurs (fiche Hubo). Si les coupures se répètent chaque saison, un robot sans fil périphérique évite le problème à la source."
+faq:
+  - q: "Comment savoir si le câble périphérique de mon robot tondeuse est coupé ?"
+    a: "Le robot s'arrête, sort de la zone ou affiche une erreur de signal. Sur un Automower, le témoin de la station clignote en bleu et l'écran indique « Pas de signal boucle ». Avant de conclure à une coupure, vérifiez que la station est alimentée et que les connecteurs de la station sont bien enfichés : un câble en bon état sans courant n'émet aucun signal."
+  - q: "Peut-on trouver un fil coupé avec une simple radio ?"
+    a: "Oui, avec une radio AM réglée vers 700 kHz sur une fréquence sans station. Promenez-la à environ 10 cm du sol le long du câble : le bruit de parasite disparaît à l'endroit de la coupure. Maniaques.fr et info.fr décrivent la même méthode. Elle marche moins bien si le câble est enfoui profond ou si la coupure est partielle."
+  - q: "Faut-il racheter tout le câble si une seule section est coupée ?"
+    a: "Non. On recoupe environ 60 cm de part et d'autre de la zone abîmée et on raccorde les deux bouts avec un connecteur étanche (méthode Husqvarna). Si la section défectueuse est courte, la remplacer entièrement est parfois plus simple. Le câble complet ne se change que s'il multiplie les coupures."
+  - q: "Quel connecteur utiliser pour réparer un câble périphérique ?"
+    a: "Un raccord conçu pour l'extérieur humide. Husqvarna recommande ses raccords d'origine et demande de vérifier, par le côté transparent, que les deux brins sont entièrement insérés avant de serrer à la pince. Les connecteurs de marques tierces conviennent s'ils sont étanches et prévus pour ce diamètre de câble."
+  - q: "Pourquoi mon câble périphérique se coupe-t-il plusieurs fois par an ?"
+    a: "Les causes les plus citées sont les outils de jardin, les animaux fouisseurs, un câble non enterré que les lames finissent par couper, des connecteurs corrodés et le gel sur un câble trop tendu (info.fr). Enterrer le câble de 1 à 20 cm, comme le décrit Husqvarna, et retirer les pierres pointues réduit le risque."
+  - q: "Un robot sans fil périphérique évite-t-il ce problème ?"
+    a: "Oui, il n'y a plus de câble à couper. En échange, il faut accepter une autre contrainte : une antenne RTK avec vue dégagée du ciel, ou un LiDAR plus cher à l'achat. Pour un jardin où le câble casse tous les ans, le calcul vaut la peine d'être fait."
+stickyCta:
+  - label: "Husqvarna Automower 310 Mark II (1 399-1 599 €)"
+    url: "https://www.amazon.fr/dp/B0BWKF1VWS"
+  - label: "Mammotion Yuka Mini 700 (659-749 €)"
+    url: "https://www.amazon.fr/dp/B0DT4BCVJN"
+stickyCtaMessage: "Un filaire dont les pièces se trouvent partout, ou un sans-fil sans câble à casser"
+---
+
+Le robot s'arrête au milieu de la pelouse, la station clignote, l'application parle de « signal perdu ». Dans la grande majorité des cas, le câble périphérique est coupé quelque part sur 150 mètres de boucle. La bonne nouvelle : une coupure se trouve en une heure avec une radio AM ou un test de branchement, et se répare pour quelques euros de connecteurs.
+
+Voici la méthode complète, des vérifications à faire avant de creuser jusqu'à la réparation étanche, plus les cas où il vaut mieux arrêter de rafistoler et changer de robot.
+
+## Comment savoir si le câble périphérique est vraiment coupé ?
+
+Les symptômes varient selon la marque, mais ils pointent tous vers un robot qui ne reçoit plus le signal de la boucle. Sur un Automower, le témoin de la station clignote en bleu et l'écran indique « Pas de signal boucle », [d'après le support Husqvarna](https://www.husqvarna.com/fr/assistance/husqvarna-self-service/comment-identifier-et-reparer-une-rupture-de-cable-dans-votre-installation-automower-ka-01339/). Sur les anciens modèles 220AC, 230ACX et 260ACX, [info.fr](https://info.fr/comment-detecter-un-fil-coupe-robot-husqvarna/) signale un témoin vert clignotant à la place.
+
+Chez Bosch, Gardena ou Worx, je n'ai pas de page de support qui décrive le même voyant : lisez la notice de votre modèle pour le code exact. Le principe reste identique.
+
+Avant de sortir la pelle, trois contrôles de dix minutes :
+
+1. La station est-elle alimentée ? Sans courant, même un câble parfait n'émet rien.
+2. Les connecteurs du câble périphérique et des câbles guides sont-ils bien enfichés à la station ? Husqvarna demande de les vérifier en premier.
+3. Les épissures déjà faites sur la boucle sont-elles intactes ? Une vieille jonction mal étanchéisée est le suspect numéro un.
+
+Spareka propose aussi un test au multimètre : réglé en continuité, posé sur les deux bornes du câble à la station, il bipe si la boucle est continue. Pas de bip, pas de continuité, donc coupure. C'est le diagnostic le plus rapide quand on a l'appareil sous la main.
+
+## Quelles sont les causes d'une coupure de câble ?
+
+Une coupure ne vient presque jamais du robot lui-même. Info.fr liste les coupables habituels : outils à main lors de travaux de jardinage, animaux fouisseurs (taupes, hérissons, chiens), lames du robot sur un câble resté à l'air, connecteurs corrodés par l'humidité, mouvements de terrain et gel sur un câble trop tendu.
+
+Husqvarna ajoute ses propres préventions dans son [guide d'installation](https://www.husqvarna.com/fr/support/husqvarna-self-service/conseils-pour-eviter-une-rupture-de-cable-dans-une-installation-automower-ka-70226/) : enfoncer le câble de 1 à 20 cm dans le sol, retirer les pierres et objets pointus, éviter les courbures excessives qui contraignent le câble, et inspecter l'installation avant la remise en service après l'hiver.
+
+En pratique, les coupures arrivent surtout à deux moments : au printemps, quand on bêche un massif ou qu'on plante une haie, et en fin d'été, quand les lames finissent par attaquer un câble que le gazon a découvert. Un coup d'œil au périmètre à chaque changement de saison évite la moitié des pannes.
+
+![Robot tondeuse en action sur une pelouse, câble périphérique enterré en bordure](/images/robot-tondeuse-generique-1.jpeg)
+
+## Comment localiser la coupure : les quatre méthodes
+
+### La méthode radio AM : la moins chère
+
+Réglez une radio AM sur une fréquence libre autour de 700 kHz (la plage utile va de 200 à 800 kHz, selon info.fr). Éteignez le robot, laissez la station alimentée, puis suivez le câble en tenant la radio à environ 10 cm du sol. Le bruit de fond change ou disparaît là où le câble est coupé. [Maniaques.fr](https://maniaques.fr/detecter-fil-coupe-robot-tondeuse/) décrit le même protocole.
+
+Limite : une radio perd le signal quand le câble est enterré profond, et elle indique mal une coupure partielle où le câble tient par quelques brins.
+
+### L'inversion AL et G1 : la méthode Husqvarna
+
+Si vous avez un Automower, cette méthode évite de creuser au hasard. Elle vient du [support Husqvarna](https://www.husqvarna.com/fr/assistance/husqvarna-self-service/comment-identifier-et-reparer-une-rupture-de-cable-dans-votre-installation-automower-ka-01339/) :
+
+1. Désactivez le mode ECO (Menu, Réglages, Mode ECO). La méthode ne fonctionne pas avec ce mode actif.
+2. Inversez les branchements AL et G1 sur la station. Si le témoin vert devient fixe, la rupture se trouve entre AL et le point de jonction du câble guide. Certains modèles ont aussi G2 et G3 à tester.
+3. Pour isoler une section, raccordez une nouvelle boucle sur un emplacement libre, coupez le câble suspect en son milieu, et reliez l'autre extrémité de la nouvelle boucle au bout encore branché. Témoin vert : la rupture est sur la section débranchée. Témoin bleu clignotant : continuez à diviser.
+
+Cette technique coupe le câble en deux à chaque étape. Elle marche, mais elle laisse des raccords supplémentaires à étanchéifier. À réserver aux cas où la radio échoue.
+
+### Le détecteur de fil coupé : le plus confortable
+
+Des appareils dédiés suivent le signal sur plusieurs centaines de mètres, et Maniaques.fr cite un modèle capable de détecter une rupture à plus d'un mètre de profondeur. Je n'ai pas de prix fiable confirmé par deux sources, donc je n'en donne pas : comparez les offres avant d'acheter, et demandez-vous si un outil utilisé une fois en vaut la peine. Le prêt entre voisins ou chez un revendeur reste souvent plus malin.
+
+### L'inspection visuelle : toujours à faire en premier
+
+Faites le tour du périmètre en cherchant câble déterré, sol remué, passage de talpidés, zones de travaux récents. Sur une coupure franche, c'est parfois la méthode la plus rapide : un trou de taupe qui traverse la boucle se voit.
+
+## Comment réparer un câble périphérique coupé ?
+
+Une fois la coupure repérée, la réparation prend quinze minutes. Husqvarna décrit la procédure pour ses Automower, et elle vaut pour la plupart des marques si le connecteur est étanche.
+
+1. Déterrez la section abîmée.
+2. Coupez environ 60 cm de part et d'autre de la zone endommagée.
+3. Dénudez proprement les deux extrémités si votre connecteur l'exige. Pour un câble de type professionnel, retirez d'abord la gaine extérieure.
+4. Insérez chaque brin dans le raccord, un par trou. Vérifiez par le côté transparent que les deux bouts sont entièrement entrés.
+5. Serrez fermement à la pince. Sur certains connecteurs (Spareka), il faut appuyer sur un bouton bleu pour verrouiller.
+6. Enterrez le câble et le raccord, ou fixez-les au sol avec des agrafes. Un raccord laissé à l'air se casse à nouveau.
+
+Un point de vigilance : les épissures bricolées au ruban adhésif ou au scotch d'électricien ne tiennent pas une saison dans un sol humide. Prenez des connecteurs étanches prévus pour l'extérieur.
+
+Côté matériel, Gardena vend un set de réparation de 17 pièces qui contient 5 m de câble, 10 agrafes et 6 connecteurs, [d'après la fiche Hubo](https://www.hubo.be/fr/p/gardena-set-de-reparation-pour-cable-peripherique-17-pieces/933508/). Pour une boucle neuve, il suffit en général de quelques mètres de câble et de trois ou quatre connecteurs. Si vous réparez plusieurs fois par an, achetez une bobine de câble de la marque de votre robot plutôt que des morceaux.
+
+Après la réparation, relancez le robot et vérifiez que le témoin repasse au vert fixe. Si l'erreur persiste, il reste soit une deuxième coupure, soit un défaut de la station : testez avec une petite boucle de 3 m de câble neuf (méthode Spareka). Si l'erreur disparaît, l'ancien câble est le coupable.
+
+## Quand faut-il remplacer le câble au lieu de le réparer ?
+
+Au-delà de trois ou quatre coupures en une saison, le câble a vieilli, le sol est trop agressif ou les animaux creusent systématiquement le même passage. Chaque raccord ajoute un point faible. Remplacer une boucle entière coûte une demi-journée de pose et quelques dizaines d'euros de câble, ce qui reste moins cher qu'un robot neuf.
+
+Anti-conseil : ne multipliez pas les raccords sur une même section. Si vous avez déjà trois jonctions sur 10 mètres, posez un tronçon neuf.
+
+## Quel robot choisir si vous voulez éviter les coupures de câble ?
+
+Deux stratégies : un filaire dont le SAV et les pièces se trouvent partout, ou un modèle sans fil périphérique. Les prix ci-dessous sont indicatifs à la date de publication, relevés sur les fiches Amazon.fr.
+
+![Robot tondeuse de retour à sa station de charge au bord d'une pelouse](/images/robot-tondeuse-generique-2.jpeg)
+
+### Husqvarna Automower 310 Mark II : le filaire documenté
+
+<ProductCTA name="Husqvarna Automower 310 Mark II" price="1 399-1 599 €" url="https://www.amazon.fr/dp/B0BWKF1VWS" badge="Filaire, 1 000 m²" hook="Câble périphérique, 1 000 m², 40 % de pente, 800+ revendeurs SAV en France. Support Husqvarna détaillé pour localiser et réparer une rupture." />
+
+Pour un filaire, c'est le modèle dont la procédure de diagnostic est la mieux publiée : la page support décrit les voyants, l'inversion AL et G1, l'isolement par section et le raccord d'origine. Quand on a déjà coupé son câble deux fois, cette documentation compte.
+
+#### Quelles sont les limites du 310 Mark II face à une boucle fragile ?
+
+Le prix, d'abord : 1 399 € minimum pour 1 000 m². Le câble reste un câble : la documentation facilite le dépannage, elle n'empêche pas la coupure. Si votre sol est caillouteux ou votre jardin fréquenté par des taupes, ce modèle ne vous épargnera pas les réparations.
+
+### Gardena Smart SILENO Life 750 LONA : un filaire avec pièces de rechange abordables
+
+<ProductCTA name="Gardena Smart SILENO Life 750 LONA" price="900-1 100 €" url="https://www.amazon.fr/dp/B0D5M1645F" badge="Filaire 750 m² LONA IA" hook="LONA IA pour cartographier le jardin, pente 35 %, 58 dB, abri robot inclus. Kits de réparation de câble vendus par la marque." />
+
+Gardena commercialise ses propres kits de réparation de câble, ce qui simplifie l'achat des bons connecteurs. Le robot couvre 750 m², pour un budget plus bas que le 310 Mark II.
+
+#### Le Life 750 est-il adapté à un terrain où le câble casse souvent ?
+
+Pas mieux qu'un autre filaire. La fiche annonce 35 % de pente et 750 m² : choisissez-le pour la surface et le SAV du groupe, pas pour sa résistance aux coupures. Et relisez le manuel pour les codes d'erreur de votre version.
+
+### Bosch Indego S+ 500 : le filaire de 500 m² à prix contenu
+
+<ProductCTA name="Bosch Indego S+ 500" price="449-549 €" url="https://www.amazon.fr/dp/B08VJJKFBX" badge="Filaire 500 m²" hook="Filaire, 500 m², LogiCut en lignes parallèles, compatible Alexa et IFTTT, SAV Bosch dense en France." />
+
+Pour 500 m² plats et un budget sous 550 €, c'est une solution classique. Si votre câble casse trop souvent, le coût de remplacement de la boucle (câble et connecteurs) reste faible rapporté au prix du robot.
+
+#### Pour qui le Bosch S+ 500 est-il un mauvais choix ?
+
+Pour un jardin qui dépasse 500 m² ou dont le sol est miné par les taupes. Le filaire reste un filaire : vous restez dépendant du câble.
+
+### Worx Landroid M500 WR141E : le ticket d'entrée du filaire
+
+<ProductCTA name="Worx Landroid M500 WR141E" price="389-499 €" url="https://www.amazon.fr/dp/B07LFPKYC1" badge="Filaire 500 m² connecté" hook="Filaire jusqu'à 500 m², 35 % de pente, moteur brushless, batterie PowerShare 20 V." />
+
+À 389 € minimum, il reste le filaire le moins cher de cette sélection. La réparation du câble suit la même logique que sur les autres marques : connecteurs étanches, tronçon recoupé, câble enterré.
+
+#### Combien coûte vraiment un M500 sur 400 m² avec réparations ?
+
+Le prix du robot, 389 € minimum, plus un kit de câble et de connecteurs pour la pose, plus du temps. Comptez une demi-journée d'installation et des coûts d'entretien à prévoir si le sol est difficile.
+
+### Mammotion Yuka Mini 700 : sans câble, donc sans coupure
+
+<ProductCTA name="Mammotion Yuka Mini 700" price="659-749 €" url="https://www.amazon.fr/dp/B0DT4BCVJN" badge="RTK + Vision IA 700 m²" hook="Sans câble périphérique pour 700 m², NetRTK + Vision IA, 50 % de pente, 15 zones, module 4G, garantie 3 ans." />
+
+Si votre câble casse tous les ans, ce modèle supprime le problème : il n'y a plus de boucle à enterrer. Il couvre 700 m², gère 50 % de pente selon Mammotion, et son prix est du même ordre que celui d'un filaire milieu de gamme.
+
+#### Le Yuka Mini 700 tient-il la route face à un filaire pour un jardin boisé ?
+
+Moins bien sous couvert dense : le RTK perd en précision, et l'antenne exige une vue dégagée du ciel. Le SAV est aussi centralisé chez Mammotion, ce qui allonge les délais en cas de panne. Voir notre [guide des robots sans câble périphérique sous 1 200 €](/meilleur-robot-tondeuse-sans-cable-peripherique-moins-1200-euros-2026).
+
+## Notre recommandation selon votre situation
+
+| Votre situation | Notre choix | Pourquoi |
+|---|---|---|
+| Une coupure en trois ans, jardin de 1 000 m² | Rester sur votre filaire, réparer | Quinze minutes et quelques connecteurs |
+| Achat neuf, 1 000 m², SAV de proximité | Husqvarna Automower 310 Mark II | Procédure de diagnostic documentée |
+| Achat neuf, 750 m², budget moyen | Gardena Smart SILENO Life 750 LONA | Kits de réparation de la marque |
+| Achat neuf, 500 m² plats | Bosch Indego S+ 500 ou Worx Landroid M500 | Prix contenu, câble standard |
+| Câble qui casse chaque saison | Mammotion Yuka Mini 700 | Pas de câble à couper |
+
+Une règle simple : une coupure se répare, trois coupures dans la même saison se diagnostiquent. Cherchez la cause (taupes, travaux, câble hors du sol) avant de réparer encore.
+
+<Verdict note="8" label="Réparer une fois, remplacer si ça se répète">
+Une coupure de câble se localise avec une radio AM réglée vers 700 kHz ou avec le test AL et G1 chez Husqvarna, puis se corrige avec un connecteur étanche et 60 cm de câble recoupé de chaque côté. Vérifiez d'abord l'alimentation, les connecteurs et les épissures. Enterrez le câble de 1 à 20 cm et retirez les pierres pointues. Si le câble casse plusieurs fois par saison, changez de câble ou passez au sans-fil : un Mammotion Yuka Mini 700 à 659-749 € supprime le problème, au prix d'une antenne RTK à placer en vue dégagée.
+</Verdict>
+
+## Pour aller plus loin
+
+- [Robot tondeuse qui ne charge plus : diagnostic et solutions](/robot-tondeuse-ne-charge-plus-diagnostic-solutions)
+- [Comment installer un robot tondeuse soi-même](/comment-installer-robot-tondeuse-soi-meme)
+- [Taupinières et robot tondeuse : protéger la pelouse](/robot-tondeuse-taupinieres-proteger-pelouse-2026)
+- [Comment hiverner son robot tondeuse](/comment-hiverner-son-robot-tondeuse)
+- [Meilleur robot tondeuse filaire à câble périphérique : top 6](/meilleur-robot-tondeuse-filaire-cable-peripherique-top-6-2026)
+- [Entretien d'un robot tondeuse : guide complet](/comment-entretenir-son-robot-tondeuse-guide-complet)
+
+## Quel modèle pour vous ?
+
+[Quel robot pour mon jardin →](/quiz) — 7 questions, recommandation personnalisée selon votre surface, pente, budget et contraintes.
