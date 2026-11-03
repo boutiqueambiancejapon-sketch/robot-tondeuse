@@ -8,22 +8,36 @@
 export function ogSafe(text: string): string {
   return text
     .replace(/[‘’]/g, '’')
-    .replace(/[^\u0020-\u007E\u00A0-\u017F\u2013\u2014\u2019\u201C\u201D\u201E\u2026\u20AC]/g, '')
+    .replace(/[^\u0020-\u007E\u00A0-\u017F\u2013\u2014\u2019\u201C\u201D\u201E\u2022\u2026\u20AC]/g, '')
     .replace(/\s+/g, ' ')
     .trim()
+    // Espaces insécables : milliers (1 200), unités (500 €, 300 m²), ponctuation haute française ( ? : ! ;).
+    .replace(/(\d) (?=\d{3}\b)/g, '$1\u00A0')
+    .replace(/(\d) (?=€|m²|m2\b|min\b|h\b|km\b)/g, '$1\u00A0')
+    .replace(/ (?=[?:!;»])/g, '\u00A0')
+    .replace(/« /g, '«\u00A0')
+}
+
+/** Titre complet sans la parenthèse finale (« (2026) », « (guide 2026) »…). */
+export function ogTitle(title: string): string {
+  return ogSafe(title).replace(/\s*\([^()]*\)\s*$/, '')
 }
 
 /**
- * Titre court pour la vignette : on garde ce qui précède « : », « — » ou « | »,
- * ou la question jusqu'à « ? », quand c'est assez parlant ; sinon le titre entier.
+ * Titre court pour la vignette : la question jusqu'à « ? », sinon les premiers segments
+ * séparés par « : », « — » ou « | » tant qu'ils restent courts (≤ `max` caractères).
  */
-export function ogHeadline(title: string, min = 14): string {
-  const clean = ogSafe(title)
+export function ogHeadline(title: string, min = 14, max = 40): string {
+  const clean = ogTitle(title)
   const q = clean.match(/^(.+?\s?\?)\s+\S/)
-  if (q && q[1].length >= min) return q[1]
-  const m = clean.match(/^(.+?)\s*(?:\s:\s|\s[—–]\s|\s\|\s|\s\(\d{4}\))/)
-  const head = m && m[1].length >= min ? m[1] : clean
-  return head.replace(/\s*[:—–,]$/, '').trim()
+  if (q && q[1].length >= min && q[1].length <= 70) return q[1]
+  const parts = clean.split(/(?=\s?:\s|\s[—–]\s|\s\|\s)/)
+  let head = parts[0]
+  for (const part of parts.slice(1)) {
+    if (head.length >= min && head.length + part.length > max) break
+    head += part
+  }
+  return head.replace(/\s*[:—–|,]\s*$/, '').trim()
 }
 
 /** Chasse approximative d'un caractère, en fraction de la taille de police (graisse forte). */
@@ -47,8 +61,9 @@ function textWidth(text: string, size: number, scale: number, tracking: number):
 function lineCount(text: string, width: number, size: number, scale: number, tracking: number): number {
   let lines = 1
   let line = ''
-  for (const word of text.split(' ')) {
-    const next = line ? `${line} ${word}` : word
+  // Coupures possibles après une espace ou un trait d'union, comme dans le moteur de rendu.
+  for (const word of text.split(/(?<=-)| +/)) {
+    const next = line ? (line.endsWith('-') ? `${line}${word}` : `${line} ${word}`) : word
     if (line && textWidth(next, size, scale, tracking) > width) {
       lines += 1
       line = word
@@ -70,7 +85,7 @@ export function ogFitTitle(
   tracking = -1.5,
   maxLines = 2,
 ): { text: string; size: number } {
-  const room = width * 0.95
+  const room = width * 0.93
   for (let size = max; size >= min; size -= 2) {
     if (lineCount(text, room, size, scale, tracking) <= maxLines) return { text, size }
   }

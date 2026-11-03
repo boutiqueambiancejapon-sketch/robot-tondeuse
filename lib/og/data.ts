@@ -6,9 +6,9 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { niche } from '@/niche.config'
 import type { OgHook } from './ShareCard'
-import { frNumber, ogHeadline } from './text'
+import { frNumber, ogHeadline, ogTitle } from './text'
 
-export type OgArticle = { pill: string; title: string; hook: OgHook | null; meta: string | null; cover?: string }
+export type OgArticle = { pill: string; title: string; shortTitle: string; hook: OgHook | null; meta: string | null; cover?: string }
 
 type Meta = { slug: string; title: string; categorie: string; readingTimeMin?: number; featureImage?: string; faq?: unknown[] }
 
@@ -35,7 +35,7 @@ export function isBrand(slug: string): boolean {
 function formatLabel(m: Meta): string {
   const s = m.slug
   if (/-vs-/.test(s) || /quelle-marque|comparatif/.test(s)) return 'Comparatif'
-  if (/depannage|ne-charge|panne|probleme|erreur|bug|coupe-trouver/.test(s)) return 'Dépannage'
+  if (/depannage|ne-charge|panne|probleme|bug|coupe-trouver/.test(s)) return 'Dépannage'
   if (/^comment-|installer|hiverner|reparer|scarifier/.test(s) || m.categorie === 'tuto') return 'Tuto'
   if (m.categorie === 'entretien-pelouse') return 'Pelouse'
   if (/^meilleur|top-\d|^quel-|guide-achat|choisir/.test(s) || /guides?-achat/.test(m.categorie)) return "Guide d'achat"
@@ -91,7 +91,8 @@ export function articleOg(meta: Meta, content: string): OgArticle {
   }
   return {
     pill: formatLabel(meta),
-    title: ogHeadline(meta.title),
+    title: ogTitle(meta.title),
+    shortTitle: ogHeadline(meta.title, 20),
     hook,
     meta: extra,
     cover: meta.featureImage || undefined,

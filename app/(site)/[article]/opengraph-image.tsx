@@ -20,10 +20,10 @@ export default async function Image({ params }: { params: Promise<{ article: str
   const data = getStandaloneArticle(article)
   const og = data
     ? articleOg({ ...data.meta, slug: article }, data.content)
-    : { pill: 'Guide', title: niche.siteName, hook: null, meta: null, cover: undefined }
+    : { pill: 'Guide', title: niche.siteName, shortTitle: niche.siteName, hook: null, meta: null, cover: undefined }
   const [fonts, photo] = await Promise.all([loadOgFonts(OG_FONTS), loadOgPhoto(og.cover, PHOTO.width, PHOTO.height)])
   const png = new ImageResponse(
-    <ShareCard theme={OG_THEME} pill={og.pill} title={og.title} hook={og.hook} meta={og.meta} photo={photo} fallback={<OgFallback />} logo={<OgLogo />} />,
+    <ShareCard theme={OG_THEME} pill={og.pill} title={og.title} shortTitle={og.shortTitle} hook={og.hook} meta={og.meta} photo={photo} fallback={<OgFallback />} logo={<OgLogo />} />,
     { ...OG_SIZE, fonts },
   )
   return pngResponseToJpeg(png)
