@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Schibsted_Grotesk, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { niche } from '@/niche.config'
 import './globals.css'
 
@@ -43,6 +42,7 @@ export const metadata: Metadata = {
     default: `${niche.tagline} | ${niche.siteName}`,
   },
   description: niche.tagline,
+  twitter: { card: 'summary_large_image' },
   robots: {
     index: true,
     follow: true,
@@ -73,7 +73,6 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         {children}
-        <Analytics />
       </body>
     </html>
   )

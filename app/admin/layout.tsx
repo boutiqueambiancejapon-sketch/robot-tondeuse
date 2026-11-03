@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Analytics } from '@vercel/analytics/next'
 import { getSession } from '@/packages/cms/lib/get-session'
 import { isGitHubOAuthEnabled } from '@/packages/cms/lib/auth'
 import { cmsConfig } from '@/cms.config'
@@ -40,7 +39,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </div>
           </div>
           <CmsStyles />
-          <Analytics />
         </body>
       </html>
     )
@@ -130,7 +128,6 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         </div>
 
         <CmsStyles />
-        <Analytics />
       </body>
     </html>
   )

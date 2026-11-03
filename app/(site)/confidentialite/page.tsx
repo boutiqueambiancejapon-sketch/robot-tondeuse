@@ -83,10 +83,6 @@ export default function ConfidentialitePage() {
           }}
         >
           <li>
-            <strong style={{ color: 'var(--text-primary)' }}>Cookies analytics :</strong>{' '}
-            données de navigation anonymisées (pages visitées, durée de session) via Vercel Analytics.
-          </li>
-          <li>
             <strong style={{ color: 'var(--text-primary)' }}>Formulaires CMS :</strong>{' '}
             si vous utilisez un formulaire de contact, les informations que vous fournissez
             (nom, email, message) sont collectées pour traiter votre demande.
@@ -108,7 +104,7 @@ export default function ConfidentialitePage() {
           Cookies
         </h2>
         <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          Ce site utilise des cookies strictement nécessaires et des cookies analytiques :
+          Ce site n&rsquo;utilise que des cookies strictement nécessaires, sans mesure d&rsquo;audience ni tracking publicitaire :
         </p>
         <ul
           style={{
@@ -119,10 +115,6 @@ export default function ConfidentialitePage() {
             marginTop: 'var(--space-3)',
           }}
         >
-          <li>
-            <strong style={{ color: 'var(--text-primary)' }}>Vercel Analytics :</strong>{' '}
-            mesure d&rsquo;audience anonymisée, sans tracking publicitaire.
-          </li>
           <li>
             <strong style={{ color: 'var(--text-primary)' }}>Session CMS :</strong>{' '}
             cookie de session pour l&rsquo;interface d&rsquo;administration, le cas échéant.

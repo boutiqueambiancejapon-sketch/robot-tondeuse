@@ -8,7 +8,7 @@ const csp = [
   "img-src 'self' data: https:",
   "font-src 'self'",
   // Tuiles satellite Esri + geocoding Nominatim pour /superficie
-  "connect-src 'self' https://vitals.vercel-insights.com https://affiliate-api.amazon.fr https://api.github.com https://nominatim.openstreetmap.org https://server.arcgisonline.com https://services.arcgisonline.com",
+  "connect-src 'self' https://affiliate-api.amazon.fr https://api.github.com https://nominatim.openstreetmap.org https://server.arcgisonline.com https://services.arcgisonline.com",
 ].join('; ')
 
 const nextConfig: NextConfig = {
