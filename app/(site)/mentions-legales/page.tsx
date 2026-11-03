@@ -73,9 +73,8 @@ export default function MentionsLegalesPage() {
           Hébergeur
         </h2>
         <div style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          <p>Vercel Inc.</p>
-          <p>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</p>
-          <p>https://vercel.com</p>
+          <p>one.com, serveur privé virtuel exploité par Hostnet B.V.</p>
+          <p>De Ruyterkade 6, 1013 AA Amsterdam, Pays-Bas</p>
         </div>
       </section>
 
