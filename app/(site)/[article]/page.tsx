@@ -70,18 +70,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const data = getStandaloneArticle(slug)
   if (!data) return {}
 
-  const { meta, content } = data
+  const { meta } = data
   const url = `${SITE_URL}/${slug}`
-
-  // Assemble toutes les images de l'article : featureImage en tête, puis images du corps.
-  const bodyImages = extractBodyImageUrls(content)
-  const allImageUrls = Array.from(
-    new Set(
-      [meta.featureImage, ...bodyImages]
-        .filter((u): u is string => Boolean(u))
-        .map(absolutizeImageUrl),
-    ),
-  )
 
   return {
     title: `${meta.title} | ${niche.siteName}`,
@@ -96,13 +86,12 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       publishedTime: meta.publishedAt,
       modifiedTime: meta.updatedAt ?? meta.publishedAt,
       ...(niche.author.name ? { authors: [niche.author.name] } : {}),
-      ...(allImageUrls.length ? { images: allImageUrls.map((u) => ({ url: u })) } : {}),
+      // Image : app/(site)/[article]/opengraph-image.tsx (reprise par twitter:image)
     },
     twitter: {
       card: 'summary_large_image',
       title: meta.title,
       description: meta.description,
-      ...(allImageUrls.length ? { images: allImageUrls } : {}),
     },
   }
 }

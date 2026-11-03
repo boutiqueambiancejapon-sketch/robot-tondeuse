@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { RentabiliteCalculator } from '@/components/tools/RentabiliteCalculator'
 import { niche } from '@/niche.config'
 import { currentYear } from '@/lib/utils/year'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -20,6 +21,7 @@ export function generateMetadata(): Metadata {
     description: `Robot tondeuse rentable ou pas ? Calculez en 2 min vos économies de temps, essence et entretien vs une tondeuse thermique. Amortissement sur 5 à 10 ans.`,
     alternates: { canonical: `${SITE_URL}/calculateur-rentabilite-robot-tondeuse` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Calculateur rentabilité robot tondeuse ${year}`,
       description: `Calculez vos économies vs tondeuse thermique.`,
       url: `${SITE_URL}/calculateur-rentabilite-robot-tondeuse`,

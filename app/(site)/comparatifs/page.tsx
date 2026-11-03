@@ -9,6 +9,7 @@ import type { Metadata } from 'next'
 import { niche } from '@/niche.config'
 import { MAIN_MENU } from '@/lib/menu'
 import { currentYear } from '@/lib/utils/year'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -21,6 +22,7 @@ export function generateMetadata(): Metadata {
     description: `Tous nos comparatifs : meilleur robot tondeuse ${year}, sans fil périphérique, silencieux, pas cher, haut de gamme. Tests indépendants.`,
     alternates: { canonical: `${SITE_URL}/comparatifs` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Comparatifs robots tondeuses ${year}`,
       description: `Top sélections testées, par technologie et par budget.`,
       url: `${SITE_URL}/comparatifs`,

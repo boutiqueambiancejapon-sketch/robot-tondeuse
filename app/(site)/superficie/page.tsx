@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { niche } from '@/niche.config'
 import { currentYear } from '@/lib/utils/year'
 import { SurfaceMap } from '@/components/tools/SurfaceMap'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -19,6 +20,7 @@ export function generateMetadata(): Metadata {
     description: `Tracez votre jardin sur la carte satellite, on calcule la surface au m² près. Recommandation de robot tondeuse adapté à votre superficie.`,
     alternates: { canonical: `${SITE_URL}/superficie` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Calculateur de surface du jardin`,
       description: `Tracez votre jardin et trouvez le robot adapté.`,
       url: `${SITE_URL}/superficie`,

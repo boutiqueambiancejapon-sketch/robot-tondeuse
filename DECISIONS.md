@@ -84,3 +84,8 @@ Tag : `ambiancejap0a-21`. Tout lien Amazon passe par `addAffiliateTag()` ou `<Af
 ## Migration historique (avril 2026)
 
 Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par commit (1A → 8). Préservation totale des 51 articles existants, slugs conservés ou redirigés en 301.
+
+## Hébergement VPS (novembre 2026)
+- [x] Site servi par le VPS (Caddy + systemd), plus par Vercel : `@vercel/analytics` et `vercel.json` retirés, CSP sans `vitals.vercel-insights.com`. `@vercel/blob` et le CMS restent (retrait prévu plus tard) ; aucune page publique n'en dépend (images dans `public/`).
+- [x] Next.js 16.4.5 (failles 16.1/16.2 corrigées), `sharp` déclaré (images de partage).
+- [x] Images de partage par `next/og`, JPEG 1200×630, DA Atelier Vert : `lib/og/` (gabarit `ShareCard`, polices Schibsted/Hanken en WOFF dans `assets/og/fonts/`, données réelles de l'article : format, modèles cités par `<ProductCTA>`, prix d'appel, durée de lecture). Routes : `app/opengraph-image.tsx`, `app/(site)/[article]/opengraph-image.tsx`, `app/(site)/blog/[categorie]/opengraph-image.tsx`. Les pages qui déclarent leur propre `openGraph` passent `DEFAULT_OG_IMAGES`, sinon Next.js perd l'image du parent. `twitter:image` hérite de `og:image`.

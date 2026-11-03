@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { niche } from '@/niche.config'
 import { SurfaceCalculator } from './SurfaceCalculator'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -18,6 +19,7 @@ export function generateMetadata(): Metadata {
       'Entrez la surface de votre jardin et découvrez quel robot tondeuse vous convient. Recommandations personnalisées par marque et budget.',
     alternates: { canonical: `${SITE_URL}/simulateur` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: 'Quel robot tondeuse pour votre surface ?',
       description: 'Calculateur de surface pour trouver le robot tondeuse adapté à votre jardin.',
       url: `${SITE_URL}/simulateur`,

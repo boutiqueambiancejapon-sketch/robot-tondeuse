@@ -12,6 +12,7 @@ import { DealsGrid } from '@/components/deals/DealsGrid'
 import { FaqAccordion } from '@/components/blog/FaqAccordion'
 import { niche } from '@/niche.config'
 import type { Deal } from '@/components/deals/DealsGrid'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -26,6 +27,7 @@ export function generateMetadata(): Metadata {
       `Les meilleures promos ${niche.entities} du moment. Sélection manuelle — pas de spam.`,
     alternates: { canonical: `${SITE_URL}/deals` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `${dealWord} ${year}`,
       description: `Meilleures promos ${niche.entities} sélectionnées manuellement.`,
       url: `${SITE_URL}/deals`,

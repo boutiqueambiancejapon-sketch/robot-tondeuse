@@ -9,6 +9,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { AuthorCard } from '@/components/ui/AuthorCard'
 import { niche } from '@/niche.config'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 export const revalidate = 86400
 
@@ -63,6 +64,7 @@ export async function generateMetadata(
     description: author.bio,
     alternates: { canonical: author.url },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `${author.name} — ${author.role}`,
       description: author.bio,
       url: author.url,

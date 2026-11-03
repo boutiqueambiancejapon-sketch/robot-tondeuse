@@ -100,3 +100,9 @@ Branche `claude/review-design-files-HKwEE` — 8 batches.
 18. `0170210` · /calculateur-rentabilite-robot-tondeuse
 19. `a86345d` · sitemap MAJ
 20. (ce commit) · PROGRESS + DECISIONS final
+
+## Passage au VPS (novembre 2026) ✅
+- Next.js 16.2.1 → 16.4.5, `npm audit --omit=dev` : 12 → 0 vulnérabilités
+- Retrait Vercel Analytics + `vercel.json` ; page confidentialité mise à jour
+- Images de partage personnalisées (accueil, articles, rubriques) — voir DECISIONS.md
+- À faire : mentions légales → hébergeur à remplacer (Vercel → one.com) ; `middleware.ts` → `proxy.ts` (convention dépréciée depuis Next 16)

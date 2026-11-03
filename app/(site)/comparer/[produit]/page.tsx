@@ -11,6 +11,7 @@ import { getProduit, PRODUIT_SLUGS } from '@/lib/comparateur'
 import { ComparateurSelector } from '@/components/comparer/ComparateurSelector'
 import { currentYear } from '@/lib/utils/year'
 import { niche } from '@/niche.config'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     description: data.description,
     alternates: { canonical: `${SITE_URL}/comparer/${produit}` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Comparateur ${data.label} ${year}`,
       description: data.description,
       url: `${SITE_URL}/comparer/${produit}`,

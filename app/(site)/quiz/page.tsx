@@ -10,6 +10,7 @@ import { currentYear } from '@/lib/utils/year'
 import { QuizEngine } from '@/components/quiz/QuizEngine'
 import { niche } from '@/niche.config'
 import { getPageContent } from '@/lib/cms-pages'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -24,6 +25,7 @@ export function generateMetadata(): Metadata {
       `4 questions pour trouver le ${niche.entity} fait pour toi. Résultat immédiat.`,
     alternates: { canonical: `${SITE_URL}/quiz` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: question,
       description: `Quiz 4 questions — trouve ton ${niche.entity}. Résultat immédiat.`,
       url: `${SITE_URL}/quiz`,

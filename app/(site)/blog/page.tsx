@@ -11,6 +11,7 @@ import { currentYear } from '@/lib/utils/year'
 import { ArticleCard } from '@/components/blog/ArticleCard'
 import { Pagination } from '@/components/blog/Pagination'
 import { niche } from '@/niche.config'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -28,6 +29,7 @@ export function generateMetadata(): Metadata {
       `Tous les articles : guides d'achat, comparatifs et conseils.`,
     alternates: { canonical: `${SITE_URL}/blog` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Blog ${year} — tests et guides`,
       description: `Tous les articles ${niche.entities}. Avis honnêtes.`,
       url: `${SITE_URL}/blog`,

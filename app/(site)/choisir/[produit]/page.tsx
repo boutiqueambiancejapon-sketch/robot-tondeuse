@@ -12,6 +12,7 @@ import { currentYear } from '@/lib/utils/year'
 import { COMPARATEURS, PRODUIT_SLUGS } from '@/lib/comparateur'
 import { getChoisirContent } from '@/lib/choisir-content'
 import { niche } from '@/niche.config'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       canonical: `${SITE_URL}/choisir/${produit}`,
     },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Quel ${data.label} choisir en ${year} ?`,
       description: `Quiz en 4 questions, comparatif par profil et verdict honnête pour choisir son ${data.label} en ${year}.`,
       url: `${SITE_URL}/choisir/${produit}`,

@@ -8,6 +8,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { niche } from '@/niche.config'
 import { currentYear } from '@/lib/utils/year'
+import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -20,6 +21,7 @@ export function generateMetadata(): Metadata {
     description: `Tests par marque : Mammotion, Husqvarna, Gardena, Worx, Bosch et plus. Avis indépendants, comparatifs, guides d'achat.`,
     alternates: { canonical: `${SITE_URL}/marques` },
     openGraph: {
+      images: DEFAULT_OG_IMAGES,
       title: `Toutes les marques de robots tondeuses ${year}`,
       description: `Tests indépendants par marque.`,
       url: `${SITE_URL}/marques`,
