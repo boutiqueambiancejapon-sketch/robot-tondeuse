@@ -1,0 +1,11 @@
+name: "Einhell FREELEXO CAM 500"
+categorie: "einhell"
+prix: "449-650 €"
+badge: "Caméra sans câble, Power X-Change"
+hook: "Robot tondeuse sans câble périphérique pour 500 m² : caméra, ultrasons et bande magnétique pour les zones interdites. 25 % de pente, 57 dB(A), IPX4, capteur de pluie, batterie Power X-Change 18 V 3 Ah amovible. Pas d'application, réglages sur l'écran."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0B4JVJMH4"

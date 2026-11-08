@@ -1,0 +1,11 @@
+name: "Einhell FREELEXO 500"
+categorie: "einhell"
+prix: "449,95 € (catalogue)"
+badge: "Power X-Change 18 V"
+hook: "Robot tondeuse filaire pour 500 m², 35 % de pente, 61 dB(A), IPX5. Batterie Power X-Change 18 V 2,5 Ah amovible, partagée avec les outils Einhell. App Einhell Connect en Bluetooth ou Wi-Fi, mises à jour à distance, capteur de pluie."
+image: ""
+active: true
+stickyCta: "amazon"
+links:
+  - store: "amazon"
+    url: "https://www.amazon.fr/dp/B0DSLPVF3H"
