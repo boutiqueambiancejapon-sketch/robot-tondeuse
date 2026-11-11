@@ -1,5 +1,7 @@
 # Claude Code — 10min-template
 
+> **Équipe d'agents (depuis le 11/11/2026)** : lire `tasks/equipe.md` (rôles, décisions, règles d'honnêteté, tableau des tâches) et le haut de `tasks/journal-equipe.md` avant tout travail. Plan : `tasks/plan-v2.md`. Plan éditorial : `tasks/plan-editorial.md`.
+
 Lis PROGRESS.md avant chaque session. Lis /docs/ selon ta tâche.
 Article ou page de contenu → lire SEO-GEO-REDACTION.md ET le fichier AUTHOR correspondant avant la première ligne.
 **Toute rédaction française (article MDX, page, FAQ, méta, copy CTA, scheduled task de génération de contenu) : charger le skill `boileau` (`.claude/skills/boileau/SKILL.md`) AVANT d'écrire — règles préventives à appliquer dès le premier jet, pas une correction post-rédaction.**
