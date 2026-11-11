@@ -7,6 +7,7 @@
  */
 
 import Image from 'next/image'
+import { getProductImageByName } from '@/lib/products'
 import { AffiliateLink } from '@/components/ui/AffiliateLink'
 
 type ProductCTAProps = {
@@ -18,7 +19,9 @@ type ProductCTAProps = {
   hook?: string
 }
 
-export function ProductCTA({ name, price, url, image, badge, hook }: ProductCTAProps) {
+export function ProductCTA({ name, price, url, image: imageProp, badge, hook }: ProductCTAProps) {
+  // Photo passée par l'article, sinon celle de la fiche du robot (catalogue Fnac).
+  const image = imageProp || getProductImageByName(name)
   return (
     <div
       style={{

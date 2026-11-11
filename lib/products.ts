@@ -61,3 +61,24 @@ export function getPrimaryLink(product: Product): string {
   }
   return ''
 }
+
+// ─── Photo d'un robot à partir de son nom ─────────────────────────────────────
+// Les cartes <ProductCTA> des articles ne citent que le nom du robot. On retrouve sa
+// photo dans content/produits/*.yaml par le nom exact (casse, accents et ponctuation ignorés).
+const normName = (s: string) =>
+  s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\+/g, ' plus ').replace(/[^a-z0-9]+/g, ' ').trim()
+
+let imagesByName: Map<string, string> | null = null
+
+export function getProductImageByName(name: string): string | undefined {
+  if (!imagesByName) {
+    imagesByName = new Map()
+    if (fs.existsSync(PRODUITS_DIR)) {
+      for (const file of fs.readdirSync(PRODUITS_DIR).filter((f) => f.endsWith('.yaml'))) {
+        const product = getProduct(file.slice(0, -5))
+        if (product?.image) imagesByName.set(normName(product.name), product.image)
+      }
+    }
+  }
+  return imagesByName.get(normName(name))
+}
