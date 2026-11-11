@@ -1,10 +1,8 @@
 import { HeroSection } from '@/components/home/HeroSection'
 import { ArticleTicker } from '@/components/home/ArticleTicker'
-import { PressBand } from '@/components/home/PressBand'
 import { ReassuranceStrip } from '@/components/home/ReassuranceStrip'
 import { FeaturedTools } from '@/components/home/FeaturedTools'
 import { HomeTopRobots } from '@/components/home/HomeTopRobots'
-import { TestimonialsSection } from '@/components/home/TestimonialsSection'
 import { RecentArticles } from '@/components/home/RecentArticles'
 import { HomeQuizTeaser } from '@/components/home/HomeQuizTeaser'
 import { HomeHubSection } from '@/components/home/HomeHubSection'
@@ -30,8 +28,7 @@ export default function HomePage() {
         {/* 02 — Bandeau articles récents marquee */}
         <ArticleTicker />
 
-        {/* 03 — Autorité externe : logos presse (fond forest-deep) */}
-        <PressBand />
+        {/* 03 — Bandeau « Vu dans » (Le Parisien, Que Choisir…) retiré le 11/11/2026 : aucune parution vérifiée. */}
 
         {/* 04 — 4 engagements éditoriaux (fond paper/ivory) */}
         <ReassuranceStrip />
@@ -46,8 +43,7 @@ export default function HomePage() {
         {/* 07 — Le podium 2026 — 3 robots coups de cœur (fond cream) */}
         <HomeTopRobots />
 
-        {/* 08 — Avis lecteurs (dark break forest-deep) */}
-        <TestimonialsSection />
+        {/* 08 — Avis lecteurs « vérifiés » retirés le 11/11/2026 : non sourcés. À remettre seulement avec de vrais avis. */}
 
         {/* 09 — Comparatifs FEATURED (Top 2026 en grand — fond cream) */}
         <HomeHubSection
