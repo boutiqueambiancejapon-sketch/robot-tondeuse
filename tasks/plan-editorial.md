@@ -35,7 +35,6 @@ Règles : une requête réelle par sujet (vérifiée), pas de doublon avec un ar
 
 ### Hiver qui commence (novembre-décembre)
 
-- [ ] Faut-il tondre la pelouse en hiver ? — faut-il tondre la pelouse en hiver — gazon — dernière tonte, cas du redoux (herbe > 8 cm, sol ressuyé, pas de gel annoncé), tonte haute. Lier `/robot-tondeuse-gel-froid-temperature-minimale-tonte-automne-2026`. Sources : Jardiner Malin, Futura, ootravaux.
 - [ ] Feuilles mortes sur la pelouse : ramasser, broyer ou laisser ? — faut-il ramasser les feuilles mortes sur la pelouse — gazon — seuil d'environ 2 cm, feuillicyclage, cas des fruitiers malades (tavelure). Ne pas refaire le guide d'achat `/quel-robot-tondeuse-feuilles-mortes-automne-2026`, le lier. Sources : Université Laval, FREDON, Jardiner Malin.
 - [ ] Nettoyer son robot tondeuse : jet d'eau, Kärcher, brosse, ce que disent les fabricants — nettoyer robot tondeuse jet d'eau karcher — entretien — haute pression interdite (Husqvarna), modèles rinçables, contacts de charge au sec. Lier l'étape 2 de `/comment-hiverner-son-robot-tondeuse` sans la recopier. Sources : Husqvarna, Liqui Moly.
 - [ ] Câble périphérique en hiver : le laisser dans le sol ou le retirer ? — câble périphérique robot tondeuse hiver — saison — Husqvarna et Gardena : il reste en place, protéger les extrémités, étiqueter, contrôle au printemps. Lier `/cable-peripherique-robot-tondeuse-coupe-trouver-reparer-guide-2026`. Sources : Husqvarna, Gardena.
@@ -111,3 +110,4 @@ Règles : une requête réelle par sujet (vérifiée), pas de doublon avec un ar
 ## Écrits
 
 <!-- Format : - [x] 2026-11-12 · slug · titre -->
+- [x] 2026-11-11 · faut-il-tondre-pelouse-hiver · Faut-il tondre la pelouse en hiver ? Dernière tonte, redoux et bonne hauteur
