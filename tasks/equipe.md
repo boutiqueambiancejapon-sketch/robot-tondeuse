@@ -70,3 +70,23 @@ Une étape = un passage. Si elle est finie, prendre la suivante dans « Ensuite 
 - Contrôles avant envoi : types OK, build OK (2 min), **lint en échec (77 erreurs, déjà là avant ce passage)**.
   Le Chef n'a donc rien envoyé : ses 2 fichiers sont enregistrés sur la branche en ligne **en local seulement**.
   Ils partiront avec le premier envoi du Dév, une fois le lint réparé (ne pas oublier l'étiquette de sauvegarde).
+
+## Fin de mission
+
+L'équipe est **temporaire** : elle sert à amener Quel Robot Tondeuse au niveau de Toutou Gourmet, puis elle
+s'arrête. Le Chef coche ce qui est fini. Quand tout ce qui dépend de l'équipe est coché, il écrit
+« MISSION TERMINÉE » en haut du journal, prévient le propriétaire et propose de mettre l'équipe en pause.
+Le site continue ensuite comme les autres : un article par nuit, suivant le plan éditorial.
+
+- [ ] Lot 0 — clics vers les marchands, quiz, outils mesurés et lisibles dans le centre de contrôle
+- [ ] Lot 1 — carte des conversions appliquée (un objectif par type de page)
+- [ ] Lot 2 — calendrier du gazon : outil + guide PDF offert contre l'e-mail, inscription vers la liste Brevo
+- [ ] Lot 3 — fiches robots avec note sur 100 et barème public, pages « Avis + marque » (premier lot de 10 à 15)
+- [ ] Lot 4 — « Ce robot convient-il à mon jardin ? » sur les fiches et les comparatifs
+- [ ] Lot 6 — suite de bienvenue et lettre du mois rédigées et prêtes à partir
+- [ ] Plan éditorial d'environ 60 sujets en place et suivi par la rédaction de nuit
+- [ ] Honnêteté : plus aucun « testé » sans essai réel, prix datés, aucune fausse urgence
+- [ ] UX/UI revue sur téléphone (accueil, article, fiche robot, outils), DA inchangée
+
+Hors équipe (propriétaire ou Claude en session) : DNS du domaine vers Cloudflare, dashboard.quel-robot-tondeuse.com,
+envoi réel des e-mails, compte « Mon jardin » (lot 5, base de données).
