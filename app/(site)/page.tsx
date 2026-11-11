@@ -1,9 +1,7 @@
-import { FlashBar } from '@/components/home/FlashBar'
 import { HeroSection } from '@/components/home/HeroSection'
 import { ArticleTicker } from '@/components/home/ArticleTicker'
 import { PressBand } from '@/components/home/PressBand'
 import { ReassuranceStrip } from '@/components/home/ReassuranceStrip'
-import { DealsSection } from '@/components/home/DealsSection'
 import { FeaturedTools } from '@/components/home/FeaturedTools'
 import { HomeTopRobots } from '@/components/home/HomeTopRobots'
 import { TestimonialsSection } from '@/components/home/TestimonialsSection'
@@ -25,9 +23,6 @@ import {
 export default function HomePage() {
   return (
     <>
-      {/* 00 — Barre urgence deals (rouge, zIndex 60) */}
-      <FlashBar />
-
       <main id="main-content">
         {/* 01 — Hero forest-deep + dashboard MON_JARDIN.LIVE */}
         <HeroSection />
@@ -41,8 +36,9 @@ export default function HomePage() {
         {/* 04 — 4 engagements éditoriaux (fond paper/ivory) */}
         <ReassuranceStrip />
 
-        {/* 05 — Ventes flash : 4 deal cards avec countdown (fond cream) */}
-        <DealsSection />
+        {/* 05 — Ancienne « vente flash » retirée le 11/11/2026 : compte à rebours, stocks et prix barrés
+            étaient inventés (pratique commerciale trompeuse). À remplacer par de vraies baisses de prix
+            calculées sur l'historique (flux Fnac via Awin). */}
 
         {/* 06 — Outils interactifs bento : quiz · comparateur · superficie · rentabilité */}
         <FeaturedTools />
