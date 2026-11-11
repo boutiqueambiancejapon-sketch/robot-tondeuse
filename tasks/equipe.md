@@ -34,19 +34,39 @@ qui suit `tasks/plan-editorial.md`.
 
 ## Ce qui attend le propriétaire (les agents ne peuvent pas le faire)
 
+Mis à jour par le Chef le 11/11/2026 (soir).
+
 - **dashboard.quel-robot-tondeuse.com** et l'expéditeur e-mail du site : le DNS du domaine est chez Vercel,
   dont le compte est bloqué. Il faut déplacer le DNS vers Cloudflare (comme Toutou le 11/11). En attendant,
-  les chiffres du site sont dans le centre de contrôle.
+  les chiffres du site sont dans le centre de contrôle. **Bloque l'envoi du guide par e-mail (lot 2).**
 - **Compte « Mon jardin »** (lot 5) : il demande une base de données sur le serveur → à faire avec Claude
   en session, pas par un agent.
+- **Une question, réponse en un mot** : y a-t-il eu de vrais essais de robots (par vous ou par « Thomas ») ?
+  Sans réponse, l'équipe applique la règle d'honnêteté : toutes les formules « testé », « sur mon terrain »,
+  « après 6 mois » sont reformulées (8 articles « test-… », 22 articles au total, plus l'accueil).
+- **Revenus Amazon** : combien rapporte le site par mois ? Ce chiffre sert à classer les priorités.
+- **Affichage des chiffres du lot 0 dans le centre de contrôle** : le centre de contrôle est hors du dossier
+  du projet. Les agents préparent le comptage côté site ; le branchement se fait avec Claude en session.
 
 ## Tableau des tâches
 
 Chaque agent met à jour SA ligne à la fin de son passage. Le Chef ajuste les priorités.
+Une étape = un passage. Si elle est finie, prendre la suivante dans « Ensuite ».
 
-| Agent | En cours | Prochaine étape | Bloqué par |
-|---|---|---|---|
-| Chef QRT | Premier passage : découper le plan en étapes | — | — |
-| Dév QRT | — | Lot 0 : redirections /go/ pour les liens marchands | — |
-| Contenu QRT | — | Écrire `tasks/plan-editorial.md` (60 sujets, par mois) ; reformuler « testées » | — |
-| Croissance QRT | — | Lot 2 : contenu du calendrier du gazon (sources) + liste Brevo | DNS pour l'envoi |
+| Agent | En cours | Prochaine étape (un passage) | Ensuite | Bloqué par |
+|---|---|---|---|---|
+| Chef QRT | Passage du 11/11 soir fait : site vérifié, étapes écrites | Contrôler en ligne les 2 correctifs du Dév (images, mentions « testé ») et le plan éditorial ; revenir en arrière si cassé | Découper le lot 1 (carte des conversions) en étapes | — |
+| Dév QRT | — | **Étape D0, en tout premier : remettre le lint au vert.** `npm run lint` sort 77 erreurs, donc personne ne peut envoyer (règle). 65 viennent des maquettes `content/*.jsx` (pas du site : les exclure dans `eslint.config.mjs`) ; 12 du vrai code (`app/admin/layout.tsx`, `TestimonialCard`, `LoginForm`, `blog/page.tsx`, `AutoProductCTAs`, `FlashBar`, `HomeRobotMower`, `ThemeToggle`, `packages/cms/lib/html-md.ts`) : les corriger, ou supprimer les composants qui ne servent plus (FlashBar, TestimonialCard). Types et build passent déjà. **Puis étape D1 (2 corrections courtes, avant le lot 0)** : a) images vides : `components/blog/ArticleCard.tsx` ligne 37 utilise `??` alors que 76 articles ont `featureImage: ""` → image cassée sur les pages de catégorie (vu sur /blog/husqvarna) ; utiliser l'image de secours quand le champ est vide, vérifier aussi la ligne ~181. b) Honnêteté sur les gabarits : retirer « On a testé des dizaines de modèles… », « 30+ modèles testés », « +1 200 tests réalisés ce mois-ci », « Tests terrain », « Tests · Comparatifs · Outils » (fichiers : `niche.config.ts` l.112, `HeroSection`, `HomeMethodology`, `HomeQuizTeaser`, `Nav`, `comparatifs/page`, `marques/page`, `blog/page`, `opengraph-image`). Remplacer par des faits vrais : 55 fiches robots comparées, 209 articles, barème public à venir. | **D2 = lot 0** : adresse `/go/<robot>/<marchand>` (redirection 302, lien `rel="sponsored nofollow"`, étiquette affiliée gardée, robots d'indexation exclus), puis `<AffiliateLink>` et le plugin MDX passent par elle. **D3** : compter quiz terminé, surface mesurée, calcul de rentabilité (même principe, sans cookie). | — |
+| Contenu QRT | — | **Étape C1** : remplir `tasks/plan-editorial.md` : 60 sujets classés par mois (nov. 2026 → avril 2027), une requête réelle par sujet, sans doublon avec `content/articles/` (209 articles). Mettre en tête 5 sujets de saison : hivernage, stockage batterie, nettoyage avant l'hiver, gazon en hiver, cadeau de Noël. La rédaction de nuit (23 h 37 UTC) en dépend : la liste est vide aujourd'hui. | **C2** : reformuler les 8 articles « test-… » (titre, description, résumé, corps) en « avis sur fiche et sources », sans changer l'adresse. **C3** : les 14 autres articles avec « j'ai mesuré », « sur mon terrain », « nous avons testé » (ex. `husqvarna-automower-vs-mammotion-luba`). | — |
+| Croissance QRT | — | **Étape G1** : écrire `tasks/calendrier-gazon-sources.md` : les 12 mois, 3 gestes par mois, chaque conseil avec sa source (semencier, fabricant, organisme), variantes nord / sud / montagne. Ne rien envoyer, ne rien créer chez Brevo pendant ce passage. | **G2** : fiche « Hivernage du robot » à imprimer (texte sourcé, page du site, sans e-mail). **G3** : créer la liste Brevo séparée « Quel Robot Tondeuse » et le formulaire (inscription seulement). | Envoi d'e-mails : DNS (propriétaire) |
+
+### Constats du Chef (11/11 soir) à garder en tête
+
+- Site en ligne : accueil et 3 pages répondent (code 200), lisibles à 390 px, pas de débordement.
+- Les retraits du 11/11 sont bien en ligne : plus de vente flash, plus de « Vu dans », plus d'avis « vérifiés ».
+- Reste contraire à la règle d'honnêteté : accueil (« On a testé… », « 30+ modèles testés »), bandeau du
+  menu « Tests », et 22 articles écrits comme des essais vécus.
+- 76 articles sur 209 ont une image de couverture vide ; la carte d'article affiche alors une image cassée.
+- Contrôles avant envoi : types OK, build OK (2 min), **lint en échec (77 erreurs, déjà là avant ce passage)**.
+  Le Chef n'a donc rien envoyé : ses 2 fichiers sont enregistrés sur la branche en ligne **en local seulement**.
+  Ils partiront avec le premier envoi du Dév, une fois le lint réparé (ne pas oublier l'étiquette de sauvegarde).
