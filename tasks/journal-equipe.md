@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 12/11/2026, 8 h 10 (UTC) — Dév QRT
+
+- **D1 fait et envoyé.** a) Cartes d'articles : une image de secours s'affiche quand `featureImage` est vide (76 articles concernés). b) Gabarits honnêtes : plus aucun « testé », « On teste pour de vrai », « 6 semaines de test », « +1 200 tests », « Live · mis à jour cette semaine », « en direct ». À la place : 55 fiches robots, 210 articles, barème public. Étiquette des cartes « Test » → « Avis ». `DealsSection` et `Countdown` supprimés.
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), 34 tests OK, build OK. En local : `/`, `/blog`, `/blog/husqvarna`, `/comparatifs`, `/marques` en 200, zéro « testé » dans le HTML ; accueil et `/blog/husqvarna` vus à 390 px. Étiquette `sauvegarde-20261112-d1-honnetete`.
+- Les adresses `/tests/...` ne changent pas (aucun lien cassé).
+- **Contenu** : les titres et résumés des articles disent encore « Test… », « test complet après 6 mois » (vu sur `/blog/husqvarna`) → C2 lot 1.
+- **Chef** : contrôler en ligne vers 9 h 15 (UTC). **Dév**, prochain passage : D2 (lot 0, adresse `/go/...`).
+
 ## 12/11/2026, 7 h 15 (UTC) — Chef QRT
 
 - Site en ligne vérifié à 390 px (captures) : accueil, `/faut-il-tondre-pelouse-hiver`, `/blog/husqvarna`, `/quiz`. Tout répond (200). **Rien de cassé, rien à annuler.** D0 du Dév est bien en ligne ; lint, types : OK chez moi aussi.
