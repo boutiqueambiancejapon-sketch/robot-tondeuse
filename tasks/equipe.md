@@ -34,16 +34,16 @@ qui suit `tasks/plan-editorial.md`.
 
 ## Ce qui attend le propriétaire (les agents ne peuvent pas le faire)
 
-Mis à jour par le Chef le 11/11/2026 (soir).
+Mis à jour par le Chef le 12/11/2026 (matin).
 
 - **dashboard.quel-robot-tondeuse.com** et l'expéditeur e-mail du site : le DNS du domaine est chez Vercel,
   dont le compte est bloqué. Il faut déplacer le DNS vers Cloudflare (comme Toutou le 11/11). En attendant,
   les chiffres du site sont dans le centre de contrôle. **Bloque l'envoi du guide par e-mail (lot 2).**
 - **Compte « Mon jardin »** (lot 5) : il demande une base de données sur le serveur → à faire avec Claude
   en session, pas par un agent.
-- **Une question, réponse en un mot** : y a-t-il eu de vrais essais de robots (par vous ou par « Thomas ») ?
-  Sans réponse, l'équipe applique la règle d'honnêteté : toutes les formules « testé », « sur mon terrain »,
-  « après 6 mois » sont reformulées (8 articles « test-… », 22 articles au total, plus l'accueil).
+- ~~Question sur les vrais essais de robots~~ : **le propriétaire a choisi de ne pas répondre (12/11). Ne plus
+  la poser.** L'équipe applique donc la règle d'honnêteté partout : toutes les formules « testé »,
+  « sur mon terrain », « après 6 mois » sont reformulées (73 articles au 12/11, plus l'accueil et le menu).
 - **Revenus Amazon** : combien rapporte le site par mois ? Ce chiffre sert à classer les priorités.
 - **Affichage des chiffres du lot 0 dans le centre de contrôle** : le centre de contrôle est hors du dossier
   du projet. Les agents préparent le comptage côté site ; le branchement se fait avec Claude en session.
@@ -55,21 +55,19 @@ Une étape = un passage. Si elle est finie, prendre la suivante dans « Ensuite 
 
 | Agent | En cours | Prochaine étape (un passage) | Ensuite | Bloqué par |
 |---|---|---|---|---|
-| Chef QRT | Passage du 11/11 soir fait : site vérifié, étapes écrites | Contrôler en ligne les 2 correctifs du Dév (images, mentions « testé ») et le plan éditorial ; revenir en arrière si cassé | Découper le lot 1 (carte des conversions) en étapes | — |
-| Dév QRT | D0 fait le 12/11 (lint 0 erreur, envoyé) | **Étape D1** : a) images vides : `components/blog/ArticleCard.tsx` ligne 37 utilise `??` alors que 76 articles ont `featureImage: ""` → utiliser l'image de secours si le champ est vide (vérifier aussi la ligne ~181). b) Honnêteté des gabarits : retirer « On a testé… », « 30+ modèles testés », « +1 200 tests », « Tests terrain », « Tests · Comparatifs · Outils » (sous-titre du logo, `niche.config.ts` l.112, `HeroSection`, `HomeMethodology`, `HomeQuizTeaser`, `Nav`, `comparatifs/page`, `marques/page`, `opengraph-image`) ; supprimer `DealsSection` et `Countdown` (inutilisés). Faits vrais : 55 fiches robots, 210 articles. | **D2 = lot 0** : adresse `/go/<robot>/<marchand>` (redirection 302, lien `rel="sponsored nofollow"`, étiquette affiliée gardée, robots d'indexation exclus), puis `<AffiliateLink>` et le plugin MDX passent par elle. **D3** : compter quiz terminé, surface mesurée, calcul de rentabilité (sans cookie). UX : masquer la barre de défilement sous les filtres de `/blog`. | — |
-| Contenu QRT | C1 fait le 12/11 (60 sujets vérifiés, en local, part avec le premier envoi du Dév) | **C2 lot 1** : les 8 articles « test-… » + 2 pages les plus vues (`meilleur-robot-tondeuse-2026`, `husqvarna-automower-vs-mammotion-luba`) : titre, description, résumé, corps reformulés en « avis sur fiche et sources », sans changer l'adresse | **C2 lots 2 à 8** : 66 autres articles (liste par `grep -l -i -E "testé|notre test|sur mon terrain|j'ai mesuré"`). **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse` et le futur Calendrier. Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse` | — |
-| Croissance QRT | — | **Étape G1** : écrire `tasks/calendrier-gazon-sources.md` : les 12 mois, 3 gestes par mois, chaque conseil avec sa source (semencier, fabricant, organisme), variantes nord / sud / montagne. Ne rien envoyer, ne rien créer chez Brevo pendant ce passage. | **G2** : fiche « Hivernage du robot » à imprimer (texte sourcé, page du site, sans e-mail). **G3** : créer la liste Brevo séparée « Quel Robot Tondeuse » et le formulaire (inscription seulement). | Envoi d'e-mails : DNS (propriétaire) |
+| Chef QRT | Passage du 12/11 matin fait : site vérifié à 390 px (rien à annuler), étapes réécrites | Contrôler en ligne D1 du Dév (images des cartes, « testé » de l'accueil) et le premier lot C2 ; revenir en arrière si cassé | Découper le lot 1 (carte des conversions) en étapes | — |
+| Dév QRT | D0 fait le 12/11 (lint 0 erreur, envoyé). **D1 pas encore commencé** (vu en ligne le 12/11 à 8 h 15 : cartes sans image sur `/blog/husqvarna`, « On a testé… » sur l'accueil) | **Étape D1** (inchangée, priorité 1). En plus, sur l'accueil : « LIVE 2026 · MIS À JOUR CETTE SEMAINE » et « 6 marques comparées en direct » sont de la fausse fraîcheur → « Guide 2026 » et « 6 marques comparées ». Détail de D1 : a) images vides : `components/blog/ArticleCard.tsx` ligne 37 utilise `??` alors que 76 articles ont `featureImage: ""` → utiliser l'image de secours si le champ est vide (vérifier aussi la ligne ~181). b) Honnêteté des gabarits : retirer « On a testé… », « 30+ modèles testés », « +1 200 tests », « Tests terrain », « Tests · Comparatifs · Outils » (sous-titre du logo, `niche.config.ts` l.112, `HeroSection`, `HomeMethodology`, `HomeQuizTeaser`, `Nav`, `comparatifs/page`, `marques/page`, `opengraph-image`) ; supprimer `DealsSection` et `Countdown` (inutilisés). Faits vrais : 55 fiches robots, 210 articles. | **D2 = lot 0** : adresse `/go/<robot>/<marchand>` (redirection 302, lien `rel="sponsored nofollow"`, étiquette affiliée gardée, robots d'indexation exclus), puis `<AffiliateLink>` et le plugin MDX passent par elle. **D3** : compter quiz terminé, surface mesurée, calcul de rentabilité (sans cookie). UX : masquer la barre de défilement sous les filtres de `/blog` ; à 390 px, le panneau flottant « Voir les meilleurs prix / Faites le quiz » couvre le bas de l'accueil au-dessus de la barre d'onglets (le réduire ou le faire apparaître après défilement). | — |
+| Contenu QRT | C1 fait et en ligne ; la rédaction de nuit l'a suivi (sujet coché le 11/11 : `faut-il-tondre-pelouse-hiver`, sans « testé ») | **C2 lot 1** (73 articles touchés au 12/11, pas 76). Le propriétaire ne dira pas s'il y a eu des essais : tout « testé » vécu est reformulé, sans exception. Les étiquettes « TEST » des cartes viennent de la catégorie de l'article : signaler au Dév si elles restent après C2. Lot 1 : les 8 articles « test-… » + 2 pages les plus vues (`meilleur-robot-tondeuse-2026`, `husqvarna-automower-vs-mammotion-luba`) : titre, description, résumé, corps reformulés en « avis sur fiche et sources », sans changer l'adresse | **C2 lots 2 à 8** : 66 autres articles (liste par `grep -l -i -E "testé|notre test|sur mon terrain|j'ai mesuré"`). **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse` et le futur Calendrier. Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse` | — |
+| Croissance QRT | Pas encore passé (aucun fichier `tasks/calendrier-gazon-sources.md` au 12/11 matin) | **Étape G1** (inchangée). Donner aussi, en tête du fichier, l'adresse prévue de la page Calendrier (Contenu l'attend pour le maillage) : écrire `tasks/calendrier-gazon-sources.md` : les 12 mois, 3 gestes par mois, chaque conseil avec sa source (semencier, fabricant, organisme), variantes nord / sud / montagne. Ne rien envoyer, ne rien créer chez Brevo pendant ce passage. | **G2** : fiche « Hivernage du robot » à imprimer (texte sourcé, page du site, sans e-mail). **G3** : créer la liste Brevo séparée « Quel Robot Tondeuse » et le formulaire (inscription seulement). | Envoi d'e-mails : DNS (propriétaire) |
 
-### Constats du Chef (11/11 soir) à garder en tête
+### Constats du Chef (12/11 matin) à garder en tête
 
-- Site en ligne : accueil et 3 pages répondent (code 200), lisibles à 390 px, pas de débordement.
-- Les retraits du 11/11 sont bien en ligne : plus de vente flash, plus de « Vu dans », plus d'avis « vérifiés ».
-- Reste contraire à la règle d'honnêteté : accueil (« On a testé… », « 30+ modèles testés »), bandeau du
-  menu « Tests », et 22 articles écrits comme des essais vécus.
-- 76 articles sur 209 ont une image de couverture vide ; la carte d'article affiche alors une image cassée.
-- Contrôles avant envoi : types OK, build OK (2 min), **lint en échec (77 erreurs, déjà là avant ce passage)**.
-  Le Chef n'a donc rien envoyé : ses 2 fichiers sont enregistrés sur la branche en ligne **en local seulement**.
-  Ils partiront avec le premier envoi du Dév, une fois le lint réparé (ne pas oublier l'étiquette de sauvegarde).
+- Site en ligne vérifié à 390 px (captures) : accueil, `/faut-il-tondre-pelouse-hiver`, `/blog/husqvarna`, `/quiz`.
+  Tout répond (200), rien de cassé, rien à annuler.
+- Lint au vert depuis D0 (0 erreur, 9 avertissements) : **les envois sont de nouveau possibles pour tous.**
+- Toujours en ligne : cartes d'articles sans image (76 articles avec `featureImage: ""`), « On a testé… »,
+  « 30+ modèles testés », « +1 200 tests » sur l'accueil, « TESTS » sous le logo. → Dév D1.
+- 73 articles contiennent encore « testé », « notre test », « sur mon terrain » ou « j'ai mesuré ». → Contenu C2.
 
 ## Fin de mission
 
@@ -84,7 +82,7 @@ Le site continue ensuite comme les autres : un article par nuit, suivant le plan
 - [ ] Lot 3 — fiches robots avec note sur 100 et barème public, pages « Avis + marque » (premier lot de 10 à 15)
 - [ ] Lot 4 — « Ce robot convient-il à mon jardin ? » sur les fiches et les comparatifs
 - [ ] Lot 6 — suite de bienvenue et lettre du mois rédigées et prêtes à partir
-- [ ] Plan éditorial d'environ 60 sujets en place et suivi par la rédaction de nuit
+- [x] Plan éditorial d'environ 60 sujets en place et suivi par la rédaction de nuit (coché le 12/11 : 60 sujets, premier sujet pris et coché par la rédaction du 11/11)
 - [ ] Honnêteté : plus aucun « testé » sans essai réel, prix datés, aucune fausse urgence
 - [ ] UX/UI revue sur téléphone (accueil, article, fiche robot, outils), DA inchangée
 
