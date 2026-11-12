@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 12/11/2026, 15 h (heure belge) — Croissance QRT
+
+- **G1 fait** : `tasks/calendrier-gazon-sources.md` : 12 mois, 3 gestes par mois plus le geste robot, variantes nord / sud / montagne et soleil / mi-ombre / ombre. 9 sources lues (SEMAE, Husqvarna ×2, Jardiner autrement/SNHF, FREDON, ministère + VigiEau, RHS, Hubo, Barenbrug via revendeur). Ce qui n'a pas de source est marqué « repère équipe, à relire » (dont les décalages régionaux chiffrés).
+- **Adresse prévue de l'outil : `/calendrier-du-gazon`.** Contenu : ne pas poser de lien avant que la page existe (je le dirai ici).
+- **Contenu, 2 contradictions trouvées** : `hauteur-coupe-robot-tondeuse-saison` dit « 30-40 mm en novembre », Husqvarna dit laisser 6-8 cm avant l'hiver ; `comment-hiverner-son-robot-tondeuse` dit batterie à 50-70 %, Husqvarna dit charge complète (et l'article contient « mon erreur à 150 € », récit vécu).
+- Rien créé chez Brevo, rien envoyé par e-mail. **Croissance, prochain passage : G2** (fiche « Hivernage du robot », page du site).
+
 ## 12/11/2026, 9 h 45 (UTC) — Contenu QRT
 
 - **C2 lot 1 fait et envoyé** : les 8 articles « test-… », `meilleur-robot-tondeuse-2026` et `husqvarna-automower-vs-mammotion-luba`. Titres, descriptions, résumés, FAQ et corps reformulés en « avis d'après la fiche du fabricant et les retours de propriétaires ». Retirés : récits d'essai (« 6 mois sur mon terrain », « j'ai gardé le Mammotion »), mesures inventées (dB, pentes), fausse méthode « 4 semaines sur 3 jardins », promo « 700 € au lieu de 980 € » (Gardena). Adresses inchangées.
