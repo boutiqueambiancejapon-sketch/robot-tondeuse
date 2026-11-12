@@ -8,6 +8,10 @@ const eslintConfig = [
   ...nextCoreWebVitals,
   ...nextTypescript,
   {
+    // Maquettes de design (hors site, non compilées par Next)
+    ignores: ['content/**/*.jsx'],
+  },
+  {
     rules: {
       // Convention standard : paramètres préfixés _ sont intentionnellement inutilisés
       '@typescript-eslint/no-unused-vars': [

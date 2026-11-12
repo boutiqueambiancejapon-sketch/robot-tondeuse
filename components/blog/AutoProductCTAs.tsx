@@ -185,6 +185,7 @@ export function AutoProductCTAs({ ctas }: Props) {
       containers.push(wrapper)
     })
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- conteneurs créés dans le DOM après montage, une seule fois
     setTargets(containers)
   }, [])
 

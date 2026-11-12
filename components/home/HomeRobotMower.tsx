@@ -53,6 +53,7 @@ export function HomeRobotMower() {
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
     if (mq.matches) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- préférence navigateur lue après montage, une seule fois
       setReduced(true)
       setIdx(Math.floor(TOTAL * 0.53))
       return

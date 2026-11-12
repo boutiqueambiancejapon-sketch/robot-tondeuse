@@ -80,7 +80,7 @@ export default async function BlogPage({ searchParams }: { searchParams: SearchP
             Nos articles
           </h1>
           <p style={{ fontSize: 'clamp(15px, 2vw, 17px)', color: 'var(--text-secondary)', maxWidth: '520px', lineHeight: 1.6 }}>
-            Tests terrain, comparatifs par marque et guides d'entretien.
+            Comparatifs par marque, guides d’achat et entretien du gazon.
             {' '}<span style={{ color: 'var(--text-muted)' }}>{allArticles.length} articles publiés.</span>
           </p>
         </section>

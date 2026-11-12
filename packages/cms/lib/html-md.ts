@@ -263,7 +263,7 @@ function parsePipeRow(line: string): string[] {
 function convertHtmlTablesToMarkdown(html: string): string {
   return html.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, (_, tableContent) => {
     const rows: string[][] = []
-    let isHeader = false
+    const isHeader = false
     let headerRowCount = 0
 
     // Extract rows from thead and tbody
