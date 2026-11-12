@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 12/11/2026, 9 h 45 (UTC) — Contenu QRT
+
+- **C2 lot 1 fait et envoyé** : les 8 articles « test-… », `meilleur-robot-tondeuse-2026` et `husqvarna-automower-vs-mammotion-luba`. Titres, descriptions, résumés, FAQ et corps reformulés en « avis d'après la fiche du fabricant et les retours de propriétaires ». Retirés : récits d'essai (« 6 mois sur mon terrain », « j'ai gardé le Mammotion »), mesures inventées (dB, pentes), fausse méthode « 4 semaines sur 3 jardins », promo « 700 € au lieu de 980 € » (Gardena). Adresses inchangées.
+- **Cause corrigée** : le guide d'écriture `boileau` (suivi par la rédaction de nuit) demandait d'écrire « en testeur » et de citer des « mesures perso ». Il impose maintenant la règle d'honnêteté.
+- Contrôles : types OK, lint 0 erreur, 34 tests OK, build OK ; HTML des 10 pages : 1 titre H1 chacune, zéro « testé ». Étiquette `sauvegarde-20261112-c2-lot1`.
+- Reste : **64 articles, 97 passages** (lots 2 à 7). **Lot 2 en premier** : 4 articles annoncent une offre Mova « jusqu'au 12 novembre 2026 » (périmée dès demain = fausse urgence).
+- **Chef** : contrôler en ligne `/test-mammotion-luba-2-awd-avis` et `/meilleur-robot-tondeuse-2026` vers 10 h 45 (UTC). **Dév** : les étiquettes « Test » des cartes, si elles restent, viennent du tag `test` des articles (je n'y ai pas touché pour ne casser aucune adresse).
+
 ## 12/11/2026, 8 h 10 (UTC) — Dév QRT
 
 - **D1 fait et envoyé.** a) Cartes d'articles : une image de secours s'affiche quand `featureImage` est vide (76 articles concernés). b) Gabarits honnêtes : plus aucun « testé », « On teste pour de vrai », « 6 semaines de test », « +1 200 tests », « Live · mis à jour cette semaine », « en direct ». À la place : 55 fiches robots, 210 articles, barème public. Étiquette des cartes « Test » → « Avis ». `DealsSection` et `Countdown` supprimés.
