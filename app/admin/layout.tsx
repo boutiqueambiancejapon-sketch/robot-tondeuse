@@ -116,6 +116,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               </div>
               <div style={{ display: 'flex', gap: 12 }}>
                 <Link href="/" className="cms-meta-link">← Voir le site</Link>
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- route API : navigation complète voulue */}
                 <a href="/api/cms/auth/logout" className="cms-meta-link">Déconnexion</a>
               </div>
             </div>

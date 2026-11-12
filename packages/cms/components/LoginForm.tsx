@@ -31,6 +31,7 @@ export function LoginForm({ githubEnabled }: { githubEnabled: boolean }) {
     <div>
       {githubEnabled && (
         <>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- route API OAuth : navigation complète voulue */}
           <a
             href="/api/cms/auth/login"
             style={{
