@@ -13,7 +13,7 @@ const ITEMS = [
       </svg>
     ),
     title: 'Prix comparés',
-    sub: 'Mis à jour chaque semaine',
+    sub: 'Prix indicatifs, datés',
   },
   {
     icon: (
@@ -34,8 +34,8 @@ const ITEMS = [
         <path d="M17 18 V12 M17 12 C15.5 12 15 10 15.5 9 M17 12 C18.5 12 19 10 18.5 9" />
       </svg>
     ),
-    title: 'Testé sur le terrain',
-    sub: '6 semaines minimum par robot',
+    title: 'Barème public',
+    sub: 'Fiches constructeur et sources citées',
   },
   {
     icon: (

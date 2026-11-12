@@ -19,12 +19,12 @@ export function generateMetadata(): Metadata {
   const year = currentYear()
   return {
     title: `Comparatifs robots tondeuses ${year} — top sélections, technologie, budget`,
-    description: `Tous nos comparatifs : meilleur robot tondeuse ${year}, sans fil périphérique, silencieux, pas cher, haut de gamme. Tests indépendants.`,
+    description: `Tous nos comparatifs : meilleur robot tondeuse ${year}, sans fil périphérique, silencieux, pas cher, haut de gamme. Avis indépendants.`,
     alternates: { canonical: `${SITE_URL}/comparatifs` },
     openGraph: {
       images: DEFAULT_OG_IMAGES,
       title: `Comparatifs robots tondeuses ${year}`,
-      description: `Top sélections testées, par technologie et par budget.`,
+      description: `Top sélections notées, par technologie et par budget.`,
       url: `${SITE_URL}/comparatifs`,
       siteName: niche.siteName,
       type: 'website',
@@ -45,7 +45,7 @@ export default function ComparatifsHub() {
           Tous les <em style={{ color: 'var(--copper)' }}>comparatifs</em> robots tondeuses.
         </h1>
         <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, lineHeight: 1.6 }}>
-          On a testé des dizaines de modèles dans la boue, sur des pentes, sous la pluie. Choisissez l&rsquo;axe qui vous parle&nbsp;: une top sélection, une technologie, un budget.
+          55 robots notés sur fiche et sources publiées. Choisissez l&rsquo;axe qui vous parle&nbsp;: une top sélection, une technologie, un budget.
         </p>
       </header>
 

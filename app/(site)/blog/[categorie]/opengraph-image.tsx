@@ -36,7 +36,7 @@ export default async function Image({ params }: { params: Promise<{ categorie: s
       pill={brand ? 'Marque' : 'Rubrique'}
       title={brand ? `Robots tondeuses ${name}` : name}
       hook={articles.length ? { big: String(articles.length), small: [articles.length > 1 ? 'articles' : 'article', 'à lire'] } : null}
-      meta={brand ? 'Tests, gammes et comparatifs' : null}
+      meta={brand ? 'Avis, gammes et comparatifs' : null}
       photo={photo}
       fallback={<OgFallback />}
       logo={<OgLogo />}

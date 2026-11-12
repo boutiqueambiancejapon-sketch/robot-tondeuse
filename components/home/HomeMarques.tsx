@@ -40,7 +40,7 @@ export function HomeMarques() {
               06 — Toutes les marques
             </p>
             <h2 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 400, letterSpacing: '-0.025em', lineHeight: 1.1, color: 'var(--text-primary)', margin: 0 }}>
-              Les marques que <em style={{ color: 'var(--copper)', fontStyle: 'italic' }}>nous testons</em>.
+              Les marques que <em style={{ color: 'var(--copper)', fontStyle: 'italic' }}>nous suivons</em>.
             </h2>
           </div>
           <Link
@@ -152,7 +152,7 @@ export function HomeMarques() {
                   {latest && (
                     <div style={{ paddingTop: 'var(--space-3)', borderTop: '1px solid var(--line-soft)' }}>
                       <p style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 9, color: brand.accent, letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500, marginBottom: 4 }}>
-                        Dernier test
+                        Dernier article
                       </p>
                       <p style={{ fontSize: 13, color: 'var(--text-primary)', lineHeight: 1.4, margin: 0, fontWeight: 500 }}>
                         {latest.title}

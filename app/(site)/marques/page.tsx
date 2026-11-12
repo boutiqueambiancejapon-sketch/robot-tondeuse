@@ -17,13 +17,13 @@ export const revalidate = 3600
 export function generateMetadata(): Metadata {
   const year = currentYear()
   return {
-    title: `Toutes les marques de robots tondeuses testées ${year}`,
-    description: `Tests par marque : Mammotion, Husqvarna, Gardena, Worx, Bosch et plus. Avis indépendants, comparatifs, guides d'achat.`,
+    title: `Toutes les marques de robots tondeuses en ${year}`,
+    description: `Avis par marque : Mammotion, Husqvarna, Gardena, Worx, Bosch et plus. Avis indépendants, comparatifs, guides d'achat.`,
     alternates: { canonical: `${SITE_URL}/marques` },
     openGraph: {
       images: DEFAULT_OG_IMAGES,
       title: `Toutes les marques de robots tondeuses ${year}`,
-      description: `Tests indépendants par marque.`,
+      description: `Avis indépendants par marque.`,
       url: `${SITE_URL}/marques`,
       siteName: niche.siteName,
       type: 'website',
@@ -44,7 +44,7 @@ export default function MarquesHub() {
           Toutes les marques que <em style={{ color: 'var(--copper)' }}>nous testons</em>.
         </h1>
         <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, lineHeight: 1.6 }}>
-          De la référence suédoise aux nouveaux acteurs sans fil. Choisissez la marque qui vous intéresse pour découvrir nos tests, comparatifs et guides d&rsquo;achat.
+          De la référence suédoise aux nouveaux acteurs sans fil. Choisissez la marque qui vous intéresse pour découvrir nos avis, comparatifs et guides d&rsquo;achat.
         </p>
       </header>
 
@@ -75,7 +75,7 @@ export default function MarquesHub() {
                 </p>
               )}
               <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, color: b.accent, letterSpacing: '0.06em', fontWeight: 500 }}>
-                Voir tous les tests →
+                Voir tous les avis →
               </span>
             </Link>
           ))}

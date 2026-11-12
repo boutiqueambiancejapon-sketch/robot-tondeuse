@@ -109,7 +109,7 @@ export const niche: NicheConfig = {
   heroPrefix: 'Le robot qui tond',
   heroSuffix: 'votre jardin',
   rotatingWords: ['vraiment', 'enfin', 'tranquillement', 'sans bruit', 'tout seul'],
-  subtitle: 'On a testé des dizaines de modèles dans la boue, sur des pentes, sous la pluie. Voici ceux qui méritent vraiment leur place dans votre jardin — et nos outils pour trouver le vôtre en 2 minutes.',
+  subtitle: '55 robots passés au crible de leurs fiches techniques et des essais publiés. Pente, surface, navigation, bruit : nos outils trouvent le vôtre en 2 minutes.',
   ctaPrimary: { text: 'Trouver mon robot →', url: '/quiz' },
   ctaSecondary: { text: 'Voir le top 2026', url: '/comparatifs' },
 

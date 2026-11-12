@@ -24,13 +24,13 @@ type SearchParams = Promise<{ page?: string }>
 export function generateMetadata(): Metadata {
   const year = currentYear()
   return {
-    title: `Blog ${year} — tests et guides | ${niche.siteName}`,
+    title: `Blog ${year} — avis et guides | ${niche.siteName}`,
     description:
       `Tous les articles : guides d'achat, comparatifs et conseils.`,
     alternates: { canonical: `${SITE_URL}/blog` },
     openGraph: {
       images: DEFAULT_OG_IMAGES,
-      title: `Blog ${year} — tests et guides`,
+      title: `Blog ${year} — avis et guides`,
       description: `Tous les articles ${niche.entities}. Avis honnêtes.`,
       url: `${SITE_URL}/blog`,
       siteName: niche.siteName,

@@ -85,7 +85,7 @@ export function HeroSection() {
                   background: 'var(--copper-bright)',
                 }}
               />
-              Live 2026 · Mis à jour cette semaine
+              Guide 2026
             </AnimatedHeading>
 
             {/* H1 */}
@@ -122,7 +122,7 @@ export function HeroSection() {
                 marginBottom: 'var(--space-10)',
               }}
             >
-              On a testé des dizaines de modèles dans la boue, sur des pentes, sous la pluie. Voici ceux qui méritent vraiment leur place dans votre jardin — et nos outils pour trouver le vôtre en 2&nbsp;minutes.
+              55 robots passés au crible de leurs fiches techniques et des essais publiés. Pente, surface, navigation, bruit&nbsp;: nos outils trouvent le vôtre en 2&nbsp;minutes.
             </AnimatedHeading>
 
             {/* CTAs */}
@@ -192,7 +192,7 @@ export function HeroSection() {
               }}
             >
               {[
-                { num: '30+', label: 'Modèles testés' },
+                { num: '55', label: 'Fiches robots' },
                 { num: '6', label: 'Marques couvertes' },
                 { num: '100%', label: 'Indépendant' },
               ].map((s) => (
