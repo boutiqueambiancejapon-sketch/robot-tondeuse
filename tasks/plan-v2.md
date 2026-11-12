@@ -180,6 +180,7 @@ Risque : c'est le lot le plus lourd, et le seul qui stocke des données personne
 ## 6. Ce que j'attends du propriétaire
 
 1. **Accord sur l'idée centrale** : « mon jardin, toute l'année » plutôt que « quel robot acheter » seulement.
+   → **Validé par écrit par le propriétaire le 12/11/2026** (déjà adopté le 11/11, voir `tasks/equipe.md`). Tous les lots partent de cette idée.
 2. **Feu vert pour le lot 0** (mesure). Sans risque, et tout le reste en dépend.
 3. **Service d'e-mails** : le même que Toutou (Brevo), ou un autre ?
 4. **Base de données** pour le lot 5 : d'accord sur le principe, ou on reporte la question ?
