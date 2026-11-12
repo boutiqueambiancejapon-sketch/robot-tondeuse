@@ -31,7 +31,7 @@ export const PAR_BESOIN_ITEMS: HubSectionItem[] = [
 // ─── Comparatifs (par budget / sélections phares) ───────────────────────
 
 export const COMPARATIFS_ITEMS: HubSectionItem[] = [
-  { href: '/meilleur-robot-tondeuse-2026', label: 'Top 2026', description: 'Notre sélection des 10 meilleurs modèles testés.', badge: 'À jour' },
+  { href: '/meilleur-robot-tondeuse-2026', label: 'Top 2026', description: 'Notre sélection des 10 meilleurs modèles, notés sur fiche et sources.', badge: 'À jour' },
   { href: '/robot-tondeuse-rapport-qualite-prix', label: 'Meilleur rapport qualité-prix', description: 'Le sweet spot performance vs prix.' },
   { href: '/robot-tondeuse-pas-cher', label: 'Pas cher (< 600 €)', description: 'Modèles efficaces sans vous ruiner.' },
   { href: '/robot-tondeuse-haut-de-gamme', label: 'Haut de gamme', description: 'Husqvarna NERA, Mammotion Luba, Worx Vision.' },

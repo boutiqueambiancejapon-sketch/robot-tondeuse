@@ -161,7 +161,7 @@ function Logo() {
           {niche.siteName}
         </span>
         <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 9, color: 'var(--moss)', letterSpacing: '0.16em', textTransform: 'uppercase', marginTop: 3 }}>
-          Tests · Comparatifs · Outils
+          Avis · Comparatifs · Outils
         </span>
       </div>
     </Link>

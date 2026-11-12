@@ -39,7 +39,7 @@ export function StickyCTA() {
         <Link href="/comparatifs" className="sticky-cta-buy">
           <div className="sticky-cta-text">
             <span className="sticky-cta-title">Voir les meilleurs prix</span>
-            <span className="sticky-cta-sub">6 marques comparées en direct</span>
+            <span className="sticky-cta-sub">6 marques comparées</span>
           </div>
           <span className="sticky-cta-arrow" aria-hidden="true">→</span>
         </Link>

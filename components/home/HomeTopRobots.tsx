@@ -161,7 +161,7 @@ export function HomeTopRobots() {
                   </div>
 
                   <Link href={`/tests/${p.slug}`} style={{ fontSize: 12, color: 'var(--moss)', fontWeight: 600, textDecoration: 'underline', textDecorationStyle: 'dotted', textUnderlineOffset: 3, alignSelf: 'flex-start' }}>
-                    Lire le test complet →
+                    Lire l&rsquo;avis complet →
                   </Link>
                 </div>
               </article>

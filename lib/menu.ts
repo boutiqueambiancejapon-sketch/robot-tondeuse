@@ -98,7 +98,7 @@ export const MAIN_MENU: MenuEntry[] = [
     href: '/marques',
     columns: [
       {
-        title: 'Marques testées',
+        title: 'Marques suivies',
         items: niche.categories
           .filter((c) => c.slug !== 'entretien-pelouse')
           .map((c) => ({ href: `/choisir/${c.slug}`, label: c.label })),

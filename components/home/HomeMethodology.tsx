@@ -1,13 +1,13 @@
 /**
- * HomeMethodology — section "On teste pour de vrai" (Atelier Vert V2).
+ * HomeMethodology — section "Notre méthode" (Atelier Vert V2).
  * Layout 2 colonnes : pitch méthodologie + score wheel SVG.
  * Typographie Schibsted Grotesk 900 — Server Component.
  */
 
 const STATS = [
-  { n: '30+', l: 'modèles testés', icon: '🤖' },
-  { n: '6 sem.', l: 'de test minimum', icon: '📅' },
-  { n: '0 €', l: 'reçu des marques', icon: '🚫' },
+  { n: '55', l: 'fiches robots', icon: '🤖' },
+  { n: '210', l: 'articles et guides', icon: '📅' },
+  { n: '100 %', l: 'barème public', icon: '🚫' },
   { n: '6', l: 'marques couvertes', icon: '📊' },
 ]
 
@@ -55,7 +55,7 @@ export function HomeMethodology() {
         }}
         aria-hidden="true"
       >
-        Test
+        Méthode
       </span>
 
       <div
@@ -97,8 +97,8 @@ export function HomeMethodology() {
               marginBottom: 20,
             }}
           >
-            On teste pour de vrai.<br />
-            <em style={{ color: 'var(--copper-bright)', fontStyle: 'italic' }}>Dans la boue.</em>
+            On lit tout.<br />
+            <em style={{ color: 'var(--copper-bright)', fontStyle: 'italic' }}>Puis on tranche.</em>
           </h2>
           <p
             style={{
@@ -109,7 +109,7 @@ export function HomeMethodology() {
               maxWidth: 480,
             }}
           >
-            Pas de fiches techniques recyclées. Chaque robot passe 6 semaines minimum dans un vrai jardin (le nôtre, ou celui de notre réseau de testeurs). On note des dizaines de critères, on filme, on documente.
+            Fiche constructeur, essais publiés, manuels et retours de propriétaires&nbsp;: chaque note part de sources lues et citées. On ne prétend pas avoir eu chaque robot dans notre jardin. Le barème est public.
           </p>
 
           {/* Stats */}

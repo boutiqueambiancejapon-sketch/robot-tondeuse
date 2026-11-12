@@ -22,7 +22,7 @@ export default async function OGImage() {
   const png = new ImageResponse(
     <ShareCard
       theme={OG_THEME}
-      pill="Tests · Comparatifs · Outils"
+      pill="Avis · Comparatifs · Outils"
       title={ogSafe('Quel robot tondeuse choisir pour votre jardin ?')}
       hook={{ big: String(guides), small: ['guides et', 'comparatifs'] }}
       meta={models ? `${models} robots en fiche détaillée` : null}

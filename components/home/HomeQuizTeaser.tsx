@@ -101,8 +101,8 @@ export function HomeQuizTeaser() {
                 marginBottom: 32,
               }}
             >
-              7 questions sur votre jardin, votre budget, vos contraintes. Notre algorithme croise
-              les modèles testés et vous sort <em>le</em> robot fait pour vous. C&rsquo;est tout.
+              7 questions sur votre jardin, votre budget, vos contraintes. Le quiz croise
+              les fiches de 55 robots et vous sort <em>le</em> robot fait pour vous. C&rsquo;est tout.
             </p>
             <div
               style={{
@@ -175,7 +175,7 @@ export function HomeQuizTeaser() {
                   letterSpacing: '0.04em',
                 }}
               >
-                +1 200 tests réalisés ce mois-ci
+                7 questions · 2 minutes
               </span>
             </div>
           </div>

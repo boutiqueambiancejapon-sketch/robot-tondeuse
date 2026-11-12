@@ -24,7 +24,7 @@ function poolImage(slug: string): string {
 /** Déduit le type d'article à partir du slug et de la catégorie. */
 function articleType(article: ArticleMeta): { label: string; icon: string } {
   const s = article.slug
-  if (s.startsWith('test-') || s.includes('-avis')) return { label: 'Test', icon: '🔬' }
+  if (s.startsWith('test-') || s.includes('-avis')) return { label: 'Avis', icon: '🔬' }
   if (s.includes('-vs-') || s.includes('comparatif')) return { label: 'Comparatif', icon: '⚖️' }
   if (article.categorie === 'entretien-pelouse') return { label: 'Entretien', icon: '🌱' }
   return { label: 'Guide', icon: '📖' }
@@ -34,7 +34,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, in
   const accent = CATEGORY_ACCENT[article.categorie] ?? 'var(--accent-1)'
   const label = CATEGORY_LABELS[article.categorie] ?? article.categorie
   const type = articleType(article)
-  const imgSrc = article.featureImage ?? poolImage(article.slug)
+  const imgSrc = article.featureImage || poolImage(article.slug)
 
   if (featured) {
     return (

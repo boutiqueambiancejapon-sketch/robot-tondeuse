@@ -48,8 +48,8 @@ export default function HomePage() {
         {/* 09 — Comparatifs FEATURED (Top 2026 en grand — fond cream) */}
         <HomeHubSection
           eyebrow="04 — Comparatifs"
-          heading="Top sélections testées"
-          emHighlight="testées"
+          heading="Top sélections notées"
+          emHighlight="notées"
           items={COMPARATIFS_ITEMS}
           background="cream"
           variant="featured"
