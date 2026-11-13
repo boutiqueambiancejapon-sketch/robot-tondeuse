@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/superficie`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/comparer`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${SITE_URL}/calculateur-rentabilite-robot-tondeuse`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/fiche-hivernage-robot-tondeuse`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
     // Éditorial
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
     { url: `${SITE_URL}/deals`, lastModified: now, changeFrequency: 'daily', priority: 0.7 },

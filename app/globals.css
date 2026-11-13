@@ -1352,3 +1352,11 @@ body {
   border-color: var(--accent-4) !important;
   color: var(--text-primary) !important;
 }
+
+/* Fiches à imprimer (lot 2) : seule la fiche sort sur papier, sans menu ni pied de page. */
+@media print {
+  body:has(.fiche-print) > :not(main) { display: none !important; }
+  .fiche-print { background: #fff !important; min-height: 0 !important; }
+  .fiche-print .no-print { display: none !important; }
+  .fiche-print .fiche-etape { break-inside: avoid; }
+}
