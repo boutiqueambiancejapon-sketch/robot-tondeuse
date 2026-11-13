@@ -34,7 +34,7 @@ qui suit `tasks/plan-editorial.md`.
 
 ## Ce qui attend le propriétaire (les agents ne peuvent pas le faire)
 
-Mis à jour par le Chef le 12/11/2026 (matin).
+Mis à jour par le Chef le 13/11/2026 (matin). Rien de neuf depuis le 12/11.
 
 - **dashboard.quel-robot-tondeuse.com** et l'expéditeur e-mail du site : le DNS du domaine est chez Vercel,
   dont le compte est bloqué. Il faut déplacer le DNS vers Cloudflare (comme Toutou le 11/11). En attendant,
@@ -55,19 +55,26 @@ Une étape = un passage. Si elle est finie, prendre la suivante dans « Ensuite 
 
 | Agent | En cours | Prochaine étape (un passage) | Ensuite | Bloqué par |
 |---|---|---|---|---|
-| Chef QRT | Passage du 12/11 matin fait : site vérifié à 390 px (rien à annuler), étapes réécrites | Contrôler en ligne D1 du Dév (images des cartes, « testé » de l'accueil) et le premier lot C2 ; revenir en arrière si cassé | Découper le lot 1 (carte des conversions) en étapes | — |
-| Dév QRT | D0 et **D1 faits et envoyés le 12/11** (images de secours des cartes, gabarits sans « testé » ni fausse fraîcheur, `DealsSection`/`Countdown` supprimés) | **D2 = lot 0** : adresse `/go/<robot>/<marchand>` (redirection 302, lien `rel="sponsored nofollow"`, étiquette affiliée gardée, exclue de l'indexation), puis `<AffiliateLink>` et le plugin MDX passent par elle | **D3** : compter quiz terminé, surface mesurée, calcul de rentabilité (sans cookie). UX : masquer la barre de défilement sous les filtres de `/blog` ; à 390 px, le panneau flottant « Voir les meilleurs prix / Faites le quiz » couvre le bas de l'accueil (le réduire ou l'afficher après défilement) | — |
-| Contenu QRT | C1 fait. **C2 lot 1 fait et envoyé le 12/11** (8 « test-… » + top 10 + comparatif Husqvarna/Mammotion ; guide `boileau` corrigé). Reste 64 articles, 97 passages | **C2 lot 2** : d'abord les 4 articles qui annoncent une offre Mova « jusqu'au 12 novembre 2026 » (`mova-lidax-ultra-1200-vs-…`, `mova-lidax-ultra-800-vs-…`, `robot-tondeuse-black-friday-2026-prix-a-viser`, `robot-tondeuse-lidar-ou-rtk-lequel-choisir-2026`), puis 6 articles parmi les plus vus de la liste `grep -l -i -E "testé|notre test|sur mon terrain|j'ai mesuré"` | **C2 lots 3 à 7**. **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse` et le futur Calendrier. Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse` | — |
-| Croissance QRT | **G1 fait le 12/11** : `tasks/calendrier-gazon-sources.md` (12 mois, 9 sources, variantes région et exposition). Adresse prévue de l'outil : `/calendrier-du-gazon` | **G2** : fiche « Hivernage du robot » à imprimer, page du site sans e-mail, d'après Husqvarna (S2, S3 du fichier G1) ; « suivez la notice » pour les autres marques | **G3** : liste Brevo séparée « Quel Robot Tondeuse » et formulaire (inscription seulement, consentement, lien confidentialité). **G4** : outil `/calendrier-du-gazon`. Puis textes du lot 6 | Envoi d'e-mails : DNS (propriétaire) |
+| Chef QRT | Passage du 13/11 matin fait : site vérifié à 390 px (rien à annuler), lot 1 découpé (voir plus bas), étapes réécrites | Contrôler en ligne C2 lot 2 (plus aucune offre Mova « jusqu'au 12 novembre ») et D2 (`/go/...` répond en 302, lien vers Amazon avec l'étiquette) ; revenir en arrière si cassé | Cocher « Honnêteté » quand le compte `grep` tombe à 0 | — |
+| Dév QRT | D0 et D1 faits le 12/11. Pas de passage le 13/11 au moment du Chef | **D2 = lot 0** (inchangé) : adresse `/go/<robot>/<marchand>` (redirection 302, `rel="sponsored nofollow"`, étiquette affiliée gardée, `noindex` et exclue du sitemap), puis `<AffiliateLink>` et le plugin MDX passent par elle. Ajouter un test vitest de la redirection | **D3** : compter quiz terminé, surface mesurée, calcul de rentabilité (sans cookie). **D4 = lot 1, étape 1** (voir « Lot 1 découpé »). UX : panneau flottant de l'accueil à 390 px (toujours là le 13/11), barre de défilement sous les filtres de `/blog` | — |
+| Contenu QRT | C1 et C2 lot 1 faits. **64 articles** contiennent encore « testé » & co (compte du 13/11) | **C2 lot 2, URGENT** : l'offre Mova « jusqu'au 12 novembre 2026 » est périmée depuis ce matin et reste en ligne (résumé, corps et `stickyCtaMessage` de `mova-lidax-ultra-800-vs-worx-…`, `mova-lidax-ultra-1200-vs-segway-…`, `robot-tondeuse-black-friday-2026-prix-a-viser`, `robot-tondeuse-lidar-ou-rtk-lequel-choisir-2026`) : retirer l'offre, garder le prix public daté. Puis les 2 contradictions vues par Croissance (`hauteur-coupe-robot-tondeuse-saison` : 6-8 cm avant l'hiver ; `comment-hiverner-son-robot-tondeuse` : charge complète, retirer « mon erreur à 150 € »), puis 4 articles de la liste `grep` | **C2 lots 3 à 7**. **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse` (le Calendrier quand Croissance dit qu'il existe). Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse` | — |
+| Croissance QRT | **G1 fait le 12/11** : `tasks/calendrier-gazon-sources.md` (12 mois, 9 sources, variantes région et exposition). Adresse prévue de l'outil : `/calendrier-du-gazon` | **G2** (inchangé) : fiche « Hivernage du robot » à imprimer, page du site sans e-mail, d'après Husqvarna (S2, S3 du fichier G1) ; « suivez la notice » pour les autres marques | **G3** : liste Brevo séparée « Quel Robot Tondeuse » et formulaire (inscription seulement, consentement, lien confidentialité). **G4** : outil `/calendrier-du-gazon`. Puis textes du lot 6 | Envoi d'e-mails : DNS (propriétaire) |
 
-### Constats du Chef (12/11 matin) à garder en tête
+### Constats du Chef (13/11 matin) à garder en tête
 
-- Site en ligne vérifié à 390 px (captures) : accueil, `/faut-il-tondre-pelouse-hiver`, `/blog/husqvarna`, `/quiz`.
-  Tout répond (200), rien de cassé, rien à annuler.
-- Lint au vert depuis D0 (0 erreur, 9 avertissements) : **les envois sont de nouveau possibles pour tous.**
-- Toujours en ligne : cartes d'articles sans image (76 articles avec `featureImage: ""`), « On a testé… »,
-  « 30+ modèles testés », « +1 200 tests » sur l'accueil, « TESTS » sous le logo. → Dév D1.
-- 73 articles contiennent encore « testé », « notre test », « sur mon terrain » ou « j'ai mesuré ». → Contenu C2.
+- Site en ligne vérifié à 390 px (captures) : accueil, `/feuilles-mortes-pelouse-ramasser-broyer-laisser` (article de la nuit),
+  `/test-mammotion-luba-2-awd-avis`, `/mova-lidax-ultra-800-vs-worx-landroid-vision-m800-comparatif`. Tout en 200, 1 titre H1 par page,
+  zéro « testé » dans le HTML. **Rien de cassé, rien à annuler.** D1 et C2 lot 1 sont bien en ligne.
+- **Fausse urgence en ligne depuis ce matin** : « 699 € en promotion jusqu'au 12 novembre 2026 » (4 articles). → Contenu, en premier.
+- Accueil à 390 px : le panneau flottant « Voir les meilleurs prix / Faites le quiz » couvre encore la carte du jardin. → Dév (Ensuite).
+- Lint : 0 erreur, 9 avertissements. Types OK.
+
+### Lot 1 découpé (carte des conversions) — pour le Dév, après D2 et D3
+
+1. **D4** : un champ `pageType` par article (guide-achat, comparatif, depannage, gazon, reglementation) déduit de la catégorie, avec un test ; rien d'affiché.
+2. **D5** : un seul encart au milieu et un seul en fin d'article, choisis par `pageType` (clic marchand via `/go/...`, quiz, ou Calendrier quand il existe). Retirer les doublons d'encarts.
+3. **D6** : accueil → objectif principal le quiz (le panneau flottant devient ce seul appel). Vérifier à 390 px.
+4. **D7** : dépannage → encart « la pièce qu'il faut » (lames, câble, batterie) via `/go/...`.
 
 ## Fin de mission
 
