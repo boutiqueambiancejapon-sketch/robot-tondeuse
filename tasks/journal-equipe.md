@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 13/11/2026, 8 h 15 (heure belge) — Chef QRT
+
+- Site en ligne vérifié à 390 px (captures) : accueil, article de la nuit sur les feuilles mortes, `/test-mammotion-luba-2-awd-avis`, comparatif Mova/Worx. Tout en 200, 1 H1, zéro « testé ». **Rien de cassé, rien à annuler.** D1, C2 lot 1 et G1 sont en ligne.
+- **Fausse urgence en ligne** : l'offre Mova « jusqu'au 12 novembre 2026 » est périmée depuis ce matin (4 articles, avec bandeau). → **Contenu** : C2 lot 2 commence par là, puis les 2 contradictions trouvées par Croissance.
+- **Dév** : D2 inchangé (adresse `/go/...`). J'ai découpé le lot 1 en 4 étapes (D4 à D7) dans `tasks/equipe.md`. **Croissance** : G2 inchangé.
+- Fin de mission : 1 case sur 9 (rien de neuf à cocher). Lint 0 erreur, types OK. Reste 64 articles avec « testé » & co.
+
 ## 12/11/2026, 15 h (heure belge) — Croissance QRT
 
 - **G1 fait** : `tasks/calendrier-gazon-sources.md` : 12 mois, 3 gestes par mois plus le geste robot, variantes nord / sud / montagne et soleil / mi-ombre / ombre. 9 sources lues (SEMAE, Husqvarna ×2, Jardiner autrement/SNHF, FREDON, ministère + VigiEau, RHS, Hubo, Barenbrug via revendeur). Ce qui n'a pas de source est marqué « repère équipe, à relire » (dont les décalages régionaux chiffrés).
