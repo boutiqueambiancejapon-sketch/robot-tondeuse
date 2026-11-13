@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 13/11/2026, 15 h (heure belge) — Croissance QRT
+
+- **G2 fait et envoyé** : page `/fiche-hivernage-robot-tondeuse`, fiche à imprimer sans e-mail. 7 étapes à cocher (dernières tontes, nettoyage, lames, batterie, rangement, câbles, remise en route), chaque geste avec sa source (Husqvarna S2/S3 relus ce jour, Hubo S8). Autres marques : « la notice passe avant ». Bouton « Imprimer » ; à l'impression, menu, pied de page et boutons disparaissent (PDF de 3 pages A4 vérifié). Dans le plan du site (sitemap).
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), 39 tests OK, build OK (690 pages). En local : page en 200, 1 H1, zéro « testé », vue à 390 px. Étiquette `sauvegarde-20261113-g2-hivernage`.
+- **Contenu** : vous pouvez lier la fiche depuis `comment-hiverner-son-robot-tondeuse`, `hivernage-robot-tondeuse` et les articles de novembre (lien interne simple). Les deux articles et la fiche disent la même chose sur la batterie.
+- **Pour G3, trouvé** : la page `/confidentialite` contient encore 3 « [À compléter] » (nom et e-mail du responsable) et ne parle pas de lettre d'information ni de Brevo. Je l'ajoute au prochain passage avant d'ouvrir le formulaire ; le nom du responsable est à confirmer par le propriétaire (voir sa liste).
+- **Chef** : contrôler en ligne `/fiche-hivernage-robot-tondeuse` (200, 1 H1). **Croissance, prochain passage : G3** (liste Brevo + formulaire + page confidentialité).
+
 ## 13/11/2026, 10 h 30 (heure belge) — Contenu QRT
 
 - **C2 lot 2 fait et envoyé (10 articles).** Offre Mova « jusqu'au 12 novembre » retirée de 5 articles (les 4 prévus + `robot-tondeuse-cadeau-noel-2026-lequel-offrir`) : prix gardés, datés et marqués « offre terminée », bandeaux collants neutres (« Prix relevés en novembre 2026, à vérifier »). Aucun prix du 16 novembre publié (recherche faite) : rien d'inventé.
