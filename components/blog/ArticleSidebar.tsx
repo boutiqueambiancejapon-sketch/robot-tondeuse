@@ -6,6 +6,7 @@
 import Link from 'next/link'
 import type { ArticleMeta } from '@/lib/blog'
 import { CATEGORY_LABELS, articleHref } from '@/lib/blog'
+import { affiliateHref } from '@/lib/utils/affiliate'
 
 type TocItem = { id: string; text: string }
 
@@ -14,14 +15,8 @@ type Props = {
   stickyCta?: { label: string; url: string }[]
   stickyCtaMessage?: string
   related: ArticleMeta[]
-  affiliateTag: string
 }
 
-function addAffiliateTag(url: string, tag: string): string {
-  if (!url.includes('amazon.')) return url
-  const sep = url.includes('?') ? '&' : '?'
-  return `${url}${sep}tag=${tag}`
-}
 
 /**
  * Décode les entités HTML les plus courantes utilisées dans les frontmatter
@@ -53,7 +48,7 @@ function decodeHtmlEntities(input: string): string {
     .replace(/&amp;/g, '&')
 }
 
-export function ArticleSidebar({ toc, stickyCta, stickyCtaMessage, related, affiliateTag }: Props) {
+export function ArticleSidebar({ toc, stickyCta, stickyCtaMessage, related }: Props) {
   const decodedMessage = stickyCtaMessage ? decodeHtmlEntities(stickyCtaMessage) : undefined
   return (
     <aside className="article-sidebar" aria-label="Navigation de l'article">
@@ -129,7 +124,7 @@ export function ArticleSidebar({ toc, stickyCta, stickyCtaMessage, related, affi
               {stickyCta.map((item) => (
                 <a
                   key={item.label}
-                  href={addAffiliateTag(item.url, affiliateTag)}
+                  href={affiliateHref(item.url)}
                   target="_blank"
                   rel="nofollow noopener sponsored"
                   style={{

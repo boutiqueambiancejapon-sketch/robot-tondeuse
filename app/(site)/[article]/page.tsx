@@ -322,7 +322,6 @@ export default async function StandaloneArticlePage({ params }: { params: Params
               stickyCta={meta.stickyCta}
               stickyCtaMessage={meta.stickyCtaMessage}
               related={related}
-              affiliateTag={niche.affiliateTag}
             />
           </div>
         </article>

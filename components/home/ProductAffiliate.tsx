@@ -4,9 +4,8 @@
  * Sinon → design border-left accent + typo.
  * Server Component.
  */
-import Link from 'next/link'
 import Image from 'next/image'
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 
 type Props = {
   name: string
@@ -20,10 +19,10 @@ type Props = {
 
 export function ProductAffiliate({ name, hint, priceFrom, amazonUrl, accent, image }: Props) {
   return (
-    <Link
-      href={addAffiliateTag(amazonUrl)}
+    <a
+      href={affiliateHref(amazonUrl)}
       target="_blank"
-      rel="noopener sponsored"
+      rel="sponsored nofollow noopener"
       style={{ textDecoration: 'none', display: 'block' }}
     >
       <div
@@ -71,6 +70,6 @@ export function ProductAffiliate({ name, hint, priceFrom, amazonUrl, accent, ima
           </div>
         </div>
       </div>
-    </Link>
+    </a>
   )
 }

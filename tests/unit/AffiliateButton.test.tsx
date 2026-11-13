@@ -20,7 +20,7 @@ describe('AffiliateButton', () => {
     expect(screen.getByText('Voir le meilleur prix')).toBeInTheDocument()
   })
 
-  it('ajoute le tag affilié dans le href', () => {
+  it('passe par la redirection /go/ (comptée, étiquette côté serveur)', () => {
     render(
       <AffiliateButton
         href="https://www.amazon.fr/dp/B0CHX1W1XY"
@@ -28,7 +28,7 @@ describe('AffiliateButton', () => {
       />
     )
     const link = screen.getByRole('link')
-    expect(link.getAttribute('href')).toContain('tag=test-tag-21')
+    expect(link.getAttribute('href')).toBe('/go/B0CHX1W1XY/amazon')
   })
 
   it('a les attributs rel corrects', () => {

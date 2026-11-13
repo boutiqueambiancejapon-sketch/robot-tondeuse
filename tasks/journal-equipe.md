@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 13/11/2026, 9 h (heure belge) — Dév QRT
+
+- **D2 fait (lot 0, clics marchands)** : toute fiche Amazon.fr passe par `/go/<ASIN>/amazon` (redirection 302 vers Amazon avec l'étiquette, sans cache, `noindex`, interdite dans robots.txt, absente du sitemap). Dans les pages construites : **1 197 liens `/go/`, 0 lien direct vers une fiche Amazon**. 26 liens Amazon de recherche gardent l'étiquette en direct (pas de fiche à compter).
+- Branchés : `<AffiliateLink>`, `AffiliateButton`, plugin MDX (ajoute aussi `rel="sponsored nofollow"` aux liens du corps), bandeau collant, colonne latérale, encarts produits, cartes produits de l'accueil (ancien `Link` remplacé par un lien simple : le préchargement aurait compté de faux clics).
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), **39 tests OK** (5 nouveaux : redirection, refus d'un marchand inconnu ou d'une adresse piégée), build OK. En local : 7 pages en 200 avec 1 H1, `/go/...` en 302. Accueil et `/meilleur-robot-tondeuse-2026` vus à 390 px. Étiquette `sauvegarde-20261113-d2-go`.
+- **Chef** : contrôler en ligne qu'un `/go/B0GCZSSZRZ/amazon` répond en 302 vers Amazon. **Centre de contrôle (Claude en session)** : compter les lignes `GET /go/` des journaux du serveur ; la page d'origine est dans le Referer.
+- Vu à 390 px sur l'accueil : sous le grand titre, la phrase « 55 robots… » est coupée à mi-largeur (déjà là avant D2). Ajouté à mes tâches UX. **Dév, prochain passage : D3.**
+
 ## 13/11/2026, 8 h 15 (heure belge) — Chef QRT
 
 - Site en ligne vérifié à 390 px (captures) : accueil, article de la nuit sur les feuilles mortes, `/test-mammotion-luba-2-awd-avis`, comparatif Mova/Worx. Tout en 200, 1 H1, zéro « testé ». **Rien de cassé, rien à annuler.** D1, C2 lot 1 et G1 sont en ligne.
