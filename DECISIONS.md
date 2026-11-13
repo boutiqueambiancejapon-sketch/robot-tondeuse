@@ -89,3 +89,9 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - [x] Site servi par le VPS (Caddy + systemd), plus par Vercel : `@vercel/analytics` et `vercel.json` retirés, CSP sans `vitals.vercel-insights.com`. `@vercel/blob` et le CMS restent (retrait prévu plus tard) ; aucune page publique n'en dépend (images dans `public/`).
 - [x] Next.js 16.4.5 (failles 16.1/16.2 corrigées), `sharp` déclaré (images de partage).
 - [x] Images de partage par `next/og`, JPEG 1200×630, DA Atelier Vert : `lib/og/` (gabarit `ShareCard`, polices Schibsted/Hanken en WOFF dans `assets/og/fonts/`, données réelles de l'article : format, modèles cités par `<ProductCTA>`, prix d'appel, durée de lecture). Routes : `app/opengraph-image.tsx`, `app/(site)/[article]/opengraph-image.tsx`, `app/(site)/blog/[categorie]/opengraph-image.tsx`. Les pages qui déclarent leur propre `openGraph` passent `DEFAULT_OG_IMAGES`, sinon Next.js perd l'image du parent. `twitter:image` hérite de `og:image`.
+
+## 13/11/2026 — Fiche « Hivernage du robot » (lot 2, G2)
+- Route `/fiche-hivernage-robot-tondeuse` (les adresses `hivernage-robot-tondeuse` et `comment-hiverner-son-robot-tondeuse` sont des articles).
+- Fonds : page `var(--paper)`, cartes d'étapes `var(--ivory)` bordées, comme `/superficie`. Aucune animation.
+- Impression : `@media print` dans globals.css, limité aux pages qui ont `.fiche-print` ; menu, pied de page, barre du bas et boutons masqués. Réutilisable pour le guide PDF du calendrier.
+- Contenu dans `lib/content/fiche-hivernage.ts`, chaque geste avec sa source (Husqvarna S2/S3, Hubo S8).
