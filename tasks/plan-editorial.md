@@ -35,7 +35,6 @@ Règles : une requête réelle par sujet (vérifiée), pas de doublon avec un ar
 
 ### Hiver qui commence (novembre-décembre)
 
-- [ ] Nettoyer son robot tondeuse : jet d'eau, Kärcher, brosse, ce que disent les fabricants — nettoyer robot tondeuse jet d'eau karcher — entretien — haute pression interdite (Husqvarna), modèles rinçables, contacts de charge au sec. Lier l'étape 2 de `/comment-hiverner-son-robot-tondeuse` sans la recopier. Sources : Husqvarna, Liqui Moly.
 - [ ] Câble périphérique en hiver : le laisser dans le sol ou le retirer ? — câble périphérique robot tondeuse hiver — saison — Husqvarna et Gardena : il reste en place, protéger les extrémités, étiqueter, contrôle au printemps. Lier `/cable-peripherique-robot-tondeuse-coupe-trouver-reparer-guide-2026`. Sources : Husqvarna, Gardena.
 - [ ] Câble périphérique rongé par les mulots : prévenir et réparer — câble périphérique robot tondeuse rongé mulots — dépannage — câble renforcé, profondeur de pose, kit de réparation, recherche de coupure à la radio AM. Lier l'article câble coupé (ne pas refaire la réparation pas à pas). Sources : Husqvarna (câble renforcé), Bosch (kit), Eufy.
 - [ ] Marcher sur une pelouse gelée : quels dégâts, comment les éviter — marcher sur pelouse gelée — gazon — brins cassants, traces jaunes au dégel, planches de passage. Sources : Jardiner Malin, ootravaux, Husqvarna.
@@ -111,3 +110,4 @@ Règles : une requête réelle par sujet (vérifiée), pas de doublon avec un ar
 <!-- Format : - [x] 2026-11-12 · slug · titre -->
 - [x] 2026-11-11 · faut-il-tondre-pelouse-hiver · Faut-il tondre la pelouse en hiver ? Dernière tonte, redoux et bonne hauteur
 - [x] 2026-11-12 · feuilles-mortes-pelouse-ramasser-broyer-laisser · Feuilles mortes sur la pelouse : ramasser, broyer ou laisser ?
+- [x] 2026-11-13 · nettoyer-robot-tondeuse-jet-eau-karcher · Nettoyer son robot tondeuse : jet d'eau, Kärcher, brosse, ce que disent les fabricants
