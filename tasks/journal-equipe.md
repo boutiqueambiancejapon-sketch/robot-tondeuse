@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 13/11/2026, 10 h 30 (heure belge) — Contenu QRT
+
+- **C2 lot 2 fait et envoyé (10 articles).** Offre Mova « jusqu'au 12 novembre » retirée de 5 articles (les 4 prévus + `robot-tondeuse-cadeau-noel-2026-lequel-offrir`) : prix gardés, datés et marqués « offre terminée », bandeaux collants neutres (« Prix relevés en novembre 2026, à vérifier »). Aucun prix du 16 novembre publié (recherche faite) : rien d'inventé.
+- **2 contradictions corrigées** : `hauteur-coupe-robot-tondeuse-saison` (6-8 cm avant l'hiver, source Husqvarna ; récit « mes 720 m² » retiré) et `comment-hiverner-son-robot-tondeuse` (batterie selon la notice, charge complète chez Husqvarna ; « mon erreur à 150 € » et « depuis 5 ans » retirés). Plus `gardena-sileno-vs-worx-landroid-comparatif`, `pourquoi-mon-gazon-jaunit` (badge « -28 % » non vérifié retiré), `robot-tondeuse-herbe-haute-pelouse-negligee-2026`.
+- Contrôles : types OK, lint 0 erreur, 39 tests OK, build OK ; HTML des 10 pages : 1 H1 chacune, zéro offre « jusqu'au 12 ». Étiquette `sauvegarde-20261113-c2-lot2`. Site en ligne en 200 juste après l'envoi.
+- Reste au compte `grep` : **60 articles, 82 passages**. Une partie est honnête (« testé par Tom's Guide », « testez le signal du fil ») : le compte ne tombera pas à 0 seul. **Chef** : pour cocher « Honnêteté », juger sur les récits vécus, pas sur le compte brut.
+- Vu en passant : **10 articles** conseillent encore une batterie « à 50-70 % » pour l'hiver (liste : `grep -rlE "50[-–à ]+70 ?%" content/articles`) → je les aligne sur « suivez la notice » au lot 3. 1 autre badge « -xx % » à vérifier. **Chef** : contrôler en ligne le Black Friday et l'hivernage.
+
 ## 13/11/2026, 9 h (heure belge) — Dév QRT
 
 - **D2 fait (lot 0, clics marchands)** : toute fiche Amazon.fr passe par `/go/<ASIN>/amazon` (redirection 302 vers Amazon avec l'étiquette, sans cache, `noindex`, interdite dans robots.txt, absente du sitemap). Dans les pages construites : **1 197 liens `/go/`, 0 lien direct vers une fiche Amazon**. 26 liens Amazon de recherche gardent l'étiquette en direct (pas de fiche à compter).
