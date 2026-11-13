@@ -1,10 +1,10 @@
 /**
- * AffiliateLink — tout lien Amazon passe par addAffiliateTag().
- * rel="nofollow sponsored noopener" obligatoire.
+ * AffiliateLink — tout lien Amazon passe par affiliateHref() (/go/... ou étiquette).
+ * rel="sponsored nofollow noopener" obligatoire.
  * Server Component.
  */
 
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 
 type AffiliateLinkProps = {
   href: string
@@ -16,8 +16,8 @@ type AffiliateLinkProps = {
 export function AffiliateLink({ href, children, className, style }: AffiliateLinkProps) {
   return (
     <a
-      href={addAffiliateTag(href)}
-      rel="nofollow sponsored noopener"
+      href={affiliateHref(href)}
+      rel="sponsored nofollow noopener"
       target="_blank"
       className={className}
       style={style}

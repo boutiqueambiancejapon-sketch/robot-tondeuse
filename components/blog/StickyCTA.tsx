@@ -20,7 +20,7 @@
  */
 
 import { useState, useEffect } from 'react'
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 
 export type StickyCTAItem = {
   label: string
@@ -96,7 +96,7 @@ export function StickyCTA({
   if (!finalBuyUrl) return null
 
   const isAmazon = finalBuyUrl.includes('amazon.fr') || finalBuyUrl.includes('amzn.to')
-  const buyHref = isAmazon ? addAffiliateTag(finalBuyUrl) : finalBuyUrl
+  const buyHref = isAmazon ? affiliateHref(finalBuyUrl) : finalBuyUrl
   const decodedMessage = message ? decodeHtmlEntities(message) : undefined
 
   return (

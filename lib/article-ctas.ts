@@ -7,7 +7,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 
 export type ProductLink = {
   store: string
@@ -75,11 +75,11 @@ function getAllLinks(product: ProductData): ProductLink[] {
   if (product.links && product.links.length > 0) {
     return product.links.map((l) => ({
       store: l.store,
-      url: addAffiliateTag(l.url),
+      url: affiliateHref(l.url),
     }))
   }
   if (product.url) {
-    return [{ store: 'Amazon', url: addAffiliateTag(product.url) }]
+    return [{ store: 'Amazon', url: affiliateHref(product.url) }]
   }
   return []
 }
@@ -89,7 +89,7 @@ function toArticleCTA(product: ProductData): ArticleCTA {
   return {
     name: product.name,
     price: product.prix,
-    url: addAffiliateTag(getPrimaryUrl(product)),
+    url: affiliateHref(getPrimaryUrl(product)),
     badge: product.badge,
     hook: product.hook,
     allLinks: getAllLinks(product),

@@ -6,7 +6,7 @@
  */
 
 import { ExternalLink } from 'lucide-react'
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 
 type AffiliateButtonVariant = 'primary' | 'secondary' | 'ghost'
 
@@ -51,8 +51,8 @@ export function AffiliateButton({
 }: AffiliateButtonProps) {
   return (
     <a
-      href={addAffiliateTag(href)}
-      rel="nofollow sponsored noopener"
+      href={affiliateHref(href)}
+      rel="sponsored nofollow noopener"
       target="_blank"
       className={className}
       style={{

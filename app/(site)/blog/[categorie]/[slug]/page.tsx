@@ -405,7 +405,6 @@ export default async function ArticlePage({ params }: { params: Params }) {
               stickyCta={meta.stickyCta}
               stickyCtaMessage={meta.stickyCtaMessage}
               related={related}
-              affiliateTag={niche.affiliateTag}
             />
           </div>
         </article>

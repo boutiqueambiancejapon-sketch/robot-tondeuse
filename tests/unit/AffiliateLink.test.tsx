@@ -19,14 +19,14 @@ describe('AffiliateLink', () => {
     expect(screen.getByText('Voir sur Amazon')).toBeInTheDocument()
   })
 
-  it('ajoute automatiquement le tag affilié', () => {
+  it('passe par la redirection /go/ (comptée, étiquette côté serveur)', () => {
     render(
       <AffiliateLink href="https://www.amazon.fr/dp/B0CHX1W1XY">
         Test
       </AffiliateLink>
     )
     const link = screen.getByRole('link')
-    expect(link.getAttribute('href')).toContain('tag=test-tag-21')
+    expect(link.getAttribute('href')).toBe('/go/B0CHX1W1XY/amazon')
   })
 
   it('a les attributs rel corrects', () => {
