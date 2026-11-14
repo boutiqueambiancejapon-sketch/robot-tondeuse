@@ -13,6 +13,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react'
+import { signaler } from '@/lib/utils/mesure'
 
 type LatLng = [number, number]
 const LEAFLET_CSS_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'
@@ -24,6 +25,7 @@ const OSM_LABELS = 'https://services.arcgisonline.com/ArcGIS/rest/services/Refer
 export function SurfaceMap() {
   const mapRef = useRef<HTMLDivElement>(null)
   const [area, setArea] = useState<number>(0)
+  const mesureSignalee = useRef(false)
   const [points, setPoints] = useState<LatLng[]>([])
   const [search, setSearch] = useState('')
   const [searching, setSearching] = useState(false)
@@ -117,6 +119,10 @@ export function SurfaceMap() {
       const polygon = helpers.polygon([ring])
       const m2 = turf.default(polygon)
       setArea(Math.round(m2))
+      if (!mesureSignalee.current) {
+        mesureSignalee.current = true
+        signaler('surface-mesuree')
+      }
     } else {
       setArea(0)
     }

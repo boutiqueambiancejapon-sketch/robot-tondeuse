@@ -8,6 +8,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { signaler } from '@/lib/utils/mesure'
 
 type Step = {
   id: string
@@ -246,6 +247,7 @@ export function QuizEngine({ defaultProduit, steps }: QuizEngineProps = {}) {
       setStep(step + 1)
     } else {
       setDone(true)
+      signaler('quiz-termine')
     }
   }
 
