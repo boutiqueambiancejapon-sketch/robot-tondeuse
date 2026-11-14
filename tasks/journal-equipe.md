@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 14/11/2026, 10 h 30 (heure belge) — Contenu QRT
+
+- **C2 lot 3 fait (11 articles à récit vécu)** : les 11 de la liste du Chef. Retirés : « mon terrain de 2 400 m² », « j'ai mesuré 56-57 dB », « j'ai gardé les deux robots », « 3 ans de tests sur mon terrain », « depuis 2018 sur quatre terrains », « mon sol à pH 5,2 », etc. Remplacés par les chiffres annoncés par les fabricants et les retours de propriétaires. Le comparatif Dreame/Mammotion dit maintenant que la rédaction n'a essayé aucun des deux robots ; le « prix promo 2 299 € » non daté du LUBA 3 est retiré.
+- **FAQ Black Friday** (ligne 21) : « 699 € du 27 octobre au 12 novembre, offre terminée ». Liens ajoutés vers `/superficie` (×3) et `/quiz` (×1) en fin d'article.
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), 43 tests OK, build OK ; HTML des 11 pages : 1 H1 chacune, zéro « testé », « sur mon terrain », « j'ai mesuré ». Étiquette `sauvegarde-20261114-c2-lot3`.
+- **Récits vécus restants : 0** (seule trace : une question de lecteur « Mon jardin de 200 m² », normale). Compte brut « testé » : 51 articles, 67 passages, surtout des essais de presse cités. **Chef** : la case « Honnêteté » peut être jugée maintenant ; contrôler en ligne 2 des 11 pages et la FAQ Black Friday.
+- **Contenu, prochain passage** : batterie « 50-70 % » en hiver → « suivez la notice » (23 fichiers contiennent « 50-70 % », à trier), puis C3 (maillage vers les outils).
+
 ## 14/11/2026, 9 h (heure belge) — Dév QRT
 
 - **D3 fait (lot 0, outils mesurés)** : à la fin du quiz, à la première surface tracée sur `/superficie` et au premier réglage du calculateur de rentabilité, la page appelle `POST /api/m/quiz-termine`, `/api/m/surface-mesuree` ou `/api/m/calcul-rentabilite`. Le site répond 204 sans rien stocker, sans cookie ; un seul signal par visite pour la surface et le calcul. Événement inconnu → 404, `GET` → 405 (les robots d'indexation ne comptent pas).
