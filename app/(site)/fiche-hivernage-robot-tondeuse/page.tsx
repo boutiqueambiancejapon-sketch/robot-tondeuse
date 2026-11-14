@@ -9,6 +9,8 @@ import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 import { PrintButton } from '@/components/tools/PrintButton'
 import { ETAPES_HIVERNAGE, SOURCES_HIVERNAGE } from '@/lib/content/fiche-hivernage'
+import { InscriptionLettre } from '@/components/tools/InscriptionLettre'
+import { isNewsletterConfigured } from '@/lib/newsletter/brevo'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 const PATH = '/fiche-hivernage-robot-tondeuse'
@@ -65,6 +67,19 @@ export default function FicheHivernagePage() {
           </article>
         ))}
       </section>
+
+      {isNewsletterConfigured() && (
+        <section className="no-print" aria-labelledby="lettre-titre" style={{ maxWidth: 820, margin: '0 auto', padding: '0 var(--space-6) var(--space-10)' }}>
+          <div style={{ background: 'var(--ivory)', border: '1px solid var(--border)', borderRadius: 16, padding: 'var(--space-6)' }}>
+            <p style={{ ...mono, color: 'var(--moss)', marginBottom: 'var(--space-2)' }}>La lettre du jardin</p>
+            <h2 id="lettre-titre" style={{ ...display, fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)', marginBottom: 'var(--space-3)' }}>Les gestes du mois pour la pelouse et le robot</h2>
+            <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 'var(--space-5)', maxWidth: 600 }}>
+              Un e-mail par mois au plus : quand reprendre la tonte, à quelle hauteur couper, quand scarifier, quand ranger le robot. Chaque conseil cite sa source.
+            </p>
+            <InscriptionLettre source="fiche-hivernage" />
+          </div>
+        </section>
+      )}
 
       <section style={{ maxWidth: 820, margin: '0 auto', padding: '0 var(--space-6) var(--space-20)' }}>
         <h2 style={{ ...display, fontSize: '1.4rem', marginBottom: 'var(--space-3)' }}>Sources</h2>
