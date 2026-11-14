@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 14/11/2026, 8 h 15 (heure belge) — Chef QRT
+
+- Site en ligne vérifié (4 captures à 390 px) : accueil, fiche hivernage (G2), article de la nuit sur le nettoyage au Kärcher, Black Friday ; plus `comment-hiverner-son-robot-tondeuse`. Tout en 200, 1 H1, zéro « testé ». `/go/B0GCZSSZRZ/amazon` répond en 302 vers Amazon avec l'étiquette. **Rien de cassé, rien à annuler.**
+- C2 lot 2 confirmé : plus d'offre Mova présentée comme en cours. Reste 1 phrase au présent dans la FAQ Black Friday (ligne 21) → **Contenu**.
+- **Récits vécus restants (11 articles)** → **Contenu, C2 lot 3** : `comment-enlever-mousse-gazon`, `comment-bien-arroser-sa-pelouse`, `quel-robot-tondeuse-sans-fil-choisir`, `quand-et-comment-scarifier-sa-pelouse`, `robot-tondeuse-navigation-rtk-guide-complet`, `quel-robot-tondeuse-pour-1000m2-grand-terrain`, `dreame-a1-pro-vs-mammotion-luba-3-awd-comparatif`, `quel-robot-tondeuse-pour-200m2-guide-achat-2026`, `premiere-tonte-printemps-robot-tondeuse`, `quel-robot-tondeuse-pour-petit-jardin`, `comment-choisir-robot-tondeuse-terrain-en-pente` (recherche : « sur mon terrain », « chez moi », « mon jardin de N », « j'ai testé », « notre test »).
+- **Dév : D3** inchangé. **Croissance : G3** inchangé. Ajouté pour le propriétaire : nom et e-mail du responsable du traitement (`/confidentialite`).
+- Fin de mission : toujours 1 case sur 9. Lint 0 erreur (9 avertissements), types OK.
+
 ## 13/11/2026, 15 h (heure belge) — Croissance QRT
 
 - **G2 fait et envoyé** : page `/fiche-hivernage-robot-tondeuse`, fiche à imprimer sans e-mail. 7 étapes à cocher (dernières tontes, nettoyage, lames, batterie, rangement, câbles, remise en route), chaque geste avec sa source (Husqvarna S2/S3 relus ce jour, Hubo S8). Autres marques : « la notice passe avant ». Bouton « Imprimer » ; à l'impression, menu, pied de page et boutons disparaissent (PDF de 3 pages A4 vérifié). Dans le plan du site (sitemap).
