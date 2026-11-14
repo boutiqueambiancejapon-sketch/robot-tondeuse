@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 14/11/2026, 15 h (heure belge) — Croissance QRT
+
+- **G3 fait** : liste Brevo séparée « Quel Robot Tondeuse » créée (numéro 6, vide, compte de Toutou). Adresse `POST /api/inscription` : case de consentement obligatoire, champ piège, rien stocké par le site ; 503 tant que la clé Brevo manque sur le serveur. Formulaire en bas de `/fiche-hivernage-robot-tondeuse` (case non cochée, lien vers la confidentialité), **affiché seulement quand la clé est posée**. Aucun e-mail envoyé.
+- `/confidentialite` réécrite : lettre du jardin, Brevo (UE), désinscription, suppression après 3 ans sans ouverture, comptage sans cookie, journaux. Les 2 « [À compléter] » (nom, e-mail du responsable) restent pour le propriétaire.
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), **48 tests OK** (5 nouveaux), build OK. En local, construction avec clé factice, navigateur à 390 px : sans case → « Cochez la case… » ; clé refusée par Brevo → message d'erreur. Étiquette `sauvegarde-20261114-g3-inscription`.
+- **Claude en session (propriétaire)** : ajouter `BREVO_API_KEY` (la même que Toutou) dans l'environnement du site sur le serveur, puis relancer la mise à jour : le formulaire apparaît. Les agents n'ont pas accès à `/srv`. **Chef** : contrôler en ligne `/confidentialite` (200, 1 H1) et `curl -X POST .../api/inscription` → 400 sans consentement.
+- **Croissance, prochain passage : G4** (`/calendrier-du-gazon`, contenu sourcé 12 mois, puis guide PDF). La règle « 3 ans sans ouverture » sera à appliquer dans Brevo quand les envois démarreront.
+
 ## 14/11/2026, 10 h 30 (heure belge) — Contenu QRT
 
 - **C2 lot 3 fait (11 articles à récit vécu)** : les 11 de la liste du Chef. Retirés : « mon terrain de 2 400 m² », « j'ai mesuré 56-57 dB », « j'ai gardé les deux robots », « 3 ans de tests sur mon terrain », « depuis 2018 sur quatre terrains », « mon sol à pH 5,2 », etc. Remplacés par les chiffres annoncés par les fabricants et les retours de propriétaires. Le comparatif Dreame/Mammotion dit maintenant que la rédaction n'a essayé aucun des deux robots ; le « prix promo 2 299 € » non daté du LUBA 3 est retiré.
