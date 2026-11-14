@@ -34,7 +34,7 @@ qui suit `tasks/plan-editorial.md`.
 
 ## Ce qui attend le propriétaire (les agents ne peuvent pas le faire)
 
-Mis à jour par le Chef le 13/11/2026 (matin). Rien de neuf depuis le 12/11.
+Mis à jour par le Chef le 14/11/2026 (matin). Ajouté : le responsable du traitement (G3).
 
 - **dashboard.quel-robot-tondeuse.com** et l'expéditeur e-mail du site : le DNS du domaine est chez Vercel,
   dont le compte est bloqué. Il faut déplacer le DNS vers Cloudflare (comme Toutou le 11/11). En attendant,
@@ -44,6 +44,8 @@ Mis à jour par le Chef le 13/11/2026 (matin). Rien de neuf depuis le 12/11.
 - ~~Question sur les vrais essais de robots~~ : **le propriétaire a choisi de ne pas répondre (12/11). Ne plus
   la poser.** L'équipe applique donc la règle d'honnêteté partout : toutes les formules « testé »,
   « sur mon terrain », « après 6 mois » sont reformulées (73 articles au 12/11, plus l'accueil et le menu).
+- **Nom et e-mail du responsable du traitement** pour la page `/confidentialite` (3 champs « [À compléter] ») :
+  à donner par le propriétaire. Sans eux, la page reste incomplète, mais le formulaire G3 peut être préparé.
 - **Revenus Amazon** : combien rapporte le site par mois ? Ce chiffre sert à classer les priorités.
 - **Affichage des chiffres du lot 0 dans le centre de contrôle** : le centre de contrôle est hors du dossier
   du projet. Les agents préparent le comptage côté site ; le branchement se fait avec Claude en session.
@@ -55,18 +57,18 @@ Une étape = un passage. Si elle est finie, prendre la suivante dans « Ensuite 
 
 | Agent | En cours | Prochaine étape (un passage) | Ensuite | Bloqué par |
 |---|---|---|---|---|
-| Chef QRT | Passage du 13/11 matin fait : site vérifié à 390 px (rien à annuler), lot 1 découpé (voir plus bas), étapes réécrites | Contrôler en ligne C2 lot 2 (plus aucune offre Mova « jusqu'au 12 novembre ») et D2 (`/go/...` répond en 302, lien vers Amazon avec l'étiquette) ; revenir en arrière si cassé | Cocher « Honnêteté » quand le compte `grep` tombe à 0 | — |
-| Dév QRT | **D2 fait le 13/11** : clics Amazon via `/go/<ASIN>/amazon` (1 197 liens, 0 lien direct vers une fiche) | **D3** : compter quiz terminé, surface mesurée, calcul de rentabilité, sans cookie (même principe : une adresse du site appelée à la fin, lue dans les journaux) | **D4 = lot 1, étape 1** (voir « Lot 1 découpé »). UX à 390 px : panneau flottant de l'accueil, phrase coupée sous le titre de l'accueil, barre de défilement sous les filtres de `/blog` | Affichage des chiffres : centre de contrôle (Claude en session) |
-| Contenu QRT | **C2 lot 2 fait le 13/11** : offre Mova périmée retirée (5 articles), 2 contradictions corrigées, 3 articles reformulés. Reste **60 articles / 82 passages** au `grep` (dont des mentions honnêtes de tests de presse) | **C2 lot 3** : les 10 articles « batterie à 50-70 % en hiver » → « suivez la notice » + récits vécus restants (`comment-choisir-robot-tondeuse-terrain-en-pente`, comparatifs Mova/Ecovacs, Dreame/Luba), 1 badge « -xx % » à vérifier | **C2 lots 4 à 6**. **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse` (le Calendrier quand Croissance dit qu'il existe). Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse` | — |
-| Croissance QRT | **G2 fait le 13/11** : `/fiche-hivernage-robot-tondeuse` (fiche à imprimer, 7 étapes sourcées). G1 : `tasks/calendrier-gazon-sources.md`. Adresse prévue de l'outil : `/calendrier-du-gazon` | **G3** : compléter `/confidentialite` (lettre d'information, Brevo, désinscription), créer la liste Brevo séparée « Quel Robot Tondeuse », formulaire d'inscription (consentement non coché, lien confidentialité), sans envoi | **G4** : outil `/calendrier-du-gazon` + guide PDF (réutiliser le style d'impression `.fiche-print`). Puis textes du lot 6 (bienvenue ×3, lettre du mois) dans le dépôt | Envoi d'e-mails : DNS (propriétaire). Nom et e-mail du responsable du traitement pour `/confidentialite` : propriétaire |
+| Chef QRT | Passage du 14/11 matin fait : 5 pages vérifiées en ligne (4 captures à 390 px), `/go/...` en 302 avec l'étiquette, rien à annuler | Contrôler en ligne D3 (adresse de comptage appelée à la fin du quiz), C2 lot 3 et G3 (`/confidentialite` et formulaire) ; revenir en arrière si cassé | Cocher « Honnêteté » quand les 11 articles à récit vécu sont reformulés (juger les récits, pas le compte brut) | — |
+| Dév QRT | **D2 vérifié en ligne le 14/11** (`/go/B0GCZSSZRZ/amazon` → 302 vers Amazon avec l'étiquette) | **D3** (toujours à faire) : compter quiz terminé, surface mesurée, calcul de rentabilité, sans cookie (une adresse du site appelée à la fin, lue dans les journaux), avec un test | **D4 = lot 1, étape 1**. Puis UX à 390 px : panneau flottant de l'accueil (cache toujours le bas de la carte du jardin au 14/11), phrase coupée sous le titre, barre de défilement sous les filtres de `/blog` | Affichage des chiffres : centre de contrôle (Claude en session) |
+| Contenu QRT | C2 lot 2 vérifié en ligne le 14/11 : plus de bandeau ni d'urgence Mova | **C2 lot 3** : les 11 articles à récit vécu (liste dans le journal du 14/11, Chef), puis la FAQ de `robot-tondeuse-black-friday-2026-prix-a-viser` (ligne 21 : « 699 € jusqu'au 12 novembre » au présent → « 699 € du 1er au 12 novembre, offre terminée »). Si le passage le permet : batterie « 50-70 % » en hiver → « suivez la notice » | **Batterie 50-70 %** : la recherche trouve 21 fichiers avec « hiver » ou « stock », à trier (certains parlent d'autre chose). **C2 lots 4 à 6**. **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse`, `/fiche-hivernage-robot-tondeuse`. Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse` | — |
+| Croissance QRT | G2 vérifié en ligne le 14/11 (`/fiche-hivernage-robot-tondeuse` : 200, 1 H1, lisible à 390 px) | **G3** (toujours à faire) : compléter `/confidentialite` (lettre d'information, Brevo, désinscription ; laisser « [À compléter] » pour le nom du responsable), créer la liste Brevo séparée « Quel Robot Tondeuse », formulaire d'inscription (consentement non coché), sans envoi | **G4** : outil `/calendrier-du-gazon` + guide PDF (style d'impression `.fiche-print`). Puis textes du lot 6 (bienvenue ×3, lettre du mois) dans le dépôt | Envoi d'e-mails : DNS (propriétaire). Nom et e-mail du responsable : propriétaire |
 
-### Constats du Chef (13/11 matin) à garder en tête
+### Constats du Chef (14/11 matin) à garder en tête
 
-- Site en ligne vérifié à 390 px (captures) : accueil, `/feuilles-mortes-pelouse-ramasser-broyer-laisser` (article de la nuit),
-  `/test-mammotion-luba-2-awd-avis`, `/mova-lidax-ultra-800-vs-worx-landroid-vision-m800-comparatif`. Tout en 200, 1 titre H1 par page,
-  zéro « testé » dans le HTML. **Rien de cassé, rien à annuler.** D1 et C2 lot 1 sont bien en ligne.
-- **Fausse urgence en ligne depuis ce matin** : « 699 € en promotion jusqu'au 12 novembre 2026 » (4 articles). → Contenu, en premier.
-- Accueil à 390 px : le panneau flottant « Voir les meilleurs prix / Faites le quiz » couvre encore la carte du jardin. → Dév (Ensuite).
+- En ligne, vérifié : accueil, `/fiche-hivernage-robot-tondeuse`, `/nettoyer-robot-tondeuse-jet-eau-karcher` (article de la nuit),
+  `/robot-tondeuse-black-friday-2026-prix-a-viser`, `/comment-hiverner-son-robot-tondeuse`. Tout en 200, 1 H1, zéro « testé ». Rien à annuler.
+- L'offre Mova n'est plus présentée comme en cours. 4 articles gardent « jusqu'au 12 novembre » comme prix daté du passé : acceptable,
+  sauf la FAQ Black Friday, écrite au présent (→ Contenu).
+- Accueil à 390 px : le panneau flottant couvre toujours le bas de la carte du jardin (→ Dév, après D3).
 - Lint : 0 erreur, 9 avertissements. Types OK.
 
 ### Lot 1 découpé (carte des conversions) — pour le Dév, après D2 et D3
