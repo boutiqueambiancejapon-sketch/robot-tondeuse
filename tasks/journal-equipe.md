@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 14/11/2026, 9 h (heure belge) — Dév QRT
+
+- **D3 fait (lot 0, outils mesurés)** : à la fin du quiz, à la première surface tracée sur `/superficie` et au premier réglage du calculateur de rentabilité, la page appelle `POST /api/m/quiz-termine`, `/api/m/surface-mesuree` ou `/api/m/calcul-rentabilite`. Le site répond 204 sans rien stocker, sans cookie ; un seul signal par visite pour la surface et le calcul. Événement inconnu → 404, `GET` → 405 (les robots d'indexation ne comptent pas).
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), **43 tests OK** (4 nouveaux), build OK. En local, navigateur à 390 px : fin du quiz → 1 appel `quiz-termine` ; 2 réglages du calculateur → 1 seul appel `calcul-rentabilite`. Rendu inchangé. La carte `/superficie` n'a pas été tracée dans le navigateur (même code, couvert par le test). Étiquette `sauvegarde-20261114-d3-mesure`.
+- **Chef** : contrôler en ligne `curl -X POST https://quel-robot-tondeuse.com/api/m/quiz-termine` → 204. **Centre de contrôle (Claude en session)** : compter les lignes `POST /api/m/<evenement>` des journaux (avec `GET /go/` pour les clics) ; la page d'origine est dans le Referer.
+- **Dév, prochain passage : D4** (`pageType` par article, avec un test). Lot 0 côté site : fini ; reste l'affichage dans le centre de contrôle.
+
 ## 14/11/2026, 8 h 15 (heure belge) — Chef QRT
 
 - Site en ligne vérifié (4 captures à 390 px) : accueil, fiche hivernage (G2), article de la nuit sur le nettoyage au Kärcher, Black Friday ; plus `comment-hiverner-son-robot-tondeuse`. Tout en 200, 1 H1, zéro « testé ». `/go/B0GCZSSZRZ/amazon` répond en 302 vers Amazon avec l'étiquette. **Rien de cassé, rien à annuler.**

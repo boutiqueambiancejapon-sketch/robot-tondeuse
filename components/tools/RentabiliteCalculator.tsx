@@ -6,7 +6,8 @@
  * Outputs : coût total robot, coût total thermique, économie, break-even.
  */
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
+import { signaler } from '@/lib/utils/mesure'
 
 const TONTES_PAR_MOIS_SAISON = 4
 const MOIS_TONTE_PAR_AN = 7
@@ -18,6 +19,16 @@ export function RentabiliteCalculator() {
   const [heuresParTonte, setHeuresParTonte] = useState(1.5)
   const [coutHoraire, setCoutHoraire] = useState(20)
   const [annees, setAnnees] = useState(7)
+
+  // Lot 0 : un seul signal par visite, au premier réglage du visiteur
+  const calculSignale = useRef(false)
+  const avec = (set: (v: number) => void) => (v: number) => {
+    if (!calculSignale.current) {
+      calculSignale.current = true
+      signaler('calcul-rentabilite')
+    }
+    set(v)
+  }
 
   const result = useMemo(() => {
     // Coût total robot : prix achat + entretien (lames 50€/an) + remplacement batterie (150€ tous les 5 ans)
@@ -60,12 +71,12 @@ export function RentabiliteCalculator() {
         <h2 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 22, fontWeight: 400, letterSpacing: '-0.015em', color: 'var(--text-primary)', marginBottom: 'var(--space-5)' }}>
           Vos données
         </h2>
-        <Field label="Surface du jardin (m²)" value={surface} onChange={setSurface} min={50} max={5000} step={50} suffix="m²" />
-        <Field label="Prix du robot envisagé (€)" value={prixRobot} onChange={setPrixRobot} min={300} max={5000} step={50} suffix="€" />
-        <Field label="Coût essence mensuel actuel (€)" value={coutEssenceMois} onChange={setCoutEssenceMois} min={0} max={50} step={1} suffix="€/mois" hint="Si vous tondez vous-même" />
-        <Field label="Heures par tonte (h)" value={heuresParTonte} onChange={setHeuresParTonte} min={0.25} max={5} step={0.25} suffix="h" />
-        <Field label="Coût horaire de votre temps (€/h)" value={coutHoraire} onChange={setCoutHoraire} min={0} max={100} step={5} suffix="€/h" hint="Combien vaut votre heure ?" />
-        <Field label="Période d'analyse (années)" value={annees} onChange={setAnnees} min={1} max={15} step={1} suffix="ans" />
+        <Field label="Surface du jardin (m²)" value={surface} onChange={avec(setSurface)} min={50} max={5000} step={50} suffix="m²" />
+        <Field label="Prix du robot envisagé (€)" value={prixRobot} onChange={avec(setPrixRobot)} min={300} max={5000} step={50} suffix="€" />
+        <Field label="Coût essence mensuel actuel (€)" value={coutEssenceMois} onChange={avec(setCoutEssenceMois)} min={0} max={50} step={1} suffix="€/mois" hint="Si vous tondez vous-même" />
+        <Field label="Heures par tonte (h)" value={heuresParTonte} onChange={avec(setHeuresParTonte)} min={0.25} max={5} step={0.25} suffix="h" />
+        <Field label="Coût horaire de votre temps (€/h)" value={coutHoraire} onChange={avec(setCoutHoraire)} min={0} max={100} step={5} suffix="€/h" hint="Combien vaut votre heure ?" />
+        <Field label="Période d'analyse (années)" value={annees} onChange={avec(setAnnees)} min={1} max={15} step={1} suffix="ans" />
       </div>
 
       {/* Outputs */}
