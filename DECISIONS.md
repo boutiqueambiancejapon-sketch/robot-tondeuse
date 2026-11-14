@@ -95,3 +95,9 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Fonds : page `var(--paper)`, cartes d'étapes `var(--ivory)` bordées, comme `/superficie`. Aucune animation.
 - Impression : `@media print` dans globals.css, limité aux pages qui ont `.fiche-print` ; menu, pied de page, barre du bas et boutons masqués. Réutilisable pour le guide PDF du calendrier.
 - Contenu dans `lib/content/fiche-hivernage.ts`, chaque geste avec sa source (Husqvarna S2/S3, Hubo S8).
+
+## 14/11/2026 — Inscription à « La lettre du jardin » (lot 2, G3)
+- Liste Brevo séparée « Quel Robot Tondeuse » créée dans le compte de Toutou (numéro 6, dossier 1). Le numéro est fixé dans `lib/newsletter/brevo.ts` (pas une variable) : un copier-coller des réglages de Toutou ne peut pas inscrire sur la liste de Toutou.
+- `POST /api/inscription` : consentement obligatoire (`consentement: true`), champ piège `website`, aucune adresse stockée ni journalisée par le site. 503 tant que `BREVO_API_KEY` manque dans l'environnement du serveur. Pas de double confirmation : il faut un expéditeur sur le domaine (DNS bloqué).
+- `<InscriptionLettre>` : case non cochée, lien `/confidentialite`. Affiché en bas de `/fiche-hivernage-robot-tondeuse` seulement si la clé est présente au build (le build du serveur lit `shared/.env`). Fond : carte `var(--ivory)` bordée sur `var(--paper)`, comme les étapes ; bouton cuivre comme « Imprimer ». Masqué à l'impression.
+- `/confidentialite` réécrite : lettre (Brevo, base légale, désinscription, 3 ans sans ouverture), comptage sans cookie, journaux du serveur, liens marchands. « Données analytiques 24 mois » retiré (plus d'outil d'analyse). Nom et e-mail du responsable toujours « [À compléter] ».

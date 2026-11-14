@@ -1,10 +1,12 @@
 /**
  * /confidentialite — Politique de confidentialité.
- * Template placeholder — le prompt d'init remplace les valeurs.
+ * Mise à jour le 14/11/2026 (lot 2, G3) : lettre du jardin (Brevo), comptage sans cookie, journaux.
+ * Nom et e-mail du responsable : à fournir par le propriétaire (« [À compléter] » gardé exprès).
  * noindex : page légale, pas de SEO.
  */
 
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import { niche } from '@/niche.config'
 
 export const metadata: Metadata = {
@@ -13,196 +15,83 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
+const text = { fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75, marginBottom: 'var(--space-3)' }
+const list = { ...text, paddingLeft: 'var(--space-6)' }
+
+function Bloc({ titre, children }: { titre: string; children: ReactNode }) {
+  return (
+    <section style={{ marginBottom: 'var(--space-10)' }}>
+      <h2 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: '20px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>
+        {titre}
+      </h2>
+      {children}
+    </section>
+  )
+}
+
 export default function ConfidentialitePage() {
   return (
-    <main
-      id="main-content"
-      style={{
-        maxWidth: '720px',
-        margin: '0 auto',
-        padding: 'var(--space-16) var(--space-6) var(--space-24)',
-      }}
-    >
-      <h1
-        style={{
-          fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-          fontSize: 'clamp(28px, 4vw, 44px)',
-          fontWeight: 800,
-          color: 'var(--text-primary)',
-          lineHeight: 1.1,
-          marginBottom: 'var(--space-10)',
-        }}
-      >
+    <main id="main-content" style={{ maxWidth: '720px', margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-24)' }}>
+      <h1 style={{ fontFamily: 'var(--next-font-display), system-ui, sans-serif', fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 'var(--space-4)' }}>
         Politique de confidentialité
       </h1>
+      <p style={{ ...text, marginBottom: 'var(--space-10)' }}>Mise à jour le 14 novembre 2026.</p>
 
-      {/* Responsable du traitement */}
-      <section style={{ marginBottom: 'var(--space-10)' }}>
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '20px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Responsable du traitement
-        </h2>
-        <div style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          <p>Nom : [À compléter]</p>
-          <p>Email : [À compléter]</p>
-          <p>Site : {niche.siteName} — https://{niche.domain}</p>
-        </div>
-      </section>
+      <Bloc titre="Responsable du traitement">
+        <p style={text}>Nom : [À compléter]<br />E-mail : [À compléter]<br />Site : {niche.siteName}, https://{niche.domain}</p>
+      </Bloc>
 
-      {/* Données collectées */}
-      <section style={{ marginBottom: 'var(--space-10)' }}>
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '20px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Données collectées
-        </h2>
-        <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          {niche.siteName} collecte un minimum de données, strictement nécessaires au fonctionnement
-          du site :
+      <Bloc titre="La lettre du jardin">
+        <p style={text}>
+          Si vous vous inscrivez à la lettre du jardin, nous enregistrons votre adresse e-mail, la date
+          de l’inscription et la page où vous l’avez faite. Rien d’autre : ni nom, ni adresse postale.
         </p>
-        <ul
-          style={{
-            fontSize: '16px',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.75,
-            paddingLeft: 'var(--space-6)',
-            marginTop: 'var(--space-3)',
-          }}
-        >
-          <li>
-            <strong style={{ color: 'var(--text-primary)' }}>Formulaires CMS :</strong>{' '}
-            si vous utilisez un formulaire de contact, les informations que vous fournissez
-            (nom, email, message) sont collectées pour traiter votre demande.
-          </li>
+        <ul style={list}>
+          <li>Base légale : votre consentement, donné en cochant la case du formulaire (elle n’est jamais cochée d’avance).</li>
+          <li>Usage : vous envoyer la lettre du jardin, au plus une fois par mois, et les e-mails de bienvenue qui suivent l’inscription. L’adresse n’est ni vendue ni prêtée.</li>
+          <li>Prestataire : Brevo (Sendinblue SAS, société française), qui stocke la liste et envoie les e-mails. Brevo héberge ces données dans l’Union européenne.</li>
+          <li>Désinscription : un lien en bas de chaque e-mail, ou une demande à l’adresse ci-dessus. Votre adresse est alors retirée de la liste.</li>
+          <li>Durée : tant que vous restez inscrit. Sans ouverture d’aucun e-mail pendant 3 ans, l’adresse est supprimée.</li>
         </ul>
-      </section>
+      </Bloc>
 
-      {/* Cookies */}
-      <section style={{ marginBottom: 'var(--space-10)' }}>
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '20px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Cookies
-        </h2>
-        <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          Ce site n&rsquo;utilise que des cookies strictement nécessaires, sans mesure d&rsquo;audience ni tracking publicitaire :
+      <Bloc titre="Mesure d’audience, sans cookie">
+        <p style={text}>
+          Le site ne dépose aucun cookie de mesure ni de publicité. Pour savoir quels outils servent, il
+          compte de façon anonyme certains gestes : un clic vers un marchand (adresse en <code>/go/</code>),
+          un quiz terminé, une surface mesurée, un calcul de rentabilité. Ces gestes laissent une ligne
+          dans les journaux techniques du serveur, comme toute visite d’une page.
         </p>
-        <ul
-          style={{
-            fontSize: '16px',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.75,
-            paddingLeft: 'var(--space-6)',
-            marginTop: 'var(--space-3)',
-          }}
-        >
-          <li>
-            <strong style={{ color: 'var(--text-primary)' }}>Session CMS :</strong>{' '}
-            cookie de session pour l&rsquo;interface d&rsquo;administration, le cas échéant.
-          </li>
-        </ul>
-      </section>
+        <p style={text}>
+          Ces journaux contiennent l’adresse IP, la page demandée, la page d’origine, la date et le type
+          de navigateur. Ils servent à la sécurité du site et au comptage des visites. Ils sont effacés
+          par la rotation automatique des journaux du serveur et ne sont transmis à personne.
+        </p>
+      </Bloc>
 
-      {/* Durée de conservation */}
-      <section style={{ marginBottom: 'var(--space-10)' }}>
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '20px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Durée de conservation
-        </h2>
-        <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          Les données analytiques sont conservées pendant 24 mois maximum. Les données issues des
-          formulaires de contact sont conservées le temps nécessaire au traitement de votre demande,
-          puis supprimées.
+      <Bloc titre="Liens vers les marchands">
+        <p style={text}>
+          Certains liens mènent vers Amazon ou d’autres marchands, avec un identifiant d’affiliation.
+          Une fois sur leur site, c’est leur propre politique de confidentialité et de cookies qui
+          s’applique.
         </p>
-      </section>
+      </Bloc>
 
-      {/* Droits des utilisateurs */}
-      <section style={{ marginBottom: 'var(--space-10)' }}>
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '20px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Vos droits
-        </h2>
-        <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          Conformément au RGPD, vous disposez des droits suivants :
+      <Bloc titre="Cookies">
+        <p style={text}>
+          Aucun cookie pour les visiteurs. Seule l’interface d’administration du site utilise un cookie
+          de session, réservé à l’équipe éditoriale.
         </p>
-        <ul
-          style={{
-            fontSize: '16px',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.75,
-            paddingLeft: 'var(--space-6)',
-            marginTop: 'var(--space-3)',
-          }}
-        >
-          <li>Droit d&rsquo;accès à vos données personnelles</li>
-          <li>Droit de rectification des données inexactes</li>
-          <li>Droit de suppression de vos données</li>
-          <li>Droit d&rsquo;opposition au traitement</li>
-          <li>Droit à la portabilité de vos données</li>
-        </ul>
-        <p
-          style={{
-            fontSize: '16px',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.75,
-            marginTop: 'var(--space-3)',
-          }}
-        >
-          Pour exercer ces droits, contactez-nous à l&rsquo;adresse indiquée ci-dessus.
-        </p>
-      </section>
+      </Bloc>
 
-      {/* Contact */}
-      <section>
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '20px',
-            fontWeight: 700,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          Contact
-        </h2>
-        <p style={{ fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.75 }}>
-          Pour toute question relative à cette politique de confidentialité, vous pouvez nous
-          contacter par email à [À compléter].
+      <Bloc titre="Vos droits">
+        <p style={text}>
+          Selon le RGPD, vous pouvez demander l’accès à vos données, leur correction, leur suppression
+          ou leur portabilité, et vous opposer à leur traitement. Écrivez à l’adresse du responsable
+          ci-dessus. Si la réponse ne vous convient pas, vous pouvez saisir la CNIL (France) ou
+          l’Autorité de protection des données (Belgique).
         </p>
-      </section>
+      </Bloc>
     </main>
   )
 }
