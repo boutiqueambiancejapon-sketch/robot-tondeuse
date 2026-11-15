@@ -11,7 +11,7 @@ export const PAR_JARDIN_ITEMS: HubSectionItem[] = [
   { href: '/robot-tondeuse-petit-jardin', label: 'Petit jardin', description: 'Moins de 500 m², urbain ou pavillonnaire compact.' },
   { href: '/robot-tondeuse-500m2', label: '500 m²', description: 'Le palier moyen, pavillonnaire classique.' },
   { href: '/robot-tondeuse-1000m2', label: '1 000 m²', description: 'Grande maison, propriétés rurales.' },
-  { href: '/robot-tondeuse-2000m2', label: '2 000 m²', description: 'Estate, dénivelés, zones multiples.' },
+  { href: '/robot-tondeuse-2000m2', label: '2 000 m²', description: 'Grande propriété, dénivelés, zones multiples.' },
   { href: '/robot-tondeuse-grande-surface', label: 'Grande surface', description: '3 000 m² et plus — propriétés, parcs.' },
   { href: '/robot-tondeuse-pente', label: 'Terrain en pente', description: 'Modèles validés sur 35 % à 80 % de dénivelé.' },
   { href: '/robot-tondeuse-terrain-complexe', label: 'Terrain complexe', description: 'Pentes, obstacles, formes irrégulières.' },
