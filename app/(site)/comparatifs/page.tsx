@@ -1,15 +1,18 @@
 /**
- * /comparatifs — index hub des comparatifs (placeholder Atelier Vert).
- * Liste de clusters par axe : top sélections, par technologie, par budget.
+ * /comparatifs — tous les comparatifs, regroupés par besoin (design V2).
+ * Par surface, par budget, par technologie, puis les duels. Renvoi vers le quiz.
  * Server Component · ISR 3600s.
  */
 
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { niche } from '@/niche.config'
-import { MAIN_MENU } from '@/lib/menu'
 import { currentYear } from '@/lib/utils/year'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import { PageTitle } from '@/components/v2/PageTitle'
+import { Mascotte } from '@/components/v2/Mascotte'
+import { GroupeLignes } from '@/components/v2/listes/GroupeLignes'
+import { getGroupes, countRobots, TOP_HREF } from '@/components/v2/listes/comparatifs-data'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -33,63 +36,42 @@ export function generateMetadata(): Metadata {
 }
 
 export default function ComparatifsHub() {
-  const entry = MAIN_MENU.find((m) => m.id === 'comparatifs')!
+  const groupes = getGroupes()
 
   return (
-    <main id="main-content" style={{ background: 'var(--paper)', minHeight: '100vh' }}>
-      <header style={{ maxWidth: 980, margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-10)' }}>
-        <p style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--moss)', marginBottom: 'var(--space-4)' }}>
-          Comparatifs · {currentYear()}
+    <main id="main-content" className="v2">
+      <div className="wrap lst">
+        <PageTitle
+          title="Tous les comparatifs robots tondeuses"
+          pose="podium"
+          crumbs={[{ href: '/', label: 'Accueil' }, { label: 'Comparatifs' }]}
+        />
+        <p className="lede">
+          {countRobots()} robots comparés sur fiche et sources publiées. Choisissez par surface, par budget ou par technologie, ou
+          commencez par{' '}
+          <Link className="lnk" href={TOP_HREF}>
+            le classement {currentYear()}
+          </Link>
+          .
         </p>
-        <h1 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>
-          Tous les <em style={{ color: 'var(--copper)' }}>comparatifs</em> robots tondeuses.
-        </h1>
-        <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, lineHeight: 1.6 }}>
-          55 robots notés sur fiche et sources publiées. Choisissez l&rsquo;axe qui vous parle&nbsp;: une top sélection, une technologie, un budget.
-        </p>
-      </header>
+        <nav aria-label="Aller à un groupe de comparatifs" className="chips">
+          {groupes.map((g) => (
+            <a className="chip" href={`#${g.id}`} key={g.id}>
+              {g.title}
+            </a>
+          ))}
+        </nav>
 
-      <section style={{ maxWidth: 980, margin: '0 auto', padding: '0 var(--space-6) var(--space-20)' }}>
-        {entry.columns?.map((col, i) => (
-          <div key={i} style={{ marginBottom: 'var(--space-12)' }}>
-            <h2 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(1.6rem, 2.4vw, 2rem)', fontWeight: 400, letterSpacing: '-0.015em', color: 'var(--text-primary)', marginBottom: 'var(--space-5)' }}>
-              {col.title}
-            </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 'var(--space-4)' }}>
-              {col.items.map((it) => (
-                <Link
-                  key={it.href}
-                  href={it.href}
-                  style={{
-                    display: 'block',
-                    padding: 'var(--space-5)',
-                    background: 'var(--ivory)',
-                    border: '1px solid var(--border)',
-                    borderRadius: 'var(--radius-lg)',
-                    textDecoration: 'none',
-                    transition: 'border-color 150ms ease, transform 150ms ease',
-                  }}
-                  className="hub-card"
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-2)' }}>
-                    <span style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 18, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
-                      {it.label}
-                    </span>
-                    {it.badge && (
-                      <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 9, fontWeight: 500, padding: '2px 6px', borderRadius: 999, background: 'var(--copper-pale)', color: 'var(--copper)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                        {it.badge}
-                      </span>
-                    )}
-                  </div>
-                  <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, color: 'var(--copper)', letterSpacing: '0.06em' }}>
-                    Voir le comparatif →
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
+        {groupes.map((g) => (
+          <GroupeLignes groupe={g} key={g.id} />
         ))}
-      </section>
+
+        <Link className="door door--lime lst-door" href="/quiz">
+          <Mascotte pose="loupe" size={104} />
+          <h2>Vous hésitez encore ?</h2>
+          <p>Quelques questions sur votre jardin, et le quiz vous conseille un robot.</p>
+        </Link>
+      </div>
     </main>
   )
 }

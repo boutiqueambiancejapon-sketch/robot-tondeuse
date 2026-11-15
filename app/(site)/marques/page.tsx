@@ -1,6 +1,6 @@
 /**
- * /marques — index hub des marques (placeholder Atelier Vert).
- * Grille des marques avec accent par catégorie.
+ * /marques — une ligne par marque (design V2) : nom, une phrase, lien vers sa page ou son guide.
+ * Aucun logo : nous n'avons pas les droits sur ceux des fabricants.
  * Server Component · ISR 3600s.
  */
 
@@ -9,6 +9,17 @@ import type { Metadata } from 'next'
 import { niche } from '@/niche.config'
 import { currentYear } from '@/lib/utils/year'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import { getAllArticles, articleHref } from '@/lib/blog'
+import { PageTitle } from '@/components/v2/PageTitle'
+
+/** Marques sans page dédiée : la ligne renvoie vers le guide de leur gamme, s'il est publié. */
+const GUIDES_DE_GAMME = [
+  { name: 'Dreame', slug: 'quel-dreame-choisir-2026-guide-gamme' },
+  { name: 'Ecovacs', slug: 'quel-ecovacs-goat-choisir-2026-guide-gamme' },
+  { name: 'Mova', slug: 'quel-mova-choisir-2026-guide-gamme' },
+  { name: 'Segway Navimow', slug: 'quel-segway-navimow-choisir-2026-guide-gamme' },
+]
+const CHOISIR_UNE_MARQUE = 'quelle-marque-robot-tondeuse-choisir-2026'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -33,54 +44,53 @@ export function generateMetadata(): Metadata {
 
 export default function MarquesHub() {
   const brands = niche.categories.filter((c) => c.slug !== 'entretien-pelouse')
+  const articles = getAllArticles()
+  const guides = GUIDES_DE_GAMME.flatMap((g) => {
+    const article = articles.find((a) => a.slug === g.slug)
+    return article ? [{ name: g.name, article }] : []
+  })
+  const choisir = articles.find((a) => a.slug === CHOISIR_UNE_MARQUE)
 
   return (
-    <main id="main-content" style={{ background: 'var(--paper)', minHeight: '100vh' }}>
-      <header style={{ maxWidth: 980, margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-10)' }}>
-        <p style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--moss)', marginBottom: 'var(--space-4)' }}>
-          Toutes les marques · {currentYear()}
+    <main id="main-content" className="v2">
+      <div className="wrap lst">
+        <PageTitle
+          title="Toutes les marques de robots tondeuses"
+          pose="loupe"
+          crumbs={[{ href: '/', label: 'Accueil' }, { label: 'Marques' }]}
+        />
+        <p className="lede">
+          De la référence suédoise aux nouveaux acteurs sans fil. Chaque marque a sa page, avec sa gamme, ses comparatifs et ses
+          guides d’achat.
         </p>
-        <h1 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--text-primary)', marginBottom: 'var(--space-4)' }}>
-          Toutes les marques que <em style={{ color: 'var(--copper)' }}>nous testons</em>.
-        </h1>
-        <p style={{ fontSize: 17, color: 'var(--text-secondary)', maxWidth: 640, lineHeight: 1.6 }}>
-          De la référence suédoise aux nouveaux acteurs sans fil. Choisissez la marque qui vous intéresse pour découvrir nos avis, comparatifs et guides d&rsquo;achat.
-        </p>
-      </header>
 
-      <section style={{ maxWidth: 980, margin: '0 auto', padding: '0 var(--space-6) var(--space-20)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 'var(--space-5)' }}>
+        <div className="lignes lignes--first">
           {brands.map((b) => (
-            <Link
-              key={b.slug}
-              href={`/choisir/${b.slug}`}
-              style={{
-                display: 'block',
-                padding: 'var(--space-6)',
-                background: 'var(--ivory)',
-                borderTop: `3px solid ${b.accent}`,
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-lg)',
-                textDecoration: 'none',
-                transition: 'transform 150ms ease, border-color 150ms ease',
-              }}
-              className="hub-card"
-            >
-              <h2 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 28, fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--text-primary)', marginBottom: 'var(--space-2)' }}>
-                {b.label}
-              </h2>
-              {b.description && (
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.5, marginBottom: 'var(--space-3)' }}>
-                  {b.description}
-                </p>
-              )}
-              <span style={{ fontFamily: 'var(--next-font-mono), monospace', fontSize: 11, color: b.accent, letterSpacing: '0.06em', fontWeight: 500 }}>
-                Voir tous les avis →
-              </span>
+            <Link className="mini" href={`/choisir/${b.slug}`} key={b.slug}>
+              <div>
+                <h2>{b.label}</h2>
+                {b.description ? <p>{b.description}</p> : null}
+              </div>
+            </Link>
+          ))}
+          {guides.map(({ name, article }) => (
+            <Link className="mini" href={articleHref(article)} key={article.slug}>
+              <div>
+                <h2>{name}</h2>
+                <p>{article.title}</p>
+              </div>
             </Link>
           ))}
         </div>
-      </section>
+
+        {choisir ? (
+          <p className="lst-more">
+            <Link className="lnk" href={articleHref(choisir)}>
+              {choisir.title}
+            </Link>
+          </p>
+        ) : null}
+      </div>
     </main>
   )
 }
