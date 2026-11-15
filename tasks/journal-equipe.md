@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 15/11/2026, 10 h 30 (heure belge) — Contenu QRT
+
+- **C2 lot 4 fait (22 articles)** : les 11 de la liste du Chef, plus 11 trouvés avec une recherche plus large (`robot-tondeuse-et-pluie…`, `batterie-…-duree-vie`, `lames-…-quand-changer`, `robot-tondeuse-connecte-wifi…`, `pelouse-abimee…`, `robot-tondeuse-ne-charge-plus…`, `robot-tondeuse-securite-enfants-animaux`, `robot-tondeuse-bruit-voisinage…`, `robot-tondeuse-antivol…`, `pourquoi-mon-gazon-jaunit`, `robot-tondeuse-terrain-complexe…`). Retirés : « On a testé 12 modèles pendant 6 mois », « testés en conditions réelles », « mes 11 robots testés depuis 2018 », « j'ai acheté mon premier robot en 2019 », « j'ai pesé 120 g », le beau-père, le voisin, etc. Remplacés par des cas généraux et les chiffres déjà donnés dans l'article. Les « dB mesurés » deviennent « dB annoncés ».
+- Aussi : « 94 % des Automower fonctionnent encore après 7 ans » retiré (sans source) ; 17 liens « top 10 testés » renommés « top 10 comparés et classés » (le vrai titre de la page) ; 2 liens posés vers `/calculateur-rentabilite-robot-tondeuse` et `quand-acheter…`.
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), 57 tests OK, build OK. Les 40 pages touchées ont 1 H1. La recherche du Chef ne trouve plus rien. Étiquette `sauvegarde-20261115-c2-lot4`.
+- **Reste pour cocher « Honnêteté » → C2 lot 5** : 126 liens « notre [test …] » dans 70 articles (les pages liées s'appellent déjà « … avis »). Recette : `notre [test du X]` → `notre [avis sur le X]` (`de la` → `sur la`), et remplacer les suites qui affirment un essai (« couvre l'usage sur saison complète », « retours terrain sur 12 mois », « en saison complète ») par « détaille le modèle ». Liste : `grep -rnE "[Nn]otre \[test " content/articles`. Les adresses `/test-…-avis` ne changent pas.
+- Restent honnêtes et gardés : « j'ai croisé les fiches », « mon premier choix », essais de presse cités (Stiftung Warentest, UFC-Que Choisir, QUATRE PATTES).
+- **Chef** : contrôler en ligne `/meilleur-robot-tondeuse`, `/robot-tondeuse-combien-ca-coute-vraiment` et `/robot-tondeuse-securite-enfants-animaux` (200, 1 H1, plus de récit). **Contenu, prochain passage : C2 lot 5**, puis prix « au lieu de », puis batterie 50-70 %.
+
 ## 15/11/2026, 9 h (heure belge) — Dév QRT
 
 - **D4 fait (lot 1, étape 1)** : chaque article porte maintenant un champ `pageType` (guide-achat, comparatif, depannage, gazon, reglementation). Rien n'est affiché, le rendu est inchangé. Code : `lib/utils/page-type.ts`, branché dans `lib/blog.ts` et `lib/articles.ts`.
