@@ -1,0 +1,325 @@
+# Arborescence cible — Quel Robot Tondeuse
+
+Rédigé le 15/11/2026 par le responsable éditorial, à la demande du propriétaire : élargir le site aux accessoires,
+à l'entretien du gazon, aux robots de piscine et à ce qui est utile au jardin autour du robot, **le robot tondeuse
+restant au centre**.
+
+Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de nuit), `tasks/calendrier-editorial.md`
+(la vue par mois), `tasks/design-v2.md` (les gabarits visuels : avis, marque, classement, duel, guide, outil, promos, rubrique).
+
+## 1. Le principe en cinq lignes
+
+1. **Six rubriques au plus**, plus un service « Promos » qui les traverse. Pas de mobilier, de barbecue ni d'éclairage.
+2. **Aucune adresse existante ne change.** Les 213 articles restent à la racine du site (`/mon-article`).
+3. **Les rubriques déjà vivantes restent à la racine** (robots tondeuses, accessoires, gazon). **Les trois rubriques
+   nouvelles ont leur dossier** : `/robot-piscine/…`, `/arrosage/…`, `/outils-jardin/…`.
+4. **Une rubrique s'ouvre quand la précédente tient debout** (critère au point 5). On n'ouvre jamais deux rubriques le même mois.
+5. **Chaque page a une page mère** et y renvoie. Chaque rubrique renvoie vers le robot tondeuse au moins une fois par page.
+
+## 2. Vue d'ensemble
+
+```
+/                                   accueil (quiz, classements, calendrier)
+│
+├─ 1. ROBOTS TONDEUSES              (ouverte, adresses à la racine)
+│    /comparatifs                   rubrique : classements et duels
+│    /marques                       rubrique : marques et avis de marque
+│    /choisir/<robot>               fiche d'un robot (lot 3 : note et barème)
+│    /quiz  /comparer  /superficie  /calculateur-rentabilite-robot-tondeuse
+│
+├─ 2. AUTOUR DU ROBOT               (ouverte en décembre 2026, adresses à la racine)
+│    /accessoires-robot-tondeuse    rubrique et page mère (à écrire en premier)
+│    lames · garages · câble · batteries · antenne RTK · antivol · entretien · pièces
+│
+├─ 3. GAZON ET PELOUSE              (ouverte, adresses à la racine)
+│    /blog/entretien-pelouse        rubrique (existe)
+│    /calendrier-du-gazon           outil pivot (existe)
+│    soins · semis · engrais · problèmes · matériel « ce que le robot ne fait pas »
+│
+├─ 4. ROBOTS DE PISCINE             (à ouvrir en janvier 2027)
+│    /robot-piscine                 rubrique
+│    /robot-piscine/<page>          classements, avis de marque, duels, guides
+│
+├─ 5. ARROSAGE                      (à ouvrir en avril 2027)
+│    /arrosage                      rubrique
+│    /arrosage/<page>
+│
+├─ 6. OUTILS DE JARDIN SUR BATTERIE (à ouvrir en septembre 2027, sous condition)
+│    /outils-jardin                 rubrique
+│    /outils-jardin/<page>
+│
+└─ PROMOS (service commun)          /deals (existe)
+     /code-promo-<marque> · /black-friday-robot-tondeuse · /soldes-robot-tondeuse …
+```
+
+## 3. État des rubriques (tableau lu par la rédaction de nuit)
+
+La rédaction de nuit n'écrit un sujet dont l'adresse commence par un dossier que si la ligne ci-dessous dit **ouverte**.
+C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le dossier fonctionne en ligne, et qui note où poser les fichiers.
+
+| Rubrique | Dossier d'adresse | État | Où poser le fichier de l'article |
+|---|---|---|---|
+| Robots tondeuses | racine | ouverte | `content/articles/<adresse>.mdx` |
+| Autour du robot | racine | ouverte | `content/articles/<adresse>.mdx` |
+| Gazon et pelouse | racine | ouverte | `content/articles/<adresse>.mdx` |
+| Promos | racine | ouverte | `content/articles/<adresse>.mdx` |
+| Robots de piscine | `/robot-piscine/` | **fermée** (à ouvrir avant le 01/01/2027) | à noter par le Dév |
+| Arrosage | `/arrosage/` | **fermée** (à ouvrir avant le 01/04/2027) | à noter par le Dév |
+| Outils sur batterie | `/outils-jardin/` | **fermée** (à ouvrir avant le 01/09/2027, sous condition) | à noter par le Dév |
+
+## 4. Les rubriques une par une
+
+### 4.1 Robots tondeuses (le centre du site)
+
+- **Pages de rubrique** : l'accueil, `/comparatifs` (classements et duels), `/marques` (marques). Elles existent.
+- **Sous-rubriques** : classements · guides par surface · guides par besoin (pente, chien, sans fil…) · duels de robots ·
+  duels de marques · guides de gamme · avis de marque · avis d'un robot · entretien et dépannage du robot · réglementation.
+- **Pages qui servent déjà de page mère** (ne pas en créer d'autres sur le même sujet) :
+
+| Rôle | Adresse existante |
+|---|---|
+| Classement général | `/meilleur-robot-tondeuse-2026` |
+| Guide de choix | `/comment-choisir-robot-tondeuse` et `/quel-robot-tondeuse-pour-mon-jardin` |
+| Choix d'une marque | `/quelle-marque-robot-tondeuse-choisir-2026` |
+| Petit budget | `/meilleur-robot-tondeuse-pas-cher-top-2026` |
+| Sans câble | `/quel-robot-tondeuse-sans-fil-choisir` |
+| Pente | `/comment-choisir-robot-tondeuse-terrain-en-pente` |
+| Entretien du robot | `/comment-entretenir-son-robot-tondeuse-guide-complet` |
+| Installation | `/comment-installer-robot-tondeuse-soi-meme` |
+| Hivernage | `/comment-hiverner-son-robot-tondeuse` et `/fiche-hivernage-robot-tondeuse` |
+| Coût | `/robot-tondeuse-combien-ca-coute-vraiment` et `/calculateur-rentabilite-robot-tondeuse` |
+
+- **Page mère à créer en premier** : `/panne-robot-tondeuse-diagnostic` (le dépannage n'a pas de page mère, alors que
+  17 articles de dépannage sont prévus). Décembre 2026.
+- **Gabarits d'adresse** (nouvelles pages, jamais d'année dans l'adresse) :
+
+| Type de page | Gabarit | Exemple |
+|---|---|---|
+| Classement | `/meilleur-robot-tondeuse-<critère>` | `/meilleur-robot-tondeuse-rtk` |
+| Guide par surface ou besoin | `/quel-robot-tondeuse-pour-<cas>` | `/quel-robot-tondeuse-pour-800m2` |
+| Duel de robots | `/<robot-a>-vs-<robot-b>-comparatif` | (62 existent, duels de marques compris) |
+| Duel de marques | `/<marque-a>-vs-<marque-b>-quelle-marque-choisir` | `/kress-vs-husqvarna-quelle-marque-choisir` |
+| Guide de gamme | `/quel-<marque>-choisir-guide-gamme` | (9 existent, avec « 2026 ») |
+| Avis de marque | `/avis-robot-tondeuse-<marque>` | `/avis-robot-tondeuse-stiga` |
+| Avis d'un robot | la fiche `/choisir/<robot>` (lot 3, Dév) | `/choisir/dreame-a1-pro` |
+| Guide, dépannage, réglementation | `/<sujet-en-clair>` | `/prix-installation-robot-tondeuse` |
+
+- **Avis d'un robot** : la rédaction de nuit n'écrit **pas** d'article « avis » sur un modèle qui est dans la base produits.
+  L'avis d'un robot, c'est sa fiche notée (lot 3). Les 8 articles `/test-…-avis` existants restent en ligne et renvoient à la fiche.
+- **Avis de marque** : pour les marques déjà couvertes par un guide de gamme (Dreame, Mammotion, Husqvarna, Gardena, Worx,
+  Bosch, Ecovacs, Segway, Mova), la page « Avis + marque » vient du lot 3 (Dév) : la rédaction ne la double pas. Le calendrier
+  ne prévoit donc des avis de marque que pour les marques **absentes du site** : Stiga, Kress, Stihl iMOW, Sunseeker,
+  Parkside (Lidl), Eufy, Anthbot, Einhell, Yard Force.
+
+### 4.2 Autour du robot : accessoires et pièces
+
+- **Page de rubrique et page mère** : `/accessoires-robot-tondeuse` (premier sujet de décembre 2026). Elle commence comme
+  un guide ; le Dév pourra lui donner le gabarit « rubrique » du design V2 sans changer l'adresse.
+- **Sous-rubriques et pages mères** :
+
+| Sous-rubrique | Page mère | État |
+|---|---|---|
+| Lames | `/lames-robot-tondeuse-quand-changer` | existe |
+| Garages et abris | `/abri-garage-robot-tondeuse-faut-il-en-acheter-2026`, puis `/meilleur-garage-robot-tondeuse` | existe / décembre |
+| Câble, cavaliers, connecteurs | `/cable-cavaliers-connecteurs-robot-tondeuse` | février |
+| Batteries | `/batterie-robot-tondeuse-duree-vie-remplacement` | existe |
+| Antenne RTK, supports | `/antenne-rtk-robot-tondeuse-support-rallonge` | février |
+| Antivol, traceurs | `/robot-tondeuse-antivol-vol-protection` | existe |
+| Nettoyage et entretien | `/kit-entretien-robot-tondeuse` | décembre |
+| Station de charge, pièces | `/station-de-charge-robot-tondeuse-remplacement` | novembre 2027 |
+
+- **Gabarits d'adresse** : `/lames-<marque>-<gamme>` · `/batterie-<marque>-<gamme>-remplacement` ·
+  `/meilleur-<accessoire>-robot-tondeuse` · `/<accessoire>-robot-tondeuse` pour un guide.
+- **Limite** : une page par marque pour les lames et les batteries, pas une page par modèle. Les modèles vont dans un tableau.
+
+### 4.3 Gazon et pelouse
+
+- **Page de rubrique** : `/blog/entretien-pelouse` (existe). **Outil pivot** : `/calendrier-du-gazon` (existe) : tout article
+  gazon y renvoie.
+- **Sous-rubriques** : soins de saison · semis et regarnissage · engrais et amendements · mousse, mauvaises herbes, maladies ·
+  scarification et aération · **matériel du gazon : ce que le robot ne fait pas** (bordures, scarification, semences, engrais).
+- **Pages qui servent déjà de page mère** : `/comment-avoir-un-beau-gazon-bien-vert` (soins), `/pelouse-abimee-comment-reparer-gazon`
+  (réparer), `/quel-gazon-semer-pour-robot-tondeuse` (semences), `/quand-et-comment-scarifier-sa-pelouse` (scarifier),
+  `/comment-enlever-mousse-gazon` (mousse), `/pourquoi-mon-gazon-jaunit` (problèmes), `/comment-bien-arroser-sa-pelouse` (eau).
+- **Gabarits d'adresse** : guide `/<question-en-clair>` (`/micro-trefle-pelouse`) · classement de matériel ou de produit
+  `/meilleur-<produit>` (`/meilleur-scarificateur-electrique`, `/meilleur-engrais-gazon-automne`).
+- **Rien à créer avant d'écrire** : la rubrique fonctionne. 56 sujets gazon et dépannage sont déjà au plan ; le calendrier
+  y ajoute surtout les classements de matériel.
+
+### 4.4 Robots de piscine (priorité de 2027)
+
+Même acheteur, même logique de comparaison que le robot tondeuse. Le flux Cdiscount compte environ 1 200 robots de piscine.
+
+- **Page de rubrique** : `/robot-piscine` (gabarit `piscine.html` de la maquette, pose « piscine » de la mascotte).
+- **Pages mères à écrire en premier** (janvier et février 2027, dans cet ordre) :
+  1. `/robot-piscine/comment-choisir-robot-piscine` (guide)
+  2. `/robot-piscine/meilleur-robot-piscine` (classement général)
+  3. `/robot-piscine/robot-piscine-sans-fil-ou-filaire` et `/robot-piscine/robot-piscine-electrique-ou-hydraulique`
+  4. `/robot-piscine/meilleure-marque-robot-piscine` (mère des avis de marque)
+- **Sous-rubriques et gabarits** :
+
+| Type de page | Gabarit | Exemple |
+|---|---|---|
+| Classement | `/robot-piscine/meilleur-robot-piscine-<critère>` | `/robot-piscine/meilleur-robot-piscine-hors-sol` |
+| Guide par bassin | `/robot-piscine/quel-robot-piscine-<cas>` | `/robot-piscine/quel-robot-piscine-8x4-10x5` |
+| Avis de marque | `/robot-piscine/avis-<marque>` | `/robot-piscine/avis-wybot` |
+| Duel | `/robot-piscine/<a>-vs-<b>` | `/robot-piscine/dolphin-vs-zodiac` |
+| Usage, entretien, panne | `/robot-piscine/robot-piscine-<sujet>` | `/robot-piscine/hivernage-robot-piscine` |
+| Accessoire | `/robot-piscine/<accessoire>-robot-piscine` | `/robot-piscine/filtre-robot-piscine` |
+
+- **Pas de note** tant qu'un barème « robot de piscine » public n'existe pas. Pas de fiche produit piscine dans
+  `content/produits/` (cette base alimente le quiz et le comparateur de robots tondeuses).
+- **Hors champ** : traitement de l'eau, pompes, filtres à sable, chauffage, bâches, la piscine elle-même. On ne parle de
+  l'eau que pour dire quand sortir le robot.
+
+### 4.5 Arrosage
+
+- **Page de rubrique** : `/arrosage`. **Pages mères à écrire en premier** (avril 2027) :
+  `/arrosage/arrosage-automatique-pelouse` (guide), puis `/arrosage/meilleur-programmateur-arrosage-connecte` (classement).
+- **Pages qui servent déjà de page mère** (elles restent à la racine) : `/comment-bien-arroser-sa-pelouse`,
+  `/robot-tondeuse-arrosage-automatique-cohabitation-2026`, `/robot-tondeuse-canicule-secheresse-faut-il-tondre-ete`.
+- **Sous-rubriques** : programmateurs · arroseurs · arrosage enterré · capteurs · tuyaux et enrouleurs · eau de pluie ·
+  règles et restrictions.
+- **Gabarits** : `/arrosage/meilleur-<produit>` · `/arrosage/<a>-vs-<b>` · `/arrosage/avis-<marque-ou-produit>` ·
+  `/arrosage/<sujet-en-clair>`.
+- **Hors champ** : arrosage du potager et du balcon pris pour eux-mêmes, plantes d'intérieur. La pelouse et le jardin
+  autour du robot seulement.
+
+### 4.6 Outils de jardin sur batterie
+
+Point d'entrée : **la batterie que le lecteur possède déjà avec son robot** (Worx PowerShare, Power for All chez Gardena et
+Bosch, Einhell Power X-Change, Kress).
+
+- **Page de rubrique** : `/outils-jardin`. **Page mère à écrire en premier** (septembre 2027) :
+  `/outils-jardin/batteries-outils-jardin-compatibles`. Page existante liée : `/robot-tondeuse-batterie-amovible-compatible-outils-2026`.
+- **Sous-rubriques** : plateformes de batterie · coupe-bordures et débroussailleuses · taille-haies · souffleurs ·
+  tondeuses de finition · sécateurs et élagueuses.
+- **Gabarits** : `/outils-jardin/meilleur-<outil>-batterie` · `/outils-jardin/<plateforme>-outils-compatibles` ·
+  `/outils-jardin/<a>-ou-<b>`.
+- **Exception** : le coupe-bordure, le scarificateur et l'épandeur sont rangés dans **Gazon** (ce que le robot ne fait pas),
+  parce qu'on les écrit dès mars 2027, avant l'ouverture de cette rubrique.
+- **Hors champ** : tronçonneuses de bûcheronnage, motobineuses, broyeurs, nettoyeurs haute pression, outillage thermique.
+
+### 4.7 Promos (service commun, pas une rubrique à articles)
+
+- **Page de rubrique** : `/deals` (existe).
+- **Pages permanentes, une par événement, mises à jour chaque année, sans année dans l'adresse** :
+  `/soldes-robot-tondeuse` · `/french-days-robot-tondeuse` · `/prime-day-robot-tondeuse` · `/black-friday-robot-tondeuse` ·
+  `/black-friday-robot-piscine` · `/quand-acheter-robot-piscine`.
+- **Pages qui existent et restent** : `/robot-tondeuse-black-friday-2026-prix-a-viser` (elle pointera vers la page permanente
+  quand celle-ci existera), `/quand-acheter-robot-tondeuse-meilleur-moment-prix-2026`.
+- **Codes promo** : `/code-promo-<marque>`, une page par marque (Mammotion, Dreame, Aiper, Wybot, Beatbot, Mova, Ecovacs,
+  Segway Navimow). Règle stricte dans `tasks/plan-editorial.md`. **Chaque page code promo est revérifiée le 1er de chaque
+  mois par Contenu QRT** (ou retirée du plan du site si personne ne peut le faire : une page de codes périmés trompe le lecteur).
+
+## 5. Ordre d'ouverture et critère pour ouvrir la suivante
+
+| Ordre | Rubrique | Ouverture | Pourquoi à ce moment |
+|---|---|---|---|
+| 0 | Robots tondeuses, Gazon | déjà ouvertes | 213 articles, 56 sujets au plan |
+| 1 | Autour du robot | décembre 2026 | aucune attente : adresses à la racine, saison des pièces et du rangement |
+| 2 | Robots de piscine | janvier 2027 | 3 mois d'avance sur la remise en eau d'avril |
+| 3 | Arrosage | avril 2027 | 2 mois d'avance sur les premières chaleurs |
+| 4 | Outils sur batterie | septembre 2027 | saison des haies et des feuilles ; **seulement si le critère est rempli** |
+
+**Critère pour ouvrir la rubrique suivante** (vérifié par le Chef QRT, qui l'écrit dans le journal) :
+
+1. Les pages mères de la rubrique précédente sont en ligne et reliées entre elles.
+2. Au moins **10 articles** de la rubrique précédente sont publiés.
+3. Sur les 30 derniers jours, la rubrique précédente a reçu **des visites venues de Google** et **au moins un clic marchand**
+   (`/go/…`), lus dans le centre de contrôle.
+
+Si le point 3 n'est pas rempli à la date prévue : on **n'ouvre pas** la suivante, on continue la rubrique en cours avec les
+sujets déjà au plan, et le Chef refait le point le mois suivant. Si une rubrique ouverte ne reçoit toujours aucune visite
+de Google **trois mois** après ses pages mères, le Chef arrête d'y ajouter des sujets et prévient le propriétaire.
+
+## 6. Liens internes obligatoires
+
+Dans une rubrique, toujours le même chemin :
+
+```
+guide  ──►  classement  ──►  avis (marque ou fiche robot)  ──►  duel
+  ▲              │                      │                         │
+  └──────────────┴────── tous renvoient à la page mère ───────────┘
+```
+
+| Depuis | Lien obligatoire vers |
+|---|---|
+| Guide | le classement de la même question, et la page mère |
+| Classement | l'avis de chaque marque ou la fiche de chaque robot cité, et le classement général |
+| Avis de marque | le guide de gamme, un duel de la marque, la page mère des marques |
+| Duel | les deux avis (ou fiches) et le classement où le gagnant figure |
+| Accessoire | l'article d'entretien ou de dépannage correspondant, et `/accessoires-robot-tondeuse` |
+| Dépannage | l'accessoire qui répare (lames, câble, batterie) et `/panne-robot-tondeuse-diagnostic` |
+| Promo, code promo | l'avis de la marque et le classement ; jamais vers une autre page promo seulement |
+
+Entre rubriques (au moins un par article, toujours utile au lecteur) :
+
+| Depuis | Vers |
+|---|---|
+| Gazon (tout article) | `/calendrier-du-gazon` ; un article robot seulement si le robot change le conseil |
+| Gazon, matériel (bordures, scarificateur) | l'article robot correspondant (`/robot-tondeuse-coupe-bordure-integre-top-6-2026`…) |
+| Arrosage | `/robot-tondeuse-arrosage-automatique-cohabitation-2026` et `/comment-bien-arroser-sa-pelouse` |
+| Robots de piscine | la marque côté robots tondeuses quand elle existe (Dreame, Mammotion, Mova) et `/robot-tondeuse-jardin-avec-piscine-securite-2026` |
+| Outils sur batterie | le guide de gamme du robot qui partage la batterie (Worx, Gardena, Bosch, Einhell) |
+| Toute mention de surface | `/superficie` ; tout calcul de coût : `/calculateur-rentabilite-robot-tondeuse` |
+
+Règles : pas de lien vers une page qui n'existe pas encore ; deux articles sur le même sujet ne se concurrencent pas, le plus
+récent renvoie au plus ancien pour la partie déjà traitée.
+
+## 7. Ce qu'on ne couvre pas
+
+- **Mobilier de jardin, barbecues, éclairage extérieur, abris et serres, potager, plantes et graines** (hors gazon),
+  anti-nuisibles pris pour eux-mêmes : trop loin du robot, même si le flux Cdiscount en est plein.
+- **La piscine elle-même** (bassins, traitement de l'eau, pompes, chauffage) et les spas.
+- **Les aspirateurs robots de maison**, même quand la marque est la même.
+- **Le matériel thermique** et le matériel professionnel, sauf pour une comparaison ponctuelle.
+- Les **pages « marchand »** (« robot tondeuse Leroy Merlin », « robot piscine Lidl ») : la demande existe, mais le lecteur
+  cherche un magasin, pas un conseil. Exception : la marque Parkside, vendue seulement par Lidl.
+
+## 8. Ne casser aucune adresse
+
+- Les 213 articles restent à leur adresse. Aucun déplacement vers un dossier.
+- **Adresses à ne jamais réutiliser** (elles redirigent déjà vers un article complet) : `/robot-tondeuse-pente`,
+  `/robot-tondeuse-rtk`, `/robot-tondeuse-vision-ia`, `/robot-tondeuse-multi-zones`, `/robot-tondeuse-haut-de-gamme`,
+  `/robot-tondeuse-connecte`, `/robot-tondeuse-grande-surface`, `/entretien-robot-tondeuse`, `/robot-tondeuse-rapport-qualite-prix`,
+  `/robot-tondeuse-500m2`, `/installation-robot-tondeuse`, `/robot-tondeuse-bruit-voisinage`, `/depannage-robot-tondeuse`,
+  `/hivernage-robot-tondeuse`, `/robot-tondeuse-pas-cher`, `/simulateur`.
+- **Les pages datées « 2026 »** restent à leur adresse et sont mises à jour sur place (titre et contenu), sans nouvelle
+  page « 2027 » sur le même sujet. Les nouvelles pages n'ont pas d'année dans l'adresse.
+- Un nouveau dossier (`/robot-piscine/`, `/arrosage/`, `/outils-jardin/`) ne doit pas porter le nom d'un article existant :
+  vérifié le 15/11/2026, aucun article ne s'appelle ainsi.
+
+## 9. Ce qu'il faut pour que ça tourne (hors rédaction)
+
+| Quoi | Qui | Avant le |
+|---|---|---|
+| Ouvrir `/robot-piscine` : page de rubrique, pages `/robot-piscine/<page>`, entrée de menu, plan du site, puis passer la ligne à « ouverte » au point 3 | Dév QRT | 01/01/2027 |
+| Consigne de nuit (`article-prompts/robot-tondeuse.md`, hors de ce dépôt) : ne plus exiger les deux images de robot tondeuse dans les articles piscine, arrosage et outils ; suivre la règle « Choix du sujet de la nuit » du plan | Claude en session | 01/01/2027 |
+| Lien marchand des produits hors robots tondeuses : passer par `/go/…` comme pour les robots, sans les ajouter au quiz ni au comparateur | Dév QRT | 01/01/2027 |
+| Ouvrir `/arrosage` (même travail) | Dév QRT | 01/04/2027 |
+| Ouvrir `/outils-jardin` si le critère est rempli | Dév QRT, sur avis du Chef | 01/09/2027 |
+| Revérifier les pages code promo le 1er du mois | Contenu QRT | chaque mois à partir de mars 2027 |
+| Pages « Avis + marque » et fiches notées des robots tondeuses (lot 3) | Dév QRT | avant mars 2027 (pic d'achat) |
+| Barème public « robot de piscine », si l'on veut un jour des notes | propriétaire, puis Dév | pas avant l'été 2027 |
+
+Tant que la première ligne n'est pas faite, la rédaction de nuit saute les sujets piscine et écrit les autres : rien ne se bloque.
+
+## 10. Comment la demande a été vérifiée
+
+- **Suggestions de recherche de Google en français** (France), relevées le 15/11/2026 sur environ 360 débuts de requête
+  (robots de piscine, marques, accessoires, gazon, arrosage, outils, promos). Une requête est dite « confirmée par les
+  suggestions » quand elle sort telle quelle ou presque dans ces suggestions.
+- **Pages concurrentes** lues sur six recherches (classements de robots de piscine sans fil et hors-sol, Aiper ou Wybot,
+  hivernage du robot de piscine, batteries compatibles, code promo Mammotion) : guide-piscine.fr, mypiscine.com,
+  piscine-center.net, futura-sciences.com, labomaison.com, maniaques.fr, selectra.info, sites de codes (igraal, savoo).
+- **Non relevé** : les « autres questions posées » de Google (l'outil de recherche ne les montre pas) et **tout volume de
+  recherche** (aucun chiffre à notre portée : aucun n'est écrit dans le plan).
+- Deux sujets portent « à confirmer » dans le plan : `/panne-robot-tondeuse-diagnostic` (page mère utile au maillage même
+  sans requête forte) et `/code-promo-segway-navimow` (la suggestion relevée est « code réduction segway navimow »).
+
+Ce que les suggestions montrent, en bref : la demande piscine se range par **type de bassin** (hors-sol, coque, liner,
+carrelage, 8x4, 10x5), par **budget** (moins de 200, 500, 1 000 €), par **marque** (Dolphin, Zodiac, Aiper, Wybot, Beatbot,
+Dreame) et par **panne** (ne monte plus aux parois, ne bouge plus). Côté robot tondeuse, les accessoires se cherchent
+**par marque** (lames Husqvarna, garage Mammotion, batterie Worx) et les avis par **marque absente du site** (Stiga, Kress,
+Stihl, Sunseeker, Parkside, Anthbot).
