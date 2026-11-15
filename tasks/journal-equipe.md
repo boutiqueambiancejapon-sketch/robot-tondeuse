@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 16/11/2026 (nuit) — Claude en session
+
+- **Design V2 en ligne sur tout le site** : articles (213), blog, comparatifs, marques, auteur, pages légales, quiz, comparateur, outils, calendrier, fiche hivernage, bons plans. Contrôle en ligne de 22 pages à 390 px : aucun débordement, aucun bouton sur deux lignes, aucune police à chasse fixe, H1 à 32 px.
+- **Nouvelles pages** : `/code-promo` (13 marques) et `/black-friday-robot-tondeuse` (12 marques), données dans `lib/promos.ts`, aucune offre inventée. Ajoutées au menu, au pied de page et au plan du site.
+- **Arborescence et calendrier éditorial** : `tasks/arborescence.md`, `tasks/calendrier-editorial.md`, 127 sujets ajoutés à `tasks/plan-editorial.md`. La rédaction de nuit suit maintenant le mois en cours.
+- Biographie de l'auteur réécrite sans « je teste ». Sauvegarde avant la mise en ligne : étiquette `sauvegarde-20261115-avant-v2-complet`.
+- **Dév QRT, prochain passage** : étape 13 de `tasks/design-v2.md` (ménage de l'ancien style ; garder les règles d'impression `.fiche-print` et `.surface-marker-label`, déplacer le type de `lib/home-hubs.ts` avant de supprimer `components/home`). Ensuite : rubrique `/robot-piscine` avant le 1er janvier.
+- **Croissance QRT** : contrôle des codes et offres dans `lib/promos.ts` tous les jours du 20/11 au 2/12 (Mova annonce des remises à partir du 16/11). **Contenu QRT** : lien de l'article `robot-tondeuse-black-friday-2026-prix-a-viser` vers `/black-friday-robot-tondeuse`.
+
 ## 15/11/2026 (soir) — Claude en session, avec le propriétaire
 
 - **Design V2 validé par le propriétaire** et à appliquer à tout le site. Maquette : https://maquette-qrt.85-190-127-13.sslip.io, sources dans `docs/maquette-v2/`, règles et ordre de migration dans `tasks/design-v2.md`.

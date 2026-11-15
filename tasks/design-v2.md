@@ -64,27 +64,29 @@ La maquette montre une note sur 10, un prix du jour daté et une comparaison Cdi
 - la note détaillée arrive avec le lot 3 (barème public). Sans note calculée, on n'affiche ni anneau ni barres ;
 - jamais « testé », « mesuré », faux stock, compte à rebours ni prix barré non vérifié.
 
-## Ordre de migration (Dév QRT, une étape par passage)
+## Ordre de migration
+
+Étapes 1 à 12 faites dans la nuit du 15 au 16/11 par cinq agents en parallèle, contrôlées en ligne sur 22 pages à 390 px. Reste l'étape 13 (ménage), pour Dév QRT.
 
 Pour chaque page : envelopper le `<main>` dans `className="v2"`, réécrire le contenu avec les classes de la maquette
 (le fichier `docs/maquette-v2/<page>.html` sert de modèle), retirer les styles en ligne et les anciens composants.
 Avant d'envoyer : types, lint, tests, build, capture à 390 px sans débordement, H1 lisible sans JavaScript.
 
 - [x] 0. Socle, en-tête, pied de page, accueil (Claude en session, 15/11)
-- [ ] 1. Gabarit d'article : `app/(site)/[article]/page.tsx` et `blog/[categorie]/[slug]` (modèle : `guide.html`).
+- [x] 1. Gabarit d'article : `app/(site)/[article]/page.tsx` et `blog/[categorie]/[slug]` (modèle : `guide.html`).
       Retirer `AISummarize` (garder le résumé « En bref » sans liseré), `ArticleSidebar` flottante, lettrine, numéros de section.
-- [ ] 2. Composants d'article : `ProductCTA`, `AutoProductCTAs`, `ProductCarousel`, `Verdict`, `Tip`, `Warning`, `ProConTable`,
+- [x] 2. Composants d'article : `ProductCTA`, `AutoProductCTAs`, `ProductCarousel`, `Verdict`, `Tip`, `Warning`, `ProConTable`,
       `FaqAccordion`, `StickyCTA` (modèles : cartes `.pick`, `.duo`, `.acc`, `.buybar`, `.warn`).
-- [ ] 3. Listes : `/blog`, `/blog/[categorie]`, `ArticleCard`, `Pagination`.
-- [ ] 4. `/comparatifs` et les articles de classement (modèle : `classement.html`).
-- [ ] 5. `/marques` et les pages marque (modèle : `marque.html`).
-- [ ] 6. Articles « X vs Y » (modèle : `duel.html`, type de page `comparatif`).
-- [ ] 7. `/quiz` (modèle : `quiz.html` et `quiz-resultat.html`, le robot avance sur la barre).
-- [ ] 8. `/comparer` (modèle : `comparateur.html`).
-- [ ] 9. Outils : `/superficie`, `/calculateur-rentabilite-robot-tondeuse`, `/simulateur` (modèle : `outil-cout.html`).
-- [ ] 10. `/calendrier-du-gazon`, `/fiche-hivernage-robot-tondeuse`, `InscriptionLettre` (modèle : `calendrier.html`).
-- [ ] 11. `/deals` (modèle : `promos.html`, sans courbe tant que l'historique des prix n'existe pas).
-- [ ] 12. Pages auteur, mentions légales, confidentialité.
+- [x] 3. Listes : `/blog`, `/blog/[categorie]`, `ArticleCard`, `Pagination`.
+- [x] 4. `/comparatifs` et les articles de classement (modèle : `classement.html`).
+- [x] 5. `/marques` et les pages marque (modèle : `marque.html`).
+- [x] 6. Articles « X vs Y » (modèle : `duel.html`, type de page `comparatif`).
+- [x] 7. `/quiz` (modèle : `quiz.html` et `quiz-resultat.html`, le robot avance sur la barre).
+- [x] 8. `/comparer` (modèle : `comparateur.html`).
+- [x] 9. Outils : `/superficie`, `/calculateur-rentabilite-robot-tondeuse`, `/simulateur` (modèle : `outil-cout.html`).
+- [x] 10. `/calendrier-du-gazon`, `/fiche-hivernage-robot-tondeuse`, `InscriptionLettre` (modèle : `calendrier.html`).
+- [x] 11. `/deals` (modèle : `promos.html`, sans courbe tant que l'historique des prix n'existe pas).
+- [x] 12. Pages auteur, mentions légales, confidentialité.
 - [ ] 13. Ménage : supprimer `components/effects`, `components/home`, l'ancien `Nav`, `Footer`, `BottomNav`, `ThemeToggle`,
       les styles devenus inutiles de `app/globals.css`, puis retirer la limite `.v2` si plus rien ne dépend de l'ancien style.
 
