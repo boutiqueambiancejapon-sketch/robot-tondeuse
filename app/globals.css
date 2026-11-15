@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./v2.css";
 
 /* ═══════════════════════════════════════════════════════════════════════
    DA Atelier Vert — light only
@@ -500,7 +501,6 @@ body {
   .nav-desktop { display: none !important; }
   .nav-quiz-cta { display: none !important; }
   .blog-hero-inner { padding-left: var(--space-8) !important; padding-right: var(--space-8) !important; }
-  body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
 }
 
 .bento-featured {

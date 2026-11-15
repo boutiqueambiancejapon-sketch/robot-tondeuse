@@ -1,122 +1,57 @@
-import { HeroSection } from '@/components/home/HeroSection'
-import { ArticleTicker } from '@/components/home/ArticleTicker'
-import { ReassuranceStrip } from '@/components/home/ReassuranceStrip'
-import { FeaturedTools } from '@/components/home/FeaturedTools'
-import { HomeTopRobots } from '@/components/home/HomeTopRobots'
-import { RecentArticles } from '@/components/home/RecentArticles'
-import { HomeQuizTeaser } from '@/components/home/HomeQuizTeaser'
-import { HomeHubSection } from '@/components/home/HomeHubSection'
-import { HomeMarques } from '@/components/home/HomeMarques'
-import { HomeMethodology } from '@/components/home/HomeMethodology'
-import { AuthorTeaser } from '@/components/home/AuthorTeaser'
-import { StickyCTA } from '@/components/layout/StickyCTA'
-import {
-  PAR_JARDIN_ITEMS,
-  PAR_BESOIN_ITEMS,
-  COMPARATIFS_ITEMS,
-  GUIDES_ITEMS,
-  PELOUSE_JARDIN_ITEMS,
-} from '@/lib/home-hubs'
+import fs from 'fs'
+import path from 'path'
+import Link from 'next/link'
+import { LawnHero } from '@/components/v2/LawnHero'
+import { HomePicks } from '@/components/v2/home/HomePicks'
+import { HomeDoors } from '@/components/v2/home/HomeDoors'
+import { HomeMethod, HomeSeason, HomeGuides } from '@/components/v2/home/HomeMore'
+
+// La saison affichée suit le calendrier : la page est reconstruite une fois par jour.
+export const revalidate = 86400
+
+const SURFACES = [
+  { label: 'Moins de 300 m²', hint: 'cour, petit jardin' },
+  { label: '300 à 800 m²', hint: 'jardin de pavillon' },
+  { label: '800 à 2 000 m²', hint: 'grand jardin' },
+  { label: 'Plus de 2 000 m²', hint: 'terrain, verger' },
+]
+
+function countRobots(): number {
+  const dir = path.join(process.cwd(), 'content/produits')
+  return fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith('.yaml')).length : 0
+}
 
 export default function HomePage() {
+  const count = countRobots()
   return (
-    <>
-      <main id="main-content">
-        {/* 01 — Hero forest-deep + dashboard MON_JARDIN.LIVE */}
-        <HeroSection />
+    <main id="main-content" className="v2">
+      <LawnHero lines={['Quel robot', 'pour votre', 'pelouse ?']} eyebrow={`${count} robots tondeuses comparés`}>
+        <p>Comparatifs, avis et guides pour choisir un robot tondeuse selon votre jardin, sans essai inventé.</p>
+      </LawnHero>
 
-        {/* 02 — Bandeau articles récents marquee */}
-        <ArticleTicker />
+      <div className="card quick">
+        <h2>Quelle surface fait votre pelouse ?</h2>
+        <div className="quick-opts">
+          {SURFACES.map((s) => (
+            <Link className="opt" href="/quiz" key={s.label}>
+              {s.label}
+              <small>{s.hint}</small>
+            </Link>
+          ))}
+        </div>
+        <p className="dated" style={{ marginTop: 12 }}>
+          Le quiz vous conseille un robot, sans inscription ·{' '}
+          <Link className="lnk" href="/superficie">
+            Mesurer ma pelouse
+          </Link>
+        </p>
+      </div>
 
-        {/* 03 — Bandeau « Vu dans » (Le Parisien, Que Choisir…) retiré le 11/11/2026 : aucune parution vérifiée. */}
-
-        {/* 04 — 4 engagements éditoriaux (fond paper/ivory) */}
-        <ReassuranceStrip />
-
-        {/* 05 — Ancienne « vente flash » retirée le 11/11/2026 : compte à rebours, stocks et prix barrés
-            étaient inventés (pratique commerciale trompeuse). À remplacer par de vraies baisses de prix
-            calculées sur l'historique (flux Fnac via Awin). */}
-
-        {/* 06 — Outils interactifs bento : quiz · comparateur · superficie · rentabilité */}
-        <FeaturedTools />
-
-        {/* 07 — Le podium 2026 — 3 robots coups de cœur (fond cream) */}
-        <HomeTopRobots />
-
-        {/* 08 — Avis lecteurs « vérifiés » retirés le 11/11/2026 : non sourcés. À remettre seulement avec de vrais avis. */}
-
-        {/* 09 — Comparatifs FEATURED (Top 2026 en grand — fond cream) */}
-        <HomeHubSection
-          eyebrow="04 — Comparatifs"
-          heading="Top sélections notées"
-          emHighlight="notées"
-          items={COMPARATIFS_ITEMS}
-          background="cream"
-          variant="featured"
-          ctaHref="/comparatifs"
-          ctaLabel="Tous les comparatifs →"
-        />
-
-        {/* 10 — Quiz signature (dark block forest-deep) */}
-        <HomeQuizTeaser />
-
-        {/* 11 — Par jardin — grille 8 cards (fond paper) */}
-        <HomeHubSection
-          eyebrow="05 — Par jardin"
-          heading="Trouvez par votre jardin"
-          emHighlight="votre jardin"
-          items={PAR_JARDIN_ITEMS}
-          background="paper"
-        />
-
-        {/* 12 — Toutes les marques : featured article + brand grid (fond cream) */}
-        <HomeMarques />
-
-        {/* 13 — Par technologie FEATURED (fond paper) */}
-        <HomeHubSection
-          eyebrow="07 — Par technologie"
-          heading="Filtrer par techno"
-          emHighlight="techno"
-          items={PAR_BESOIN_ITEMS}
-          background="paper"
-          variant="featured"
-        />
-
-        {/* 14 — Derniers articles éditoriaux (fond cream) */}
-        <RecentArticles />
-
-        {/* 15 — Guides & conseils FEATURED (fond paper) */}
-        <HomeHubSection
-          eyebrow="08 — Guides & conseils"
-          heading="Tout savoir avant d'acheter"
-          emHighlight="avant"
-          items={GUIDES_ITEMS}
-          background="paper"
-          variant="featured"
-          ctaHref="/blog"
-          ctaLabel="Tous les articles →"
-        />
-
-        {/* 16 — Pelouse & jardin grille (fond cream) */}
-        <HomeHubSection
-          eyebrow="09 — Pelouse & jardin"
-          heading="Astuces pour un beau gazon"
-          emHighlight="beau gazon"
-          items={PELOUSE_JARDIN_ITEMS}
-          background="cream"
-          ctaHref="/blog/entretien-pelouse"
-          ctaLabel="Tous nos conseils jardin →"
-        />
-
-        {/* 17 — Méthodologie test (radar chart — fond paper) */}
-        <HomeMethodology />
-
-        {/* 18 — Auteur / E-E-A-T (fond paper) */}
-        <AuthorTeaser />
-      </main>
-
-      {/* Flottant — apparaît après 600px de scroll */}
-      <StickyCTA />
-    </>
+      <HomePicks />
+      <HomeDoors />
+      <HomeMethod count={count} />
+      <HomeSeason />
+      <HomeGuides />
+    </main>
   )
 }

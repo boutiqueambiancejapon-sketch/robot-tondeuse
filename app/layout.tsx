@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import { Schibsted_Grotesk, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
+import { Schibsted_Grotesk, Hanken_Grotesk } from 'next/font/google'
 import { niche } from '@/niche.config'
 import './globals.css'
 
-// ── Fonts — Atelier Vert : Schibsted Grotesk (display/headings) + Hanken Grotesk (body) + JetBrains Mono (specs/prix) ──
+// ── Polices : Schibsted Grotesk (titres) + Hanken Grotesk (texte) ──
 
 const fontDisplay = Schibsted_Grotesk({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: ['400', '700', '800', '900'],
   style: ['normal', 'italic'],
   variable: '--next-font-display',
   adjustFontFallback: true,
@@ -24,12 +24,13 @@ const fontPrimary = Hanken_Grotesk({
   display: 'swap',
 })
 
-const fontMono = JetBrains_Mono({
+// Design V2 (15/11/2026) : plus de police à chasse fixe. Les anciens styles qui la demandent reçoivent la police de texte.
+const fontMono = Hanken_Grotesk({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   variable: '--next-font-mono',
   adjustFontFallback: true,
-  preload: true,
+  preload: false,
   display: 'swap',
 })
 
