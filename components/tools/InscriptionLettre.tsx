@@ -16,9 +16,7 @@ const MESSAGES: Partial<Record<Statut, string>> = {
   erreur: 'L’inscription n’est pas passée. Réessayez dans quelques minutes.',
 }
 
-const input = { minHeight: 48, padding: '0 14px', fontSize: 16, border: '1px solid var(--border-strong)', borderRadius: 12, background: 'var(--ivory)', color: 'var(--text-primary)' }
-
-export function InscriptionLettre({ source }: { source: string }) {
+export function InscriptionLettre({ source, bouton = 'M’inscrire à la lettre' }: { source: string; bouton?: string }) {
   const id = useId()
   const [email, setEmail] = useState('')
   const [accord, setAccord] = useState(false)
@@ -46,29 +44,31 @@ export function InscriptionLettre({ source }: { source: string }) {
 
   if (statut === 'ok') {
     return (
-      <p role="status" style={{ color: 'var(--moss)', fontWeight: 500, lineHeight: 1.6 }}>
+      <p role="status" className="lettre-ok">
         C’est noté. Vous recevrez la lettre du jardin dès le premier envoi. Un lien de désinscription figure en bas de chaque e-mail.
       </p>
     )
   }
 
   return (
-    <form onSubmit={envoyer} noValidate style={{ display: 'grid', gap: 12, maxWidth: 520 }}>
-      <label htmlFor={`${id}-email`} style={{ fontSize: 14, color: 'var(--text-secondary)' }}>Votre adresse e-mail</label>
-      <input id={`${id}-email`} type="email" required autoComplete="email" placeholder="vous@exemple.fr" value={email} onChange={(e) => setEmail(e.target.value)} style={input} />
-      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} style={{ display: 'none' }} />
-      <label htmlFor={`${id}-accord`} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 14, lineHeight: 1.5, color: 'var(--text-secondary)' }}>
-        <input id={`${id}-accord`} type="checkbox" checked={accord} onChange={(e) => setAccord(e.target.checked)} style={{ width: 20, height: 20, marginTop: 1, flex: '0 0 20px', accentColor: 'var(--moss)' }} />
+    <form onSubmit={envoyer} noValidate className="stack lettre">
+      <div className="field">
+        <label htmlFor={`${id}-email`}>Votre adresse e-mail</label>
+        <input id={`${id}-email`} className="input" type="email" required autoComplete="email" placeholder="vous@exemple.fr" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" hidden value={website} onChange={(e) => setWebsite(e.target.value)} />
+      <label htmlFor={`${id}-accord`} className="check">
+        <input id={`${id}-accord`} type="checkbox" checked={accord} onChange={(e) => setAccord(e.target.checked)} />
         <span>
           J’accepte de recevoir la lettre du jardin de Quel Robot Tondeuse, une fois par mois au plus. Je peux me désinscrire à tout moment. Détails dans la{' '}
-          <Link href="/confidentialite" style={{ color: 'var(--moss)' }}>politique de confidentialité</Link>.
+          <Link href="/confidentialite" className="lnk">politique de confidentialité</Link>.
         </span>
       </label>
-      <button type="submit" disabled={statut === 'envoi'} style={{ minHeight: 48, padding: '0 22px', background: 'var(--copper)', color: 'var(--ivory)', border: 'none', borderRadius: 100, fontSize: 15, fontWeight: 500, cursor: 'pointer', justifySelf: 'start', opacity: statut === 'envoi' ? 0.6 : 1 }}>
-        {statut === 'envoi' ? 'Envoi…' : 'M’inscrire'}
+      <button type="submit" disabled={statut === 'envoi'} className="btn btn--full btn--ink">
+        {statut === 'envoi' ? 'Envoi…' : bouton}
       </button>
       {MESSAGES[statut] && (
-        <p role="alert" style={{ margin: 0, fontSize: 14, color: 'var(--error)' }}>{MESSAGES[statut]}</p>
+        <p role="alert" className="lettre-err">{MESSAGES[statut]}</p>
       )}
     </form>
   )

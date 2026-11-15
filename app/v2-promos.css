@@ -1,3 +1,50 @@
 /* Design V2 — styles du lot « promos ». Tout reste dans .v2 (voir app/v2.css et tasks/design-v2.md). */
 .v2 {
+  /* Listes de texte : sources, puces d'un paragraphe. */
+  .sources { font-size: 15px; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
+  .sources li + li { margin-top: 6px; }
+  .puces { padding-left: 20px; list-style: disc; }
+  .puces li + li { margin-top: 6px; }
+
+  /* Calendrier du gazon et fiche hivernage. */
+  .cal-choix { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .cal-choix legend { padding: 0; margin-bottom: 6px; font: 600 14.5px/1.3 var(--f-b); color: var(--muted); }
+  .cal-mois { margin-top: 18px; }
+  .months button { color: var(--ink); white-space: nowrap; }
+  .season .small { margin-top: 6px; }
+  .task .geste { font-size: 16.5px; line-height: 1.45; color: var(--ink); margin-top: 3px; }
+  .task .dated { font-size: 13.5px; margin-top: 4px; }
+  .task .case { width: 22px; height: 22px; margin-top: 4px; border: 1.5px solid var(--ink); border-radius: 6px; background: var(--white); }
+  .etape-titre { margin: 4px 0 6px; }
+  .door:focus-visible { outline-offset: 3px; }
+
+  /* Formulaire de la lettre. */
+  .lettre { max-width: 520px; }
+  .lettre .btn[disabled] { opacity: .6; cursor: default; }
+  .lettre-ok { font-weight: 600; color: var(--moss); }
+  .lettre-err { font-size: 15px; font-weight: 600; color: var(--copper-dark); }
+
+  /* Pages promos : codes promo, Black Friday, bons plans. */
+  .promo-page { padding-bottom: 48px; }
+  .promo-blocs { margin-top: 26px; }
+  .promo-blocs > * + * { margin-top: 30px; }
+  .promo-page .prose h2:first-child { margin-top: 0; }
+  .promo-faq-titre { margin-bottom: 12px; }
+  .promo-prix { display: flex; align-items: center; gap: 10px; }
+  .promo-robots .dated { margin-top: 10px; }
+  .promo-robots .mini > div { min-width: 0; }
+  .promo-robots .mini .price { font-size: 16px; max-width: 42%; white-space: normal; text-align: right; }
+  .promo-marques { border-bottom: 1px solid var(--line); }
+  .promo-marques a { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 2px 12px; min-height: 52px; padding: 12px 0; border-top: 1px solid var(--line); text-decoration: none; }
+  .promo-marques b { font: 700 17px/1.3 var(--f-b); }
+  .promo-marques span { font: 500 14.5px/1.35 var(--f-b); color: var(--muted); }
+  @media (min-width: 860px) {
+    .promo-page .prose, .promo-page .tldr, .promo-robots, .promo-marques, .promo-page details.acc, .promo-page .door { max-width: 760px; }
+  }
+
+  @media print {
+    &.fiche-print .cal-mois { margin-top: 0; }
+    &.fiche-print .season { background: none; padding: 0; grid-template-columns: minmax(0, 1fr); }
+    &.fiche-print .season img { display: none; }
+  }
 }

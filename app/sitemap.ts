@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { niche } from '@/niche.config'
 import { getAllArticles, articleHref, getCategories } from '@/lib/blog'
 import { PRODUIT_SLUGS } from '@/lib/comparateur'
+import { PROMO_BRANDS, PROMOS_CHECKED_AT, getBlackFridayBrands } from '@/lib/promos'
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
@@ -81,6 +82,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: `${SITE_URL}/choisir/${slug}`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
       { url: `${SITE_URL}/comparer/${slug}`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     )
+  }
+
+  // ── Codes promo et Black Friday : page mère + une page par marque (lib/promos.ts) ──
+  const promosCheckedAt = new Date(PROMOS_CHECKED_AT)
+  entries.push(
+    { url: `${SITE_URL}/code-promo`, lastModified: promosCheckedAt, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${SITE_URL}/black-friday-robot-tondeuse`, lastModified: promosCheckedAt, changeFrequency: 'weekly', priority: 0.7 },
+  )
+  for (const brand of PROMO_BRANDS) {
+    entries.push({ url: `${SITE_URL}/code-promo/${brand.slug}`, lastModified: new Date(brand.checkedAt), changeFrequency: 'weekly', priority: 0.6 })
+  }
+  for (const brand of getBlackFridayBrands()) {
+    entries.push({ url: `${SITE_URL}/black-friday-robot-tondeuse/${brand.slug}`, lastModified: new Date(brand.checkedAt), changeFrequency: 'weekly', priority: 0.6 })
   }
 
   // ── Page auteur ──────────────────────────────────────────────────────
