@@ -1,6 +1,6 @@
 /**
  * /comparer/[produit] — comparateur côte à côte.
- * Sélecteurs dropdown + specs alignés en colonnes.
+ * Design V2 : modèles en pastilles, tableau à première colonne figée, phrase de verdict.
  * Server Component — ComparateurSelector isolé en 'use client'.
  */
 
@@ -12,6 +12,8 @@ import { ComparateurSelector } from '@/components/comparer/ComparateurSelector'
 import { currentYear } from '@/lib/utils/year'
 import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import { PageTitle } from '@/components/v2/PageTitle'
+import { Mascotte } from '@/components/v2/Mascotte'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -72,117 +74,49 @@ export default async function ComparateurProduitPage({ params }: { params: Param
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main id="main-content">
-        {/* Hero */}
-        <section
-          style={{
-            maxWidth: '960px',
-            margin: '0 auto',
-            padding: 'var(--space-12) var(--space-6) var(--space-6)',
-          }}
-        >
-          <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-5)' }}>
-            <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--text-muted)', flexWrap: 'wrap' }}>
-              <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Accueil</Link></li>
-              <li aria-hidden="true">›</li>
-              <li><Link href="/comparer" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Comparateur</Link></li>
-              <li aria-hidden="true">›</li>
-              <li aria-current="page" style={{ color: 'var(--text-secondary)' }}>{data.label}</li>
-            </ol>
-          </nav>
+      <main id="main-content" className="v2">
+        <div className="wrap tool">
+          <PageTitle
+            title={`Comparateur ${data.label} ${year}`}
+            pose="balance"
+            crumbs={[{ href: '/', label: 'Accueil' }, { href: '/comparer', label: 'Comparateur' }, { label: data.label }]}
+            meta={`${data.modeles.length} modèles · prix indicatifs`}
+          />
+          <p className="lede">{data.description}</p>
 
-          {/* Sélecteur familles */}
-          <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', marginBottom: 'var(--space-8)' }}>
+          <nav className="chips" aria-label="Autres marques">
             {AUTRES_PRODUITS.map((p) => (
               <Link
                 key={p.slug}
                 href={`/comparer/${p.slug}`}
-                style={{
-                  fontSize: '13px',
-                  fontWeight: p.slug === produit ? 700 : 400,
-                  color: p.slug === produit ? 'var(--bg-primary)' : 'var(--text-secondary)',
-                  background: p.slug === produit ? 'var(--accent-1)' : 'transparent',
-                  border: '1px solid',
-                  borderColor: p.slug === produit ? 'var(--accent-1)' : 'var(--glass-border)',
-                  borderRadius: 'var(--radius-full)',
-                  padding: 'var(--space-1) var(--space-4)',
-                  textDecoration: 'none',
-                }}
+                className={p.slug === produit ? 'chip on' : 'chip'}
+                aria-current={p.slug === produit ? 'page' : undefined}
               >
                 {p.label}
               </Link>
             ))}
-          </div>
+          </nav>
 
-          <h1
-            style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(24px, 4vw, 44px)',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
-              lineHeight: 1.1,
-              marginBottom: 'var(--space-3)',
-            }}
-          >
-            Comparateur {data.label} {year}
-          </h1>
-          <p style={{ fontSize: '15px', color: 'var(--text-secondary)', maxWidth: '520px', lineHeight: 1.6, marginBottom: 'var(--space-2)' }}>
-            {data.description}
-          </p>
-          <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-            Sélectionne les modèles à comparer côte à côte.
-          </p>
-        </section>
+          <section className="sec stack-lg">
+            <div className="sec-hd">
+              <h2 className="h-lg">Les modèles {data.label} côte à côte</h2>
+              <p className="small muted">Touchez deux ou trois modèles. Le meilleur de chaque ligne passe en vert.</p>
+            </div>
 
-        {/* Comparateur interactif */}
-        <section
-          style={{
-            maxWidth: '960px',
-            margin: '0 auto',
-            padding: '0 var(--space-6) var(--space-16)',
-          }}
-        >
-          <ComparateurSelector
-            modeles={data.modeles}
-            specsLabels={data.specsLabels}
-          />
+            <ComparateurSelector modeles={data.modeles} specsLabels={data.specsLabels} />
 
-          <p style={{ marginTop: 'var(--space-8)', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
-            Prix indicatifs. Les liens {niche.defaultStore} sont des liens affiliés
-            — le prix que tu paies reste identique.
-          </p>
-
-          {/* CTA vers le quiz */}
-          <div
-            style={{
-              marginTop: 'var(--space-8)',
-              padding: 'var(--space-6)',
-              background: 'var(--surface-2)',
-              border: '1px solid var(--glass-border)',
-              borderRadius: 'var(--radius-lg)',
-              textAlign: 'center',
-            }}
-          >
-            <p style={{ fontSize: '15px', color: 'var(--text-secondary)', marginBottom: 'var(--space-3)' }}>
-              Tu hésites encore ? Réponds à 4 questions pour trouver ton modèle.
+            <p className="dated">
+              Surface, pente, bruit et autonomie annoncés par les fabricants. Prix indicatifs, à vérifier chez le marchand.
+              Les liens {niche.defaultStore} sont des liens partenaires : le prix que vous payez reste identique.
             </p>
-            <Link
-              href={`/choisir/${produit}`}
-              style={{
-                display: 'inline-block',
-                background: 'var(--accent-4)',
-                color: '#fff',
-                fontWeight: 700,
-                fontSize: '14px',
-                padding: 'var(--space-3) var(--space-6)',
-                borderRadius: 'var(--radius-md)',
-                textDecoration: 'none',
-              }}
-            >
-              Faire le quiz →
+
+            <Link className="card door door--copper" href={`/choisir/${produit}`}>
+              <Mascotte pose="loupe" size={104} />
+              <h3>Vous hésitez encore ?</h3>
+              <p>Répondez à 4 questions pour trouver votre modèle.</p>
             </Link>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
     </>
   )

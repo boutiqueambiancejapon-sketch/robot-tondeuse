@@ -5,10 +5,10 @@
  */
 
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { niche } from '@/niche.config'
 import { SurfaceCalculator } from './SurfaceCalculator'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import { PageTitle } from '@/components/v2/PageTitle'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -51,92 +51,24 @@ export default function SimulateurPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main id="main-content">
-        {/* Hero */}
-        <section
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: 'var(--space-16) var(--space-6) var(--space-12)',
-            position: 'relative',
-            overflow: 'hidden',
-          }}
-        >
-          <span
-            aria-hidden="true"
-            style={{
-              position: 'absolute',
-              top: '0',
-              right: 'var(--space-6)',
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(120px, 20vw, 280px)',
-              fontWeight: 800,
-              color: 'var(--accent-1)',
-              opacity: 0.05,
-              lineHeight: 1,
-              pointerEvents: 'none',
-              userSelect: 'none',
-            }}
-          >
-            m²
-          </span>
+      <main id="main-content" className="v2">
+        <div className="wrap tool">
+          <div className="tool-in">
+            <PageTitle
+              title="Quel robot pour votre jardin ?"
+              pose="calcul"
+              crumbs={[{ href: '/', label: 'Accueil' }, { label: 'Simulateur' }]}
+              meta="Simulateur gratuit, sans inscription"
+            />
+            <p className="lede">
+              Entrez votre surface en m² et on vous montre les robots tondeuses adaptés, triés par budget.
+            </p>
 
-          <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
-            <ol
-              style={{
-                display: 'flex',
-                gap: 'var(--space-2)',
-                listStyle: 'none',
-                fontSize: '13px',
-                color: 'var(--text-muted)',
-              }}
-            >
-              <li>
-                <Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>
-                  Accueil
-                </Link>
-              </li>
-              <li aria-hidden="true">›</li>
-              <li aria-current="page" style={{ color: 'var(--text-secondary)' }}>
-                Simulateur
-              </li>
-            </ol>
-          </nav>
-
-          <h1
-            style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(32px, 5vw, 60px)',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
-              lineHeight: 1.1,
-              marginBottom: 'var(--space-4)',
-            }}
-          >
-            Quel robot pour votre jardin ?
-          </h1>
-          <p
-            style={{
-              fontSize: 'clamp(15px, 2vw, 18px)',
-              color: 'var(--text-secondary)',
-              maxWidth: '560px',
-              lineHeight: 1.6,
-            }}
-          >
-            Entrez votre surface en m² et on vous montre les robots tondeuses adaptés, triés par budget.
-          </p>
-        </section>
-
-        {/* Calculateur */}
-        <section
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: '0 var(--space-6) var(--space-24)',
-          }}
-        >
-          <SurfaceCalculator />
-        </section>
+            <section className="sec">
+              <SurfaceCalculator />
+            </section>
+          </div>
+        </div>
       </main>
     </>
   )

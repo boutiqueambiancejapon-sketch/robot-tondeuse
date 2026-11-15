@@ -1,7 +1,7 @@
 /**
  * /comparer — Hub de sélection produit.
  * Redirige vers /comparer/[produit] pour chaque famille.
- * DA : bento grid + border animée --accent-1 pulse lent.
+ * Design V2 : titre avec la mascotte « balance », une ligne par marque.
  * Server Component · ISR 86400s.
  */
 
@@ -11,6 +11,8 @@ import { currentYear } from '@/lib/utils/year'
 import { COMPARATEURS } from '@/lib/comparateur'
 import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import { PageTitle } from '@/components/v2/PageTitle'
+import { Mascotte } from '@/components/v2/Mascotte'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -45,6 +47,7 @@ const jsonLd = {
 
 export default function ComparateurHubPage() {
   const produits = Object.values(COMPARATEURS)
+  const total = produits.reduce((n, p) => n + p.modeles.length, 0)
 
   return (
     <>
@@ -53,109 +56,38 @@ export default function ComparateurHubPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main id="main-content">
-        <section
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: 'var(--space-16) var(--space-6) var(--space-12)',
-            position: 'relative',
-          }}
-        >
-          <span
-            aria-hidden="true"
-            className="section-watermark"
-            style={{ position: 'absolute', top: 'var(--space-8)', right: 'var(--space-6)' }}
-          >
-            02
-          </span>
+      <main id="main-content" className="v2">
+        <div className="wrap tool">
+          <PageTitle
+            title="Comparateur"
+            pose="balance"
+            crumbs={[{ href: '/', label: 'Accueil' }, { label: 'Comparateur' }]}
+            meta={`${total} modèles · ${produits.length} marques`}
+          />
+          <p className="lede">Choisissez une marque pour comparer ses modèles côte à côte.</p>
 
-          <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
-            <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--text-muted)' }}>
-              <li><Link href="/" style={{ color: 'var(--text-muted)', textDecoration: 'none' }}>Accueil</Link></li>
-              <li aria-hidden="true">›</li>
-              <li aria-current="page" style={{ color: 'var(--text-secondary)' }}>Comparateur</li>
-            </ol>
-          </nav>
+          <section className="sec stack-lg">
+            <ul className="stack">
+              {produits.map((p) => (
+                <li key={p.id}>
+                  <Link className="card mini" href={`/comparer/${p.id}`}>
+                    <div>
+                      <h2>{p.label}</h2>
+                      <p>{p.description}</p>
+                    </div>
+                    <span className="count">{p.modeles.length} modèles</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
 
-          <h1
-            style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(32px, 5vw, 60px)',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
-              lineHeight: 1.1,
-              marginBottom: 'var(--space-4)',
-            }}
-          >
-            Comparateur
-          </h1>
-          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'var(--text-secondary)', maxWidth: '500px', lineHeight: 1.6 }}>
-            Choisis une famille de produit pour comparer les modèles côte à côte.
-          </p>
-        </section>
-
-        {/* Bento grid familles */}
-        <section
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: '0 var(--space-6) var(--space-24)',
-          }}
-        >
-          <ul
-            role="list"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-              gap: 'var(--space-5)',
-              listStyle: 'none',
-            }}
-          >
-            {produits.map((p) => (
-              <li key={p.id}>
-                <Link href={`/comparer/${p.id}`} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
-                  <div className="comparateur-card-wrap" style={{ height: '100%' }}>
-                    <article
-                      style={{
-                        padding: 'var(--space-7)',
-                        height: '100%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: 'var(--space-3)',
-                      }}
-                    >
-                      {/* Card content */}
-                      <h2
-                        style={{
-                          fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                          fontSize: '20px',
-                          fontWeight: 800,
-                          color: 'var(--text-primary)',
-                        }}
-                      >
-                        {p.label}
-                      </h2>
-                      <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.55, flex: 1 }}>
-                        {p.description}
-                      </p>
-                      <div
-                        style={{
-                          fontSize: '13px',
-                          fontWeight: 600,
-                          color: 'var(--accent-1)',
-                          marginTop: 'auto',
-                        }}
-                      >
-                        {p.modeles.length} modèles →
-                      </div>
-                    </article>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
+            <Link className="card door door--copper" href="/quiz">
+              <Mascotte pose="loupe" size={104} />
+              <h3>Trop de choix ?</h3>
+              <p>Le quiz vous conseille un robot selon votre jardin.</p>
+            </Link>
+          </section>
+        </div>
       </main>
     </>
   )
