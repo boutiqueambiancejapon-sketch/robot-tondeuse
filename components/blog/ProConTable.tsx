@@ -1,8 +1,8 @@
 /**
- * ProConTable — tableau pour/contre côte à côte.
+ * ProConTable — points forts et limites côte à côte.
  * Usage MDX :
  *   <ProConTable pros="Avantage 1|Avantage 2" cons="Inconvénient 1|Inconvénient 2" />
- * Props MUST be strings (compileMDX drops JSX expression props).
+ * Les attributs sont des chaînes (compileMDX ne passe pas d'expressions).
  */
 
 type Props = {
@@ -18,115 +18,24 @@ function parseList(val: string | string[] | undefined): string[] {
   return val.split('|').map((s) => s.trim()).filter(Boolean)
 }
 
-export function ProConTable({
-  pros,
-  cons,
-  labelPro = 'Pour',
-  labelCon = 'Contre',
-}: Props) {
-  const proList = parseList(pros)
-  const conList = parseList(cons)
+export function ProConTable({ pros, cons, labelPro = 'Pour', labelCon = 'Contre' }: Props) {
+  const columns = [
+    { className: 'yes', label: labelPro, items: parseList(pros) },
+    { className: 'no', label: labelCon, items: parseList(cons) },
+  ]
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: 'var(--space-4)',
-        margin: 'var(--space-6) 0',
-      }}
-    >
-      {/* Pour */}
-      <div
-        style={{
-          background: 'var(--sage-pale)',
-          border: '1px solid rgba(58, 90, 61, 0.20)',
-          borderRadius: 'var(--radius-md)',
-          padding: 'var(--space-4) var(--space-5)',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: 'var(--next-font-mono), monospace',
-            fontWeight: 500,
-            fontSize: '11px',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--moss)',
-            margin: '0 0 var(--space-3)',
-          }}
-        >
-          ✓ {labelPro}
-        </p>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-          {proList.map((item, i) => (
-            <li
-              key={i}
-              style={{
-                fontSize: '14px',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.5,
-                paddingLeft: 'var(--space-4)',
-                position: 'relative',
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{ position: 'absolute', left: 0, color: 'var(--accent-3)', fontWeight: 700 }}
-              >
-                →
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Contre */}
-      <div
-        style={{
-          background: 'var(--copper-pale)',
-          border: '1px solid rgba(184, 98, 61, 0.18)',
-          borderRadius: 'var(--radius-md)',
-          padding: 'var(--space-4) var(--space-5)',
-        }}
-      >
-        <p
-          style={{
-            fontFamily: 'var(--next-font-mono), monospace',
-            fontWeight: 500,
-            fontSize: '11px',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--copper)',
-            margin: '0 0 var(--space-3)',
-          }}
-        >
-          ✗ {labelCon}
-        </p>
-        <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-          {conList.map((item, i) => (
-            <li
-              key={i}
-              style={{
-                fontSize: '14px',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.5,
-                paddingLeft: 'var(--space-4)',
-                position: 'relative',
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{ position: 'absolute', left: 0, color: 'var(--accent-1)', fontWeight: 700 }}
-              >
-                ×
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="duo">
+      {columns.map(({ className, label, items }) => (
+        <div className={className} key={className}>
+          <h3>{label}</h3>
+          <ul className="duo-l">
+            {items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   )
 }

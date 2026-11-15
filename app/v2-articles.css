@@ -1,3 +1,122 @@
 /* Design V2 — styles du lot « articles ». Tout reste dans .v2 (voir app/v2.css et tasks/design-v2.md). */
 .v2 {
+  /* ---------- Gabarit d'article : une colonne de lecture ---------- */
+  .art { max-width: calc(720px + var(--pad) * 2); padding-bottom: 48px; }
+  .art .tldr, .art .cover, .art .toc { margin-top: 18px; }
+  .art-sec { margin-top: 38px; }
+  .art-sec > h2 { margin-bottom: 12px; }
+  .art > .door { margin-top: 28px; }
+
+  /* Ligne d'information sous le titre : auteur, temps de lecture, date. */
+  .byline { margin: -8px 0 16px; }
+  .byline a { font-weight: 600; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--copper); }
+
+  /* Bouton marchand du premier écran (avis, classements, comparatifs). */
+  .art-buy { margin: 0 0 18px; }
+  .art-buy .buyrow { margin-top: 0; padding: 10px 0; border-top: 1px solid var(--line); }
+  .art-buy .buy-name { font-size: 17px; }
+  .art-buy .btn { min-height: 48px; }
+  .art-buy .dated { padding-top: 8px; border-top: 1px solid var(--line); }
+  .art .art-buy + .tldr { margin-top: 0; }
+
+  /* « En bref » : fond uni, puces rondes. */
+  .tldr-l { margin-top: 8px; }
+  .tldr-l li { position: relative; padding: 4px 0 4px 18px; font-size: 16.5px; line-height: 1.45; }
+  .tldr-l li::before { content: ""; position: absolute; left: 2px; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--moss); }
+
+  /* Couverture sans image propre : photo du lot commun, en remplissage. */
+  .cover--pool { position: relative; aspect-ratio: 16 / 10; background: var(--sage); }
+
+  /* ---------- Corps de l'article (MDX) ---------- */
+  .prose { margin-top: 8px; overflow-wrap: break-word; }
+  .prose h2 { scroll-margin-top: 80px; line-height: 1.15; }
+  .prose > h3 { font-size: 19px; line-height: 1.2; margin-top: 26px; }
+  .prose > h4 { font-size: 17px; line-height: 1.25; margin-top: 20px; letter-spacing: -0.01em; }
+  .prose strong { font-weight: 700; }
+  .prose ul:not([class]), .prose ol:not([class]) { padding-left: 22px; }
+  .prose ul:not([class]) { list-style: disc; }
+  .prose ol:not([class]) { list-style: decimal; }
+  .prose ul:not([class]) > li, .prose ol:not([class]) > li { padding-left: 4px; }
+  .prose ul:not([class]) > li + li, .prose ol:not([class]) > li + li { margin-top: 6px; }
+  .prose ul:not([class]) > li::marker { color: var(--moss); }
+  .prose ol:not([class]) > li::marker { font-weight: 700; }
+  .prose li > ul:not([class]), .prose li > ol:not([class]) { margin-top: 6px; }
+  .prose a:not([class]) { font-weight: 600; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; text-decoration-color: var(--copper); }
+  .prose blockquote { padding: 14px 16px; border-radius: var(--r-s); background: var(--sage); font-size: 17px; }
+  .prose blockquote > * + * { margin-top: 10px; }
+  .prose hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  .prose code { padding: 1px 5px; border-radius: 5px; background: var(--sage); font: inherit; }
+  .prose p > img, .fig img { width: 100%; border-radius: var(--r-s); }
+  .fig figcaption { margin-top: 6px; font: 500 13.5px/1.4 var(--f-b); color: var(--muted); }
+
+  /* Tableaux : cadre fin, défilement horizontal dès trois colonnes. */
+  .prose .tbl-wrap { margin: 22px 0; }
+  .prose table { width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.35; }
+  .prose table:has(th:nth-child(3)) { min-width: 520px; }
+  .prose th, .prose td { padding: 11px 12px; border-top: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .prose thead th { border-top: 0; background: var(--paper); font: 600 13.5px/1.25 var(--f-b); color: var(--muted); }
+  .prose td:first-child { font-weight: 700; }
+
+  /* ---------- Composants d'article ---------- */
+  .prose .warn, .prose .duo, .prose .verdict-box, .prose .buy, .prose .picks, .prose .stats, .prose .cmp-g, .prose .pq, .prose .fig { margin: 22px 0; }
+  .warn--tip { background: var(--sage); }
+  .warn > * + * { margin-top: 8px; }
+  .verdict-t { font-size: 17.5px; line-height: 1.5; }
+  .prose .pq, .pq { padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; background: none; }
+  .pq p { font: 700 20px/1.35 var(--f-d); letter-spacing: -0.015em; }
+
+  /* Encart produit : cadre fin, photo, prix indicatif, bouton marchand. */
+  .buy { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px 14px; align-items: start; padding: 16px; }
+  .buy-img { display: grid; place-items: center; width: 84px; height: 84px; padding: 6px; border-radius: var(--r-s); background: var(--sage); }
+  .buy-img img { width: 100%; height: 100%; object-fit: contain; }
+  .buy-b { display: grid; gap: 6px; justify-items: start; min-width: 0; }
+  .buy .tag { white-space: normal; }
+  .buy-name { font: 800 19px/1.15 var(--f-d); letter-spacing: -0.02em; }
+  .buy-row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 12px; }
+  .buy-row .price { font-size: 22px; }
+  .buy > .dated { grid-column: 1 / -1; }
+  @media (min-width: 700px) {
+    .buy { grid-template-columns: 120px minmax(0, 1fr); }
+    .buy-img { width: 120px; height: 120px; }
+  }
+  .buy.buy--plain { grid-template-columns: minmax(0, 1fr); }
+
+  /* Chiffres de l'article, à taille de lecture. */
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+  .stat { display: grid; gap: 3px; padding: 12px 0; border-top: 1px solid var(--line); }
+  .stat-l { font: 500 13.5px/1.3 var(--f-b); color: var(--muted); }
+  .stat-v { font: 800 19px/1.15 var(--f-d); letter-spacing: -0.02em; }
+
+  /* Deux produits comparés sur un critère (la largeur de la barre vient de la note). */
+  .cmp { padding: 12px 0; border-top: 1px solid var(--line); }
+  .cmp-l { font: 700 16.5px/1.25 var(--f-b); margin-bottom: 6px; }
+  .cmp-r { display: grid; grid-template-columns: minmax(0, 104px) minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 4px 0; font: 500 14px/1.3 var(--f-b); color: var(--muted); }
+  .cmp-r .bar i { transition: none; background: var(--grass); }
+  .cmp-r b { font: 800 16px/1 var(--f-d); white-space: nowrap; }
+  .cmp-r b small { font: 500 13px/1 var(--f-b); }
+  .cmp-r.on, .cmp-r.on b { color: var(--ink); }
+  .cmp-r.on .cmp-n { font-weight: 700; }
+  .cmp-r.on .bar i { background: var(--moss); }
+
+  /* Questions fréquentes, articles liés, auteur. */
+  details.acc summary { min-height: 44px; align-items: center; }
+  .post--txt { grid-template-columns: minmax(0, 1fr); min-height: 44px; }
+  .author { display: flex; gap: 14px; align-items: flex-start; padding: 18px 0; border-top: 1px solid var(--line); }
+  .author-ph { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .author--full .author-ph { width: 64px; height: 64px; }
+  .author-b { flex: 1; min-width: 0; display: grid; gap: 4px; }
+  .author-n { font: 800 18px/1.2 var(--f-d); letter-spacing: -0.015em; }
+  .author-n a { text-decoration: none; }
+  .author--full .author-n { font-size: 22px; }
+
+  /* Prix seul (PriceTag). */
+  .pricetag { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+  .pricetag--sm .price { font-size: 18px; }
+  .pricetag--lg .price { font-size: 32px; }
+
+  /* Barre d'achat de l'article : le texte se replie, le bouton reste sur une ligne. */
+  .buybar-t { min-width: 0; }
+  .buybar-t b { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; font-size: 16px; }
+  .buybar .btn { flex: none; }
+  @media (prefers-reduced-motion: reduce) { .buybar { transition: none; } }
 }

@@ -1,16 +1,15 @@
 'use client'
 
 /**
- * AutoProductCTAs — injecte automatiquement des cartes produit entre les sections.
- * Place un CTA après le 2e h2 et un après le 4e h2 dans .prose-article.
- * S'auto-insert via useEffect + portal-like DOM injection.
+ * AutoProductCTAs — place un encart produit après le 2e et le 4e H2 du corps de l'article (.prose).
+ * Les conteneurs sont créés dans le DOM après montage, puis remplis par un portail.
  * 'use client' isolé.
  */
 
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import type { ArticleCTA } from '@/lib/article-ctas'
-import { AffiliateLink } from '@/components/ui/AffiliateLink'
+import { ProductPick } from './ProductPick'
 
 type Props = {
   ctas: ArticleCTA[]
@@ -19,148 +18,11 @@ type Props = {
 /** Positions des h2 après lesquels injecter (0-indexed) : après le 2e et le 4e */
 const INSERT_AFTER_H2 = [1, 3]
 
-function CTACard({ cta }: { cta: ArticleCTA }) {
-  return (
-    <div
-      style={{
-        margin: 'var(--space-10) 0',
-        background: 'var(--cream)',
-        border: '1px solid var(--border)',
-        borderTop: '3px solid var(--copper)',
-        borderRadius: 'var(--radius-lg)',
-        overflow: 'hidden',
-      }}
-    >
-      <div
-        style={{
-          padding: 'var(--space-8) var(--space-6)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-          gap: 'var(--space-3)',
-        }}
-      >
-        {/* Deal du moment badge */}
-        <span
-          style={{
-            fontFamily: 'var(--next-font-mono), monospace',
-            fontSize: '10px',
-            fontWeight: 600,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: 'var(--copper)',
-            background: 'var(--copper-pale)',
-            padding: '3px 12px',
-            borderRadius: 'var(--radius-full)',
-          }}
-        >
-          Deal du moment
-        </span>
-
-        {/* Badge catégorie */}
-        {cta.badge && (
-          <span
-            style={{
-              fontFamily: 'var(--next-font-mono), monospace',
-              fontSize: '10px',
-              fontWeight: 500,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'var(--text-muted)',
-            }}
-          >
-            {cta.badge}
-          </span>
-        )}
-
-        {/* Nom produit — serif display */}
-        <span
-          style={{
-            fontFamily: 'var(--next-font-display), Georgia, serif',
-            fontSize: 'clamp(22px, 3vw, 30px)',
-            fontWeight: 400,
-            letterSpacing: '-0.02em',
-            color: 'var(--text-primary)',
-            lineHeight: 1.15,
-          }}
-        >
-          {cta.name}
-        </span>
-
-        {/* Prix — copper mono */}
-        <span
-          style={{
-            fontFamily: 'var(--next-font-mono), monospace',
-            fontSize: 'clamp(32px, 6vw, 48px)',
-            fontWeight: 600,
-            color: 'var(--copper)',
-            fontVariantNumeric: 'tabular-nums',
-            letterSpacing: '-0.03em',
-            lineHeight: 1,
-          }}
-        >
-          {cta.price}
-        </span>
-
-        {/* Hook */}
-        <p
-          style={{
-            fontSize: '13px',
-            color: 'var(--text-secondary)',
-            lineHeight: 1.6,
-            margin: 0,
-            maxWidth: '400px',
-          }}
-        >
-          {cta.hook}
-        </p>
-
-        {/* CTA button — pill forest-deep */}
-        <AffiliateLink
-          href={cta.url}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 'var(--space-2)',
-            background: 'var(--forest-deep)',
-            color: 'var(--ivory)',
-            fontWeight: 500,
-            fontSize: '14px',
-            padding: 'var(--space-3) var(--space-8)',
-            borderRadius: 'var(--radius-full)',
-            textDecoration: 'none',
-            whiteSpace: 'nowrap',
-            letterSpacing: '0.01em',
-            marginTop: 'var(--space-2)',
-            boxShadow: '0 2px 0 0 #0a150e, 0 6px 16px rgba(20, 36, 26, 0.25)',
-            transition: 'background 150ms ease, transform 150ms ease, box-shadow 150ms ease',
-          }}
-        >
-          Voir sur Amazon →
-        </AffiliateLink>
-
-        {/* Trust line */}
-        <span
-          style={{
-            fontFamily: 'var(--next-font-mono), monospace',
-            fontSize: '11px',
-            color: 'var(--text-muted)',
-            letterSpacing: '0.04em',
-          }}
-        >
-          Livraison gratuite · Retour 30 jours
-        </span>
-      </div>
-    </div>
-  )
-}
-
 export function AutoProductCTAs({ ctas }: Props) {
   const [targets, setTargets] = useState<HTMLElement[]>([])
 
   useEffect(() => {
-    const prose = document.querySelector('.prose-article')
+    const prose = document.querySelector('.v2 .prose')
     if (!prose) return
 
     const h2s = prose.querySelectorAll(':scope > h2')
@@ -168,9 +30,7 @@ export function AutoProductCTAs({ ctas }: Props) {
 
     INSERT_AFTER_H2.forEach((idx) => {
       if (idx >= h2s.length) return
-      const h2 = h2s[idx]
-      const nextH2 = h2s[idx + 1]
-      const anchor = nextH2 ?? null
+      const anchor = h2s[idx + 1] ?? null
 
       const existingId = `auto-cta-${idx}`
       if (document.getElementById(existingId)) return
@@ -195,7 +55,10 @@ export function AutoProductCTAs({ ctas }: Props) {
     <>
       {targets.map((el, i) => {
         const cta = ctas[i % ctas.length]
-        return createPortal(<CTACard key={i} cta={cta} />, el)
+        return createPortal(
+          <ProductPick key={i} name={cta.name} price={cta.price} url={cta.url} badge={cta.badge} hook={cta.hook} />,
+          el
+        )
       })}
     </>
   )
