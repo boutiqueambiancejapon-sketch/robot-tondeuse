@@ -1,7 +1,7 @@
 /**
  * Page auteur — ISR 86400s (revalidate 1 jour).
  * JSON-LD Person schema.
- * DA : filigrane typographique + AuthorCard variant "full".
+ * Design V2 : titre de page, carte auteur, biographie, derniers articles en lignes.
  * Params asynchrones : await params (Next.js 15+).
  */
 
@@ -10,6 +10,12 @@ import { notFound } from 'next/navigation'
 import { AuthorCard } from '@/components/ui/AuthorCard'
 import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import Link from 'next/link'
+import { getAllArticles } from '@/lib/blog'
+import { ArticleCard } from '@/components/blog/ArticleCard'
+import { PageTitle } from '@/components/v2/PageTitle'
+
+const ARTICLES_SHOWN = 10
 
 export const revalidate = 86400
 
@@ -85,8 +91,6 @@ export default async function AuthorPage(
   const author = getAuthors()[slug]
   if (!author) notFound()
 
-  const initial = author.name.charAt(0).toUpperCase()
-
   /* JSON-LD Person */
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -102,129 +106,58 @@ export default async function AuthorPage(
     },
   }
 
+  const articles = getAllArticles().filter((a) => a.authorSlug === author.slug)
+
   return (
-    <main id="main-content">
+    <main id="main-content" className="v2">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero auteur avec watermark */}
-      <div
-        style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: 'var(--space-20) var(--space-6) var(--space-16)',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Filigrane initial — DA signature */}
-        <span
-          aria-hidden="true"
-          className="section-watermark"
-          style={{
-            position: 'absolute',
-            top: 0,
-            right: 'var(--space-6)',
-            lineHeight: 0.85,
-            userSelect: 'none',
-            pointerEvents: 'none',
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-          }}
-        >
-          {initial}
-        </span>
+      <div className="wrap lst">
+        <PageTitle
+          title={author.name}
+          pose="lecture"
+          meta={author.role}
+          crumbs={[{ href: '/', label: 'Accueil' }, { label: author.name }]}
+        />
 
-        {/* Eyebrow */}
-        <p
-          style={{
-            fontSize: '11px',
-            fontWeight: 700,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-            color: 'var(--accent-1)',
-            marginBottom: 'var(--space-4)',
-            position: 'relative',
-          }}
-        >
-          L&rsquo;équipe
-        </p>
-
-        <h1
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: 'clamp(1.6rem, 4vw, 2.8rem)',
-            fontWeight: 800,
-            letterSpacing: '0',
-            color: 'var(--text-primary)',
-            lineHeight: 1.1,
-            marginBottom: 'var(--space-3)',
-            position: 'relative',
-          }}
-        >
-          {author.name}
-        </h1>
-        <p
-          style={{
-            fontSize: '16px',
-            color: 'var(--text-secondary)',
-            marginBottom: 'var(--space-12)',
-            position: 'relative',
-          }}
-        >
-          {author.role}
-        </p>
-
-        {/* AuthorCard full */}
         <AuthorCard
           authorSlug={author.slug}
           authorName={author.name}
           bio={author.bio}
           variant="full"
         />
-      </div>
 
-      {/* Biographie longue */}
-      <div
-        style={{
-          maxWidth: '720px',
-          margin: '0 auto',
-          padding: '0 var(--space-6) var(--space-20)',
-        }}
-      >
-        <h2
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: '1.1rem',
-            fontWeight: 700,
-            letterSpacing: '0',
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-6)',
-          }}
-        >
-          Pourquoi ce site ?
-        </h2>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--space-5)',
-          }}
-        >
+        <section className="groupe prose">
+          <h2>Pourquoi ce site ?</h2>
           {author.longBio.map((paragraph, i) => (
-            <p
-              key={i}
-              style={{
-                fontSize: '16px',
-                color: 'var(--text-secondary)',
-                lineHeight: 1.75,
-              }}
-            >
-              {paragraph}
-            </p>
+            <p key={i}>{paragraph}</p>
           ))}
-        </div>
+        </section>
+
+        {articles.length > 0 ? (
+          <section className="groupe" aria-labelledby="articles-auteur">
+            <h2 className="h-md" id="articles-auteur">
+              Ses derniers articles
+            </h2>
+            <ul className="posts">
+              {articles.slice(0, ARTICLES_SHOWN).map((article) => (
+                <li key={`${article.categorie}/${article.slug}`}>
+                  <ArticleCard article={article} as="h3" />
+                </li>
+              ))}
+            </ul>
+            {articles.length > ARTICLES_SHOWN ? (
+              <p className="lst-more">
+                <Link className="lnk" href="/blog">
+                  Tous les articles
+                </Link>
+              </p>
+            ) : null}
+          </section>
+        ) : null}
       </div>
     </main>
   )
