@@ -32,6 +32,15 @@ qui suit `tasks/plan-editorial.md`.
   redirection du site (par exemple `/go/<robot>/<marchand>`), comptée dans les journaux du serveur et lue
   par le centre de contrôle.
 
+## Design V2 validé (15/11/2026)
+
+Le propriétaire a validé la maquette V2 et demandé de l'appliquer à tout le site. **La consigne « garder la DA » est
+remplacée** : couleurs, logo et robot restent, la mise en page, la typographie et les animations changent.
+Tout est dans `tasks/design-v2.md` (règles, mascotte, ordre de migration) et `docs/maquette-v2/`.
+Le socle, l'en-tête, le pied de page et l'accueil sont en ligne. **Dév QRT** : la migration des pages (étapes 1 à 13 de
+`tasks/design-v2.md`) passe avant le reste, une étape par passage. **Chef QRT** : contrôler chaque page migrée contre la
+maquette, à 390 px. **Contenu QRT** : préparer le plan éditorial « Robots de piscine ». **Croissance QRT** : formulaires au style V2.
+
 ## Ce qui attend le propriétaire (les agents ne peuvent pas le faire)
 
 Mis à jour par le Chef le 15/11/2026 (matin). Rien de nouveau depuis le 14/11 : les 6 points ci-dessous attendent toujours.
@@ -102,7 +111,7 @@ Le site continue ensuite comme les autres : un article par nuit, suivant le plan
 - [ ] Lot 6 — suite de bienvenue et lettre du mois rédigées et prêtes à partir
 - [x] Plan éditorial d'environ 60 sujets en place et suivi par la rédaction de nuit (coché le 12/11 : 60 sujets, premier sujet pris et coché par la rédaction du 11/11)
 - [ ] Honnêteté : plus aucun « testé » sans essai réel, prix datés, aucune fausse urgence
-- [ ] UX/UI revue sur téléphone (accueil, article, fiche robot, outils), DA inchangée
+- [ ] Design V2 appliqué à toutes les pages (étapes 1 à 13 de `tasks/design-v2.md`)
 
 Hors équipe (propriétaire ou Claude en session) : DNS du domaine vers Cloudflare, dashboard.quel-robot-tondeuse.com,
 envoi réel des e-mails, compte « Mon jardin » (lot 5, base de données).

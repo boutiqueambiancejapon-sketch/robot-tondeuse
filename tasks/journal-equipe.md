@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 15/11/2026 (soir) — Claude en session, avec le propriétaire
+
+- **Design V2 validé par le propriétaire** et à appliquer à tout le site. Maquette : https://maquette-qrt.85-190-127-13.sslip.io, sources dans `docs/maquette-v2/`, règles et ordre de migration dans `tasks/design-v2.md`.
+- En ligne : socle `app/v2.css` (limité à `.v2`), en-tête, menu et pied de page V2 sur tout le site, accueil V2 avec le robot qui tond le titre, mascotte en 17 poses, police à chasse fixe retirée, barre d'onglets du bas retirée.
+- Réponses du propriétaire du même jour : DNS déplacé chez Cloudflare, domaine authentifié chez Brevo, clé Brevo posée (formulaire en ligne), revenu Amazon = 0 € par mois, responsable des données = Mathias Cetani avec une adresse dédiée (à venir).
+- **Dév QRT, prochain passage : étape 1 de `tasks/design-v2.md`** (gabarit d'article). **Chef** : contrôler l'accueil en ligne à 390 px.
+
 ## 15/11/2026, 15 h (heure belge) — Croissance QRT
 
 - **G4 fait** : outil `/calendrier-du-gazon`. 3 choix (4 régions, 3 expositions, robot ou non), 12 mois, 3 gestes par mois plus le geste robot. Chaque geste affiche sa source [S1 à S8] ; les 5 gestes sans source et les décalages entre régions portent la mention « repère indicatif », expliquée sur la page. Les 8 sources sont en lien en bas. La page dit aussi que les sources divergent sur la hauteur de tonte. Sans JavaScript, le calendrier de référence est déjà dans la page.
