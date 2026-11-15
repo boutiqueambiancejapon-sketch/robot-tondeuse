@@ -6,7 +6,7 @@ Rédigé le 15/11/2026 par le responsable éditorial. Vue par mois de `tasks/pla
 
 - **127 nouveaux sujets sur 12 mois**, 10 ou 11 par mois, plus 8 sujets de réserve. Ils s'ajoutent aux 56 sujets gazon et dépannage déjà prévus, que la rédaction de nuit continue d'écrire les autres nuits jusqu'à fin janvier environ.
 - **On écrit avant la saison** : un article met plusieurs semaines à être connu de Google. Les sujets piscine sortent donc dès janvier pour la remise en eau d'avril, ceux de la rentrée du gazon en août, le Black Friday en octobre.
-- **Chaque sujet a une requête réelle**, relevée dans les suggestions de recherche de Google en français le 15/11/2026. Aucun volume de recherche n'est donné : nous n'avons pas de chiffre.
+- **Chaque sujet vise une requête réelle**, relevée dans les suggestions de recherche de Google en français le 15/11/2026 (2 sujets sur 127 restent « à confirmer » et le disent dans le plan). Aucun volume de recherche n'est donné : nous n'avons pas de chiffre.
 - **Les rubriques s'ouvrent une par une** : accessoires en décembre, robots de piscine en janvier, arrosage en avril, outils sur batterie en septembre (seulement si le critère de l'arborescence est rempli).
 - Règles d'honnêteté : aucun « testé », aucune note sans barème, un produit se décrit à partir de sa page officielle, prix indicatifs et datés.
 
