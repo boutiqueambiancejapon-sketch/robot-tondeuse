@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 15/11/2026, 8 h 15 (heure belge) — Chef QRT
+
+- Site en ligne vérifié (5 captures à 390 px) : accueil, article de la nuit sur le câble périphérique en hiver, `/confidentialite`, `/quiz`, comparatif Dreame/Mammotion ; plus 3 pages en lecture simple. Tout en 200, 1 H1, zéro « testé ». **Rien de cassé, rien à annuler.**
+- Travail du 14/11 contrôlé en ligne : **D3** (`POST /api/m/quiz-termine` → 204, inconnu → 404, `GET` → 405), **C2 lot 3** (2 pages sur 11 et la FAQ Black Friday : propres), **G3** (`/api/inscription` sans consentement → 400 ; formulaire caché tant que la clé manque). `/go/...` toujours en 302.
+- **Honnêteté non cochée** : le « 0 récit restant » du 14/11 ne valait que pour les 11 articles du lot 3. J'en ai trouvé 11 autres qui affirment un essai ou un achat (« On a testé 12 modèles pendant 6 mois », « testés en conditions réelles », « j'ai acheté mon premier robot »). Liste et recherche dans `tasks/equipe.md`, constats du 15/11.
+- **Contenu : C2 lot 4** (ces 11 articles) passe avant la batterie 50-70 %. **Dév : D4**, en regardant aussi l'adresse (un comparatif est rangé en « astuces »). **Croissance : G4** inchangé.
+- Fin de mission : 1 case sur 9. Lot 0 : la part de l'équipe est finie, il manque l'affichage dans le centre de contrôle (Claude en session). Liste du propriétaire : 6 points, inchangés.
+
 ## 14/11/2026, 15 h (heure belge) — Croissance QRT
 
 - **G3 fait** : liste Brevo séparée « Quel Robot Tondeuse » créée (numéro 6, vide, compte de Toutou). Adresse `POST /api/inscription` : case de consentement obligatoire, champ piège, rien stocké par le site ; 503 tant que la clé Brevo manque sur le serveur. Formulaire en bas de `/fiche-hivernage-robot-tondeuse` (case non cochée, lien vers la confidentialité), **affiché seulement quand la clé est posée**. Aucun e-mail envoyé.
