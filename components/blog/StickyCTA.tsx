@@ -1,186 +1,45 @@
 'use client'
 
 /**
- * StickyCTA — barre CTA flottante dual-button (Atelier Vert).
- *
- * Pattern CRO : deux CTAs distincts dans la même pill forest-deep —
- *   • Gauche  : transparent, pastille verte pulsante, "Pas sûr ? Lancer le quiz"
- *   • Droite  : copper bg, "Sûr de votre choix ?" + "Meilleur prix →"
- *
- * Apparait après scroll > 400px. Mobile : empile en colonne sous 640px.
- * 'use client' isolé — la page article reste Server Component.
- *
- * Backward compat : accepte l'ancienne prop `items` (premier item devient le
- * buy CTA) — pas besoin de toucher aux pages tant qu'on migre pas.
- *
- * Note (mai 2026) : le message contextuel est désormais encapsulé dans sa
- * propre pill avec fond opaque pour ne plus chevaucher le contenu de l'article
- * lors du scroll. Les entités HTML (`&laquo;`, `&raquo;`, `&mdash;`, &hellip;)
- * sont décodées avant rendu.
+ * StickyCTA — la barre d'achat de l'article (.buybar), seul élément collé en bas de l'écran.
+ * Elle apparaît après 400 px de défilement et reprend le premier lien `stickyCta` de l'article.
+ * 'use client' isolé : la page article reste un Server Component.
  */
 
 import { useState, useEffect } from 'react'
-import { affiliateHref } from '@/lib/utils/affiliate'
-
-export type StickyCTAItem = {
-  label: string
-  url: string
-}
+import { merchantLink, wording, type StickyCTAItem } from './sticky-wording'
 
 type Props = {
-  /** Lien "Sûr de votre choix ?" (Amazon en général). */
-  buyUrl?: string
-  /** Label du bouton acheter. Default : "Meilleur prix →" */
-  buyLabel?: string
-  /** Lien quiz. Default : "/quiz" */
-  quizUrl?: string
-  /** Message contextuel optionnel au-dessus de la pill. */
-  message?: string
-  /** Legacy : { label, url }[] — premier item utilisé comme buyUrl. */
   items?: StickyCTAItem[]
+  /** Phrase d'accroche de l'article, affichée quand le lien n'a pas de nom de produit. */
+  message?: string
 }
 
-/**
- * Décode les entités HTML les plus courantes utilisées dans les frontmatter
- * MDX (`&laquo;`, `&raquo;`, `&mdash;`, `&hellip;`, `&ccedil;`, etc.).
- * On reste volontairement minimaliste : pas de DOMParser côté client pour
- * éviter un re-render et garder le composant léger.
- */
-function decodeHtmlEntities(input: string): string {
-  return input
-    .replace(/&laquo;/g, '«')
-    .replace(/&raquo;/g, '»')
-    .replace(/&mdash;/g, '—')
-    .replace(/&ndash;/g, '–')
-    .replace(/&hellip;/g, '…')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&ccedil;/g, 'ç')
-    .replace(/&Ccedil;/g, 'Ç')
-    .replace(/&ocirc;/g, 'ô')
-    .replace(/&Ocirc;/g, 'Ô')
-    .replace(/&ecirc;/g, 'ê')
-    .replace(/&Ecirc;/g, 'Ê')
-    .replace(/&acirc;/g, 'â')
-    .replace(/&icirc;/g, 'î')
-    .replace(/&ucirc;/g, 'û')
-    .replace(/&eacute;/g, 'é')
-    .replace(/&egrave;/g, 'è')
-    .replace(/&agrave;/g, 'à')
-    .replace(/&ugrave;/g, 'ù')
-    .replace(/&euro;/g, '€')
-    .replace(/&amp;/g, '&')
-}
-
-export function StickyCTA({
-  buyUrl,
-  buyLabel = 'Meilleur prix →',
-  quizUrl = '/quiz',
-  message,
-  items,
-}: Props) {
+export function StickyCTA({ items, message }: Props) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    function onScroll() {
-      setVisible(window.scrollY > 400)
-    }
+    const onScroll = () => setVisible(window.scrollY > 400)
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Legacy compat : items[0] devient le buy CTA si buyUrl absent
-  const finalBuyUrl = buyUrl ?? items?.[0]?.url
-  const finalBuyLabel = buyUrl ? buyLabel : (items?.[0]?.label ?? buyLabel)
+  const item = items?.[0]
+  if (!item?.url) return null
 
-  if (!finalBuyUrl) return null
-
-  const isAmazon = finalBuyUrl.includes('amazon.fr') || finalBuyUrl.includes('amzn.to')
-  const buyHref = isAmazon ? affiliateHref(finalBuyUrl) : finalBuyUrl
-  const decodedMessage = message ? decodeHtmlEntities(message) : undefined
+  const { title, button } = wording(item.label, message)
+  const { href, rel } = merchantLink(item.url)
 
   return (
-    <div
-      role="complementary"
-      aria-label="Offre produit"
-      style={{
-        position: 'fixed',
-        bottom: 'var(--space-4)',
-        left: '50%',
-        transform: visible
-          ? 'translateX(-50%) translateY(0)'
-          : 'translateX(-50%) translateY(calc(100% + 120px))',
-        transition: 'transform 400ms cubic-bezier(0.16, 1, 0.3, 1)',
-        zIndex: 39,
-        width: '94%',
-        maxWidth: '620px',
-      }}
-      className="sticky-cta-wrap"
-    >
-      {decodedMessage && (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            margin: '0 0 var(--space-2)',
-            pointerEvents: 'none',
-          }}
-        >
-          <span
-            style={{
-              display: 'inline-block',
-              maxWidth: '90%',
-              padding: '6px 14px',
-              fontSize: 12,
-              lineHeight: 1.3,
-              color: 'var(--text-secondary)',
-              background: 'var(--bg-surface, #fff)',
-              border: '1px solid var(--border, rgba(0,0,0,0.08))',
-              borderRadius: '999px',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-              textAlign: 'center',
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            {decodedMessage}
-          </span>
-        </div>
-      )}
-
-      <div className="sticky-cta-pill">
-        {/* Quiz CTA — transparent gauche */}
-        <a
-          href={quizUrl}
-          className="sticky-cta-quiz"
-          aria-label="Lancer le quiz"
-        >
-          <span className="sticky-cta-dot" aria-hidden="true">
-            <span className="sticky-cta-dot-pulse" />
-            <span className="sticky-cta-dot-core" />
-          </span>
-          <span className="sticky-cta-text">
-            <span className="sticky-cta-title">Pas sûr ?</span>
-            <span className="sticky-cta-sub">Lancer le quiz · 2 min</span>
-          </span>
-        </a>
-
-        {/* Buy CTA — copper droite */}
-        <a
-          href={buyHref}
-          rel={isAmazon ? 'nofollow sponsored noopener' : 'noopener'}
-          target="_blank"
-          className="sticky-cta-buy"
-          aria-label={finalBuyLabel}
-        >
-          <span className="sticky-cta-text">
-            <span className="sticky-cta-title">Sûr de votre choix ?</span>
-            <span className="sticky-cta-sub">{finalBuyLabel}</span>
-          </span>
-          <span className="sticky-cta-arrow" aria-hidden="true">→</span>
-        </a>
+    <div className={visible ? 'buybar show' : 'buybar'} role="complementary" aria-label="Offre partenaire" inert={!visible}>
+      <div className="buybar-t">
+        <b>{title}</b>
+        <span>Lien partenaire · prix à vérifier</span>
       </div>
+      <a className="btn" href={href} rel={rel} target="_blank">
+        {button}
+      </a>
     </div>
   )
 }

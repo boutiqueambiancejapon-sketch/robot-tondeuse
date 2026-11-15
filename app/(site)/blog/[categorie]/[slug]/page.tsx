@@ -1,44 +1,23 @@
 /**
  * /blog/[categorie]/[slug] — article MDX.
- * Layout 2 colonnes : contenu + sidebar (TOC, CTA, related).
+ * Gabarit V2 : components/blog/ArticleView.tsx (une colonne de lecture).
  * Server Component · ISR 86400s.
  */
 
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { remarkAmazonAffiliate } from '@/lib/plugins/remarkAmazonAffiliate'
-import { getAllArticles, getArticleRaw, articleExists, getRelatedArticles, articleHref } from '@/lib/blog'
+import { getAllArticles, getArticleRaw, articleExists, getRelatedArticles } from '@/lib/blog'
 import { currentYear } from '@/lib/utils/year'
 import { niche } from '@/niche.config'
 import { extractToc } from '@/lib/toc'
+import { ArticleView } from '@/components/blog/ArticleView'
+import { mdxComponents } from '@/components/blog/mdx-components'
+import { ToolCTA } from '@/components/blog/ToolCTA'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
-import { AISummarize } from '@/components/blog/AISummarize'
-import { Tip } from '@/components/blog/Tip'
-import { Warning } from '@/components/blog/Warning'
-import { Verdict } from '@/components/blog/Verdict'
-import { ProConTable } from '@/components/blog/ProConTable'
-import { PullQuote } from '@/components/blog/PullQuote'
-import { StatCard, StatRow } from '@/components/blog/StatCard'
-import { CompareBar, CompareBarGroup } from '@/components/blog/CompareBar'
-import { ToolCTA } from '@/components/blog/ToolCTA'
-import { ProductCTA } from '@/components/blog/ProductCTA'
-import { ArticleImage } from '@/components/blog/ArticleImage'
-import { AutoProductCTAs } from '@/components/blog/AutoProductCTAs'
-import { ProductCarousel } from '@/components/blog/ProductCarousel'
-import { ReadingProgress } from '@/components/blog/ReadingProgress'
-import { FaqAccordion } from '@/components/blog/FaqAccordion'
-import { getCTAsForCategory } from '@/lib/article-ctas'
-import { AuthorByline } from '@/components/ui/AuthorByline'
-import { HubArtwork } from '@/components/blog/HubArtwork'
-import { AuthorCard } from '@/components/ui/AuthorCard'
-import { StickyCTA } from '@/components/blog/StickyCTA'
-import { ArticleSidebar } from '@/components/blog/ArticleSidebar'
-import type { ReactNode } from 'react'
 
 export const revalidate = 86400
 
@@ -84,26 +63,6 @@ const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
   niche.categories.map((c) => [c.slug, c.label])
 )
 
-/** Generates a URL-safe slug matching the TOC extraction. */
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
-}
-
-/** Recursively extracts text from React children. */
-function extractText(node: ReactNode): string {
-  if (typeof node === 'string') return node
-  if (typeof node === 'number') return String(node)
-  if (!node) return ''
-  if (Array.isArray(node)) return node.map(extractText).join('')
-  if (typeof node === 'object' && 'props' in node) return extractText((node as { props: { children?: ReactNode } }).props.children)
-  return ''
-}
-
 export default async function ArticlePage({ params }: { params: Params }) {
   const { categorie, slug } = await params
   if (!articleExists(categorie, slug)) notFound()
@@ -113,22 +72,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
   const { content: mdxContent } = await compileMDX({
     source: content,
     options: { mdxOptions: { remarkPlugins: [remarkGfm, remarkAmazonAffiliate] } },
-    components: {
-      Tip,
-      Warning,
-      Verdict,
-      ProConTable,
-      PullQuote, StatCard, StatRow, CompareBar, CompareBarGroup, ProductCTA, ArticleImage, ProductCarousel,
-      h2: ({ children }: { children: ReactNode }) => {
-        const id = slugify(extractText(children))
-        return <h2 id={id}>{children}</h2>
-      },
-      table: ({ children }: { children: ReactNode }) => (
-        <div className="table-scroll-wrap">
-          <table>{children}</table>
-        </div>
-      ),
-    },
+    components: mdxComponents,
   })
   const related = getRelatedArticles(categorie, slug, 3)
 
@@ -200,223 +144,16 @@ export default async function ArticlePage({ params }: { params: Params }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-
-      <ReadingProgress />
-      <main id="main-content">
-        <article>
-          {/* Header — bande forest-deep avec image en fade + infos par-dessus */}
-          <div className="article-hero-band" style={{ position: 'relative', overflow: 'hidden', background: 'var(--forest-deep)', color: 'var(--ivory)', minHeight: 360 }}>
-            {/* Backdrop : featureImage si fournie, sinon HubArtwork génératif */}
-            <div aria-hidden="true" style={{ position: 'absolute', inset: 0 }}>
-              {meta.featureImage ? (
-                <Image
-                  src={meta.featureImage}
-                  alt=""
-                  fill
-                  priority
-                  sizes="100vw"
-                  style={{ objectFit: 'cover', opacity: 0.55 }}
-                />
-              ) : (
-                <div style={{ position: 'absolute', inset: 0, opacity: 0.65 }}>
-                  <HubArtwork slug={slug} variant="hero" />
-                </div>
-              )}
-            </div>
-            {/* Fade gradient pour lisibilité */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(180deg, rgba(26,46,31,0.35) 0%, rgba(26,46,31,0.85) 100%)',
-                pointerEvents: 'none',
-              }}
-            />
-
-            <header style={{ position: 'relative', maxWidth: '1120px', margin: '0 auto', padding: 'var(--space-16) var(--space-6) var(--space-12)' }}>
-              {/* Breadcrumb */}
-              <nav aria-label="Fil d'Ariane" style={{ marginBottom: 'var(--space-6)' }}>
-                <ol style={{ display: 'flex', gap: 'var(--space-2)', listStyle: 'none', fontSize: '13px', color: 'var(--sage-light)', flexWrap: 'wrap' }}>
-                  <li><Link href="/" style={{ color: 'var(--sage-light)', textDecoration: 'none', opacity: 0.85 }}>Accueil</Link></li>
-                  <li aria-hidden="true" style={{ opacity: 0.5 }}>›</li>
-                  <li><Link href="/blog" style={{ color: 'var(--sage-light)', textDecoration: 'none', opacity: 0.85 }}>Blog</Link></li>
-                  <li aria-hidden="true" style={{ opacity: 0.5 }}>›</li>
-                  <li><Link href={`/blog/${categorie}`} style={{ color: 'var(--sage-light)', textDecoration: 'none', opacity: 0.85 }}>{catLabel}</Link></li>
-                </ol>
-              </nav>
-
-              {/* Category chip */}
-              <span style={{ display: 'inline-block', fontFamily: 'var(--next-font-mono), monospace', fontSize: '11px', fontWeight: 500, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--copper-bright)', background: 'rgba(184, 98, 61, 0.15)', padding: '4px 12px', borderRadius: 'var(--radius-full)', marginBottom: 'var(--space-5)', backdropFilter: 'blur(4px)' }}>
-                {catLabel}
-              </span>
-
-              <h1 style={{ fontFamily: 'var(--next-font-display), Georgia, serif', fontSize: 'clamp(32px, 5.5vw, 56px)', fontWeight: 400, letterSpacing: '-0.02em', color: 'var(--ivory)', lineHeight: 1.1, marginBottom: 'var(--space-6)', textWrap: 'balance', maxWidth: '900px' }}>
-                {meta.title}
-              </h1>
-
-              <div style={{ color: 'var(--sage-light)' }}>
-                <AuthorByline
-                  authorSlug={niche.author.slug || 'auteur'}
-                  authorName={niche.author.name || 'Auteur'}
-                  publishedAt={meta.publishedAt}
-                  updatedAt={meta.updatedAt}
-                  readingTimeMin={meta.readingTimeMin}
-                />
-              </div>
-            </header>
-          </div>
-
-          {/* ── Body : content + sidebar ── */}
-          <div className="article-layout">
-            {/* Main content column */}
-            <div className="article-content">
-              {/* AISummarize */}
-              {meta.aiSummary && meta.aiSummary.length > 0 && (
-                <AISummarize
-                  points={meta.aiSummary}
-                  articleTitle={meta.title}
-                  articleUrl={`${SITE_URL}/blog/${categorie}/${slug}`}
-                />
-              )}
-
-              {/* MDX content */}
-              <div className="prose-article">{mdxContent}</div>
-              <AutoProductCTAs ctas={getCTAsForCategory(categorie)} />
-
-              {/* CTA outil contextuel */}
-              <ToolCTA categorie={categorie} />
-
-              {/* FAQ */}
-              {meta.faq && meta.faq.length > 0 && (
-                <section
-                  aria-labelledby="faq-titre"
-                  style={{ marginTop: 'var(--space-12)' }}
-                >
-                  <h2
-                    id="faq-titre"
-                    style={{
-                      fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                      fontSize: 'clamp(20px, 3vw, 28px)',
-                      fontWeight: 800,
-                      color: 'var(--text-primary)',
-                      marginBottom: 'var(--space-6)',
-                      textWrap: 'balance',
-                    }}
-                  >
-                    Questions fréquentes
-                  </h2>
-                  <FaqAccordion items={meta.faq} />
-                </section>
-              )}
-
-              {/* Related — visible only on mobile (desktop shows in sidebar) */}
-              {related.length > 0 && (
-                <section
-                  aria-labelledby="related-titre"
-                  className="article-related-mobile"
-                  style={{ marginTop: 'var(--space-12)' }}
-                >
-                  <h2
-                    id="related-titre"
-                    style={{
-                      fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-                      fontSize: 'clamp(18px, 2.5vw, 22px)',
-                      fontWeight: 800,
-                      color: 'var(--text-primary)',
-                      marginBottom: 'var(--space-5)',
-                      letterSpacing: '-0.01em',
-                    }}
-                  >
-                    Continuer votre lecture
-                  </h2>
-                  <ul
-                    role="list"
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: 0,
-                      listStyle: 'none',
-                      borderTop: '1px solid var(--border)',
-                    }}
-                  >
-                    {related.map((a, i) => (
-                      <li key={`${a.categorie}/${a.slug}`} style={{ borderBottom: '1px solid var(--border)' }}>
-                        <Link
-                          href={articleHref(a)}
-                          className="related-link"
-                          style={{
-                            textDecoration: 'none',
-                            display: 'flex',
-                            alignItems: 'baseline',
-                            gap: 'var(--space-4)',
-                            padding: 'var(--space-4) 0',
-                          }}
-                        >
-                          <span
-                            style={{
-                              fontFamily: 'var(--next-font-mono), monospace',
-                              fontSize: '12px',
-                              color: 'var(--text-muted)',
-                              flexShrink: 0,
-                              minWidth: '24px',
-                            }}
-                          >
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <span style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                            <span
-                              style={{
-                                fontFamily: 'var(--next-font-primary), system-ui, sans-serif',
-                                fontSize: '15px',
-                                fontWeight: 600,
-                                color: 'var(--text-primary)',
-                                lineHeight: 1.35,
-                              }}
-                            >
-                              {a.title}
-                            </span>
-                            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-                              {CATEGORY_LABELS[a.categorie] ?? a.categorie} · {a.readingTimeMin} min
-                            </span>
-                          </span>
-                          <span style={{ color: 'var(--text-muted)', fontSize: '14px', flexShrink: 0 }} aria-hidden="true">→</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-
-              {/* AuthorCard */}
-              <div style={{ marginTop: 'var(--space-10)' }}>
-                <AuthorCard
-                  authorSlug={niche.author.slug || 'auteur'}
-                  authorName={niche.author.name || 'Auteur'}
-                  bio={niche.author.bio || ''}
-                  variant="inline"
-                />
-              </div>
-            </div>
-
-            {/* Sidebar — desktop only */}
-            <ArticleSidebar
-              toc={toc}
-              stickyCta={meta.stickyCta}
-              stickyCtaMessage={meta.stickyCtaMessage}
-              related={related}
-            />
-          </div>
-        </article>
-      </main>
-
-      {/* Sticky CTA — mobile only (sidebar has CTAs on desktop) */}
-      {meta.stickyCta && meta.stickyCta.length > 0 && (
-        <StickyCTA
-          items={meta.stickyCta}
-          message={meta.stickyCtaMessage}
-        />
-      )}
+      <ArticleView
+        slug={slug}
+        meta={meta}
+        catLabel={catLabel}
+        toc={toc}
+        related={related}
+        after={<ToolCTA categorie={categorie} />}
+      >
+        {mdxContent}
+      </ArticleView>
     </>
   )
 }
