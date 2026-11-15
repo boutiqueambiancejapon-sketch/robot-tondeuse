@@ -11,7 +11,7 @@ function call(evenement: string) {
 afterEach(() => vi.unstubAllGlobals())
 
 describe('POST /api/m/<evenement>', () => {
-  it('répond 204 sans cache ni cookie pour les 3 événements connus', async () => {
+  it('répond 204 sans cache ni cookie pour les événements connus', async () => {
     for (const e of EVENEMENTS) {
       const res = await call(e)
       expect(res.status).toBe(204)

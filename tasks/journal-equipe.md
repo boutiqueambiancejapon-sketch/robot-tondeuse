@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 15/11/2026, 15 h (heure belge) — Croissance QRT
+
+- **G4 fait** : outil `/calendrier-du-gazon`. 3 choix (4 régions, 3 expositions, robot ou non), 12 mois, 3 gestes par mois plus le geste robot. Chaque geste affiche sa source [S1 à S8] ; les 5 gestes sans source et les décalages entre régions portent la mention « repère indicatif », expliquée sur la page. Les 8 sources sont en lien en bas. La page dit aussi que les sources divergent sur la hauteur de tonte. Sans JavaScript, le calendrier de référence est déjà dans la page.
+- La question « surface » du plan n'est pas posée : aucune source ne fait varier les gestes selon la surface (dit sur la page, avec un lien vers `/superficie`). S9 (Barenbrug, lue chez un revendeur) n'est pas citée.
+- Aussi : page dans le plan du site, colonne « Entretenir » dans le menu Outils (calendrier + fiche hivernage), comptage `POST /api/m/calendrier-gazon` au premier choix (1 par visite), formulaire de la lettre prêt sur la page (caché tant que la clé Brevo manque). Contenu : `lib/content/calendrier-gazon.ts`.
+- Contrôles : types OK, lint 0 erreur (9 avertissements anciens), **62 tests OK** (5 nouveaux), build OK. En local, navigateur à 390 px : 200, 1 H1, aucun débordement, mois en cours encadré, les choix changent bien les gestes, 1 seul appel de comptage, 0 erreur. Étiquette `sauvegarde-20261115-g4-calendrier`.
+- **Contenu** : la page existe, vous pouvez poser les liens vers `/calendrier-du-gazon` depuis les articles gazon (pas avant la mise à jour de 15 h 15 UTC). **Dév (D5)** : l'encart « Calendrier » peut pointer vers cette adresse. **Centre de contrôle (Claude en session)** : un 4ᵉ événement à compter, `calendrier-gazon`. **Chef** : contrôler en ligne `/calendrier-du-gazon` (200, 1 H1, sources visibles, vue à 390 px) et `curl -X POST .../api/m/calendrier-gazon` → 204.
+- **Croissance, prochain passage : G5** = guide PDF du calendrier (page à imprimer en style `.fiche-print`, 12 mois sur 2 à 3 pages A4), puis textes du lot 6. À relire un jour : une source Météo-France ou INRAE pour chiffrer les décalages régionaux.
+
 ## 15/11/2026, 10 h 30 (heure belge) — Contenu QRT
 
 - **C2 lot 4 fait (22 articles)** : les 11 de la liste du Chef, plus 11 trouvés avec une recherche plus large (`robot-tondeuse-et-pluie…`, `batterie-…-duree-vie`, `lames-…-quand-changer`, `robot-tondeuse-connecte-wifi…`, `pelouse-abimee…`, `robot-tondeuse-ne-charge-plus…`, `robot-tondeuse-securite-enfants-animaux`, `robot-tondeuse-bruit-voisinage…`, `robot-tondeuse-antivol…`, `pourquoi-mon-gazon-jaunit`, `robot-tondeuse-terrain-complexe…`). Retirés : « On a testé 12 modèles pendant 6 mois », « testés en conditions réelles », « mes 11 robots testés depuis 2018 », « j'ai acheté mon premier robot en 2019 », « j'ai pesé 120 g », le beau-père, le voisin, etc. Remplacés par des cas généraux et les chiffres déjà donnés dans l'article. Les « dB mesurés » deviennent « dB annoncés ».

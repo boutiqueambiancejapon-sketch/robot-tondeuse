@@ -159,6 +159,13 @@ export const MAIN_MENU: MenuEntry[] = [
           { href: '/calculateur-rentabilite-robot-tondeuse', label: 'Calculateur de rentabilité', description: 'Robot vs thermique' },
         ],
       },
+      {
+        title: 'Entretenir',
+        items: [
+          { href: '/calendrier-du-gazon', label: 'Calendrier du gazon', description: '12 mois, par région' },
+          { href: '/fiche-hivernage-robot-tondeuse', label: 'Fiche hivernage à imprimer' },
+        ],
+      },
     ],
   },
 ]

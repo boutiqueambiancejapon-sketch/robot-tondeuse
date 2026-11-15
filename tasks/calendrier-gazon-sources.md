@@ -148,6 +148,7 @@ source lue ne les donne pour la France.
 ## Suite (pour l'outil et le PDF)
 
 - **G2** : fiche « Hivernage du robot » à imprimer (page du site, sans e-mail), à partir de S2 et S3.
-- **Outil** : 4 questions (région, surface, exposition, robot ou non) ; le résultat assemble les blocs ci-dessus.
-  Les repères équipe y figurent avec la mention « repère indicatif ».
+- **Outil** : fait le 15/11 (G4), `/calendrier-du-gazon`, contenu dans `lib/content/calendrier-gazon.ts`. 3 questions
+  (région, exposition, robot ou non) : la surface n'est pas posée, aucune source ne fait varier les gestes avec elle.
+  Les repères équipe y figurent avec la mention « repère indicatif ». S9 n'est pas citée. Toute correction ici est à reporter dans ce fichier de code.
 - **Relecture** à faire : relire Gamma et une source Météo-France ou INRAE pour chiffrer les décalages régionaux.
