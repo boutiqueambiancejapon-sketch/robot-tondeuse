@@ -101,3 +101,10 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - `POST /api/inscription` : consentement obligatoire (`consentement: true`), champ piège `website`, aucune adresse stockée ni journalisée par le site. 503 tant que `BREVO_API_KEY` manque dans l'environnement du serveur. Pas de double confirmation : il faut un expéditeur sur le domaine (DNS bloqué).
 - `<InscriptionLettre>` : case non cochée, lien `/confidentialite`. Affiché en bas de `/fiche-hivernage-robot-tondeuse` seulement si la clé est présente au build (le build du serveur lit `shared/.env`). Fond : carte `var(--ivory)` bordée sur `var(--paper)`, comme les étapes ; bouton cuivre comme « Imprimer ». Masqué à l'impression.
 - `/confidentialite` réécrite : lettre (Brevo, base légale, désinscription, 3 ans sans ouverture), comptage sans cookie, journaux du serveur, liens marchands. « Données analytiques 24 mois » retiré (plus d'outil d'analyse). Nom et e-mail du responsable toujours « [À compléter] ».
+
+## Type de page par article (15/11/2026, lot 1 étape D4)
+
+- Champ `pageType` sur `ArticleMeta` et `StandaloneArticleMeta` : guide-achat, comparatif, depannage, gazon, reglementation. Calculé par `lib/utils/page-type.ts` (fonction pure, testée).
+- Ordre : `pageType` de l'en-tête MDX, puis l'adresse (réglementation, comparatif, guide d'achat, dépannage, gazon), puis la catégorie, puis guide d'achat par défaut. La catégorie seule ne suffit pas : « astuces » contient 107 articles de tous types.
+- Entretien du robot, installation et hivernage sont classés « depannage » : le lecteur a déjà un robot, l'objectif est la pièce ou le carnet d'entretien.
+- Rien d'affiché à cette étape. Les encarts par type arrivent avec D5.
