@@ -1,5 +1,5 @@
 /**
- * HubArtwork — visuel de couverture par hub/article (Atelier Vert).
+ * HubArtwork — visuel de couverture par hub ou article.
  * Photo spécifique si dans SLUG_PHOTOS, sinon pool déterministe par slug hash.
  * Server Component — aucun JS.
  */
@@ -44,6 +44,11 @@ export function hashSlug(slug: string): number {
   return Math.abs(h)
 }
 
+/** Image d'un hub ou d'un article sans visuel : photo dédiée, sinon image du site choisie d'après le slug. */
+export function hubImage(slug: string): string {
+  return SLUG_PHOTOS[slug] ?? IMAGE_POOL[hashSlug(slug) % IMAGE_POOL.length]
+}
+
 export type HubArtworkProps = {
   slug: string
   variant?: 'hero' | 'card'
@@ -51,7 +56,7 @@ export type HubArtworkProps = {
 }
 
 export function HubArtwork({ slug, variant = 'card', className }: HubArtworkProps) {
-  const src = SLUG_PHOTOS[slug] ?? IMAGE_POOL[hashSlug(slug) % IMAGE_POOL.length]
+  const src = hubImage(slug)
 
   return (
     <Image

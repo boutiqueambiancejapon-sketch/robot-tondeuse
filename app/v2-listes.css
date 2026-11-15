@@ -1,3 +1,51 @@
 /* Design V2 — styles du lot « listes ». Tout reste dans .v2 (voir app/v2.css et tasks/design-v2.md). */
 .v2 {
+  /* Page de liste : marge basse et rythme entre les blocs. */
+  .lst { padding-bottom: 56px; }
+  .lst > .lede { max-width: 640px; }
+  .lst > .chips { margin-top: 16px; margin-bottom: 14px; }
+  .lst .groupe { margin-top: 34px; scroll-margin-top: 72px; }
+  .lst .groupe > .h-md { margin-bottom: 10px; }
+  .lst-more { margin-top: 18px; }
+  .lst-door { margin-top: 38px; max-width: 520px; }
+  .lst-door h2 { font-size: 20px; align-self: end; }
+
+  /* Articles en lignes .post : une colonne sur téléphone, deux sur grand écran. */
+  .posts { border-bottom: 1px solid var(--line); }
+  .post h2 { font-size: 17.5px; line-height: 1.2; }
+  .post .post-desc { display: none; }
+  .mini h2 { font-size: 17px; }
+  .lignes { border-bottom: 1px solid var(--line); }
+  .lignes .mini { min-height: 44px; }
+  .lignes--first { margin-top: 20px; }
+  .groupe details.acc { border-top: 0; }
+  .groupe details.acc .lignes { border-bottom: 0; }
+
+  @media (min-width: 860px) {
+    .posts, .lignes { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
+    .posts-lead { grid-column: 1 / -1; }
+    .post--lead { grid-template-columns: 200px 1fr; gap: 24px; padding: 18px 0; }
+    .post--lead img { width: 200px; }
+    .post--lead h2 { font-size: 25px; }
+    .post--lead .post-desc { display: block; max-width: 620px; font-size: 16px; line-height: 1.45; margin-top: 8px; }
+  }
+
+  /* Pagination : deux boutons, puis les numéros. Chaque cible fait au moins 44 px. */
+  .pager { margin-top: 26px; display: grid; gap: 14px; justify-items: center; }
+  .pager-steps { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .pager-nums { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+  .pager-nums li { display: flex; align-items: center; gap: 6px; }
+  .pager-nums span { color: var(--muted); }
+  .pager-nums a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 8px; border-radius: var(--r-s); font: 600 16px/1 var(--f-b); text-decoration: none; font-variant-numeric: tabular-nums; }
+  .pager-nums a:hover { background: var(--sage); }
+  .pager-nums a.on { background: var(--ink); color: var(--white); }
+
+  /* Pages légales et biographie : texte long en .prose, colonne de lecture. */
+  .legal { max-width: 760px; }
+  .legal .prose section > * + * { margin-top: 12px; }
+  .legal .prose ul { list-style: disc; padding-left: 22px; }
+  .legal .prose li + li { margin-top: 8px; }
+  .legal .prose code { font: inherit; font-weight: 600; }
+  .groupe.prose { max-width: 720px; }
+  .groupe.prose h2 { margin-top: 0; }
 }

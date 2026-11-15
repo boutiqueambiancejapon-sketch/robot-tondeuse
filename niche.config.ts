@@ -156,7 +156,7 @@ export const niche: NicheConfig = {
     name: 'Thomas',
     slug: 'thomas',
     title: 'Expert robots tondeuses',
-    bio: 'Je teste des robots tondeuses depuis 2018. Plus de 30 modèles passés au crible pour vous éviter les mauvais achats.',
+    bio: 'Je compare les robots tondeuses à partir des fiches des fabricants, des notices et des retours de propriétaires publiés, avec les mêmes critères pour chaque modèle.',
     tone: ['direct', 'pragmatique', 'technique'],
     noGo: ['révolutionnaire', 'incroyable', 'game-changer'],
     formulations: ['Concrètement,', 'Le vrai critère :', 'Sur le terrain,'],
