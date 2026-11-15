@@ -1,6 +1,6 @@
 /**
  * /choisir/[produit] — "Quel [produit] choisir en {year} ?"
- * Structure : hero + quiz interactif + contenu éditorial + FAQ + auteur.
+ * Structure : titre V2 + quiz interactif + contenu éditorial + FAQ + auteur.
  * Server Component — QuizEngine isolé en 'use client'.
  */
 
@@ -13,6 +13,8 @@ import { COMPARATEURS, PRODUIT_SLUGS } from '@/lib/comparateur'
 import { getChoisirContent } from '@/lib/choisir-content'
 import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
+import { PageTitle } from '@/components/v2/PageTitle'
+import { quizMerchantLinks } from '@/components/quiz/merchant-links'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -47,24 +49,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
-const HERO_CONFIG: Record<string, { accentRgba: string }> = {
-  mammotion: { accentRgba: 'rgba(22,163,74,0.14)' },
-  husqvarna: { accentRgba: 'rgba(255,106,0,0.14)' },
-  gardena:   { accentRgba: 'rgba(8,145,178,0.14)' },
-  worx:      { accentRgba: 'rgba(217,119,6,0.14)' },
-  bosch:     { accentRgba: 'rgba(124,58,237,0.14)' },
-}
-
-const HeroIcon = () => (
-  <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="48" height="48" aria-hidden="true" style={{ color: 'var(--accent-1)' }}>
-    <rect x="12" y="16" width="24" height="16" rx="8" />
-    <circle cx="18" cy="36" r="3" />
-    <circle cx="30" cy="36" r="3" />
-    <path d="M8 24h4M36 24h4" />
-    <path d="M20 10v6M28 10v6" />
-  </svg>
-)
-
 const PUBLISHED_DATES: Record<string, string> = {
   mammotion: '2026-03-29',
   husqvarna: '2026-03-29',
@@ -79,7 +63,6 @@ export default async function ChoisirPage({ params }: { params: Params }) {
   if (!data) notFound()
 
   const year = currentYear()
-  const hero = HERO_CONFIG[produit] ?? { accentRgba: 'rgba(22,163,74,0.14)' }
   const editorial = getChoisirContent(produit, year)
 
   const breadcrumbJsonLd = {
@@ -92,99 +75,41 @@ export default async function ChoisirPage({ params }: { params: Params }) {
   }
 
   return (
-    <main id="main-content">
+    <main id="main-content" className="v2">
       {/* JSON-LD BreadcrumbList */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      {/* Hero */}
-      <section
-        style={{
-          background: `radial-gradient(ellipse 90% 70% at 50% 0%, ${hero.accentRgba} 0%, transparent 72%)`,
-          padding: 'var(--space-16) var(--space-6) var(--space-12)',
-          textAlign: 'center',
-        }}
-      >
-        <div style={{ maxWidth: '680px', margin: '0 auto' }}>
-          <div
-            aria-hidden="true"
-            style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--space-4)' }}
-          >
-            <HeroIcon />
-          </div>
-          <h1
-            style={{
-              fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-              fontSize: 'clamp(28px, 5vw, 52px)',
-              fontWeight: 800,
-              color: 'var(--text-primary)',
-              lineHeight: 1.1,
-              marginBottom: 'var(--space-4)',
-              textWrap: 'balance',
-            }}
-          >
-            Quel {data.label} choisir en {year}&nbsp;?
-          </h1>
-          <p
-            style={{
-              fontSize: 'clamp(15px, 2vw, 18px)',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.6,
-              maxWidth: '520px',
-              margin: '0 auto',
-            }}
-          >
-            {data.description}
-          </p>
-        </div>
-      </section>
+      <div className="wrap tool">
+        <div className="tool-in">
+          <PageTitle
+            title={`Quel ${data.label} choisir en ${year}\u00a0?`}
+            pose="lecture"
+            crumbs={[{ href: '/', label: 'Accueil' }, { label: `Choisir son ${data.label}` }]}
+          />
+          <p className="lede">{data.description}</p>
 
-      {/* Quiz */}
-      <section
-        aria-labelledby="quiz-titre"
-        style={{
-          maxWidth: '720px',
-          margin: '0 auto',
-          padding: 'var(--space-8) var(--space-6) var(--space-4)',
-        }}
-      >
-        <h2
-          id="quiz-titre"
-          style={{
-            fontFamily: 'var(--next-font-display), system-ui, sans-serif',
-            fontSize: 'clamp(18px, 2.5vw, 22px)',
-            fontWeight: 800,
-            color: 'var(--text-primary)',
-            marginBottom: 'var(--space-6)',
-            textAlign: 'center',
-          }}
-        >
-          Trouve ton modèle en 4 questions
-        </h2>
-        <div
-          style={{
-            background: 'var(--glass-bg)',
-            border: '1px solid var(--glass-border)',
-            backdropFilter: 'blur(var(--glass-blur))',
-            WebkitBackdropFilter: 'blur(var(--glass-blur))',
-            borderRadius: 'var(--radius-xl)',
-            padding: 'var(--space-8)',
-          }}
-        >
-          <QuizEngine defaultProduit={produit} />
-        </div>
-      </section>
+          <section className="sec" aria-labelledby="quiz-titre">
+            <div className="card card-p">
+              <h2 id="quiz-titre" className="h-md">
+                Trouvez votre modèle en 4 questions
+              </h2>
+              <QuizEngine embedded merchantLinks={quizMerchantLinks()} />
+            </div>
+          </section>
 
-      {/* Editorial content (if available for this product) */}
-      {editorial && (
-        <ChoisirEditorial
-          content={editorial}
-          produit={produit}
-          publishedAt={PUBLISHED_DATES[produit] ?? '2026-03-24'}
-        />
-      )}
+          {/* Contenu éditorial (s'il existe pour cette marque) */}
+          {editorial && (
+            <ChoisirEditorial
+              content={editorial}
+              produit={produit}
+              publishedAt={PUBLISHED_DATES[produit] ?? '2026-03-24'}
+            />
+          )}
+        </div>
+      </div>
     </main>
   )
 }
