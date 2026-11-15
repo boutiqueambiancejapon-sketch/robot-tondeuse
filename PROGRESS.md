@@ -106,3 +106,7 @@ Branche `claude/review-design-files-HKwEE` — 8 batches.
 - Retrait Vercel Analytics + `vercel.json` ; page confidentialité mise à jour
 - Images de partage personnalisées (accueil, articles, rubriques) — voir DECISIONS.md
 - À faire : mentions légales → hébergeur à remplacer (Vercel → one.com) ; `middleware.ts` → `proxy.ts` (convention dépréciée depuis Next 16)
+
+## Calendrier du gazon (15/11/2026, lot 2 étape G4) ✅
+- Outil `/calendrier-du-gazon` en place (12 mois, région, exposition, robot), sources citées — voir DECISIONS.md
+- À faire : guide PDF du calendrier (G5), textes de la lettre (lot 6)

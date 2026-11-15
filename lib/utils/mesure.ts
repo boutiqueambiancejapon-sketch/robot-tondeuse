@@ -3,7 +3,7 @@
  * Le navigateur appelle POST /api/m/<evenement> ; la ligne apparaît dans les journaux
  * du serveur, où le centre de contrôle la compte. Rien n'est stocké par le site.
  */
-export const EVENEMENTS = ['quiz-termine', 'surface-mesuree', 'calcul-rentabilite'] as const
+export const EVENEMENTS = ['quiz-termine', 'surface-mesuree', 'calcul-rentabilite', 'calendrier-gazon'] as const
 export type Evenement = (typeof EVENEMENTS)[number]
 
 export function isEvenement(value: string): value is Evenement {

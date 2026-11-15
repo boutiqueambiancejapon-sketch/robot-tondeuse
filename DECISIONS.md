@@ -108,3 +108,11 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Ordre : `pageType` de l'en-tête MDX, puis l'adresse (réglementation, comparatif, guide d'achat, dépannage, gazon), puis la catégorie, puis guide d'achat par défaut. La catégorie seule ne suffit pas : « astuces » contient 107 articles de tous types.
 - Entretien du robot, installation et hivernage sont classés « depannage » : le lecteur a déjà un robot, l'objectif est la pièce ou le carnet d'entretien.
 - Rien d'affiché à cette étape. Les encarts par type arrivent avec D5.
+
+## 15/11/2026 — Outil « Calendrier du gazon » (lot 2, G4)
+- Route `/calendrier-du-gazon`. Contenu dans `lib/content/calendrier-gazon.ts` (fonction pure `construireCalendrier`, testée) ; composant client `components/tools/CalendrierGazon.tsx`.
+- 3 questions au lieu de 4 : la surface n'est pas posée, aucune source lue ne fait varier les gestes avec elle.
+- Chaque geste affiche sa source. Sans source : mention « repère indicatif » (champ `indicatif`). Un test refuse un geste sans source ni mention.
+- Fonds : page `var(--paper)`, cartes des mois et panneau des choix `var(--ivory)` bordés, comme la fiche hivernage. Choix en pastilles (mousse quand actif, 44 px de haut). Mois en cours : bordure cuivre, connu du navigateur seul (`useSyncExternalStore`, pas d'écart à l'hydratation). Aucune animation.
+- Rendu serveur : calendrier de référence (ouest, plein soleil, avec robot), lisible sans JavaScript.
+- Comptage : événement `calendrier-gazon` ajouté à `lib/utils/mesure.ts`, envoyé au premier choix.
