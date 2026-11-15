@@ -8,6 +8,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { getPageType, type PageType } from '@/lib/utils/page-type'
 
 const ARTICLES_DIR = path.join(process.cwd(), 'content/articles')
 
@@ -22,12 +23,18 @@ export type StandaloneArticleMeta = {
   updatedAt?: string
   readingTimeMin: number
   categorie: string
+  /** Type de page pour la carte des conversions (lot 1). Rien d'affiché. */
+  pageType: PageType
   tags?: string[]
   aiSummary?: string[]
   faq?: { q: string; a: string }[]
   stickyCta?: StickyCTAData[]
   stickyCtaMessage?: string
   draft?: boolean
+}
+
+function withPageType(meta: StandaloneArticleMeta): StandaloneArticleMeta {
+  return { ...meta, pageType: getPageType(meta) }
 }
 
 export function getAllStandaloneArticles(): StandaloneArticleMeta[] {
@@ -38,7 +45,7 @@ export function getAllStandaloneArticles(): StandaloneArticleMeta[] {
       const slug = file.replace(/\.mdx$/, '')
       const raw = fs.readFileSync(path.join(ARTICLES_DIR, file), 'utf-8')
       const { data } = matter(raw)
-      return { slug, ...data } as StandaloneArticleMeta
+      return withPageType({ slug, ...data } as StandaloneArticleMeta)
     })
     .filter((a) => !a.draft)
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
@@ -49,7 +56,7 @@ export function getStandaloneArticle(slug: string): { meta: StandaloneArticleMet
   if (!fs.existsSync(filePath)) return null
   const raw = fs.readFileSync(filePath, 'utf-8')
   const { data, content } = matter(raw)
-  return { meta: { slug, ...data } as StandaloneArticleMeta, content }
+  return { meta: withPageType({ slug, ...data } as StandaloneArticleMeta), content }
 }
 
 export function getAllStandaloneSlugs(): string[] {

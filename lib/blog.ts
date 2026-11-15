@@ -8,6 +8,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { categoryLabels, categoryAccents } from '@/niche.config'
+import { getPageType, type PageType } from '@/lib/utils/page-type'
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog')
 const ARTICLES_DIR = path.join(process.cwd(), 'content/articles')
@@ -25,6 +26,8 @@ export function formatDate(iso: string): string {
 export type ArticleMeta = {
   slug: string
   categorie: string
+  /** Type de page pour la carte des conversions (lot 1). Rien d'affiché. */
+  pageType: PageType
   title: string
   description: string
   publishedAt: string
@@ -57,6 +60,7 @@ function parseMeta(data: Record<string, unknown>, slug: string, categorie: strin
   return {
     slug,
     categorie,
+    pageType: getPageType({ slug, categorie, pageType: data.pageType }),
     title: (data.title as string) ?? '',
     description: (data.description as string) ?? '',
     publishedAt: (data.publishedAt as string) ?? '',
