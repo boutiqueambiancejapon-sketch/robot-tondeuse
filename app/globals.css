@@ -1,5 +1,9 @@
 @import "tailwindcss";
 @import "./v2.css";
+@import "./v2-articles.css";
+@import "./v2-listes.css";
+@import "./v2-outils.css";
+@import "./v2-promos.css";
 
 /* ═══════════════════════════════════════════════════════════════════════
    DA Atelier Vert — light only
