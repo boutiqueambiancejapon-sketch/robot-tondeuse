@@ -1,0 +1,10 @@
+{
+  "_note": "Fiche produit (content/produits) → motif du nom chez Cdiscount ou Fnac (expression régulière, sans tenir compte des majuscules). Les produits reconditionnés sont toujours écartés. Ajouter une ligne seulement après avoir vérifié que c'est bien le même modèle.",
+  "dreame-a1-pro": { "cdiscount": "DREAME - A1 Pro" },
+  "bosch-indego-xs-300": { "cdiscount": "Indego XS 300" },
+  "mova-viax-250": { "cdiscount": "MOVA - ViAX 250" },
+  "sunseeker-v1": { "cdiscount": "Sunseeker V1 300", "fnac": "Sunseeker V1 300" },
+  "worx-landroid-l2000-wr155e": { "cdiscount": "WR155E" },
+  "yard-force-classic-500b": { "cdiscount": "Yard Force Classic 500B" },
+  "husqvarna-automower-aspire-r4": { "cdiscount": "Automower Aspire R4" }
+}

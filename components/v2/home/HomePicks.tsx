@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getProduct, getPrimaryLink } from '@/lib/products'
-import { AffiliateLink } from '@/components/ui/AffiliateLink'
+import { getProduct } from '@/lib/products'
+import { offresPour } from '@/lib/offres'
+import { MerchantButtons } from '@/components/v2/MerchantButtons'
 
 // Trois robots mis en avant, avec leur photo en situation (public/images/robots).
 const PICKS = [
@@ -10,12 +11,10 @@ const PICKS = [
   { slug: 'gardena-sileno-minimo-250', photo: '/images/robots/gardena-sileno-minimo-250-jardin.jpeg' },
 ]
 
-const STORES: Record<string, string> = { amazon: 'Amazon', fnac: 'Fnac', cdiscount: 'Cdiscount' }
-
 export function HomePicks() {
   const picks = PICKS.flatMap(({ slug, photo }) => {
     const product = getProduct(slug)
-    return product ? [{ product, photo }] : []
+    return product ? [{ product, photo, slug }] : []
   })
   if (picks.length === 0) return null
 
@@ -26,8 +25,7 @@ export function HomePicks() {
           <h2 className="h-lg">Nos choix du moment</h2>
         </div>
         <div className="snap">
-          {picks.map(({ product, photo }) => {
-            const store = product.stickyCta ?? product.links?.[0]?.store ?? 'amazon'
+          {picks.map(({ product, photo, slug }) => {
             return (
               <article className="card pick" key={product.name}>
                 <div className="shot shot--photo">
@@ -37,11 +35,9 @@ export function HomePicks() {
                 <div className="pick-b">
                   <h3 className="h-sm">{product.name}</h3>
                   <p className="price num">{product.prix}</p>
+                  <p className="dated">Prix indicatif</p>
                   {product.hook ? <p className="small">{product.hook}</p> : null}
-                  <AffiliateLink href={getPrimaryLink(product)} className="btn btn--full">
-                    Voir le prix chez {STORES[store.toLowerCase()] ?? store}
-                  </AffiliateLink>
-                  <p className="dated">Prix indicatif, à vérifier chez le marchand · lien partenaire</p>
+                  <MerchantButtons offres={offresPour(product.name, slug)} />
                 </div>
               </article>
             )

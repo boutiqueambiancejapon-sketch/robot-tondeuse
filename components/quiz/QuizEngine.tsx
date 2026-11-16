@@ -1,5 +1,7 @@
 'use client'
 
+import type { Offre } from '@/lib/offres-format'
+
 /**
  * QuizEngine — une question par écran, le robot avance sur la barre à chaque réponse.
  * 'use client' isolé : les pages /quiz et /choisir/[produit] restent des Server Components.
@@ -15,7 +17,7 @@ import { QuizResult } from './QuizResult'
 type QuizEngineProps = {
   steps?: Step[]
   /** Liens marchands connus (voir merchant-links.ts). */
-  merchantLinks?: Record<string, string>
+  merchantLinks?: Record<string, Offre[]>
   /** Quiz placé dans une autre page : la barre ne reste pas collée en haut. */
   embedded?: boolean
 }

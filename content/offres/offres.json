@@ -1,0 +1,64 @@
+{
+  "dreame-a1-pro": {
+    "cdiscount": {
+      "prix": 749,
+      "url": "https://www.awin1.com/pclick.php?p=46262051989&a=1112904&m=6948",
+      "nom": "Robot Tondeuse - DREAME - A1 Pro - Largeur de coupe 22cm",
+      "date": "2026-11-16"
+    }
+  },
+  "bosch-indego-xs-300": {
+    "cdiscount": {
+      "prix": 577.04,
+      "url": "https://www.awin1.com/pclick.php?p=45701418144&a=1112904&m=6948",
+      "nom": "Robot tondeuse Indego XS 300",
+      "date": "2026-11-16"
+    }
+  },
+  "mova-viax-250": {
+    "cdiscount": {
+      "prix": 479,
+      "url": "https://www.awin1.com/pclick.php?p=45114245216&a=1112904&m=6948",
+      "nom": "Tondeuse robot - MOVA - ViAX 250 - 250 m² - 50 min autonomie - UltraEyes IA",
+      "date": "2026-11-16"
+    }
+  },
+  "sunseeker-v1": {
+    "cdiscount": {
+      "prix": 399,
+      "url": "https://www.awin1.com/pclick.php?p=46749800603&a=1112904&m=6948",
+      "nom": "Robot tondeuse Sunseeker V1 300 M2 Noir",
+      "date": "2026-11-16"
+    },
+    "fnac": {
+      "prix": 399,
+      "url": "https://www.awin1.com/pclick.php?p=45438828712&a=1112904&m=12665",
+      "nom": "Robot tondeuse Sunseeker V1 300 M2 Noir",
+      "date": "2026-11-16"
+    }
+  },
+  "worx-landroid-l2000-wr155e": {
+    "cdiscount": {
+      "prix": 1242.28,
+      "url": "https://www.awin1.com/pclick.php?p=46803664533&a=1112904&m=6948",
+      "nom": "WORX WR155E — Robot tondeuse",
+      "date": "2026-11-16"
+    }
+  },
+  "yard-force-classic-500b": {
+    "cdiscount": {
+      "prix": 349,
+      "url": "https://www.awin1.com/pclick.php?p=43843260930&a=1112904&m=6948",
+      "nom": "Robot Tondeuse Yard Force Classic 500B connectée Bluetooth jusquà 500m² avec capteurs dobstacles et de soulèvement",
+      "date": "2026-11-16"
+    }
+  },
+  "husqvarna-automower-aspire-r4": {
+    "cdiscount": {
+      "prix": 1032.45,
+      "url": "https://www.awin1.com/pclick.php?p=46429120047&a=1112904&m=6948",
+      "nom": "Robot de tonte Automower Aspire R4 - HUSQVARNA - 970568512",
+      "date": "2026-11-16"
+    }
+  }
+}

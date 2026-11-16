@@ -9,6 +9,7 @@ import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 import { CalendrierGazon } from '@/components/tools/CalendrierGazon'
 import { InscriptionLettre } from '@/components/tools/InscriptionLettre'
+import { GuideDownload } from '@/components/tools/GuideDownload'
 import { SOURCES_CALENDRIER } from '@/lib/content/calendrier-gazon'
 import { isNewsletterConfigured } from '@/lib/newsletter/brevo'
 import { PageTitle } from '@/components/v2/PageTitle'
@@ -67,6 +68,7 @@ export default function CalendrierGazonPage() {
         </section>
 
         <div className="no-print stack-lg">
+          <GuideDownload file="calendrier-du-gazon.pdf" label="Télécharger le guide du gazon en PDF" note="Les 12 mois, 8 pages, 220 Ko. Réglé pour l’ouest et la plaine, pelouse au soleil." />
           <Link className="door door--ink" href="/fiche-hivernage-robot-tondeuse">
             <h3>La fiche hivernage du robot</h3>
             <p>Une page à imprimer et à accrocher dans le garage.</p>

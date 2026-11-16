@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { AffiliateLink } from '@/components/ui/AffiliateLink'
+import type { Offre } from '@/lib/offres-format'
+import { MerchantButtons } from '@/components/v2/MerchantButtons'
 import { Mascotte } from '@/components/v2/Mascotte'
 import type { Answers, Recommendation, Step } from './quiz-logic'
 
@@ -7,7 +8,7 @@ type Props = {
   rec: Recommendation
   steps: Step[]
   answers: Answers
-  merchantLinks: Record<string, string>
+  merchantLinks: Record<string, Offre[]>
   onRestart: () => void
 }
 
@@ -25,7 +26,8 @@ export function QuizResult({ rec, steps, answers, merchantLinks, onRestart }: Pr
     const opt = s.options.find((o) => o.value === answers[s.id])
     return opt ? [{ id: s.id, label: opt.label }] : []
   })
-  const merchant = merchantLinks[rec.modele.toLowerCase()]
+  const offres = merchantLinks[rec.modele.toLowerCase()] ?? []
+  const merchant = offres.length > 0
 
   return (
     <div className="quiz-res stack-lg">
@@ -59,12 +61,7 @@ export function QuizResult({ rec, steps, answers, merchantLinks, onRestart }: Pr
 
       <div className="stack">
         {merchant ? (
-          <>
-            <AffiliateLink href={merchant} className="btn btn--full">
-              Voir le prix sur Amazon
-            </AffiliateLink>
-            <p className="dated">Lien partenaire</p>
-          </>
+          <MerchantButtons offres={offres} />
         ) : (
           <Link href={rec.comparerHref} className="btn btn--full">
             Comparer les modèles {rec.produit}
