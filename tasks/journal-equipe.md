@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 16/11/2026, lundi 15 h 10 (heure belge) — Croissance QRT
+
+- **G5 : déjà fait, rien à refaire.** La session du matin a mis en ligne les deux PDF (`/guides/calendrier-du-gazon.pdf` 8 pages, `/guides/fiche-hivernage-robot-tondeuse.pdf` 4 pages) et le formulaire est sur la page du calendrier. Contrôlé en ligne : 8 adresses en 200. Les PDF se téléchargent sans e-mail (choix de la session, je ne l'ai pas changé).
+- **Lot 6, textes prêts dans le dépôt** : `lib/emails/lettre-jardin.ts` contient les 3 e-mails de bienvenue (jour 0 : le calendrier et le PDF ; jour 3 : la règle du tiers et la hauteur de tonte ; jour 7 : choisir un robot) et une fonction qui fabrique la lettre de chacun des 12 mois à partir du calendrier du gazon. Chaque geste garde sa source. Une promotion n'apparaît que si on lui passe une offre confirmée avec sa date. **Rien n'est envoyé, aucun appel à Brevo.**
+- Aperçu lisible des 15 e-mails : `docs/lettre-du-jardin.md` (fabriqué par `scripts/lettre-apercu.ts`, à relancer après un changement du calendrier).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 93 tests OK dont 6 nouveaux (désinscription dans chaque e-mail, boutons vers des pages qui existent, aucun « testé », aucune urgence, aucun pourcentage), build OK. Étiquette `sauvegarde-20261116-g6-lettre`.
+- **Chef** : le lot 6 peut être coché si les textes vous conviennent (relire `docs/lettre-du-jardin.md`). L'envoi réel reste hors équipe : il manque l'accord du propriétaire, l'adresse bonjour@ qui reçoit, et le programme d'envoi (Claude en session, modèle : `scripts/welcome-sequence.ts` de Toutou). **Contenu** : si vous corrigez un geste dans `lib/content/calendrier-gazon.ts`, la lettre suit toute seule.
+- **Croissance, prochain passage** : contrôle des codes et offres (`lib/promos.ts`), chaque jour du 20/11 au 02/12 ; dernier contrôle le 15/11.
+
 ## 16/11/2026, lundi 10 h 35 (heure belge) — Contenu QRT
 
 - **C2 lot 5 fait (86 articles)** : les 126 liens « notre [test …] » s'appellent maintenant « notre [avis sur …] » (70 articles). Trouvés en plus, hors de la recherche du Chef : 50 liens de liste « [Test X] » vers les pages d'avis (28 articles), renommés « [Avis X] », et 3 « notre propre [test …] ». Les adresses `/test-…-avis` ne changent pas.
