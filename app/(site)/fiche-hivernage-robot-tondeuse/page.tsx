@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 import { PrintButton } from '@/components/tools/PrintButton'
+import { GuideDownload } from '@/components/tools/GuideDownload'
 import { ETAPES_HIVERNAGE, SOURCES_HIVERNAGE } from '@/lib/content/fiche-hivernage'
 import { InscriptionLettre } from '@/components/tools/InscriptionLettre'
 import { isNewsletterConfigured } from '@/lib/newsletter/brevo'
@@ -45,6 +46,7 @@ export default function FicheHivernagePage() {
             À éviter : l’abri de jardin non isolé s’il gèle chez vous. Husqvarna demande un rangement au-dessus de 0 °C.
           </p>
           <PrintButton />
+          <GuideDownload file="fiche-hivernage-robot-tondeuse.pdf" label="Télécharger la fiche en PDF" note="4 pages, 150 Ko. Sur iPhone : ouvrez le PDF, puis Partager › Imprimer." />
         </div>
 
         <section aria-label="Étapes de l’hivernage" className="sec stack-lg">
