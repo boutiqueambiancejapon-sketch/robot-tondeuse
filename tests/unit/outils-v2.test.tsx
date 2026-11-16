@@ -42,17 +42,19 @@ describe('quiz V2', () => {
     expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Gardena SILENO city 600')
     // rappel des réponses
     expect(screen.getByText('Moins de 400 m²')).toBeInTheDocument()
-    // ce modèle figure dans les données du comparateur : bouton marchand compté par /go/
-    expect(screen.getByRole('link', { name: 'Voir le prix sur Amazon' }).getAttribute('href')).toMatch(/^\/go\/[A-Z0-9]{10}\/amazon$/)
+    // trois marchands : Amazon compté par /go/, Cdiscount et Fnac par Awin
+    expect(screen.getByRole('link', { name: 'Voir le prix chez Amazon' }).getAttribute('href')).toMatch(/^\/go\/[A-Z0-9]{10}\/amazon$/)
+    expect(screen.getByRole('link', { name: 'Voir le prix chez Cdiscount' }).getAttribute('href')).toMatch(/^https:\/\/www\.awin1\.com\/cread\.php\?awinmid=6948&awinaffid=\d+&ued=/)
+    expect(screen.getByRole('link', { name: 'Voir le prix chez Fnac' }).getAttribute('href')).toMatch(/awinmid=12665/)
   })
 
-  it('sans lien marchand connu, envoie vers le comparateur de la marque', () => {
+  it('sans offres fournies, envoie vers le comparateur de la marque', () => {
     render(<QuizEngine />)
     repondre('Plus de 3000 m²')
     repondre('Grosses pentes (25%+)')
     repondre('Plus de 2000 €')
     repondre('Peu importe')
-    expect(screen.queryByRole('link', { name: 'Voir le prix sur Amazon' })).toBeNull()
+    expect(screen.queryByRole('link', { name: 'Voir le prix chez Amazon' })).toBeNull()
     expect(screen.getByRole('link', { name: 'Comparer les modèles Mammotion' })).toHaveAttribute('href', '/comparer/mammotion')
   })
 })
