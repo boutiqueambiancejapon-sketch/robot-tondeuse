@@ -114,7 +114,6 @@ export const MAIN_MENU: MenuEntry[] = [
         items: [
           { href: '/comment-choisir-robot-tondeuse', label: 'Comment choisir' },
           { href: '/robot-tondeuse-vs-thermique', label: 'Robot vs thermique' },
-          { href: '/quel-robot-tondeuse-pour-mon-jardin', label: 'Quel robot pour mon jardin ?' },
         ],
       },
       {
@@ -148,7 +147,7 @@ export const MAIN_MENU: MenuEntry[] = [
       {
         title: 'Trouver son robot',
         items: [
-          { href: '/quiz', label: 'Quiz : quel robot pour moi ?', description: '7 questions, 2 min' },
+          { href: '/quiz', label: 'Quiz : quel robot pour moi ?', description: '4 questions, 2 min' },
           { href: '/superficie', label: 'Calculer la surface du jardin', description: 'Carte satellite' },
         ],
       },
@@ -168,19 +167,4 @@ export const MAIN_MENU: MenuEntry[] = [
       },
     ],
   },
-]
-
-// ─── Bottom nav mobile (4 icônes fixes) ──────────────────────────────────
-
-export type BottomNavItem = {
-  href: string
-  label: string
-  icon: 'home' | 'compare' | 'quiz' | 'search'
-}
-
-export const BOTTOM_NAV: BottomNavItem[] = [
-  { href: '/',            label: 'Accueil',     icon: 'home' },
-  { href: '/comparatifs', label: 'Comparatifs', icon: 'compare' },
-  { href: '/quiz',        label: 'Quiz',        icon: 'quiz' },
-  { href: '/blog',        label: 'Articles',    icon: 'search' },
 ]

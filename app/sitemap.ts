@@ -28,6 +28,7 @@ const STUB_SLUGS = new Set([
   'depannage-robot-tondeuse',
   'hivernage-robot-tondeuse',
   'robot-tondeuse-pas-cher',
+  'quel-robot-tondeuse-pour-mon-jardin',
 ])
 
 export default function sitemap(): MetadataRoute.Sitemap {
