@@ -70,7 +70,6 @@ Avant d'écrire un sujet du calendrier 12 mois :
 
 ### Hiver qui commence (novembre-décembre)
 
-- [ ] Câble périphérique rongé par les mulots : prévenir et réparer — câble périphérique robot tondeuse rongé mulots — dépannage — câble renforcé, profondeur de pose, kit de réparation, recherche de coupure à la radio AM. Lier l'article câble coupé (ne pas refaire la réparation pas à pas). Sources : Husqvarna (câble renforcé), Bosch (kit), Eufy.
 - [ ] Marcher sur une pelouse gelée : quels dégâts, comment les éviter — marcher sur pelouse gelée — gazon — brins cassants, traces jaunes au dégel, planches de passage. Sources : Jardiner Malin, ootravaux, Husqvarna.
 - [ ] Pelouse gorgée d'eau en hiver : que faire (et ne pas faire) — pelouse gorgée d'eau hiver — gazon — ne pas circuler, attendre, reporter scarification et regarnissage, quand appeler un paysagiste pour le drainage. Sources : L'Avenir (Wallonie 2025), Gardena, ootravaux.
 - [ ] Robot tondeuse offert à Noël : l'installer en hiver ou attendre le printemps ? — installer robot tondeuse en hiver — saison — pose du câble sur sol gelé, robot sans fil (cartographie), charge de la batterie neuve, tonte avant pose du câble. Lier `/robot-tondeuse-cadeau-noel-2026-lequel-offrir` et `/comment-installer-robot-tondeuse-soi-meme`. Sources : Husqvarna, Gardena.
@@ -320,3 +319,4 @@ Avant d'écrire un sujet du calendrier 12 mois :
 - [x] 2026-11-13 · nettoyer-robot-tondeuse-jet-eau-karcher · Nettoyer son robot tondeuse : jet d'eau, Kärcher, brosse, ce que disent les fabricants
 - [x] 2026-11-14 · cable-peripherique-robot-tondeuse-hiver-laisser-ou-retirer · Câble périphérique en hiver : le laisser dans le sol ou le retirer ?
 - [x] 2026-11-16 · nouveautes-robot-tondeuse · Robots tondeuses 2027 : les nouveautés annoncées, et faut-il les attendre ?
+- [x] 2026-11-16 · cable-peripherique-robot-tondeuse-ronge-mulots · Câble périphérique rongé par les mulots : prévenir et réparer
