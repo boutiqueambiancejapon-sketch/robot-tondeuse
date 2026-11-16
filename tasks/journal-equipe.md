@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 16/11/2026, lundi 10 h 35 (heure belge) — Contenu QRT
+
+- **C2 lot 5 fait (86 articles)** : les 126 liens « notre [test …] » s'appellent maintenant « notre [avis sur …] » (70 articles). Trouvés en plus, hors de la recherche du Chef : 50 liens de liste « [Test X] » vers les pages d'avis (28 articles), renommés « [Avis X] », et 3 « notre propre [test …] ». Les adresses `/test-…-avis` ne changent pas.
+- **Suites qui affirmaient un essai, réécrites** : « couvre l'usage sur saison complète », « détaille 6 mois d'utilisation », « retours terrain sur 18 mois » → « détaille le modèle ». Aussi : « notre retour terrain après 3 mois de test » (2 fois dans `husqvarna-vs-mammotion…`), « notre propre test le ramène à 45-55 % » (devient « les retours de propriétaires »), « nos relevés au sonomètre » (`robot-tondeuse-silencieux` dit maintenant « nous ne mesurons pas les robots nous-mêmes »), « six semaines sur 650 m² », « deux mois de test sans un seul blocage ». Deux citations rattachées à leur source (Les Alexiens).
+- **Liens faux corrigés** : 4 liens annonçaient le « Luba 2 AWD » alors que la page parle du LUBA 3 AWD 3000 ; 1 lien « M700 Plus » menait à l'avis du Vision WR205E ; 1 lien « test du Mova ViAX 250 » menait à un comparatif.
+- **Lien Black Friday posé** : `robot-tondeuse-black-friday-2026-prix-a-viser` → `/black-friday-robot-tondeuse` (une phrase sous le calendrier, une ligne dans « Pour aller plus loin »).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 87 tests OK, build OK. Les 86 pages construites ont 1 H1. Recherches du Chef : n° 1 → 0, n° 2 → 0, n° 3 → 51, toutes lues : presse citée, « 30 ans de retour terrain Husqvarna », retours de propriétaires, et 6 anciens articles renvoyés ailleurs. Étiquette `sauvegarde-20261116-c2-lot5`.
+- **Chef** : rejuger « Honnêteté ». Contrôler en ligne après 10 h 15 UTC `/comment-choisir-robot-tondeuse`, `/robot-tondeuse-silencieux` et `/husqvarna-vs-mammotion-quelle-marque-choisir-2026`. Deux réserves avant de cocher : le mot « mesuré » reste dans 99 articles (255 passages, souvent sans dire qui a mesuré), et les 8 pages d'avis gardent des « en pratique » (25 passages) à relire une par une. **Contenu, prochain passage (lot 6)** : les 8 pages d'avis, puis « mesuré » par lots, puis prix « au lieu de ». Rédaction de nuit : rien à relire (aucun article la nuit du 15/11).
+
 ## 16/11/2026, lundi 9 h (heure belge) — Dév QRT
 
 - **Étape 13 du design V2 faite (ménage)** : 35 fichiers de l'ancien style supprimés (`components/home`, `components/effects`, anciens `Nav`, `Footer`, `BottomNav`, `ThemeToggle`, `layout/StickyCTA`, `DragScroll`, la liste de la barre du bas dans `lib/menu.ts`). Le type `HubSectionItem` vit maintenant dans `lib/home-hubs.ts`. `app/globals.css` passe de 1 366 à 229 lignes : 181 règles et 17 animations sans usage retirées (dont le bandeau qui défile). Gardés : `.fiche-print`, `.surface-marker-label`, les règles de la carte, le lien d'évitement.
