@@ -74,7 +74,7 @@
   .buy-name { font: 800 19px/1.15 var(--f-d); letter-spacing: -0.02em; }
   .buy-row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 12px; }
   .buy-row .price { font-size: 22px; }
-  .buy > .dated { grid-column: 1 / -1; }
+  .buy > .dated, .buy > .btn { grid-column: 1 / -1; }
   @media (min-width: 700px) {
     .buy { grid-template-columns: 120px minmax(0, 1fr); }
     .buy-img { width: 120px; height: 120px; }
