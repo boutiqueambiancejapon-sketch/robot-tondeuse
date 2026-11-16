@@ -20,6 +20,11 @@ const eslintConfig = [
       ],
     },
   },
+  {
+    // Scripts Node lancés à la main (format CommonJS) : require() y est normal
+    files: ['scripts/**/*.cjs'],
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
+  },
 ]
 
 export default eslintConfig
