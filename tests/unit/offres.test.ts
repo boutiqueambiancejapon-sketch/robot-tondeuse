@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { offresPour, offresRelevees } from '@/lib/offres'
+import { offresPour } from '@/lib/offres'
+import { offresRelevees } from '@/lib/offres-releves'
 
 describe('offres marchandes', () => {
   it('met le prix relevé en premier, avec sa date', () => {

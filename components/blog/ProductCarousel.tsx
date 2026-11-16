@@ -10,7 +10,7 @@ import Image from 'next/image'
 import { AffiliateLink } from '@/components/ui/AffiliateLink'
 import { getProduct, getPrimaryLink, type Product } from '@/lib/products'
 import { MENTION_PRIX } from './ProductPick'
-import { offresRelevees } from '@/lib/offres'
+import { offresRelevees } from '@/lib/offres-releves'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 
 type Item = { slug: string; product: Product; url: string }
