@@ -1,13 +1,14 @@
 # Calendrier éditorial — décembre 2026 à novembre 2027
 
-Rédigé le 15/11/2026 par le responsable éditorial. Vue par mois de `tasks/plan-editorial.md` (c'est le plan qui fait foi pour la rédaction de nuit ; ce fichier sert à lire l'année d'un coup d'œil). L'arborescence est dans `tasks/arborescence.md`.
+Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Éditeur QRT (dernière mise à jour : 16/11/2026). Vue par mois de `tasks/plan-editorial.md` (c'est le plan qui fait foi pour la rédaction de nuit ; ce fichier sert à lire l'année d'un coup d'œil). L'arborescence est dans `tasks/arborescence.md`.
 
 ## Comment lire ce calendrier
 
-- **127 nouveaux sujets sur 12 mois**, 10 ou 11 par mois, plus 8 sujets de réserve. Ils s'ajoutent aux 56 sujets gazon et dépannage déjà prévus, que la rédaction de nuit continue d'écrire les autres nuits jusqu'à fin janvier environ.
+- **120 sujets datés sur 12 mois**, 8 à 11 par mois, plus 8 sujets de réserve. Ils s'ajoutent aux 57 sujets déjà ouverts (gazon, dépannage, nouveautés 2027), que la rédaction de nuit continue d'écrire les autres nuits jusqu'à fin janvier environ.
 - **On écrit avant la saison** : un article met plusieurs semaines à être connu de Google. Les sujets piscine sortent donc dès janvier pour la remise en eau d'avril, ceux de la rentrée du gazon en août, le Black Friday en octobre.
-- **Chaque sujet vise une requête réelle**, relevée dans les suggestions de recherche de Google en français le 15/11/2026 (2 sujets sur 127 restent « à confirmer » et le disent dans le plan). Aucun volume de recherche n'est donné : nous n'avons pas de chiffre.
+- **Chaque sujet vise une requête réelle**, relevée dans les suggestions de recherche de Google en français le 15/11/2026, ou par une recherche web le 16/11/2026 pour les sujets ajoutés ce jour-là (2 sujets restent « à confirmer » et le disent dans le plan). Aucun volume de recherche n'est donné : nous n'avons pas de chiffre.
 - **Les rubriques s'ouvrent une par une** : accessoires en décembre, robots de piscine en janvier, arrosage en avril, outils sur batterie en septembre (seulement si le critère de l'arborescence est rempli).
+- **Mise à jour du 16/11/2026** : les 8 pages « code promo » et la page « Black Friday robot tondeuse » sortent du calendrier, car elles sont déjà en ligne (`/code-promo/<marque>` et `/black-friday-robot-tondeuse`, tenues par Croissance QRT). Le sujet « nouveautés 2027 » est avancé à novembre 2026. Trois sujets entrent, tirés des annonces des marques : la règle européenne sur les batteries (janvier), le duel Luba 4 AWD / Luba 3 AWD (février), l'avis Ecovacs Ultramarine P1 (mai).
 - Règles d'honnêteté : aucun « testé », aucune note sans barème, un produit se décrit à partir de sa page officielle, prix indicatifs et datés.
 
 ## L'année en un tableau
@@ -16,16 +17,24 @@ Rédigé le 15/11/2026 par le responsable éditorial. Vue par mois de `tasks/pla
 |---|---|---|---|
 | Décembre 2026 | Hiver, accessoires et pièces, soldes d'hiver | 10 | Autour du robot (6), Robots tondeuses (3), Promos (1) |
 | Janvier 2027 | Préparer l'achat de printemps, ouverture de la rubrique Robots de piscine | 10 | Robots tondeuses (6), Robots de piscine (4) |
-| Février 2027 | Préparation de saison : pose, lames, marques, premiers classements piscine | 10 | Autour du robot (4), Robots de piscine (3), Robots tondeuses (2), Gazon et pelouse (1) |
-| Mars 2027 | Pic d'achat des robots tondeuses, ce que le robot ne fait pas, marques de piscine | 11 | Robots tondeuses (3), Gazon et pelouse (3), Autour du robot (2), Robots de piscine (2), Promos (1) |
-| Avril 2027 | Remise en eau des piscines, ouverture de la rubrique Arrosage | 11 | Robots de piscine (7), Promos (2), Arrosage (2) |
-| Mai 2027 | Robots de piscine : le mois où l'on achète | 11 | Robots de piscine (8), Arrosage (2), Promos (1) |
-| Juin 2027 | Piscine : usage et pannes, restrictions d'eau, Prime Day | 11 | Robots de piscine (8), Promos (2), Arrosage (1) |
+| Février 2027 | Préparation de saison : pose, lames, marques, premiers classements piscine | 11 | Autour du robot (4), Robots de piscine (3), Robots tondeuses (3), Gazon et pelouse (1) |
+| Mars 2027 | Pic d'achat des robots tondeuses, ce que le robot ne fait pas, marques de piscine | 10 | Robots tondeuses (3), Gazon et pelouse (3), Autour du robot (2), Robots de piscine (2) |
+| Avril 2027 | Remise en eau des piscines, ouverture de la rubrique Arrosage | 10 | Robots de piscine (7), Arrosage (2), Promos (1) |
+| Mai 2027 | Robots de piscine : le mois où l'on achète | 11 | Robots de piscine (9), Arrosage (2) |
+| Juin 2027 | Piscine : usage et pannes, restrictions d'eau, Prime Day | 10 | Robots de piscine (8), Promos (1), Arrosage (1) |
 | Juillet 2027 | Sécheresse, vacances, arrosage | 11 | Arrosage (6), Robots de piscine (4), Gazon et pelouse (1) |
-| Août 2027 | Préparer la rentrée du gazon : réparer, semer, nourrir | 11 | Gazon et pelouse (6), Robots de piscine (3), Promos (2) |
+| Août 2027 | Préparer la rentrée du gazon : réparer, semer, nourrir | 10 | Gazon et pelouse (6), Robots de piscine (3), Promos (1) |
 | Septembre 2027 | Feuilles, haies, finitions : ouverture des outils sur batterie | 10 | Outils sur batterie (6), Gazon et pelouse (1), Robots tondeuses (1), Robots de piscine (1), Arrosage (1) |
-| Octobre 2027 | Hivernage du robot de piscine, préparation du Black Friday | 10 | Promos (3), Autour du robot (3), Outils sur batterie (2), Robots de piscine (1), Gazon et pelouse (1) |
-| Novembre 2027 | Black Friday, rangement, pièces pour l'hiver | 11 | Autour du robot (4), Robots tondeuses (4), Promos (2), Outils sur batterie (1) |
+| Octobre 2027 | Hivernage du robot de piscine, préparation du Black Friday | 8 | Autour du robot (3), Outils sur batterie (2), Promos (1), Robots de piscine (1), Gazon et pelouse (1) |
+| Novembre 2027 | Black Friday, rangement, pièces pour l'hiver | 9 | Autour du robot (4), Robots tondeuses (4), Outils sur batterie (1) |
+
+## Novembre 2026 (déjà ouvert)
+
+La rédaction de nuit écrit en ce moment les sections anciennes du plan : 15 sujets d'hiver, 17 de dépannage, 25 de fin d'hiver et de printemps. En tête depuis le 16/11/2026 :
+
+| # | Sujet | Requête visée | Type de page | Rubrique | Adresse |
+|---|---|---|---|---|---|
+| 1 | Robots tondeuses 2027 : les nouveautés annoncées, et faut-il les attendre ? | robot tondeuse 2027 | guide (page permanente) | Robots tondeuses | `/nouveautes-robot-tondeuse` |
 
 ## Décembre 2026
 
@@ -50,16 +59,16 @@ Pourquoi maintenant : Le robot est rangé : c'est le moment où l'on achète un 
 
 **Thème : préparer l'achat de printemps, ouverture de la rubrique Robots de piscine.**
 
-Pourquoi maintenant : Les nouveautés de l'année sont annoncées en janvier et les acheteurs comparent les marques avant mars. On écrit aussi les quatre pages mères de la piscine : publiées en janvier, elles ont trois mois pour être connues de Google avant la remise en eau d'avril.
+Pourquoi maintenant : Les acheteurs comparent les marques avant mars, et la règle européenne sur les batteries s'applique le 18 février 2027. On écrit aussi les quatre pages mères de la piscine : publiées en janvier, elles ont trois mois pour être connues de Google avant la remise en eau d'avril.
 
 | # | Sujet | Requête visée | Type de page | Rubrique | Adresse |
 |---|---|---|---|---|---|
-| 1 | Robots tondeuses : les nouveautés 2027 annoncées | robot tondeuse 2027 | guide (page permanente) | Robots tondeuses | `/nouveautes-robot-tondeuse` |
-| 2 | Avis Kress : que valent ses robots tondeuses ? | avis kress robot tondeuse | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-kress` |
-| 3 | Avis Stihl iMOW : pour quel jardin ? | avis stihl imow | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-stihl-imow` |
-| 4 | Kress ou Husqvarna : quelle marque choisir ? | kress ou husqvarna | duel de marques | Robots tondeuses | `/kress-vs-husqvarna-quelle-marque-choisir` |
-| 5 | Louer un robot tondeuse : location, leasing, à quel prix ? | robot tondeuse location | guide | Robots tondeuses | `/location-robot-tondeuse-leasing-prix` |
-| 6 | Prix d'installation d'un robot tondeuse : forfaits et devis | prix installation robot tondeuse | guide | Robots tondeuses | `/prix-installation-robot-tondeuse` |
+| 1 | Avis Kress : que valent ses robots tondeuses ? | avis kress robot tondeuse | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-kress` |
+| 2 | Avis Stihl iMOW : pour quel jardin ? | avis stihl imow | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-stihl-imow` |
+| 3 | Kress ou Husqvarna : quelle marque choisir ? | kress ou husqvarna | duel de marques | Robots tondeuses | `/kress-vs-husqvarna-quelle-marque-choisir` |
+| 4 | Louer un robot tondeuse : location, leasing, à quel prix ? | robot tondeuse location | guide | Robots tondeuses | `/location-robot-tondeuse-leasing-prix` |
+| 5 | Prix d'installation d'un robot tondeuse : forfaits et devis | prix installation robot tondeuse | guide | Robots tondeuses | `/prix-installation-robot-tondeuse` |
+| 6 | Batterie remplaçable en 2027 : ce que la règle européenne change pour les robots tondeuses | batterie remplaçable 2027 (à confirmer) | guide | Robots tondeuses | `/reglement-europeen-batterie-remplacable-robot-tondeuse` |
 | 7 | Robot de piscine : comment choisir le bon modèle | quel robot piscine choisir | guide (page mère) | Robots de piscine | `/robot-piscine/comment-choisir-robot-piscine` |
 | 8 | Meilleur robot de piscine 2027 : notre sélection par type de bassin | meilleur robot piscine | classement (page mère) | Robots de piscine | `/robot-piscine/meilleur-robot-piscine` |
 | 9 | Robot de piscine sans fil ou filaire : que choisir ? | robot piscine sans fil ou filaire | duel | Robots de piscine | `/robot-piscine/robot-piscine-sans-fil-ou-filaire` |
@@ -79,10 +88,11 @@ Pourquoi maintenant : Fin d'hiver : on pose ou on répare le câble, on change l
 | 4 | Antenne RTK : où la placer, quel support, quelle rallonge | support antenne rtk | accessoire | Autour du robot | `/antenne-rtk-robot-tondeuse-support-rallonge` |
 | 5 | Avis robot tondeuse Parkside (Lidl) : que vaut-il ? | robot tondeuse parkside avis | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-parkside-lidl` |
 | 6 | Avis Sunseeker : que valent ses robots tondeuses sans fil ? | avis sunseeker | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-sunseeker` |
-| 7 | Meilleur scarificateur électrique 2027 : pour quelle pelouse | meilleur scarificateur électrique | classement | Gazon et pelouse | `/meilleur-scarificateur-electrique` |
-| 8 | Meilleur robot de piscine sans fil 2027 | meilleur robot piscine sans fil | classement | Robots de piscine | `/robot-piscine/meilleur-robot-piscine-sans-fil` |
-| 9 | Meilleur robot pour piscine hors-sol 2027 | meilleur robot piscine hors sol | classement | Robots de piscine | `/robot-piscine/meilleur-robot-piscine-hors-sol` |
-| 10 | Quelle est la meilleure marque de robot de piscine ? | meilleure marque robot piscine | guide (page mère des avis de marque) | Robots de piscine | `/robot-piscine/meilleure-marque-robot-piscine` |
+| 7 | Mammotion Luba 4 AWD ou Luba 3 AWD : faut-il prendre le nouveau ? (seulement si le prix français est publié) | mammotion luba 4 awd | duel | Robots tondeuses | `/mammotion-luba-4-awd-vs-luba-3-awd-comparatif` |
+| 8 | Meilleur scarificateur électrique 2027 : pour quelle pelouse | meilleur scarificateur électrique | classement | Gazon et pelouse | `/meilleur-scarificateur-electrique` |
+| 9 | Meilleur robot de piscine sans fil 2027 | meilleur robot piscine sans fil | classement | Robots de piscine | `/robot-piscine/meilleur-robot-piscine-sans-fil` |
+| 10 | Meilleur robot pour piscine hors-sol 2027 | meilleur robot piscine hors sol | classement | Robots de piscine | `/robot-piscine/meilleur-robot-piscine-hors-sol` |
+| 11 | Quelle est la meilleure marque de robot de piscine ? | meilleure marque robot piscine | guide (page mère des avis de marque) | Robots de piscine | `/robot-piscine/meilleure-marque-robot-piscine` |
 
 ## Mars 2027
 
@@ -102,7 +112,6 @@ Pourquoi maintenant : Mars et avril sont les deux gros mois d'achat du robot ton
 | 8 | Meilleur épandeur d'engrais pour gazon : à main ou à roues | meilleur epandeur engrais gazon | classement | Gazon et pelouse | `/meilleur-epandeur-engrais-gazon` |
 | 9 | Avis Aiper : que valent ses robots de piscine sans fil ? | avis aiper robot piscine | avis de marque | Robots de piscine | `/robot-piscine/avis-aiper` |
 | 10 | Avis Wybot : quel modèle pour quelle piscine ? | avis wybot | avis de marque | Robots de piscine | `/robot-piscine/avis-wybot` |
-| 11 | Code promo Mammotion : les réductions qui existent vraiment | code promo mammotion | code promo | Promos | `/code-promo-mammotion` |
 
 ## Avril 2027
 
@@ -122,7 +131,6 @@ Pourquoi maintenant : Les piscines rouvrent : c'est le premier pic de recherche 
 | 8 | French Days : faut-il y acheter son robot tondeuse ? | french days robot tondeuse | promo (page permanente) | Promos | `/french-days-robot-tondeuse` |
 | 9 | Arrosage automatique de la pelouse : enterré ou en surface, par où commencer | arrosage automatique pelouse | guide (page mère) | Arrosage | `/arrosage/arrosage-automatique-pelouse` |
 | 10 | Meilleur programmateur d'arrosage connecté 2027 | meilleur programmateur arrosage connecté | classement | Arrosage | `/arrosage/meilleur-programmateur-arrosage-connecte` |
-| 11 | Code promo Dreame : où trouver une vraie réduction | code promo dreame | code promo | Promos | `/code-promo-dreame` |
 
 ## Mai 2027
 
@@ -140,7 +148,7 @@ Pourquoi maintenant : Mai et juin sont les mois d'achat du robot de piscine. On 
 | 6 | Avis Dolphin (Maytronics) : quelle gamme choisir ? | robot piscine dolphin | avis de marque | Robots de piscine | `/robot-piscine/avis-dolphin-maytronics` |
 | 7 | Avis Zodiac : que valent ses robots de piscine ? | avis zodiac robot piscine | avis de marque | Robots de piscine | `/robot-piscine/avis-zodiac` |
 | 8 | Robot skimmer solaire : utile pour nettoyer la surface de la piscine ? | robot skimmer solaire | classement | Robots de piscine | `/robot-piscine/meilleur-robot-skimmer-solaire` |
-| 9 | Code promo Aiper : les offres vérifiées | code promo aiper | code promo | Promos | `/code-promo-aiper` |
+| 9 | Avis Ecovacs Ultramarine P1 : le premier robot de piscine d'Ecovacs | ecovacs ultramarine p1 avis | avis d'un produit | Robots de piscine | `/robot-piscine/avis-ecovacs-ultramarine-p1` |
 | 10 | Meilleur arroseur pour pelouse 2027 : oscillant, rotatif ou turbine | meilleur arroseur pelouse | classement | Arrosage | `/arrosage/meilleur-arroseur-pelouse` |
 | 11 | Arrosage enterré : prix, kit, et peut-on le poser soi-même ? | kit arrosage enterré | guide | Arrosage | `/arrosage/arrosage-enterre-prix-kit` |
 
@@ -160,9 +168,8 @@ Pourquoi maintenant : Les robots de piscine tournent tous les jours : les recher
 | 6 | Filtres de robot de piscine : fin, ultra-fin, quand les nettoyer et les changer | filtre robot piscine | accessoire | Robots de piscine | `/robot-piscine/filtre-robot-piscine` |
 | 7 | Aiper ou Beatbot : lequel choisir ? | aiper vs beatbot | duel de marques | Robots de piscine | `/robot-piscine/aiper-vs-beatbot` |
 | 8 | Dolphin ou Aiper : robot filaire éprouvé ou sans-fil récent ? | dolphin ou aiper | duel de marques | Robots de piscine | `/robot-piscine/dolphin-vs-aiper` |
-| 9 | Code promo Wybot : les offres vérifiées | code promo wybot | code promo | Promos | `/code-promo-wybot` |
-| 10 | Restrictions d'arrosage : a-t-on le droit d'arroser sa pelouse ? | restriction arrosage pelouse | guide | Arrosage | `/arrosage/restriction-arrosage-pelouse` |
-| 11 | Prime Day : faut-il y acheter son robot tondeuse ou son robot de piscine ? | prime day robot tondeuse | promo (page permanente) | Promos | `/prime-day-robot-tondeuse` |
+| 9 | Restrictions d'arrosage : a-t-on le droit d'arroser sa pelouse ? | restriction arrosage pelouse | guide | Arrosage | `/arrosage/restriction-arrosage-pelouse` |
+| 10 | Prime Day : faut-il y acheter son robot tondeuse ou son robot de piscine ? | prime day robot tondeuse | promo (page permanente) | Promos | `/prime-day-robot-tondeuse` |
 
 ## Juillet 2027
 
@@ -202,7 +209,6 @@ Pourquoi maintenant : Septembre est le meilleur mois pour regarnir et nourrir la
 | 8 | Robot de piscine reconditionné ou d'occasion : bonne affaire ? | robot piscine reconditionné | guide | Robots de piscine | `/robot-piscine/robot-piscine-reconditionne-occasion` |
 | 9 | Pièces détachées et chariot de robot de piscine : où les trouver | pièces détachées robot piscine | accessoire | Robots de piscine | `/robot-piscine/pieces-detachees-chariot-robot-piscine` |
 | 10 | Quand acheter un robot de piscine : le bon moment de l'année | robot piscine promo | promo (page permanente) | Promos | `/quand-acheter-robot-piscine` |
-| 11 | Code promo Beatbot : les offres vérifiées | code promo beatbot | code promo | Promos | `/code-promo-beatbot` |
 
 ## Septembre 2027
 
@@ -232,15 +238,13 @@ Pourquoi maintenant : On sort le robot de la piscine et on prépare le rangement
 | # | Sujet | Requête visée | Type de page | Rubrique | Adresse |
 |---|---|---|---|---|---|
 | 1 | Hivernage du robot de piscine : nettoyage, batterie, rangement | robot piscine hivernage | guide | Robots de piscine | `/robot-piscine/hivernage-robot-piscine` |
-| 2 | Black Friday robot tondeuse : les prix à viser et les pièges | robot tondeuse black friday | promo (page permanente) | Promos | `/black-friday-robot-tondeuse` |
-| 3 | Black Friday robot de piscine : faut-il acheter hors saison ? | robot piscine black friday | promo (page permanente) | Promos | `/black-friday-robot-piscine` |
-| 4 | Housse pour robot tondeuse : utile pour l'hiver ? | housse robot tondeuse | accessoire | Autour du robot | `/housse-robot-tondeuse` |
-| 5 | Batterie Worx Landroid : quand et par quoi la remplacer | batterie worx landroid | accessoire | Autour du robot | `/batterie-worx-landroid-remplacement` |
-| 6 | Batterie Gardena SILENO : remplacement modèle par modèle | batterie gardena sileno | accessoire | Autour du robot | `/batterie-gardena-sileno-remplacement` |
-| 7 | Coupe-bordure ou débroussailleuse : lequel acheter ? | coupe bordure ou débroussailleuse | duel | Outils sur batterie | `/outils-jardin/coupe-bordure-ou-debroussailleuse` |
-| 8 | Einhell Power X-Change : les outils compatibles avec la batterie du Freelexo | batterie einhell power x-change | guide | Outils sur batterie | `/outils-jardin/einhell-power-x-change-outils-compatibles` |
-| 9 | Meilleur aérateur de pelouse : manuel, à rouleau ou carotteur | aérateur de pelouse | classement | Gazon et pelouse | `/meilleur-aerateur-pelouse` |
-| 10 | Code promo Mova : les offres vérifiées | code promo mova | code promo | Promos | `/code-promo-mova` |
+| 2 | Black Friday robot de piscine : faut-il acheter hors saison ? | robot piscine black friday | promo (page permanente) | Promos | `/black-friday-robot-piscine` |
+| 3 | Housse pour robot tondeuse : utile pour l'hiver ? | housse robot tondeuse | accessoire | Autour du robot | `/housse-robot-tondeuse` |
+| 4 | Batterie Worx Landroid : quand et par quoi la remplacer | batterie worx landroid | accessoire | Autour du robot | `/batterie-worx-landroid-remplacement` |
+| 5 | Batterie Gardena SILENO : remplacement modèle par modèle | batterie gardena sileno | accessoire | Autour du robot | `/batterie-gardena-sileno-remplacement` |
+| 6 | Coupe-bordure ou débroussailleuse : lequel acheter ? | coupe bordure ou débroussailleuse | duel | Outils sur batterie | `/outils-jardin/coupe-bordure-ou-debroussailleuse` |
+| 7 | Einhell Power X-Change : les outils compatibles avec la batterie du Freelexo | batterie einhell power x-change | guide | Outils sur batterie | `/outils-jardin/einhell-power-x-change-outils-compatibles` |
+| 8 | Meilleur aérateur de pelouse : manuel, à rouleau ou carotteur | aérateur de pelouse | classement | Gazon et pelouse | `/meilleur-aerateur-pelouse` |
 
 ## Novembre 2027
 
@@ -259,8 +263,6 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 | 7 | Robot tondeuse à chenilles : pour quels terrains ? | robot tondeuse avec chenille | guide | Robots tondeuses | `/robot-tondeuse-a-chenilles` |
 | 8 | Robot tondeuse pour terrain de foot : prix et solutions pour un club | robot tondeuse terrain de foot | guide | Robots tondeuses | `/robot-tondeuse-terrain-de-foot` |
 | 9 | Meilleur sécateur électrique sur batterie 2027 | sécateur électrique | classement | Outils sur batterie | `/outils-jardin/meilleur-secateur-electrique` |
-| 10 | Code promo Ecovacs : les offres vérifiées | code promo ecovacs | code promo | Promos | `/code-promo-ecovacs` |
-| 11 | Code promo Segway Navimow : les offres vérifiées | code promo segway navimow | code promo | Promos | `/code-promo-segway-navimow` |
 
 ## Réserve (sans date)
 
@@ -281,11 +283,11 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 
 | Rubrique | Sujets datés |
 |---|---|
-| Robots de piscine | 41 |
+| Robots de piscine | 42 |
 | Autour du robot | 19 |
-| Robots tondeuses | 19 |
-| Promos | 14 |
+| Robots tondeuses | 20 |
+| Promos | 5 |
 | Gazon et pelouse | 13 |
 | Arrosage | 12 |
 | Outils sur batterie | 9 |
-| **Total** | **127** |
+| **Total** | **120** |

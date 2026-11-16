@@ -49,7 +49,7 @@ Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de
 │    /outils-jardin/<page>
 │
 └─ PROMOS (service commun)          /deals (existe)
-     /code-promo-<marque> · /black-friday-robot-tondeuse · /soldes-robot-tondeuse …
+     /code-promo/<marque> (existe) · /black-friday-robot-tondeuse (existe) · /soldes-robot-tondeuse …
 ```
 
 ## 3. État des rubriques (tableau lu par la rédaction de nuit)
@@ -203,13 +203,15 @@ Bosch, Einhell Power X-Change, Kress).
 ### 4.7 Promos (service commun, pas une rubrique à articles)
 
 - **Page de rubrique** : `/deals` (existe).
+- **En ligne depuis le 15/11/2026, hors des articles** : `/code-promo` et `/code-promo/<marque>` (13 marques), `/black-friday-robot-tondeuse` et `/black-friday-robot-tondeuse/<marque>`. Leurs données sont dans `lib/promos.ts`, tenues par Croissance QRT. **La rédaction de nuit n'écrit pas ces pages** (retirées du plan le 16/11/2026).
 - **Pages permanentes, une par événement, mises à jour chaque année, sans année dans l'adresse** :
-  `/soldes-robot-tondeuse` · `/french-days-robot-tondeuse` · `/prime-day-robot-tondeuse` · `/black-friday-robot-tondeuse` ·
-  `/black-friday-robot-piscine` · `/quand-acheter-robot-piscine`.
-- **Pages qui existent et restent** : `/robot-tondeuse-black-friday-2026-prix-a-viser` (elle pointera vers la page permanente
-  quand celle-ci existera), `/quand-acheter-robot-tondeuse-meilleur-moment-prix-2026`.
-- **Codes promo** : `/code-promo-<marque>`, une page par marque (Mammotion, Dreame, Aiper, Wybot, Beatbot, Mova, Ecovacs,
-  Segway Navimow). Règle stricte dans `tasks/plan-editorial.md`. **Chaque page code promo est revérifiée le 1er de chaque
+  `/soldes-robot-tondeuse` · `/french-days-robot-tondeuse` · `/prime-day-robot-tondeuse` · `/black-friday-robot-piscine` ·
+  `/quand-acheter-robot-piscine` (à écrire, au plan) ; `/black-friday-robot-tondeuse` (existe).
+- **Pages qui existent et restent** : `/robot-tondeuse-black-friday-2026-prix-a-viser` (elle doit pointer vers la page permanente
+  `/black-friday-robot-tondeuse` : lien à poser par Contenu QRT), `/quand-acheter-robot-tondeuse-meilleur-moment-prix-2026`.
+- **Codes promo** : `/code-promo/<marque>`, une page par marque, 13 en ligne (Dreame, Husqvarna, Worx, Gardena, Segway Navimow,
+  Mammotion, Stiga, Bosch, Ecovacs, Mova, Einhell, Sunseeker, Yard Force). Marques de piscine à ajouter à `lib/promos.ts` quand
+  la rubrique sera ouverte : Aiper, Wybot, Beatbot. Règle stricte dans `tasks/plan-editorial.md`. **Chaque page code promo est revérifiée le 1er de chaque
   mois par Contenu QRT** (ou retirée du plan du site si personne ne peut le faire : une page de codes périmés trompe le lecteur).
 
 ## 5. Ordre d'ouverture et critère pour ouvrir la suivante
@@ -299,7 +301,9 @@ récent renvoie au plus ancien pour la partie déjà traitée.
 | Lien marchand des produits hors robots tondeuses : passer par `/go/…` comme pour les robots, sans les ajouter au quiz ni au comparateur | Dév QRT | 01/01/2027 |
 | Ouvrir `/arrosage` (même travail) | Dév QRT | 01/04/2027 |
 | Ouvrir `/outils-jardin` si le critère est rempli | Dév QRT, sur avis du Chef | 01/09/2027 |
-| Revérifier les pages code promo le 1er du mois | Contenu QRT | chaque mois à partir de mars 2027 |
+| Revérifier les pages code promo (`lib/promos.ts`) : chaque jour du 20/11 au 02/12/2026, puis le 1er du mois | Croissance QRT | dès maintenant |
+| Ajouter Aiper, Wybot et Beatbot aux pages code promo | Croissance QRT | à l'ouverture de la rubrique piscine |
+| Mettre à jour `/robot-tondeuse-coupe-bordure-integre-top-6-2026` quand les robots à bras coupe-bordure annoncés à l'IFA 2026 (Navimow H5 Pro, Dreame A4 AWD Pro, Mammotion Luba 4 AWD, Eufy S2 Max) auront un prix en France | Contenu QRT | printemps 2027 |
 | Pages « Avis + marque » et fiches notées des robots tondeuses (lot 3) | Dév QRT | avant mars 2027 (pic d'achat) |
 | Barème public « robot de piscine », si l'on veut un jour des notes | propriétaire, puis Dév | pas avant l'été 2027 |
 
@@ -316,7 +320,12 @@ Tant que la première ligne n'est pas faite, la rédaction de nuit saute les suj
 - **Non relevé** : les « autres questions posées » de Google (l'outil de recherche ne les montre pas) et **tout volume de
   recherche** (aucun chiffre à notre portée : aucun n'est écrit dans le plan).
 - Deux sujets portent « à confirmer » dans le plan : `/panne-robot-tondeuse-diagnostic` (page mère utile au maillage même
-  sans requête forte) et `/code-promo-segway-navimow` (la suggestion relevée est « code réduction segway navimow »).
+  sans requête forte) et `/reglement-europeen-batterie-remplacable-robot-tondeuse` (la requête « batterie remplaçable 2027 »
+  est traitée pour les téléphones, pas encore pour les robots).
+- **Passage du lundi 16/11/2026 (Éditeur QRT)** : recherche web sur les annonces des marques (salon IFA de septembre 2026 :
+  Mammotion Luba 4 AWD, Segway Navimow H5 Pro, Dreame A4 AWD Pro, Sunseeker S7 et S5, Eufy S2 Max ; Ecovacs Ultramarine P1
+  côté piscine). Sources lues : Labo Maison, Mac4Ever, L'Éclaireur Fnac, Tom's Guide, Clubic, communiqués des marques.
+  Aucun prix français publié pour le Luba 4 AWD au 16/11/2026.
 
 Ce que les suggestions montrent, en bref : la demande piscine se range par **type de bassin** (hors-sol, coque, liner,
 carrelage, 8x4, 10x5), par **budget** (moins de 200, 500, 1 000 €), par **marque** (Dolphin, Zodiac, Aiper, Wybot, Beatbot,
