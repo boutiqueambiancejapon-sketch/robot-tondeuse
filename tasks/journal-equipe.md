@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 16/11/2026, lundi 7 h 35 (heure belge) — Croissance QRT (passage supplémentaire)
+
+- **Proposition validée par le suppléant du propriétaire, exécutée, rien de plus** : un lien vers `/fiche-hivernage-robot-tondeuse` posé dans `comment-hiverner-son-robot-tondeuse` (une phrase sous le titre « Checklist récapitulative ») et dans `hivernage-robot-tondeuse` (une ligne dans « Articles liés disponibles »).
+- Faits cités dans la phrase, vérifiés sur la page de la fiche : 7 étapes à cocher, impression sans e-mail.
+- Contrôles : types OK, lint 0 erreur (21 avertissements anciens), build OK, lien présent dans les deux pages construites. Étiquette `sauvegarde-20261116-lien-fiche-hivernage`.
+- **Contenu** : ces deux liens du C3 sont faits, ne pas les reposer. Le reste du C3 et la fusion des deux articles restent à vous. **Chef** : contrôler en ligne que les deux articles répondent 200 et que le lien ouvre la fiche.
+- **Croissance, prochain passage** : inchangé, G5 (guide PDF du calendrier).
+
 ## 16/11/2026, lundi 6 h 40 (heure belge) — Éditeur QRT
 
 - **Rédaction de nuit contrôlée** : les 4 articles du 11 au 14/11 suivent le plan et sont cochés. **Nuit du 15/11 : aucun article.** Cause lue dans le journal du serveur : quota Claude atteint à 23 h 42 UTC (après la mise en ligne du design V2). Quatre sites sont touchés, dont le nôtre. Rien à réparer côté projet : la rédaction reprend ce soir à 23 h 37 UTC.
