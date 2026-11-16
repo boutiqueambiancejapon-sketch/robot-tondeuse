@@ -10,6 +10,8 @@ import Image from 'next/image'
 import { AffiliateLink } from '@/components/ui/AffiliateLink'
 import { getProduct, getPrimaryLink, type Product } from '@/lib/products'
 import { MENTION_PRIX } from './ProductPick'
+import { offresRelevees } from '@/lib/offres'
+import { formatDate, formatPrix } from '@/lib/offres-format'
 
 type Item = { slug: string; product: Product; url: string }
 
@@ -30,7 +32,9 @@ export function ProductCarousel({ products }: { products: string }) {
 
   return (
     <div className="snap picks">
-      {items.map(({ slug, product, url }) => (
+      {items.map(({ slug, product, url }) => {
+        const autres = offresRelevees(product.name, slug)
+        return (
         <article className="card pick" key={slug}>
           {product.image ? (
             <span className="shot">
@@ -45,12 +49,20 @@ export function ProductCarousel({ products }: { products: string }) {
             </div>
             {product.hook ? <p className="small">{product.hook}</p> : null}
             <AffiliateLink href={url} className="btn btn--full">
-              Voir l’offre
+              {autres.length > 0 ? 'Voir chez Amazon' : 'Voir l’offre'}
             </AffiliateLink>
-            <p className="dated">{MENTION_PRIX}</p>
+            {autres.map((o) => (
+              <a key={o.marchand} href={o.url} rel="sponsored nofollow noopener" target="_blank" className="btn btn--ivory btn--full">
+                {o.marchand} · {o.prix ? formatPrix(o.prix) : ''}
+              </a>
+            ))}
+            <p className="dated">
+              {autres[0]?.date ? `Prix relevé le ${formatDate(autres[0].date)} · ${MENTION_PRIX}` : MENTION_PRIX}
+            </p>
           </div>
         </article>
-      ))}
+        )
+      })}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { offresPour } from '@/lib/offres'
+import { offresPour, offresRelevees } from '@/lib/offres'
 
 describe('offres marchandes', () => {
   it('met le prix relevé en premier, avec sa date', () => {
@@ -15,5 +15,17 @@ describe('offres marchandes', () => {
     const o = offresPour('Worx Landroid S300')
     expect(o.every((x) => x.prix === undefined)).toBe(true)
     expect(o.find((x) => x.marchand === 'Fnac')?.url).toContain(encodeURIComponent('Search=Worx'))
+  })
+})
+
+describe('offres relevées par nom de produit', () => {
+  it('retrouve un robot cité dans un article par son nom', () => {
+    const o = offresRelevees('Segway Navimow i105E')
+    expect(o.map((x) => x.marchand)).toContain('Cdiscount')
+    expect(o[0].url).toMatch(/^https:\/\/www\.awin1\.com\//)
+  })
+
+  it('ne propose rien pour un produit absent des flux', () => {
+    expect(offresRelevees('Robot imaginaire XZ 9000')).toEqual([])
   })
 })
