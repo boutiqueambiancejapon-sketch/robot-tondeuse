@@ -44,22 +44,12 @@ maquette, à 390 px. **Contenu QRT** : préparer le plan éditorial « Robots de
 
 ## Ce qui attend le propriétaire (les agents ne peuvent pas le faire)
 
-Mis à jour par le Chef le 15/11/2026 (matin). Rien de nouveau depuis le 14/11 : les 6 points ci-dessous attendent toujours.
+Mis à jour par le Chef le 16/11/2026. Réglés le 15/11 et retirés de la liste : DNS chez Cloudflare, clé Brevo, revenu Amazon (0 € par mois), nom du responsable des données (posé sur `/confidentialite` le 16/11).
 
-- **dashboard.quel-robot-tondeuse.com** et l'expéditeur e-mail du site : le DNS du domaine est chez Vercel,
-  dont le compte est bloqué. Il faut déplacer le DNS vers Cloudflare (comme Toutou le 11/11). En attendant,
-  les chiffres du site sont dans le centre de contrôle. **Bloque l'envoi du guide par e-mail (lot 2).**
-- **Compte « Mon jardin »** (lot 5) : il demande une base de données sur le serveur → à faire avec Claude
-  en session, pas par un agent.
-- ~~Question sur les vrais essais de robots~~ : **le propriétaire a choisi de ne pas répondre (12/11). Ne plus
-  la poser.** L'équipe applique donc la règle d'honnêteté partout : toutes les formules « testé »,
-  « sur mon terrain », « après 6 mois » sont reformulées (73 articles au 12/11, plus l'accueil et le menu).
-- **Clé Brevo du site** : ajouter `BREVO_API_KEY` (celle de Toutou) dans l'environnement du site sur le serveur (`/srv`, hors portée des agents) → le formulaire d'inscription s'affiche. À faire avec Claude en session.
-- **Nom et e-mail du responsable du traitement** pour la page `/confidentialite` (2 champs « [À compléter] » visibles en ligne : nom et e-mail) :
-  à donner par le propriétaire. Sans eux, la page reste incomplète, mais le formulaire G3 peut être préparé.
-- **Revenus Amazon** : combien rapporte le site par mois ? Ce chiffre sert à classer les priorités.
-- **Affichage des chiffres du lot 0 dans le centre de contrôle** : le centre de contrôle est hors du dossier
-  du projet. Les agents préparent le comptage côté site ; le branchement se fait avec Claude en session.
+- **Adresse bonjour@quel-robot-tondeuse.com** : activer le renvoi chez Cloudflare (avec Claude en session). Dès que Claude confirme qu'elle reçoit, l'équipe l'affiche sur `/confidentialite`.
+- **Mentions légales** : 4 champs « [À compléter] » visibles en ligne (nom ou raison sociale, adresse postale, e-mail, directeur de la publication). Le propriétaire doit dire quoi écrire ; l'équipe ne devine pas une adresse.
+- **Avec Claude en session, quand vous voulez** (rien à décider) : affichage des chiffres du site dans le centre de contrôle (4 compteurs prêts), prix du jour Cdiscount et Fnac, compte « Mon jardin » (base de données), dashboard.quel-robot-tondeuse.com.
+- ~~Question sur les vrais essais de robots~~ : refusée le 12/11, ne plus la poser. L'équipe écrit partout « nous n'essayons pas les robots ».
 
 ## Tableau des tâches
 
@@ -68,28 +58,25 @@ Une étape = un passage. Si elle est finie, prendre la suivante dans « Ensuite 
 
 | Agent | En cours | Prochaine étape (un passage) | Ensuite | Bloqué par |
 |---|---|---|---|---|
-| Chef QRT | Passage du 15/11 matin fait : 8 pages vérifiées en ligne (5 captures à 390 px), D3, C2 lot 3 et G3 contrôlés en ligne, rien à annuler. Case « Honnêteté » **non cochée** : 11 articles disent encore « testé en conditions réelles » ou racontent un achat | Contrôler en ligne D4, C2 lot 4 et G4 (`/calendrier-du-gazon` : 200, 1 H1, vue à 390 px, sources visibles) ; revenir en arrière si cassé | Rejuger « Honnêteté » après C2 lot 4, avec la recherche notée dans les constats du 15/11 | — |
-| Dév QRT | **D4 fait le 15/11** : champ `pageType` sur les 213 articles (110 guides d'achat, 64 comparatifs, 21 gazon, 14 dépannage, 4 réglementation), 9 tests, rien d'affiché. À contrôler en ligne : le site répond normalement | **D5 = lot 1, étape 2** : un seul encart au milieu et un seul en fin d'article, choisis par `pageType` (clic marchand via `/go/...`, quiz, ou Calendrier quand `/calendrier-du-gazon` existe). Retirer les doublons d'encarts. Commencer par compter les encarts actuels par page | D6, D7. UX à 390 px : panneau flottant de l'accueil (2 boutons, couvre le contenu en bas d'écran ; réglé par D6), barre de défilement sous les filtres de `/blog`, titre d'onglet de `/deals` en double (« Quel Robot Tondeuse » deux fois), phrase « 55 robots… » coupée sous le titre de l'accueil | Affichage des chiffres : centre de contrôle (Claude en session) |
-| Contenu QRT | **C2 lot 4 fait le 15/11** : 22 articles à récit vécu ou à essai affirmé reformulés (les 11 de la liste du Chef + 11 trouvés en élargissant la recherche), « 94 % des Automower » retiré, 17 liens « top 10 testés » renommés. La recherche du Chef ne trouve plus rien. À contrôler en ligne | **C2 lot 5** : les liens « notre [test …] » (126 passages, 70 articles) → « notre [avis sur …] », et les suites « couvre l'usage sur saison complète », « retours terrain sur 12 mois » → « détaille le modèle ». Recette dans le journal du 15/11. Sans ce lot, la case « Honnêteté » ne peut pas être cochée | Prix « au lieu de … € » (9 passages) à dater ou retirer. **Batterie 50-70 %** en hiver → « suivez la notice » (22 fichiers). Puis **C3** : maillage vers `/superficie`, `/quiz`, `/calculateur-rentabilite-robot-tondeuse`, `/fiche-hivernage-robot-tondeuse` (commencé : 2 liens posés au lot 4). Fusion `hivernage-robot-tondeuse` → `comment-hiverner-son-robot-tondeuse`. Page `/deals` : texte à rendre exact. Lien vers `/calendrier-du-gazon` quand la page existera | — |
-| Croissance QRT | **G4 fait le 15/11** : outil `/calendrier-du-gazon` (4 régions, 3 expositions, robot ou non, 12 mois, 8 sources en lien, repères indicatifs signalés), dans le plan du site et le menu Outils, comptage `calendrier-gazon`. **16/11** : lien vers la fiche d'hivernage posé dans les 2 articles sur l'hivernage (proposition validée). À contrôler en ligne | **G5** : guide PDF du calendrier (page à imprimer, style `.fiche-print`, 2 à 3 pages A4) + formulaire sur la page | Textes du lot 6 dans le dépôt (bienvenue ×3, lettre du mois). Relire une source Météo-France ou INRAE pour les décalages régionaux | Clé Brevo dans l'environnement du site (Claude en session). Envoi : DNS (propriétaire). Nom et e-mail du responsable : propriétaire |
-| Éditeur QRT | **Passage du lundi 16/11 fait** : 4 articles de nuit sur 4 conformes au plan (11 au 14/11) ; nuit du 15/11 sans article (quota Claude atteint à 23 h 42 UTC, 4 sites touchés). Plan nettoyé : 9 sujets retirés (pages code promo et Black Friday déjà en ligne), 3 ajoutés d'après les annonces des marques, « nouveautés 2027 » passé en tête. 185 sujets au plan, dont 57 ouverts | **Lundi 23/11** : cocher les nuits du 16 au 22/11, vérifier que `/nouveautes-robot-tondeuse` est écrit et sourcé, relever les prix français du Luba 4 AWD et du Dreame A4 AWD Pro s'ils sont publiés | Lundi 30/11 : vérifier que la section « Décembre 2026 » démarre bien le 01/12. Janvier : sujets tirés du salon CES (début janvier 2027). Critère d'ouverture de la piscine à juger avec le Chef fin décembre | Ouverture de `/robot-piscine` : Dév QRT (avant le 01/01/2027) |
+| Chef QRT | Passage du lundi 16/11 fait : 20 pages lues en ligne, 9 captures à 390 px, design V2 conforme, lien vers la fiche d'hivernage en ligne, rien à annuler. Nom du responsable posé sur `/confidentialite`. Bilan de la semaine écrit | Contrôler en ligne `/nouveautes-robot-tondeuse` (200, 1 H1, une source par annonce, aucun « testé »), le nom sur `/confidentialite`, et le travail du Dév, du Contenu et de la Croissance du 16/11 | Rejuger « Honnêteté » après C2 lot 5 avec les 3 recherches des constats du 16/11. Cocher « Design V2 » après l'étape 13 | — |
+| Dév QRT | D4 fait le 15/11. Étapes 1 à 12 du design V2 faites par Claude en session dans la nuit du 15 au 16/11 | **Étape 13 de `tasks/design-v2.md`** : supprimer `components/home` (31 fichiers, dont un bandeau qui défile et de la police machine à écrire, plus affichés), `components/effects`, l'ancien `Nav`, `Footer`, `BottomNav`, `ThemeToggle`, et les styles inutiles de `app/globals.css`. Avant : déplacer le type de `lib/home-hubs.ts`. Garder `.fiche-print` et `.surface-marker-label`. Dans le même envoi : rediriger `/quel-robot-tondeuse-pour-mon-jardin` vers `/quiz` (page de 106 mots en ligne qui annonce un guide « publié prochainement ») | **D5** (un encart au milieu, un en fin d'article, choisis par `pageType`), puis `/robot-piscine` avant le 01/01/2027, puis D7. D6 : sans doute réglé par l'accueil V2 (la question de surface mène au quiz), à confirmer en une ligne. Trou vide d'environ 100 px sous les 4 gestes de `/calendrier-du-gazon` à 390 px | Affichage des chiffres : centre de contrôle (Claude en session) |
+| Contenu QRT | C2 lot 4 fait le 15/11, contrôlé en ligne le 16/11 (3 pages, propres) | **C2 lot 5** : les liens « notre [test …] » (125 passages, 70 articles) → « notre [avis sur …] », recette dans le journal du 15/11. Y ajouter : le lien « notre retour terrain après 3 mois de test » (`husqvarna-vs-mammotion-quelle-marque-choisir-2026`, l. 119) à renommer avec le vrai titre de la page, et les suites « saison complète » (42) et « retours terrain » (44) quand elles affirment un essai du site | Lien de `robot-tondeuse-black-friday-2026-prix-a-viser` vers `/black-friday-robot-tondeuse` (absent au 16/11, à poser avant le 20/11). Prix « au lieu de … € » (8 passages). Batterie 50-70 % (23 fichiers). C3 : maillage vers les outils et `/calendrier-du-gazon` (0 lien depuis les articles). Titres d'articles trop longs : le H1 de `comment-hiverner-son-robot-tondeuse` fait 7 lignes à 390 px, la règle dit 2 à 3 ; lister les 20 titres les plus longs et proposer un H1 court sans changer l'adresse. Les deux articles d'hivernage sont déjà fusionnés (l'ancien renvoie vers le nouveau) : rien à faire | — |
+| Croissance QRT | G4 fait le 15/11, contrôlé en ligne le 16/11 (page 200, comptage 204). Lien vers la fiche d'hivernage posé le 16/11, contrôlé en ligne | **G5** : guide PDF du calendrier (page à imprimer, style `.fiche-print`, 2 à 3 pages A4) + formulaire sur la page | **Du 20/11 au 02/12, chaque jour** : contrôle des codes et offres de `lib/promos.ts` (la vérification mensuelle des pages code promo reste à la Croissance, décision du Chef). Puis textes du lot 6 (bienvenue ×3, lettre du mois). E-mail sur `/confidentialite` quand bonjour@ reçoit | Adresse bonjour@ : propriétaire avec Claude en session |
+| Éditeur QRT | Passage du lundi 16/11 fait : 4 nuits sur 4 conformes, nuit du 15/11 sans article (quota), plan nettoyé, 185 sujets dont 57 ouverts | **Lundi 23/11** : cocher les nuits du 16 au 22/11, vérifier que `/nouveautes-robot-tondeuse` est écrit et sourcé, relever les prix français du Luba 4 AWD et du Dreame A4 AWD Pro s'ils sont publiés | Lundi 30/11 : vérifier que « Décembre 2026 » démarre le 01/12. Janvier : sujets du salon CES. Ouverture de la piscine à juger avec le Chef fin décembre | Ouverture de `/robot-piscine` : Dév QRT (avant le 01/01/2027) |
 
-### Constats du Chef (15/11 matin) à garder en tête
+### Constats du Chef (16/11 matin) à garder en tête
 
-- En ligne, vérifié : accueil, article de la nuit `/cable-peripherique-robot-tondeuse-hiver-laisser-ou-retirer`, `/confidentialite`, `/quiz`,
-  `/dreame-a1-pro-vs-mammotion-luba-3-awd-comparatif`, `/comment-enlever-mousse-gazon`, `/fiche-hivernage-robot-tondeuse`, Black Friday.
-  Tout en 200, 1 H1, zéro « testé ». `/go/B0GCZSSZRZ/amazon` en 302 avec l'étiquette. `/deals` : aucun prix barré, aucun compte à rebours. Rien à annuler.
-- **Honnêteté, pas encore cochable.** Le lot 3 a bien nettoyé ses 11 articles, mais 11 autres affirment un essai ou un achat :
-  `meilleur-robot-tondeuse` (l. 3 et 40 : « On a testé 12 modèles pendant 6 mois »), `robot-tondeuse-pas-cher` (l. 3), `robot-tondeuse-sans-fil-peripherique` (l. 40),
-  `robot-tondeuse-petit-jardin` (l. 40), `robot-tondeuse-1000m2` (l. 40), `robot-tondeuse-2000m2` (l. 42), `robot-tondeuse-ou-tondeuse-classique-comparatif` (l. 38),
-  `robot-tondeuse-combien-ca-coute-vraiment` (l. 40), `comment-installer-robot-tondeuse-soi-meme` (l. 38 et 70), `comment-avoir-un-beau-gazon-bien-vert` (l. 40 et 62),
-  `quel-gazon-semer-pour-robot-tondeuse` (l. 36). À vérifier aussi : « 94 % des Automower fonctionnent encore après 7 ans » sans source
-  (`quel-robot-tondeuse-pour-200m2-guide-achat-2026`, l. 142).
-- Recherche à refaire après le lot 4 (elle doit ne plus rien trouver d'affirmé par l'auteur) :
-  `grep -rnE "(n a testé|testés? en conditions réelles|top [0-9]+ testé|ous avons (testé|essayé)|'ai (testé|acheté|installé|constaté|gardé|mesuré)|m'a coûté)" content/articles`
-  (29 fichiers sortent aujourd'hui ; une partie est honnête, à trier).
-- Prix « au lieu de … € » : 9 passages, surtout dans `quand-acheter-robot-tondeuse-meilleur-moment-prix-2026`. À dater et sourcer, ou retirer (→ Contenu, après le lot 4).
-- Lint : 0 erreur, 9 avertissements. Types OK. Build OK.
+- En ligne, 20 pages lues : toutes en 200 avec 1 H1, sauf `/nouveautes-robot-tondeuse` (404, normal : à écrire cette nuit) et `/hivernage-robot-tondeuse`
+  (renvoi voulu vers `/comment-hiverner-son-robot-tondeuse`). Comptages 204, inscription sans consentement 400, `/go/...` 302 avec l'étiquette.
+- Captures à 390 px (accueil, article, codes promo, Black Friday, calendrier, comparatifs, page marque `/choisir/husqvarna`, bons plans) :
+  aucun débordement, aucun liseré, aucune flèche dans un bouton, aucun bandeau qui défile, mascotte différente selon la page. Accueil : le robot tond le titre, plus aucun faux chiffre.
+- Le lien posé dans `hivernage-robot-tondeuse.mdx` ne se voit pas : cette adresse renvoie vers l'autre article. Celui de `comment-hiverner…` est bien en ligne.
+- **Honnêteté, pas encore cochable.** Les 3 recherches à refaire après le lot 5 :
+  1. `grep -rnE "(n a testé|testés? en conditions réelles|top [0-9]+ testé|ous avons (testé|essayé)|'ai (testé|acheté|installé|constaté|gardé|mesuré)|m'a coûté)" content/articles` → 0 aujourd'hui (bien) ;
+  2. `grep -rnE "[Nn]otre \[test " content/articles` → 125 passages, 70 fichiers ;
+  3. `grep -rniE "(retours? terrain|saison complète|mois de test)" content/articles` → à trier (les essais de presse cités sont honnêtes).
+- 6 anciens articles de 100 mots (« guide publié prochainement ») : 5 renvoient déjà ailleurs, 1 est en ligne (`/quel-robot-tondeuse-pour-mon-jardin`, → Dév).
+- Lint : 0 erreur, 21 avertissements (9 hier ; les 12 nouveaux viennent de la migration V2, le ménage de l'étape 13 devrait les faire baisser). Types OK.
 
 ### Lot 1 découpé (carte des conversions) — pour le Dév, après D2 et D3
 
@@ -113,7 +100,7 @@ Le site continue ensuite comme les autres : un article par nuit, suivant le plan
 - [ ] Lot 6 — suite de bienvenue et lettre du mois rédigées et prêtes à partir
 - [x] Plan éditorial d'environ 60 sujets en place et suivi par la rédaction de nuit (coché le 12/11 : 60 sujets, premier sujet pris et coché par la rédaction du 11/11)
 - [ ] Honnêteté : plus aucun « testé » sans essai réel, prix datés, aucune fausse urgence
-- [ ] Design V2 appliqué à toutes les pages (étapes 1 à 13 de `tasks/design-v2.md`)
+- [ ] Design V2 appliqué à toutes les pages (étapes 1 à 13 de `tasks/design-v2.md`) — **12 étapes sur 13 en ligne et contrôlées le 16/11** ; reste le ménage (étape 13)
 
-Hors équipe (propriétaire ou Claude en session) : DNS du domaine vers Cloudflare, dashboard.quel-robot-tondeuse.com,
+Hors équipe (propriétaire ou Claude en session) : dashboard.quel-robot-tondeuse.com,
 envoi réel des e-mails, compte « Mon jardin » (lot 5, base de données).

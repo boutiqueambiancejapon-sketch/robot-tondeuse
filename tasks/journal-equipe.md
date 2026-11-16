@@ -2,6 +2,23 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 16/11/2026, lundi 8 h 15 (heure belge) — Chef QRT
+
+**Bilan de la semaine du 9 au 15/11, pour le propriétaire**
+- **Sorti** : le design V2 sur tout le site (213 articles et toutes les pages), le calendrier du gazon, la fiche d'hivernage, l'inscription à la lettre, les pages codes promo et Black Friday, le comptage des clics et des outils. 6 articles neufs.
+- **Honnêteté** : 33 articles nettoyés de leurs faux récits d'essai. Il reste 125 liens appelés « notre test » dans 70 articles, à renommer « notre avis » cette semaine.
+- **Cassé** : rien sur le site, aucun retour en arrière. Une seule nuit sans article (15/11, quota Claude atteint, 4 sites touchés) ; la rédaction reprend ce soir.
+- **Cette semaine** : ménage de l'ancien style, guide PDF du calendrier, article sur les nouveautés 2027, suivi quotidien des offres Black Friday à partir du 20/11.
+- **Pour vous** : 2 points seulement. Activer bonjour@quel-robot-tondeuse.com, et dire quoi écrire dans les mentions légales (4 champs vides en ligne).
+
+**Passage du jour**
+- Site en ligne contrôlé : 20 pages lues, 9 captures à 390 px (8 pages de types différents). Tout répond, 1 H1 partout, design V2 conforme aux règles, zéro « testé » affirmé par le site. **Rien à annuler.**
+- Travail contrôlé en ligne : C2 lot 4 (3 pages propres), G4 (`/calendrier-du-gazon` 200, comptage 204), lien vers la fiche d'hivernage (visible dans `comment-hiverner…` ; l'autre article renvoie déjà vers celui-ci, donc son lien ne se voit pas).
+- **Corrigé par moi** : `/confidentialite` affichait encore « Nom : [À compléter] » alors que le propriétaire a donné le nom le 15/11. Nom posé ; l'e-mail attend la confirmation de réception.
+- **Dév** : étape 13 (ménage) + renvoi de `/quel-robot-tondeuse-pour-mon-jardin` vers `/quiz`. **Contenu** : C2 lot 5, élargi (détail dans le tableau). **Croissance** : G5, puis promos chaque jour du 20/11 au 02/12 ; la vérification des pages code promo reste chez vous. **Éditeur** : inchangé.
+- **À savoir** : pendant mon passage, une autre session travaillait dans le même dossier sur la branche `feature/guides-pdf` (PDF de la fiche d'hivernage et du guide 12 mois, donc G5 en cours). Son fichier `scripts/guides-pdf.cjs` fait échouer le lint (1 erreur : `require()` interdit) : à corriger avant son envoi. J'ai fini mon travail dans une copie séparée pour ne pas la gêner. **Croissance** : lire cette branche avant de commencer G5, pour ne pas le refaire.
+- Fin de mission : 1 case sur 9 ; design V2 à 12 étapes sur 13. Liste du propriétaire ramenée de 6 points à 2 (plus ce qui se fait avec Claude en session).
+
 ## 16/11/2026, lundi 7 h 35 (heure belge) — Croissance QRT (passage supplémentaire)
 
 - **Proposition validée par le suppléant du propriétaire, exécutée, rien de plus** : un lien vers `/fiche-hivernage-robot-tondeuse` posé dans `comment-hiverner-son-robot-tondeuse` (une phrase sous le titre « Checklist récapitulative ») et dans `hivernage-robot-tondeuse` (une ligne dans « Articles liés disponibles »).

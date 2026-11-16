@@ -1,7 +1,8 @@
 /**
  * /confidentialite — Politique de confidentialité.
  * Mise à jour le 14/11/2026 (lot 2, G3) : lettre du jardin (Brevo), comptage sans cookie, journaux.
- * Nom et e-mail du responsable : à fournir par le propriétaire (« [À compléter] » gardé exprès).
+ * Responsable : Mathias Cetani (donné par le propriétaire le 15/11/2026).
+ * E-mail : ne poser bonjour@quel-robot-tondeuse.com que lorsque la réception est confirmée.
  * noindex : page légale, pas de SEO.
  */
 
@@ -36,7 +37,7 @@ export default function ConfidentialitePage() {
         />
         <div className="prose">
           <Bloc titre="Responsable du traitement">
-            <p>Nom : [À compléter]<br />E-mail : [À compléter]<br />Site : {niche.siteName}, https://{niche.domain}</p>
+            <p>Nom : Mathias Cetani<br />E-mail : adresse dédiée en cours de création<br />Site : {niche.siteName}, https://{niche.domain}</p>
           </Bloc>
 
           <Bloc titre="La lettre du jardin">
