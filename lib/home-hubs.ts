@@ -1,9 +1,14 @@
 /**
- * lib/home-hubs.ts — config des sections de hubs sur la home.
+ * lib/home-hubs.ts — listes de pages par jardin, par besoin et par comparatif (utilisées par /comparatifs).
  * Chaque section liste les hubs (slug, label, description) à afficher.
  */
 
-import type { HubSectionItem } from '@/components/home/HomeHubSection'
+export type HubSectionItem = {
+  href: string
+  label: string
+  description?: string
+  badge?: string
+}
 
 // ─── Par jardin (taille + contrainte) ────────────────────────────────────
 

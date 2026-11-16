@@ -39,6 +39,8 @@ const nextConfig: NextConfig = {
     { source: '/depannage-robot-tondeuse',        destination: '/robot-tondeuse-ne-charge-plus-diagnostic-solutions', permanent: true },
     { source: '/hivernage-robot-tondeuse',        destination: '/comment-hiverner-son-robot-tondeuse',              permanent: true },
     { source: '/robot-tondeuse-pas-cher',         destination: '/meilleur-robot-tondeuse-pas-cher-top-2026',        permanent: true },
+    // Page de 106 mots qui annonçait un guide « publié prochainement » : le quiz répond à la question.
+    { source: '/quel-robot-tondeuse-pour-mon-jardin', destination: '/quiz', permanent: true },
   ],
   headers: async () => [
     {
