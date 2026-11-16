@@ -66,7 +66,7 @@ La maquette montre une note sur 10, un prix du jour daté et une comparaison Cdi
 
 ## Ordre de migration
 
-Étapes 1 à 12 faites dans la nuit du 15 au 16/11 par cinq agents en parallèle, contrôlées en ligne sur 22 pages à 390 px. Reste l'étape 13 (ménage), pour Dév QRT.
+Étapes 1 à 12 faites dans la nuit du 15 au 16/11 par cinq agents en parallèle, contrôlées en ligne sur 22 pages à 390 px. Étape 13 (ménage) faite le 16/11 par Dév QRT.
 
 Pour chaque page : envelopper le `<main>` dans `className="v2"`, réécrire le contenu avec les classes de la maquette
 (le fichier `docs/maquette-v2/<page>.html` sert de modèle), retirer les styles en ligne et les anciens composants.
@@ -87,8 +87,9 @@ Avant d'envoyer : types, lint, tests, build, capture à 390 px sans débordement
 - [x] 10. `/calendrier-du-gazon`, `/fiche-hivernage-robot-tondeuse`, `InscriptionLettre` (modèle : `calendrier.html`).
 - [x] 11. `/deals` (modèle : `promos.html`, sans courbe tant que l'historique des prix n'existe pas).
 - [x] 12. Pages auteur, mentions légales, confidentialité.
-- [ ] 13. Ménage : supprimer `components/effects`, `components/home`, l'ancien `Nav`, `Footer`, `BottomNav`, `ThemeToggle`,
-      les styles devenus inutiles de `app/globals.css`, puis retirer la limite `.v2` si plus rien ne dépend de l'ancien style.
+- [x] 13. Ménage : supprimer `components/effects`, `components/home`, l'ancien `Nav`, `Footer`, `BottomNav`, `ThemeToggle`,
+      les styles devenus inutiles de `app/globals.css` (fait par Dév QRT le 16/11 : 1 366 → 229 lignes). Reste, sans urgence :
+      les variables sans usage de `app/globals.css` et la limite `.v2`, gardée car elle ne gêne rien.
 
 Ensuite, hors migration : fiches robots notées (lot 3), rubrique « Robots de piscine » (plan éditorial par Contenu QRT,
 modèle : `piscine.html`), compte « Mon jardin » (lot 5, Claude en session, modèle : `mon-jardin.html`).

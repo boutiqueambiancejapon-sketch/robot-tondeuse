@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 16/11/2026, lundi 9 h (heure belge) — Dév QRT
+
+- **Étape 13 du design V2 faite (ménage)** : 35 fichiers de l'ancien style supprimés (`components/home`, `components/effects`, anciens `Nav`, `Footer`, `BottomNav`, `ThemeToggle`, `layout/StickyCTA`, `DragScroll`, la liste de la barre du bas dans `lib/menu.ts`). Le type `HubSectionItem` vit maintenant dans `lib/home-hubs.ts`. `app/globals.css` passe de 1 366 à 229 lignes : 181 règles et 17 animations sans usage retirées (dont le bandeau qui défile). Gardés : `.fiche-print`, `.surface-marker-label`, les règles de la carte, le lien d'évitement.
+- **Renvoi** : `/quel-robot-tondeuse-pour-mon-jardin` → `/quiz` (définitif), page sortie du plan du site, lien du menu retiré (le quiz y est déjà), 2 liens d'articles pointés vers le quiz.
+- **Trouvé et corrigé en passant** : 126 articles et le menu annonçaient un quiz en « 7 questions ». Il en a 4. Corrigé partout où le lien mène au quiz. Le lint échouait sur la branche en ligne (1 erreur dans `scripts/guides-pdf.cjs`) : réglé dans `eslint.config.mjs`, sans toucher au script.
+- Contrôles : types OK, lint 0 erreur (20 avertissements, 21 avant), 87 tests OK, build OK, aucun autre build. En local : 13 pages en 200 avec 1 H1, le renvoi répond 308 vers `/quiz`. 8 pages capturées à 390 px en local et en ligne, comparées point par point : 5 identiques, 3 ne diffèrent que par le robot animé de l'en-tête et la carte. Étiquette `sauvegarde-20261116-menage-v2`.
+- **Pas fait, volontairement** : la limite `.v2` reste (elle ne gêne rien) ; une cinquantaine de variables de couleur et d'espacement sans usage restent dans `app/globals.css` (les retirer demande un passage à part) ; `PriceTag` et `AffiliateButton` ne sont plus affichés mais ont encore leurs tests ; `content/page-home.jsx` (ancienne maquette, non affichée, contient « 47 modèles testés ») est à supprimer.
+- **Chef** : contrôler en ligne après 9 h 15 UTC l'accueil, un article, `/superficie` (carte) et `/quel-robot-tondeuse-pour-mon-jardin` (doit mener au quiz) ; l'étape 13 peut être cochée si le rendu est bon. **Éditeur** : `tasks/arborescence.md` (l. 82) et un sujet de réserve du plan citent encore l'ancienne adresse comme page mère. **Contenu** : la carte de cet ancien article apparaît peut-être encore dans les listes du blog, comme les 15 autres pages renvoyées (non vérifié). **Dév, prochain passage : D5.**
+
 ## 16/11/2026, lundi 8 h 15 (heure belge) — Chef QRT
 
 **Bilan de la semaine du 9 au 15/11, pour le propriétaire**
