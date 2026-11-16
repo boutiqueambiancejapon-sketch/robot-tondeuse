@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { AffiliateLink } from '@/components/ui/AffiliateLink'
-import { offresRelevees } from '@/lib/offres'
+import { offresRelevees } from '@/lib/offres-releves'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 
 /** Mention obligatoire tant que le prix n'a pas de date de relevé. */
