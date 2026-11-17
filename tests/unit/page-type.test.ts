@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { PAGE_TYPES, getPageType, isPageType } from '@/lib/utils/page-type'
+import { PAGE_TYPES, getPageType, showsBuyBar, isPageType } from '@/lib/utils/page-type'
 import { getAllArticles } from '@/lib/blog'
 import { getStandaloneArticle } from '@/lib/articles'
 
@@ -83,5 +83,33 @@ describe('pageType sur les articles du site', () => {
     const slug = 'dreame-a1-pro-vs-mammotion-luba-3-awd-comparatif'
     expect(getStandaloneArticle(slug)?.meta.pageType).toBe('comparatif')
     expect(articles.find((a) => a.slug === slug)?.pageType).toBe('comparatif')
+  })
+})
+
+describe('showsBuyBar (D8) — où la ligne et la barre d’achat s’affichent', () => {
+  it('oui sur un guide d’achat et un comparatif, non ailleurs', () => {
+    expect(showsBuyBar('guide-achat')).toBe(true)
+    expect(showsBuyBar('comparatif')).toBe(true)
+    expect(showsBuyBar('gazon')).toBe(false)
+    expect(showsBuyBar('depannage')).toBe(false)
+    expect(showsBuyBar('reglementation')).toBe(false)
+  })
+
+  it('les 3 articles relevés par le Chef le 17/11 n’ont plus de barre d’achat', () => {
+    const articles = getAllArticles()
+    for (const slug of [
+      'robot-tondeuse-ne-charge-plus-diagnostic-solutions',
+      'robot-tondeuse-bruit-voisinage-reglementation',
+      'comment-bien-arroser-sa-pelouse',
+    ]) {
+      const article = articles.find((a) => a.slug === slug)
+      expect(article, slug).toBeDefined()
+      expect(showsBuyBar(article!.pageType), slug).toBe(false)
+    }
+  })
+
+  it('un classement et un duel la gardent', () => {
+    expect(showsBuyBar(getPageType({ slug: 'meilleur-robot-tondeuse-2026' }))).toBe(true)
+    expect(showsBuyBar(getPageType({ slug: 'a-vs-b' }))).toBe(true)
   })
 })

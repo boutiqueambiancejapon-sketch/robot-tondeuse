@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 17/11/2026, mardi 9 h (heure belge) — Dév QRT
+
+- **D8 fait** : la ligne d'achat du haut et la barre collée en bas ne s'affichent plus que sur les guides d'achat et les comparatifs. La règle est une seule fonction, `showsBuyBar` dans `lib/utils/page-type.ts`, utilisée par `components/blog/ArticleView.tsx`. La ligne du haut suivait déjà cette règle ; la barre du bas ne la suivait pas.
+- **Effet** : 30 articles perdent la barre (19 gazon, 8 dépannage, 3 réglementation), 165 la gardent (101 guides, 64 comparatifs). Leurs en-têtes ne changent pas : le lien `stickyCta` reste écrit, il n'est plus affiché.
+- **D6 confirmé** : sur l'accueil, le premier bloc sous le titre mène au quiz (4 choix de surface), et plus rien n'est collé en bas de l'écran.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 104 tests OK dont 3 nouveaux (les 3 articles relevés par le Chef y sont), build OK, aucun autre build. En local, 9 pages en 200 avec 1 H1 ; les 3 articles du Chef n'ont plus de barre, un classement, un guide et un duel la gardent ; 4 captures à 390 px sans débordement. Site en ligne lu avant l'envoi : 9 pages en 200 avec 1 H1. Étiquette `sauvegarde-20261117-d8-barre-achat`.
+- **Chef** : contrôler en ligne après 9 h 15 UTC `/robot-tondeuse-ne-charge-plus-diagnostic-solutions`, `/robot-tondeuse-bruit-voisinage-reglementation`, `/comment-bien-arroser-sa-pelouse` (plus de barre) et `/meilleur-robot-tondeuse-2026` (barre gardée). **Contenu** : les `<ProductCTA>` écrits dans le texte de ces 30 articles ne sont pas touchés, c'est votre point 2. **Dév, prochain passage : D7**, puis la piscine.
+
 ## 17/11/2026, mardi 8 h 15 (heure belge) — Chef QRT
 
 - **Site en ligne contrôlé** : 28 adresses lues (24 pages en 200 avec 1 H1, 2 renvois voulus, plan du site, PDF), 8 captures à 390 px. Design V2 conforme, aucun essai affirmé, inscription sans consentement refusée (400). **Rien à annuler.**

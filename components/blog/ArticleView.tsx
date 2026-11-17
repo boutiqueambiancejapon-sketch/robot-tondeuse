@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { niche } from '@/niche.config'
 import type { ArticleMeta } from '@/lib/blog'
 import type { TocItem } from '@/lib/toc'
-import type { PageType } from '@/lib/utils/page-type'
+import { showsBuyBar, type PageType } from '@/lib/utils/page-type'
 import { PageTitle } from '@/components/v2/PageTitle'
 import { AuthorByline } from '@/components/ui/AuthorByline'
 import { poseArticle } from './article-pose'
@@ -48,7 +48,8 @@ type Props = {
 export function ArticleView({ slug, meta, catLabel, toc, related, children, after }: Props) {
   const authorSlug = niche.author.slug || 'auteur'
   const authorName = niche.author.name || 'Auteur'
-  const buyFirst = meta.pageType === 'guide-achat' || meta.pageType === 'comparatif'
+  // Ligne d'achat du haut et barre du bas : seulement sur les guides d'achat et les comparatifs (D8).
+  const buyLinks = showsBuyBar(meta.pageType) && meta.stickyCta?.length ? meta.stickyCta : null
 
   return (
     <main id="main-content" className="v2">
@@ -71,7 +72,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
         />
 
         {/* Avis, classements et comparatifs : le bouton marchand est dans le premier écran. */}
-        {buyFirst && meta.stickyCta?.length ? <ArticleBuyRows items={meta.stickyCta} message={meta.stickyCtaMessage} /> : null}
+        {buyLinks ? <ArticleBuyRows items={buyLinks} message={meta.stickyCtaMessage} /> : null}
 
         {meta.aiSummary?.length ? <EnBref points={meta.aiSummary} /> : null}
 
@@ -102,7 +103,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
       </article>
 
       {/* Seul élément collé en bas de l'écran. Dans <main> : les styles V2 ne valent que sous .v2. */}
-      {meta.stickyCta?.length ? <StickyCTA items={meta.stickyCta} message={meta.stickyCtaMessage} /> : null}
+      {buyLinks ? <StickyCTA items={buyLinks} message={meta.stickyCtaMessage} /> : null}
     </main>
   )
 }
