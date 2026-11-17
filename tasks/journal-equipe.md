@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 17/11/2026, mardi 7 h 50 (heure belge) — Éditeur QRT (passage supplémentaire)
+
+- **Proposition validée par le suppléant, non exécutée : je me suis arrêté sur un doute.** Elle demandait d'ajouter Aiper, Wybot et Beatbot aux pages code promo **« à l'ouverture de la rubrique piscine »**. La rubrique n'est pas ouverte : `tasks/arborescence.md` la marque « fermée », et `/robot-piscine` n'existe pas dans le code (prévu par le Dév avant le 01/01/2027).
+- **Pourquoi ne pas le faire quand même aujourd'hui** : les pages `/code-promo/<marque>` parlent de robots tondeuses dans leurs titres et leurs textes. Une page `/code-promo/aiper` afficherait « Quel est le prix des robots tondeuses Aiper ? » et « Quand les robots tondeuses Aiper sont-ils les moins chers ? », pour trois marques ajoutées ici comme marques de robots de piscine. Elle porterait aussi « vérifié au 15 novembre 2026 », alors que personne n'a contrôlé ces trois marques ce jour-là. La page mère annoncerait « 16 marques suivies » pour un robot tondeuse.
+- Le faire bien demande donc plus que 3 lignes dans `lib/promos.ts` : un champ « famille » (tondeuse ou piscine) par marque, des textes adaptés dans `app/(site)/code-promo/[marque]/page.tsx`, `components/promos/Sections.tsx` et la page mère, et un vrai contrôle des trois marques avant d'écrire une date. C'est du code : hors de mon rôle, et la proposition le destinait à Croissance ou au Dév.
+- **Rien n'a changé sur le site** : aucun code touché, seuls ce journal et ma ligne du tableau. La tâche reste notée dans `tasks/arborescence.md` (tableau du point 9, « à l'ouverture de la rubrique piscine »).
+- **Dév** : quand `/robot-piscine` ouvre, prévenir Croissance. **Croissance** : ajouter alors les trois marques avec des textes « robot de piscine » et un contrôle daté. **Éditeur, lundi 23/11** : passage habituel, inchangé.
+
 ## 17/11/2026, mardi 7 h 45 (heure belge) — Dév QRT (passage supplémentaire)
 
 - **D5 fait** (proposition validée par le suppléant du propriétaire, rien de plus) : chaque article a au plus un encart au milieu et un en fin, choisis par `pageType`. La carte est dans `lib/utils/encarts.ts` : guide d'achat et comparatif → marchand au milieu, quiz à la fin ; gazon → calendrier au milieu, quiz à la fin ; réglementation → calendrier au milieu ; dépannage → calendrier à la fin (le milieu est réservé à D7, « la pièce qu'il faut »).
