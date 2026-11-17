@@ -6,16 +6,12 @@
 
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { compileMDX } from 'next-mdx-remote/rsc'
-import remarkGfm from 'remark-gfm'
-import { remarkAmazonAffiliate } from '@/lib/plugins/remarkAmazonAffiliate'
 import { getAllArticles, getArticleRaw, articleExists, getRelatedArticles } from '@/lib/blog'
 import { currentYear } from '@/lib/utils/year'
 import { niche } from '@/niche.config'
 import { extractToc } from '@/lib/toc'
 import { ArticleView } from '@/components/blog/ArticleView'
-import { mdxComponents } from '@/components/blog/mdx-components'
-import { ToolCTA } from '@/components/blog/ToolCTA'
+import { compileArticle } from '@/components/blog/compile-article'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -69,11 +65,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
   const { meta, content } = getArticleRaw(categorie, slug)
   const toc = extractToc(content)
-  const { content: mdxContent } = await compileMDX({
-    source: content,
-    options: { mdxOptions: { remarkPlugins: [remarkGfm, remarkAmazonAffiliate] } },
-    components: mdxComponents,
-  })
+  const { body, end } = await compileArticle(content, meta)
   const related = getRelatedArticles(categorie, slug, 3)
 
   const catLabel = CATEGORY_LABELS[categorie] ?? categorie
@@ -150,9 +142,9 @@ export default async function ArticlePage({ params }: { params: Params }) {
         catLabel={catLabel}
         toc={toc}
         related={related}
-        after={<ToolCTA categorie={categorie} />}
+        after={end}
       >
-        {mdxContent}
+        {body}
       </ArticleView>
     </>
   )

@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 17/11/2026, mardi 7 h 45 (heure belge) — Dév QRT (passage supplémentaire)
+
+- **D5 fait** (proposition validée par le suppléant du propriétaire, rien de plus) : chaque article a au plus un encart au milieu et un en fin, choisis par `pageType`. La carte est dans `lib/utils/encarts.ts` : guide d'achat et comparatif → marchand au milieu, quiz à la fin ; gazon → calendrier au milieu, quiz à la fin ; réglementation → calendrier au milieu ; dépannage → calendrier à la fin (le milieu est réservé à D7, « la pièce qu'il faut »).
+- **Doublons retirés** : les 2 encarts produit ajoutés d'office après le 2ᵉ et le 4ᵉ titre (produits génériques de la catégorie, prix non daté) n'existent plus. L'encart marchand du milieu ne s'ajoute que si l'auteur n'a posé aucun `<ProductCTA>` (22 articles) ; il reprend le lien de l'en-tête de l'article, sans prix. L'encart de fin ne s'affiche pas si la dernière partie du texte mène déjà au quiz (132 articles). L'encart du milieu est posé côté serveur (plus de saut d'affichage). `AutoProductCTAs` et `ToolCTA` supprimés.
+- Résultat sur les 215 articles construits : 62 avec le quiz, 28 avec le calendrier, 11 avec les deux, 114 sans tuile (leur texte mène déjà au quiz). Jamais plus de 2, jamais deux fois le même, 1 H1 partout.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 101 tests OK dont 8 nouveaux, build OK. 7 pages vues à 390 px en local (les 5 types, plus un guide avec encarts de l'auteur et un sans) : aucun débordement, tuiles de 350 px. Étiquette `sauvegarde-20261117-d5-encarts`.
+- **Pas touché, à juger** : les `<ProductCTA>` écrits dans le texte restent (610 en tout, dont 59 dans 19 articles gazon, dépannage ou réglementation, où l'objectif n'est pas l'achat). La ligne d'achat du haut et la barre du bas (maquette V2) restent aussi, y compris sur les articles gazon. `lib/article-ctas.ts` n'est plus appelé.
+- **Chef** : contrôler en ligne après 7 h 15 UTC un article de chaque type (`/faut-il-tondre-pelouse-hiver`, `/robot-tondeuse-ne-charge-plus-diagnostic-solutions`, `/robot-tondeuse-bruit-voisinage-reglementation`, `/robot-tondeuse-pente`, `/dreame-a2-3000-vs-dreame-a3-awd-pro-3500-comparatif`). **Contenu** : si vous retirez la phrase « Encore un doute ? … quiz » d'un article, la tuile du quiz apparaît toute seule ; dire si les 59 encarts produit des articles hors achat doivent partir. **Dév, prochain passage** : `/robot-piscine`, puis D7.
+
 ## 16/11/2026, lundi 15 h 10 (heure belge) — Croissance QRT
 
 - **G5 : déjà fait, rien à refaire.** La session du matin a mis en ligne les deux PDF (`/guides/calendrier-du-gazon.pdf` 8 pages, `/guides/fiche-hivernage-robot-tondeuse.pdf` 4 pages) et le formulaire est sur la page du calendrier. Contrôlé en ligne : 8 adresses en 200. Les PDF se téléchargent sans e-mail (choix de la session, je ne l'ai pas changé).

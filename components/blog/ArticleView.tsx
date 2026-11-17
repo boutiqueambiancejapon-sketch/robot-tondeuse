@@ -9,13 +9,11 @@ import { niche } from '@/niche.config'
 import type { ArticleMeta } from '@/lib/blog'
 import type { TocItem } from '@/lib/toc'
 import type { PageType } from '@/lib/utils/page-type'
-import { getCTAsForCategory } from '@/lib/article-ctas'
 import { PageTitle } from '@/components/v2/PageTitle'
 import { AuthorByline } from '@/components/ui/AuthorByline'
 import { poseArticle } from './article-pose'
 import { EnBref } from './EnBref'
 import { HubArtwork } from './HubArtwork'
-import { AutoProductCTAs } from './AutoProductCTAs'
 import { ArticleEnd } from './ArticleEnd'
 import { ArticleBuyRows } from './ArticleBuyRows'
 import { StickyCTA } from './StickyCTA'
@@ -43,7 +41,7 @@ type Props = {
   related: ArticleMeta[]
   /** Corps de l'article compilé (MDX). */
   children: ReactNode
-  /** Bloc placé après le corps (tuile vers un outil, par exemple). */
+  /** Encart de fin d'article, choisi selon le type de page (lib/utils/encarts.ts). */
   after?: ReactNode
 }
 
@@ -98,7 +96,6 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
         ) : null}
 
         <div className="prose">{children}</div>
-        <AutoProductCTAs ctas={getCTAsForCategory(meta.categorie)} />
         {after}
 
         <ArticleEnd faq={meta.faq} related={related} authorSlug={authorSlug} authorName={authorName} />

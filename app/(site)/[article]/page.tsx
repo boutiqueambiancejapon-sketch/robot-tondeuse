@@ -6,15 +6,12 @@
 
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { compileMDX } from 'next-mdx-remote/rsc'
-import remarkGfm from 'remark-gfm'
-import { remarkAmazonAffiliate } from '@/lib/plugins/remarkAmazonAffiliate'
 import { getRelatedArticles, CATEGORY_LABELS } from '@/lib/blog'
 import { getStandaloneArticle, getAllStandaloneSlugs } from '@/lib/articles'
 import { niche } from '@/niche.config'
 import { extractToc } from '@/lib/toc'
 import { ArticleView } from '@/components/blog/ArticleView'
-import { mdxComponents } from '@/components/blog/mdx-components'
+import { compileArticle } from '@/components/blog/compile-article'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -82,11 +79,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
 
   const { meta, content } = data
   const toc = extractToc(content)
-  const { content: mdxContent } = await compileMDX({
-    source: content,
-    options: { mdxOptions: { remarkPlugins: [remarkGfm, remarkAmazonAffiliate] } },
-    components: mdxComponents,
-  })
+  const { body, end } = await compileArticle(content, meta)
 
   const catLabel = CATEGORY_LABELS[meta.categorie] ?? meta.categorie
   const related = getRelatedArticles(meta.categorie, slug, 3)
@@ -147,8 +140,8 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       {jsonLd.map((schema, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
-      <ArticleView slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related}>
-        {mdxContent}
+      <ArticleView slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end}>
+        {body}
       </ArticleView>
     </>
   )
