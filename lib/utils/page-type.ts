@@ -65,3 +65,12 @@ export function getPageType(input: {
   if (GAZON.test(slug)) return 'gazon'
   return PAR_CATEGORIE[categorie] ?? 'guide-achat'
 }
+
+/**
+ * Pages où l'on vend : la ligne d'achat du haut et la barre d'achat collée en bas n'existent que là
+ * (règle 7 de tasks/design-v2.md, carte du lot 1). Un article gazon, dépannage ou réglementation
+ * ne pousse pas un robot, même si son en-tête contient un lien marchand.
+ */
+export function showsBuyBar(pageType: PageType): boolean {
+  return pageType === 'guide-achat' || pageType === 'comparatif'
+}
