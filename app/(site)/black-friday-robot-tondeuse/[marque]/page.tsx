@@ -13,6 +13,7 @@ import { Faq } from '@/components/promos/Faq'
 import { JsonLd } from '@/components/promos/JsonLd'
 import { Alerte } from '@/components/promos/Alerte'
 import { Offres } from '@/components/promos/Offres'
+import { Releves } from '@/components/promos/Releves'
 import { RobotsMarque } from '@/components/promos/RobotsMarque'
 import { QuandBaisse, RegleBaisse } from '@/components/promos/Sections'
 import { faqBlackFriday } from '@/components/promos/textes'
@@ -58,6 +59,7 @@ export default async function BlackFridayMarquePage({ params }: { params: Params
   const bf = dateFr(BLACK_FRIDAY.date)
   const faq = faqBlackFriday(bf, dateFr(BLACK_FRIDAY.cyberMonday), m)
   const path = `${BASE}/${brand.slug}`
+  const nr = brand.offers.length === 0 ? brand.releves.length : 0
 
   return (
     <main id="main-content" className="v2">
@@ -76,7 +78,7 @@ export default async function BlackFridayMarquePage({ params }: { params: Params
         <div className="tldr">
           <p>
             {brand.offers.length === 0
-              ? `Aucune offre Black Friday ${m} confirmée au ${date}.`
+              ? `Aucune offre Black Friday ${m} confirmée au ${date}.${nr > 0 ? ` La boutique ${m} affichait ce jour-là ${nr} prix Black Friday, notés plus bas.` : ''}`
               : `${brand.offers.length} offre${brand.offers.length > 1 ? 's' : ''} Black Friday ${m} confirmée${brand.offers.length > 1 ? 's' : ''} au ${date}.`}
           </p>
         </div>
@@ -84,7 +86,11 @@ export default async function BlackFridayMarquePage({ params }: { params: Params
         <div className="stack-lg promo-blocs">
           <section className="prose" aria-labelledby="offres">
             <h2 id="offres">Y a-t-il une offre Black Friday {m} en ce moment ?</h2>
-            {brand.offers.length === 0 ? (
+            {nr > 0 ? (
+              <p>
+                Le Black Friday {BLACK_FRIDAY.year} tombe le vendredi {bf}. Au {date}, nous n’avons confirmé aucune offre sur un robot tondeuse {m} : il nous manque le plus bas prix des 30 jours précédents pour comparer. Voici les prix que la boutique {m} affichait ce jour-là.
+              </p>
+            ) : brand.offers.length === 0 ? (
               <p>
                 Le Black Friday {BLACK_FRIDAY.year} tombe le vendredi {bf}. Au {date}, nous n’avons confirmé aucune offre sur un robot tondeuse {m}. Les prix ci-dessous sont ceux de nos fiches, sans date de relevé.
               </p>
@@ -93,6 +99,7 @@ export default async function BlackFridayMarquePage({ params }: { params: Params
             )}
           </section>
           {brand.offers.length > 0 ? <Offres offers={brand.offers} /> : null}
+          {nr > 0 ? <Releves releves={brand.releves} boutique={`la boutique ${m}`} /> : null}
 
           <section aria-labelledby="robots" className="stack">
             <h2 id="robots" className="h-md">Quel est le prix des robots tondeuses {m} avant le Black Friday ?</h2>

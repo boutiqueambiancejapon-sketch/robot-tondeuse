@@ -21,6 +21,21 @@ describe('promos', () => {
     for (const b of PROMO_BRANDS) for (const o of b.offers) expect(o.price < o.lowest30d, `${b.slug} ${o.slug}`).toBe(true)
   })
 
+  it('un prix relevé vient de la boutique de la marque, porte sa date et reste hors des offres confirmées', () => {
+    const boutiques: Record<string, string> = { dreame: 'fr.dreametech.com', mammotion: 'fr.mammotion.com', mova: 'fr.mova.tech' }
+    for (const b of PROMO_BRANDS) {
+      const fiches = getBrandRobots(b).map((r) => r.slug)
+      for (const r of b.releves) {
+        expect(new URL(r.url).hostname, `${b.slug} ${r.slug}`).toBe(boutiques[b.slug])
+        expect(fiches, r.slug).toContain(r.slug)
+        expect(r.checkedAt, r.slug).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+        expect(r.checkedAt <= b.checkedAt, `${r.slug} relevé après le contrôle de la marque`).toBe(true)
+        expect(r.price > 0 && (r.reference === undefined || r.reference > r.price), r.slug).toBe(true)
+        expect(b.offers.some((o) => o.slug === r.slug && o.price === r.price), r.slug).toBe(false)
+      }
+    }
+  })
+
   it('les robots viennent de content/produits, avec un lien marchand', () => {
     const brands = getBlackFridayBrands()
     expect(brands.length).toBeGreaterThan(0)

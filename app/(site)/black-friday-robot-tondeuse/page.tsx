@@ -13,6 +13,7 @@ import { JsonLd } from '@/components/promos/JsonLd'
 import { Alerte } from '@/components/promos/Alerte'
 import { MarquesListe } from '@/components/promos/MarquesListe'
 import { Offres } from '@/components/promos/Offres'
+import { Releves } from '@/components/promos/Releves'
 import { QuandBaisse, RegleBaisse } from '@/components/promos/Sections'
 import { faqBlackFriday } from '@/components/promos/textes'
 
@@ -41,6 +42,10 @@ export function generateMetadata(): Metadata {
 export default function BlackFridayPage() {
   const brands = getBlackFridayBrands()
   const offers = brands.flatMap((b) => b.offers)
+  const suivies = brands.filter((b) => b.releves.length > 0)
+  const releves = suivies.flatMap((b) => b.releves)
+  const noms = suivies.map((b) => b.label)
+  const liste = noms.length > 1 ? `${noms.slice(0, -1).join(', ')} et ${noms[noms.length - 1]}` : noms[0]
   return (
     <main id="main-content" className="v2">
       <JsonLd siteUrl={SITE_URL} crumbs={[{ name: 'Accueil', path: '' }, { name: 'Black Friday', path: PATH }]} faq={FAQ} />
@@ -73,6 +78,18 @@ export default function BlackFridayPage() {
           </section>
           {offers.length > 0 ? <Offres offers={offers} /> : null}
 
+          {releves.length > 0 ? (
+            <section className="stack" aria-labelledby="releves">
+              <div className="prose">
+                <h2 id="releves">Quels prix les marques affichent-elles sur leur boutique ?</h2>
+                <p>
+                  Nous avons ouvert {noms.length > 1 ? `les boutiques de ${liste}` : `la boutique de ${liste}`} et noté {releves.length} prix. Chaque ligne porte la date de lecture et ouvre la page de la marque. Un prix lu un seul jour ne prouve pas une baisse.
+                </p>
+              </div>
+              <Releves releves={releves} />
+            </section>
+          ) : null}
+
           <RegleBaisse />
 
           <section className="stack" aria-labelledby="marques">
@@ -85,7 +102,8 @@ export default function BlackFridayPage() {
             <MarquesListe
               lignes={brands.map((b) => {
                 const n = getBrandRobots(b).length
-                const etat = b.offers.length === 0 ? 'Aucune offre confirmée' : `${b.offers.length} offre${b.offers.length > 1 ? 's' : ''} confirmée${b.offers.length > 1 ? 's' : ''}`
+                const lus = b.releves.length > 0 ? ` · ${b.releves.length} prix lus sur sa boutique` : ''
+                const etat = b.offers.length === 0 ? `Aucune offre confirmée${lus}` : `${b.offers.length} offre${b.offers.length > 1 ? 's' : ''} confirmée${b.offers.length > 1 ? 's' : ''}`
                 return { href: `${PATH}/${b.slug}`, label: b.label, detail: `${etat} · ${n} robot${n > 1 ? 's' : ''}` }
               })}
             />
