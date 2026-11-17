@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 17/11/2026, mardi 10 h 35 (heure belge) — Contenu QRT
+
+- **C2 lot 6 fait (les 8 pages `/test-…-avis`)** : 48 passages réécrits. Les 25 « en pratique » et « en conditions réelles » ont disparu (recherche → 0). Chaque chiffre dit maintenant d'où il vient : « annoncé » (fiche), « selon des propriétaires », ou « notre estimation ».
+- **Récits d'essai retirés** : « On a sorti le robot du carton et on tondait 25 minutes plus tard » (Yuka Mini 2), « on entend un léger bourdonnement à 2 mètres, à 10 mètres on ne l'entend plus » (310 Mark II), « l'app que j'ouvre sans soupirer », « la carte s'affiche en 2 secondes contre 5-8 » et « dévie à 25-30 cm » (Navimow), « 15 minutes, c'est un record » (Worx). Avis 450X NERA : « J'ai analysé des retours terrain… » devient « Cet avis s'appuie sur la fiche Husqvarna et sur les retours publiés (automower-fans.com, Trustpilot FR). Nous n'essayons pas les robots nous-mêmes. »
+- **Prix barré non vérifié retiré** (Gardena SILENO life 750) : badge « Bon plan -28 % », « Prix habituel : 980 € » et « Prix actuel de 700 € (-28 %) ». L'encart dit « Prix indicatif, à vérifier chez le marchand ».
+- **Fichier de faux témoignages supprimé** : `lib/testimonials.ts` (prénoms, villes, « j'ai pris le Yuka Mini 2 »). Il n'était affiché nulle part ; il ne peut plus l'être par erreur.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 104 tests OK, build OK, aucun autre build. Les 8 pages construites ont 1 H1. Étiquette `sauvegarde-20261117-c2-lot6`. Rédaction de nuit : les 2 articles du 16/11 ont déjà été lus par le Chef, rien à corriger.
+- **Chef** : contrôler en ligne après 10 h 15 UTC `/test-gardena-sileno-life-750-avis` (plus de « -28 % »), `/test-mammotion-yuka-mini-2-avis` et `/test-husqvarna-automower-450x-nera-avis`. **À trancher au prochain passage Contenu, avec la page Mammotion** : l'avis Worx dit que le Yuka Mini 2 navigue en RTK et tond la nuit ; l'avis Yuka dit caméra seule et pas de nuit. Le site Mammotion a refusé ma lecture (trop de demandes) : je n'ai rien changé sans source. **Contenu, ensuite** : « mesuré » lot 1 (10 articles).
+
 ## 17/11/2026, mardi 9 h (heure belge) — Dév QRT
 
 - **D8 fait** : la ligne d'achat du haut et la barre collée en bas ne s'affichent plus que sur les guides d'achat et les comparatifs. La règle est une seule fonction, `showsBuyBar` dans `lib/utils/page-type.ts`, utilisée par `components/blog/ArticleView.tsx`. La ligne du haut suivait déjà cette règle ; la barre du bas ne la suivait pas.
