@@ -6,7 +6,9 @@
  * au plus bas des 30 jours précédents chez le même marchand). Rien d'inventé : sans donnée, les tableaux
  * restent vides et les pages l'écrivent. `checkedAt` est la date du dernier contrôle fait à la main :
  * elle ne se met jamais à jour toute seule.
- * `note` : une phrase sur les promotions de la marque, seulement si elle figure déjà dans un article du site.
+ * `note` : une phrase sur les promotions de la marque, avec sa source (article du site ou page de la marque).
+ * `releves` : prix lus sur la boutique officielle de la marque, à une date donnée. Ce ne sont pas des offres
+ * confirmées (pas de plus bas des 30 jours) : la page les affiche datés, sans prix barré ni montant de remise.
  */
 import fs from 'fs'
 import path from 'path'
@@ -35,6 +37,21 @@ export type BlackFridayOffer = {
   checkedAt: string
 }
 
+export type PrixReleve = {
+  /** Slug de la fiche dans content/produits. */
+  slug: string
+  /** Page du produit sur la boutique officielle de la marque. */
+  url: string
+  /** Prix affiché ce jour-là, en euros. */
+  price: number
+  /** Prix de référence affiché par la marque le même jour. Non contrôlé : jamais barré, jamais soustrait. */
+  reference?: number
+  /** Cadeau annoncé par la marque avec ce prix, tel qu'écrit sur sa page. */
+  cadeau?: string
+  /** Date du relevé, AAAA-MM-JJ. */
+  checkedAt: string
+}
+
 export type PromoNote = { texte: string; href: string; source: string }
 
 export type PromoBrand = {
@@ -44,6 +61,7 @@ export type PromoBrand = {
   categorie: string
   codes: PromoCode[]
   offers: BlackFridayOffer[]
+  releves: PrixReleve[]
   checkedAt: string
   note?: PromoNote
 }
@@ -74,14 +92,37 @@ const PRIX_BLACK_FRIDAY: Pick<PromoNote, 'href' | 'source'> = {
   source: 'notre suivi des prix du Black Friday 2026',
 }
 
-const marque = (slug: string, label: string, note?: PromoNote, categorie = slug): PromoBrand => ({
-  slug, label, categorie, codes: [], offers: [], checkedAt: PROMOS_CHECKED_AT, ...(note ? { note } : {}),
+/** Contrôle du 17/11/2026 : boutiques officielles de Dreame, Mammotion et Mova (pages Black Friday et fiches produit). */
+const LE_17_11 = '2026-11-17'
+const releve = (slug: string, url: string, price: number, reference: number, cadeau?: string): PrixReleve => ({
+  slug, url, price, reference, checkedAt: LE_17_11, ...(cadeau ? { cadeau } : {}),
+})
+
+const marque = (
+  slug: string,
+  label: string,
+  note?: PromoNote,
+  categorie = slug,
+  suivi: { checkedAt?: string; releves?: PrixReleve[] } = {},
+): PromoBrand => ({
+  slug, label, categorie, codes: [], offers: [],
+  releves: suivi.releves ?? [],
+  checkedAt: suivi.checkedAt ?? PROMOS_CHECKED_AT,
+  ...(note ? { note } : {}),
 })
 
 export const PROMO_BRANDS: PromoBrand[] = [
   marque('dreame', 'Dreame', {
-    texte: 'En 2025, les offres Black Friday de Dreame ont couru jusqu’au 1er décembre. En 2026, le prix le plus bas relevé sur le Dreame A2 3000 date du mois d’août.',
-    ...PRIX_BLACK_FRIDAY,
+    texte: 'Dreame annonce son Black Friday du 16 au 30 novembre 2026, après des remises ouvertes le 30 octobre.',
+    href: 'https://fr.dreametech.com/pages/black-friday',
+    source: 'la page Black Friday de Dreame, lue le 17 novembre 2026',
+  }, 'dreame', {
+    checkedAt: LE_17_11,
+    releves: [
+      releve('dreame-a1-pro', 'https://fr.dreametech.com/products/robot-tondeuse-dreame-a1-pro', 599, 1099),
+      releve('dreame-a2-3000', 'https://fr.dreametech.com/products/a2', 939, 1999),
+      releve('dreame-a3-awd-pro-3500', 'https://fr.dreametech.com/products/dreame-robot-tondeuse-a3-awd-pro-3500', 1999, 2599),
+    ],
   }),
   marque('husqvarna', 'Husqvarna', {
     texte: 'Husqvarna ne renouvelle pas sa gamme à câble chaque année et vend beaucoup par son réseau de revendeurs. Ses prix baissent moins que ceux des robots sans fil.',
@@ -94,15 +135,31 @@ export const PROMO_BRANDS: PromoBrand[] = [
     ...PRIX_BLACK_FRIDAY,
   }, 'segway'),
   marque('mammotion', 'Mammotion', {
-    texte: 'D’après robot-tonte.fr, Mammotion a prévu des baisses sur une sélection de robots à partir du 10 novembre 2026. Nous ne les avons pas contrôlées.',
-    ...PRIX_BLACK_FRIDAY,
+    texte: 'Mammotion annonce ses offres Black Friday du 10 au 30 novembre 2026.',
+    href: 'https://fr.mammotion.com/',
+    source: 'la boutique Mammotion, lue le 17 novembre 2026',
+  }, 'mammotion', {
+    checkedAt: LE_17_11,
+    releves: [
+      releve('mammotion-luba-mini-2-awd-1000', 'https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000', 1199, 1499),
+      releve('mammotion-luba-3-awd-3000', 'https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd', 2149, 2699),
+      releve('mammotion-luba-3-awd-5000', 'https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd', 2599, 3199),
+    ],
   }),
   marque('stiga', 'Stiga'),
   marque('bosch', 'Bosch'),
   marque('ecovacs', 'Ecovacs'),
   marque('mova', 'Mova', {
-    texte: 'Mova a mené une première vague d’offres du 27 octobre au 12 novembre 2026, aujourd’hui terminée. La marque annonce de nouvelles remises à partir du 16 novembre, sans avoir publié de prix.',
-    ...PRIX_BLACK_FRIDAY,
+    texte: 'Mova annonce ses offres Black Friday du 10 au 30 novembre 2026, après un accès anticipé du 27 octobre au 9 novembre.',
+    href: 'https://fr.mova.tech/pages/offre-black-friday',
+    source: 'la page Black Friday de Mova, lue le 17 novembre 2026',
+  }, 'mova', {
+    checkedAt: LE_17_11,
+    releves: [
+      releve('mova-viax-250', 'https://fr.mova.tech/products/robot-tondeuse-viax-250', 479, 579),
+      releve('mova-lidax-ultra-800', 'https://fr.mova.tech/products/robot-tondeuse-lidax-ultra', 699, 949, 'garage offert'),
+      releve('mova-lidax-ultra-1200', 'https://fr.mova.tech/products/robot-tondeuse-lidax-ultra', 749, 1099),
+    ],
   }),
   marque('einhell', 'Einhell'),
   marque('sunseeker', 'Sunseeker'),

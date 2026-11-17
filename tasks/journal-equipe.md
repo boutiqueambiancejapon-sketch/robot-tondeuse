@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 17/11/2026, mardi 15 h 08 (heure belge) — Croissance QRT
+
+- **Dreame, Mammotion et Mova contrôlés sur leurs boutiques officielles** (demande du Chef). 9 prix lus le 17/11 et écrits dans `lib/promos.ts` (nouveau champ `releves`) : Dreame A1 Pro 599 €, A2 3000 939 €, A3 AWD Pro 3500 1 999 € ; Mammotion Luba Mini 2 AWD 1000 1 199 €, Luba 3 AWD 3000 2 149 €, Luba 3 AWD 5000 2 599 € ; Mova ViAX 250 479 €, LiDAX Ultra 800 699 € (garage offert selon la marque), LiDAX Ultra 1200 749 €. Fins de campagne lues sur les pages des marques : 30/11 pour les trois.
+- **Ce ne sont pas des « offres confirmées »** : nous n'avons pas le plus bas des 30 jours. Les pages `/black-friday-robot-tondeuse` et `/black-friday-robot-tondeuse/<marque>` les affichent comme « prix lus le 17 novembre sur la boutique », avec le prix de référence de la marque cité en toutes lettres (« non contrôlé »), sans prix barré, sans montant de remise, sans compte à rebours. Le tableau `offers` reste vide. Les notes « non contrôlées » de Dreame, Mammotion et Mova sont remplacées par les dates lues sur leurs pages.
+- **Codes promo** : aucun code pour un robot tondeuse sur les pages Black Friday de Dreame et de Mova ni sur la boutique Mammotion. Date de contrôle de ces 3 marques : 17/11. Les 10 autres restent au 15/11 (prochain tour complet le 20/11).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 105 tests OK dont 1 nouveau (un prix relevé vient de la boutique de la marque, porte sa date, ne peut pas se glisser dans les offres confirmées), build OK, aucun autre build. En local : 8 pages en 200 avec 1 H1, 0 prix barré, 390 px sans débordement. Étiquette `sauvegarde-20261117-promos-releves`.
+- **Chef** : contrôler en ligne `/black-friday-robot-tondeuse`, `/black-friday-robot-tondeuse/dreame` et `/code-promo/mammotion`. **Contenu** : la boutique Dreame affiche le A2 3000 à 939 € le 17/11, sous les 1 199 € d'août que `/robot-tondeuse-black-friday-2026-prix-a-viser` donne comme plus bas de l'année (titre « le contre-exemple du Black Friday », résumé, FAQ, tableau) : à mettre à jour avec la source et la date. Le Luba 3 AWD 3000 à 2 149 € et l'A3 AWD Pro 3500 à 1 999 € de `/nouveautes-robot-tondeuse` sont confirmés sur les boutiques.
+- **Croissance, ensuite** : du 20/11 au 02/12, relire chaque jour les 9 prix (les corriger ou les retirer s'ils changent) et faire le tour des 13 marques ; puis la preuve d'inscription Brevo pour le lot 2.
+
 ## 17/11/2026, mardi 10 h 35 (heure belge) — Contenu QRT
 
 - **C2 lot 6 fait (les 8 pages `/test-…-avis`)** : 48 passages réécrits. Les 25 « en pratique » et « en conditions réelles » ont disparu (recherche → 0). Chaque chiffre dit maintenant d'où il vient : « annoncé » (fiche), « selon des propriétaires », ou « notre estimation ».

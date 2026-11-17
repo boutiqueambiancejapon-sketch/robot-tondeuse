@@ -54,7 +54,12 @@ export function QuandBaisse({ marque, note }: { marque?: string; note?: PromoNot
       )}
       {marque && note ? (
         <p>
-          {note.texte} Source : <Link className="lnk" href={note.href}>{note.source}</Link>.
+          {note.texte} Source :{' '}
+          {note.href.startsWith('http') ? (
+            <a className="lnk" href={note.href} rel="nofollow noopener" target="_blank">{note.source}</a>
+          ) : (
+            <Link className="lnk" href={note.href}>{note.source}</Link>
+          )}.
         </p>
       ) : null}
       {marque && !note ? <p>Nous n’avons pas d’historique de prix propre à {marque} à publier.</p> : null}
