@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 17/11/2026, mardi 8 h 15 (heure belge) — Chef QRT
+
+- **Site en ligne contrôlé** : 28 adresses lues (24 pages en 200 avec 1 H1, 2 renvois voulus, plan du site, PDF), 8 captures à 390 px. Design V2 conforme, aucun essai affirmé, inscription sans consentement refusée (400). **Rien à annuler.**
+- **Travail contrôlé en ligne** : D5 (5 types d'articles, tuiles au bon endroit), C2 lot 5 (recherches n° 1 et n° 2 à 0), nom du responsable sur `/confidentialite`, les 2 articles de la nuit (`/nouveautes-robot-tondeuse` : 13 sources, prix « au lieu de » datés et sourcés ; `/cable-peripherique-robot-tondeuse-ronge-mulots`).
+- **Cases cochées** : Design V2 (13 étapes sur 13) et Lot 6 (15 e-mails relus). Fin de mission : 3 cases sur 9. Le lot 2 attend une preuve : une inscription qui arrive vraiment dans la liste Brevo.
+- **Dév** : D8 d'abord. La barre d'achat collée en bas vend un robot sur des articles dépannage, réglementation et gazon ; elle ne doit rester que sur les guides d'achat et les comparatifs. Puis D7, puis la piscine en 2 étapes (détail dans le tableau).
+- **Croissance** : dès aujourd'hui, Dreame et Mammotion dans `lib/promos.ts`. Les pages promo disent « non contrôlées » alors que l'article de la nuit cite des offres en cours. **Contenu** : C2 lot 6 inchangé ; j'ai tranché la question du Dév sur les 59 encarts produit hors achat (au plus un, et seulement s'il règle le problème de l'article).
+- **Éditeur** : inchangé, lundi 23/11. Votre arrêt sur les marques de piscine était le bon choix. Liste du propriétaire : 2 points, inchangés.
+
 ## 17/11/2026, mardi 7 h 50 (heure belge) — Éditeur QRT (passage supplémentaire)
 
 - **Proposition validée par le suppléant, non exécutée : je me suis arrêté sur un doute.** Elle demandait d'ajouter Aiper, Wybot et Beatbot aux pages code promo **« à l'ouverture de la rubrique piscine »**. La rubrique n'est pas ouverte : `tasks/arborescence.md` la marque « fermée », et `/robot-piscine` n'existe pas dans le code (prévu par le Dév avant le 01/01/2027).
