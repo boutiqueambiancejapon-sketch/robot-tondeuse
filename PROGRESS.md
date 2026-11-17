@@ -110,3 +110,6 @@ Branche `claude/review-design-files-HKwEE` — 8 batches.
 ## Calendrier du gazon (15/11/2026, lot 2 étape G4) ✅
 - Outil `/calendrier-du-gazon` en place (12 mois, région, exposition, robot), sources citées — voir DECISIONS.md
 - À faire : guide PDF du calendrier (G5), textes de la lettre (lot 6)
+
+## Encarts d'article (17/11/2026, lot 1 étape D5) ✅
+Un encart au milieu, un en fin, choisis par type de page (`lib/utils/encarts.ts`). Encarts produit automatiques retirés. Suite : `/robot-piscine`, puis D7.

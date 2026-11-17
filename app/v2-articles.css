@@ -58,7 +58,7 @@
   .prose td:first-child { font-weight: 700; }
 
   /* ---------- Composants d'article ---------- */
-  .prose .warn, .prose .duo, .prose .verdict-box, .prose .buy, .prose .picks, .prose .stats, .prose .cmp-g, .prose .pq, .prose .fig { margin: 22px 0; }
+  .prose .warn, .prose .duo, .prose .verdict-box, .prose .buy, .prose .picks, .prose .stats, .prose .cmp-g, .prose .pq, .prose .fig, .prose .door { margin: 22px 0; }
   .warn--tip { background: var(--sage); }
   .warn > * + * { margin-top: 8px; }
   .verdict-t { font-size: 17.5px; line-height: 1.5; }

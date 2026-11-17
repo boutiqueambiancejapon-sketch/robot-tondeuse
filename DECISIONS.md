@@ -116,3 +116,10 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Fonds : page `var(--paper)`, cartes des mois et panneau des choix `var(--ivory)` bordés, comme la fiche hivernage. Choix en pastilles (mousse quand actif, 44 px de haut). Mois en cours : bordure cuivre, connu du navigateur seul (`useSyncExternalStore`, pas d'écart à l'hydratation). Aucune animation.
 - Rendu serveur : calendrier de référence (ouest, plein soleil, avec robot), lisible sans JavaScript.
 - Comptage : événement `calendrier-gazon` ajouté à `lib/utils/mesure.ts`, envoyé au premier choix.
+
+## Encarts d'article (17/11/2026, lot 1 étape D5)
+- Au plus un encart au milieu et un en fin d'article, choisis par `pageType` : carte dans `lib/utils/encarts.ts` (guide d'achat et comparatif : marchand puis quiz ; gazon : calendrier puis quiz ; réglementation : calendrier ; dépannage : calendrier en fin, milieu réservé à D7).
+- Encart marchand seulement si l'auteur n'a posé aucun `<ProductCTA>` ; il reprend le lien marchand de l'en-tête, sans prix (non daté). Encart de fin retiré si la dernière partie du texte mène déjà au même endroit.
+- Milieu = avant le H2 qui ouvre la seconde moitié, posé à la compilation (`lib/plugins/remarkEncartMilieu.ts`), rendu serveur. Moins de 3 H2 : pas d'encart du milieu.
+- Fonds : tuiles `.door` existantes (quiz `var(--sage)`, calendrier `var(--copper-pale)`), encart marchand `.card.buy`. Aucune animation.
+- Supprimés : `AutoProductCTAs` (2 encarts génériques injectés côté navigateur) et `ToolCTA`.
