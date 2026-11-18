@@ -18,8 +18,24 @@ describe('chooseEncarts', () => {
     expect(chooseEncarts({ pageType: 'gazon', content: AVEC, hasMerchantLink: true })).toEqual({ milieu: 'calendrier', fin: 'quiz' })
     expect(chooseEncarts({ pageType: 'reglementation', content: SANS, hasMerchantLink: true })).toEqual({ milieu: 'calendrier', fin: null })
   })
-  it('dépannage : pas de robot à vendre, le calendrier à la fin', () => {
+  it('dépannage : la pièce au milieu si l’adresse en désigne une, jamais un robot, le calendrier à la fin', () => {
+    expect(chooseEncarts({ pageType: 'depannage', content: SANS, hasMerchantLink: true, piece: 'cable' })).toEqual({ milieu: 'piece', fin: 'calendrier' })
+    expect(chooseEncarts({ pageType: 'depannage', content: SANS, hasMerchantLink: true, piece: null })).toEqual({ milieu: null, fin: 'calendrier' })
     expect(chooseEncarts({ pageType: 'depannage', content: SANS, hasMerchantLink: true })).toEqual({ milieu: null, fin: 'calendrier' })
+  })
+  it('pas de pièce en double : l’auteur l’a déjà montrée dans un encart produit', () => {
+    const lames = 'Texte.\n\n<ProductCTA name="Pack universel 30 lames + vis" price="12 €" url="https://www.amazon.fr/dp/B0963RQR1L" />\n'
+    expect(chooseEncarts({ pageType: 'depannage', content: lames, hasMerchantLink: true, piece: 'lames' }).milieu).toBeNull()
+    // Un robot posé dans un article sur le câble ne remplace pas la pièce.
+    expect(chooseEncarts({ pageType: 'depannage', content: AVEC, hasMerchantLink: true, piece: 'cable' }).milieu).toBe('piece')
+  })
+  it('la pièce ne sort jamais du dépannage', () => {
+    for (const pageType of PAGE_TYPES) {
+      if (pageType === 'depannage') continue
+      const { milieu, fin } = chooseEncarts({ pageType, content: SANS, hasMerchantLink: true, piece: 'lames' })
+      expect(milieu).not.toBe('piece')
+      expect(fin).not.toBe('piece')
+    }
   })
   it('encart de fin retiré si la dernière partie du texte mène déjà au quiz', () => {
     const fin = 'Texte.\n\n## Un\n\n## Encore un doute ?\n\n[Quel robot pour mon jardin](/quiz) en 4 questions.\n'

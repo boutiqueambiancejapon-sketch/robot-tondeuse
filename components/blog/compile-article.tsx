@@ -9,15 +9,17 @@ import { remarkAmazonAffiliate } from '@/lib/plugins/remarkAmazonAffiliate'
 import { remarkEncartMilieu } from '@/lib/plugins/remarkEncartMilieu'
 import { chooseEncarts, isMerchantUrl } from '@/lib/utils/encarts'
 import type { PageType } from '@/lib/utils/page-type'
+import { pieceForSlug } from '@/lib/utils/pieces'
 import { Encart } from './Encart'
 import { mdxComponents } from './mdx-components'
 import type { StickyCTAItem } from './sticky-wording'
 
-type Meta = { pageType: PageType; stickyCta?: StickyCTAItem[]; stickyCtaMessage?: string }
+type Meta = { slug: string; pageType: PageType; stickyCta?: StickyCTAItem[]; stickyCtaMessage?: string }
 
 export async function compileArticle(content: string, meta: Meta): Promise<{ body: ReactNode; end: ReactNode }> {
   const merchant = meta.stickyCta?.find((item) => isMerchantUrl(item.url))
-  const encarts = chooseEncarts({ pageType: meta.pageType, content, hasMerchantLink: Boolean(merchant) })
+  const piece = pieceForSlug(meta.slug)
+  const encarts = chooseEncarts({ pageType: meta.pageType, content, hasMerchantLink: Boolean(merchant), piece })
   const { content: body } = await compileMDX({
     source: content,
     options: {
@@ -25,7 +27,7 @@ export async function compileArticle(content: string, meta: Meta): Promise<{ bod
     },
     components: {
       ...mdxComponents,
-      EncartMilieu: () => <Encart kind={encarts.milieu} merchant={merchant} message={meta.stickyCtaMessage} />,
+      EncartMilieu: () => <Encart kind={encarts.milieu} merchant={merchant} message={meta.stickyCtaMessage} piece={piece} />,
     },
   })
   return { body, end: <Encart kind={encarts.fin} /> }
