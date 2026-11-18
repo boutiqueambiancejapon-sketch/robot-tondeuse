@@ -11,21 +11,6 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* Colors — Atelier Vert (light only) */
-  --color-accent-1: #c25a32;
-  --color-accent-2: #3c6b45;
-  --color-accent-3: #14241a;
-  --color-accent-4: #df6f3e;
-  --color-bg-primary: #fbf8f0;
-  --color-bg-surface: #faf6ec;
-  --color-bg-surface-2: #f5efe1;
-  --color-text-primary: #14241a;
-  --color-text-secondary: #3d4a3f;
-  --color-text-muted: #6b7a6c;
-  --color-success: #3c6b45;
-  --color-warning: #df6f3e;
-  --color-error: #b91c1c;
-
   --font-primary: var(--next-font-primary);
   --font-display: var(--next-font-display);
   --font-mono: var(--next-font-mono);
@@ -35,13 +20,10 @@
   --forest-deep: #14241a;
   --forest:      #1d3526;
   --moss:        #3c6b45;
-  --moss-bright: #4a8254;
   --sage:        #a8c2a4;
   --sage-light:  #d6e2cf;
   --sage-pale:   #e6efe1;
 
-  --sand-deep: #ddd0b3;
-  --sand:      #e7dcc5;
   --cream:     #efe7d6;
   --ivory:     #fffdf7;
   --paper:     #f6f1e7;
@@ -50,13 +32,7 @@
   --copper-bright: #df6f3e;
   --copper-pale:   #f6ddcc;
 
-  --deal:        #d23b2e;
-  --deal-bright: #e8513f;
-  --deal-pale:   #fbe0db;
-
   --bg-primary:   var(--paper);
-  --bg-surface:   var(--ivory);
-  --bg-surface-2: var(--cream);
 
   --accent-1: var(--copper);
   --accent-2: var(--moss);
@@ -72,57 +48,24 @@
   --ink-soft: var(--text-secondary);
   --muted:    var(--text-muted);
 
-  --border:        rgba(20, 36, 26, 0.10);
-  --border-strong: rgba(20, 36, 26, 0.20);
   --line:          #ddd4c0;
   --line-soft:     #ece4d2;
 
-  --success: var(--moss);
-  --warning: var(--copper-bright);
-  --error:   #b91c1c;
-
-  --glass-bg:     rgba(246, 241, 231, 0.80);
-  --glass-border: rgba(20, 36, 26, 0.10);
-  --glass-blur:   14px;
-  --sticky-cta-glass: rgba(246, 241, 231, 0.85);
-
-  --nav-bg-scrolled: rgba(246, 241, 231, 0.92);
-  --nav-mobile-bg:   var(--paper);
-
-  --noise-opacity:  0.025;
-  --aurora-1:       var(--moss);
-  --aurora-2:       var(--copper);
-  --aurora-3:       var(--forest);
-  --gradient-angle: 135deg;
-
   --shadow-sm:     0 1px 3px rgba(20, 36, 26, 0.06), 0 1px 2px rgba(20, 36, 26, 0.04);
   --shadow-md:     0 6px 16px rgba(20, 36, 26, 0.08), 0 2px 4px rgba(20, 36, 26, 0.05);
-  --shadow-lg:     0 16px 40px rgba(20, 36, 26, 0.13), 0 4px 10px rgba(20, 36, 26, 0.06);
   --shadow-xl:     0 28px 70px rgba(20, 36, 26, 0.20);
-  --shadow-accent: 0 0 24px rgba(194, 90, 50, 0.20);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration: 200ms;
 
-  --space-1:  4px;
   --space-2:  8px;
   --space-3:  12px;
   --space-4:  16px;
-  --space-5:  20px;
   --space-6:  24px;
-  --space-7:  28px;
   --space-8:  32px;
-  --space-10: 40px;
   --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
 
-  --radius-sm:   4px;
   --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   20px;
-  --radius-full: 9999px;
 }
 
 *, *::before, *::after {
