@@ -36,6 +36,19 @@ describe('GET /go/<robot>/<marchand>', () => {
     expect(res.headers.get('cache-control')).toBe('no-store')
     expect(res.headers.get('x-robots-tag')).toContain('noindex')
   })
+  it('redirige une pièce de dépannage vers une recherche Amazon avec l’étiquette', async () => {
+    for (const piece of ['lames', 'cable', 'batterie']) {
+      const res = await call(piece, 'amazon')
+      expect(res.status).toBe(302)
+      const cible = new URL(res.headers.get('location') ?? '')
+      expect(cible.origin + cible.pathname).toBe('https://www.amazon.fr/s')
+      expect(cible.searchParams.get('k')).toContain('robot tondeuse')
+      expect(cible.searchParams.get('tag')).toBe('test-tag-21')
+      expect(res.headers.get('x-robots-tag')).toContain('noindex')
+    }
+    expect((await call('lames', 'evil')).status).toBe(404)
+    expect((await call('tournevis', 'amazon')).status).toBe(404)
+  })
   it('refuse un marchand inconnu ou un identifiant invalide (pas de redirection ouverte)', async () => {
     expect((await call('B0GCCLW2PL', 'evil')).status).toBe(404)
     expect((await call('https:--evil.com', 'amazon')).status).toBe(404)

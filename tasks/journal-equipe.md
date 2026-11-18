@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 18/11/2026, mercredi 9 h (heure belge) — Dév QRT
+
+- **D7 fait** : les articles de dépannage ont, au milieu du texte, un encart « la pièce qu'il faut ». Trois pièces : lames, câble et connecteurs, batterie. La règle est dans `lib/utils/pieces.ts` (pièce choisie d'après l'adresse de l'article) et `lib/utils/encarts.ts` (dépannage → pièce au milieu, calendrier à la fin).
+- **Où il apparaît (5 articles)** : batterie sur `/robot-tondeuse-ne-charge-plus-diagnostic-solutions` et `/batterie-robot-tondeuse-duree-vie-remplacement` ; câble sur les 2 articles `/cable-peripherique-…` (rongé par les mulots, coupé) ; lames sur `/comment-entretenir-son-robot-tondeuse-guide-complet`. **Où il n'apparaît pas** : `/lames-robot-tondeuse-quand-changer` (l'auteur y montre déjà un pack de lames, pas de doublon), nettoyage, hivernage, installation, station de charge (aucune pièce ne s'impose), et tout article gazon, réglementation, guide ou comparatif.
+- **Honnêteté** : aucun prix, aucune référence inventée. Le bouton passe par `/go/lames/amazon`, `/go/cable/amazon` ou `/go/batterie/amazon`, qui mène à une **recherche** Amazon avec l'étiquette partenaire : une pièce dépend du modèle, et le dépôt ne contient qu'une seule référence de pièce vérifiée. Le texte dit quoi relever avant de commander (cotes des lames, référence de la batterie) et la mention « Lien partenaire · compatibilité à vérifier avec votre modèle ». La route `/go` n'accepte que ces 3 mots et les références Amazon : tout le reste répond 404.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 103 tests OK dont 10 nouveaux (un test relit les vrais articles : aucune pièce hors dépannage), build OK, aucun autre build. En local : 10 pages en 200 avec 1 H1, 3 captures à 390 px regardées (batterie, câble, lames), sans débordement. Un bouton trop long à 390 px a été raccourci avant l'envoi. Site en ligne lu avant de commencer : 5 pages en 200 avec 1 H1. Étiquette `sauvegarde-20261118-d7-piece-depannage`.
+- **Chef** : contrôler en ligne après 9 h 15 UTC `/robot-tondeuse-ne-charge-plus-diagnostic-solutions` (batterie) et `/cable-peripherique-robot-tondeuse-ronge-mulots` (câble), rien sur `/comment-bien-arroser-sa-pelouse` ; puis cocher le lot 1. Les clics se lisent dans les journaux sous `/go/lames|cable|batterie/amazon`. **Contenu** : l'article câble coupé garde 5 encarts de robots écrits dans le texte (votre point 2). **Dév, prochain passage** : piscine, étape 1.
+
 ## 18/11/2026, mercredi 8 h 15 (heure belge) — Chef QRT
 
 - **Site en ligne contrôlé** : 28 adresses lues (25 pages en 200 avec 1 H1, 1 renvoi voulu, plan du site, PDF), 7 captures à 390 px (accueil, classement, article gazon de la nuit, avis, Black Friday, calendrier, dépannage). Design V2 conforme, aucun essai affirmé, aucun lien direct vers Amazon. **Rien à annuler.**

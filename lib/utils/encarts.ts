@@ -8,19 +8,22 @@
  * | comparatif     | marchand                       | quiz       |
  * | gazon          | calendrier                     | quiz       |
  * | reglementation | calendrier                     | —          |
- * | depannage      | — (réservé à D7 : « la pièce ») | calendrier |
+ * | depannage      | la pièce qu'il faut (D7)       | calendrier |
  *
  * Encart marchand : seulement si l'auteur n'a posé aucun <ProductCTA> dans le texte
  * (sinon ce serait un doublon) et si l'article a un lien marchand dans son en-tête.
+ * Encart « pièce » (lames, câble, batterie) : seulement si l'adresse de l'article désigne une pièce
+ * (lib/utils/pieces.ts) et si l'auteur ne l'a pas déjà montrée dans un <ProductCTA>.
  * Encart de fin : retiré si la dernière partie du texte mène déjà au même endroit.
  */
 import type { PageType } from './page-type'
+import { pieceAlreadyShown, type PieceKey } from './pieces'
 
-export type EncartKind = 'marchand' | 'quiz' | 'calendrier'
+export type EncartKind = 'marchand' | 'quiz' | 'calendrier' | 'piece'
 export type Encarts = { milieu: EncartKind | null; fin: EncartKind | null }
 
 /** Adresse de l'encart quand il mène à une page du site. */
-export const ENCART_HREF: Record<Exclude<EncartKind, 'marchand'>, string> = {
+export const ENCART_HREF: Record<Exclude<EncartKind, 'marchand' | 'piece'>, string> = {
   quiz: '/quiz',
   calendrier: '/calendrier-du-gazon',
 }
@@ -35,7 +38,7 @@ const CARTE: Record<PageType, Encarts> = {
   comparatif: { milieu: 'marchand', fin: 'quiz' },
   gazon: { milieu: 'calendrier', fin: 'quiz' },
   reglementation: { milieu: 'calendrier', fin: null },
-  depannage: { milieu: null, fin: 'calendrier' },
+  depannage: { milieu: 'piece', fin: 'calendrier' },
 }
 
 export function chooseEncarts(input: {
@@ -44,11 +47,14 @@ export function chooseEncarts(input: {
   content: string
   /** L'article a-t-il un lien marchand dans son en-tête (`stickyCta`) ? */
   hasMerchantLink: boolean
+  /** Pièce désignée par l'adresse de l'article (`pieceForSlug`), pour l'encart « pièce ». */
+  piece?: PieceKey | null
 }): Encarts {
   const carte = CARTE[input.pageType]
   let { milieu, fin } = carte
   if (milieu === 'marchand' && (/<ProductCTA\b/.test(input.content) || !input.hasMerchantLink)) milieu = null
-  if (fin && fin !== 'marchand') {
+  if (milieu === 'piece' && (!input.piece || pieceAlreadyShown(input.piece, input.content))) milieu = null
+  if (fin && fin !== 'marchand' && fin !== 'piece') {
     const dernierePartie = input.content.split(/^## /m).pop() ?? ''
     if (dernierePartie.includes(`](${ENCART_HREF[fin]}`)) fin = null
   }
