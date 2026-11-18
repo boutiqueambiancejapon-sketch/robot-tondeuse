@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { AffiliateLink } from '@/components/ui/AffiliateLink'
 import { offresRelevees } from '@/lib/offres-releves'
-import { formatDate, formatPrix } from '@/lib/offres-format'
+import { PriceRows } from './PriceRows'
 
 /** Mention obligatoire tant que le prix n'a pas de date de relevé. */
 export const MENTION_PRIX = 'Prix indicatif, à vérifier chez le marchand · lien partenaire'
@@ -31,20 +31,22 @@ export function ProductPick({ name, price, url, image, badge, hook }: Props) {
         <p className="buy-name">{name}</p>
         {hook ? <p className="small muted">{hook}</p> : null}
       </div>
-      <div className="buy-row">
-        {price ? <p className="price num">{price}</p> : null}
-        <AffiliateLink href={url} className="btn">
-          {autres.length > 0 ? 'Voir chez Amazon' : 'Voir l’offre'}
-        </AffiliateLink>
-      </div>
-      {autres.map((o) => (
-        <a key={o.marchand} href={o.url} rel="sponsored nofollow noopener" target="_blank" className="btn btn--ivory btn--full">
-          {o.marchand} · {o.prix ? formatPrix(o.prix) : ''}
-        </a>
-      ))}
-      <p className="dated">
-        {autres[0]?.date ? `Prix ${autres.map((o) => o.marchand).join(' et ')} relevé le ${formatDate(autres[0].date)} · ${MENTION_PRIX}` : MENTION_PRIX}
-      </p>
+      {autres.length > 0 ? (
+        <div className="buy-prices">
+          <PriceRows name={name} amazonUrl={url} amazonPrice={price} />
+          <p className="dated">{MENTION_PRIX}</p>
+        </div>
+      ) : (
+        <>
+          <div className="buy-row">
+            {price ? <p className="price num">{price}</p> : null}
+            <AffiliateLink href={url} className="btn">
+              Voir l’offre
+            </AffiliateLink>
+          </div>
+          <p className="dated">{MENTION_PRIX}</p>
+        </>
+      )}
     </aside>
   )
 }
