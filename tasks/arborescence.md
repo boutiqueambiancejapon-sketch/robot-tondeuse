@@ -4,16 +4,23 @@ Rédigé le 15/11/2026 par le responsable éditorial, à la demande du propriét
 à l'entretien du gazon, aux robots de piscine et à ce qui est utile au jardin autour du robot, **le robot tondeuse
 restant au centre**.
 
+> **Décision du propriétaire, 18/11/2026 : priorité aux produits chers (« high ticket »).** Robots tondeuses à plus de
+> 1 000 € d'abord ; nouvelle rubrique « Tracteurs et tondeuses autoportées » (1 500 à 4 000 €), ouverte le 18/11/2026 ;
+> robots de piscine avancés à décembre 2026. Gazon, dépannage et accessoires bon marché passent derrière.
+> Cabanons, pergolas et mobilier : pas sur ce site (futur site jardin).
+
 Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de nuit), `tasks/calendrier-editorial.md`
 (la vue par mois), `tasks/design-v2.md` (les gabarits visuels : avis, marque, classement, duel, guide, outil, promos, rubrique).
 
 ## 1. Le principe en cinq lignes
 
-1. **Six rubriques au plus**, plus un service « Promos » qui les traverse. Pas de mobilier, de barbecue ni d'éclairage.
+1. **Sept rubriques au plus**, plus un service « Promos » qui les traverse. Pas de mobilier, de barbecue ni d'éclairage.
 2. **Aucune adresse existante ne change.** Les 213 articles restent à la racine du site (`/mon-article`).
-3. **Les rubriques déjà vivantes restent à la racine** (robots tondeuses, accessoires, gazon). **Les trois rubriques
-   nouvelles ont leur dossier** : `/robot-piscine/…`, `/arrosage/…`, `/outils-jardin/…`.
+3. **Les rubriques déjà vivantes restent à la racine** (robots tondeuses, accessoires, gazon), ainsi que les **tracteurs
+   et tondeuses autoportées** (même lecteur, rien à attendre du code). **Trois rubriques ont leur dossier** :
+   `/robot-piscine/…`, `/arrosage/…`, `/outils-jardin/…`.
 4. **Une rubrique s'ouvre quand la précédente tient debout** (critère au point 5). On n'ouvre jamais deux rubriques le même mois.
+   Exception décidée par le propriétaire le 18/11/2026 : tracteurs en novembre, accessoires et robots de piscine en décembre 2026.
 5. **Chaque page a une page mère** et y renvoie. Chaque rubrique renvoie vers le robot tondeuse au moins une fois par page.
 
 ## 2. Vue d'ensemble
@@ -27,6 +34,10 @@ Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de
 │    /choisir/<robot>               fiche d'un robot (lot 3 : note et barème)
 │    /quiz  /comparer  /superficie  /calculateur-rentabilite-robot-tondeuse
 │
+├─ 1 bis. TRACTEURS ET AUTOPORTÉES  (ouverte le 18/11/2026, adresses à la racine)
+│    /tracteur-tondeuse             rubrique et page mère (à écrire en premier)
+│    classements par surface et par budget · avis de marque · duels · robot ou tracteur
+│
 ├─ 2. AUTOUR DU ROBOT               (ouverte en décembre 2026, adresses à la racine)
 │    /accessoires-robot-tondeuse    rubrique et page mère (à écrire en premier)
 │    lames · garages · câble · batteries · antenne RTK · antivol · entretien · pièces
@@ -36,7 +47,7 @@ Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de
 │    /calendrier-du-gazon           outil pivot (existe)
 │    soins · semis · engrais · problèmes · matériel « ce que le robot ne fait pas »
 │
-├─ 4. ROBOTS DE PISCINE             (à ouvrir en janvier 2027)
+├─ 4. ROBOTS DE PISCINE             (à ouvrir en décembre 2026)
 │    /robot-piscine                 rubrique
 │    /robot-piscine/<page>          classements, avis de marque, duels, guides
 │
@@ -60,10 +71,11 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 | Rubrique | Dossier d'adresse | État | Où poser le fichier de l'article |
 |---|---|---|---|
 | Robots tondeuses | racine | ouverte | `content/articles/<adresse>.mdx` |
+| Tracteurs et autoportées | racine | ouverte (18/11/2026) | `content/articles/<adresse>.mdx` |
 | Autour du robot | racine | ouverte | `content/articles/<adresse>.mdx` |
 | Gazon et pelouse | racine | ouverte | `content/articles/<adresse>.mdx` |
 | Promos | racine | ouverte | `content/articles/<adresse>.mdx` |
-| Robots de piscine | `/robot-piscine/` | **fermée** (à ouvrir avant le 01/01/2027) | à noter par le Dév |
+| Robots de piscine | `/robot-piscine/` | **fermée** (à ouvrir avant le 01/12/2026, décision du 18/11/2026) | à noter par le Dév |
 | Arrosage | `/arrosage/` | **fermée** (à ouvrir avant le 01/04/2027) | à noter par le Dév |
 | Outils sur batterie | `/outils-jardin/` | **fermée** (à ouvrir avant le 01/09/2027, sous condition) | à noter par le Dév |
 
@@ -89,8 +101,17 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 | Hivernage | `/comment-hiverner-son-robot-tondeuse` et `/fiche-hivernage-robot-tondeuse` |
 | Coût | `/robot-tondeuse-combien-ca-coute-vraiment` et `/calculateur-rentabilite-robot-tondeuse` |
 
-- **Page mère à créer en premier** : `/panne-robot-tondeuse-diagnostic` (le dépannage n'a pas de page mère, alors que
-  17 articles de dépannage sont prévus). Décembre 2026.
+- **Page mère du dépannage** : `/panne-robot-tondeuse-diagnostic` (le dépannage n'a pas de page mère, alors que
+  17 articles de dépannage sont prévus). Passée en réserve le 18/11/2026 avec le reste du dépannage : elle s'écrira
+  après les produits chers.
+- **Priorité aux robots à plus de 1 000 €** (décision du 18/11/2026). Ce qui est déjà en ligne sert de page mère et
+  **ne se réécrit pas** : classements par budget (`/meilleur-robot-tondeuse-moins-1000-euros-2026`, puis 1 200, 1 500,
+  2 000, 2 500, 3 000), guides par surface (`/quel-robot-tondeuse-pour-1500m2-guide-achat-2026`, puis 2 000, 2 500,
+  3 000, 4 000, 5 000 m² et 1 hectare), `/robot-tondeuse-4-roues-motrices-awd-top-5-2026`, `/robot-tondeuse-lidar-top-5-2026`.
+  Contenu QRT les met à jour sur place avant février 2027 (prix datés, modèles 2027). Pages nouvelles au plan :
+  `/meilleur-robot-tondeuse-haut-de-gamme`, `/meilleur-robot-tondeuse-grand-terrain` (pivot des guides par surface),
+  `/meilleur-robot-tondeuse-forte-pente`, `/meilleur-robot-tondeuse-lidar-2000m2`, `/meilleur-robot-tondeuse-sans-antenne-rtk`,
+  `/quel-robot-tondeuse-pour-6000m2-8000m2`, `/quel-robot-tondeuse-pour-2-hectares`, 11 avis de modèles et 12 duels.
 - **Gabarits d'adresse** (nouvelles pages, jamais d'année dans l'adresse) :
 
 | Type de page | Gabarit | Exemple |
@@ -101,19 +122,58 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 | Duel de marques | `/<marque-a>-vs-<marque-b>-quelle-marque-choisir` | `/kress-vs-husqvarna-quelle-marque-choisir` |
 | Guide de gamme | `/quel-<marque>-choisir-guide-gamme` | (9 existent, avec « 2026 ») |
 | Avis de marque | `/avis-robot-tondeuse-<marque>` | `/avis-robot-tondeuse-stiga` |
-| Avis d'un robot | la fiche `/choisir/<robot>` (lot 3, Dév) | `/choisir/dreame-a1-pro` |
+| Avis d'un robot à plus de 1 000 € | `/avis-<marque>-<modèle>` (une page par famille) | `/avis-mammotion-luba-3-awd` |
+| Fiche d'un robot | `/choisir/<robot>` (lot 3, Dév) | `/choisir/dreame-a1-pro` |
 | Guide, dépannage, réglementation | `/<sujet-en-clair>` | `/prix-installation-robot-tondeuse` |
 
-- **Avis d'un robot** : la rédaction de nuit n'écrit **pas** d'article « avis » sur un modèle qui est dans la base produits.
-  L'avis d'un robot, c'est sa fiche notée (lot 3). Les 8 articles `/test-…-avis` existants restent en ligne et renvoient à la fiche.
+- **Avis d'un robot** (règle changée le 18/11/2026) : la rédaction de nuit écrit un article « avis » pour les robots à
+  **plus de 1 000 €**, une page par famille de modèles (`/avis-dreame-a3-awd-pro` couvre le 3500 et le 5000). L'article
+  est la lecture longue (pour qui, défauts, presse citée) ; la fiche `/choisir/<robot>` garde le prix du jour et, plus
+  tard, la note du lot 3. L'article renvoie aux fiches, sans note tant que le barème n'est pas public. Jamais « test »
+  dans une nouvelle adresse. Sous 1 000 €, pas d'article avis : la fiche suffit. Les 8 articles `/test-…-avis` existants
+  restent en ligne.
 - **Avis de marque** : pour les marques déjà couvertes par un guide de gamme (Dreame, Mammotion, Husqvarna, Gardena, Worx,
   Bosch, Ecovacs, Segway, Mova), la page « Avis + marque » vient du lot 3 (Dév) : la rédaction ne la double pas. Le calendrier
   ne prévoit donc des avis de marque que pour les marques **absentes du site** : Stiga, Kress, Stihl iMOW, Sunseeker,
   Parkside (Lidl), Eufy, Anthbot, Einhell, Yard Force.
 
+### 4.1 bis Tracteurs et tondeuses autoportées (ouverte le 18/11/2026)
+
+Même lecteur que le robot pour grand terrain : il hésite entre les deux. Panier de 1 500 à 4 000 €.
+
+- **Page de rubrique et page mère** : `/tracteur-tondeuse` (premier sujet de la rubrique). Elle commence comme un guide
+  de choix ; le Dév pourra lui donner le gabarit « rubrique » du design V2 sans changer l'adresse.
+- **Pages mères à écrire en premier** (novembre 2026, dans cet ordre) : `/robot-tondeuse-ou-tracteur-tondeuse` (le pont
+  avec les robots), `/tracteur-tondeuse`, `/meilleur-tracteur-tondeuse` (mère des classements), puis
+  `/quelle-marque-tracteur-tondeuse-choisir` (mère des avis de marque, janvier).
+- **Gabarits d'adresse** (à la racine, jamais d'année) :
+
+| Type de page | Gabarit | Exemple |
+|---|---|---|
+| Classement | `/meilleur-tracteur-tondeuse-<critère>` · `/meilleure-tondeuse-autoportee` | `/meilleur-tracteur-tondeuse-moins-3000-euros` |
+| Guide par surface | `/quel-tracteur-tondeuse-pour-<surface>` | `/quel-tracteur-tondeuse-pour-5000m2` |
+| Avis de marque | `/avis-tracteur-tondeuse-<marque>` | `/avis-tracteur-tondeuse-husqvarna` |
+| Duel | `/<a>-vs-<b>-tracteur-tondeuse` · `/<a>-ou-<b>` | `/husqvarna-vs-john-deere-tracteur-tondeuse` |
+| Guide | `/tracteur-tondeuse-<sujet>` | `/tracteur-tondeuse-terrain-en-pente` |
+
+- **Honnêteté** : aucune note (pas de barème), machines décrites à partir de la fiche du fabricant, surfaces conseillées
+  avec leur source, pente selon la notice seulement, prix relevés et datés chez deux marchands. Pas de fiche dans
+  `content/produits/` (le quiz et le comparateur restent réservés aux robots).
+- **Liens** : chaque page renvoie à `/tracteur-tondeuse` et, quand un robot ferait le travail, au guide robot de la même
+  surface. Les guides robots de 3 000 m² et plus renverront à `/robot-tondeuse-ou-tracteur-tondeuse` (Contenu QRT, quand
+  la page existe).
+- **Hors champ** : tondeuses thermiques poussées ou tractées, débroussailleuses, motoculteurs, micro-tracteurs agricoles,
+  matériel professionnel de plus de 10 000 €, pièces détachées et dépannage des tracteurs (pas avant que la rubrique
+  ait fait ses preuves).
+- **Critère de suite** : après les 10 premiers articles, le Chef regarde les visites venues de Google et les clics
+  marchands. Sans visite trois mois après la page mère, on arrête d'ajouter des sujets (règle du point 5).
+
 ### 4.2 Autour du robot : accessoires et pièces
 
-- **Page de rubrique et page mère** : `/accessoires-robot-tondeuse` (premier sujet de décembre 2026). Elle commence comme
+- **Derrière les produits chers depuis le 18/11/2026** : restent en décembre la page mère et le classement des garages ;
+  abri à faire soi-même, lames et batterie Husqvarna, kit d'entretien sont en réserve. Câble, lames et antenne gardent
+  leur place de saison, en fin de février et de mars.
+- **Page de rubrique et page mère** : `/accessoires-robot-tondeuse` (décembre 2026). Elle commence comme
   un guide ; le Dév pourra lui donner le gabarit « rubrique » du design V2 sans changer l'adresse.
 - **Sous-rubriques et pages mères** :
 
@@ -125,7 +185,7 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 | Batteries | `/batterie-robot-tondeuse-duree-vie-remplacement` | existe |
 | Antenne RTK, supports | `/antenne-rtk-robot-tondeuse-support-rallonge` | février |
 | Antivol, traceurs | `/robot-tondeuse-antivol-vol-protection` | existe |
-| Nettoyage et entretien | `/kit-entretien-robot-tondeuse` | décembre |
+| Nettoyage et entretien | `/kit-entretien-robot-tondeuse` | réserve |
 | Station de charge, pièces | `/station-de-charge-robot-tondeuse-remplacement` | novembre 2027 |
 
 - **Gabarits d'adresse** : `/lames-<marque>-<gamme>` · `/batterie-<marque>-<gamme>-remplacement` ·
@@ -146,16 +206,20 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 - **Rien à créer avant d'écrire** : la rubrique fonctionne. 56 sujets gazon et dépannage sont déjà au plan ; le calendrier
   y ajoute surtout les classements de matériel.
 
-### 4.4 Robots de piscine (priorité de 2027)
+### 4.4 Robots de piscine (avancés à décembre 2026)
 
 Même acheteur, même logique de comparaison que le robot tondeuse. Le flux Cdiscount compte environ 1 200 robots de piscine.
 
 - **Page de rubrique** : `/robot-piscine` (gabarit `piscine.html` de la maquette, pose « piscine » de la mascotte).
-- **Pages mères à écrire en premier** (janvier et février 2027, dans cet ordre) :
-  1. `/robot-piscine/comment-choisir-robot-piscine` (guide)
-  2. `/robot-piscine/meilleur-robot-piscine` (classement général)
-  3. `/robot-piscine/robot-piscine-sans-fil-ou-filaire` et `/robot-piscine/robot-piscine-electrique-ou-hydraulique`
-  4. `/robot-piscine/meilleure-marque-robot-piscine` (mère des avis de marque)
+- **Ordre d'écriture depuis le 18/11/2026 : classements et duels d'abord, guides ensuite.**
+  1. Décembre 2026 : `/robot-piscine/meilleur-robot-piscine` (classement général, page mère), `…/meilleur-robot-piscine-sans-fil`,
+     `…/robot-piscine-sans-fil-ou-filaire`, `…/meilleur-robot-piscine-haut-de-gamme`, `…/dolphin-vs-zodiac`, `…/aiper-vs-wybot`,
+     `…/meilleur-robot-piscine-moins-1000-euros`, `…/meilleure-marque-robot-piscine` (mère des avis de marque).
+  2. Janvier 2027 : les autres duels, le classement « fond, parois et ligne d'eau », les avis Aiper et Dolphin, puis les
+     deux guides `…/comment-choisir-robot-piscine` et `…/robot-piscine-electrique-ou-hydraulique`.
+  3. Février et mars 2027 : avis Wybot, Beatbot, Zodiac, avis de produits haut de gamme (Aiper Scuba X1 Pro Max, Dolphin
+     Liberty, Wybot S2 Solar Vision). Les guides d'usage et de panne restent d'avril à octobre.
+  Tant que `…/comment-choisir-robot-piscine` n'existe pas, les pages qui l'ont pour mère renvoient à `…/meilleur-robot-piscine`.
 - **Sous-rubriques et gabarits** :
 
 | Type de page | Gabarit | Exemple |
@@ -218,9 +282,10 @@ Bosch, Einhell Power X-Change, Kress).
 
 | Ordre | Rubrique | Ouverture | Pourquoi à ce moment |
 |---|---|---|---|
-| 0 | Robots tondeuses, Gazon | déjà ouvertes | 213 articles, 56 sujets au plan |
-| 1 | Autour du robot | décembre 2026 | aucune attente : adresses à la racine, saison des pièces et du rangement |
-| 2 | Robots de piscine | janvier 2027 | 3 mois d'avance sur la remise en eau d'avril |
+| 0 | Robots tondeuses, Gazon | déjà ouvertes | 216 articles au 18/11/2026 |
+| 0 bis | Tracteurs et autoportées | 18/11/2026 | décision du propriétaire : produit cher, même lecteur, adresses à la racine |
+| 1 | Autour du robot | décembre 2026 | aucune attente : adresses à la racine ; derrière les produits chers |
+| 2 | Robots de piscine | décembre 2026 (décision du 18/11/2026) | 4 mois d'avance sur la remise en eau d'avril |
 | 3 | Arrosage | avril 2027 | 2 mois d'avance sur les premières chaleurs |
 | 4 | Outils sur batterie | septembre 2027 | saison des haies et des feuilles ; **seulement si le critère est rempli** |
 
@@ -275,7 +340,9 @@ récent renvoie au plus ancien pour la partie déjà traitée.
   anti-nuisibles pris pour eux-mêmes : trop loin du robot, même si le flux Cdiscount en est plein.
 - **La piscine elle-même** (bassins, traitement de l'eau, pompes, chauffage) et les spas.
 - **Les aspirateurs robots de maison**, même quand la marque est la même.
-- **Le matériel thermique** et le matériel professionnel, sauf pour une comparaison ponctuelle.
+- **Le matériel thermique** et le matériel professionnel, sauf pour une comparaison ponctuelle. **Exception depuis le
+  18/11/2026 : les tracteurs tondeuses et les tondeuses autoportées** (rubrique 4.1 bis). Le reste du thermique
+  (tondeuses poussées, débroussailleuses, motoculteurs, tronçonneuses) reste hors champ.
 - Les **pages « marchand »** (« robot tondeuse Leroy Merlin », « robot piscine Lidl ») : la demande existe, mais le lecteur
   cherche un magasin, pas un conseil. Exception : la marque Parkside, vendue seulement par Lidl.
 
@@ -296,9 +363,13 @@ récent renvoie au plus ancien pour la partie déjà traitée.
 
 | Quoi | Qui | Avant le |
 |---|---|---|
-| Ouvrir `/robot-piscine` : page de rubrique, pages `/robot-piscine/<page>`, entrée de menu, plan du site, puis passer la ligne à « ouverte » au point 3 | Dév QRT | 01/01/2027 |
-| Consigne de nuit (`article-prompts/robot-tondeuse.md`, hors de ce dépôt) : ne plus exiger les deux images de robot tondeuse dans les articles piscine, arrosage et outils ; suivre la règle « Choix du sujet de la nuit » du plan | Claude en session | 01/01/2027 |
-| Lien marchand des produits hors robots tondeuses : passer par `/go/…` comme pour les robots, sans les ajouter au quiz ni au comparateur | Dév QRT | 01/01/2027 |
+| Ouvrir `/robot-piscine` : page de rubrique, pages `/robot-piscine/<page>`, entrée de menu, plan du site, puis passer la ligne à « ouverte » au point 3 | Dév QRT | **01/12/2026** (avancé le 18/11/2026) |
+| Consigne de nuit (`article-prompts/robot-tondeuse.md`, hors de ce dépôt) : ne plus exiger les deux images de robot tondeuse dans les articles tracteurs, piscine, arrosage et outils ; suivre la règle « Choix du sujet de la nuit » du plan | Claude en session | dès que possible (les tracteurs s'écrivent depuis le 18/11/2026) |
+| Lien marchand des produits hors robots tondeuses (tracteurs compris) : passer par `/go/…` comme pour les robots, sans les ajouter au quiz ni au comparateur | Dév QRT | 01/12/2026 |
+| Articles tracteurs : vérifier que la carte « Notre choix » et les encarts automatiques n'affichent pas un robot tondeuse à la place d'un tracteur (chantier CRO) | Dév QRT, contrôle du Chef | au premier article tracteur |
+| Rubrique tracteurs : entrée de menu et gabarit « rubrique » pour `/tracteur-tondeuse` | Dév QRT | quand 5 articles tracteurs sont en ligne |
+| Mettre à jour sur place les classements par budget, par surface, 4 roues motrices et LiDAR (prix datés, modèles 2027, lien vers les nouveaux avis) | Contenu QRT | 01/02/2027 |
+| Trouver quel marchand partenaire vend des tracteurs tondeuses (Cdiscount, Amazon, autre) ; sans marchand, la rubrique ne rapporte rien | Croissance QRT, puis propriétaire s'il faut un nouveau programme | 15/12/2026 |
 | Ouvrir `/arrosage` (même travail) | Dév QRT | 01/04/2027 |
 | Ouvrir `/outils-jardin` si le critère est rempli | Dév QRT, sur avis du Chef | 01/09/2027 |
 | Revérifier les pages code promo (`lib/promos.ts`) : chaque jour du 20/11 au 02/12/2026, puis le 1er du mois | Croissance QRT | dès maintenant |
@@ -326,6 +397,19 @@ Tant que la première ligne n'est pas faite, la rédaction de nuit saute les suj
   Mammotion Luba 4 AWD, Segway Navimow H5 Pro, Dreame A4 AWD Pro, Sunseeker S7 et S5, Eufy S2 Max ; Ecovacs Ultramarine P1
   côté piscine). Sources lues : Labo Maison, Mac4Ever, L'Éclaireur Fnac, Tom's Guide, Clubic, communiqués des marques.
   Aucun prix français publié pour le Luba 4 AWD au 16/11/2026.
+
+- **Passage du mercredi 18/11/2026 (Éditeur QRT, décision « produits chers »)** : environ 190 débuts de requête relevés
+  dans les suggestions de Google en français (60 sur les tracteurs et autoportées, 90 sur les robots chers, 40 sur la
+  piscine), puis 11 recherches web. Lu : comparatifs de tracteurs (futura-sciences.com, meilleurtest.fr), guides
+  d'enseignes (Truffaut, Bricomarché, Mr.Bricolage, Castorama), « robot ou tracteur » (Ecovacs, Yarbo, L'Avenir),
+  prix de lancement de la série Navimow X4 (Tom's Guide, Labo Maison : 2 499, 2 799 et 3 199 €), fiche Husqvarna du
+  435X AWD NERA (pente annoncée 70 %), comparatifs piscine haut de gamme (futura-sciences.com, piscine-center.net).
+  Toujours sans prix français au 18/11/2026 : Mammotion Luba 4 AWD et Dreame A4 AWD Pro. Lymow One Plus : 2 699 à
+  2 999 € selon les sources, à vérifier ; Yarbo : aucun prix français trouvé.
+- Ce que les suggestions montrent pour les tracteurs : la demande se range par **surface** (2 000, 3 000, 5 000 m²,
+  1 hectare), par **budget** (2 000 €, 3 000 €), par **marque** (Husqvarna, John Deere, Cub Cadet, Stiga, MTD, Alpina)
+  et par **type** (électrique, rider, rayon de braquage zéro, pente). Pour les robots chers : **« avis + modèle »**
+  (Luba 3 AWD, Dreame A3 AWD Pro, Navimow X4, 430X NERA) et **« A vs B »** entre ces mêmes modèles.
 
 Ce que les suggestions montrent, en bref : la demande piscine se range par **type de bassin** (hors-sol, coque, liner,
 carrelage, 8x4, 10x5), par **budget** (moins de 200, 500, 1 000 €), par **marque** (Dolphin, Zodiac, Aiper, Wybot, Beatbot,
