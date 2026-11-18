@@ -145,9 +145,13 @@
   .prices b { font: 800 17px/1 var(--f-d); white-space: nowrap; }
   .prices .go { font: 700 14px/1 var(--f-b); color: var(--copper); }
   .buy-prices { grid-column: 1 / -1; display: grid; gap: 8px; }
+  .prices a, .prices a *, .prix-cmp td a { text-decoration: none !important; border-bottom: 0 !important; }
 
   /* Tableau « Où acheter ces robots au meilleur prix ? » */
   .prix-cmp { margin: 34px 0 8px; display: grid; gap: 12px; }
-  .prix-cmp td a { font-weight: 700; text-decoration: none; color: var(--ink); }
+  .prix-cmp td a { font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .prix-cmp table.tbl { min-width: 0; font-size: 14.5px; }
+  .prix-cmp .tbl th, .prix-cmp .tbl td { padding: 11px 9px; }
+  .prix-cmp .tbl th:first-child, .prix-cmp .tbl td:first-child { min-width: 0; width: 38%; font-size: 14px; }
   .prix-cmp td.best a { color: var(--ink); }
 }

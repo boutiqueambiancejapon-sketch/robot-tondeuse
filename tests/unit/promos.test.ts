@@ -22,7 +22,7 @@ describe('promos', () => {
   })
 
   it('un prix relevé vient de la boutique de la marque, porte sa date et reste hors des offres confirmées', () => {
-    const boutiques: Record<string, string> = { dreame: 'fr.dreametech.com', mammotion: 'fr.mammotion.com', mova: 'fr.mova.tech' }
+    const boutiques: Record<string, string> = { dreame: 'fr.dreametech.com', mammotion: 'fr.mammotion.com', mova: 'fr.mova.tech', 'segway-navimow': 'fr.navimow.com', ecovacs: 'www.ecovacs.com' }
     for (const b of PROMO_BRANDS) {
       const fiches = getBrandRobots(b).map((r) => r.slug)
       for (const r of b.releves) {

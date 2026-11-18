@@ -2,6 +2,7 @@ import type { ProduitCite } from '@/lib/produits-cites'
 import { offresRelevees } from '@/lib/offres-releves'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 import { affiliateHref } from '@/lib/utils/affiliate'
+import { prixBas } from '@/lib/produits-cites'
 
 /** Tableau « Où l'acheter ? » : chaque robot de l'article, son prix chez Amazon, Cdiscount et Fnac. */
 export function PrixCompares({ produits }: { produits: ProduitCite[] }) {
@@ -32,7 +33,7 @@ export function PrixCompares({ produits }: { produits: ProduitCite[] }) {
               {lignes.map((l) => (
                 <tr key={l.p.name}>
                   <td>{l.p.name}</td>
-                  <td><a href={affiliateHref(l.p.url)} rel="sponsored nofollow noopener" target="_blank">{l.p.price ?? 'Voir'}</a></td>
+                  <td><a href={affiliateHref(l.p.url)} rel="sponsored nofollow noopener" target="_blank">{prixBas(l.p.price) ? `dès ${formatPrix(prixBas(l.p.price) ?? 0)}` : 'Voir'}</a></td>
                   {cell(l, 'Cdiscount')}
                   {cell(l, 'Fnac')}
                 </tr>
