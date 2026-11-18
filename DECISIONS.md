@@ -123,3 +123,13 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Milieu = avant le H2 qui ouvre la seconde moitié, posé à la compilation (`lib/plugins/remarkEncartMilieu.ts`), rendu serveur. Moins de 3 H2 : pas d'encart du milieu.
 - Fonds : tuiles `.door` existantes (quiz `var(--sage)`, calendrier `var(--copper-pale)`), encart marchand `.card.buy`. Aucune animation.
 - Supprimés : `AutoProductCTAs` (2 encarts génériques injectés côté navigateur) et `ToolCTA`.
+
+## Rubrique « Robots de piscine » (18/11/2026)
+- Les articles piscine vivent dans `content/articles/robot-piscine/<adresse>.mdx` et s'affichent sous `/robot-piscine/<adresse>` (`lib/piscine.ts`, `app/(site)/robot-piscine/[slug]`). Choix du dossier plutôt que d'un champ d'en-tête : les lecteurs existants ne lisent que les fichiers posés à la racine de `content/articles/`, donc aucune adresse existante ne bouge et un article piscine ne peut pas se glisser dans `/blog`, `/comparatifs` ou l'accueil.
+- Type de page propre à la rubrique (`piscinePageType`, `lib/utils/piscine.ts`) : duel ou « X ou Y » → comparatif ; entretien, panne, hivernage → dépannage ; tout le reste → guide d'achat. Guide d'achat et comparatif reçoivent la carte « Notre choix » et le tableau des prix, comme les autres articles.
+- Encarts : jamais le calendrier du gazon ni une pièce de robot tondeuse dans un article piscine. Seule la tuile du quiz reste en fin d'article (règle 5 de `tasks/arborescence.md` : chaque rubrique renvoie vers le robot tondeuse).
+- Page de rubrique `/robot-piscine` : bandeau `var(--pool)` avec texte blanc (contraste 4,6:1), vague, corps sur `var(--paper)`, tuiles de bassin blanches bordées 1,5 px (active : `var(--pool)`), conseil sur `var(--pool-pale)`, encadré méthode `var(--ink)`, tuile pelouse `var(--sage)`. Mascotte `piscine`. Aucune animation hors la transition de couleur des tuiles.
+- Écarts voulus avec la maquette `piscine.html` : pas d'étiquette « Nouvelle rubrique » au-dessus du titre (règle 6 du design V2), pas de cartes produit avec note et prix (exemples inventés), aucune tuile choisie d'avance (tous les articles sont visibles sans JavaScript).
+- Bassin d'un article : champ `bassins` de l'en-tête (`hors-sol`, `enterree`, `ligne-eau`, `sans-fil`), sinon lu dans l'adresse. Sans bassin, l'article reste affiché pour tous.
+- Article piscine sans image : pas de couverture dans l'article, mascotte piscine dans les listes. Jamais une photo de robot tondeuse.
+

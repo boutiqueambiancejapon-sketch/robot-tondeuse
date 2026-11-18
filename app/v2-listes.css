@@ -41,6 +41,20 @@
   .pager-nums a.on { background: var(--ink); color: var(--white); }
 
   /* Pages légales et biographie : texte long en .prose, colonne de lecture. */
+  /* Rubrique « Robots de piscine » : bandeau bleu du haut, vague, tuiles de bassin (modèle : maquette piscine.html). */
+  .pool-top { padding: 8px 0 0; overflow: hidden; }
+  .pool-top .crumb, .pool-top .crumb a, .pool-top .lede { color: #fff; }
+  .pool-top .ttl { margin-top: 12px; }
+  .pool-top .lede { margin: 0 0 26px; max-width: 640px; }
+  .pool-top .wave { background: var(--paper); }
+  .pool-body { padding-top: 26px; }
+  .pool-body .wrap > * { max-width: 760px; }
+  .pool-conseil { padding: 14px 16px; border-radius: var(--r); background: var(--pool-pale); font-size: 16px; line-height: 1.45; }
+  .pool-h { margin-top: 30px; }
+  .pool-body .posts { margin-top: 12px; }
+  .pool-vide { color: var(--muted); font-size: 16px; }
+  .pool-body .door h2 { font-size: 20px; align-self: end; }
+
   .legal { max-width: 760px; }
   .legal .prose section > * + * { margin-top: 12px; }
   .legal .prose ul { list-style: disc; padding-left: 22px; }

@@ -47,7 +47,7 @@ Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de
 │    /calendrier-du-gazon           outil pivot (existe)
 │    soins · semis · engrais · problèmes · matériel « ce que le robot ne fait pas »
 │
-├─ 4. ROBOTS DE PISCINE             (à ouvrir en décembre 2026)
+├─ 4. ROBOTS DE PISCINE             (ouverte le 18/11/2026)
 │    /robot-piscine                 rubrique
 │    /robot-piscine/<page>          classements, avis de marque, duels, guides
 │
@@ -75,7 +75,7 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 | Autour du robot | racine | ouverte | `content/articles/<adresse>.mdx` |
 | Gazon et pelouse | racine | ouverte | `content/articles/<adresse>.mdx` |
 | Promos | racine | ouverte | `content/articles/<adresse>.mdx` |
-| Robots de piscine | `/robot-piscine/` | **fermée** (à ouvrir avant le 01/12/2026, décision du 18/11/2026) | à noter par le Dév |
+| Robots de piscine | `/robot-piscine/` | **ouverte** (18/11/2026) | `content/articles/robot-piscine/<adresse>.mdx`, où `<adresse>` est la fin de l'adresse (`/robot-piscine/dolphin-vs-zodiac` → `dolphin-vs-zodiac.mdx`). En-tête facultatif : `bassins: [hors-sol, enterree, ligne-eau, sans-fil]` pour le filtre de la page de rubrique. Liens internes écrits avec le dossier (`/robot-piscine/…`) |
 | Arrosage | `/arrosage/` | **fermée** (à ouvrir avant le 01/04/2027) | à noter par le Dév |
 | Outils sur batterie | `/outils-jardin/` | **fermée** (à ouvrir avant le 01/09/2027, sous condition) | à noter par le Dév |
 

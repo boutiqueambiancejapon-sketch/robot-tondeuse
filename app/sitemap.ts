@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next'
 import { niche } from '@/niche.config'
 import { getAllArticles, articleHref, getCategories } from '@/lib/blog'
+import { getPiscineArticles } from '@/lib/piscine'
+import { PISCINE_DOSSIER } from '@/lib/utils/piscine'
 import { PRODUIT_SLUGS } from '@/lib/comparateur'
 import { PROMO_BRANDS, PROMOS_CHECKED_AT, getBlackFridayBrands } from '@/lib/promos'
 
@@ -69,6 +71,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Articles (standalone + blog) — stubs exclus ──────────────────────
   for (const article of getAllArticles()) {
     if (STUB_SLUGS.has(article.slug)) continue
+    entries.push({
+      url: `${SITE_URL}${articleHref(article)}`,
+      lastModified: new Date(article.updatedAt ?? article.publishedAt),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    })
+  }
+
+  // ── Rubrique « Robots de piscine » : page de rubrique + ses articles (/robot-piscine/<adresse>) ──
+  entries.push({ url: `${SITE_URL}/${PISCINE_DOSSIER}`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 })
+  for (const article of getPiscineArticles()) {
     entries.push({
       url: `${SITE_URL}${articleHref(article)}`,
       lastModified: new Date(article.updatedAt ?? article.publishedAt),

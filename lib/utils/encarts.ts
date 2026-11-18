@@ -15,6 +15,7 @@
  * Encart « pièce » (lames, câble, batterie) : seulement si l'adresse de l'article désigne une pièce
  * (lib/utils/pieces.ts) et si l'auteur ne l'a pas déjà montrée dans un <ProductCTA>.
  * Encart de fin : retiré si la dernière partie du texte mène déjà au même endroit.
+ * Rubrique hors pelouse (robots de piscine) : encart marchand au milieu s'il y a lieu, quiz à la fin, rien d'autre.
  */
 import type { PageType } from './page-type'
 import { pieceAlreadyShown, type PieceKey } from './pieces'
@@ -49,9 +50,16 @@ export function chooseEncarts(input: {
   hasMerchantLink: boolean
   /** Pièce désignée par l'adresse de l'article (`pieceForSlug`), pour l'encart « pièce ». */
   piece?: PieceKey | null
+  /** Rubrique hors pelouse (robots de piscine) : ni calendrier du gazon ni pièce de robot tondeuse. */
+  horsPelouse?: boolean
 }): Encarts {
   const carte = CARTE[input.pageType]
   let { milieu, fin } = carte
+  if (input.horsPelouse) {
+    // Le seul renvoi vers la pelouse est la tuile du quiz en fin d'article (règle 5 de tasks/arborescence.md).
+    if (milieu !== 'marchand') milieu = null
+    fin = 'quiz'
+  }
   if (milieu === 'marchand' && (/<ProductCTA\b/.test(input.content) || !input.hasMerchantLink)) milieu = null
   if (milieu === 'piece' && (!input.piece || pieceAlreadyShown(input.piece, input.content))) milieu = null
   if (fin && fin !== 'marchand' && fin !== 'piece') {

@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 18/11/2026, mercredi 22 h 35 (heure belge) — Dév QRT (mission du propriétaire : rubrique Robots de piscine)
+
+- **Rubrique ouverte.** Page `/robot-piscine` au design V2 (bandeau bleu, mascotte piscine, quatre tuiles : hors-sol, enterrée, ligne d'eau, sans fil ; chaque tuile affiche un conseil sans modèle ni prix, puis les articles du bassin). Lien dans le menu « Choisir », dans le pied de page et dans le plan du site. La liste est vide tant qu'aucun article n'existe : la page le dit en une phrase.
+- **Articles** : un fichier posé dans `content/articles/robot-piscine/<adresse>.mdx` s'affiche sous `/robot-piscine/<adresse>`, avec le gabarit d'article habituel. Guide d'achat ou comparatif d'office (sauf entretien, panne, hivernage) : carte « Notre choix » et tableau des prix dès que l'article contient des `<ProductCTA>`. Jamais de calendrier du gazon ni de pièce de tondeuse dedans ; la tuile du quiz reste en fin d'article. Ces articles ne se mêlent pas à `/blog`, `/comparatifs` ni à l'accueil. Aucune adresse existante ne change (test).
+- **Contrôles** : types OK, lint 0 erreur (20 avertissements anciens), 121 tests OK (14 nouveaux), build OK, aucun autre build. En local à 390 px : page de rubrique vide et avec un article d'essai (retiré avant l'envoi), article d'essai, menu ; aucun débordement, 1 H1, adresse inconnue en 404. Étiquette `sauvegarde-20261118-robot-piscine`. Travail fait dans un dossier séparé (`~/.cache/qrt-dev-wt`).
+- **Rédaction de nuit et Contenu** : la ligne « Robots de piscine » de `tasks/arborescence.md` dit « ouverte » et donne le dossier. Champ facultatif `bassins:` dans l'en-tête ; sinon le bassin est lu dans l'adresse. Sans `featureImage`, l'article n'a pas de couverture.
+- **Chef** : contrôler en ligne `/robot-piscine` (200, 1 H1, 4 tuiles), le menu, le pied de page et `/sitemap.xml`. **Claude en session** : au premier article piscine, relancer le relevé des prix Cdiscount et Fnac et vérifier qu'il trouve les robots de piscine (le script lit déjà les noms cités dans le nouveau dossier ; sans relevé, seule la colonne Amazon se remplit). **Croissance** : dire quel marchand partenaire vend des robots de piscine. **Dév, ensuite** : lot 3 (barème), puis contrôle du premier article piscine.
+
 ## 18/11/2026, mercredi 22 h 30 (heure belge) — Éditeur QRT (mission du propriétaire : produits chers)
 
 - **Calendrier refait autour des produits chers** (décision du propriétaire écrite en haut de `tasks/calendrier-editorial.md`). 182 sujets datés, dont 128 sur les robots tondeuses (52), les tracteurs (27) et la piscine (49) ; 18 en réserve ; les 53 sujets anciens (gazon, dépannage) passent derrière. 71 sujets ajoutés : 33 robots à plus de 1 000 € (11 avis de modèles, 12 duels, 10 classements et guides), 26 tracteurs et autoportées, 7 piscine haut de gamme, 5 en réserve.

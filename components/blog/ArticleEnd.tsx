@@ -2,7 +2,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { niche } from '@/niche.config'
-import { CATEGORY_LABELS, articleHref, type ArticleMeta } from '@/lib/blog'
+import { articleHref, type ArticleMeta } from '@/lib/blog'
+import { rubriqueLabel } from '@/components/v2/listes/rubriques'
 import { AuthorCard } from '@/components/ui/AuthorCard'
 import { FaqAccordion } from './FaqAccordion'
 
@@ -40,7 +41,7 @@ export function ArticleEnd({ faq, related, authorSlug, authorName }: Props) {
                 <div>
                   <h3>{a.title}</h3>
                   <p>
-                    {CATEGORY_LABELS[a.categorie] ?? a.categorie} · {a.readingTimeMin} min
+                    {rubriqueLabel(a.categorie)} · {a.readingTimeMin} min
                   </p>
                 </div>
               </Link>

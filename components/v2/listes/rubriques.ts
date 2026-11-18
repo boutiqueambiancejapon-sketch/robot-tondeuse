@@ -11,6 +11,7 @@ const LIBELLES: Record<string, string> = {
   tuto: 'Tutoriels',
   faq: 'Questions fréquentes',
   general: 'Général',
+  'robot-piscine': 'Robots de piscine',
 }
 
 export function rubriqueLabel(slug: string): string {
