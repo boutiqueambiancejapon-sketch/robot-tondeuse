@@ -47,3 +47,17 @@ export function affiliateHref(href: string): string {
   }
   return addAffiliateTag(href)
 }
+
+/**
+ * Lien Amazon d'un robot cité : la fiche Amazon quand l'adresse en est une (comptée par /go/),
+ * sinon une recherche Amazon de son nom, avec l'étiquette affiliée. Un lien vers le site d'une marque
+ * ou d'un magasin sans affiliation ne rapporte rien : il est remplacé.
+ */
+export function amazonHref(url: string | undefined, name: string): string {
+  try {
+    if (url && AMAZON_DOMAINS.test(new URL(url).hostname)) return affiliateHref(url)
+  } catch {
+    // adresse relative ou invalide : recherche
+  }
+  return addAffiliateTag(`https://www.amazon.fr/s?k=${encodeURIComponent(name)}`)
+}

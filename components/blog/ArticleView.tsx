@@ -16,6 +16,9 @@ import { EnBref } from './EnBref'
 import { HubArtwork } from './HubArtwork'
 import { ArticleEnd } from './ArticleEnd'
 import { ArticleBuyRows } from './ArticleBuyRows'
+import { NotreChoix } from './NotreChoix'
+import { PrixCompares } from './PrixCompares'
+import type { ProduitCite } from '@/lib/produits-cites'
 import { StickyCTA } from './StickyCTA'
 import type { StickyCTAItem } from './sticky-wording'
 
@@ -43,13 +46,17 @@ type Props = {
   children: ReactNode
   /** Encart de fin d'article, choisi selon le type de page (lib/utils/encarts.ts). */
   after?: ReactNode
+  /** Robots cités dans l'article (encarts ProductCTA), pour la carte « Notre choix » et le tableau des prix. */
+  produits?: ProduitCite[]
 }
 
-export function ArticleView({ slug, meta, catLabel, toc, related, children, after }: Props) {
+export function ArticleView({ slug, meta, catLabel, toc, related, children, after, produits = [] }: Props) {
   const authorSlug = niche.author.slug || 'auteur'
   const authorName = niche.author.name || 'Auteur'
   // Ligne d'achat du haut et barre du bas : seulement sur les guides d'achat et les comparatifs (D8).
   const buyLinks = showsBuyBar(meta.pageType) && meta.stickyCta?.length ? meta.stickyCta : null
+  // Carte « Notre choix » (premier robot cité) et tableau des prix : pages d'achat et comparatifs seulement.
+  const vend = showsBuyBar(meta.pageType) && produits.length > 0
 
   return (
     <main id="main-content" className="v2">
@@ -72,9 +79,11 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
         />
 
         {/* Avis, classements et comparatifs : le bouton marchand est dans le premier écran. */}
-        {buyLinks ? <ArticleBuyRows items={buyLinks} message={meta.stickyCtaMessage} /> : null}
+        {vend ? null : buyLinks ? <ArticleBuyRows items={buyLinks} message={meta.stickyCtaMessage} /> : null}
 
         {meta.aiSummary?.length ? <EnBref points={meta.aiSummary} /> : null}
+
+        {vend ? <NotreChoix produit={produits[0]} /> : null}
 
         {meta.featureImage ? (
           <figure className="cover">
@@ -97,6 +106,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
         ) : null}
 
         <div className="prose">{children}</div>
+        {vend ? <PrixCompares produits={produits} /> : null}
         {after}
 
         <ArticleEnd faq={meta.faq} related={related} authorSlug={authorSlug} authorName={authorName} />

@@ -11,6 +11,7 @@ import { currentYear } from '@/lib/utils/year'
 import { niche } from '@/niche.config'
 import { extractToc } from '@/lib/toc'
 import { ArticleView } from '@/components/blog/ArticleView'
+import { produitsCites } from '@/lib/produits-cites'
 import { compileArticle } from '@/components/blog/compile-article'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
@@ -137,6 +138,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
         />
       ))}
       <ArticleView
+        produits={produitsCites(content)}
         slug={slug}
         meta={meta}
         catLabel={catLabel}

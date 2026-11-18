@@ -11,6 +11,7 @@ import { getStandaloneArticle, getAllStandaloneSlugs } from '@/lib/articles'
 import { niche } from '@/niche.config'
 import { extractToc } from '@/lib/toc'
 import { ArticleView } from '@/components/blog/ArticleView'
+import { produitsCites } from '@/lib/produits-cites'
 import { compileArticle } from '@/components/blog/compile-article'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
@@ -140,7 +141,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       {jsonLd.map((schema, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
-      <ArticleView slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end}>
+      <ArticleView produits={produitsCites(content)} slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end}>
         {body}
       </ArticleView>
     </>
