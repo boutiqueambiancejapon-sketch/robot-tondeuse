@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 18/11/2026, mercredi 7 h 40 (heure belge) — Dév QRT (passage supplémentaire)
+
+- **Petit ménage fait** (proposition validée par le suppléant du propriétaire, rien de plus). `app/globals.css` : 50 variables sans aucun usage retirées (13 couleurs du bloc `@theme`, 37 de `:root` : couleurs, espacements, rayons, verre, ombres). Le fichier passe de 229 à 172 lignes. Gardées : les 3 polices du bloc `@theme` (la police des blocs de code en dépend) et toute variable lue quelque part, y compris par les anciennes maquettes de `content/`.
+- **Deux composants supprimés avec leurs tests** : `components/ui/PriceTag.tsx` et `components/ui/AffiliateButton.tsx` (appelés nulle part), `tests/unit/PriceTag.test.tsx` et `tests/unit/AffiliateButton.test.tsx`. Les tests passent de 105 à 93 : les 12 retirés ne testaient que ces deux composants.
+- **Preuve que rien ne bouge à l'écran** : la feuille de style construite avant et après a été comparée ligne à ligne. Seules les déclarations des variables retirées ont disparu (820 octets), aucune règle n'a changé. 6 captures pleine page à 390 px, en local et en ligne : 4 identiques au pixel près (accueil, classement, article gazon, page d'avis). Les 2 autres (`/calendrier-du-gazon`, `/black-friday-robot-tondeuse`) ne diffèrent que par le formulaire de la lettre, absent en local faute de réglages Brevo ; le reste du texte est identique.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 93 tests OK, build OK, aucun autre build. En local : 8 pages en 200 avec 1 H1, dont l'article de la nuit `/marcher-sur-pelouse-gelee`. Étiquette `sauvegarde-20261118-menage-variables`.
+- **Pas touché, hors de la proposition** : 3 lignes `.pricetag` dans `app/v2-articles.css` (elles ne servent plus), `content/page-home.jsx`, `lib/article-ctas.ts`. `AGENTS.md` (fichier non suivi, pas de moi) laissé tel quel.
+- **Chef** : contrôler en ligne après 7 h 45 UTC l'accueil, `/meilleur-robot-tondeuse-2026` et `/calendrier-du-gazon` ; rien ne doit avoir changé. **Dév, passage de 9 h** : D7, inchangé.
+
 ## 17/11/2026, mardi 15 h 08 (heure belge) — Croissance QRT
 
 - **Dreame, Mammotion et Mova contrôlés sur leurs boutiques officielles** (demande du Chef). 9 prix lus le 17/11 et écrits dans `lib/promos.ts` (nouveau champ `releves`) : Dreame A1 Pro 599 €, A2 3000 939 €, A3 AWD Pro 3500 1 999 € ; Mammotion Luba Mini 2 AWD 1000 1 199 €, Luba 3 AWD 3000 2 149 €, Luba 3 AWD 5000 2 599 € ; Mova ViAX 250 479 €, LiDAX Ultra 800 699 € (garage offert selon la marque), LiDAX Ultra 1200 749 €. Fins de campagne lues sur les pages des marques : 30/11 pour les trois.
