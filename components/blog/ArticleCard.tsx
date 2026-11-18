@@ -10,6 +10,10 @@ import { articleHref } from '@/lib/blog'
 import { rubriqueLabel } from '@/components/v2/listes/rubriques'
 import { hubImage } from './HubArtwork'
 
+/** Article d'une rubrique à dossier (piscine) sans image : la mascotte de la rubrique, jamais une photo de robot tondeuse. */
+const imageParDefaut = (article: ArticleMeta) =>
+  article.dossier ? `/images/mascotte/robot-piscine.webp` : hubImage(article.slug)
+
 type Props = {
   article: ArticleMeta
   /** Premier article d'une liste : image plus grande et description sur grand écran. */
@@ -26,7 +30,7 @@ export function ArticleCard({ article, featured = false, showCategory = true, as
   return (
     <Link className={featured ? 'post post--lead' : 'post'} href={articleHref(article)}>
       <Image
-        src={article.featureImage || hubImage(article.slug)}
+        src={article.featureImage || imageParDefaut(article)}
         alt=""
         width={featured ? 400 : 192}
         height={featured ? 400 : 192}

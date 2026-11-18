@@ -9,6 +9,7 @@ export const MENU_V2: MenuGroup[] = [
       { href: '/comparatifs', label: 'Les comparatifs' },
       { href: '/comparer', label: 'Le comparateur' },
       { href: '/marques', label: 'Les marques' },
+      { href: '/robot-piscine', label: 'Robots de piscine' },
     ],
   },
   {
@@ -41,6 +42,7 @@ export const FOOTER_V2 = [
   { href: '/quiz', label: 'Quiz' },
   { href: '/comparer', label: 'Comparateur' },
   { href: '/marques', label: 'Marques' },
+  { href: '/robot-piscine', label: 'Robots de piscine' },
   { href: '/blog', label: 'Guides' },
   { href: '/calendrier-du-gazon', label: 'Calendrier du gazon' },
   { href: '/fiche-hivernage-robot-tondeuse', label: 'Fiche hivernage' },

@@ -113,3 +113,7 @@ Branche `claude/review-design-files-HKwEE` — 8 batches.
 
 ## Encarts d'article (17/11/2026, lot 1 étape D5) ✅
 Un encart au milieu, un en fin, choisis par type de page (`lib/utils/encarts.ts`). Encarts produit automatiques retirés. Suite : `/robot-piscine`, puis D7.
+
+## Rubrique « Robots de piscine » (18/11/2026) ✅
+Page `/robot-piscine` (choix par bassin, liste des articles), route `/robot-piscine/<adresse>`, menu, pied de page, plan du site, 14 tests. La rubrique est vide tant qu'aucun article n'est écrit. Suite : relever les prix Cdiscount et Fnac des robots de piscine (script `scripts/offres-awin.mjs`, Claude en session), puis lot 3.
+

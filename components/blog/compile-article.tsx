@@ -14,12 +14,14 @@ import { Encart } from './Encart'
 import { mdxComponents } from './mdx-components'
 import type { StickyCTAItem } from './sticky-wording'
 
-type Meta = { slug: string; pageType: PageType; stickyCta?: StickyCTAItem[]; stickyCtaMessage?: string }
+type Meta = { slug: string; pageType: PageType; stickyCta?: StickyCTAItem[]; stickyCtaMessage?: string; dossier?: string }
 
 export async function compileArticle(content: string, meta: Meta): Promise<{ body: ReactNode; end: ReactNode }> {
   const merchant = meta.stickyCta?.find((item) => isMerchantUrl(item.url))
-  const piece = pieceForSlug(meta.slug)
-  const encarts = chooseEncarts({ pageType: meta.pageType, content, hasMerchantLink: Boolean(merchant), piece })
+  // Un article d'une rubrique à dossier (robots de piscine) ne reçoit ni pièce de robot tondeuse ni calendrier du gazon.
+  const horsPelouse = Boolean(meta.dossier)
+  const piece = horsPelouse ? null : pieceForSlug(meta.slug)
+  const encarts = chooseEncarts({ pageType: meta.pageType, content, hasMerchantLink: Boolean(merchant), piece, horsPelouse })
   const { content: body } = await compileMDX({
     source: content,
     options: {

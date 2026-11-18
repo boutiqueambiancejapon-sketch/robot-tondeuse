@@ -24,7 +24,7 @@ function nomsDuSite() {
     const m = /^name:\s*"?(.+?)"?\s*$/m.exec(readFileSync(`content/produits/${f}`, 'utf8'))
     if (m) noms.add(m[1])
   }
-  for (const dir of ['content/articles']) {
+  for (const dir of ['content/articles', 'content/articles/robot-piscine'].filter((d) => existsSync(d))) {
     for (const f of readdirSync(dir).filter((f) => f.endsWith('.mdx'))) {
       for (const m of readFileSync(`${dir}/${f}`, 'utf8').matchAll(/<ProductCTA[^>]*\bname="([^"]+)"/g)) noms.add(m[1])
     }

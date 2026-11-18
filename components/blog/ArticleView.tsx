@@ -9,6 +9,7 @@ import { niche } from '@/niche.config'
 import type { ArticleMeta } from '@/lib/blog'
 import type { TocItem } from '@/lib/toc'
 import { showsBuyBar, type PageType } from '@/lib/utils/page-type'
+import { PISCINE_DOSSIER, PISCINE_LABEL } from '@/lib/utils/piscine'
 import { PageTitle } from '@/components/v2/PageTitle'
 import { AuthorByline } from '@/components/ui/AuthorByline'
 import { poseArticle } from './article-pose'
@@ -34,6 +35,8 @@ export type ArticleViewMeta = {
   faq?: { q: string; a: string }[]
   stickyCta?: StickyCTAItem[]
   stickyCtaMessage?: string
+  /** Dossier d'adresse de la rubrique (« robot-piscine »), absent pour un article à la racine. */
+  dossier?: string
 }
 
 type Props = {
@@ -57,18 +60,26 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
   const buyLinks = showsBuyBar(meta.pageType) && meta.stickyCta?.length ? meta.stickyCta : null
   // Carte « Notre choix » (premier robot cité) et tableau des prix : pages d'achat et comparatifs seulement.
   const vend = showsBuyBar(meta.pageType) && produits.length > 0
+  // Rubrique piscine : son fil d'Ariane, sa mascotte, et pas de photo de robot tondeuse à défaut d'image.
+  const piscine = meta.dossier === PISCINE_DOSSIER
+  const crumbs = piscine
+    ? [
+        { href: '/', label: 'Accueil' },
+        { href: `/${PISCINE_DOSSIER}`, label: PISCINE_LABEL },
+      ]
+    : [
+        { href: '/', label: 'Accueil' },
+        { href: '/blog', label: 'Blog' },
+        { href: `/blog/${meta.categorie}`, label: catLabel },
+      ]
 
   return (
     <main id="main-content" className="v2">
       <article className="wrap art">
         <PageTitle
           title={meta.title}
-          pose={poseArticle(meta.pageType, slug)}
-          crumbs={[
-            { href: '/', label: 'Accueil' },
-            { href: '/blog', label: 'Blog' },
-            { href: `/blog/${meta.categorie}`, label: catLabel },
-          ]}
+          pose={piscine ? 'piscine' : poseArticle(meta.pageType, slug)}
+          crumbs={crumbs}
         />
         <AuthorByline
           authorSlug={authorSlug}
@@ -89,7 +100,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
           <figure className="cover">
             <Image src={meta.featureImage} alt="" width={800} height={500} priority sizes="(min-width: 760px) 720px, 100vw" />
           </figure>
-        ) : (
+        ) : piscine ? null : (
           <figure className="cover cover--pool">
             <HubArtwork slug={slug} variant="hero" />
           </figure>

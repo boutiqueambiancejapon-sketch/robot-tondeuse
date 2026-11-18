@@ -39,6 +39,8 @@ export type ArticleMeta = {
   faq?: { q: string; a: string }[]
   /** True pour les articles dans content/articles/ (URLs racine). */
   standalone?: boolean
+  /** Dossier d'adresse d'une rubrique (« robot-piscine ») : l'article vit sous /<dossier>/<slug>. */
+  dossier?: string
   draft?: boolean
   stickyCta?: { label: string; url: string }[]
   stickyCtaMessage?: string
@@ -47,6 +49,7 @@ export type ArticleMeta = {
 
 /** Retourne le href correct pour un article (blog ou standalone). */
 export function articleHref(article: ArticleMeta): string {
+  if (article.dossier) return `/${article.dossier}/${article.slug}`
   if (article.standalone) return `/${article.slug}`
   return `/blog/${article.categorie}/${article.slug}`
 }
@@ -56,7 +59,7 @@ export type ArticleRaw = {
   content: string
 }
 
-function parseMeta(data: Record<string, unknown>, slug: string, categorie: string, standalone = false): ArticleMeta {
+export function parseMeta(data: Record<string, unknown>, slug: string, categorie: string, standalone = false): ArticleMeta {
   return {
     slug,
     categorie,
