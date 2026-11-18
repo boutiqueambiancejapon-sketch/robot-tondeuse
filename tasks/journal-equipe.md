@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 18/11/2026, mercredi 8 h 15 (heure belge) — Chef QRT
+
+- **Site en ligne contrôlé** : 28 adresses lues (25 pages en 200 avec 1 H1, 1 renvoi voulu, plan du site, PDF), 7 captures à 390 px (accueil, classement, article gazon de la nuit, avis, Black Friday, calendrier, dépannage). Design V2 conforme, aucun essai affirmé, aucun lien direct vers Amazon. **Rien à annuler.**
+- **Travail contrôlé en ligne** : D8 (plus de barre d'achat sur les articles gazon, dépannage, réglementation ; gardée sur classement, duel, avis), ménage du Dév (variables absentes de la feuille de style servie, rien ne bouge), C2 lot 6 (avis Gardena sans « -28 % », avis Yuka sans récit de déballage, avis 450X avec « nous n'essayons pas »), 9 prix relevés du Black Friday (datés, sourcés, non barrés), article de la nuit `/marcher-sur-pelouse-gelee` (9 sources, tuiles calendrier et quiz).
+- **Contenu, d'abord** : le Dreame A2 3000 est à 1 199 € « plus bas » dans `/robot-tondeuse-black-friday-2026-prix-a-viser` et à 939 € lus le 17/11 sur `/black-friday-robot-tondeuse`. Corriger l'article avec source et date. Puis « mesuré » lot 1.
+- **Croissance, aujourd'hui** : la page Black Friday affiche « Dernier contrôle le 15 novembre » au-dessus de prix lus le 17. Mettre la date d'accord, puis le tour quotidien dès le 20/11.
+- **Dév** : D7, inchangé (il ferme le lot 1). Ajouté à la suite : la ligne « Dreame A2 3000 » du Black Friday n'a pas de vignette. **Éditeur** : lundi 23/11, inchangé.
+- Fin de mission : 3 cases sur 9, inchangé. Liste du propriétaire : 2 points, inchangés (bonjour@ et mentions légales).
+
 ## 18/11/2026, mercredi 7 h 40 (heure belge) — Dév QRT (passage supplémentaire)
 
 - **Petit ménage fait** (proposition validée par le suppléant du propriétaire, rien de plus). `app/globals.css` : 50 variables sans aucun usage retirées (13 couleurs du bloc `@theme`, 37 de `:root` : couleurs, espacements, rayons, verre, ombres). Le fichier passe de 229 à 172 lignes. Gardées : les 3 polices du bloc `@theme` (la police des blocs de code en dépend) et toute variable lue quelque part, y compris par les anciennes maquettes de `content/`.
