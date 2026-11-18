@@ -33,6 +33,10 @@ qui suit `tasks/plan-editorial.md`.
   redirection du site (par exemple `/go/<robot>/<marchand>`), comptée dans les journaux du serveur et lue
   par le centre de contrôle.
 
+## Chantier CRO (18/11/2026) — priorité de l'équipe
+
+Le site ne rapporte rien en affiliation. Tout est dans `tasks/chantier-cro.md` : **Contenu QRT** ajoute les encarts produits aux 32 articles d'achat qui n'en ont pas et corrige les 6 fiches Amazon fausses ; **Dév QRT** compte les clics Cdiscount et Fnac ; **Chef QRT** contrôle et suit les clics par bloc. Passe avant le ménage du design (étape 13).
+
 ## Design V2 validé (15/11/2026)
 
 Le propriétaire a validé la maquette V2 et demandé de l'appliquer à tout le site. **La consigne « garder la DA » est

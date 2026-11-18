@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 18/11/2026 — Claude en session
+
+- **Chantier CRO lancé** (`tasks/chantier-cro.md`) : carte « Notre choix » avec prix Amazon, Cdiscount et Fnac en haut des 175 articles d'achat, lignes de prix par vendeur dans les encarts, tableau des prix en fin d'article, liens Amazon toujours affiliés (recherche Amazon à défaut de fiche).
+- 86 fiches Amazon vérifiées : 6 ouvrent un autre modèle ou une page morte, redirigées vers la recherche du bon modèle en attendant le bon ASIN.
+- **Contenu QRT, prochain passage** : 8 premiers articles de la liste « sans encart ».
+- Leçon : ne jamais `git commit -a` dans le dossier partagé ; un agent peut y avoir un fichier en cours.
+
 ## 18/11/2026, mercredi 15 h 15 (heure belge) — Croissance QRT
 
 - **Date mise d'accord (demande du Chef)** : tour complet des 13 marques fait aujourd'hui sur leurs sites officiels. `PROMOS_CHECKED_AT` passe au 18/11 ; les pages `/black-friday-robot-tondeuse` et `/code-promo` affichent « Dernier contrôle le 18 novembre » au-dessus de prix « lus le 18 novembre ».
