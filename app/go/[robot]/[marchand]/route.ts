@@ -8,6 +8,9 @@
 import { NextResponse } from 'next/server'
 import { addAffiliateTag, amazonProductUrl, isAsin } from '@/lib/utils/affiliate'
 import { isPieceKey, pieceSearchUrl } from '@/lib/utils/pieces'
+import corrections from '@/content/offres/amazon-corrections.json'
+
+const CORRECTIONS = corrections as Record<string, string>
 
 export const dynamic = 'force-dynamic'
 
@@ -26,6 +29,11 @@ export async function GET(_request: Request, { params }: { params: Params }) {
   const asin = robot.toUpperCase()
   if (marchand !== 'amazon' || !isAsin(asin)) {
     return new NextResponse('Lien introuvable', { status: 404, headers: HEADERS })
+  }
+  const recherche = CORRECTIONS[asin]
+  if (recherche) {
+    const url = `https://www.amazon.fr/s?k=${encodeURIComponent(recherche)}`
+    return NextResponse.redirect(addAffiliateTag(url), { status: 302, headers: HEADERS })
   }
   return NextResponse.redirect(amazonProductUrl(asin), { status: 302, headers: HEADERS })
 }

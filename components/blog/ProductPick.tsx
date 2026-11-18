@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { AffiliateLink } from '@/components/ui/AffiliateLink'
+import { amazonHref } from '@/lib/utils/affiliate'
 import { offresRelevees } from '@/lib/offres-releves'
 import { PriceRows } from './PriceRows'
 
@@ -40,7 +41,7 @@ export function ProductPick({ name, price, url, image, badge, hook }: Props) {
         <>
           <div className="buy-row">
             {price ? <p className="price num">{price}</p> : null}
-            <AffiliateLink href={url} className="btn">
+            <AffiliateLink href={amazonHref(url, name)} className="btn">
               Voir l’offre
             </AffiliateLink>
           </div>

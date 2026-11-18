@@ -1,4 +1,4 @@
-import { affiliateHref } from '@/lib/utils/affiliate'
+import { amazonHref } from '@/lib/utils/affiliate'
 import { offresRelevees } from '@/lib/offres-releves'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 
@@ -12,7 +12,7 @@ export function PriceRows({ name, amazonUrl, amazonPrice }: Props) {
   const autres = offresRelevees(name)
   const bas = autres.length ? Math.min(...autres.map((o) => o.prix ?? Infinity)) : Infinity
   const rows = [
-    { marchand: 'Amazon', url: affiliateHref(amazonUrl), prix: amazonPrice ? `${amazonPrice}` : 'Voir le prix', note: 'prix indicatif', best: false },
+    { marchand: 'Amazon', url: amazonHref(amazonUrl, name), prix: amazonPrice ? `${amazonPrice}` : 'Voir le prix', note: 'prix indicatif', best: false },
     ...autres.map((o) => ({
       marchand: o.marchand,
       url: o.url,

@@ -1,0 +1,9 @@
+{
+  "_note": "Fiches Amazon (ASIN) qui n'ouvrent pas le robot annoncé, ou qui n'existent plus (vérification du 18/11/2026, ~/tools/asin-check.py). /go/<ASIN>/amazon envoie alors vers une recherche Amazon du bon modèle, avec l'étiquette affiliée. Retirer une ligne dès que l'article a le bon ASIN.",
+  "B08XQYHFGZ": "Bosch Indego XS 300",
+  "B0GJRDXKBH": "Dreame A3 AWD Pro 3500",
+  "B07LFV7Y6X": "Worx Landroid M500 WR141E",
+  "B0DHLM3NT5": "Worx Landroid Vision WR205E",
+  "B0GQ8X5LZ2": "Segway Navimow i210 LiDAR Pro",
+  "B099NPV93T": "batterie robot tondeuse"
+}

@@ -3,7 +3,7 @@ import type { ProduitCite } from '@/lib/produits-cites'
 import { prixBas } from '@/lib/produits-cites'
 import { offresRelevees } from '@/lib/offres-releves'
 import { formatPrix } from '@/lib/offres-format'
-import { affiliateHref } from '@/lib/utils/affiliate'
+import { amazonHref } from '@/lib/utils/affiliate'
 import { PriceRows } from './PriceRows'
 
 /** Carte « Notre choix » du haut des pages d'achat : le premier robot de l'article, ses prix chez chaque vendeur, un bouton. */
@@ -11,7 +11,7 @@ export function NotreChoix({ produit }: { produit: ProduitCite }) {
   const autres = offresRelevees(produit.name)
   const amazonBas = prixBas(produit.price)
   const meilleur = autres.find((o) => o.prix !== undefined && (amazonBas === undefined || o.prix < amazonBas))
-  const url = meilleur?.url ?? affiliateHref(produit.url)
+  const url = meilleur?.url ?? amazonHref(produit.url, produit.name)
   const label = meilleur?.prix ? `Voir chez ${meilleur.marchand} · ${formatPrix(meilleur.prix)}` : 'Voir le prix chez Amazon'
   return (
     <aside className="choix" aria-label={`Notre choix : ${produit.name}`} data-cta="choix-haut">
