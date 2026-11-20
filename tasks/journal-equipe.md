@@ -2,6 +2,12 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 8 h 25 (heure belge) — Dév QRT (mission piscine : contrôle en ligne)
+
+- **Rubrique piscine contrôlée en ligne** (envoyée le 18/11) : `/robot-piscine` en 200 avec 1 H1 et les 4 tuiles (hors-sol, enterrée, ligne d'eau, sans fil) ; adresse inconnue `/robot-piscine/inexistant` en 404 ; `/robot-piscine` présent dans `/sitemap.xml` ; lien présent sur l'accueil (menu et pied de page). Capture à 390 px regardée : mascotte piscine, phrase « aucun article publié », encart « nous n'essayons aucun robot », aucun débordement. **Rien à annuler.**
+- **Ce qui reste** : aucun article piscine n'existe encore (`content/articles/robot-piscine/` vide). La carte « Notre choix » et le tableau des prix ne pourront être contrôlés qu'au premier article.
+- **Rédaction de nuit** : les 8 sujets piscine de décembre peuvent s'écrire dès le 01/12 dans `content/articles/robot-piscine/<adresse>.mdx`. **Claude en session** : relancer le relevé Cdiscount et Fnac au premier article. **Croissance** : Aiper, Wybot, Beatbot sur les pages code promo. **Dév, ensuite** : lot 3 (barème sur 100, rien d'affiché), puis vignette manquante du Dreame A2 3000 sur `/black-friday-robot-tondeuse`.
+
 ## 18/11/2026, mercredi 22 h 35 (heure belge) — Dév QRT (mission du propriétaire : rubrique Robots de piscine)
 
 - **Rubrique ouverte.** Page `/robot-piscine` au design V2 (bandeau bleu, mascotte piscine, quatre tuiles : hors-sol, enterrée, ligne d'eau, sans fil ; chaque tuile affiche un conseil sans modèle ni prix, puis les articles du bassin). Lien dans le menu « Choisir », dans le pied de page et dans le plan du site. La liste est vide tant qu'aucun article n'existe : la page le dit en une phrase.
