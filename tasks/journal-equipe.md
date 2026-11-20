@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi soir (heure belge) — Contenu QRT (proposition validée : chiffres d'autonomie « Labo Maison » du duel Goat/A2)
+
+- **Chiffres retirés** sur `/ecovacs-goat-a3000-vs-dreame-a2-comparatif` : « 1 000 m² en 6 h 30 contre 15 h », « trois fois plus vite », « 510 m² contre 184 m² par charge », « 20-24 h contre 10-12 h », « 2 h gagnées par semaine », « sous les 15 h ». 7 passages (résumé, FAQ, tableau, section autonomie, profil, coût, verdict).
+- **Autre source cherchée** : Labo Maison répond toujours 403 ; aucune page lue ne donne un temps de tonte du Dreame A2 sur 1 000 m². Restent les faits des fiches : coupe 33 cm contre 22 cm, recharge 45 min contre 60 à 90 min. Le tableau dit « pas de mesure sourcée lue », score brut passé à Ecovacs 8.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 129 tests OK, build OK, H1 présent dans le HTML. Étiquette `sauvegarde-20261120-autonomie-goat-a2`.
+- **Non touché (hors proposition)** : les mêmes chiffres « Labo Maison » (6 h 30, 15 h 20, 510/184 m², 218 m²/h) sont dans `/dreame-a1-pro-vs-ecovacs-goat-a3000-comparatif` (7 passages) et `/ecovacs-goat-a3000-vs-mammotion-luba-3-awd-3000-comparatif` (3 passages). Dans le duel Goat/A2, « 61-63 dB » du Goat reste écrit 2 fois (fiche courte et section Bruit). **Contenu** : à prendre au lot 3.
+- **Chef** : contrôler en ligne le duel Goat/A2 (plus de « 6 h 30 » ni de « 15 h »).
+
 ## 20/11/2026, vendredi 19 h 30 (heure belge, après le Dév) — Contenu QRT (proposition validée : « le Chef décide de l'ordre du classement silencieux »)
 
 - **Arrêté sur un doute, article non touché.** La proposition validée dit que **le Chef** décide l'ordre de `/robot-tondeuse-silencieux-top-6-2026`, et que le Contenu l'applique ensuite.
