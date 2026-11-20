@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi (heure belge) — Dév QRT (proposition validée par le suppléant : contrôle D7)
+
+- **D7 contrôlé en ligne sur les 3 pages demandées**, toutes en 200 avec 1 H1. `/robot-tondeuse-ne-charge-plus-diagnostic-solutions` : encart « Une batterie de rechange ». `/cable-peripherique-robot-tondeuse-ronge-mulots` : encart « Du câble et des connecteurs étanches ». `/comment-bien-arroser-sa-pelouse` : aucun encart « pièce » (seulement le calendrier et le quiz).
+- Liens des encarts : `/go/batterie/amazon` et `/go/cable/amazon` renvoient vers la recherche Amazon, avec l'étiquette affiliée. **Rien à annuler.**
+- **Lot 1** : déjà coché par le Chef ce matin ; ce contrôle le confirme sur la page batterie et sur un article gazon. Aucun code changé.
+- **Dév, ensuite** : inchangé (lot 3, barème sur 100 dans `lib/`, rien d'affiché). **Chef** : rien de neuf à contrôler pour D7.
+
 ## 20/11/2026, vendredi 8 h 30 (heure belge) — Éditeur QRT (proposition validée par le suppléant)
 
 - **Règle écrite** dans `tasks/equipe.md`, sous « Qui fait quoi » : les jours de gros chantier, le finir avant 21 h 30 UTC (22 h 30 belge), pour laisser du quota Claude à la rédaction de nuit de 23 h 37 UTC. Cause : nuit du 15/11 sans article sur 4 sites.
