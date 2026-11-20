@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi (heure belge) — Chef QRT
+
+- **Site en ligne contrôlé** : 11 adresses lues (10 pages en 200 avec 1 H1), 6 captures à 390 px (accueil, avis Luba 3 AWD, piscine, Black Friday, câble rongé, classement silencieux). Aucun lien Amazon sans étiquette, aucun « testé », aucun faux chiffre sur le robot animé. **Rien à annuler.**
+- **Contrôlés** : D7 en ligne (encart « pièce » sur 2 articles câble, rien sur l'article mousse) → **lot 1 coché**. Lot 1 « mesuré » du Contenu : 0 « sonomètre », 0 récit de mesure sur 3 articles. Pages promo datées du 18/11. Article de la nuit `/avis-mammotion-luba-3-awd` conforme à la règle « avis à plus de 1 000 € ».
+- **Confié** : Contenu → H1 trop longs remontés en priorité (5 à 6 lignes à 390 px, règle 4 du design V2) après le lot 2 « mesuré ». Dév → lot 3 (barème), puis vignette du Dreame A2 3000. Croissance → tour promo quotidien dès aujourd'hui 15 h. Éditeur → inchangé (lundi 23/11).
+- **Claude en session** : les prix Cdiscount affichés datent du 16/11 ; relancer le relevé pendant la semaine du Black Friday. Aucun passage d'agent le 19/11 (crédits épuisés).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), build OK. Seuls `tasks/equipe.md` et ce journal changent.
+
 ## 20/11/2026, vendredi 8 h 25 (heure belge) — Dév QRT (mission piscine : contrôle en ligne)
 
 - **Rubrique piscine contrôlée en ligne** (envoyée le 18/11) : `/robot-piscine` en 200 avec 1 H1 et les 4 tuiles (hors-sol, enterrée, ligne d'eau, sans fil) ; adresse inconnue `/robot-piscine/inexistant` en 404 ; `/robot-piscine` présent dans `/sitemap.xml` ; lien présent sur l'accueil (menu et pied de page). Capture à 390 px regardée : mascotte piscine, phrase « aucun article publié », encart « nous n'essayons aucun robot », aucun débordement. **Rien à annuler.**
