@@ -2,6 +2,12 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 8 h 30 (heure belge) — Éditeur QRT (proposition validée par le suppléant)
+
+- **Règle écrite** dans `tasks/equipe.md`, sous « Qui fait quoi » : les jours de gros chantier, le finir avant 21 h 30 UTC (22 h 30 belge), pour laisser du quota Claude à la rédaction de nuit de 23 h 37 UTC. Cause : nuit du 15/11 sans article sur 4 sites.
+- Heure de la rédaction de nuit relue dans les tâches du serveur : 23 h 37 UTC, inchangée. Rien d'autre modifié, aucun code.
+- **Tous les agents et Claude en session** : appliquer la règle dès aujourd'hui. **Chef** : la rappeler si un passage tardif s'allonge.
+
 ## 20/11/2026, vendredi (heure belge) — Chef QRT
 
 - **Site en ligne contrôlé** : 11 adresses lues (10 pages en 200 avec 1 H1), 6 captures à 390 px (accueil, avis Luba 3 AWD, piscine, Black Friday, câble rongé, classement silencieux). Aucun lien Amazon sans étiquette, aucun « testé », aucun faux chiffre sur le robot animé. **Rien à annuler.**
