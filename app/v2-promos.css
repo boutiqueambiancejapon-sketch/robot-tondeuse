@@ -32,6 +32,9 @@
   .promo-faq-titre { margin-bottom: 12px; }
   .promo-prix { display: flex; align-items: center; gap: 10px; }
   .promo-robots .dated { margin-top: 10px; }
+  .top-robot { display: flex; align-items: center; gap: 12px; }
+  .top-robot > div { min-width: 0; }
+  .top-robot h3 { font-size: 17px; margin: 0; }
   .promo-robots .mini > div { min-width: 0; }
   .promo-robots .mini .price { font-size: 16px; max-width: 42%; white-space: normal; text-align: right; }
   .promo-marques { border-bottom: 1px solid var(--line); }

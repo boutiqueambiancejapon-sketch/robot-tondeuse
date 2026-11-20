@@ -8,13 +8,14 @@ import { notFound } from 'next/navigation'
 import { niche } from '@/niche.config'
 import { DEFAULT_OG_IMAGES } from '@/lib/og/default'
 import { PageTitle } from '@/components/v2/PageTitle'
-import { BLACK_FRIDAY, dateFr, getBlackFridayBrands, getBrandRobots, getPromoBrand } from '@/lib/promos'
+import { BLACK_FRIDAY, dateFr, getBlackFridayBrands, getBrandRobots, getPromoBrand, getTopRobots } from '@/lib/promos'
 import { Faq } from '@/components/promos/Faq'
 import { JsonLd } from '@/components/promos/JsonLd'
 import { Alerte } from '@/components/promos/Alerte'
 import { Offres } from '@/components/promos/Offres'
 import { Releves } from '@/components/promos/Releves'
 import { RobotsMarque } from '@/components/promos/RobotsMarque'
+import { TopRobots } from '@/components/promos/TopRobots'
 import { QuandBaisse, RegleBaisse } from '@/components/promos/Sections'
 import { faqBlackFriday } from '@/components/promos/textes'
 
@@ -100,6 +101,14 @@ export default async function BlackFridayMarquePage({ params }: { params: Params
           </section>
           {brand.offers.length > 0 ? <Offres offers={brand.offers} /> : null}
           {nr > 0 ? <Releves releves={brand.releves} boutique={`la boutique ${m}`} /> : null}
+
+          <section aria-labelledby="haut-de-gamme" className="stack">
+            <h2 id="haut-de-gamme" className="h-md">Les robots {m} haut de gamme : où sont-ils le moins chers ?</h2>
+            <p>
+              Le prix de ces modèles change d’un marchand à l’autre. Cdiscount et Fnac : prix relevé à la date indiquée. Amazon : prix affiché sur sa page, à vérifier au moment de l’achat.
+            </p>
+            <TopRobots robots={getTopRobots(robots)} />
+          </section>
 
           <section aria-labelledby="robots" className="stack">
             <h2 id="robots" className="h-md">Quel est le prix des robots tondeuses {m} avant le Black Friday ?</h2>

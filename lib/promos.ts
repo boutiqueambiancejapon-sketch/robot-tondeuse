@@ -76,6 +76,8 @@ export type PromoRobot = {
   /** « chez Amazon », « sur husqvarna.com ». */
   ou: string
   partenaire: boolean
+  /** Lien Amazon de la fiche, s'il existe (sinon recherche Amazon affiliée). */
+  amazonUrl?: string
 }
 
 /** Date du dernier contrôle de toutes les marques. */
@@ -220,11 +222,23 @@ export function getBrandRobots(brand: PromoBrand): PromoRobot[] {
         url,
         ou: ou(store, url),
         partenaire: store.toLowerCase() === 'amazon',
+        amazonUrl: product.links?.find((l) => l.store.toLowerCase() === 'amazon')?.url,
       })
       robotsParCategorie.set(product.categorie, liste)
     }
   }
   return robotsParCategorie.get(brand.categorie) ?? []
+}
+
+/** Prix haut d'une fourchette « 1 599-1 899 € » → 1899 (0 si illisible). */
+function prixHaut(prix: string): number {
+  const nombres = prix.replace(/[\s\u00a0\u202f]/g, '').match(/\d+/g)
+  return nombres ? Math.max(...nombres.map(Number)) : 0
+}
+
+/** Les robots les plus haut de gamme d'une marque (prix indicatif le plus élevé d'abord). */
+export function getTopRobots(robots: PromoRobot[], n = 3): PromoRobot[] {
+  return [...robots].sort((a, b) => prixHaut(b.prix) - prixHaut(a.prix)).slice(0, n)
 }
 
 /** Marques qui ont au moins une fiche robot : seules celles-ci ont une page Black Friday. */
