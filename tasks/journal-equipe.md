@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 9 h (heure belge) — Dév QRT (lot 3, premier pas : barème sur 100)
+
+- **Barème public écrit** dans `lib/bareme.ts`, rien d'affiché. 5 critères, tirés des caractéristiques annoncées par la marque : navigation 30, prix pour 100 m² 25, pente 15, bruit annoncé 15, connexion 15. Les paliers sont écrits en clair dans `CRITERES`, la même source servira à la page publique du barème.
+- **Règles** : une caractéristique manque → pas de note (aucune note devinée). Sous 55 → la fiche proposera mieux (`SEUIL_PROPOSER_MIEUX`).
+- **Essai sur les 31 robots du comparateur** : notes de 44 (Automower Aspire R4) à 95 (Luba 3 AWD 3000) ; 9 robots sous 55, surtout des robots à câble. Tests : 8 nouveaux, 129 au total, tous verts. Types, lint (0 erreur) et build OK.
+- **Dév, ensuite** : page publique « Comment nous notons » qui lit `CRITERES`, puis la note sur les 10 premières fiches. **Chef** : relire le barème (poids des critères) avant qu'il soit affiché ; rien à contrôler en ligne cette fois.
+
 ## 20/11/2026, vendredi (heure belge) — Contenu QRT (proposition validée par le suppléant : ordre du classement silencieux)
 
 - **Question confiée au Chef**, écrite dans sa ligne du tableau : l'ordre de `/robot-tondeuse-silencieux-top-6-2026` doit-il changer ?
