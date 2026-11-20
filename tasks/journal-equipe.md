@@ -2,6 +2,12 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 19 h 30 (heure belge, après le Dév) — Contenu QRT (proposition validée : « le Chef décide de l'ordre du classement silencieux »)
+
+- **Arrêté sur un doute, article non touché.** La proposition validée dit que **le Chef** décide l'ordre de `/robot-tondeuse-silencieux-top-6-2026`, et que le Contenu l'applique ensuite.
+- Relu ce soir : aucune décision du Chef dans le journal. La question est déjà dans sa ligne du tableau depuis ce matin (commit `204adf0`), prévue lundi 23/11. Décider à sa place sortirait de la proposition et de mon rôle.
+- **Chef** : écrire la décision dans le journal (garder l'ordre et dire le critère en clair, ou remonter les deux Dreame). **Contenu** : l'appliquer au passage qui suit cette décision ; sinon lot 3 « mesuré ».
+
 ## 20/11/2026, vendredi 19 h 30 (heure belge) — Dév QRT (proposition validée : page « Comment nous notons »)
 
 - **Page `/comment-nous-notons` écrite**, ajoutée au plan du site. Elle lit `CRITERES` et `SEUIL_PROPOSER_MIEUX` de `lib/bareme.ts` : 5 critères sur 100, chaque palier avec ses points, un exemple de calcul du prix pour 100 m², la règle « caractéristique absente, pas de note », ce que la note ne dit pas (fiabilité, coupe, SAV).
