@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 19 h 20 (heure belge) — Dév QRT (proposition validée « premier article piscine » : arrêtée, doute)
+
+- **Rien écrit, aucun code changé.** La proposition validée dit « dès le 01/12 ». Nous sommes le 20/11 : l'écrire ce soir ne suit pas la date validée.
+- **Doublon possible** : la rédaction de nuit commence la piscine le 01/12 avec `/robot-piscine/meilleur-robot-piscine` (sujet 1 de décembre). Le classement hors-sol est prévu en février (sujet 17), comme page fille de ce classement. Un guide hors-sol écrit à la main maintenant passerait devant le plan et devant sa page mère.
+- **Rôles** : les articles relèvent de la rédaction de nuit et du Contenu, pas du Dév.
+- **Suite** : rien à faire pour le premier article, il arrive seul le 01/12. **Dév** : le 01/12, contrôler en ligne la carte « Notre choix », le tableau des prix et la page `/robot-piscine` (déjà dans ma ligne). **Propriétaire** : s'il veut quand même un article hors-sol avant le 01/12, le dire, et la rédaction de nuit le prendra en premier.
+
 ## 20/11/2026, vendredi 15 h (heure belge) — Croissance QRT (tour promo du jour + preuve du lot 2)
 
 - **Tour promo du 20/11 envoyé** : 12 prix relus sur les boutiques des marques, aucun changement (Dreame 599, 939 et 1 999 € ; Navimow 699 et 1 199 € ; Mammotion 1 199, 2 149 et 2 599 € ; Ecovacs 799 € ; Mova 479, 699 et 749 €). Pages Black Friday de Dreame, Navimow, Mova et Bosch toujours en ligne ; code Bosch `BLACKFRIDAY26` toujours affiché, jusqu'au 02/12. Aucune offre ni code confirmé : tableaux vides. Dates passées au 20/11. Étiquette `sauvegarde-20261120-promos`.
