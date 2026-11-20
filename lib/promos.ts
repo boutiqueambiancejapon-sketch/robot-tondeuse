@@ -79,7 +79,7 @@ export type PromoRobot = {
 }
 
 /** Date du dernier contrôle de toutes les marques. */
-export const PROMOS_CHECKED_AT = '2026-11-18'
+export const PROMOS_CHECKED_AT = '2026-11-20'
 
 export const BLACK_FRIDAY = { year: 2026, date: '2026-11-27', cyberMonday: '2026-11-30' }
 
@@ -89,7 +89,7 @@ const QUAND_ACHETER: Pick<PromoNote, 'href' | 'source'> = {
 }
 
 /** Relevés du 18/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow et Ecovacs (pages Black Friday et fiches produit). */
-const DATE_RELEVES = '2026-11-18'
+const DATE_RELEVES = '2026-11-20'
 const releve = (slug: string, url: string, price: number, reference: number, cadeau?: string): PrixReleve => ({
   slug, url, price, reference, checkedAt: DATE_RELEVES, ...(cadeau ? { cadeau } : {}),
 })
@@ -111,7 +111,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('dreame', 'Dreame', {
     texte: 'Dreame annonce son Black Friday du 16 au 30 novembre 2026, après des remises ouvertes le 30 octobre.',
     href: 'https://fr.dreametech.com/pages/black-friday',
-    source: 'la page Black Friday de Dreame, lue le 18 novembre 2026',
+    source: 'la page Black Friday de Dreame, lue le 20 novembre 2026',
   }, 'dreame', {
     releves: [
       releve('dreame-a1-pro', 'https://fr.dreametech.com/products/robot-tondeuse-dreame-a1-pro', 599, 1099),
@@ -128,7 +128,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('segway-navimow', 'Segway Navimow', {
     texte: 'Navimow annonce ses offres Black Friday du 10 au 30 novembre 2026. Le 18 novembre, sa boutique indique les i208, i215 et i220 LiDAR en rupture.',
     href: 'https://fr.navimow.com/pages/black-friday',
-    source: 'la page Black Friday de Navimow, lue le 18 novembre 2026',
+    source: 'la page Black Friday de Navimow, lue le 20 novembre 2026',
   }, 'segway', {
     releves: [
       releve('segway-navimow-i105e', 'https://fr.navimow.com/products/navimow-i1-robot-lawn-mower', 699, 799),
@@ -138,7 +138,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('mammotion', 'Mammotion', {
     texte: 'Mammotion annonce ses offres Black Friday du 10 au 30 novembre 2026.',
     href: 'https://fr.mammotion.com/',
-    source: 'la boutique Mammotion, lue le 18 novembre 2026',
+    source: 'la boutique Mammotion, lue le 20 novembre 2026',
   }, 'mammotion', {
     releves: [
       releve('mammotion-luba-mini-2-awd-1000', 'https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000', 1199, 1499),
@@ -154,12 +154,12 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('bosch', 'Bosch', {
     texte: 'Bosch publie le code BLACKFRIDAY26 du 13 novembre au 2 décembre 2026, pour une sélection d’outils 18 V. Aucun robot Indego ne figure parmi les outils affichés et nous n’avons pas essayé le code sur un robot.',
     href: 'https://www.bosch-diy.com/fr/fr/blackweekpromo',
-    source: 'la page « Semaines Black Friday » de Bosch, lue le 18 novembre 2026',
+    source: 'la page « Semaines Black Friday » de Bosch, lue le 20 novembre 2026',
   }),
   marque('ecovacs', 'Ecovacs', {
     texte: 'Ecovacs annonce son Black Friday du 9 au 30 novembre 2026. Pour le Goat A1600 LiDAR Pro, sa boutique indique elle-même 999 € comme prix le plus bas des 30 derniers jours.',
     href: 'https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower',
-    source: 'la boutique Ecovacs, lue le 18 novembre 2026',
+    source: 'la boutique Ecovacs, lue le 20 novembre 2026',
   }, 'ecovacs', {
     releves: [
       releve('ecovacs-goat-a1600-lidar-pro', 'https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower/goat-a1600-lidar-pro', 799, 1499),
@@ -168,7 +168,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('mova', 'Mova', {
     texte: 'Mova annonce ses offres Black Friday du 10 au 30 novembre 2026, après un accès anticipé du 27 octobre au 9 novembre.',
     href: 'https://fr.mova.tech/pages/offre-black-friday',
-    source: 'la page Black Friday de Mova, lue le 18 novembre 2026',
+    source: 'la page Black Friday de Mova, lue le 20 novembre 2026',
   }, 'mova', {
     releves: [
       releve('mova-viax-250', 'https://fr.mova.tech/products/robot-tondeuse-viax-250', 479, 579),
