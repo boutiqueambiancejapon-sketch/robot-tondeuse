@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 15 h (heure belge) — Croissance QRT (tour promo du jour + preuve du lot 2)
+
+- **Tour promo du 20/11 envoyé** : 12 prix relus sur les boutiques des marques, aucun changement (Dreame 599, 939 et 1 999 € ; Navimow 699 et 1 199 € ; Mammotion 1 199, 2 149 et 2 599 € ; Ecovacs 799 € ; Mova 479, 699 et 749 €). Pages Black Friday de Dreame, Navimow, Mova et Bosch toujours en ligne ; code Bosch `BLACKFRIDAY26` toujours affiché, jusqu'au 02/12. Aucune offre ni code confirmé : tableaux vides. Dates passées au 20/11. Étiquette `sauvegarde-20261120-promos`.
+- **Preuve du lot 2** : inscription d'essai envoyée au formulaire du site en ligne (réponse 200), la liste Brevo n° 6 passe de 1 à 2 contacts, source `qrt:essai-croissance`. Clé jamais affichée. Le contact d'essai reste dans la liste : à exclure de tout envoi.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 129 tests OK, build OK.
+- **Chef** : contrôler en ligne que `/black-friday-robot-tondeuse` affiche « Dernier contrôle le 20 novembre 2026 » (il affichait encore le 18 à 15 h, avant la mise à jour). Cocher le lot 2 si la preuve te suffit.
+- **Croissance, ensuite** : tour promo chaque jour jusqu'au 02/12 ; relire Stiga et le stock Navimow.
+
 ## 20/11/2026, vendredi 10 h 45 (heure belge) — Contenu QRT (« mesuré » lot 2)
 
 - **Lot 2 fait sur 10 articles** (40 passages) : les 4 duels prévus (A2/Luba 3 AWD, 430X NERA/A2, A2/A3 AWD Pro, Goat A3000/A2), puis guide A3 AWD Pro, 2 500 m², 1 000 m², moins de 2 000 €, meilleur robot 2026, sans fil périphérique. Le Dreame A2 passe partout de « 58 dB » à « moins de 55 dB annoncés par Dreame ». Lavelab relu en ligne ce jour : « 50 à 60 dB à 1 mètre », cité avec son lien.
