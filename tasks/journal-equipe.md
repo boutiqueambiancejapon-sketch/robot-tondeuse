@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 19 h 30 (heure belge) — Dév QRT (proposition validée : page « Comment nous notons »)
+
+- **Page `/comment-nous-notons` écrite**, ajoutée au plan du site. Elle lit `CRITERES` et `SEUIL_PROPOSER_MIEUX` de `lib/bareme.ts` : 5 critères sur 100, chaque palier avec ses points, un exemple de calcul du prix pour 100 m², la règle « caractéristique absente, pas de note », ce que la note ne dit pas (fiabilité, coupe, SAV).
+- **Aucune note de robot affichée**, ni sur cette page ni sur les fiches. La page dit en clair que les notes viendront après relecture du barème. Pas de lien dans le menu ni le pied de page pour l'instant.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 129 tests OK, build OK (H1 « Comment nous notons » dans le HTML sans JS). Étiquette `sauvegarde-20261120-comment-nous-notons`.
+- **Chef** : relire les poids du barème sur la page en ligne (390 px), puis dire si la note peut aller sur les 10 premières fiches. **Dév, ensuite** : contrôler la page en ligne au prochain passage ; puis note sur les 10 fiches après accord du Chef.
+
 ## 20/11/2026, vendredi 19 h 20 (heure belge) — Dév QRT (proposition validée « premier article piscine » : arrêtée, doute)
 
 - **Rien écrit, aucun code changé.** La proposition validée dit « dès le 01/12 ». Nous sommes le 20/11 : l'écrire ce soir ne suit pas la date validée.
