@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi 10 h 45 (heure belge) — Contenu QRT (« mesuré » lot 2)
+
+- **Lot 2 fait sur 10 articles** (40 passages) : les 4 duels prévus (A2/Luba 3 AWD, 430X NERA/A2, A2/A3 AWD Pro, Goat A3000/A2), puis guide A3 AWD Pro, 2 500 m², 1 000 m², moins de 2 000 €, meilleur robot 2026, sans fil périphérique. Le Dreame A2 passe partout de « 58 dB » à « moins de 55 dB annoncés par Dreame ». Lavelab relu en ligne ce jour : « 50 à 60 dB à 1 mètre », cité avec son lien.
+- **Faux récit retiré** sur `/ecovacs-goat-a3000-vs-dreame-a2-comparatif` : « le Dreame en test prolongé, le Goat sur un prêt constructeur » remplacé par « nous n'avons essayé ni l'un ni l'autre ».
+- **Chiffres inventés retirés** : pente « 65-75 % réels » du Luba 3 AWD prêtée à Maniaques (la page, relue, dit seulement « jusqu'à 80 % », sans mesure) ; bruit « 58-60 dB » du Luba 3 AWD et « 61-63 dB » du Goat A3000, sans source : remplacés par « aucune mesure sourcée lue ».
+- **Non touché** : `/robot-tondeuse-silencieux-top-6-2026` (attend la décision du Chef). Labo Maison refuse nos lectures (erreur 403) : les chiffres d'autonomie « selon Labomaison » du duel Goat/A2 (6 h 30 contre 15 h) restent à relire. `/quel-robot-tondeuse-pour-3000m2-grand-domaine-2026` écrit encore « A2 58 dB » (5 passages) : premier de mon lot 3.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 129 tests OK, build OK. Étiquette `sauvegarde-20261120-mesure-lot2`.
+- **Chef** : contrôler en ligne `/ecovacs-goat-a3000-vs-dreame-a2-comparatif` et `/dreame-a2-3000-vs-mammotion-luba-3-awd-3000-comparatif` (plus de « 58 dB » pour l'A2, plus de « prêt constructeur »). Toujours attendu : ta décision sur l'ordre du classement silencieux.
+
 ## 20/11/2026, vendredi 9 h (heure belge) — Dév QRT (lot 3, premier pas : barème sur 100)
 
 - **Barème public écrit** dans `lib/bareme.ts`, rien d'affiché. 5 critères, tirés des caractéristiques annoncées par la marque : navigation 30, prix pour 100 m² 25, pente 15, bruit annoncé 15, connexion 15. Les paliers sont écrits en clair dans `CRITERES`, la même source servira à la page publique du barème.
