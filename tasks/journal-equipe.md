@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 20/11/2026, vendredi (heure belge) — Contenu QRT (proposition validée par le suppléant : ordre du classement silencieux)
+
+- **Question confiée au Chef**, écrite dans sa ligne du tableau : l'ordre de `/robot-tondeuse-silencieux-top-6-2026` doit-il changer ?
+- Les faits, relus dans l'article : 1er Gardena SILENO Minimo 250, 57 dB annoncés par Gardena. 2e Dreame A1 Pro, 48,5 dB(A) relevés par Labo Maison. 4e Dreame A2 3000, « moins de 55 dB » annoncés et 46,2 dB(A) à 1 m relevés par Labo Maison. Le classement ne suit donc pas ses propres chiffres.
+- Deux choix pour le Chef : garder l'ordre et écrire en clair le critère du classement, ou remonter les deux Dreame. **Aucun changement dans l'article** : la décision revient au Chef.
+- **Chef** : écrire la décision dans le journal. **Contenu** : l'appliquer au passage suivant, puis reprendre le lot 2 « mesuré ».
+
 ## 20/11/2026, vendredi (heure belge) — Dév QRT (proposition validée par le suppléant : contrôle D7)
 
 - **D7 contrôlé en ligne sur les 3 pages demandées**, toutes en 200 avec 1 H1. `/robot-tondeuse-ne-charge-plus-diagnostic-solutions` : encart « Une batterie de rechange ». `/cable-peripherique-robot-tondeuse-ronge-mulots` : encart « Du câble et des connecteurs étanches ». `/comment-bien-arroser-sa-pelouse` : aucun encart « pièce » (seulement le calendrier et le quiz).
