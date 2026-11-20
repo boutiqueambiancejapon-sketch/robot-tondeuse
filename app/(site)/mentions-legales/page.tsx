@@ -26,10 +26,11 @@ export default function MentionsLegalesPage() {
             <h2>Éditeur du site</h2>
             <div>
               <p>Site : {niche.siteName} — https://{niche.domain}</p>
-              <p>Nom / Raison sociale : [À compléter]</p>
-              <p>Adresse : [À compléter]</p>
-              <p>Email : [À compléter]</p>
-              <p>Directeur de la publication : [À compléter]</p>
+              <p>Titulaire : Mathias Cetani</p>
+              <p>Numéro d'entreprise (BCE) et TVA : BE 0683.927.006</p>
+              <p>Adresse : Lindestraat 94, 1785 Merchtem, Belgique</p>
+              <p>E-mail : bonjour@quel-robot-tondeuse.com</p>
+              <p>Responsable de la publication : Mathias Cetani</p>
             </div>
           </section>
 
