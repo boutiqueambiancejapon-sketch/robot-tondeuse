@@ -42,7 +42,7 @@ Pour personnaliser un site : modifier uniquement `niche.config.ts`, pas les comp
 - Done → prouver avant de marquer
 
 ## Build sur le serveur
-- Tout build et tout `npm ci` passent par la file d'attente commune du VPS : `vps-build -- npm run build` (Safeguard : un seul build à la fois sur tout le serveur, mémoire bornée à 5 Go, journal `/var/log/safeguard/builds.log`).
+- Tout build et tout `npm ci` passent par la file d'attente commune du VPS : `vps-build -- npm run build` (Safeguard : un seul build à la fois sur tout le serveur, mémoire bornée à 9 Go, journal `/var/log/safeguard/builds.log`).
 - La file attend seule son tour : ne jamais chercher soi-même avec `ps` ou `pgrep` si un autre build tourne.
 
 ## Filtre qualité — avant chaque commit
