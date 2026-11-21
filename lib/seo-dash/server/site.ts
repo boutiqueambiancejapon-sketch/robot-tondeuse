@@ -1,7 +1,7 @@
 import type { Pool } from 'pg'
 import { SITE } from '../config'
 import type { Filters } from '../filters'
-import { daysOf, type Range, type Ranges } from './range'
+import { bucketSql, daysOf, spanSql, type Range, type Ranges } from './range'
 import { filterSql, num, Params } from './sql'
 import { EV, VIEW } from './views'
 
@@ -35,20 +35,18 @@ export function clickValue(): { clients: number; revenue: number } {
   return { clients: SITE.partner.clientRate ?? 0, revenue: SITE.partner.valuePerClick ?? 0 }
 }
 
-const span = (p: Params, r: Range) =>
-  `ts >= (${p.add(r.start)}::date AT TIME ZONE 'Europe/Paris') AND ts < ((${p.add(r.end)}::date + 1) AT TIME ZONE 'Europe/Paris')`
-const DAY_SQL = `(ts AT TIME ZONE 'Europe/Paris')::date::text`
+const span = (p: Params, r: Range) => spanSql(p, r)
 
 export async function siteDaily(pool: Pool, f: Filters, r: Range): Promise<SiteDay[]> {
   const p = new Params()
   const views = pool.query<{ day: string; n: number; v: number }>(
-    `SELECT ${DAY_SQL} AS day, count(*)::int AS n, count(DISTINCT visitor)::int AS v FROM analytics.hits
+    `SELECT ${bucketSql(r)} AS day, count(*)::int AS n, count(DISTINCT visitor)::int AS v FROM analytics.hits
       WHERE ${VIEW()} AND ${span(p, r)}${filterSql(f, p, { pageCol: 'path', deviceCol: 'device', deviceKind: 'hits' })} GROUP BY 1`,
     p.values,
   )
   const q = new Params()
   const events = pool.query<{ day: string; name: string; n: number }>(
-    `SELECT ${DAY_SQL} AS day, name, count(*)::int AS n FROM analytics.events
+    `SELECT ${bucketSql(r)} AS day, name, count(*)::int AS n FROM analytics.events
       WHERE name IN (${q.add(SITE.partner.event)}, ${q.add(EV.account)}) AND ${span(q, r)}${filterSql(f, q, { pageCol: 'page', deviceCol: 'device', deviceKind: 'hits' })}
       GROUP BY 1, 2`,
     q.values,
@@ -93,7 +91,23 @@ export interface SiteKpis {
   prev: SiteTotals | null
 }
 
+/** Distinct visitors of an hourly window (adding hours up would count the same person several times). */
+async function visitorsIn(pool: Pool, f: Filters, r: Range): Promise<number> {
+  const p = new Params()
+  const { rows } = await pool.query<{ v: number }>(
+    `SELECT count(DISTINCT visitor)::int AS v FROM analytics.hits WHERE ${VIEW()} AND ${span(p, r)}${filterSql(f, p, { pageCol: 'path', deviceCol: 'device', deviceKind: 'hits' })}`,
+    p.values,
+  )
+  return num(rows[0]?.v)
+}
+
 export async function siteKpis(pool: Pool, f: Filters, ranges: Ranges): Promise<SiteKpis> {
   const [daily, prevDaily] = await Promise.all([siteDaily(pool, f, ranges.cur), ranges.prev ? siteDaily(pool, f, ranges.prev) : Promise.resolve([])])
-  return { ranges, daily, prevDaily, cur: sumDays(daily), prev: ranges.prev && !ranges.partial ? sumDays(prevDaily) : null }
+  const cur = { ...sumDays(daily) }
+  const prev = ranges.prev && !ranges.partial ? { ...sumDays(prevDaily) } : null
+  if (ranges.cur.hourly) {
+    cur.visitors = await visitorsIn(pool, f, ranges.cur)
+    if (prev && ranges.prev) prev.visitors = await visitorsIn(pool, f, ranges.prev)
+  }
+  return { ranges, daily, prevDaily, cur, prev }
 }
