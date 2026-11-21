@@ -131,3 +131,7 @@ Page `/robot-piscine` (choix par bassin, liste des articles), route `/robot-pisc
 - [ ] Propriétaire : partager la propriété Search Console avec le compte de service et déposer la clé (pas de copie depuis un autre site).
 - [ ] Corriger les 7 liens cassés (Technique › Liens cassés).
 - [ ] Clé CrUX (`CRUX_API_KEY`) pour les données Chrome de Technique.
+
+## 2026-11-21 — Tableau de bord : onglet Sources
+
+Nouvel onglet « Sources » (menu à côté de Direct ; sur iPhone : Menu, et sous-onglet de Direct) qui remplace l'ancienne page Trafic › Acquisition (l'adresse renvoie vers Sources). Visites par famille (Recherche, Assistants IA, Réseaux sociaux, E-mail et lettre, Sites référents, Direct), colonnes empilées par jour ou semaine, tableau par famille (visites, part, écart, pages par visite, clics marchands et inscriptions pour 100 visites), bloc « Moteurs de recherche hors Google » avec courbe par moteur, pages d'arrivée par source, détail d'une source (`/dashboard/sources/source?s=search:Bing`), appareils et pays par famille, 5 exports CSV. Classement partagé avec Toutou et 10min (`lib/seo-dash/source.ts`, même fichier), aussi utilisé par le fil en direct. Fichier propre au site : `lib/seo-dash/server/visits.ts` (journal Caddy + événements).

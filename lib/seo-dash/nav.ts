@@ -6,7 +6,7 @@ import type { Pose } from '@/lib/mascotte'
 
 export const ROOT = '/dashboard'
 
-export type IconKey = 'today' | 'google' | 'crawl' | 'tech' | 'revenue' | 'live' | 'notes' | 'menu'
+export type IconKey = 'today' | 'google' | 'crawl' | 'tech' | 'revenue' | 'live' | 'sources' | 'notes' | 'menu'
 
 export interface NavItem {
   slug: string
@@ -25,6 +25,7 @@ export const MAIN_TABS: NavItem[] = [
   { slug: 'technique', label: 'Technique', desc: 'Vitesse, liens cassés, titres', icon: 'tech', mascot: 'outils' },
   { slug: 'revenus', label: 'Revenus', desc: 'Quelles pages envoient vers Amazon, Cdiscount, Fnac', icon: 'revenue', mascot: 'prix' },
   { slug: 'en-direct', label: 'Direct', desc: 'Qui est sur le site maintenant', icon: 'live', mascot: 'side' },
+  { slug: 'sources', label: 'Sources', desc: 'Moteurs, IA, réseaux, e-mails : d’où viennent les visites', icon: 'sources', mascot: 'ete' },
   { slug: 'contenu', label: 'Contenu & notes', desc: 'Publications, prix, changements, notes', icon: 'notes', mascot: 'lecture' },
 ]
 
@@ -47,6 +48,9 @@ export const BOTTOM_BAR: { slug: string; label: string; icon: IconKey }[] = [
   { slug: 'en-direct', label: 'Direct', icon: 'live' },
   { slug: 'menu', label: 'Menu', icon: 'menu' },
 ]
+
+/** Screens without a bottom-bar tab: the tab lit in their place (Sources is a sub-tab of Direct). */
+export const BOTTOM_PARENT: Record<string, string> = { sources: 'en-direct' }
 
 export function hrefOf(slug: string, query = ''): string {
   return `${slug ? `${ROOT}/${slug}` : ROOT}${query}`

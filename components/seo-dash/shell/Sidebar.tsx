@@ -1,7 +1,7 @@
 import { Fragment, type ReactNode } from 'react'
 import Link from 'next/link'
 import { SITE } from '@/lib/seo-dash/config'
-import { BOTTOM_BAR, hrefOf, MAIN_TABS, navOf, SUB_TABS, TOOLS } from '@/lib/seo-dash/nav'
+import { BOTTOM_BAR, BOTTOM_PARENT, hrefOf, MAIN_TABS, navOf, SUB_TABS, TOOLS } from '@/lib/seo-dash/nav'
 import { Mascotte } from '@/components/v2/Mascotte'
 import { NavIcon } from './Icons'
 
@@ -76,7 +76,7 @@ export function MobileTop({ title, mascot }: { title: string; mascot: ReactNode 
 }
 
 export function BottomBar({ current, query }: { current: string; query: string }) {
-  const lit = navOf(current)
+  const lit = BOTTOM_PARENT[current] ?? navOf(current)
   const tools = TOOLS.some((t) => t.slug === lit) || lit === 'menu'
   return (
     <nav className="sd-mtab" aria-label="Onglets principaux">
