@@ -22,7 +22,7 @@ export function PriceRows({ name, amazonUrl, amazonPrice }: Props) {
     })),
   ]
   return (
-    <ul className="prices" aria-label={`Prix de ${name}`}>
+    <ul className="prices" aria-label={`Prix de ${name}`} data-place="lignes-prix" data-robot={name}>
       {rows.map((r) => (
         <li key={r.marchand} className={r.best ? 'best' : undefined}>
           <a href={r.url} rel="sponsored nofollow noopener" target="_blank">

@@ -1,0 +1,25 @@
+# quel-robot-tondeuse.com owner dashboard: stores Caddy's access log in analytics.hits (database qrt).
+# Install: sudo cp deploy/qrt-ingest.* /etc/systemd/system/ && sudo systemctl daemon-reload
+#          && sudo systemctl enable --now qrt-ingest.timer
+# Runs as the site user `sites` (peer auth to PostgreSQL); SupplementaryGroups gives journal read
+# access to this service only. Same pattern as tenmin-ingest (10minlanguages.com).
+[Unit]
+Description=Quel Robot Tondeuse - Caddy log ingestion (dashboard)
+After=postgresql.service
+
+[Service]
+Type=oneshot
+User=sites
+Group=sites
+SupplementaryGroups=systemd-journal
+WorkingDirectory=/srv/sites/robot-tondeuse/current
+Environment=INGEST_HOSTS=quel-robot-tondeuse.com
+Environment=DATABASE_URL=postgresql:///qrt?host=/var/run/postgresql
+# Country lookup file (DB-IP Country Lite, CC BY 4.0) kept by Toutou's monthly update: copied when newer,
+# readable by the site too. '+' runs this one line as root, outside the sandbox below.
+ExecStartPre=+/bin/sh -c 'test /var/lib/qrt-geo/dbip-country-lite.mmdb -nt /var/lib/toutou-geo/dbip-country-lite.mmdb || install -D -m 0644 /var/lib/toutou-geo/dbip-country-lite.mmdb /var/lib/qrt-geo/dbip-country-lite.mmdb'
+ExecStart=/usr/bin/node scripts/ingest-caddy-logs.mjs
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true

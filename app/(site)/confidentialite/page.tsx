@@ -1,6 +1,7 @@
 /**
  * /confidentialite — Politique de confidentialité.
  * Mise à jour le 14/11/2026 (lot 2, G3) : lettre du jardin (Brevo), comptage sans cookie, journaux.
+ * Mise à jour le 21/11/2026 : tableau de bord (base qrt, code visiteur du jour, pays, gestes comptés, durées).
  * Responsable : Mathias Cetani (donné par le propriétaire le 15/11/2026).
  * E-mail : ne poser bonjour@quel-robot-tondeuse.com que lorsque la réception est confirmée.
  * noindex : page légale, pas de SEO.
@@ -32,7 +33,7 @@ export default function ConfidentialitePage() {
       <div className="wrap lst legal">
         <PageTitle
           title="Politique de confidentialité"
-          meta="Mise à jour le 14 novembre 2026."
+          meta="Mise à jour le 21 novembre 2026."
           crumbs={[{ href: '/', label: 'Accueil' }, { label: 'Confidentialité' }]}
         />
         <div className="prose">
@@ -56,18 +57,22 @@ export default function ConfidentialitePage() {
 
           <Bloc titre="Mesure d’audience, sans cookie">
             <p>
-              Le site ne dépose aucun cookie de mesure ni de publicité. Pour savoir quels outils servent, il
-              compte de façon anonyme certains gestes : un clic vers un marchand (adresse en <code>/go/</code>),
-              un quiz terminé, une surface mesurée, un calcul de rentabilité. Ces gestes laissent une ligne
-              dans les journaux techniques du serveur, comme toute visite d’une page.
+              Le site ne dépose aucun cookie de mesure ni de publicité, et n’utilise aucun outil de mesure
+              extérieur. Les visites sont comptées à partir des journaux techniques du serveur, lus chaque
+              minute et rangés dans une base de données hébergée sur ce même serveur.
             </p>
+            <ul>
+              <li>Pour une personne, nous gardons la page vue, l’heure, le site d’où elle vient (son nom seulement), le type d’appareil (téléphone, tablette, ordinateur) et le pays, lu dans l’adresse IP grâce à un fichier installé sur le serveur.</li>
+              <li>L’adresse IP et le navigateur ne sont pas gardés. Ils servent à calculer un code de visiteur qui change chaque jour ; la clé de calcul est effacée après deux jours, et le code ne peut plus être relié à personne.</li>
+              <li>Pour les robots (moteurs de recherche, assistants d’IA), l’adresse IP et le nom du robot sont gardés, pour repérer les faux robots.</li>
+              <li>Le site compte aussi quelques gestes : un clic vers un marchand (le marchand, l’endroit du lien dans la page, le robot concerné), le robot conseillé à la fin du quiz (sans vos réponses), l’usage d’un outil et une inscription à la lettre (le formulaire utilisé, jamais l’adresse e-mail).</li>
+              <li>Durée : 180 jours pour les visites, 400 jours pour les gestes. Ces chiffres ne servent qu’au tableau de bord de l’éditeur et ne sont transmis à personne.</li>
+            </ul>
             <p>
-              Ces journaux contiennent l’adresse IP, la page demandée, la page d’origine, la date et le type
-              de navigateur. Ils servent à la sécurité du site et au comptage des visites. Ils sont effacés
-              par la rotation automatique des journaux du serveur et ne sont transmis à personne.
+              Les journaux bruts du serveur, qui contiennent l’adresse IP, servent aussi à la sécurité du
+              site. Ils sont effacés par leur rotation automatique.
             </p>
           </Bloc>
-
           <Bloc titre="Liens vers les marchands">
             <p>
               Certains liens mènent vers Amazon ou d’autres marchands, avec un identifiant d’affiliation.
@@ -78,8 +83,8 @@ export default function ConfidentialitePage() {
 
           <Bloc titre="Cookies">
             <p>
-              Aucun cookie pour les visiteurs. Seule l’interface d’administration du site utilise un cookie
-              de session, réservé à l’équipe éditoriale.
+              Aucun cookie pour les visiteurs. L’interface d’administration et le tableau de bord de
+              l’éditeur utilisent un cookie de session, réservé à l’équipe éditoriale.
             </p>
           </Bloc>
 

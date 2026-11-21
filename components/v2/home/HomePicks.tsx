@@ -37,7 +37,7 @@ export function HomePicks() {
                   <p className="price num">{product.prix}</p>
                   <p className="dated">Prix indicatif</p>
                   {product.hook ? <p className="small">{product.hook}</p> : null}
-                  <MerchantButtons offres={offresPour(product.name, slug)} />
+                  <MerchantButtons offres={offresPour(product.name, slug)} place="accueil-choix" robot={product.name} />
                 </div>
               </article>
             )

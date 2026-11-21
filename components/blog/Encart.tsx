@@ -43,7 +43,7 @@ export function Encart({ kind, merchant, message, piece }: Props) {
   if (kind === 'piece' && piece) {
     const { titre, texte, bouton } = PIECES[piece]
     return (
-      <aside className="card buy buy--plain" aria-label={titre} data-encart="piece">
+      <aside className="card buy buy--plain" aria-label={titre} data-encart="piece" data-place="encart-piece" data-robot={piece}>
         <div className="buy-b">
           <p className="buy-name">{titre}</p>
           <p className="small muted">{texte}</p>

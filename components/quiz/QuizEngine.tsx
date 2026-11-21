@@ -10,6 +10,7 @@ import type { Offre } from '@/lib/offres-format'
 
 import { useEffect, useRef, useState } from 'react'
 import { signaler } from '@/lib/utils/mesure'
+import { track } from '@/lib/track'
 import { Mascotte } from '@/components/v2/Mascotte'
 import { DEFAULT_STEPS, recommend, type Answers, type Step } from './quiz-logic'
 import { QuizResult } from './QuizResult'
@@ -51,6 +52,8 @@ export function QuizEngine({ steps, merchantLinks = {}, embedded = false }: Quiz
     if (last) {
       setPhase('arrivee')
       signaler('quiz-termine')
+      // Robot conseillé, pour le tableau de bord (aucune réponse du lecteur n'est envoyée).
+      track('quiz_result', { result: recommend(next).modele })
     }
     // Le temps de voir la réponse choisie, puis le robot repart.
     timer.current = setTimeout(() => {

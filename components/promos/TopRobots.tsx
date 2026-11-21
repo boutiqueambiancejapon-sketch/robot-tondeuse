@@ -8,9 +8,9 @@ import type { PromoRobot } from '@/lib/promos'
  */
 export function TopRobots({ robots }: { robots: PromoRobot[] }) {
   return (
-    <div className="stack">
+    <div className="stack" data-place="promos-top-robots">
       {robots.map((r) => (
-        <article key={r.slug} className="card stack">
+        <article key={r.slug} className="card stack" data-robot={r.name}>
           <div className="top-robot">
             {r.image ? <Image src={r.image} alt="" width={152} height={116} sizes="76px" /> : null}
             <div>
