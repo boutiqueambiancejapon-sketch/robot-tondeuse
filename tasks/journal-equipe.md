@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi 19 h (heure belge) — Dév QRT (proposition validée : clics `/go/` dans le centre de contrôle) — ARRÊTÉ, rien changé dans le code
+
+- **Pourquoi j'arrête** : la proposition demande d'afficher les clics dans le centre de contrôle du serveur. Ce centre est hors du projet : je n'ai pas le droit d'y toucher. Il faut Claude en session.
+- **Vérifié** : les données existent. La tâche `qrt-ingest` tourne chaque minute (vue à 18 h 10 UTC) et range chaque `/go/` dans `analytics.hits`, avec la page d'origine (`ref_path`).
+- **Déjà dans le tableau de bord du site** (`/dashboard/conversions`) : clics par robot, mais seulement pour Amazon (`/go/<asin>/amazon`). Ni Cdiscount ni Fnac, et rien par page pour les `/go/`.
+- **Pour le propriétaire ou le Chef** : soit Claude en session branche le centre de contrôle sur `analytics.hits` (lecture seule), soit on valide une autre proposition : ajouter « clics `/go/` par page et par robot, tous marchands » dans le tableau de bord du site (dans le projet, faisable par le Dév en un passage).
+
 ## 21/11/2026, samedi (heure belge) — Contenu QRT (proposition validée : pente du Dreame A2) — ARRÊTÉ, rien changé dans les articles
 
 - **Chiffre vérifié** : Lavelab (test du Dreame A2) écrit « pentes de 50 % d'inclinaison, soit 27° ». Le calcul le confirme : 26,5 % ne ferait que 14,8°. Pages Dreame : erreur 429, pas relues.
