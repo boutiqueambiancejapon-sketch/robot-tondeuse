@@ -10,7 +10,7 @@ import { DashboardShell } from '@/components/dashboard/DashboardShell'
 
 export const dynamic = 'force-dynamic'
 
-const REPO = 'https://github.com/boutiqueambiancejapon-sketch/10minlanguages/commit/'
+const REPO = 'https://github.com/boutiqueambiancejapon-sketch/robot-tondeuse/commit/'
 
 function Status({ good, children }: { good: boolean; children: string }) {
   return <span className={`tag ${good ? 'tag--ok' : 'tag--bad'}`}>{children}</span>
@@ -20,14 +20,16 @@ export default async function ServerPage() {
   if (!(await dashboardAllowed())) notFound()
   const [s, r] = await Promise.all([getServer(), safeRead('responses', EMPTY_RESPONSES, getResponses)])
   const ms = (v: number | null) => (v === null ? '–' : `${n(Math.round(v))} ms`)
-  const site = s.units['site@10minlanguages.service'] ?? {}
-  const deploy = s.units['site-deploy@10minlanguages.service'] ?? {}
-  const deployTimer = s.units['site-deploy@10minlanguages.timer'] ?? {}
-  const ingest = s.units['tenmin-ingest.service'] ?? {}
+  const site = s.units['site@robot-tondeuse.service'] ?? {}
+  const deploy = s.units['site-deploy@robot-tondeuse.service'] ?? {}
+  const deployTimer = s.units['site-deploy@robot-tondeuse.timer'] ?? {}
+  const ingest = s.units['qrt-ingest.service'] ?? {}
   const started = unixDate(site.ActiveEnterTimestamp)
   const lastDeployRun = unixDate(deploy.ExecMainExitTimestamp || deploy.InactiveEnterTimestamp)
   const nextDeploy = unixDate(deployTimer.NextElapseUSecRealtime)
   const lastIngest = unixDate(ingest.ExecMainExitTimestamp || ingest.InactiveEnterTimestamp)
+  const offres = s.units['qrt-offres.service'] ?? {}
+  const lastPrices = unixDate(offres.ExecMainExitTimestamp || offres.InactiveEnterTimestamp)
   const memory = Number(site.MemoryCurrent)
   return (
     <DashboardShell current="serveur" title="Serveur" intro="L’état du site sur le serveur, lu à l’ouverture de la page.">
@@ -55,6 +57,8 @@ export default async function ServerPage() {
           <dd>{nextDeploy ? when(nextDeploy) : '–'}</dd>
           <dt>Relevé des visites</dt>
           <dd>{lastIngest ? ago(lastIngest) : '–'} {ingest.Result && <Status good={ingest.Result === 'success'}>{ingest.Result === 'success' ? 'OK' : 'Échec'}</Status>}</dd>
+          <dt>Relevé des prix (chaque semaine)</dt>
+          <dd>{lastPrices ? ago(lastPrices) : '–'} {offres.Result && <Status good={offres.Result === 'success'}>{offres.Result === 'success' ? 'OK' : 'Échec'}</Status>}</dd>
         </dl>
       </Card>
       <Card title="Réponses du site" note="24 dernières heures">

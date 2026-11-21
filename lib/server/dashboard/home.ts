@@ -1,6 +1,7 @@
 import 'server-only'
 import type { Pool } from 'pg'
 import { TZ } from '@/lib/dashboard/period'
+import { humanView } from './sessions'
 
 // Home: five figures for today (since midnight, Brussels time), 7 days and 30 days, 
 // the ingester's freshness. Page views come from Caddy's log (analytics.hits).
@@ -27,13 +28,13 @@ export async function getSummary(pool: Pool): Promise<Summary> {
                  count(*) FILTER (WHERE h.kind LIKE 'ai\\_%' AND h.ts >= w.${k})::int AS ai_${k}`,
        )
        .join(',')}
-       FROM w LEFT JOIN analytics.hits h ON h.ts >= w.d30 AND (h.kind <> 'human' OR (h.status BETWEEN 200 AND 299 OR h.status = 304))`,
+       FROM w LEFT JOIN analytics.hits h ON h.ts >= w.d30 AND (h.kind <> 'human' OR (${humanView('h.')}))`,
   )
   const events = await pool.query<Record<string, number>>(
     `WITH w AS (SELECT ${WINDOWS})
      SELECT ${(['today', 'd7', 'd30'] as const)
        .map(
-         (k) => `count(*) FILTER (WHERE e.name = 'preply_click' AND e.ts >= w.${k})::int AS clicks_${k},
+         (k) => `count(*) FILTER (WHERE e.name = 'affiliate_click' AND e.ts >= w.${k})::int AS clicks_${k},
                  count(*) FILTER (WHERE e.name = 'newsletter_signup' AND e.ts >= w.${k})::int AS signups_${k}`,
        )
        .join(',')}

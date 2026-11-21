@@ -3,12 +3,12 @@ import { createSign } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 
 // Search Console, read-only, with the Google service account Toutou already uses (key file
-// GSC_KEY_FILE, default /srv/sites/10minlanguages/shared/gsc-key.json, never in the repo). The
+// GSC_KEY_FILE, default /srv/sites/robot-tondeuse/shared/gsc-key.json, never in the repo). The
 // token is signed here (RS256), no Google library. Adapted from Toutou.
 
 const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly'
-const KEY_FILE = process.env.GSC_KEY_FILE || '/srv/sites/10minlanguages/shared/gsc-key.json'
-export const GSC_SITE = process.env.GSC_SITE || 'sc-domain:10minlanguages.com'
+const KEY_FILE = process.env.GSC_KEY_FILE || '/srv/sites/robot-tondeuse/shared/gsc-key.json'
+export const GSC_SITE = process.env.GSC_SITE || 'sc-domain:quel-robot-tondeuse.com'
 
 interface Key {
   client_email: string
@@ -61,7 +61,7 @@ async function gsc<T>(path: string, body?: unknown): Promise<T> {
   return (await res.json()) as T
 }
 
-/** True when the service account can read the 10 Min Languages property. */
+/** True when the service account can read the Quel Robot Tondeuse property. */
 export async function siteConnected(): Promise<boolean> {
   const sites = (await gsc<{ siteEntry?: { siteUrl: string }[] }>('sites')).siteEntry ?? []
   return sites.some((s) => s.siteUrl === GSC_SITE)

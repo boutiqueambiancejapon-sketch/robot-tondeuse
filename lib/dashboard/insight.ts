@@ -1,7 +1,7 @@
 import type { TypeRow } from './traffic'
 
 // "À retenir" sentence of the home page, from conversions per page type. Low but real thresholds:
-// below them, a sentence that says so, never an invented figure. Adapted from Toutou.
+// below them, a sentence that says so, never an invented figure. Ported from 10minlanguages.com.
 
 const MIN_GOALS = 3
 const MIN_VIEWS = 100
@@ -9,8 +9,8 @@ const pct = new Intl.NumberFormat('fr-FR', { style: 'percent', maximumFractionDi
 const nf = new Intl.NumberFormat('fr-FR')
 
 const GOALS = [
-  { key: 'clicks', words: 'clics vers Preply' },
-  { key: 'leads', words: 'kits, inscriptions et comptes' },
+  { key: 'clicks', words: 'clics vers les marchands' },
+  { key: 'leads', words: 'inscriptions à la lettre' },
 ] as const
 
 export function insightOf(rows: TypeRow[]): string {

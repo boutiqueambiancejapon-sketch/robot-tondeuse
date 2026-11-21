@@ -3,12 +3,18 @@ import type { Pool } from 'pg'
 import type { Pair } from '@/lib/dashboard/compare'
 import { TZ, type Period } from '@/lib/dashboard/period'
 import type { PageCounts, SessionRow } from '@/lib/dashboard/traffic'
+import { CLICK_EVENT, QUIZ_EVENT, SIGNUP_EVENT, TOOL_EVENT } from '@/lib/dashboard/events'
+import { PDF_PATH_SQL, PROMO_PATH_SQL } from '@/lib/dashboard/page-type'
 
 // Traffic reads. Parameterised, read-only. Sessions are built over the period and the one before:
-// page views from Caddy's log (analytics.hits, humans, 2xx/304) and actions (analytics.events) that
+// page views from Caddy's log (analytics.hits, humans, 2xx/304, no PDF) and actions (analytics.events) that
 // share the daily visitor hash. The hash stays on the server, never shown.
 
-export const humanView = (a = ''): string => `${a}kind = 'human' AND (${a}status BETWEEN 200 AND 299 OR ${a}status = 304)`
+// A page view: a person, answered 2xx/304, not a PDF guide (counted apart as a download). /go/ links
+// answer 302, so they are never page views either.
+export const humanView = (a = ''): string => `${a}kind = 'human' AND (${a}status BETWEEN 200 AND 299 OR ${a}status = 304) AND ${a}path !~* '\\.pdf$'`
+/** A PDF guide opened by a person (iPhones fetch a PDF in several 206 parts: count visitor and file once). */
+export const PDF_DOWNLOAD = `kind = 'human' AND (status BETWEEN 200 AND 299 OR status = 304) AND ${PDF_PATH_SQL}`
 export const HUMAN_VIEW = humanView()
 
 /** $1: the period's length. One row per session holding at least one page view. */
@@ -55,16 +61,16 @@ export interface TrafficTotals {
   views: Pair
   visitors: Pair
   clicks: Pair
-  kits: Pair
+  quiz: Pair
   signups: Pair
-  accounts: Pair
   tools: Pair
-  daily: Pair
+  pdf: Pair
+  promo: Pair
   ai: Pair
 }
 
 const Z: Pair = { current: 0, previous: 0 }
-export const EMPTY_TOTALS: TrafficTotals = { views: Z, visitors: Z, clicks: Z, kits: Z, signups: Z, accounts: Z, tools: Z, daily: Z, ai: Z }
+export const EMPTY_TOTALS: TrafficTotals = { views: Z, visitors: Z, clicks: Z, quiz: Z, signups: Z, tools: Z, pdf: Z, promo: Z, ai: Z }
 
 const pair = (k: string, where: string, what = 'count(*)') =>
   `${what} FILTER (WHERE ${where} AND ts >= now() - $1::interval)::int AS ${k}_c, ${what} FILTER (WHERE ${where} AND ts < now() - $1::interval)::int AS ${k}_p`
@@ -73,13 +79,14 @@ const pair = (k: string, where: string, what = 'count(*)') =>
 export async function getTotals(pool: Pool, period: Period): Promise<TrafficTotals> {
   const [hits, events] = await Promise.all([
     pool.query<Record<string, number>>(
-      `SELECT ${pair('views', HUMAN_VIEW)}, ${pair('visitors', HUMAN_VIEW, 'count(DISTINCT visitor)')}, ${pair('ai', `kind LIKE 'ai\\_%'`)}
+      `SELECT ${pair('views', HUMAN_VIEW)}, ${pair('visitors', HUMAN_VIEW, 'count(DISTINCT visitor)')}, ${pair('ai', `kind LIKE 'ai\\_%'`)},
+              ${pair('pdf', PDF_DOWNLOAD, `count(DISTINCT coalesce(visitor, id::text) || path)`)}, ${pair('promo', `${HUMAN_VIEW} AND ${PROMO_PATH_SQL}`)}
          FROM analytics.hits WHERE ts >= now() - 2 * $1::interval`,
       [period.interval],
     ),
     pool.query<Record<string, number>>(
-      `SELECT ${pair('clicks', `name = 'preply_click'`)}, ${pair('kits', `name = 'kit_request'`)}, ${pair('signups', `name = 'newsletter_signup'`)},
-              ${pair('accounts', `name = 'account_created'`)}, ${pair('tools', `name IN ('calc_result', 'quiz_result')`)}, ${pair('daily', `name = 'daily_done'`)}
+      `SELECT ${pair('clicks', `name = '${CLICK_EVENT}'`)}, ${pair('quiz', `name = '${QUIZ_EVENT}'`)}, ${pair('signups', `name = '${SIGNUP_EVENT}'`)},
+              ${pair('tools', `name = '${TOOL_EVENT}'`)}
          FROM analytics.events WHERE ts >= now() - 2 * $1::interval`,
       [period.interval],
     ),
@@ -128,8 +135,8 @@ export async function getPageCounts(pool: Pool, period: Period): Promise<PageCou
   const res = await pool.query<PageCounts>(
     `WITH v AS (SELECT path AS page, count(*)::int AS views, count(DISTINCT visitor)::int AS visitors FROM analytics.hits
                  WHERE ${HUMAN_VIEW} AND ts >= now() - $1::interval GROUP BY 1),
-          e AS (SELECT page, count(*) FILTER (WHERE name = 'preply_click')::int AS clicks,
-                       count(*) FILTER (WHERE name IN ('kit_request', 'newsletter_signup', 'account_created'))::int AS leads
+          e AS (SELECT page, count(*) FILTER (WHERE name = '${CLICK_EVENT}')::int AS clicks,
+                       count(*) FILTER (WHERE name = '${SIGNUP_EVENT}')::int AS leads
                   FROM analytics.events WHERE ts >= now() - $1::interval GROUP BY 1)
      SELECT coalesce(v.page, e.page) AS page, coalesce(v.views, 0) AS views, coalesce(v.visitors, 0) AS visitors,
             coalesce(e.clicks, 0) AS clicks, coalesce(e.leads, 0) AS leads

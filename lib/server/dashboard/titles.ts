@@ -1,7 +1,7 @@
 import 'server-only'
-import { getAllPosts } from '@/lib/blog'
+import { articleHref, getAllArticles } from '@/lib/blog'
 
-/** Readable name of a page: the post's title, otherwise its path. */
+/** Readable name of a page: the article's title, otherwise its path. */
 export function pageTitles(): Map<string, string> {
-  return new Map(getAllPosts().map((p) => [`/blog/${p.slug}`, p.title]))
+  return new Map(getAllArticles().map((a) => [articleHref(a), a.title]))
 }

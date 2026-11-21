@@ -33,7 +33,7 @@ export function TopPages({ rows, titles }: { rows: PageCounts[]; titles: Map<str
         title: r.page,
         main: name(r.page, titles),
         value: n(r.views),
-        sub: [`${n(r.visitors)} visiteurs`, r.clicks ? `${n(r.clicks)} clics Preply (${pct(r.clicks, r.views)})` : null, r.leads ? `${n(r.leads)} e-mails ou comptes` : null].filter(Boolean).join(' · '),
+        sub: [`${n(r.visitors)} visiteurs`, r.clicks ? `${n(r.clicks)} clics marchands (${pct(r.clicks, r.views)})` : null, r.leads ? `${n(r.leads)} inscriptions` : null].filter(Boolean).join(' · '),
       }))}
     />
   )
@@ -46,5 +46,5 @@ export function EntryPages({ rows, titles }: { rows: EntryRow[]; titles: Map<str
 
 export function PageTypes({ rows }: { rows: TypeRow[] }) {
   if (rows.length === 0) return <Empty>Aucune page vue sur la période.</Empty>
-  return <Rows items={rows.map((r) => ({ key: r.type, main: r.label, value: n(r.views), sub: `${n(r.clicks)} clics Preply · ${n(r.leads)} e-mails ou comptes` }))} />
+  return <Rows items={rows.map((r) => ({ key: r.type, main: r.label, value: n(r.views), sub: `${n(r.clicks)} clics marchands · ${n(r.leads)} inscriptions` }))} />
 }

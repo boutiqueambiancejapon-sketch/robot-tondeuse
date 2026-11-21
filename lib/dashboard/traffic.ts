@@ -1,7 +1,8 @@
 import type { Pair } from './compare'
+import { CLICK_EVENT, QUIZ_EVENT, SIGNUP_EVENT, TOOL_EVENT } from './events'
 import { pageTypeOf, PAGE_TYPE_LABELS, type PageType } from './page-type'
 
-// Traffic maths, no database and no display (adapted from Toutou). A session: page views (Caddy log)
+// Traffic maths, no database and no display (ported from 10minlanguages.com, itself adapted from Toutou). A session: page views (Caddy log)
 // and actions (/api/e) of one daily visitor hash, with no pause over 30 minutes
 // (query in lib/server/dashboard/sessions.ts). Page views carry the pseudo-name "pageview".
 
@@ -24,7 +25,7 @@ const SEARCH_HOST = /(^|\.)(bing\.com|duckduckgo\.com|ecosia\.org|qwant\.com|yah
 const SOCIAL_HOST = /(^|\.)(facebook\.com|instagram\.com|pinterest\.[a-z.]+|tiktok\.com|youtube\.com|x\.com|t\.co|twitter\.com|reddit\.com|linkedin\.com|whatsapp\.com|snapchat\.com|threads\.net|quora\.com)$/
 
 export function isOwnHost(host: string): boolean {
-  return /(^|\.)10minlanguages\.com$/.test(host)
+  return /(^|\.)quel-robot-tondeuse\.com$/.test(host)
 }
 
 /** Order matters: Gemini sits on a Google domain and must stay with the AIs. */
@@ -54,12 +55,10 @@ export interface SessionRow {
 }
 
 /** Shown without a gesture: they don't stop a session from being a bounce. */
-const PASSIVE = new Set(['pageview', 'nudge_shown'])
-export const SIGNUP_EVENTS = ['newsletter_signup']
-export const KIT_EVENTS = ['kit_request']
-export const TOOL_EVENTS = ['calc_result', 'quiz_result', 'daily_done', 'level_share']
-export const ACCOUNT_EVENTS = ['account_created']
-export const CLICK_EVENT = 'preply_click'
+const PASSIVE = new Set(['pageview'])
+export const SIGNUP_EVENTS = [SIGNUP_EVENT]
+export const QUIZ_EVENTS = [QUIZ_EVENT]
+export const TOOL_EVENTS = [TOOL_EVENT, QUIZ_EVENT]
 
 export function isBounce(s: Pick<SessionRow, 'views' | 'names'>): boolean {
   return s.views <= 1 && s.names.every((n) => PASSIVE.has(n))
@@ -77,7 +76,7 @@ export interface Overview {
   /** Average length in seconds; null without sessions. */
   seconds: number | null
   pagesPerSession: number | null
-  rates: { clicks: number; kits: number; signups: number; tools: number }
+  rates: { clicks: number; quiz: number; signups: number; tools: number }
 }
 
 function bounceRate(rows: SessionRow[]): number | null {
@@ -95,7 +94,7 @@ export function overviewOf(rows: SessionRow[]): Overview {
     bounce: { current: bounceRate(cur), previous: bounceRate(prev) },
     seconds: cur.length === 0 ? null : cur.reduce((sum, r) => sum + r.seconds, 0) / cur.length,
     pagesPerSession: cur.length === 0 ? null : cur.reduce((sum, r) => sum + r.views, 0) / cur.length,
-    rates: { clicks: rate(clicked), kits: rate((s) => hasAny(s, KIT_EVENTS)), signups: rate((s) => hasAny(s, SIGNUP_EVENTS)), tools: rate((s) => hasAny(s, TOOL_EVENTS)) },
+    rates: { clicks: rate(clicked), quiz: rate((s) => hasAny(s, QUIZ_EVENTS)), signups: rate((s) => hasAny(s, SIGNUP_EVENTS)), tools: rate((s) => hasAny(s, TOOL_EVENTS)) },
   }
 }
 
@@ -195,13 +194,13 @@ export interface FunnelStep {
 
 /** Sessions that landed on an article, then among them: each step is counted on its own. */
 export function funnelOf(rows: SessionRow[]): FunnelStep[] {
-  const base = rows.filter((r) => r.current && /^\/blog\//.test(r.landing))
+  const base = rows.filter((r) => r.current && pageTypeOf(r.landing) === 'articles')
   return [
     { label: 'Arrive sur un article', value: base.length },
     { label: 'Lit une 2e page', value: base.filter((s) => s.views >= 2).length },
-    { label: 'Utilise un outil ou l’exercice', value: base.filter((s) => hasAny(s, TOOL_EVENTS)).length },
-    { label: 'Demande un kit', value: base.filter((s) => hasAny(s, KIT_EVENTS)).length },
-    { label: 'Clic vers Preply', value: base.filter(clicked).length },
+    { label: 'Utilise le quiz ou un outil', value: base.filter((s) => hasAny(s, TOOL_EVENTS)).length },
+    { label: 'S’inscrit à la lettre', value: base.filter((s) => hasAny(s, SIGNUP_EVENTS)).length },
+    { label: 'Clic vers un marchand', value: base.filter(clicked).length },
   ]
 }
 
@@ -218,10 +217,9 @@ export function goalFunnelOf(rows: SessionRow[]): FunnelStep[] {
   return [
     { label: 'Sessions', value: cur.length },
     { label: 'Lit une 2e page', value: cur.filter((s) => s.views >= 2).length },
-    { label: 'Utilise un outil ou l’exercice', value: cur.filter((s) => hasAny(s, TOOL_EVENTS)).length },
-    { label: 'Demande un kit', value: cur.filter((s) => hasAny(s, KIT_EVENTS)).length },
-    { label: 'Rejoint la liste', value: cur.filter((s) => hasAny(s, SIGNUP_EVENTS)).length },
-    { label: 'Crée un compte', value: cur.filter((s) => hasAny(s, ACCOUNT_EVENTS)).length },
-    { label: 'Clic vers Preply', value: cur.filter(clicked).length },
+    { label: 'Utilise le quiz ou un outil', value: cur.filter((s) => hasAny(s, TOOL_EVENTS)).length },
+    { label: 'Obtient un résultat de quiz', value: cur.filter((s) => hasAny(s, QUIZ_EVENTS)).length },
+    { label: 'S’inscrit à la lettre', value: cur.filter((s) => hasAny(s, SIGNUP_EVENTS)).length },
+    { label: 'Clic vers un marchand', value: cur.filter(clicked).length },
   ]
 }

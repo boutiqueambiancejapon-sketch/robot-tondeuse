@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation'
 import { dashboardAllowed } from '@/lib/dashboard/guard'
 import { calendarDay, n, pct } from '@/lib/dashboard/format'
-import { getBrevo, getTransactional } from '@/lib/server/dashboard/brevo'
-import { EmailsNav } from '@/components/dashboard/emails/EmailsNav'
-import { TransacList } from '@/components/dashboard/emails/TransacList'
+import { getBrevo } from '@/lib/server/dashboard/brevo'
 import { Card, Empty } from '@/components/dashboard/Card'
 import { DashboardShell } from '@/components/dashboard/DashboardShell'
 
@@ -13,16 +11,15 @@ const STATUS: Record<string, string> = { sent: 'Envoyée', draft: 'Brouillon', q
 
 export default async function EmailsPage() {
   if (!(await dashboardAllowed())) notFound()
-  const [b, transac] = await Promise.all([getBrevo(), getTransactional()])
+  const b = await getBrevo()
   return (
-    <DashboardShell current="emails" title="E-mails" intro="La liste « 10 Min Languages » chez Brevo, ses campagnes et les e-mails automatiques. Chiffres relus toutes les 5 minutes.">
-      <EmailsNav current="" />
+    <DashboardShell current="emails" title="E-mails" intro="« La lettre du jardin » chez Brevo (liste 6) et ses campagnes. Chiffres relus toutes les 5 minutes.">
       {!b.configured && <p className="alert">Clé Brevo absente du serveur.</p>}
       {b.domain && !b.domain.authenticated && (
-        <p className="alert">Domaine 10minlanguages.com pas encore authentifié chez Brevo : à faire après le passage des DNS chez Cloudflare, avant le premier envoi.</p>
+        <p className="alert">Domaine quel-robot-tondeuse.com pas encore authentifié chez Brevo : à faire avant la première campagne.</p>
       )}
-      {b.domain?.authenticated && <p className="okline">Domaine 10minlanguages.com authentifié chez Brevo.</p>}
-      <Card title="Inscrits">
+      {b.domain?.authenticated && <p className="okline">Domaine quel-robot-tondeuse.com authentifié chez Brevo.</p>}
+      <Card title="Inscrits" note="la lettre n’envoie aucun e-mail automatique">
         {b.list ? (
           <dl className="facts">
             <dt>Abonnés à la liste</dt>
@@ -34,7 +31,6 @@ export default async function EmailsPage() {
           <Empty>Liste illisible pour l’instant.</Empty>
         )}
       </Card>
-      <TransacList rows={transac} />
       <Card title="Dernières campagnes" note="ouvertures · clics">
         {b.campaigns.length === 0 ? (
           <Empty>Aucune campagne envoyée à cette liste pour l’instant.</Empty>

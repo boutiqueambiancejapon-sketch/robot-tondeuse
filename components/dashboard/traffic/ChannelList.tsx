@@ -2,7 +2,7 @@ import { n, pct } from '@/lib/dashboard/format'
 import type { ChannelRow } from '@/lib/dashboard/traffic'
 import { Empty } from '../Card'
 
-/** Sessions per channel, with the share that clicked through to Preply. */
+/** Sessions per channel, with the share that clicked through to a merchant. */
 export function ChannelList({ rows }: { rows: ChannelRow[] }) {
   if (rows.length === 0) return <Empty>Aucune session sur la période.</Empty>
   const max = Math.max(1, ...rows.map((r) => r.sessions))

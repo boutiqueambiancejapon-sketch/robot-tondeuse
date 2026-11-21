@@ -37,10 +37,10 @@ export function TrafficTiles({ overview, totals, period }: { overview: Overview;
 
 export function Earnings({ totals, overview }: { totals: TrafficTotals; overview: Overview }) {
   const lines = [
-    { label: 'Clics vers Preply', value: totals.clicks.current, rate: overview.rates.clicks },
-    { label: 'Kits demandés', value: totals.kits.current, rate: overview.rates.kits },
-    { label: 'Inscrits à la liste', value: totals.signups.current, rate: overview.rates.signups },
-    { label: 'Outils et exercices', value: totals.tools.current + totals.daily.current, rate: overview.rates.tools },
+    { label: 'Clics vers un marchand', value: totals.clicks.current, rate: overview.rates.clicks },
+    { label: 'Résultats de quiz', value: totals.quiz.current, rate: overview.rates.quiz },
+    { label: 'Inscrits à la lettre', value: totals.signups.current, rate: overview.rates.signups },
+    { label: 'Quiz et outils utilisés', value: totals.tools.current + totals.quiz.current, rate: overview.rates.tools },
   ]
   return (
     <Card title="Ce que ça rapporte" note="nombre · part des sessions">
@@ -60,4 +60,4 @@ export function Earnings({ totals, overview }: { totals: TrafficTotals; overview
 }
 
 export const TRAFFIC_LIMITS =
-  'Visites lues dans le journal du serveur, sans cookie. Quelqu’un qui revient un autre jour compte comme un nouveau visiteur (le code visiteur change chaque jour). La durée s’arrête à la dernière page ou action : le temps passé sur la dernière page n’est pas compté. Mesure depuis le 19 novembre 2026, pays depuis le 21.'
+  'Visites lues dans le journal du serveur, sans cookie. Quelqu’un qui revient un autre jour compte comme un nouveau visiteur (le code visiteur change chaque jour). La durée s’arrête à la dernière page ou action : le temps passé sur la dernière page n’est pas compté. Mesure depuis le 21 novembre 2026.'

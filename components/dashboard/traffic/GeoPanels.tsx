@@ -8,13 +8,13 @@ import { Card } from '../Card'
 export function GeoPanels({ data }: { data: GeoData }) {
   return (
     <>
-      <Card title="Visiteurs par pays" note="depuis le 21 nov.">
+      <Card title="Visiteurs par pays" note="depuis le 21 nov. 2026">
         <BarList rows={data.visitors} total={data.visitorsTotal} format={countryName} empty="Aucun visiteur avec un pays relevé sur la période." />
       </Card>
-      <Card title="Clics Preply par pays">
+      <Card title="Clics marchands par pays">
         <BarList rows={data.clicks} format={countryName} empty="Aucun clic avec un pays relevé sur la période." />
       </Card>
-      <Card title="Kits, inscriptions et comptes par pays">
+      <Card title="Inscriptions à la lettre par pays">
         <BarList rows={data.leads} format={countryName} empty="Aucune inscription avec un pays relevé sur la période." />
       </Card>
     </>

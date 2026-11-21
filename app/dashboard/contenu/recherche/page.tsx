@@ -29,7 +29,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
           <form method="get" role="search" className="search">
             <label className="contents">
               <span className="sr-only">Mot-clé ou adresse</span>
-              <input name="q" defaultValue={r.q} placeholder="Mot-clé ou bout d’adresse : spanish, /blog…" className="input" />
+              <input name="q" defaultValue={r.q} placeholder="Mot-clé ou bout d’adresse : husqvarna, /choisir…" className="input" />
             </label>
             <button type="submit" className="btn btn--ink btn--s">Chercher</button>
           </form>

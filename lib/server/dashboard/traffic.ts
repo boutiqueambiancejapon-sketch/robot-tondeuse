@@ -2,6 +2,7 @@ import 'server-only'
 import type { Pool } from 'pg'
 import type { Period } from '@/lib/dashboard/period'
 import type { Row } from './safe'
+import { HUMAN_VIEW } from './sessions'
 
 // Traffic tab: pages, sources, devices, AI bots, search engines, missing pages (404 seen by
 // Google or reached from a link; scanners probing /.env and the like are left out). Read-only,
@@ -19,7 +20,7 @@ export interface TrafficData {
 
 export const EMPTY_TRAFFIC: TrafficData = { pages: [], sources: [], aiReferrals: [], devices: [], aiBots: [], searchBots: [], notFound: [] }
 
-const HUMAN = `kind = 'human' AND (status BETWEEN 200 AND 299 OR status = 304) AND ts >= now() - $1::interval`
+const HUMAN = `${HUMAN_VIEW} AND ts >= now() - $1::interval`
 
 async function rows(pool: Pool, sql: string, period: Period): Promise<Row[]> {
   return (await pool.query<Row>(sql, [period.interval])).rows

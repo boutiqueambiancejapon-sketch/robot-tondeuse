@@ -3,8 +3,8 @@ import type { Pool } from 'pg'
 import { HUMAN_VIEW } from './sessions'
 
 // "En direct" view: page views of the last 30 minutes (Caddy log, read every minute by
-// tenmin-ingest), actions sent by the site (instant), countries right now, the latest hits and
-// actions, recent AI robots. Parameterised, read-only. Adapted from Toutou's dashboard-live.
+// qrt-ingest), actions sent by the site (instant), countries right now, the latest hits and
+// actions, recent AI robots. Parameterised, read-only. Adapted from Toutou's dashboard-live, via 10minlanguages.com.
 
 export interface LiveEvent {
   ts: string
@@ -63,7 +63,7 @@ export async function getLive(pool: Pool): Promise<LiveData> {
       `(SELECT ts, 'pageview' AS name, path AS page, ref_ai AS detail, device, ref_host AS ref, country FROM analytics.hits
          WHERE ${HUMAN_VIEW} ORDER BY ts DESC LIMIT 25)
        UNION ALL
-       (SELECT ts, name, page, coalesce(props->>'place', props->>'kit', props->>'result', props->>'level', props->>'lang'), device, ref_host, country
+       (SELECT ts, name, page, coalesce(nullif(concat_ws(' · ', props->>'merchant', props->>'place'), ''), props->>'result', props->>'tool', props->>'source'), device, ref_host, country
           FROM analytics.events ORDER BY ts DESC LIMIT 25)
        ORDER BY ts DESC LIMIT 25`,
     ),

@@ -16,7 +16,7 @@ export function ByType({ rows }: { rows: TypeRow[] }) {
             <span>{r.clicks > 0 ? `${n(r.clicks)} clic${r.clicks > 1 ? 's' : ''}` : 'Aucun clic'}</span>
           </span>
           <span className="row-sub">
-            {[`${n(r.views)} vues`, r.clicks ? `taux ${pct(r.clicks, r.views)}` : null, r.leads ? `${n(r.leads)} kits, inscriptions ou comptes` : null].filter(Boolean).join(' · ')}
+            {[`${n(r.views)} vues`, r.clicks ? `taux ${pct(r.clicks, r.views)}` : null, r.leads ? `${n(r.leads)} inscriptions à la lettre` : null].filter(Boolean).join(' · ')}
           </span>
         </li>
       ))}

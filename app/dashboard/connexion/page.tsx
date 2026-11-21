@@ -16,7 +16,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
   if (session) redirect(stageHref(session.stage, next))
   const factors = await factorsSummary().catch(() => ({ passkeys: 0, totp: false }))
   return (
-    <LoginFrame title="Tableau de bord" intro="Réservé au propriétaire de 10minlanguages.com.">
+    <LoginFrame title="Tableau de bord" intro="Réservé au propriétaire de quel-robot-tondeuse.com.">
       {factors.passkeys > 0 && (
         <>
           <PasskeyButton next={next} direct />

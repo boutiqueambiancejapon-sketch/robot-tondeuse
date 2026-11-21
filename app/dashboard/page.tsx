@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CLICK_EVENT } from '@/lib/dashboard/events'
 import { ago, when } from '@/lib/dashboard/format'
 import { insightOf } from '@/lib/dashboard/insight'
 import { openTab, type TabPageProps } from '@/lib/dashboard/tab-page'
@@ -23,12 +24,12 @@ export default async function DashboardHome(props: TabPageProps) {
     safeRead('ingest', null, getIngestAt),
     safeRead('totals', EMPTY_TOTALS, (pool) => getTotals(pool, period)),
     safeRead('sessions', { current: 0, previous: 0 }, (pool) => getSessionCounts(pool, period)),
-    safeRead('clicks', [], (pool) => getEventBuckets(pool, period, 'preply_click')),
+    safeRead('clicks', [], (pool) => getEventBuckets(pool, period, CLICK_EVENT)),
     safeRead('pages', [], (pool) => getPageCounts(pool, period)),
   ])
   const alerts: { text: string; href: string }[] = []
   if (!summary.ok || !totals.ok) alerts.push({ text: 'Lecture de la base impossible : les chiffres ci-dessous restent à zéro.', href: tabHref('serveur') })
-  if (ingest.ok && ingestStale(ingest.value)) alerts.push({ text: `Les visites ne sont plus relevées${ingest.value ? ` depuis ${ago(ingest.value)}` : ''} (tâche tenmin-ingest).`, href: tabHref('serveur') })
+  if (ingest.ok && ingestStale(ingest.value)) alerts.push({ text: `Les visites ne sont plus relevées${ingest.value ? ` depuis ${ago(ingest.value)}` : ''} (tâche qrt-ingest).`, href: tabHref('serveur') })
   return (
     <DashboardShell current="" title="Bonjour Mathias" intro={`Mis à jour le ${when(new Date())}, heure de Bruxelles.`} period={period.key}>
       {alerts.length > 0 ? (
@@ -43,7 +44,7 @@ export default async function DashboardHome(props: TabPageProps) {
       <HomeKpis totals={totals.value} sessions={sessions.value} clicks={clicks.value} period={period} insight={pages.ok ? insightOf(typesOf(pages.value)) : 'Pas de tendance à donner : la base n’a pas répondu.'} />
       <Card title="En bref" note="aujourd’hui · 7 j · 30 j">
         <SummaryTable summary={summary.value} />
-        <p className="tiny muted">Visiteurs : comptés une fois par jour, sans cookie. Robots IA : pages lues par ChatGPT, Claude, Perplexity…</p>
+        <p className="tiny muted">Visiteurs : comptés une fois par jour, sans cookie. Robots IA : pages lues par ChatGPT, Claude, Perplexity… Clics : Amazon, Cdiscount et Fnac.</p>
       </Card>
     </DashboardShell>
   )

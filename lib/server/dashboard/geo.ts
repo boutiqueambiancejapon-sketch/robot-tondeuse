@@ -27,8 +27,8 @@ export async function getGeo(pool: Pool, period: Period): Promise<GeoData> {
       `SELECT coalesce(country, '') AS label, count(DISTINCT visitor)::int AS value FROM analytics.hits WHERE ${HUMAN_VIEW} AND ts >= now() - $1::interval GROUP BY 1 ORDER BY 2 DESC, 1 LIMIT 15`,
       p,
     ),
-    byEvent(`'preply_click'`),
-    byEvent(`'kit_request', 'newsletter_signup', 'account_created'`),
+    byEvent(`'affiliate_click'`),
+    byEvent(`'newsletter_signup'`),
   ])
   return { visitorsTotal: total.rows[0]?.n ?? 0, visitors: visitors.rows, clicks: clicks.rows, leads: leads.rows }
 }

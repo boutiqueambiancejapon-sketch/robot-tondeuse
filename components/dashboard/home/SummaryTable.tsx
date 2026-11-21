@@ -4,7 +4,7 @@ import type { Metric, Summary } from '@/lib/server/dashboard/home'
 const LINES: { key: Metric; label: string }[] = [
   { key: 'visitors', label: 'Visiteurs' },
   { key: 'views', label: 'Pages vues' },
-  { key: 'clicks', label: 'Clics Preply' },
+  { key: 'clicks', label: 'Clics marchands' },
   { key: 'signups', label: 'Inscrits' },
   { key: 'ai', label: 'Robots IA' },
 ]

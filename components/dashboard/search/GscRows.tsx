@@ -5,7 +5,7 @@ import { Card, Empty } from '../Card'
 // Search Console list: query or page, clicks on the right, impressions, click rate and position below.
 
 const pct = new Intl.NumberFormat('fr-FR', { style: 'percent', maximumFractionDigits: 1 })
-const short = (url: string) => url.replace(/^https:\/\/(www\.)?10minlanguages\.com/, '') || '/'
+const short = (url: string) => url.replace(/^https:\/\/(www\.)?quel-robot-tondeuse\.com/, '') || '/'
 const pos = (p: number) => p.toFixed(1).replace('.', ',')
 
 export function GscRows({ title, intro, rows, page = false }: { title: string; intro?: string; rows: GscRow[]; page?: boolean }) {

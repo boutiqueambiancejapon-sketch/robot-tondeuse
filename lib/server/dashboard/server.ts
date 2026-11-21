@@ -5,7 +5,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { promisify } from 'node:util'
 
-// Server tab: site service, ingestion and hourly deploy (systemctl show, read-only, no privilege),
+// Server tab: site service, ingestion, weekly price reading and hourly deploy (systemctl show, read-only, no privilege),
 // the release being served (its folder name is the commit), disk, memory and load.
 
 const run = promisify(execFile)
@@ -16,11 +16,13 @@ export interface UnitState {
 }
 
 const UNITS: Record<string, string[]> = {
-  'site@10minlanguages.service': ['ActiveState', 'ActiveEnterTimestamp', 'NRestarts', 'MemoryCurrent'],
-  'site-deploy@10minlanguages.service': ['Result', 'ExecMainExitTimestamp', 'InactiveEnterTimestamp'],
-  'site-deploy@10minlanguages.timer': ['ActiveState', 'NextElapseUSecRealtime'],
-  'tenmin-ingest.service': ['Result', 'ExecMainExitTimestamp', 'InactiveEnterTimestamp'],
-  'tenmin-ingest.timer': ['ActiveState'],
+  'site@robot-tondeuse.service': ['ActiveState', 'ActiveEnterTimestamp', 'NRestarts', 'MemoryCurrent'],
+  'site-deploy@robot-tondeuse.service': ['Result', 'ExecMainExitTimestamp', 'InactiveEnterTimestamp'],
+  'site-deploy@robot-tondeuse.timer': ['ActiveState', 'NextElapseUSecRealtime'],
+  'qrt-ingest.service': ['Result', 'ExecMainExitTimestamp', 'InactiveEnterTimestamp'],
+  'qrt-ingest.timer': ['ActiveState'],
+  'qrt-offres.service': ['Result', 'ExecMainExitTimestamp', 'InactiveEnterTimestamp'],
+  'qrt-offres.timer': ['ActiveState', 'NextElapseUSecRealtime'],
 }
 
 async function show(unit: string, props: string[]): Promise<UnitState> {
@@ -80,6 +82,12 @@ async function readMemory(): Promise<Usage | null> {
   } catch {
     return null
   }
+}
+
+/** systemd state of a few units only (the Content tab reads the price reading's timer). */
+export async function getUnits(names: string[]): Promise<Record<string, Record<string, string>>> {
+  const states = await Promise.all(names.filter((u) => UNITS[u]).map((u) => show(u, UNITS[u] ?? [])))
+  return Object.fromEntries(states.map((s) => [s.unit, s.props]))
 }
 
 export async function getServer(): Promise<ServerData> {

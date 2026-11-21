@@ -20,7 +20,7 @@ export function ContactList({ rows, query }: { rows: Contact[]; query: string })
                 <span className={`tag${s.tone ? ` tag--${s.tone}` : ''}`}>{s.label}</span>
               </span>
               <span className="row-sub">
-                {[c.list?.source ? `venu par ${c.list.source}` : null, c.account?.lang ? `apprend : ${c.account.lang}` : null, `connu depuis le ${shortDay(c.since)}`].filter(Boolean).join(' · ')}
+                {[c.list.source ? `venu par ${c.list.source}` : null, `connu depuis le ${shortDay(c.since)}`].filter(Boolean).join(' · ')}
               </span>
             </Link>
           </li>

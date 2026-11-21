@@ -1,11 +1,13 @@
 import 'server-only'
 
-// E-mails tab: Brevo list "10 Min Languages" (BREVO_LIST_ID, default 7), its latest campaigns and
-// the sending domain's authentication. Read-only API calls, cached 5 minutes. Key in the shared
-// .env (BREVO_API_KEY), never in the code.
+// E-mails tab: Brevo list 6 « La lettre du jardin » (Brevo account shared with Toutou Gourmet), its
+// latest campaigns and the sending domain's authentication. Read-only API calls, cached 5 minutes.
+// Key in the shared .env (BREVO_API_KEY), never in the code. The site sends no automatic e-mail.
 
 const API = 'https://api.brevo.com/v3'
-const DOMAIN = '10minlanguages.com'
+import { BREVO_LIST_ID_QRT } from '@/lib/newsletter/brevo'
+
+const DOMAIN = 'quel-robot-tondeuse.com'
 
 export interface Campaign {
   id: number
@@ -54,7 +56,7 @@ interface CampaignJson {
 interface DomainJson { domain_name?: string; authenticated?: boolean; verified?: boolean }
 
 export async function getBrevo(): Promise<BrevoData> {
-  const listId = Number(process.env.BREVO_LIST_ID || 7)
+  const listId = BREVO_LIST_ID_QRT
   if (!process.env.BREVO_API_KEY) return { configured: false, list: null, campaigns: [], domain: null }
   const [list, campaigns, domains] = await Promise.all([
     get<ListJson>(`/contacts/lists/${listId}`),
@@ -80,50 +82,4 @@ export async function getBrevo(): Promise<BrevoData> {
       })),
     domain: domain ? { authenticated: Boolean(domain.authenticated), verified: Boolean(domain.verified) } : null,
   }
-}
-
-/** Transactional emails of this site (tags set in sendMail), last 30 days. */
-export const TRANSACTIONAL = [
-  { tag: 'kit-ready', label: 'Kit envoyé (lien du PDF + « send me the next tips »)' },
-  { tag: 'kit-welcome', label: 'Bienvenue sur la liste (J0 de la suite kit)' },
-  { tag: 'account-login', label: 'Lien de connexion au compte' },
-] as const
-
-export interface TransacStats {
-  tag: string
-  label: string
-  requests: number
-  delivered: number
-  opens: number
-  clicks: number
-  bounces: number
-  blocked: number
-  spam: number
-}
-
-interface ReportJson { requests?: number; delivered?: number; uniqueOpens?: number; uniqueClicks?: number; hardBounces?: number; softBounces?: number; blocked?: number; spamReports?: number }
-
-export async function getTransactional(days = 30): Promise<TransacStats[] | null> {
-  return getTagReports(TRANSACTIONAL, days)
-}
-
-/** Brevo transactional report for each tag (sent, delivered, unique opens and clicks, problems). */
-export async function getTagReports(tags: readonly { tag: string; label: string }[], days: number): Promise<TransacStats[] | null> {
-  if (!process.env.BREVO_API_KEY) return null
-  const reports = await Promise.all(tags.map((t) => get<ReportJson>(`/smtp/statistics/aggregatedReport?days=${days}&tag=${encodeURIComponent(t.tag)}`)))
-  if (reports.every((r) => r === null)) return null
-  return tags.map((t, i) => {
-    const r = reports[i] ?? {}
-    return {
-      tag: t.tag,
-      label: t.label,
-      requests: r.requests ?? 0,
-      delivered: r.delivered ?? 0,
-      opens: r.uniqueOpens ?? 0,
-      clicks: r.uniqueClicks ?? 0,
-      bounces: (r.hardBounces ?? 0) + (r.softBounces ?? 0),
-      blocked: r.blocked ?? 0,
-      spam: r.spamReports ?? 0,
-    }
-  })
 }

@@ -7,18 +7,10 @@ import { Empty } from '../Card'
 
 const LABELS: Record<string, string> = {
   pageview: 'Page vue',
-  preply_click: 'Clic vers Preply',
-  calc_result: 'Calculateur utilisé',
-  quiz_result: 'Quiz méthode terminé',
-  level_share: 'Niveau partagé',
-  daily_done: 'Exercice du jour terminé',
-  nudge_shown: 'Carte tuteur affichée',
-  nudge_dismiss: 'Carte tuteur fermée',
-  kit_request: 'Kit demandé',
-  newsletter_signup: 'Inscription à la liste',
-  account_created: 'Compte créé',
-  share_click: 'Fiche envoyée à un ami',
-  pdf_download: 'PDF téléchargé',
+  affiliate_click: 'Clic vers un marchand',
+  quiz_result: 'Résultat du quiz',
+  tool_use: 'Outil utilisé',
+  newsletter_signup: 'Inscription à la lettre',
 }
 const KIND: Record<string, string> = { ai_training: 'entraînement', ai_search: 'moteur IA', ai_user: 'lecture en direct' }
 const DEVICE: Record<string, string> = { mobile: 'téléphone', tablet: 'tablette', desktop: 'ordinateur' }

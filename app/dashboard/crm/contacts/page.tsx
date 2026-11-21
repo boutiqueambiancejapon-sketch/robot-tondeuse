@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { filterContacts, isOwn, parseFilter } from '@/lib/dashboard/crm'
 import { parsePage, readSearch } from '@/lib/dashboard/crm-search'
 import { openTab, type TabPageProps } from '@/lib/dashboard/tab-page'
-import { getPool } from '@/lib/server/db'
 import { loadContacts } from '@/lib/server/dashboard/crm'
 import { DashboardShell } from '@/components/dashboard/DashboardShell'
 import { ContactList } from '@/components/dashboard/crm/ContactList'
@@ -10,7 +9,7 @@ import { ContactToolbar, filterHref } from '@/components/dashboard/crm/ContactTo
 import { CrmNav } from '@/components/dashboard/crm/CrmNav'
 import { clearContactSearch, searchContacts } from './actions'
 
-// Every contact: list and accounts in one list, newest first, 50 per page.
+// Every contact of the letter, newest first, 50 per page.
 
 export const dynamic = 'force-dynamic'
 
@@ -24,12 +23,12 @@ export default async function ContactsPage(props: Props) {
   const filter = parseFilter(sp.filtre)
   const page = parsePage(sp.page)
   const query = await readSearch()
-  const res = await loadContacts(getPool())
+  const res = await loadContacts()
   const all = res.rows.filter((c) => !isOwn(c))
   const hits = filterContacts(all, filter, query)
-  const notice = res.ok ? null : 'La liste Brevo ou les comptes ne sont pas lisibles en entier pour le moment : des contacts peuvent manquer.'
+  const notice = res.ok ? null : 'La liste Brevo n’est pas lisible pour le moment : des contacts peuvent manquer.'
   return (
-    <DashboardShell current="crm" sub="/contacts" title="Tous les contacts" intro="Les plus récents d’abord. Les adresses @10minlanguages.com (les tiennes et les tests) sont retirées." notice={notice}>
+    <DashboardShell current="crm" sub="/contacts" title="Tous les contacts" intro="Les plus récents d’abord. Les adresses @quel-robot-tondeuse.com et @toutou-gourmet.com (les tiennes et les tests) sont retirées." notice={notice}>
       <CrmNav current="/contacts" />
       <ContactToolbar filter={filter} query={query} search={searchContacts} clear={clearContactSearch} />
       <p className="tiny muted">

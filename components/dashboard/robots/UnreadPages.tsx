@@ -9,7 +9,7 @@ function List({ items }: { items: ArticlePath[] }) {
     <ul className="rows">
       {items.map((a) => (
         <li key={a.path} className="small">
-          <a className="lnk" href={`https://10minlanguages.com${a.path}`} target="_blank" rel="noopener">
+          <a className="lnk" href={`https://quel-robot-tondeuse.com${a.path}`} target="_blank" rel="noopener">
             {a.title}
           </a>
         </li>
