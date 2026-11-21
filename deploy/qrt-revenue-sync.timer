@@ -1,0 +1,10 @@
+# Every hour at :57 (10minlanguages' copy runs at :54).
+[Unit]
+Description=Quel Robot Tondeuse - real sales to the dashboard, every hour
+
+[Timer]
+OnCalendar=*:57
+Persistent=false
+
+[Install]
+WantedBy=timers.target

@@ -1,5 +1,6 @@
 import 'server-only'
 import { createSign } from 'node:crypto'
+import { existsSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 
 // Search Console, read-only, with the Google service account Toutou already uses (key file
@@ -60,6 +61,11 @@ async function gsc<T>(path: string, body?: unknown): Promise<T> {
   })
   if (!res.ok) throw new Error(`Search Console ${res.status}`)
   return (await res.json()) as T
+}
+
+/** True when the service account's key file is on the server (it never is in the repo). */
+export function gscKeyPresent(): boolean {
+  return existsSync(KEY_FILE)
 }
 
 /** True when the service account can read the Quel Robot Tondeuse property. */

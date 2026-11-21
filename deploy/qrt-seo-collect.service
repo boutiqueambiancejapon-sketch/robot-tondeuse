@@ -1,0 +1,19 @@
+# quel-robot-tondeuse.com SEO dashboard: nightly collectors (Search Console, automatic notes, page audit, URL inspection).
+# Install: sudo cp deploy/qrt-seo-collect.* /etc/systemd/system/ && sudo systemctl daemon-reload
+#          && sudo systemctl enable --now qrt-seo-collect.timer
+# Safeguard: /etc/systemd/system/qrt-seo-collect.service.d/safeguard.conf puts it in background.slice.
+# Account administrator: reads the stable git clone for the notes and the Search Console key (group sites); its
+# database rights are limited to the SEO tables (db/analytics.sql, 2026-11-21).
+[Unit]
+Description=Quel Robot Tondeuse - SEO dashboard collectors
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=administrator
+WorkingDirectory=/srv/sites/robot-tondeuse/current
+EnvironmentFile=/srv/sites/robot-tondeuse/shared/.env
+Nice=15
+TimeoutStartSec=2h
+ExecStart=/usr/bin/bash /srv/sites/robot-tondeuse/current/deploy/seo-collect.sh

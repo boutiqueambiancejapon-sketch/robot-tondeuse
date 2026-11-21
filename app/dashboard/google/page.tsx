@@ -7,6 +7,7 @@ import { chartNotes } from '@/lib/seo-dash/server/notes'
 import { openSeoPage, param, type SeoPageProps } from '@/lib/seo-dash/server/page'
 import { gscRanges, rangesFrom } from '@/lib/seo-dash/server/range'
 import { readBlock } from '@/lib/seo-dash/server/sql'
+import { gscState, type GscState } from '@/lib/seo-dash/server/gsc-state'
 import { SITE } from '@/lib/seo-dash/config'
 import { SeoShell } from '@/components/seo-dash/shell/SeoShell'
 import { GoogleTiles } from '@/components/seo-dash/blocks/GoogleTiles'
@@ -17,6 +18,7 @@ import { CannibalCard, DecayCard } from '@/components/seo-dash/blocks/Opportunit
 import { IndexationCard } from '@/components/seo-dash/blocks/IndexationCard'
 import { GoogleTabs } from '@/components/seo-dash/blocks/GoogleTabs'
 import { Section } from '@/components/seo-dash/ui/Card'
+import { GscPending } from '@/components/seo-dash/blocks/GscPending'
 
 // @cdc tableau de bord SEO — écran Google : ce que Google montre du site et où gagner des clics. Données de la
 // Search Console relevées chaque nuit (analytics.gsc_*), ancres #section fusionnées avec leur page.
@@ -26,6 +28,14 @@ export const dynamic = 'force-dynamic'
 export default async function GooglePage(props: SeoPageProps) {
   const { filters: f, params, query } = await openSeoPage(props)
   const fallbackRanges = rangesFrom(new Date().toISOString().slice(0, 10), f, SITE.gscStart)
+  const state = (await readBlock<GscState>('search console', { ready: true }, (pool) => gscState(pool))).value
+  if (!state.ready) {
+    return (
+      <SeoShell current="google" title="Google" sub="Search Console : ce que Google montre du site, et où gagner des clics">
+        <GscPending state={state} />
+      </SeoShell>
+    )
+  }
   const [data, idx] = await Promise.all([
     readBlock('google', { ...EMPTY_GOOGLE, ranges: fallbackRanges }, async (pool) => googleData(pool, f)),
     readBlock('indexation', { checked: 0, lastCheck: null, types: [], reasons: [] }, (pool) => indexation(pool)),

@@ -8,7 +8,11 @@
 // hash salted per day (analytics.visitor_salt, salt deleted after 2 days). Bots: every request,
 // with IP and User-Agent (to spot fake bots). Everyone: country code (local DB-IP file), the human
 // address is read for it, then forgotten.
-// Usage: DATABASE_URL=postgresql:///qrt?host=/var/run/postgresql INGEST_HOSTS=quel-robot-tondeuse.com node scripts/ingest-caddy-logs.mjs [--dry]
+// Scraper filter (2026-11-21, from Toutou via 10minlanguages): a "person" with no Accept-Language, a headless browser
+// or a Chrome older than 100 is stored as kind 'scraper' (out of every people count); so is a visitor hash with more
+// than 30 page views in one hour (second pass after each run). --reclass-history applies the first rules to the hits
+// already stored (journal read again from the first day), then prints the counts.
+// Usage: DATABASE_URL=postgresql:///qrt?host=/var/run/postgresql INGEST_HOSTS=quel-robot-tondeuse.com node scripts/ingest-caddy-logs.mjs [--dry] [--reclass-history]
 
 import { createHash, randomBytes } from 'node:crypto'
 import { spawn } from 'node:child_process'

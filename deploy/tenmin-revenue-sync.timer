@@ -1,9 +1,0 @@
-[Unit]
-Description=10minlanguages - real sales to the dashboard, every hour
-
-[Timer]
-OnCalendar=*:54
-Persistent=false
-
-[Install]
-WantedBy=timers.target

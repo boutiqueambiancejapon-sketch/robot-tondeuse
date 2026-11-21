@@ -1,0 +1,14 @@
+# quel-robot-tondeuse.com: real sales from the control centre into analytics.revenue_sales (Dashboard › Revenus).
+# Install: sudo install -m 755 deploy/revenue-sync.sh /usr/local/sbin/qrt-revenue-sync
+#          && sudo cp deploy/qrt-revenue-sync.* /etc/systemd/system/ && sudo systemctl daemon-reload
+#          && sudo systemctl enable --now qrt-revenue-sync.timer
+# Safeguard: /etc/systemd/system/qrt-revenue-sync.service.d/safeguard.conf puts it in background.slice.
+[Unit]
+Description=Quel Robot Tondeuse - real sales to the dashboard
+After=postgresql.service
+
+[Service]
+Type=oneshot
+User=administrator
+Nice=15
+ExecStart=/usr/bin/bash -euo pipefail /usr/local/sbin/qrt-revenue-sync

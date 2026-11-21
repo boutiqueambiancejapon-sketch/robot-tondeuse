@@ -1,10 +1,12 @@
 // SEO dashboard (ported from Toutou): Search Console per day and device: site, pages, query × page. Every night the
 // last 10 days are rewritten (Google completes them late). Catch-up: --depuis=2026-09-23. Anchors (#section) are
-// added to their page before writing.
+// added to their page before writing. QRT: nothing happens until Search Console is connected (key in
+// /srv/sites/robot-tondeuse/shared/gsc-key.json, property shared); the first run after that catches up on its own
+// from SITE.gscStart (Google keeps 16 months).
 //   node --import ./scripts/lib/ts-register.mjs scripts/seo/collect-gsc.ts [--depuis=YYYY-MM-DD] [--jours=10]
 import pg from 'pg'
-import { cleanPath } from '../../lib/seo-dash/config'
-import { gscQuery, type GscDimension, type GscRow } from '../../lib/server/dashboard/search-console'
+import { cleanPath, SITE } from '../../lib/seo-dash/config'
+import { gscKeyPresent, gscQuery, siteConnected, type GscDimension, type GscRow } from '../../lib/server/dashboard/search-console'
 
 const arg = (name: string): string | undefined => process.argv.find((a) => a.startsWith(`--${name}=`))?.split('=')[1]
 const iso = (d: Date) => d.toISOString().slice(0, 10)
@@ -64,10 +66,16 @@ async function write(pool: pg.Pool, table: string, cols: string[], day: string, 
 }
 
 async function main(): Promise<void> {
+  if (!gscKeyPresent() || !(await siteConnected().catch(() => false))) {
+    console.log('Search Console à connecter (clé absente ou propriété non partagée) : rien à relever')
+    return
+  }
   const end = new Date(Date.now() - DAY)
-  const since = arg('depuis')
-  const start = since ? new Date(`${since}T00:00:00Z`) : new Date(end.getTime() - (Number(arg('jours') ?? 10) - 1) * DAY)
   const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL, max: 2 })
+  const empty = !(await pool.query<{ any: boolean }>('SELECT EXISTS (SELECT 1 FROM analytics.gsc_site_daily) AS any')).rows[0]?.any
+  const oldest = iso(new Date(end.getTime() - 480 * DAY))
+  const since = arg('depuis') ?? (empty ? (SITE.gscStart > oldest ? SITE.gscStart : oldest) : undefined)
+  const start = since ? new Date(`${since}T00:00:00Z`) : new Date(end.getTime() - (Number(arg('jours') ?? 10) - 1) * DAY)
   let days = 0
   let qp = 0
   for (let t = start.getTime(); t <= end.getTime(); t += DAY) {

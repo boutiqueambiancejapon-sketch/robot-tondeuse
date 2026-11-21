@@ -10,15 +10,18 @@ import { Tile } from '../ui/Tile'
 interface Props {
   gsc: { cur: Totals; prev: Totals | null; daily: DayPoint[]; prevDaily: DayPoint[] }
   site: SiteKpis
+  /** False while Search Console isn't connected (QRT): the Google tile says « À connecter ». */
+  gscReady?: boolean
 }
 
-export function TodayTiles({ gsc, site }: Props) {
+export function TodayTiles({ gsc, site, gscReady = true }: Props) {
   const since = site.ranges.partial || !site.prev ? `suivi depuis le ${dayLabel(site.ranges.firstData)}` : null
   const d = (k: 'visitors' | 'clicks' | 'revenue' | 'accounts') => (site.prev ? deltaOf(site.cur[k], site.prev[k]) : null)
   const s = (k: 'visitors' | 'clicks' | 'revenue' | 'accounts') => site.daily.map((x) => x[k])
   const sp = (k: 'visitors' | 'clicks' | 'revenue' | 'accounts') => (site.prev ? site.prevDaily.map((x) => x[k]) : undefined)
   return (
     <div className="sd-grid sd-g5 k2">
+      {gscReady ? (
       <Tile
         label="Clics Google"
         value={n0(gsc.cur.clicks)}
@@ -27,6 +30,9 @@ export function TodayTiles({ gsc, site }: Props) {
         spark={gsc.daily.map((x) => x.clicks)}
         sparkPrev={gsc.prev ? gsc.prevDaily.map((x) => x.clicks) : undefined}
       />
+      ) : (
+        <Tile label="Clics Google" value="À connecter" note="Search Console pas encore reliée" />
+      )}
       <Tile label="Visiteurs du site" value={n0(site.cur.visitors)} delta={d('visitors')} against={site.prev ? `contre ${n0(site.prev.visitors)}` : undefined} note={since} spark={s('visitors')} sparkPrev={sp('visitors')} />
       <Tile
         label="Clics vers les marchands"

@@ -7,6 +7,8 @@ import { pageDetail } from '@/lib/seo-dash/server/detail'
 import { chartNotes } from '@/lib/seo-dash/server/notes'
 import { openSeoPage, param, type SeoPageProps } from '@/lib/seo-dash/server/page'
 import { readBlock } from '@/lib/seo-dash/server/sql'
+import { gscState, type GscState } from '@/lib/seo-dash/server/gsc-state'
+import { GscPending } from '@/components/seo-dash/blocks/GscPending'
 import { pageVitals } from '@/lib/seo-dash/server/vitals'
 import { SeoShell } from '@/components/seo-dash/shell/SeoShell'
 import { Tile } from '@/components/seo-dash/ui/Tile'
@@ -28,6 +30,7 @@ export default async function PageDetailPage(props: SeoPageProps) {
   const res = await readBlock('détail page', null, (pool) => pageDetail(pool, f, path))
   const vitals = (await readBlock('vitals page', { lcp: null, inp: null }, (pool) => pageVitals(pool, path))).value
   const d = res.value
+  const state = (await readBlock<GscState>('search console', { ready: true }, (pool) => gscState(pool))).value
   const notes = d ? (await readBlock('notes', [], (pool) => chartNotes(pool, { start: d.long[0]?.day ?? d.ranges.cur.start, end: d.ranges.last }))).value : []
   const title = pub?.title ?? path
   const clicks = d?.partnerClicks.reduce((a, x) => a + x.n, 0) ?? 0
@@ -53,6 +56,7 @@ export default async function PageDetailPage(props: SeoPageProps) {
           Ouvrir la page
         </a>
       </div>
+      <GscPending state={state} compact />
       {d ? (
         <>
           <div className="sd-grid sd-g5 k2">

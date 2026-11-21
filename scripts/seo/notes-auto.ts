@@ -1,19 +1,22 @@
-// SEO dashboard (ported from Toutou): automatic notes from the git history of the live branch (stable clone
-// ~/sites-src/10minlanguages, fetched by deploy-site.sh): site features (« technique » dot), daily fiches batches and
-// new posts (journal), deploys of the day. Unique key: a note is never written twice.
+// SEO dashboard (ported from Toutou via 10minlanguages): automatic notes from the git history of the live branch
+// (stable clone ~/sites-src/robot-tondeuse, fetched by deploy-site.sh): site features and SEO fixes (« technique »
+// dot), new articles, content passes, promo checks and the weekly price reading (qrt-offres) in the journal, deploys
+// of the day. Unique key: a note is never written twice.
 //   node --import ./scripts/lib/ts-register.mjs scripts/seo/notes-auto.ts [--jours=120]
 import { execFileSync } from 'node:child_process'
 import { readdirSync, statSync } from 'node:fs'
 import pg from 'pg'
 
-const REPO = process.env.DEPLOY_REPO || '/home/administrator/sites-src/10minlanguages'
-const RELEASES = process.env.RELEASES_DIR || '/srv/sites/10minlanguages/releases'
-const BRANCH = process.env.DEPLOY_BRANCH || 'main'
+const REPO = process.env.DEPLOY_REPO || '/home/administrator/sites-src/robot-tondeuse'
+const RELEASES = process.env.RELEASES_DIR || '/srv/sites/robot-tondeuse/releases'
+const BRANCH = process.env.DEPLOY_BRANCH || 'claude/setup-nextjs-apple-guide-En4gb'
 const jours = Number(process.argv.find((a) => a.startsWith('--jours='))?.split('=')[1] ?? 120)
 // Dashboard or tooling changes: they don't touch the public site.
-const INTERNAL = /^(feat|fix|perf|refactor)\((dashboard|safeguard|deploy|scripts|ci|deps|test|images|analytics|ops|sites|db|data|dns|email|emails|speech)\)/
+const INTERNAL = /^(feat|fix|perf|refactor)\((dashboard|safeguard|deploy|scripts|ci|deps|test|analytics|tracking|ops|sites|db|data|dns|email|emails|lint|build|team|lot\d+)\)/
 // Features that change what Google sees (dot on the charts); the others stay in the journal.
-const VISIBLE = /^(seo|nav|menu|layout|design|home|languages|phrases|fiches|tools|time|quiz|kits|og)$/
+const VISIBLE = /^(seo|nav|menu|layout|design|home|articles|article|og|black-friday|promos|products|tools|piscine|scoring|bareme|cro|conversion)$/
+// Content passes worth a line in the journal (cover images are left out: no change for Google).
+const CONTENT = /^content\((?!images\))([a-z0-9-]+)\): (.+)$/
 
 interface Note {
   ref: string
@@ -36,15 +39,21 @@ function fromGit(): Note[] {
       notes.push({ ref: `git:${sha}`, day, kind: 'maj', text: `SEO : ${seo[1] ?? ''}`, source: 'auto' })
       continue
     }
-    // Nightly fiches job (tenmin-fiches, 02:40): a few pages a day, journal only.
-    const daily = /^feat\(fiches\): (\d+) new fiches/.exec(subject)
-    if (daily) {
-      notes.push({ ref: `git:${sha}`, day, kind: 'pub', text: `${daily[1] ?? ''} nouvelles fiches How to say`, source: 'journal' })
+    // Weekly Cdiscount / Fnac price reading (qrt-offres.timer, Monday night): journal only.
+    if (/^chore\(offres\):/.test(subject)) {
+      notes.push({ ref: `git:${sha}`, day, kind: 'maj', text: 'Prix Cdiscount et Fnac relevés (relevé de la semaine)', source: 'journal' })
       continue
     }
-    const blog = /^content\(blog\): (.+)$/.exec(subject)
-    if (blog) {
-      notes.push({ ref: `git:${sha}`, day, kind: 'maj', text: `Articles : ${blog[1] ?? ''}`, source: 'journal' })
+    const fixSeo = /^fix\((seo|og)\): (.+)$/.exec(subject)
+    if (fixSeo) {
+      notes.push({ ref: `git:${sha}`, day, kind: 'tech', text: `Correctif SEO : ${fixSeo[2] ?? ''}`, source: 'auto' })
+      continue
+    }
+    // New articles (night job site-articles and by hand): content(blog): add <slug>; the other content passes.
+    const content = CONTENT.exec(subject)
+    if (content) {
+      const what = content[1] === 'blog' ? 'Articles' : content[1] === 'promos' ? 'Promos' : 'Contenu'
+      notes.push({ ref: `git:${sha}`, day, kind: 'maj', text: `${what} : ${content[2] ?? ''}`, source: 'journal' })
       continue
     }
     const feat = /^feat(?:\(([^)]+)\))?!?: (.+)$/.exec(subject)
@@ -66,17 +75,9 @@ function fromReleases(): Note[] {
   return [...perDay].map(([day, n]) => ({ ref: `deploys:${day}`, day, kind: 'tech' as const, text: `${n} mise${n > 1 ? 's' : ''} en ligne du site`, source: 'journal' as const }))
 }
 
-/** Batches of "How to say" fiches opened to Google (Dashboard › Google › Fiches, seo.page_index): a dot on the charts. */
-async function fromIndex(db: pg.Pool): Promise<Note[]> {
-  const { rows } = await db.query<{ day: string; n: number }>(
-    `SELECT (changed_at AT TIME ZONE 'Europe/Brussels')::date::text AS day, count(*)::int AS n FROM seo.page_index WHERE indexed GROUP BY 1`,
-  )
-  return rows.map((r) => ({ ref: `index:${r.day}`, day: r.day, kind: 'pub' as const, text: `${r.n} fiche${r.n > 1 ? 's' : ''} ouverte${r.n > 1 ? 's' : ''} à Google`, source: 'auto' as const }))
-}
-
 async function main(): Promise<void> {
   const db = new pg.Pool({ connectionString: process.env.DATABASE_URL, max: 1 })
-  const notes = [...fromGit(), ...fromReleases(), ...(await fromIndex(db))]
+  const notes = [...fromGit(), ...fromReleases()]
   let added = 0
   for (const n of notes) {
     const r = await db.query(

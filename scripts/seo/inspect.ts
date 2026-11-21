@@ -6,12 +6,17 @@ import pg from 'pg'
 import { SITE } from '../../lib/seo-dash/config'
 import { publications } from '../../lib/seo-dash/server/content'
 import { sitemapEntries } from '../../lib/seo-dash/server/sitemap'
-import { inspectUrl } from '../../lib/server/dashboard/search-console'
+import { gscKeyPresent, inspectUrl, siteConnected } from '../../lib/server/dashboard/search-console'
 
 const MAX = Math.min(2000, Number(process.argv.find((a) => a.startsWith('--max='))?.split('=')[1] ?? 2000))
 const DAY = 86_400_000
 
 async function main(): Promise<void> {
+  // QRT: nothing to do until Search Console is connected (key on the server, property shared).
+  if (!gscKeyPresent() || !(await siteConnected().catch(() => false))) {
+    console.log('Inspection d’URL : Search Console à connecter, rien à faire')
+    return
+  }
   const db = new pg.Pool({ connectionString: process.env.DATABASE_URL, max: 2 })
   const map = await sitemapEntries()
   const [checked, top, crawled] = await Promise.all([

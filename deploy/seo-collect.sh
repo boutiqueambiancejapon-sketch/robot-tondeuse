@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Nightly collectors of the SEO dashboard (tenmin-seo-collect.timer, 04:30 Brussels: after the fiches job of 02:40).
-# Each step is independent: a failure is logged and the next one still runs. Ported from Toutou's deploy/seo-collect.sh.
+# Nightly collectors of the SEO dashboard (qrt-seo-collect.timer, 02:05 Brussels: after the night article job of
+# 23:37 UTC, before the other sites' fiches and SEO jobs). Each step is independent: a failure is logged and the next
+# one still runs. Ported from 10minlanguages' deploy/seo-collect.sh. Search Console steps do nothing until connected.
 set -uo pipefail
-cd /srv/sites/10minlanguages/current
+cd /srv/sites/robot-tondeuse/current
 RUN=(node --import ./scripts/lib/ts-register.mjs)
 step() {
   echo "--- $1"
