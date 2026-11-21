@@ -67,7 +67,7 @@ export function LiveFeed() {
                 <span className="sd-muted">{time.format(new Date(b.ts))}</span>
                 <span className="u">
                   {b.path}
-                  <span className="m"> · {KIND[b.kind] ?? b.kind}</span>
+                  <span className="m">{KIND[b.kind] ?? b.kind}</span>
                 </span>
                 <span className="sd-src">{b.label}</span>
               </li>
@@ -79,7 +79,7 @@ export function LiveFeed() {
                   {e.name === CLICK_EVENT ? `Clic marchand${e.detail ? ` (${e.detail})` : ''} · ` : ''}
                   {e.page}
                   <span className="m">
-                    {' '}· {[e.device ? (DEVICE[e.device] ?? e.device) : null, e.country ? countryName(e.country) : null].filter(Boolean).join(' · ')}
+                    {[e.device ? (DEVICE[e.device] ?? e.device) : null, e.country ? countryName(e.country) : null].filter(Boolean).join(' · ')}
                   </span>
                 </span>
                 <span className="sd-src">
