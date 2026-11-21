@@ -18,7 +18,7 @@ async function get(path: string, method: 'GET' | 'HEAD' = 'GET'): Promise<{ stat
     const res = await fetch(`${LOCAL}${encodeURI(path)}`, {
       method,
       redirect: 'manual',
-      headers: { Host: HOST, 'X-Forwarded-Proto': 'https', 'X-Forwarded-Host': HOST, 'User-Agent': 'TenMinAudit/1.0 (+dashboard)' },
+      headers: { Host: HOST, 'X-Forwarded-Proto': 'https', 'X-Forwarded-Host': HOST, 'User-Agent': 'QrtAudit/1.0 (+dashboard)' },
       signal: AbortSignal.timeout(30_000),
     })
     return { status: res.status, html: method === 'GET' && res.status === 200 ? await res.text() : '' }
