@@ -4,6 +4,7 @@ import { clientIp, isOwnerIp } from '@/lib/server/owner-ip'
 import { deviceOf, isBotUa, visitorHash } from '@/lib/server/visitor'
 import { countryOf } from '@/scripts/lib/geo.mjs'
 import { SESSION_COOKIE } from '@/lib/dashboard/policy'
+import { BROWSER_EVENTS } from '@/lib/dashboard/events'
 
 // First-party events for the owner dashboard (page views come from Caddy's log). No cookie set,
 // no address stored (only the country read from it). Always answers 204: measurement must never break the page.
@@ -11,8 +12,8 @@ import { SESSION_COOKIE } from '@/lib/dashboard/policy'
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
-// newsletter_signup, kit_request and account_created are recorded by the server (app/api/kit), never accepted from the browser.
-const EVENTS = new Set(['preply_click', 'calc_result', 'quiz_result', 'level_share', 'daily_done', 'nudge_shown', 'nudge_dismiss', 'cta_view', 'cta_click', 'app_open', 'situation_start', 'situation_done', 'situation_missing', 'review_done', 'install_prompt_view', 'speech_debug', 'share_click', 'pdf_download'])
+// newsletter_signup and tool_use are recorded by the server (/api/inscription, /api/m), never accepted from here.
+const EVENTS = new Set<string>(BROWSER_EVENTS)
 const MAX_BODY = 2_000
 const MAX_PROPS = 8
 const WINDOW_MS = 60_000

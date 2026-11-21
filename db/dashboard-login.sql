@@ -1,8 +1,8 @@
--- Owner login for /dashboard (lib/server/login), adapted from Toutou Gourmet (passkey or TOTP).
--- Idempotent. Apply: sudo -n -u postgres psql -d tenmin -v ON_ERROR_STOP=1 -f db/dashboard-login.sql
+-- Owner login for /dashboard (lib/server/login), ported from 10minlanguages.com (passkey or TOTP).
+-- Idempotent. Apply: sudo -n -u postgres psql -d qrt -v ON_ERROR_STOP=1 -f db/dashboard-login.sql
 -- Reset (lost phone): node scripts/dashboard-login-reset.mjs (deletes factors and sessions).
 
-CREATE SCHEMA IF NOT EXISTS dashboard AUTHORIZATION tenmin;
+CREATE SCHEMA IF NOT EXISTS dashboard AUTHORIZATION qrt;
 
 -- Cookie value is random; only its SHA-256 is stored. stage: second_factor | enroll | full
 CREATE TABLE IF NOT EXISTS dashboard.session (
@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS dashboard.login_event (
 CREATE INDEX IF NOT EXISTS login_event_ip_idx ON dashboard.login_event (ip_hash, at);
 CREATE INDEX IF NOT EXISTS login_event_at_idx ON dashboard.login_event (at);
 
-ALTER TABLE dashboard.session OWNER TO tenmin;
-ALTER TABLE dashboard.passkey OWNER TO tenmin;
-ALTER TABLE dashboard.totp OWNER TO tenmin;
-ALTER TABLE dashboard.challenge OWNER TO tenmin;
-ALTER TABLE dashboard.login_event OWNER TO tenmin;
+ALTER TABLE dashboard.session OWNER TO qrt;
+ALTER TABLE dashboard.passkey OWNER TO qrt;
+ALTER TABLE dashboard.totp OWNER TO qrt;
+ALTER TABLE dashboard.challenge OWNER TO qrt;
+ALTER TABLE dashboard.login_event OWNER TO qrt;

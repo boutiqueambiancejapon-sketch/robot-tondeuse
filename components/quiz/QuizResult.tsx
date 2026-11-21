@@ -61,7 +61,7 @@ export function QuizResult({ rec, steps, answers, merchantLinks, onRestart }: Pr
 
       <div className="stack">
         {merchant ? (
-          <MerchantButtons offres={offres} />
+          <MerchantButtons offres={offres} place="quiz-resultat" robot={rec.modele} />
         ) : (
           <Link href={rec.comparerHref} className="btn btn--full">
             Comparer les modèles {rec.produit}

@@ -7,9 +7,9 @@ const euros = (n: number): string => `${n.toLocaleString('fr-FR').replace(/\s/g,
 /** Baisses vérifiées : prix relevé, écart avec le plus bas des 30 jours précédents, date et marchand. Aucun prix barré. */
 export function DealsGrid({ deals }: { deals: Deal[] }) {
   return (
-    <div className="stack">
+    <div className="stack" data-place="bons-plans">
       {deals.map((d) => (
-        <article className="card card-p stack" key={`${d.slug}-${d.store}`}>
+        <article className="card card-p stack" key={`${d.slug}-${d.store}`} data-robot={d.name}>
           <h2 className="h-sm">{d.name}</h2>
           <p className="promo-prix">
             <span className="price num">{euros(d.price)}</span>

@@ -31,11 +31,11 @@ export function ProductCarousel({ products }: { products: string }) {
   if (items.length === 0) return null
 
   return (
-    <div className="snap picks">
+    <div className="snap picks" data-place="carrousel-produits">
       {items.map(({ slug, product, url }) => {
         const autres = offresRelevees(product.name, slug)
         return (
-        <article className="card pick" key={slug}>
+        <article className="card pick" key={slug} data-robot={product.name}>
           {product.image ? (
             <span className="shot">
               {product.badge ? <span className="tag">{product.badge}</span> : null}

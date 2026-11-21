@@ -14,7 +14,7 @@ export function NotreChoix({ produit }: { produit: ProduitCite }) {
   const url = meilleur?.url ?? amazonHref(produit.url, produit.name)
   const label = meilleur?.prix ? `Voir chez ${meilleur.marchand} · ${formatPrix(meilleur.prix)}` : 'Voir le prix chez Amazon'
   return (
-    <aside className="choix" aria-label={`Notre choix : ${produit.name}`} data-cta="choix-haut">
+    <aside className="choix" aria-label={`Notre choix : ${produit.name}`} data-cta="choix-haut" data-place="notre-choix" data-robot={produit.name}>
       <div className="choix-top">
         {produit.image ? (
           <span className="choix-img">

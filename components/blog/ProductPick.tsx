@@ -21,7 +21,7 @@ export function ProductPick({ name, price, url, image, badge, hook }: Props) {
   // Si le même robot est aussi dans un flux Cdiscount ou Fnac, un bouton par vendeur, avec le prix relevé.
   const autres = offresRelevees(name)
   return (
-    <aside className={image ? 'card buy' : 'card buy buy--plain'} aria-label={name}>
+    <aside className={image ? 'card buy' : 'card buy buy--plain'} aria-label={name} data-place="encart-produit" data-robot={name}>
       {image ? (
         <span className="buy-img">
           <Image src={image} alt={name} width={160} height={160} />

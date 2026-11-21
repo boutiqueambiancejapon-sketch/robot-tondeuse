@@ -4,7 +4,7 @@ import { clientIp, isOwnerIp } from '@/lib/server/owner-ip'
 import { deviceOf, isBotUa, visitorHash } from '@/lib/server/visitor'
 import { countryOf } from '@/scripts/lib/geo.mjs'
 
-// Server-side first-party event (kit requests and confirmations), same table and rules as /api/e:
+// Server-side first-party event (letter sign-up, tool used), same table and rules as /api/e:
 // no cookie, no address or email stored, robots and the owner skipped. Never throws.
 
 export async function recordEvent(headers: Headers, name: string, page: string, props: Record<string, string>): Promise<void> {
@@ -24,5 +24,15 @@ export async function recordEvent(headers: Headers, name: string, page: string, 
     ])
   } catch (err) {
     console.error('[events] insert failed', err instanceof Error ? err.message : err)
+  }
+}
+
+/** Path of the page that sent the request (same-site Referer), otherwise "/". */
+export function refererPath(headers: Headers): string {
+  try {
+    const ref = new URL(headers.get('referer') ?? '')
+    return ref.hostname.replace(/^www\./, '') === 'quel-robot-tondeuse.com' ? ref.pathname : '/'
+  } catch {
+    return '/'
   }
 }

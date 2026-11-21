@@ -7,9 +7,9 @@ const euros = (n: number): string => `${n.toLocaleString('fr-FR').replace(/\s/g,
 /** Offres confirmées : prix relevé, plus bas des 30 jours précédents chez le même marchand, date du relevé. Aucun prix barré. */
 export function Offres({ offers }: { offers: BlackFridayOffer[] }) {
   return (
-    <div className="stack">
+    <div className="stack" data-place="promos-offres">
       {offers.map((o) => (
-        <article className="card card-p stack" key={`${o.slug}-${o.store}`}>
+        <article className="card card-p stack" key={`${o.slug}-${o.store}`} data-robot={getProduct(o.slug)?.name ?? o.slug}>
           <h3 className="h-sm">{getProduct(o.slug)?.name ?? o.slug}</h3>
           <p className="promo-prix">
             <span className="price num">{euros(o.price)}</span>

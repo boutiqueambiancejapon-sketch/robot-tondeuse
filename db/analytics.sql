@@ -1,20 +1,20 @@
--- Owner dashboard (/dashboard): analytics schema, adapted from Toutou Gourmet's db/analytics.sql.
--- Idempotent. Apply: sudo -n -u postgres psql -d tenmin -v ON_ERROR_STOP=1 -f db/analytics.sql
+-- Owner dashboard (/dashboard): analytics schema, ported from 10minlanguages.com (itself adapted from Toutou Gourmet).
+-- Idempotent. Apply: sudo -n -u postgres psql -d qrt -v ON_ERROR_STOP=1 -f db/analytics.sql
 --
--- One-time setup (run as postgres, already done on 2026-11-20):
---   CREATE ROLE tenmin NOLOGIN;            -- owns the database and every table
---   CREATE ROLE sites LOGIN IN ROLE tenmin; -- the site process user (site@.service, peer auth)
---   CREATE DATABASE tenmin OWNER tenmin;
---   REVOKE CONNECT ON DATABASE tenmin FROM PUBLIC; GRANT CONNECT ON DATABASE tenmin TO tenmin;
--- DATABASE_URL=postgresql:///tenmin?host=/var/run/postgresql
+-- One-time setup (run as postgres, already done on 2026-11-21):
+--   CREATE ROLE qrt NOLOGIN;            -- owns the database and every table
+--   GRANT qrt TO sites;                 -- sites: the site process user (site@.service, peer auth), already a login role
+--   CREATE DATABASE qrt OWNER qrt;
+--   REVOKE CONNECT ON DATABASE qrt FROM PUBLIC; GRANT CONNECT ON DATABASE qrt TO qrt;
+-- DATABASE_URL=postgresql:///qrt?host=/var/run/postgresql
 --
 -- Privacy: no cookie, no human IP or User-Agent stored. Humans get a visitor hash salted per day
 -- (the salt is deleted after 2 days). Bot IP + UA are kept to spot fake bots.
 
-CREATE SCHEMA IF NOT EXISTS analytics AUTHORIZATION tenmin;
+CREATE SCHEMA IF NOT EXISTS analytics AUTHORIZATION qrt;
 
--- Visitor actions sent by the site (components/PreplyClickBeacon.tsx → POST /api/e).
--- name: preply_click | calc_result | quiz_result (browser, /api/e) · kit_request | newsletter_signup (server, /api/kit)
+-- Visitor actions sent by the site (components/AffiliateClickBeacon.tsx, components/quiz → POST /api/e).
+-- name: affiliate_click | quiz_result (browser, /api/e) · tool_use (server, /api/m) · newsletter_signup (server, /api/inscription)
 CREATE TABLE IF NOT EXISTS analytics.events (
   id       bigserial PRIMARY KEY,
   ts       timestamptz NOT NULL DEFAULT now(),
@@ -75,15 +75,15 @@ CREATE TABLE IF NOT EXISTS analytics.ignored_ips (
   expires_at timestamptz NOT NULL
 );
 
-ALTER TABLE analytics.events OWNER TO tenmin;
-ALTER TABLE analytics.hits OWNER TO tenmin;
-ALTER TABLE analytics.ingest_state OWNER TO tenmin;
-ALTER TABLE analytics.visitor_salt OWNER TO tenmin;
-ALTER TABLE analytics.ignored_ips OWNER TO tenmin;
+ALTER TABLE analytics.events OWNER TO qrt;
+ALTER TABLE analytics.hits OWNER TO qrt;
+ALTER TABLE analytics.ingest_state OWNER TO qrt;
+ALTER TABLE analytics.visitor_salt OWNER TO qrt;
+ALTER TABLE analytics.ignored_ips OWNER TO qrt;
 
--- 2026-11-21 (dashboard parity with Toutou): country code (ISO 3166-1 alpha-2) read from the address in a
--- local DB-IP Country Lite file (CC BY 4.0, /var/lib/tenmin-geo, copied from /var/lib/toutou-geo by
--- tenmin-ingest.service). For people the address is read, then forgotten: only the country is kept.
+-- 2026-11-21 (dashboard parity with 10minlanguages.com): country code (ISO 3166-1 alpha-2) read from the address in a
+-- local DB-IP Country Lite file (CC BY 4.0, /var/lib/qrt-geo, copied from /var/lib/toutou-geo by
+-- qrt-ingest.service). For people the address is read, then forgotten: only the country is kept.
 ALTER TABLE analytics.hits ADD COLUMN IF NOT EXISTS country char(2);
 ALTER TABLE analytics.events ADD COLUMN IF NOT EXISTS country char(2);
 CREATE INDEX IF NOT EXISTS hits_visitor_ts_idx ON analytics.hits (visitor, ts) WHERE visitor IS NOT NULL;

@@ -3,11 +3,12 @@ import { formatDate, formatPrix, type Offre } from '@/lib/offres-format'
 /**
  * Trois boutons marchands. Le premier (prix relevé le plus bas, sinon Amazon) est plein, les autres sont clairs.
  * Utilisable côté serveur comme côté client : les offres sont calculées avant.
+ * data-place et data-robot servent au comptage des clics (components/AffiliateClickBeacon.tsx).
  */
-export function MerchantButtons({ offres }: { offres: Offre[] }) {
+export function MerchantButtons({ offres, place = 'boutons-marchands', robot }: { offres: Offre[]; place?: string; robot?: string }) {
   const releve = offres.find((o) => o.date)
   return (
-    <div className="stack">
+    <div className="stack" data-place={place} data-robot={robot}>
       {offres.map((o, i) => (
         <a
           key={o.marchand}

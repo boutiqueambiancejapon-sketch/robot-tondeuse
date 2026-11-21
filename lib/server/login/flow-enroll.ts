@@ -1,7 +1,6 @@
 import 'server-only'
 import type { RegistrationResponseJSON } from '@simplewebauthn/server'
 import { factorIsRecent, MAX_SESSION_FACTOR_FAILURES } from '@/lib/dashboard/policy'
-import { OG } from '@/lib/og/tokens'
 import { logEvent } from './attempts'
 import { hasFactor } from './factors'
 import { openFullSession } from './flow-login'
@@ -10,6 +9,10 @@ import { qrDataUri } from './qr'
 import { countFactorFailure, deleteSession, saveChallenge, takeChallenge } from './sessions'
 import { confirmTotp, startTotpEnrollment } from './totp'
 import { registrationOptions, saveRegistration } from './webauthn'
+
+// QR code colours: a data URI cannot read CSS variables (values of --ink and --white in dashboard.css).
+const QR_INK = '#12211b'
+const QR_PAPER = '#fffefb'
 
 // Adding a factor. Enrolment screen: limited session, while no factor exists. Security page:
 // full session, second factor passed less than 15 minutes ago.
@@ -53,7 +56,7 @@ export async function enrollTotpStart(ctx: FlowContext): Promise<FlowResult> {
   if (denied) return denied
   const enrollment = await startTotpEnrollment()
   if (!enrollment) return refused('exists', 409)
-  return ok({ uri: enrollment.uri, secret: enrollment.secret, qr: qrDataUri(enrollment.uri, OG.ink, OG.white) })
+  return ok({ uri: enrollment.uri, secret: enrollment.secret, qr: qrDataUri(enrollment.uri, QR_INK, QR_PAPER) })
 }
 
 export async function enrollTotpConfirm(ctx: FlowContext): Promise<FlowResult> {
