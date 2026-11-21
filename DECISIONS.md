@@ -145,3 +145,13 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Contacts : liste Brevo 6 lue à l'affichage, rien copié dans notre base ; adresses jamais dans les URL (clé hachée, recherche dans un cookie court).
 - Search Console : même compte de service que Toutou et 10min ; tant que la propriété QRT ne l'a pas ajouté et que sa clé n'est pas copiée dans `/srv/sites/robot-tondeuse/shared/gsc-key.json`, l'onglet affiche « À connecter ».
 - Mesure en place depuis le 21/11/2026 ; journal du serveur lu depuis le 20/11/2026.
+
+## Tableau de bord SEO (21/11/2026)
+| Date | Décision | Raison |
+|---|---|---|
+| 2026-11-21 | Tableau de bord SEO de Toutou porté tel quel (via 10minlanguages) ; seuls `config.ts`, les sources de données et le style changent | Maquette validée pour les trois sites, une seule forme de code |
+| 2026-11-21 | Clics regroupés par marchand (Amazon, Cdiscount, Fnac via Awin), valeur d’un clic inconnue : « € ? » | Pas de chiffre inventé ; ventes réelles reprises du centre de contrôle |
+| 2026-11-21 | Search Console « À connecter » tant que la clé et le partage manquent ; rattrapage automatique au premier relevé | Aucune clé copiée d’un autre site ; l’écran s’allume seul |
+| 2026-11-21 | Cinquième tuile d’Aujourd’hui = inscriptions à la lettre | QRT n’a pas de comptes |
+| 2026-11-21 | Tâches de nuit en `administrator` avec droits limités aux tables SEO ; scripts TS en Node pur (`ts-register.mjs`) même si tsx est installé | `server-only` doit être neutralisé hors Next ; même runner que 10min |
+| 2026-11-21 | Mascotte robot (une pose par écran) à la place de la pastille « 10 » | Identité V2 de QRT |
