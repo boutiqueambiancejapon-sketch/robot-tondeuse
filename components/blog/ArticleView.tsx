@@ -11,6 +11,7 @@ import type { TocItem } from '@/lib/toc'
 import { showsBuyBar, type PageType } from '@/lib/utils/page-type'
 import { PISCINE_DOSSIER, PISCINE_LABEL } from '@/lib/utils/piscine'
 import { PageTitle } from '@/components/v2/PageTitle'
+import { titreAffiche } from '@/lib/utils/titre-affiche'
 import { AuthorByline } from '@/components/ui/AuthorByline'
 import { poseArticle } from './article-pose'
 import { EnBref } from './EnBref'
@@ -25,6 +26,8 @@ import type { StickyCTAItem } from './sticky-wording'
 
 export type ArticleViewMeta = {
   title: string
+  /** Titre court affiché dans la page ; le `title` reste pour Google. */
+  h1?: string
   categorie: string
   pageType: PageType
   publishedAt: string
@@ -77,7 +80,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
     <main id="main-content" className="v2">
       <article className="wrap art">
         <PageTitle
-          title={meta.title}
+          title={titreAffiche(meta)}
           pose={piscine ? 'piscine' : poseArticle(meta.pageType, slug)}
           crumbs={crumbs}
         />
