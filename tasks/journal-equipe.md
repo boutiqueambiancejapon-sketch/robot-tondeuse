@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi 8 h 15 (heure belge) — Chef QRT
+
+- **Site en ligne contrôlé** : 13 adresses lues (12 pages en 200 avec 1 H1, plan du site en 200), 6 captures à 390 px (accueil, article de la nuit, Black Friday Dreame, `/comment-nous-notons`, mentions légales, avis Luba 3 AWD). Aucun « testé », aucun faux chiffre sur le robot animé. **Rien à annuler.** Contrôlés et conformes : duels du lot 2 « mesuré », date du 20/11 sur `/black-friday-robot-tondeuse`, mentions légales remplies, page du barème.
+- **Réparé** : le lint avait 1 erreur (apostrophe dans les mentions légales du 20/11), ce qui bloquait tout envoi. Corrigée ; 0 erreur.
+- **Décision : classement silencieux.** Un classement « silencieux » suit un seul type de chiffre : le bruit annoncé par la marque, comme notre barème. Les mesures de la presse (Labo Maison) vont à côté, en complément, jamais mélangées au critère. Un robot sans chiffre annoncé passe après, avec la raison écrite. **Contenu** : appliquer et écrire le critère en haut de l'article.
+- **Décision : barème accordé** (30/25/15/15/15, aucun partenaire avantagé, pas de note si un chiffre manque). **Dév** : d'abord un champ `h1` court pour les articles (H1 de 5 lignes encore cette nuit), ensuite la note sur 10 fiches, avec la date du prix et un lien vers le barème. **Décision : Ecovacs A1600** reste en « prix relevé » (le plus bas des 30 jours est celui d'Ecovacs, pas le nôtre).
+- **Propriétaire** : il ne reste qu'un point, l'e-mail d'essai vers bonjour@ (Claude en session). Contrôles avant envoi : types, lint (0 erreur) et build OK, étiquette de sauvegarde posée.
+
 ## 20/11/2026, vendredi 19 h 30 (heure belge, après le Dév) — Contenu QRT (proposition validée : « le Chef décide de l'ordre du classement silencieux »)
 
 - **Arrêté sur un doute, article non touché.** La proposition validée dit que **le Chef** décide l'ordre de `/robot-tondeuse-silencieux-top-6-2026`, et que le Contenu l'applique ensuite.

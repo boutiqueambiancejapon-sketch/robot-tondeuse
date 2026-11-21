@@ -27,7 +27,7 @@ export default function MentionsLegalesPage() {
             <div>
               <p>Site : {niche.siteName} — https://{niche.domain}</p>
               <p>Titulaire : Mathias Cetani</p>
-              <p>Numéro d'entreprise (BCE) et TVA : BE 0683.927.006</p>
+              <p>Numéro d’entreprise (BCE) et TVA : BE 0683.927.006</p>
               <p>Adresse : Lindestraat 94, 1785 Merchtem, Belgique</p>
               <p>E-mail : bonjour@quel-robot-tondeuse.com</p>
               <p>Responsable de la publication : Mathias Cetani</p>
