@@ -1,5 +1,6 @@
 import 'server-only'
 import type { Pool } from 'pg'
+import { sourceOf, type Source } from '@/lib/dashboard/source'
 import { HUMAN_VIEW } from './sessions'
 
 // "En direct" view: page views of the last 30 minutes (Caddy log, read every minute by
@@ -14,6 +15,16 @@ export interface LiveEvent {
   device: string | null
   ref: string | null
   country: string | null
+  /** Where it came from: engine, AI, network, email, other site, internal navigation or direct. */
+  source: Source
+}
+
+interface FeedRow extends Omit<LiveEvent, 'ts' | 'source'> {
+  ts: Date
+  ai: string | null
+  utm: string | null
+  medium: string | null
+  from_path: string | null
 }
 
 export interface LiveRow {
@@ -59,11 +70,13 @@ export async function getLive(pool: Pool): Promise<LiveData> {
         WHERE ${HUMAN_VIEW} AND (ref_host IS NOT NULL OR ref_ai IS NOT NULL) AND ${LAST30} GROUP BY 1 ORDER BY 2 DESC LIMIT 6`,
     ),
     q<LiveRow>(`SELECT coalesce(country, '') AS label, count(DISTINCT visitor)::int AS value FROM analytics.hits WHERE ${HUMAN_VIEW} AND ${LAST5} GROUP BY 1 ORDER BY 2 DESC, 1 LIMIT 8`),
-    q<{ ts: Date; name: string; page: string; detail: string | null; device: string | null; ref: string | null; country: string | null }>(
-      `(SELECT ts, 'pageview' AS name, path AS page, ref_ai AS detail, device, ref_host AS ref, country FROM analytics.hits
-         WHERE ${HUMAN_VIEW} ORDER BY ts DESC LIMIT 25)
+    q<FeedRow>(
+      `(SELECT ts, 'pageview' AS name, path AS page, NULL AS detail, device, ref_host AS ref, country,
+               ref_ai AS ai, utm_source AS utm, utm_medium AS medium, ref_path AS from_path
+          FROM analytics.hits WHERE ${HUMAN_VIEW} ORDER BY ts DESC LIMIT 25)
        UNION ALL
-       (SELECT ts, name, page, coalesce(nullif(concat_ws(' · ', props->>'merchant', props->>'place'), ''), props->>'result', props->>'tool', props->>'source'), device, ref_host, country
+       (SELECT ts, name, page, coalesce(nullif(concat_ws(' · ', props->>'merchant', props->>'place'), ''), props->>'result', props->>'tool', props->>'source'), device, ref_host, country,
+               NULL, props->>'utm_source', props->>'utm_medium', props->>'from'
           FROM analytics.events ORDER BY ts DESC LIMIT 25)
        ORDER BY ts DESC LIMIT 25`,
     ),
@@ -82,7 +95,11 @@ export async function getLive(pool: Pool): Promise<LiveData> {
     pages,
     refs,
     countries,
-    feed: feed.map((r) => ({ ...r, ts: r.ts.toISOString() })),
+    feed: feed.map(({ ai, utm, medium, from_path, ...r }) => ({
+      ...r,
+      ts: r.ts.toISOString(),
+      source: sourceOf({ host: r.ref, ai, utmSource: utm, utmMedium: medium, from: from_path }),
+    })),
     bots: bots.map((r) => ({ ...r, ts: r.ts.toISOString() })),
   }
 }

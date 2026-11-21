@@ -2,6 +2,7 @@ import { countryName } from '@/lib/dashboard/country'
 import { TZ } from '@/lib/dashboard/period'
 import type { LiveData, LiveEvent, LiveRow } from '@/lib/server/dashboard/live'
 import { Empty } from '../Card'
+import { SourceChip } from './SourceChip'
 
 // Display pieces of the "En direct" view (no hooks: rendered inside the client island).
 
@@ -59,9 +60,9 @@ export function Feed({ items }: { items: LiveEvent[] }) {
           <span className="small">
             <span className={e.name === 'pageview' ? '' : 'hot'}>{LABELS[e.name] ?? e.name}</span>
             {e.detail && <span> · {e.detail}</span>}
+            <SourceChip source={e.source} />
             <span className="row-sub">
               {e.page}
-              {e.ref ? ` · depuis ${e.ref}` : ''}
               {e.device ? ` · ${DEVICE[e.device] ?? e.device}` : ''}
               {e.country ? ` · ${countryName(e.country)}` : ''}
             </span>

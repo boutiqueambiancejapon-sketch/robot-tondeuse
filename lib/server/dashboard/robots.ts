@@ -5,6 +5,7 @@ import { TZ, type Period } from '@/lib/dashboard/period'
 import { pageTypeOf, PAGE_TYPE_LABELS } from '@/lib/dashboard/page-type'
 import type { RobotFilter } from '@/lib/dashboard/robots'
 import type { Row } from './safe'
+import { HUMAN_VIEW } from './sessions'
 
 // AI robots in detail (Caddy log read every minute, analytics.hits), adapted from Toutou. The filter
 // (operator, visit type) applies to everything that describes the robots' visits; visitors sent by
@@ -96,7 +97,7 @@ export async function getRobots(pool: Pool, period: Period, filter: RobotFilter)
     ),
     q<Row>(`SELECT status || ' ' || path AS label, count(*)::int AS value FROM analytics.hits WHERE ${WHERE} AND status >= 400 AND NOT ${TECHNICAL} AND ts >= now() - $1::interval GROUP BY 1 ORDER BY 2 DESC, 1 LIMIT 30`),
     q<{ path: string }>(`SELECT DISTINCT path FROM analytics.hits WHERE kind = ANY($1) AND status < 400`, [AI_KINDS]),
-    q<Row>(`SELECT ref_ai AS label, count(*)::int AS value FROM analytics.hits WHERE kind = 'human' AND ref_ai IS NOT NULL AND ts >= now() - $1::interval GROUP BY 1 ORDER BY 2 DESC, 1 LIMIT 10`, [period.interval]),
+    q<Row>(`SELECT ref_ai AS label, count(*)::int AS value FROM analytics.hits WHERE ${HUMAN_VIEW} AND ref_ai IS NOT NULL AND ts >= now() - $1::interval GROUP BY 1 ORDER BY 2 DESC, 1 LIMIT 10`, [period.interval]),
     q<Row>(
       `SELECT CASE kind WHEN 'search' THEN 'Moteur · ' WHEN 'seo' THEN 'Outil SEO · ' ELSE 'Autre · ' END || coalesce(operator, bot, '?') AS label, count(*)::int AS value
          FROM analytics.hits WHERE kind IN ('search', 'seo', 'bot') AND ts >= now() - $1::interval GROUP BY 1 ORDER BY 2 DESC, 1 LIMIT 30`,
