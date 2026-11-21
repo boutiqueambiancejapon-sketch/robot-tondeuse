@@ -117,3 +117,17 @@ Un encart au milieu, un en fin, choisis par type de page (`lib/utils/encarts.ts`
 ## Rubrique « Robots de piscine » (18/11/2026) ✅
 Page `/robot-piscine` (choix par bassin, liste des articles), route `/robot-piscine/<adresse>`, menu, pied de page, plan du site, 14 tests. La rubrique est vide tant qu'aucun article n'est écrit. Suite : relever les prix Cdiscount et Fnac des robots de piscine (script `scripts/offres-awin.mjs`, Claude en session), puis lot 3.
 
+
+## Tableau de bord SEO (21/11/2026) ✅
+- `/dashboard` reprend la maquette « consultant SEO » de Toutou (via 10minlanguages), au style V2 de QRT (papier, cartes blanches, mascotte robot dans une pose par écran) : Aujourd’hui, Google (+ détail page et requête), Exploration, Technique, Revenus, Direct, Contenu & notes (avec fiches robot et relevé des prix). Outils : Conversions (clics par marchand et par robot, quiz, guides PDF, promos), Contacts, E-mails, Serveur, Sécurité. iPhone : barre de 5 onglets + Menu. Sélecteur de site vers Toutou et 10min. Export CSV de chaque tableau (`qrt-…csv`, 401 sans session). Anciennes adresses Trafic / Robots IA / Recherche redirigées.
+- Code : `lib/seo-dash/config.ts` (tout ce qui est propre à QRT), `lib/seo-dash/server/*`, `components/seo-dash/*`. Pages vues = journal de Caddy (pas de balise JS). Clics groupés par marchand (Amazon, Cdiscount, Fnac). Valeur d’un clic inconnue : « € ? » ; vente réelle du mois lue dans le centre de contrôle (projet `robot-tondeuse`, 21,29 € Amazon).
+- Search Console : écrans « À connecter » tant que la clé n’est pas dans `/srv/sites/robot-tondeuse/shared/gsc-key.json` et la propriété partagée ; le relevé de nuit reprend alors seul l’historique depuis le 29/03/2026 (16 mois au plus).
+- Tables SEO dans `qrt` (propriétaire `qrt`, `db/analytics.sql`), droits limités pour `administrator`. Minuteurs `qrt-seo-collect` (02:05 Bruxelles) et `qrt-revenue-sync` (chaque heure à :57), dans background.slice (Safeguard). Scripts en Node pur via `scripts/lib/ts-register.mjs`.
+- Filtre anti-robots dans l’ingesteur, historique reclassé : 398 des 894 pages vues « personnes » étaient des robots (183 sans langue, 7 navigateur périmé, 208 cadence). Signaux web (LCP, INP, CLS) envoyés par `components/WebVitals.tsx` ; /confidentialite mise à jour.
+- Premier audit : 267 pages, 7 liens internes cassés (5 vers `/choisir/<modèle>`, 2 comparatifs) ; 249 pages jamais visitées par Googlebot.
+- Vérifié avec une session temporaire (supprimée) : tous les écrans 200, 20 exports CSV 200 / 401 sans session, captures 390 et 1280 px dans `~/drafts/qrt-seo-dash/`.
+
+### Reste à faire
+- [ ] Propriétaire : partager la propriété Search Console avec le compte de service et déposer la clé (pas de copie depuis un autre site).
+- [ ] Corriger les 7 liens cassés (Technique › Liens cassés).
+- [ ] Clé CrUX (`CRUX_API_KEY`) pour les données Chrome de Technique.
