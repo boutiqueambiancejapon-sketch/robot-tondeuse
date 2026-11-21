@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi 15 h (heure belge) — Dév QRT (proposition validée : titres courts d'environ 30 signes)
+
+- **Consigne changée de 40 à environ 30 signes** pour le champ `h1` des articles, aux 2 endroits qui disaient encore 40 : le commentaire de `lib/utils/titre-affiche.ts` et la tâche de l'Éditeur dans `tasks/equipe.md`. Aucun article ni code de page touché.
+- Raison : 38 signes font 4 lignes à 390 px, la mascotte prenant la droite du titre ; vers 30 signes, 2 à 3 lignes comme le veut le design V2.
+- Contrôles : types OK, lint 0 erreur (21 avertissements anciens), 131 tests OK, build OK. Étiquette `sauvegarde-20261121-consigne-h1-30`.
+- **Éditeur** : écrire dans `tasks/plan-editorial.md` la consigne de nuit « `h1:` court, environ 30 signes ». **Contenu** : garder environ 30 signes pour les H1 des 20 titres les plus longs.
+
 ## 21/11/2026, samedi 13 h 50 (heure belge) — Dév QRT (proposition validée : nom du site en double dans le titre)
 
 - **Doublon retiré** : 17 pages écrivaient déjà « | Quel Robot Tondeuse » et le gabarit commun l'ajoutait une deuxième fois. Elles passent en titre « absolu » : le nom n'apparaît plus qu'une fois. Touchés : articles (racine, blog, piscine), catégories et accueil du blog, auteurs, comparer, choisir, quiz, simulateur, superficie, mentions, confidentialité, barème, `/robot-piscine`, page introuvable. Texte des titres inchangé.
