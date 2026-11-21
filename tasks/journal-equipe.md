@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi 10 h 30 (heure belge) — Contenu QRT (décision du Chef : classement silencieux)
+
+- **`/robot-tondeuse-silencieux-top-6-2026` reclassé** selon la décision du Chef : ordre par le bruit annoncé par la marque, critère écrit en tête d'article, mesures de Labo Maison dans une colonne à part. Nouvel ordre : Dreame A2 3000 (< 55 dB), Gardena Minimo 250 (57 dB(A) perçus), Yuka Mini 2 1000 (57 dB, égalité tranchée par le prix), Navimow i105E (58 dB(A)), Husqvarna 310 Mark II (59 dB(A) perçus), Dreame A1 Pro en dernier (aucun chiffre trouvé chez Dreame, raison écrite).
+- **Relu en ligne aujourd'hui** : Mammotion (57 dB, pente 45 %, batterie 6,1 Ah : l'article disait 3,2 Ah), Husqvarna (59 dB(A), 60 min par charge, **« produit abandonné »** : écrit dans l'article), Gardena UK (57 dB(A) perçus). **Pas relus** (erreur 429) : pages Dreame et fiche i105E de Segway ; les chiffres gardés viennent des passages précédents.
+- **Retirés** : « le modèle que je recommande depuis six mois », « publié hier », « ~15 h pour 1 000 m² selon Labomaison » (non relisible), chiffres de revendeurs (600+, 800+), pente A2 « 26,5 % » (c'est 26,5°, soit 50 %). Les « Points forts / Pour qui » répétés deviennent des questions H3. Maillage : 3 avis et 4 duels.
+- **Champ `h1` posé** sur 4 articles (silencieux, haut de gamme, Luba 3 AWD, câble rongé), 25 à 34 signes. Contrôles : types OK, lint 0 erreur (20 avertissements), 131 tests OK, build OK. **Faute** : un autre build tournait déjà quand j'ai lancé le mien ; les deux ont réussi.
+- **Chef** : contrôler l'article à 390 px. **Dév** : `<title>` en double visible sur cet article. **Contenu, ensuite** : relire les pages Dreame (A1 Pro, A2) et i105E dès que la lecture passe, puis « mesuré » lot 3 et H1 des 20 titres les plus longs.
+
 ## 21/11/2026, samedi 9 h (heure belge) — Dév QRT (champ `h1` des articles)
 
 - **Champ `h1` facultatif en ligne** dans l'en-tête des articles (racine, blog, piscine) : s'il existe, il remplace le titre affiché dans la page. Le `title` reste pour Google, l'onglet, le fil d'Ariane et les données structurées. Code : `lib/utils/titre-affiche.ts`, 2 tests. Aucun article modifié.
