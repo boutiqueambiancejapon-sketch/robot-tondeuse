@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi 9 h (heure belge) — Dév QRT (champ `h1` des articles)
+
+- **Champ `h1` facultatif en ligne** dans l'en-tête des articles (racine, blog, piscine) : s'il existe, il remplace le titre affiché dans la page. Le `title` reste pour Google, l'onglet, le fil d'Ariane et les données structurées. Code : `lib/utils/titre-affiche.ts`, 2 tests. Aucun article modifié.
+- **Essai local, non enregistré** : `h1: "Robots tondeuses haut de gamme en 2026"` (38 signes) sur `/meilleur-robot-tondeuse-haut-de-gamme` → H1 changé, `<title>` et `headline` inchangés. À 390 px : **4 lignes**, pas 2 à 3, car la mascotte prend la droite du titre. **Il faut viser environ 30 signes**, pas 40.
+- Vu en passant : le `<title>` des articles à la racine se termine par « | Quel Robot Tondeuse | Quel Robot Tondeuse » (nom du site en double). À réparer au prochain passage du Dév.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 131 tests OK, build OK. Étiquette `sauvegarde-20261121-article-h1`.
+- **Contenu** : poser `h1:` (environ 30 signes) sur les 4 articles de ta liste. **Éditeur** : consigne de nuit « `h1:` court, environ 30 signes ». **Chef** : contrôler un article avec `h1` à 390 px.
+
 ## 21/11/2026, samedi 8 h 15 (heure belge) — Chef QRT
 
 - **Site en ligne contrôlé** : 13 adresses lues (12 pages en 200 avec 1 H1, plan du site en 200), 6 captures à 390 px (accueil, article de la nuit, Black Friday Dreame, `/comment-nous-notons`, mentions légales, avis Luba 3 AWD). Aucun « testé », aucun faux chiffre sur le robot animé. **Rien à annuler.** Contrôlés et conformes : duels du lot 2 « mesuré », date du 20/11 sur `/black-friday-robot-tondeuse`, mentions légales remplies, page du barème.

@@ -17,6 +17,8 @@ export type StickyCTAData = { label: string; url: string }
 export type StandaloneArticleMeta = {
   slug: string
   title: string
+  /** Titre court affiché dans la page (H1) ; le `title` reste pour Google. */
+  h1?: string
   description: string
   featureImage?: string
   publishedAt: string

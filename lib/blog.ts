@@ -29,6 +29,8 @@ export type ArticleMeta = {
   /** Type de page pour la carte des conversions (lot 1). Rien d'affiché. */
   pageType: PageType
   title: string
+  /** Titre court affiché dans la page (H1) ; le `title` reste pour Google. */
+  h1?: string
   description: string
   publishedAt: string
   updatedAt?: string
@@ -65,6 +67,7 @@ export function parseMeta(data: Record<string, unknown>, slug: string, categorie
     categorie,
     pageType: getPageType({ slug, categorie, pageType: data.pageType }),
     title: (data.title as string) ?? '',
+    h1: typeof data.h1 === 'string' ? data.h1 : undefined,
     description: (data.description as string) ?? '',
     publishedAt: (data.publishedAt as string) ?? '',
     updatedAt: data.updatedAt as string | undefined,
