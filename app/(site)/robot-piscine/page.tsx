@@ -25,7 +25,7 @@ const DESCRIPTION =
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: `Robots de piscine : lequel choisir selon votre bassin | ${niche.siteName}`,
+  title: { absolute: `Robots de piscine : lequel choisir selon votre bassin | ${niche.siteName}` },
   description: DESCRIPTION,
   alternates: { canonical: PAGE_URL },
   openGraph: { images: DEFAULT_OG_IMAGES, title: TITLE, description: DESCRIPTION, url: PAGE_URL, siteName: niche.siteName, type: 'website' },

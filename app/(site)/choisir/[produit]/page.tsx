@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const year = currentYear()
 
   return {
-    title: `Quel ${data.label} choisir en ${year} ? Guide complet + quiz | ${niche.siteName}`,
+    title: { absolute: `Quel ${data.label} choisir en ${year} ? Guide complet + quiz | ${niche.siteName}` },
     description: `Quel ${data.label} ${niche.entityVerb} en ${year} ? Quiz en 4 questions, comparatif par profil, prix et verdict honnête. Guide mis à jour.`,
     alternates: {
       canonical: `${SITE_URL}/choisir/${produit}`,

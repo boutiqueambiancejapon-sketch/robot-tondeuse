@@ -10,7 +10,7 @@ import { niche } from '@/niche.config'
 import { PageTitle } from '@/components/v2/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Mentions légales | ${niche.siteName}`,
+  title: { absolute: `Mentions légales | ${niche.siteName}` },
   description: `Mentions légales du site ${niche.siteName}.`,
   robots: { index: false, follow: false },
 }

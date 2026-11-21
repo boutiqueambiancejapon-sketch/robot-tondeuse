@@ -25,7 +25,7 @@ type SearchParams = Promise<{ page?: string }>
 export function generateMetadata(): Metadata {
   const year = currentYear()
   return {
-    title: `Blog ${year} — avis et guides | ${niche.siteName}`,
+    title: { absolute: `Blog ${year} — avis et guides | ${niche.siteName}` },
     description:
       `Tous les articles : guides d'achat, comparatifs et conseils.`,
     alternates: { canonical: `${SITE_URL}/blog` },

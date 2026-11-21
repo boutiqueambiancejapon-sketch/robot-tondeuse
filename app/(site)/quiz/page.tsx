@@ -20,7 +20,7 @@ export function generateMetadata(): Metadata {
   const year = currentYear()
   const question = niche.quiz.question || `Quel ${niche.entity} choisir ${year} ?`
   return {
-    title: `${question} Quiz | ${niche.siteName}`,
+    title: { absolute: `${question} Quiz | ${niche.siteName}` },
     description:
       `4 questions pour trouver le ${niche.entity} fait pour votre jardin. Résultat immédiat.`,
     alternates: { canonical: `${SITE_URL}/quiz` },

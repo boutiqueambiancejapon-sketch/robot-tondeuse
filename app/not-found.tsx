@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { niche } from '@/niche.config'
 
 export const metadata: Metadata = {
-  title: `Page introuvable | ${niche.siteName}`,
+  title: { absolute: `Page introuvable | ${niche.siteName}` },
   robots: { index: false },
 }
 

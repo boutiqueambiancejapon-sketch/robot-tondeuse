@@ -11,7 +11,7 @@ import { PageTitle } from '@/components/v2/PageTitle'
 import { CRITERES, SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 
 export const metadata: Metadata = {
-  title: `Comment nous notons les robots tondeuses | ${niche.siteName}`,
+  title: { absolute: `Comment nous notons les robots tondeuses | ${niche.siteName}` },
   description:
     'Le barème de notre note sur 100 : 5 critères tirés des fiches des marques (navigation, prix pour 100 m², pente, bruit, connexion), avec les points de chaque palier.',
   alternates: { canonical: '/comment-nous-notons' },
