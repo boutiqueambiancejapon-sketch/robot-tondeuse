@@ -53,7 +53,9 @@ export async function loadContacts(): Promise<Contacts> {
     if (!c.email) continue
     const email = c.email.toLowerCase()
     const at = c.createdAt ? new Date(c.createdAt) : null
-    const source = typeof c.attributes?.SOURCE === 'string' ? c.attributes.SOURCE.replace(/^qrt:/, '') : null
+    // SOURCE is one attribute per contact on the shared Brevo account: another site can overwrite it.
+    const raw = typeof c.attributes?.SOURCE === 'string' ? c.attributes.SOURCE : null
+    const source = raw === null ? null : raw.startsWith('qrt:') ? raw.slice(4) : 'autre site du compte Brevo'
     const unsubscribed = Boolean(c.emailBlacklisted || c.listUnsubscribed?.includes(BREVO_LIST_ID_QRT))
     const otherLists = (c.listIds ?? []).filter((id) => id !== BREVO_LIST_ID_QRT).length
     rows.push({ hash: contactHash(email), email, list: { at, modified: c.modifiedAt ? new Date(c.modifiedAt) : null, unsubscribed, source, otherLists }, since: at ?? new Date(0) })
