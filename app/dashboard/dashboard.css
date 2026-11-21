@@ -33,7 +33,7 @@
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
   p { margin: 0; text-wrap: pretty; }
-  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; word-spacing: .06em; }
   h1 { font: 800 28px/1.1 var(--display); letter-spacing: -0.03em; }
   h2 { font: 800 18px/1.2 var(--display); letter-spacing: -0.02em; }
   @media (min-width: 900px) { h1 { font-size: 34px; } }
@@ -133,7 +133,7 @@
   .btn:disabled { opacity: 0.6; cursor: default; }
   .or { text-align: center; font-size: 13px; color: var(--muted); }
   .qr { width: 180px; height: 180px; margin-inline: auto; border-radius: 12px; }
-  .secret { word-break: break-all; font-weight: 800; letter-spacing: 0.06em; background: var(--paper); border-radius: 10px; padding: 10px; text-align: center; }
+  .secret { display: block; margin-top: 4px; word-break: break-all; font-weight: 800; letter-spacing: 0.06em; background: var(--paper); border-radius: 10px; padding: 10px; text-align: center; }
 
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
