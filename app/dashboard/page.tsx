@@ -1,4 +1,4 @@
-import { lastLabel, PERIOD_LABEL } from '@/lib/seo-dash/filters'
+import { lastLabel, prevPeriodLabel } from '@/lib/seo-dash/filters'
 import { dayLabel, todayLong } from '@/lib/seo-dash/format'
 import { hrefOf, pageHref, queryHref } from '@/lib/seo-dash/nav'
 import { anomalies, type Anomaly } from '@/lib/seo-dash/server/anomalies'
@@ -12,6 +12,7 @@ import { todayActions } from '@/lib/seo-dash/server/today'
 import { gscState, type GscState } from '@/lib/seo-dash/server/gsc-state'
 import { ago } from '@/lib/dashboard/format'
 import { getIngestAt, ingestStale } from '@/lib/server/dashboard/home'
+import { GoogleDelay } from '@/components/seo-dash/ui/GoogleDelay'
 import { SeoShell } from '@/components/seo-dash/shell/SeoShell'
 import { TodayTiles } from '@/components/seo-dash/blocks/TodayTiles'
 import { TodayActions } from '@/components/seo-dash/blocks/TodayActions'
@@ -47,6 +48,7 @@ export default async function TodayPage(props: SeoPageProps) {
   const g = gsc.value
   return (
     <SeoShell current="" title="Aujourd’hui" sub={`${todayLong()} · tout ce qui demande une décision, rien d’autre`} filters={f} path={hrefOf('')} fresh={g && ready ? `Google : données jusqu’au ${dayLabel(g.ranges.last)}` : undefined}>
+      <GoogleDelay filters={f} last={g?.ranges.last} />
       {g && site.value ? <TodayTiles gsc={{ ...g, prev: g.ranges.partial ? null : g.prev }} site={site.value} gscReady={ready} /> : <p className="sd-note warn">Lecture des chiffres impossible pour l’instant.</p>}
       <div className="sd-grid sd-g3 sd-gap">
         <div className="sd-span2">
@@ -57,7 +59,7 @@ export default async function TodayPage(props: SeoPageProps) {
       <GscPending state={state.value} compact />
       {g && ready ? (
         <div className="sd-gap">
-          <ClicksCard daily={g.daily} prevDaily={g.prevDaily} notes={notes} curLabel={lastLabel(f.period)} prevLabel={f.compare === 'annee' ? 'l’an dernier' : `${PERIOD_LABEL[f.period]} d’avant`} week={false} dayHref={hrefOf('google', query)} weekHref={hrefOf('google', query)} detailHref={hrefOf('google', query)} />
+          <ClicksCard daily={g.daily} prevDaily={g.prevDaily} notes={notes} curLabel={lastLabel(f.period)} prevLabel={f.compare === 'annee' ? 'l’an dernier' : prevPeriodLabel(f.period)} week={false} dayHref={hrefOf('google', query)} weekHref={hrefOf('google', query)} detailHref={hrefOf('google', query)} />
         </div>
       ) : null}
     </SeoShell>
