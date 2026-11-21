@@ -133,3 +133,15 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Bassin d'un article : champ `bassins` de l'en-tête (`hors-sol`, `enterree`, `ligne-eau`, `sans-fil`), sinon lu dans l'adresse. Sans bassin, l'article reste affiché pour tous.
 - Article piscine sans image : pas de couverture dans l'article, mascotte piscine dans les listes. Jamais une photo de robot tondeuse.
 
+
+## Tableau de bord du propriétaire (21/11/2026)
+- Tableau de bord sur le domaine du site, à `/dashboard`, porté depuis 10minlanguages.com (lui-même tiré de Toutou Gourmet) : demande du propriétaire. Vues gardées en composants séparés pour qu'une refonte (version « consultant SEO », en maquette) puisse les remplacer une par une.
+- Le layout racine garde `<html>` et les polices ; `/dashboard` est un `<div className="dash">` sans en-tête ni pied du site, styles limités à `.dash`. Plus simple que de déplacer le layout racine (le CMS `app/admin` reste intact).
+- `middleware.ts` (qui ne faisait rien) remplacé par `proxy.ts` (convention de Next 16), qui ne filtre que `/dashboard` : redirection 307 vers la connexion, `noindex`, `no-store`. Chaque page revérifie la session.
+- Base `qrt`, propriétaire le rôle `qrt` ; le rôle de connexion `sites` (utilisateur du service, authentification « peer ») en est membre. Même schéma que `tenmin`.
+- Pages vues lues dans le journal de Caddy, sans cookie ni script (code visiteur du jour, sel effacé après 2 jours, pays lu dans le fichier DB-IP local copié depuis celui de Toutou). Images de partage, icônes et PDF ne sont pas des pages vues ; les guides PDF ouverts sont comptés à part (visiteur et fichier une fois, les iPhone chargent un PDF en plusieurs morceaux).
+- Clics marchands comptés par une balise vers `/api/e` (marchand, emplacement, robot) : les liens, leurs cibles et `rel` ne changent pas, Amazon et Awin gardent leur propre suivi. Les passages par `/go/<ASIN>/amazon` (302) restent lus dans le journal comme contrôle indépendant.
+- `newsletter_signup` et `tool_use` sont écrits par le serveur seulement (`/api/inscription` après accord de Brevo, `/api/m`) : un navigateur ne peut pas gonfler ces chiffres. `/api/m` garde sa ligne dans le journal pour le centre de contrôle.
+- Contacts : liste Brevo 6 lue à l'affichage, rien copié dans notre base ; adresses jamais dans les URL (clé hachée, recherche dans un cookie court).
+- Search Console : même compte de service que Toutou et 10min ; tant que la propriété QRT ne l'a pas ajouté et que sa clé n'est pas copiée dans `/srv/sites/robot-tondeuse/shared/gsc-key.json`, l'onglet affiche « À connecter ».
+- Mesure en place depuis le 21/11/2026 ; journal du serveur lu depuis le 20/11/2026.
