@@ -7,6 +7,7 @@ Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de 
 - **Doublon retiré** : 17 pages écrivaient déjà « | Quel Robot Tondeuse » et le gabarit commun l'ajoutait une deuxième fois. Elles passent en titre « absolu » : le nom n'apparaît plus qu'une fois. Touchés : articles (racine, blog, piscine), catégories et accueil du blog, auteurs, comparer, choisir, quiz, simulateur, superficie, mentions, confidentialité, barème, `/robot-piscine`, page introuvable. Texte des titres inchangé.
 - **Contrôlé en local après build** sur 13 adresses (article, page fixe, catégorie du blog, page introuvable, Black Friday, calendrier, accueil) : nom une seule fois partout. Les pages déjà justes n'ont pas bougé.
 - Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 131 tests OK, build OK. Étiquette `sauvegarde-20261121-titre-nom-double`.
+- **Faute** : j'ai envoyé juste après avoir récupéré le tableau de bord d'un autre passage (envoyé à 13 h 52), sans revérifier. Revérifié ensuite, après installation de ses modules : types OK, lint 0 erreur, 131 tests, build OK. Rien de cassé.
 - **Reste** : un serveur d'essai local (port 3917) n'a pas pu être arrêté, l'outil a refusé. Sans effet sur le site en ligne. **Dév, prochain passage** : relire 3 titres en ligne (article, `/mentions-legales`, `/blog`) et arrêter ce serveur.
 
 ## 21/11/2026, samedi 10 h 30 (heure belge) — Contenu QRT (décision du Chef : classement silencieux)
