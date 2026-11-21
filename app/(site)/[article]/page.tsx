@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const url = `${SITE_URL}/${slug}`
 
   return {
-    title: `${meta.title} | ${niche.siteName}`,
+    title: { absolute: `${meta.title} | ${niche.siteName}` },
     description: meta.description,
     alternates: { canonical: url },
     openGraph: {

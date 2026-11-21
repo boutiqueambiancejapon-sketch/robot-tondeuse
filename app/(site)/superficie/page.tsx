@@ -16,7 +16,7 @@ export const revalidate = 3600
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Calculateur de surface du jardin — ${niche.siteName}`,
+    title: { absolute: `Calculateur de surface du jardin — ${niche.siteName}` },
     description: `Tracez votre jardin sur la carte satellite, on calcule la surface au m² près. Recommandation de robot tondeuse adapté à votre superficie.`,
     alternates: { canonical: `${SITE_URL}/superficie` },
     openGraph: {

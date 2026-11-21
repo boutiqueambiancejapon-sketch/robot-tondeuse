@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const label = CATEGORY_LABELS[categorie] ?? categorie
   const year = currentYear()
   return {
-    title: `${label} — articles et guides ${year} | ${niche.siteName}`,
+    title: { absolute: `${label} — articles et guides ${year} | ${niche.siteName}` },
     description: `Tous les articles ${label} : guides d'achat, comparatifs et conseils.`,
     alternates: { canonical: `${SITE_URL}/blog/${categorie}` },
   }

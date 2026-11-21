@@ -21,7 +21,7 @@ export const revalidate = 86400
 export function generateMetadata(): Metadata {
   const year = currentYear()
   return {
-    title: `Comparateur ${year} | ${niche.siteName}`,
+    title: { absolute: `Comparateur ${year} | ${niche.siteName}` },
     description:
       `Comparez tous les ${niche.entities} côte à côte. Données à jour, liens ${niche.defaultStore} affiliés.`,
     alternates: { canonical: `${SITE_URL}/comparer` },

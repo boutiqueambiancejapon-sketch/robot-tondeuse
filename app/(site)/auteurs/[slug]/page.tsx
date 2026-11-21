@@ -66,7 +66,7 @@ export async function generateMetadata(
   if (!author) return {}
 
   return {
-    title: `${author.name} — ${author.role} | ${niche.siteName}`,
+    title: { absolute: `${author.name} — ${author.role} | ${niche.siteName}` },
     description: author.bio,
     alternates: { canonical: author.url },
     openGraph: {

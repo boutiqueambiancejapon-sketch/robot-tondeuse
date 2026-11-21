@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { meta } = data
   const url = `${RUBRIQUE_URL}/${slug}`
   return {
-    title: `${meta.title} | ${niche.siteName}`,
+    title: { absolute: `${meta.title} | ${niche.siteName}` },
     description: meta.description,
     alternates: { canonical: url },
     openGraph: {

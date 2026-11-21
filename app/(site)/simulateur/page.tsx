@@ -14,7 +14,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Quel robot tondeuse pour votre surface ? | ${niche.siteName}`,
+    title: { absolute: `Quel robot tondeuse pour votre surface ? | ${niche.siteName}` },
     description:
       'Entrez la surface de votre jardin et découvrez quel robot tondeuse vous convient. Recommandations personnalisées par marque et budget.',
     alternates: { canonical: `${SITE_URL}/simulateur` },

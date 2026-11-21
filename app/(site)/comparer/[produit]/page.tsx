@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!data) return {}
   const year = currentYear()
   return {
-    title: `Comparateur ${data.label} ${year} — quel modèle choisir ? | ${niche.siteName}`,
+    title: { absolute: `Comparateur ${data.label} ${year} — quel modèle choisir ? | ${niche.siteName}` },
     description: data.description,
     alternates: { canonical: `${SITE_URL}/comparer/${produit}` },
     openGraph: {

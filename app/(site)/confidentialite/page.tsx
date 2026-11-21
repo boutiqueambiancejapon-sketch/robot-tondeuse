@@ -12,7 +12,7 @@ import { niche } from '@/niche.config'
 import { PageTitle } from '@/components/v2/PageTitle'
 
 export const metadata: Metadata = {
-  title: `Politique de confidentialité | ${niche.siteName}`,
+  title: { absolute: `Politique de confidentialité | ${niche.siteName}` },
   description: `Politique de confidentialité du site ${niche.siteName}.`,
   robots: { index: false, follow: false },
 }

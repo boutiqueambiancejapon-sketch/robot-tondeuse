@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const year = currentYear()
 
   return {
-    title: `${meta.title} ${year} | ${niche.siteName}`,
+    title: { absolute: `${meta.title} ${year} | ${niche.siteName}` },
     description: meta.description,
     alternates: {
       canonical: `${SITE_URL}/blog/${categorie}/${slug}`,
