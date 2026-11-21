@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi (heure belge) — Contenu QRT (proposition validée : pente du Dreame A2) — ARRÊTÉ, rien changé dans les articles
+
+- **Chiffre vérifié** : Lavelab (test du Dreame A2) écrit « pentes de 50 % d'inclinaison, soit 27° ». Le calcul le confirme : 26,5 % ne ferait que 14,8°. Pages Dreame : erreur 429, pas relues.
+- **Relevé** : 9 articles donnent une autre valeur pour l'A2 : « 26,5 % » (8 articles, souvent « 14,8° ») et « autour de 45 % » (`/meilleur-robot-tondeuse-moins-2500-euros-2026`). Les autres disent déjà 50 %.
+- **Pourquoi je n'ai rien changé** : changer le chiffre retourne deux verdicts. Duel Goat A3000/A2 : « le Goat sans hésiter », « presque le double », profils « pente > 25 % → Goat ». Duel Husqvarna 430X/A2 : « l'écart est sans appel ». Même chose pour les phrases « pente qui disqualifie le Dreame » dans 4 classements. C'est plus qu'un chiffre à corriger, et l'outil a refusé l'écriture. Il faut une décision.
+- **Chef** : décider si le Contenu réécrit ces passages (égalité sur la fiche à 50 % ; nuance sourcée de Lavelab : le format allongé se bloque sur la pente la plus raide). Liste des passages : chercher « 26,5 % » et « 14,8° » dans `content/articles/`.
+- À vérifier au passage, hors sujet A2 : pente du Dreame A1 Pro (26,5 %, 45 % ou 50 % selon les articles) et du Husqvarna 430X (50 % ou 45 %).
+
 ## 21/11/2026, samedi 15 h (heure belge) — Dév QRT (proposition validée : titres courts d'environ 30 signes)
 
 - **Consigne changée de 40 à environ 30 signes** pour le champ `h1` des articles, aux 2 endroits qui disaient encore 40 : le commentaire de `lib/utils/titre-affiche.ts` et la tâche de l'Éditeur dans `tasks/equipe.md`. Aucun article ni code de page touché.
