@@ -1,0 +1,12 @@
+# Bannit un jour une adresse qui rate 8 fois la connexion au tableau de bord QRT en 15 minutes (2026-11-21).
+# Le site bloque déjà l'adresse après 5 échecs ; ceci la coupe au niveau du serveur. Copie de tenmin-dashboard.
+# Install: sudo install -m 644 deploy/fail2ban/qrt-dashboard.local /etc/fail2ban/jail.d/ && sudo fail2ban-client reload
+[qrt-dashboard]
+enabled  = true
+backend  = systemd
+filter   = qrt-dashboard
+port     = http,https
+maxretry = 8
+findtime = 15m
+bantime  = 1d
+ignoreip = 127.0.0.1/8 ::1 100.64.0.0/10 fd7a:115c:a1e0::/48 85.190.127.13 2001:880:a:343::419
