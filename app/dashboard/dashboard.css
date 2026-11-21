@@ -16,6 +16,7 @@
   --sage: #e3ecd9;
   --sage-2: #cfdec3;
   --stripe: #ebe5d6;
+  --lilac: #dfe3f7;
   /* séries des graphiques, ordre fixe (cuivre, bleu, mousse) */
   --s1: #c44f23;
   --s2: #3e57c9;
@@ -228,4 +229,13 @@
   a.alert { display: block; text-decoration: none; color: var(--ink); }
   .hot { font-weight: 800; color: var(--copper); }
   .dash-sec { margin: 26px 0 12px; }
+
+  /* fil « En direct » : source de chaque ligne */
+  .src-line { display: block; margin-top: 2px; font-size: 12.5px; overflow-wrap: anywhere; }
+  .src { display: inline-block; white-space: nowrap; border-radius: 99px; padding: 0 8px; font-weight: 700; font-size: 12px; line-height: 1.6; background: var(--stripe); color: var(--forest); }
+  .src--google, .src--search { background: var(--sage); color: var(--green); }
+  .src--ai { background: var(--lilac); color: var(--ink); }
+  .src--social { background: var(--copper-pale); color: var(--copper); }
+  .src--email { background: var(--lime-soft); color: var(--ink); }
+  .src--other { background: var(--white); border: 1px solid var(--line); }
 }

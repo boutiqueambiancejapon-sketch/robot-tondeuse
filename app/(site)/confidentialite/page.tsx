@@ -62,7 +62,7 @@ export default function ConfidentialitePage() {
               minute et rangés dans une base de données hébergée sur ce même serveur.
             </p>
             <ul>
-              <li>Pour une personne, nous gardons la page vue, l’heure, le site d’où elle vient (son nom seulement), le type d’appareil (téléphone, tablette, ordinateur) et le pays, lu dans l’adresse IP grâce à un fichier installé sur le serveur.</li>
+              <li>Pour une personne, nous gardons la page vue, l’heure, le site d’où elle vient (son nom seulement, ou la page précédente quand elle était déjà sur notre site), les repères de campagne du lien suivi (utm_source et utm_medium, par exemple « lettre »), le type d’appareil (téléphone, tablette, ordinateur) et le pays, lu dans l’adresse IP grâce à un fichier installé sur le serveur. Les images de partage et les icônes ne comptent pas comme des visites ; un guide PDF ouvert est compté à part.</li>
               <li>L’adresse IP et le navigateur ne sont pas gardés. Ils servent à calculer un code de visiteur qui change chaque jour ; la clé de calcul est effacée après deux jours, et le code ne peut plus être relié à personne.</li>
               <li>Pour les robots (moteurs de recherche, assistants d’IA), l’adresse IP et le nom du robot sont gardés, pour repérer les faux robots.</li>
               <li>Le site compte aussi quelques gestes : un clic vers un marchand (le marchand, l’endroit du lien dans la page, le robot concerné), le robot conseillé à la fin du quiz (sans vos réponses), l’usage d’un outil et une inscription à la lettre (le formulaire utilisé, jamais l’adresse e-mail).</li>

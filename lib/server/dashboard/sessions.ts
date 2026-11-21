@@ -5,14 +5,15 @@ import { TZ, type Period } from '@/lib/dashboard/period'
 import type { PageCounts, SessionRow } from '@/lib/dashboard/traffic'
 import { CLICK_EVENT, QUIZ_EVENT, SIGNUP_EVENT, TOOL_EVENT } from '@/lib/dashboard/events'
 import { PDF_PATH_SQL, PROMO_PATH_SQL } from '@/lib/dashboard/page-type'
+import { pagePath } from '@/lib/dashboard/assets'
 
 // Traffic reads. Parameterised, read-only. Sessions are built over the period and the one before:
 // page views from Caddy's log (analytics.hits, humans, 2xx/304, no PDF) and actions (analytics.events) that
 // share the daily visitor hash. The hash stays on the server, never shown.
 
-// A page view: a person, answered 2xx/304, not a PDF guide (counted apart as a download). /go/ links
-// answer 302, so they are never page views either.
-export const humanView = (a = ''): string => `${a}kind = 'human' AND (${a}status BETWEEN 200 AND 299 OR ${a}status = 304) AND ${a}path !~* '\\.pdf$'`
+// A page view: a person, answered 2xx/304, never a share image, icon, PDF guide (counted apart as a
+// download) or /api (lib/dashboard/assets.ts). /go/ links answer 302: never page views either.
+export const humanView = (a = ''): string => `${a}kind = 'human' AND (${a}status BETWEEN 200 AND 299 OR ${a}status = 304) AND ${pagePath(a)}`
 /** A PDF guide opened by a person (iPhones fetch a PDF in several 206 parts: count visitor and file once). */
 export const PDF_DOWNLOAD = `kind = 'human' AND (status BETWEEN 200 AND 299 OR status = 304) AND ${PDF_PATH_SQL}`
 export const HUMAN_VIEW = humanView()

@@ -51,6 +51,11 @@ CREATE TABLE IF NOT EXISTS analytics.hits (
 );
 CREATE INDEX IF NOT EXISTS hits_ts_idx ON analytics.hits (ts);
 CREATE INDEX IF NOT EXISTS hits_kind_ts_idx ON analytics.hits (kind, ts);
+-- Source of a human page view (live feed): previous path on the site (path only, from the Referer
+-- header) and the landing URL's utm_source (or ?ref=) and utm_medium. No other query string is kept.
+ALTER TABLE analytics.hits ADD COLUMN IF NOT EXISTS ref_path text;
+ALTER TABLE analytics.hits ADD COLUMN IF NOT EXISTS utm_source text;
+ALTER TABLE analytics.hits ADD COLUMN IF NOT EXISTS utm_medium text;
 CREATE INDEX IF NOT EXISTS hits_bot_ts_idx ON analytics.hits (bot, ts) WHERE bot IS NOT NULL;
 
 -- Read position of each source (journald cursor).

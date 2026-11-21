@@ -55,6 +55,17 @@ function hostOf(url: unknown): string | null {
   }
 }
 
+/** Path of the previous page when it is on the site (never an outside address or a query string). */
+function ownPathOf(url: unknown, host: string | null): string | null {
+  if (typeof url !== 'string' || !url || !host) return null
+  try {
+    const u = new URL(url)
+    return u.hostname.replace(/^www\./, '') === host ? u.pathname.slice(0, 120) : null
+  } catch {
+    return null
+  }
+}
+
 const done = () => new NextResponse(null, { status: 204, headers: { 'Cache-Control': 'no-store' } })
 
 export async function POST(req: NextRequest) {
@@ -81,9 +92,13 @@ export async function POST(req: NextRequest) {
   if (typeof body.n !== 'string' || !EVENTS.has(body.n) || typeof body.p !== 'string' || !body.p.startsWith('/')) return done()
   try {
     if (await isOwnerIp(ip)) return done()
+    const props = cleanProps(body.props)
+    delete props.from
+    const from = ownPathOf(body.r, host ? (host.replace(/^www\./, '').split(':')[0] ?? null) : null)
+    if (from) props.from = from
     await pool.query(
       'INSERT INTO analytics.events (name, page, props, ref_host, device, visitor, country) VALUES ($1, $2, $3, $4, $5, $6, $7)',
-      [body.n, body.p.slice(0, 300), JSON.stringify(cleanProps(body.props)), hostOf(body.r), deviceOf(ua), await visitorHash(pool, ip, ua), countryOf(ip)],
+      [body.n, body.p.slice(0, 300), JSON.stringify(props), hostOf(body.r), deviceOf(ua), await visitorHash(pool, ip, ua), countryOf(ip)],
     )
   } catch (err) {
     console.error('[api/e] insert failed', err instanceof Error ? err.message : err)
