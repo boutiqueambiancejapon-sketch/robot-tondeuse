@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi 13 h 50 (heure belge) — Dév QRT (proposition validée : nom du site en double dans le titre)
+
+- **Doublon retiré** : 17 pages écrivaient déjà « | Quel Robot Tondeuse » et le gabarit commun l'ajoutait une deuxième fois. Elles passent en titre « absolu » : le nom n'apparaît plus qu'une fois. Touchés : articles (racine, blog, piscine), catégories et accueil du blog, auteurs, comparer, choisir, quiz, simulateur, superficie, mentions, confidentialité, barème, `/robot-piscine`, page introuvable. Texte des titres inchangé.
+- **Contrôlé en local après build** sur 13 adresses (article, page fixe, catégorie du blog, page introuvable, Black Friday, calendrier, accueil) : nom une seule fois partout. Les pages déjà justes n'ont pas bougé.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 131 tests OK, build OK. Étiquette `sauvegarde-20261121-titre-nom-double`.
+- **Reste** : un serveur d'essai local (port 3917) n'a pas pu être arrêté, l'outil a refusé. Sans effet sur le site en ligne. **Dév, prochain passage** : relire 3 titres en ligne (article, `/mentions-legales`, `/blog`) et arrêter ce serveur.
+
 ## 21/11/2026, samedi 10 h 30 (heure belge) — Contenu QRT (décision du Chef : classement silencieux)
 
 - **`/robot-tondeuse-silencieux-top-6-2026` reclassé** selon la décision du Chef : ordre par le bruit annoncé par la marque, critère écrit en tête d'article, mesures de Labo Maison dans une colonne à part. Nouvel ordre : Dreame A2 3000 (< 55 dB), Gardena Minimo 250 (57 dB(A) perçus), Yuka Mini 2 1000 (57 dB, égalité tranchée par le prix), Navimow i105E (58 dB(A)), Husqvarna 310 Mark II (59 dB(A) perçus), Dreame A1 Pro en dernier (aucun chiffre trouvé chez Dreame, raison écrite).
