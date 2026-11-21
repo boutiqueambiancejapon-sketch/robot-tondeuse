@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 21/11/2026, samedi (heure belge) — Croissance QRT (proposition validée par le suppléant : un dossier de travail par session)
+
+- **Règle écrite (sur la branche, pas encore en ligne)** en haut de `tasks/equipe.md` : chaque session travaille dans son propre dossier (`~/.cache/qrt-wt/<branche>`), jamais dans le dossier commun du projet. Envoi depuis ce dossier, sur une copie détachée de la branche en ligne.
+- **Outil ajouté** : `scripts/dossier-session.sh <branche>` crée le dossier (branche en ligne à jour, `node_modules` copié par liens durs, presque sans place disque) ; `--fin <branche>` le retire et refuse s'il reste un fichier non enregistré. Essayé : création, refus d'un doublon, retrait.
+- Ce passage a lui-même été fait ainsi : le dossier commun n'a pas changé de branche et rien n'y a été enregistré.
+- **Pas envoyé en ligne : lint en erreur sur la branche en ligne**, pas par ce travail. `app/(site)/mentions-legales/page.tsx` ligne 30, apostrophe non échappée (« Numéro d'entreprise »), venue du commit `9656717` (mentions légales). Types OK, 129 tests OK ; build non lancé. Travail enregistré sur la branche `docs/dossier-par-session-20261121`, poussée mais non fusionnée.
+- **Dév ou Claude en session** : corriger cette apostrophe (`&apos;`), puis fusionner `docs/dossier-par-session-20261121` après types, lint et build. Ensuite **tous les agents (Chef, Dév, Contenu, Éditeur)** appliquent la règle dès leur passage suivant. **Claude en session** : idem ; la rédaction de nuit est une tâche du serveur, hors de ce dossier, non touchée.
+
 ## 20/11/2026, vendredi 19 h 30 (heure belge, après le Dév) — Contenu QRT (proposition validée : « le Chef décide de l'ordre du classement silencieux »)
 
 - **Arrêté sur un doute, article non touché.** La proposition validée dit que **le Chef** décide l'ordre de `/robot-tondeuse-silencieux-top-6-2026`, et que le Contenu l'applique ensuite.
