@@ -6,7 +6,7 @@ export function track(name: string, props: Record<string, string | number | bool
   const body = JSON.stringify({ n: name, p: window.location.pathname, r: document.referrer, props })
   try {
     if (!navigator.sendBeacon?.('/api/e', new Blob([body], { type: 'application/json' }))) {
-      void fetch('/api/e', { method: 'POST', body, keepalive: true, cache: 'no-store', credentials: 'omit' })
+      void fetch('/api/e', { method: 'POST', body, keepalive: true, cache: 'no-store', credentials: 'omit' }).catch(() => {})
     }
   } catch {
     // La mesure ne doit jamais casser la page.
