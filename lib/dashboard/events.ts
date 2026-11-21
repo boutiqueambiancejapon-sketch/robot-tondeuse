@@ -1,14 +1,15 @@
 // Names of the first-party events (analytics.events) and the merchants of an affiliate click.
-// Browser: affiliate_click, quiz_result (POST /api/e). Server: tool_use (/api/m/<outil>),
+// Browser: affiliate_click, quiz_result, web_vital (POST /api/e). Server: tool_use (/api/m/<outil>),
 // newsletter_signup (/api/inscription, contact accepted by Brevo).
 
 export const CLICK_EVENT = 'affiliate_click'
 export const QUIZ_EVENT = 'quiz_result'
 export const TOOL_EVENT = 'tool_use'
 export const SIGNUP_EVENT = 'newsletter_signup'
+export const VITAL_EVENT = 'web_vital'
 
 /** Accepted from the browser by /api/e. The others are recorded by the server only. */
-export const BROWSER_EVENTS = [CLICK_EVENT, QUIZ_EVENT] as const
+export const BROWSER_EVENTS = [CLICK_EVENT, QUIZ_EVENT, VITAL_EVENT] as const
 
 export const MERCHANTS = ['amazon', 'cdiscount', 'fnac', 'autre'] as const
 export type Merchant = (typeof MERCHANTS)[number]

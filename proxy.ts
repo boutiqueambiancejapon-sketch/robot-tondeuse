@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
-import { isPublicPath, LOGIN_PATH, ROOT, SESSION_COOKIE, stageHref } from '@/lib/dashboard/policy'
+import { isDataPath, isPublicPath, LOGIN_PATH, ROOT, SESSION_COOKIE, stageHref } from '@/lib/dashboard/policy'
 import { loginConfigured } from '@/lib/server/login/secrets'
 import { readSession } from '@/lib/server/login/sessions'
 import { clientIp, markOwnerIp } from '@/lib/server/owner-ip'
@@ -32,7 +32,8 @@ export async function proxy(request: NextRequest): Promise<NextResponse> {
       void markOwnerIp(clientIp(request.headers))
       return passThrough()
     }
-    if (request.method !== 'GET' && request.method !== 'HEAD') return new NextResponse(null, { status: 401, headers: PRIVATE_HEADERS })
+    // Data routes (CSV exports, live feed) answer 401 instead of the login page: a download or fetch never gets HTML.
+    if ((request.method !== 'GET' && request.method !== 'HEAD') || isDataPath(pathname)) return new NextResponse(null, { status: 401, headers: PRIVATE_HEADERS })
     if (session) return redirectTo(request, stageHref(session.stage))
     const back = pathname + search
     return redirectTo(request, back === ROOT ? LOGIN_PATH : `${LOGIN_PATH}?suivant=${encodeURIComponent(back)}`)

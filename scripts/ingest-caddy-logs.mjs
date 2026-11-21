@@ -19,6 +19,7 @@ import { countryOf } from './lib/geo.mjs'
 import { buildStaticList, findFingerprint, isStaticIgnored, visitorKey } from './lib/analytics-ignore.mjs'
 
 const DRY = process.argv.includes('--dry')
+const HISTORY = process.argv.includes('--reclass-history')
 const HOSTS = (process.env.INGEST_HOSTS || '').split(',').map((h) => h.trim().toLowerCase()).filter(Boolean)
 const SOURCE = 'caddy-journal'
 const BATCH = 500
@@ -86,6 +87,21 @@ function queryParam(uri, name, max) {
   return v ? v.trim().toLowerCase().slice(0, max) : null
 }
 
+/** Scraper posing as a browser: real browsers always send Accept-Language; headless or very old Chrome is a robot. */
+export function scraperReason(headers, ua) {
+  if (!header(headers, 'Accept-Language')) return 'sans langue'
+  if (/HeadlessChrome|PhantomJS|Electron\//.test(ua)) return 'navigateur sans tête'
+  const chrome = /Chrome\/(\d+)\./.exec(ua)
+  if (chrome && Number(chrome[1]) < 100) return 'navigateur périmé'
+  return null
+}
+
+/** Second pass: more than 30 people page views in one hour for one visitor hash (from $1). */
+export const CADENCE_SQL = `UPDATE analytics.hits SET kind = 'scraper', bot = 'cadence'
+  WHERE kind = 'human' AND ts >= $1 AND (visitor, date_trunc('hour', ts)) IN (
+    SELECT visitor, date_trunc('hour', ts) FROM analytics.hits
+     WHERE kind IN ('human', 'scraper') AND ts >= $1 AND visitor IS NOT NULL GROUP BY 1, 2 HAVING count(*) > 30)`
+
 /** One Caddy log line → one analytics.hits row (visitor still to hash), or null. */
 function toHit(entry) {
   const req = entry.request
@@ -97,8 +113,12 @@ function toHit(entry) {
   const uri = req.uri || '/'
   const path = uri.split('?')[0].slice(0, 300)
   const ua = header(req.headers, 'User-Agent') || ''
-  const { kind, bot, operator } = classifyUa(ua)
-  if (kind === 'human') {
+  let { kind, bot, operator } = classifyUa(ua)
+  if (kind === 'human' && req.method === 'GET') {
+    const reason = scraperReason(req.headers, ua)
+    if (reason) { kind = 'scraper'; bot = reason }
+  }
+  if (kind === 'human' || kind === 'scraper') {
     if (STATIC.test(path) || ASSET.test(path) || PRIVATE.test(path) || req.method !== 'GET') return null
     // Next.js prefetches (menu links loaded in the background) are not visits.
     const prefetch = header(req.headers, 'RSC') || header(req.headers, 'Next-Router-Prefetch') ||
@@ -108,7 +128,7 @@ function toHit(entry) {
   const referer = header(req.headers, 'Referer')
   const refHost = hostOf(referer)
   const own = refHost === host.replace(/^www\./, '')
-  const human = kind === 'human'
+  const human = kind === 'human' || kind === 'scraper'
   return {
     ts: new Date(entry.ts * 1000).toISOString(),
     host: host.slice(0, 100),
@@ -118,14 +138,15 @@ function toHit(entry) {
     bytes: entry.size ?? null,
     duration_ms: entry.duration != null ? Math.round(entry.duration * 1000) : null,
     kind, bot, operator,
-    device: kind === 'human' ? deviceOf(ua) : null,
+    device: human ? deviceOf(ua) : null,
     ref_host: refHost && !own ? refHost.slice(0, 100) : null,
     // Previous page when it is on the site (path only); campaign tags of the landing URL, nothing else.
     ref_path: human && own ? pathOf(referer) : null,
     utm_source: human ? queryParam(uri, 'utm_source', 60) ?? queryParam(uri, 'ref', 60) : null,
     utm_medium: human ? queryParam(uri, 'utm_medium', 30) : null,
-    ref_ai: kind === 'human' ? aiReferrer(refHost, uri) : null,
-    visitor: kind === 'human' ? { key: visitorKey(clientIp), ua } : null,
+    ref_ai: human ? aiReferrer(refHost, uri) : null,
+    visitor: human ? { key: visitorKey(clientIp), ua } : null,
+    // Scrapers are robots: address and User-Agent kept, like the other bots, to spot them again.
     ip: kind === 'human' ? null : clientIp,
     ua: kind === 'human' ? null : ua.slice(0, 300),
     country: countryOf(clientIp),
@@ -168,7 +189,47 @@ async function flush(rows, cursor) {
   }
 }
 
+/** One-off: the first rules applied to the people page views already stored (the journal is read again). */
+async function reclassHistory() {
+  const { rows } = await pool.query(`SELECT min(ts) AS first FROM analytics.hits WHERE kind = 'human'`)
+  if (!rows[0]?.first) return
+  const since = new Date(rows[0].first.getTime() - 60_000).toISOString().replace('T', ' ').slice(0, 19)
+  const jc = spawn('journalctl', ['-u', 'caddy', '-o', 'json', '--no-pager', '--since', since, '--utc'], { stdio: ['ignore', 'pipe', 'inherit'] })
+  const rl = readline.createInterface({ input: jc.stdout })
+  const found = new Map()
+  for await (const line of rl) {
+    let rec
+    try { rec = JSON.parse(line) } catch { continue }
+    const msg = typeof rec.MESSAGE === 'string' ? rec.MESSAGE : ''
+    if (!msg.startsWith('{')) continue
+    let entry
+    try { entry = JSON.parse(msg) } catch { continue }
+    const req = entry.request
+    if (!req || req.method !== 'GET' || !HOSTS.includes(String(req.host || '').toLowerCase().split(':')[0])) continue
+    const ua = header(req.headers, 'User-Agent') || ''
+    if (classifyUa(ua).kind !== 'human') continue
+    const reason = scraperReason(req.headers, ua)
+    if (reason) found.set(`${new Date(entry.ts * 1000).toISOString()}|${(req.uri || '/').split('?')[0].slice(0, 300)}`, { reason, ip: req.client_ip || req.remote_ip || null, ua: ua.slice(0, 300) })
+  }
+  const before = (await pool.query(`SELECT count(*)::int AS n FROM analytics.hits WHERE kind = 'human'`)).rows[0].n
+  let changed = 0
+  if (!DRY) {
+    for (const [key, v] of found) {
+      const [ts, path] = key.split('|')
+      const r = await pool.query(`UPDATE analytics.hits SET kind = 'scraper', bot = $3, ip = $4, ua = $5 WHERE kind = 'human' AND ts = $1 AND path = $2`, [ts, path, v.reason, v.ip, v.ua])
+      changed += r.rowCount ?? 0
+    }
+    const c = await pool.query(CADENCE_SQL, [rows[0].first.toISOString()])
+    changed += c.rowCount ?? 0
+    console.log(`[ingest] history: ${c.rowCount ?? 0} by cadence`)
+  }
+  const byReason = {}
+  for (const v of found.values()) byReason[v.reason] = (byReason[v.reason] ?? 0) + 1
+  console.log(`[ingest] history: ${before} people page views before, ${changed} reclassified as scrapers${DRY ? ' (dry run)' : ''}`, byReason)
+}
+
 async function main() {
+  if (HISTORY) return reclassHistory()
   const { rows } = await pool.query('SELECT cursor FROM analytics.ingest_state WHERE source = $1', [SOURCE])
   const cursor = rows[0]?.cursor
   await loadOwnerRows()
@@ -198,6 +259,8 @@ async function main() {
   if (code !== 0 && seen === 0) throw new Error(`journalctl failed (code ${code}): journal read permission?`)
 
   if (!DRY) {
+    const re = await pool.query(CADENCE_SQL, [new Date(Date.now() - 2 * 3600_000).toISOString()])
+    if (re.rowCount) console.log(`[ingest] ${re.rowCount} page views reclassified as scrapers (cadence)`)
     await pool.query(`DELETE FROM analytics.hits WHERE ts < now() - interval '${RETENTION_DAYS} days'`)
     await pool.query(`DELETE FROM analytics.events WHERE ts < now() - interval '400 days'`)
     await pool.query(`DELETE FROM analytics.visitor_salt WHERE day < (now() AT TIME ZONE 'UTC')::date - 1`)

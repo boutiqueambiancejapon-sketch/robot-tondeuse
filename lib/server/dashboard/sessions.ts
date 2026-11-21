@@ -25,7 +25,7 @@ const SESSIONS_SQL = `
       FROM analytics.hits WHERE ${HUMAN_VIEW} AND visitor IS NOT NULL AND ts >= now() - 2 * $1::interval
     UNION ALL
     SELECT visitor, ts, name, page, ref_host, NULL, device, country
-      FROM analytics.events WHERE visitor IS NOT NULL AND ts >= now() - 2 * $1::interval
+      FROM analytics.events WHERE visitor IS NOT NULL AND name <> 'web_vital' AND ts >= now() - 2 * $1::interval
   ), e AS (
     SELECT *, CASE WHEN lag(ts) OVER w IS NULL OR ts - lag(ts) OVER w > interval '30 minutes' THEN 1 ELSE 0 END AS starts
       FROM a WINDOW w AS (PARTITION BY visitor ORDER BY ts)

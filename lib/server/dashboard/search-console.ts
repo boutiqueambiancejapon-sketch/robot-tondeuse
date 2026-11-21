@@ -4,7 +4,8 @@ import { readFile } from 'node:fs/promises'
 
 // Search Console, read-only, with the Google service account Toutou already uses (key file
 // GSC_KEY_FILE, default /srv/sites/robot-tondeuse/shared/gsc-key.json, never in the repo). The
-// token is signed here (RS256), no Google library. Adapted from Toutou.
+// token is signed here (RS256), no Google library. Adapted from Toutou. Also used by the nightly SEO collectors
+// (scripts/seo/*.ts, run with scripts/lib/ts-register.mjs, where `server-only` is a no-op).
 
 const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly'
 const KEY_FILE = process.env.GSC_KEY_FILE || '/srv/sites/robot-tondeuse/shared/gsc-key.json'
@@ -75,8 +76,44 @@ export interface GscRow {
   position: number
 }
 
-/** Queries, pages or dates over a period (YYYY-MM-DD). */
-export async function gscQuery(start: string, end: string, dimensions: ('query' | 'page' | 'date')[], rowLimit = 250): Promise<GscRow[]> {
-  const r = await gsc<{ rows?: GscRow[] }>(`sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`, { startDate: start, endDate: end, dimensions, rowLimit, dataState: 'all' })
+export type GscDimension = 'query' | 'page' | 'date' | 'device'
+
+/** Queries, pages, dates or devices over a period (YYYY-MM-DD). startRow pages through big results (25 000 per call). */
+export async function gscQuery(start: string, end: string, dimensions: GscDimension[], rowLimit = 250, startRow = 0): Promise<GscRow[]> {
+  const r = await gsc<{ rows?: GscRow[] }>(`sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`, { startDate: start, endDate: end, dimensions, rowLimit, startRow, dataState: 'all' })
   return r.rows ?? []
+}
+
+export interface InspectionResult {
+  verdict: string | null
+  coverageState: string | null
+  indexingState: string | null
+  pageFetchState: string | null
+  robotsTxtState: string | null
+  lastCrawlTime: string | null
+  googleCanonical: string | null
+  userCanonical: string | null
+}
+
+/** URL Inspection (index state of one address), same key and scope. Google's quota: 2,000 a day per property. */
+export async function inspectUrl(url: string): Promise<InspectionResult> {
+  const res = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${await accessToken()}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ inspectionUrl: url, siteUrl: GSC_SITE }),
+    cache: 'no-store',
+  })
+  if (!res.ok) throw new Error(`Inspection ${res.status}: ${(await res.text()).slice(0, 200)}`)
+  const data = (await res.json()) as { inspectionResult?: { indexStatusResult?: Partial<InspectionResult> } }
+  const r = data.inspectionResult?.indexStatusResult ?? {}
+  return {
+    verdict: r.verdict ?? null,
+    coverageState: r.coverageState ?? null,
+    indexingState: r.indexingState ?? null,
+    pageFetchState: r.pageFetchState ?? null,
+    robotsTxtState: r.robotsTxtState ?? null,
+    lastCrawlTime: r.lastCrawlTime ?? null,
+    googleCanonical: r.googleCanonical ?? null,
+    userCanonical: r.userCanonical ?? null,
+  }
 }

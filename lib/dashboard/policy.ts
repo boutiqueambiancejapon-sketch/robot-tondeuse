@@ -67,6 +67,11 @@ export function safeNext(value: unknown): string {
   return value.startsWith(LOGIN_PATH) ? ROOT : value
 }
 
+/** Data routes of the dashboard (CSV exports, live feed data): 401 without a session, never a redirect. */
+export function isDataPath(pathname: string): boolean {
+  return pathname.startsWith(`${ROOT}/export/`) || /^\/dashboard\/en-direct\/donnees\/?$/.test(pathname)
+}
+
 export function isPublicPath(pathname: string): boolean {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname
   return path === LOGIN_PATH || path.startsWith(`${LOGIN_PATH}/`)

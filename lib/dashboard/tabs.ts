@@ -1,23 +1,16 @@
-import type { Pose } from '@/lib/mascotte'
 import { periodQuery, type PeriodKey } from './period'
 
-// Dashboard tabs: path, label, mascot pose (one per page, components/v2/Mascotte). Each tab answers
-// one question, as on 10minlanguages.com's dashboard. The chosen period follows from tab to tab (?periode=).
+// Tools of the dashboard (screens with their own period selector, framed by components/dashboard/DashboardShell).
+// The steering tabs, the menu and each screen's mascot pose live in lib/seo-dash/nav.ts (SEO dashboard, 2026-11-21).
 
 export const TABS = [
-  { slug: '', label: 'Accueil', pose: 'jardinier' },
-  { slug: 'trafic', label: 'Trafic', pose: 'loupe' },
-  { slug: 'robots', label: 'Robots IA', pose: 'top' },
-  { slug: 'conversions', label: 'Conversions', pose: 'fete' },
-  { slug: 'crm', label: 'Contacts', pose: 'side' },
-  { slug: 'emails', label: 'E-mails', pose: 'printemps' },
-  { slug: 'contenu', label: 'Contenu', pose: 'lecture' },
-  { slug: 'serveur', label: 'Serveur', pose: 'outils' },
-] as const satisfies readonly { slug: string; label: string; pose: Pose }[]
+  { slug: 'conversions', label: 'Conversions' },
+  { slug: 'crm', label: 'Contacts' },
+  { slug: 'emails', label: 'E-mails' },
+  { slug: 'serveur', label: 'Serveur' },
+] as const
 
 export type TabSlug = (typeof TABS)[number]['slug'] | 'securite'
-
-export const SECURITY_POSE: Pose = 'balance'
 
 export const DASHBOARD_ROOT = '/dashboard'
 

@@ -1,0 +1,19 @@
+# 10minlanguages.com SEO dashboard: nightly collectors (Search Console, automatic notes, page audit, URL inspection).
+# Install: sudo cp deploy/tenmin-seo-collect.* /etc/systemd/system/ && sudo systemctl daemon-reload
+#          && sudo systemctl enable --now tenmin-seo-collect.timer
+# Safeguard: /etc/systemd/system/tenmin-seo-collect.service.d/safeguard.conf puts it in background.slice.
+# Account administrator: reads the stable git clone for the notes and the Search Console key (group sites); its
+# database rights are limited to the SEO tables (db/analytics.sql, 2026-11-21).
+[Unit]
+Description=10minlanguages - SEO dashboard collectors
+After=network-online.target postgresql.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=administrator
+WorkingDirectory=/srv/sites/10minlanguages/current
+EnvironmentFile=/srv/sites/10minlanguages/shared/.env
+Nice=15
+TimeoutStartSec=2h
+ExecStart=/usr/bin/bash /srv/sites/10minlanguages/current/deploy/seo-collect.sh

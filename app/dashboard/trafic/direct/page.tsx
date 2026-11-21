@@ -1,18 +1,12 @@
-import { openTab, type TabPageProps } from '@/lib/dashboard/tab-page'
-import { DashboardShell } from '@/components/dashboard/DashboardShell'
-import { LiveSection } from '@/components/dashboard/live/LiveSection'
-import { TrafficNav } from '@/components/dashboard/traffic/TrafficNav'
+import { redirect } from 'next/navigation'
+import { openSeoPage, type SeoPageProps } from '@/lib/seo-dash/server/page'
+import { hrefOf } from '@/lib/seo-dash/nav'
 
-// Traffic, live: the only view that polls the server, every 10 s.
+// Old address (Trafic, en direct), kept for bookmarks: sends to « Direct » of the SEO dashboard.
 
 export const dynamic = 'force-dynamic'
 
-export default async function TrafficLive(props: TabPageProps) {
-  const period = await openTab(props)
-  return (
-    <DashboardShell current="trafic" sub="/direct" title="En direct" intro="Rafraîchi toutes les 10 secondes. Pages vues lues dans le journal du serveur chaque minute, actions envoyées par le site à l’instant.">
-      <TrafficNav period={period.key} current="/direct" />
-      <LiveSection />
-    </DashboardShell>
-  )
+export default async function Moved(props: SeoPageProps) {
+  const { query } = await openSeoPage(props)
+  redirect(hrefOf('en-direct', query))
 }
