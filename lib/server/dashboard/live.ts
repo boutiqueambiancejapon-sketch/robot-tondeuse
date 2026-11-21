@@ -77,7 +77,7 @@ export async function getLive(pool: Pool): Promise<LiveData> {
        UNION ALL
        (SELECT ts, name, page, coalesce(nullif(concat_ws(' · ', props->>'merchant', props->>'place'), ''), props->>'result', props->>'tool', props->>'source'), device, ref_host, country,
                NULL, props->>'utm_source', props->>'utm_medium', props->>'from'
-          FROM analytics.events ORDER BY ts DESC LIMIT 25)
+          FROM analytics.events WHERE name <> 'web_vital' ORDER BY ts DESC LIMIT 25)
        ORDER BY ts DESC LIMIT 25`,
     ),
     q<{ ts: Date; label: string; kind: string; path: string }>(

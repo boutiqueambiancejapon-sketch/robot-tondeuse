@@ -92,3 +92,70 @@ ALTER TABLE analytics.ignored_ips OWNER TO qrt;
 ALTER TABLE analytics.hits ADD COLUMN IF NOT EXISTS country char(2);
 ALTER TABLE analytics.events ADD COLUMN IF NOT EXISTS country char(2);
 CREATE INDEX IF NOT EXISTS hits_visitor_ts_idx ON analytics.hits (visitor, ts) WHERE visitor IS NOT NULL;
+
+-- 2026-11-21: SEO dashboard (ported from Toutou Gourmet's db/analytics.sql, via 10minlanguages). Search Console per
+-- day and device (DESKTOP, MOBILE, TABLET), collected every night by scripts/seo/collect-gsc.ts (last 10 days
+-- rewritten); empty until the property is shared with the service account, then caught up on the first run. Anchors (#section) merged with their page.
+CREATE TABLE IF NOT EXISTS analytics.gsc_site_daily (day date NOT NULL, device text NOT NULL, clicks integer NOT NULL, impressions integer NOT NULL, position real NOT NULL, PRIMARY KEY (day, device));
+CREATE TABLE IF NOT EXISTS analytics.gsc_page_daily (day date NOT NULL, page text NOT NULL, device text NOT NULL, clicks integer NOT NULL, impressions integer NOT NULL, position real NOT NULL, PRIMARY KEY (day, page, device));
+CREATE INDEX IF NOT EXISTS gsc_page_daily_page_idx ON analytics.gsc_page_daily (page, day);
+CREATE TABLE IF NOT EXISTS analytics.gsc_qp_daily (day date NOT NULL, query text NOT NULL, page text NOT NULL, device text NOT NULL, clicks integer NOT NULL, impressions integer NOT NULL, position real NOT NULL, PRIMARY KEY (day, query, page, device));
+CREATE INDEX IF NOT EXISTS gsc_qp_daily_query_idx ON analytics.gsc_qp_daily (query, day);
+CREATE INDEX IF NOT EXISTS gsc_qp_daily_page_idx ON analytics.gsc_qp_daily (page, day);
+
+-- Google URL Inspection (scripts/seo/inspect.ts, at most 2,000 addresses a night): index state and reason.
+CREATE TABLE IF NOT EXISTS analytics.url_inspection (
+  path text PRIMARY KEY, checked_at timestamptz NOT NULL, verdict text, coverage text, indexing_state text, page_fetch text,
+  robots text, last_crawl timestamptz, google_canonical text, user_canonical text, error text
+);
+
+-- Nightly audit of the sitemap pages (scripts/seo/audit.ts): tags and internal links (graph).
+CREATE TABLE IF NOT EXISTS analytics.page_audit (
+  path text PRIMARY KEY, checked_at timestamptz NOT NULL, status integer NOT NULL, title text, description text,
+  canonical text, h1 text, noindex boolean NOT NULL DEFAULT false, in_sitemap boolean NOT NULL DEFAULT true, links_out integer NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS analytics.page_links (src text NOT NULL, dst text NOT NULL, PRIMARY KEY (src, dst));
+CREATE INDEX IF NOT EXISTS page_links_dst_idx ON analytics.page_links (dst);
+CREATE TABLE IF NOT EXISTS analytics.link_status (path text PRIMARY KEY, status integer NOT NULL, checked_at timestamptz NOT NULL);
+
+-- Notes on the charts: by hand (Dashboard › Contenu & notes) or by the jobs (source = auto/journal, unique ref).
+CREATE TABLE IF NOT EXISTS analytics.seo_notes (
+  id bigserial PRIMARY KEY, day date NOT NULL, kind text NOT NULL, text text NOT NULL, source text NOT NULL DEFAULT 'manuel',
+  ref text UNIQUE, created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS seo_notes_day_idx ON analytics.seo_notes (day);
+
+-- "Fait" on the 5 actions of the day: the action's key (stable from one day to the next), silent for 30 days.
+CREATE TABLE IF NOT EXISTS analytics.seo_actions_done (key text PRIMARY KEY, title text NOT NULL, done_at timestamptz NOT NULL DEFAULT now());
+
+-- Real sales copied from the control centre (commissions table, project robot-tondeuse) every hour (deploy/revenue-sync.sh).
+CREATE TABLE IF NOT EXISTS analytics.revenue_sales (
+  project text NOT NULL, day date NOT NULL, program text NOT NULL, amount real NOT NULL, sales integer NOT NULL, status text NOT NULL,
+  PRIMARY KEY (project, day, program)
+);
+
+ALTER TABLE analytics.gsc_site_daily OWNER TO qrt;
+ALTER TABLE analytics.gsc_page_daily OWNER TO qrt;
+ALTER TABLE analytics.gsc_qp_daily OWNER TO qrt;
+ALTER TABLE analytics.url_inspection OWNER TO qrt;
+ALTER TABLE analytics.page_audit OWNER TO qrt;
+ALTER TABLE analytics.page_links OWNER TO qrt;
+ALTER TABLE analytics.link_status OWNER TO qrt;
+ALTER TABLE analytics.seo_notes OWNER TO qrt;
+ALTER TABLE analytics.seo_actions_done OWNER TO qrt;
+ALTER TABLE analytics.revenue_sales OWNER TO qrt;
+
+-- The nightly jobs (qrt-seo-collect, qrt-revenue-sync) run as the owner's account `administrator`: it reads the
+-- stable git clone (automatic notes) and the control centre's database, which the site user can't. Narrow rights:
+-- connect, write the SEO tables, read the logs. No access to newsletter or login data.
+GRANT CONNECT ON DATABASE qrt TO administrator;
+GRANT USAGE ON SCHEMA analytics TO administrator;
+GRANT SELECT, INSERT, UPDATE, DELETE ON analytics.gsc_site_daily, analytics.gsc_page_daily, analytics.gsc_qp_daily,
+  analytics.url_inspection, analytics.page_audit, analytics.page_links, analytics.link_status, analytics.seo_notes,
+  analytics.revenue_sales TO administrator;
+GRANT USAGE ON SEQUENCE analytics.seo_notes_id_seq TO administrator;
+GRANT SELECT ON analytics.hits TO administrator;
+
+-- 2026-11-21: scraper filter (scripts/ingest-caddy-logs.mjs). kind 'scraper' for "people" page views with no
+-- Accept-Language, from a headless browser or a Chrome older than 100, or more than 30 page views in one hour for one
+-- visitor hash; out of every people count (queries use kind = 'human'). History reclassified once (--reclass-history).

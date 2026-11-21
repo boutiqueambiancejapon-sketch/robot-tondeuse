@@ -1,68 +1,125 @@
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { dashboardAllowed } from '@/lib/dashboard/guard'
-import { ago, calendarDay, n } from '@/lib/dashboard/format'
-import { getPool } from '@/lib/server/db'
+import { dayLabel, n0 } from '@/lib/seo-dash/format'
+import { csvHref, pageHref } from '@/lib/seo-dash/nav'
+import { publications } from '@/lib/seo-dash/server/content'
+import { gscDaily } from '@/lib/seo-dash/server/gsc-core'
+import { chartNotes, journal } from '@/lib/seo-dash/server/notes'
+import { openSeoPage, type SeoPageProps } from '@/lib/seo-dash/server/page'
+import { addDays, gscLastDay, logRanges } from '@/lib/seo-dash/server/range'
+import { readBlock } from '@/lib/seo-dash/server/sql'
+import { gscState, type GscState } from '@/lib/seo-dash/server/gsc-state'
+import { GscPending } from '@/components/seo-dash/blocks/GscPending'
+import { SeoShell } from '@/components/seo-dash/shell/SeoShell'
+import { Card, Empty } from '@/components/seo-dash/ui/Card'
+import { LineChart } from '@/components/seo-dash/charts/LineChart'
+import { Calendar } from '@/components/seo-dash/charts/Calendar'
+import { Journal, NoteForm } from '@/components/seo-dash/blocks/NotesBlocks'
+import { PricesCard } from '@/components/seo-dash/blocks/PricesCard'
 import { getContent } from '@/lib/server/dashboard/content'
 import { getUnits, unixDate } from '@/lib/server/dashboard/server'
-import { Card } from '@/components/dashboard/Card'
-import { ContentNav } from '@/components/dashboard/ContentNav'
-import { DashboardShell } from '@/components/dashboard/DashboardShell'
-import { TextTile, Tiles } from '@/components/dashboard/Tiles'
+import { getPool } from '@/lib/server/db'
 
-// Content tab: articles (newest first) with their 30-day views, robot sheets, last price reading.
+// SEO dashboard, Contenu & notes: what was published or changed, and when, to link a rise or a fall to its cause.
+// Notes added here show as dots on every chart of the dashboard. QRT: robot sheets and the weekly price reading too.
 
 export const dynamic = 'force-dynamic'
 
-const SITE = 'https://quel-robot-tondeuse.com'
+const avg7 = (v: number[]) => v.map((_, i) => Math.round((v.slice(Math.max(0, i - 6), i + 1).reduce((a, b) => a + b, 0) / Math.min(7, i + 1)) * 10) / 10)
 
-export default async function ContentPage() {
-  if (!(await dashboardAllowed())) notFound()
-  const [c, units] = await Promise.all([getContent(getPool()), getUnits(['qrt-offres.service', 'qrt-offres.timer'])])
+export default async function ContentPage(props: SeoPageProps) {
+  const { filters: f, query } = await openSeoPage(props)
+  const today = logRanges(f).last
+  const res = await readBlock('contenu', null, async (pool) => {
+    const last = await gscLastDay(pool)
+    const range = { start: addDays(last, -120), end: last }
+    const [daily, notes, items] = await Promise.all([
+      gscDaily(pool, { ...f, pages: 'toutes' }, range),
+      chartNotes(pool, range),
+      journal(pool, { start: addDays(today, -120), end: today }),
+    ])
+    const seen = await pool.query<{ page: string; d: string }>(`SELECT page, min(day)::text AS d FROM analytics.gsc_page_daily WHERE impressions > 0 GROUP BY 1`)
+    return { daily, notes, items, seen: new Map(seen.rows.map((r) => [r.page, r.d])) }
+  })
+  const [content, units] = await Promise.all([getContent(getPool()).catch(() => null), getUnits(['qrt-offres.service', 'qrt-offres.timer']).catch(() => ({}) as Record<string, Record<string, string>>)])
   const run = units['qrt-offres.service'] ?? {}
-  const lastRun = unixDate(run.ExecMainExitTimestamp || run.InactiveEnterTimestamp)
-  const nextRun = unixDate(units['qrt-offres.timer']?.NextElapseUSecRealtime)
+  const state = (await readBlock<GscState>('search console', { ready: true }, (pool) => gscState(pool))).value
+  const pubs = publications()
+  const byDay: Record<string, number> = {}
+  for (const p of pubs) byDay[p.date] = (byDay[p.date] ?? 0) + 1
+  const d = res.value
   return (
-    <DashboardShell current="contenu" title="Contenu" intro="Les articles, du plus récent au plus ancien, avec leurs vues sur 30 jours, les fiches robot et le relevé des prix.">
-      <ContentNav current="" />
-      <p className="okline">
-        {n(c.total)} articles en ligne · {n(c.last7)} publiés cette semaine · {n(c.last30)} en 30 jours.
-      </p>
-      <Tiles>
-        <TextTile label="Fiches robot" value={n(c.products)} note="content/produits" />
-        <TextTile label="Prix relevés (Cdiscount, Fnac)" value={n(c.prices.offers)} note={`${n(c.prices.robots)} robots`} />
-        <TextTile label="Dernier prix daté" value={c.prices.latest ? calendarDay(c.prices.latest) : '–'} note="dans la version en ligne" />
-        <TextTile label="Relevé automatique" value={lastRun ? ago(lastRun) : '–'} note={nextRun ? `prochain : ${calendarDay(nextRun.toISOString().slice(0, 10))}` : run.Result === 'success' ? 'OK' : 'chaque semaine'} />
-      </Tiles>
-      <Card title="Articles" note="publié · vues · lus par IA, 30 j">
-        <div className="tbl-w">
-          <table className="tbl">
-            <thead>
-              <tr>
-                <th>Article</th>
-                <th className="n">Publié</th>
-                <th className="n">Vues</th>
-                <th className="n">IA</th>
-              </tr>
-            </thead>
-            <tbody>
-              {c.posts.map((p) => (
-                <tr key={p.href}>
-                  <td>
-                    <Link href={`${SITE}${p.href}`} target="_blank">
-                      {p.title}
-                    </Link>
-                    {p.updated !== p.date && <span className="tiny muted"> · mis à jour {calendarDay(p.updated)}</span>}
-                  </td>
-                  <td className="n">{calendarDay(p.date)}</td>
-                  <td className="n">{n(p.views30)}</td>
-                  <td className="n">{n(p.ai30)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <SeoShell current="contenu" title="Contenu & notes" sub="Ce qui a été publié ou changé, et quand : pour relier une hausse ou une baisse à sa cause">
+      <div className="sd-grid sd-g3">
+        <div className="sd-span2">
+          <GscPending state={state} compact />
+          {d && state.ready ? (
+            <Card title="Toutes les notes sur la courbe des clics" desc="4 mois · les mêmes pastilles apparaissent sur chaque graphique du tableau de bord">
+              <LineChart
+                days={d.daily.map((x) => x.day)}
+                series={[
+                  { key: 'day', label: 'clics du jour', color: 'var(--sd-prev)', values: d.daily.map((x) => x.clicks), muted: true },
+                  { key: 'avg', label: 'clics Google, moyenne 7 jours', color: 'var(--sd-s1)', values: avg7(d.daily.map((x) => x.clicks)) },
+                ]}
+                notes={d.notes}
+                format="decimal"
+                label="Clics Google sur 4 mois avec les notes"
+              />
+            </Card>
+          ) : null}
         </div>
+        <NoteForm today={today} />
+      </div>
+      <div className="sd-grid sd-g3 sd-gap">
+        <div className="sd-span2 sd-grid">
+          <Card title="Calendrier des publications" desc={`${n0(pubs.length)} articles en ligne · survol d’une case pour le détail`}>
+            <Calendar counts={byDay} end={today} unit="articles publiés" />
+          </Card>
+          {content ? (
+            <PricesCard
+              content={content}
+              lastRun={unixDate(run.ExecMainExitTimestamp || run.InactiveEnterTimestamp)}
+              nextRun={unixDate(units['qrt-offres.timer']?.NextElapseUSecRealtime)}
+              ok={!run.Result || run.Result === 'success'}
+            />
+          ) : null}
+        </div>
+        {d ? <Journal items={d.items} /> : null}
+      </div>
+      <Card title="Derniers articles publiés" csv={csvHref('publications', query)} className="sd-gap">
+        {pubs.length ? (
+          <div className="sd-tw">
+            <table>
+              <thead>
+                <tr>
+                  <th>Article</th>
+                  <th className="sd-hide-m">Rubrique</th>
+                  <th className="num">Publié</th>
+                  <th>1er affichage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {pubs.slice(0, 12).map((p) => {
+                  const seen = d?.seen.get(p.path)
+                  return (
+                    <tr key={p.path}>
+                      <td className="u">
+                        <Link href={pageHref(p.path, query)} title={p.title}>
+                          {p.title}
+                        </Link>
+                      </td>
+                      <td className="sd-hide-m">{p.category}</td>
+                      <td className="num">{dayLabel(p.date)}</td>
+                      <td className={seen ? 'sd-nw' : 'sd-nw sd-muted'}>{seen ? dayLabel(seen) : 'pas encore'}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <Empty>Aucun article.</Empty>
+        )}
       </Card>
-    </DashboardShell>
+    </SeoShell>
   )
 }

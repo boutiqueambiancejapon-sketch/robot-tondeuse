@@ -1,8 +1,11 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { periodQuery, PERIODS, type PeriodKey } from '@/lib/dashboard/period'
-import { SECURITY_POSE, TABS, tabHref, type TabSlug } from '@/lib/dashboard/tabs'
-import { Mascotte } from '@/components/v2/Mascotte'
+import { tabHref, type TabSlug } from '@/lib/dashboard/tabs'
+import { SeoShell } from '@/components/seo-dash/shell/SeoShell'
+
+// Frame of the tools (Conversions, Contacts, E-mails, Serveur, Sécurité): same menu as the SEO
+// dashboard (components/seo-dash/shell), their own period selector (?periode=) when they have one.
 
 interface Props {
   current: TabSlug
@@ -10,7 +13,7 @@ interface Props {
   intro: string
   /** Shows the period selector when set. */
   period?: PeriodKey
-  /** Sub-page of the tab ("/direct"), kept by the period selector. */
+  /** Sub-page of the tab ("/suites"), kept by the period selector. */
   sub?: string
   /** Other URL parameters kept by the period selector (filters). */
   keep?: Record<string, string | null>
@@ -26,37 +29,10 @@ function periodHref(current: TabSlug, sub: string, key: PeriodKey, keep: Record<
   return `${tabHref(current, undefined, sub)}${qs ? `?${qs}` : ''}`
 }
 
-/** Header, tabs, title with the page's mascot, optional period selector. */
 export function DashboardShell({ current, title, intro, period, sub = '', keep = {}, notice, children }: Props) {
-  const tab = TABS.find((t) => t.slug === current)
-  const pose = tab?.pose ?? SECURITY_POSE
   return (
-    <>
-      <header className="hd">
-        <div className="wrap">
-          <div className="hd-in">
-            <Link href="/dashboard" className="logo">
-              <Mascotte pose="side" size={34} />Tableau de bord
-            </Link>
-            <Link href="/dashboard/securite" className="hd-link" aria-current={current === 'securite' ? 'page' : undefined}>
-              Sécurité
-            </Link>
-          </div>
-          <nav className="tabs" aria-label="Onglets">
-            {TABS.map((t) => (
-              <Link key={t.slug} href={tabHref(t.slug, period)} className="tab" aria-current={t.slug === current ? 'page' : undefined}>
-                {t.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
-      <main className="wrap main stack" id="main-content">
-        <div className="ttl">
-          <h1>{title}</h1>
-          <Mascotte pose={pose} size={76} className="masc" priority />
-          <p className="muted small">{intro}</p>
-        </div>
+    <SeoShell current={current} title={title} sub={intro} legacy>
+      <div className="stack">
         {period && (
           <nav className="periods" aria-label="Période">
             {(Object.keys(PERIODS) as PeriodKey[]).map((k) => (
@@ -68,7 +44,7 @@ export function DashboardShell({ current, title, intro, period, sub = '', keep =
         )}
         {notice && <p className="alert">{notice}</p>}
         {children}
-      </main>
-    </>
+      </div>
+    </SeoShell>
   )
 }
