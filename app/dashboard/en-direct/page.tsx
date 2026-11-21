@@ -1,5 +1,5 @@
 import { n0, pct0 } from '@/lib/seo-dash/format'
-import { csvHref } from '@/lib/seo-dash/nav'
+import { csvHref, hrefOf } from '@/lib/seo-dash/nav'
 import { liveSummary } from '@/lib/seo-dash/server/live'
 import { openSeoPage, type SeoPageProps } from '@/lib/seo-dash/server/page'
 import { readBlock } from '@/lib/seo-dash/server/sql'
@@ -9,6 +9,7 @@ import { Card } from '@/components/seo-dash/ui/Card'
 import { BarList } from '@/components/seo-dash/ui/BarList'
 import { Bars } from '@/components/seo-dash/charts/Bars'
 import { LiveFeed } from '@/components/seo-dash/blocks/LiveFeed'
+import { DirectTabs } from '@/components/seo-dash/blocks/SourcesBlocks'
 
 // @cdc tableau de bord SEO — Direct : qui est sur le site maintenant, et d'où il vient (ancienne vue « En direct »).
 
@@ -20,6 +21,7 @@ export default async function LivePage(props: SeoPageProps) {
   const d = res.value
   return (
     <SeoShell current="en-direct" title="Direct" sub="Qui est sur le site maintenant, et d’où il vient">
+      <DirectTabs current="en-direct" query={query} />
       {d ? (
         <div className="sd-grid sd-g4 k2">
           <Tile label="30 dernières minutes" value={n0(d.last30)} note="pages vues par des personnes" />
@@ -39,7 +41,7 @@ export default async function LivePage(props: SeoPageProps) {
             </Card>
           ) : null}
           {d ? (
-            <Card title="D’où viennent les visites" desc="28 jours, pages vues" csv={csvHref('sources', query)}>
+            <Card title="D’où viennent les visites" desc="28 jours, pages vues" csv={csvHref('sources', query)} more={{ href: hrefOf('sources', query), label: 'Tout voir' }}>
               <BarList items={d.sources.map((s) => ({ key: s.label, label: s.label, value: s.n, text: pct0(s.share) }))} />
             </Card>
           ) : null}
