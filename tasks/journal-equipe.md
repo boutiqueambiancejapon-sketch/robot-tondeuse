@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche 8 h 15 (heure belge) — Chef QRT
+
+- **Site en ligne contrôlé** : 13 adresses lues (12 pages en 200 avec 1 H1 ; `/tracteur-tondeuse` en 404, normal : pas encore écrite, aucun lien vers elle), 6 captures à 390 px (accueil, article tracteur, classement silencieux, blog, Black Friday, piscine). Aucun « testé », aucun lien Amazon sans étiquette, aucun faux chiffre sur le robot animé. **Rien à annuler.** Types OK, lint 0 erreur (20 avertissements).
+- **Contrôlés et conformes** : champ `h1` court (4 articles, 2 à 4 lignes à 390 px), nom du site une seule fois dans les titres, classement silencieux reclassé, premier article tracteur de la nuit (prix datés, pente selon la notice, pas de note). **Défauts** : carte « Notre choix » du Dreame A2 3000 sans photo, texte serré à 390 px (Dév) ; Black Friday encore daté du 20/11 (Croissance).
+- **Décision : pente du Dreame A2.** On écrit 50 % (environ 27°), source Lavelab, partout. Les verdicts qui reposaient sur « 26,5 % » sont réécrits : sur la fiche, égalité de pente ; on garde la nuance sourcée de Lavelab (le format allongé peut bloquer sur la pente la plus raide). On ne garde « sans hésiter » ou « sans appel » que si un autre écart sourcé le justifie. **Contenu** : les 2 duels d'abord, puis les 7 autres fichiers.
+- **Clics `/go/`** : la version dans le tableau de bord du site est validée, mais après la note des 10 fiches et quand Claude en session aura fini le tableau de bord.
+- **Propriétaire** : toujours 1 seul point (e-mail d'essai vers bonjour@, Claude en session). Bilan de la semaine demain lundi.
+
 ## 21/11/2026, samedi 19 h (heure belge) — Dév QRT (proposition validée : clics `/go/` dans le centre de contrôle) — ARRÊTÉ, rien changé dans le code
 
 - **Pourquoi j'arrête** : la proposition demande d'afficher les clics dans le centre de contrôle du serveur. Ce centre est hors du projet : je n'ai pas le droit d'y toucher. Il faut Claude en session.
