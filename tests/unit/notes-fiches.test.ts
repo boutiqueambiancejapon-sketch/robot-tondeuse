@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import fs from 'fs'
 import path from 'path'
-import { FICHES_NOTEES, noteFiche } from '@/lib/notes-fiches'
+import { FICHES_NOTEES, mieuxNotes, noteFiche } from '@/lib/notes-fiches'
+import { SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 import { COMPARATEURS } from '@/lib/comparateur'
 
 describe('notes des fiches robots', () => {
@@ -31,5 +32,30 @@ describe('notes des fiches robots', () => {
   it('le nom seul suffit à retrouver la fiche', () => {
     const f = FICHES_NOTEES['mammotion-luba-3-awd-3000']
     expect(noteFiche(f.nom)).toEqual(noteFiche(f.nom, 'mammotion-luba-3-awd-3000'))
+  })
+
+  it('sous le seuil : au plus 2 robots mieux notés, au-dessus du seuil, avec prix daté', () => {
+    for (const [slug, f] of Object.entries(FICHES_NOTEES)) {
+      const n = noteFiche(f.nom, slug)
+      const m = mieuxNotes(f.nom, slug)
+      if (!n?.proposerMieux) {
+        expect(m).toEqual([])
+        continue
+      }
+      expect(m.length).toBeLessThanOrEqual(2)
+      for (const a of m) {
+        expect(a.slug).not.toBe(slug)
+        expect(a.note).toBeGreaterThanOrEqual(SEUIL_PROPOSER_MIEUX)
+        expect(a.note).toBeGreaterThan(n.note)
+        expect(a.date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+        expect(a.url).toMatch(/^https:\/\//)
+      }
+    }
+  })
+
+  it('le Bosch Indego S+ 500 propose 2 robots de surface proche', () => {
+    const m = mieuxNotes('Bosch Indego S+ 500', 'bosch-indego-s-plus-500')
+    expect(m).toHaveLength(2)
+    expect(m.map((a) => a.surface).every((s) => s <= 1000)).toBe(true)
   })
 })
