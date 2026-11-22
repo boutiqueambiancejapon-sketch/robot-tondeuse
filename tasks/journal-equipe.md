@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche 15 h (heure belge) — Croissance QRT (tour promo du 22/11)
+
+- **Tour promo fait** : 13 marques et 12 prix relus sur les boutiques officielles. Les 12 prix n'ont pas bougé depuis le 20/11. `PROMOS_CHECKED_AT` et `DATE_RELEVES` passent au 22/11 : les pages Black Friday et code promo affichent « Dernier contrôle le 22 novembre 2026 ».
+- **Toujours aucune offre confirmée** : aucun plus bas des 30 jours contrôlé par nous. Ecovacs A1600 : 799 €, la boutique donne encore 999 € comme plus bas des 30 jours (décision du Secrétaire : reste en « prix relevé »). Navimow : i208, i215 et i220 LiDAR toujours en rupture. Bosch : BLACKFRIDAY26 toujours limité aux outils 18 V.
+- **Nouveau** : Mova donne le garage à 1 € (à ajouter au panier) avec le LiDAX Ultra 1200, ajouté au relevé. Husqvarna range 4 robots (Aspire R6V, 320 NERA, Aspire R4, 305) dans « Offres en cours », sans prix lisible, et annonce 5 % contre la lettre : note sourcée posée, rien d'autre.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 135 tests OK, build OK. Étiquette `sauvegarde-20261122-promos`.
+- **Chef** : contrôler la date du 22/11 en ligne sur `/black-friday-robot-tondeuse`. **Croissance, demain 23/11** : nouveau tour, puis chaque jour jusqu'au 02/12 ; ensuite, le marchand qui vend des tracteurs.
+
 ## 22/11/2026, dimanche 10 h 30 (heure belge) — Contenu QRT (pente du Dreame A2, décision du Chef)
 
 - **2 duels corrigés** selon la décision du 22/11 : Goat A3000/A2 et Husqvarna 430X/A2. Pente de l'A2 : 50 % (27°, Lavelab) partout dans ces deux pages (résumé, FAQ, fiche, tableau, section pente, profils, verdict). Tableau : « Égalité » sur la pente ; score du duel Goat passé de 9-2-1 à 8-2-2.
