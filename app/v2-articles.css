@@ -69,6 +69,8 @@
   .buy { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 12px 14px; align-items: start; padding: 16px; }
   .buy-img { display: grid; place-items: center; width: 84px; height: 84px; padding: 6px; border-radius: var(--r-s); background: var(--sage); }
   .buy-img img { width: 100%; height: 100%; object-fit: contain; }
+  .note-l { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+  .note-l .dated { font-size: 13px; }
   .buy-b { display: grid; gap: 6px; justify-items: start; min-width: 0; }
   .buy .tag { white-space: normal; }
   .buy-name { font: 800 19px/1.15 var(--f-d); letter-spacing: -0.02em; }
@@ -129,6 +131,9 @@
   .choix-n { font: 800 21px/1.15 var(--f-d); letter-spacing: -0.02em; margin-top: 6px; }
   .choix-h { font-size: 15px; line-height: 1.45; color: #dfe9da; margin-top: 6px; }
   .choix-f { font-size: 13px; line-height: 1.4; color: #b9c9b7; }
+  .choix .note-l .score { color: var(--lime); }
+  .choix .note-l .score small, .choix .note-l .dated { color: #b9c9b7; }
+  .choix .note-l .lnk { color: #fff; }
   .choix .prices li { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .14); }
   .choix .prices a, .choix .prices b { color: #fff; }
   .choix .prices small { color: #b9c9b7; }
