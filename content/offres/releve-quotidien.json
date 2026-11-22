@@ -1,0 +1,17 @@
+{
+  "_lisezmoi": "Les 12 robots du relevé des boutiques officielles (lib/promos.ts). « donnees » : adresse de données publique de la boutique (Shopify .js ou balise Product de la page). « variante » : numéro de la variante quand la page en a plusieurs. Script : npm run releve-prix.",
+  "robots": [
+    { "slug": "dreame-a1-pro", "page": "https://fr.dreametech.com/products/robot-tondeuse-dreame-a1-pro", "type": "shopify" },
+    { "slug": "dreame-a2-3000", "page": "https://fr.dreametech.com/products/a2", "type": "shopify" },
+    { "slug": "dreame-a3-awd-pro-3500", "page": "https://fr.dreametech.com/products/dreame-robot-tondeuse-a3-awd-pro-3500", "type": "shopify" },
+    { "slug": "segway-navimow-i105e", "page": "https://fr.navimow.com/products/navimow-i1-robot-lawn-mower", "type": "shopify", "variante": 47619996680431 },
+    { "slug": "segway-navimow-i210-lidar-pro", "page": "https://fr.navimow.com/products/navimow-i2-lidar-pro-robot-lawn-mower", "type": "shopify", "variante": 47692508659951 },
+    { "slug": "mammotion-luba-mini-2-awd-1000", "page": "https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000", "type": "shopify", "variante": 52164749984033 },
+    { "slug": "mammotion-luba-3-awd-3000", "page": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd", "type": "shopify", "variante": 52164803526945 },
+    { "slug": "mammotion-luba-3-awd-5000", "page": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd", "type": "shopify", "variante": 52164803559713 },
+    { "slug": "ecovacs-goat-a1600-lidar-pro", "page": "https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower/goat-a1600-lidar-pro", "type": "jsonld" },
+    { "slug": "mova-viax-250", "page": "https://fr.mova.tech/products/robot-tondeuse-viax-250", "type": "shopify" },
+    { "slug": "mova-lidax-ultra-800", "page": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra", "type": "shopify", "variante": 47458938880220 },
+    { "slug": "mova-lidax-ultra-1200", "page": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra", "type": "shopify", "variante": 47458938912988 }
+  ]
+}

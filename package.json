@@ -12,7 +12,8 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "audit": "npm audit --audit-level=high --omit=dev",
-    "upload-image": "tsx scripts/upload-blob.ts"
+    "upload-image": "tsx scripts/upload-blob.ts",
+    "releve-prix": "node scripts/releve-prix.mjs"
   },
   "dependencies": {
     "@simplewebauthn/browser": "^14.0.0",
