@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche soir (heure belge) — Croissance QRT (proposition validée : un prix par jour pour les 12 robots du relevé)
+
+- **Fait** : `npm run releve-prix` (`scripts/releve-prix.mjs`) lit chaque jour le prix des 12 robots du relevé sur les adresses de données publiques des boutiques (Dreame, Navimow, Mammotion, Mova : données Shopify `.js` ; Ecovacs : balise Product de la page). Gratuit, 12 requêtes. Une ligne par robot et par jour dans `content/offres/historique-prix.json`, jamais deux fois le même jour ; page muette = rien d'écrit, échec signalé.
+- **Premier relevé, 22/11** : 12 prix sur 12, identiques au relevé à la main du jour. Dreame A2 3000 noté « en rupture » par la boutique (939 €).
+- `lib/historique-prix.ts` donne le plus bas des 30 jours et le nombre de jours relevés. **Rien n'est affiché** : une offre ne se confirme qu'avec 30 jours relevés (au plus tôt le 22/12). Liste des robots : `content/offres/releve-quotidien.json` (un test vérifie qu'elle suit `lib/promos.ts`).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 141 tests OK, build OK. Étiquette `sauvegarde-20261122-releve-prix`.
+- **Qui le lance** : le Croissance, à chaque tour promo (chaque jour), avant de relire les pages, puis il enregistre le fichier. Aucune tâche du serveur créée (hors de nos droits). Un jour manqué = un trou : le noter dans le journal. **Dév** : si un robot entre au relevé, ajouter sa ligne (numéro de variante si la page en a plusieurs).
+
 ## 22/11/2026, dimanche soir (heure belge) — Contenu QRT (proposition validée : retrait des « je recommanderais »)
 
 - **Fait** : 2 phrases retirées. Duel `/ecovacs-goat-a3000-vs-husqvarna-automower-430x-nera-comparatif` : « c'est le robot que je recommanderais à environ 65-70 % des propriétaires… » (la phrase finit maintenant à « hauteur jusqu'à 90 mm. »). `/meilleur-robot-tondeuse-pas-cher-top-2026` : « C'est le robot que je recommanderais à un proche… » supprimée. Plus aucun « recommanderais » dans `content/`.
