@@ -1,7 +1,7 @@
 /**
  * /comment-nous-notons — barème public de la note sur 100 (lot 3, pas 2, 20/11/2026).
  * Lit CRITERES et SEUIL_PROPOSER_MIEUX de lib/bareme.ts : la page et le calcul ont la même source.
- * Aucune note de robot n'est affichée ici tant que le Chef n'a pas relu les poids.
+ * Les notes des fiches (lib/notes-fiches.ts) utilisent le même calcul.
  */
 
 import type { Metadata } from 'next'
@@ -73,8 +73,17 @@ export default function CommentNousNotonsPage() {
             <h2>Sous {SEUIL_PROPOSER_MIEUX} sur {total}</h2>
             <p>
               Un robot noté sous {SEUIL_PROPOSER_MIEUX} ne sera pas mis en avant : sa fiche proposera
-              d’abord des robots mieux notés pour une surface proche. Les notes ne sont pas encore
-              affichées sur les fiches ; elles le seront après relecture du barème.
+              d’abord des robots mieux notés pour une surface proche.
+            </p>
+          </section>
+
+          <section>
+            <h2>Où voir les notes</h2>
+            <p>
+              Depuis le 22 novembre 2026, la note s’affiche sur un premier lot de fiches, à côté du prix
+              qui a servi au calcul et de sa date. Le prix retenu est le plus bas relevé chez Cdiscount ou
+              Fnac. Un robot sans prix daté n’a pas de note&nbsp;: le prix Amazon affiché n’a pas de date, nous
+              ne l’utilisons donc pas.
             </p>
           </section>
 

@@ -3,6 +3,7 @@ import { AffiliateLink } from '@/components/ui/AffiliateLink'
 import { amazonHref } from '@/lib/utils/affiliate'
 import { offresRelevees } from '@/lib/offres-releves'
 import { PriceRows } from './PriceRows'
+import { NoteLigne } from './NoteLigne'
 
 /** Mention obligatoire tant que le prix n'a pas de date de relevé. */
 export const MENTION_PRIX = 'Prix indicatif, à vérifier chez le marchand · lien partenaire'
@@ -30,6 +31,7 @@ export function ProductPick({ name, price, url, image, badge, hook }: Props) {
       <div className="buy-b">
         {badge ? <span className="tag">{badge}</span> : null}
         <p className="buy-name">{name}</p>
+        <NoteLigne nom={name} />
         {hook ? <p className="small muted">{hook}</p> : null}
       </div>
       {autres.length > 0 ? (

@@ -12,6 +12,7 @@ import { getProduct, getPrimaryLink, type Product } from '@/lib/products'
 import { MENTION_PRIX } from './ProductPick'
 import { offresRelevees } from '@/lib/offres-releves'
 import { formatDate, formatPrix } from '@/lib/offres-format'
+import { NoteLigne } from './NoteLigne'
 
 type Item = { slug: string; product: Product; url: string }
 
@@ -47,6 +48,7 @@ export function ProductCarousel({ products }: { products: string }) {
               <p className="buy-name">{product.name}</p>
               <p className="price num">{product.prix}</p>
             </div>
+            <NoteLigne nom={product.name} slug={slug} />
             {product.hook ? <p className="small">{product.hook}</p> : null}
             <AffiliateLink href={url} className="btn btn--full">
               {autres.length > 0 ? 'Voir chez Amazon' : 'Voir l’offre'}

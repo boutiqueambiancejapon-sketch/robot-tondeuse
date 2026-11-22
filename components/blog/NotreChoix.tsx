@@ -5,6 +5,7 @@ import { offresRelevees } from '@/lib/offres-releves'
 import { formatPrix } from '@/lib/offres-format'
 import { amazonHref } from '@/lib/utils/affiliate'
 import { PriceRows } from './PriceRows'
+import { NoteLigne } from './NoteLigne'
 
 /** Carte « Notre choix » du haut des pages d'achat : le premier robot de l'article, ses prix chez chaque vendeur, un bouton. */
 export function NotreChoix({ produit }: { produit: ProduitCite }) {
@@ -24,6 +25,7 @@ export function NotreChoix({ produit }: { produit: ProduitCite }) {
         <div>
           <p className="choix-k">Notre choix</p>
           <p className="choix-n">{produit.name}</p>
+          <NoteLigne nom={produit.name} />
           {produit.hook ? <p className="choix-h">{produit.hook.split('. ')[0].replace(/\.$/, '')}.</p> : null}
         </div>
       </div>

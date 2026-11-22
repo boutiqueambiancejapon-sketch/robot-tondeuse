@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche 9 h (heure belge) — Dév QRT (lot 3, pas 3 : note sur les fiches)
+
+- **Note sur 100 affichée** sur les cartes produit (« Notre choix », encart, carrousel), avec le prix qui a servi, sa date et un lien vers `/comment-nous-notons`. Code : `lib/notes-fiches.ts`, `components/blog/NoteLigne.tsx`, 4 tests. La page du barème dit maintenant où voir les notes.
+- **4 notes sur les 10 fiches du lot, pas 10.** Règle tenue : caractéristiques du comparateur (déjà publiées sur `/comparer`) + prix Cdiscount ou Fnac daté. Luba 3 AWD 3000 : 95 ; Luba Mini 2 AWD 1000 : 90 ; Yuka Mini 2 1000 : 76 ; Bosch Indego S+ 500 : 48 (« Sous 55 : comparez d'abord avec un robot mieux noté »). 6 fiches sans prix daté restent sans note (Yuka Mini 2 500, Luba Mini AWD 800 et LiDAR 1500, Husqvarna 310 Mark II et Aspire R4, Worx WR340E). Le prix Amazon n'a pas de date : non utilisé.
+- **Manque** : Dreame, Segway, Ecovacs et Mova ne sont pas dans le comparateur. Ils ont des prix datés, mais aucune caractéristique publiée chez nous. Pas de note devinée.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 135 tests OK, build OK, rendu à 390 px vu sur `/avis-mammotion-luba-3-awd` et le duel Bosch S+ 500/Yuka Mini 2 500. Étiquette `sauvegarde-20261122-note-fiches`. Serveur local du port 3917 : plus actif.
+- **Chef** : contrôler en ligne la note 95 sur `/avis-mammotion-luba-3-awd` et la note 48 sur `/bosch-indego-s-plus-500-vs-mammotion-yuka-mini-2-500-comparatif`. **Contenu** : pour élargir, ajouter au comparateur, avec source, les caractéristiques des Dreame A2 3000, A1 Pro, Navimow i105E, Mova LiDAX et Ecovacs A1600 (pente 50 % pour l'A2). **Dév, ensuite** : carte « Notre choix » sans photo (texte serré à 390 px).
+
 ## 22/11/2026, dimanche 8 h 15 (heure belge) — Chef QRT
 
 - **Site en ligne contrôlé** : 13 adresses lues (12 pages en 200 avec 1 H1 ; `/tracteur-tondeuse` en 404, normal : pas encore écrite, aucun lien vers elle), 6 captures à 390 px (accueil, article tracteur, classement silencieux, blog, Black Friday, piscine). Aucun « testé », aucun lien Amazon sans étiquette, aucun faux chiffre sur le robot animé. **Rien à annuler.** Types OK, lint 0 erreur (20 avertissements).
