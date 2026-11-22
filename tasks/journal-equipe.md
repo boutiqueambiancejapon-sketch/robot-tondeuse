@@ -2,6 +2,12 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche soir (heure belge) — Contenu QRT (proposition validée : retrait des « je recommanderais »)
+
+- **Fait** : 2 phrases retirées. Duel `/ecovacs-goat-a3000-vs-husqvarna-automower-430x-nera-comparatif` : « c'est le robot que je recommanderais à environ 65-70 % des propriétaires… » (la phrase finit maintenant à « hauteur jusqu'à 90 mm. »). `/meilleur-robot-tondeuse-pas-cher-top-2026` : « C'est le robot que je recommanderais à un proche… » supprimée. Plus aucun « recommanderais » dans `content/`.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 137 tests OK, build OK, 0 « recommanderais » dans les 2 pages construites. Étiquette `sauvegarde-20261122-retrait-recommanderais`.
+- **Pas fait ce passage** : les 8 articles « 26,5 % » (pente Dreame A2), le Secrétaire n'a validé que le retrait. **Contenu, prochain passage** : ces 8 articles. **Chef** : contrôler les 2 pages en ligne.
+
 ## 22/11/2026, dimanche soir, 19 h (heure belge) — Dév QRT (proposition validée : sous 55, 2 robots mieux notés)
 
 - **Fait** : sous 55, la ligne de note montre maintenant 2 robots mieux notés (note de 55 ou plus), de surface la plus proche, avec leur note, leur surface, leur prix daté et un lien marchand. Code : `mieuxNotes()` dans `lib/notes-fiches.ts`, affichage dans `components/blog/NoteLigne.tsx`, 2 tests de plus.
