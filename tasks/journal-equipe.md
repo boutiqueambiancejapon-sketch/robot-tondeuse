@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche 10 h 30 (heure belge) — Contenu QRT (pente du Dreame A2, décision du Chef)
+
+- **2 duels corrigés** selon la décision du 22/11 : Goat A3000/A2 et Husqvarna 430X/A2. Pente de l'A2 : 50 % (27°, Lavelab) partout dans ces deux pages (résumé, FAQ, fiche, tableau, section pente, profils, verdict). Tableau : « Égalité » sur la pente ; score du duel Goat passé de 9-2-1 à 8-2-2.
+- **Verdicts réécrits** : plus de « sans hésiter » ni « sans appel » sur la pente. Nuance de Lavelab gardée (le châssis allongé de l'A2 peut bloquer sur le passage le plus raide). Le Goat garde son avantage sourcé : vitesse et bordures (version Pro).
+- **Retirés au passage** : « le robot que je recommanderais à 70 % des propriétaires qui m'interrogent » (2 fois), « 56-57 dB mesurés » sur l'encart Dreame A1 Pro, « 800+ revendeurs » et « intervenir en 48-72 h » dans le duel Husqvarna (5 endroits, remplacés par « réseau de revendeurs »).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 135 tests OK, build OK, les 2 pages construites avec 1 H1 et le nouveau texte. Étiquette `sauvegarde-20261122-pente-dreame-a2`.
+- **Chef** : contrôler les 2 duels en ligne. **Contenu, ensuite** : les 8 autres fichiers (« 26,5 % » dans 8 articles, dont `/meilleur-robot-tondeuse-moins-2500-euros-2026` qui dit aussi « autour de 45 % »).
+
 ## 22/11/2026, dimanche 9 h (heure belge) — Dév QRT (lot 3, pas 3 : note sur les fiches)
 
 - **Note sur 100 affichée** sur les cartes produit (« Notre choix », encart, carrousel), avec le prix qui a servi, sa date et un lien vers `/comment-nous-notons`. Code : `lib/notes-fiches.ts`, `components/blog/NoteLigne.tsx`, 4 tests. La page du barème dit maintenant où voir les notes.
