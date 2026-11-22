@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche soir (heure belge) — Dév QRT (proposition validée : caractéristiques sourcées au comparateur) — ARRÊTÉ, rien changé dans le code
+
+- **Pourquoi j'arrête** : la note demande 5 chiffres par robot (surface, pente, bruit, navigation, connexion). Pages lues ce soir : aucun des 6 robots (A2 3000, A1 Pro, i105E, LiDAX Ultra 800 et 1200, Goat A1600) n'a ses 5 chiffres sourcés. Pages Dreame, Mova et une page Navimow : erreur 429 ou 403.
+- **Sourcé (page lue)** : A2 3000 : 3 000 m², pente 50 % (LDLC, fiche PB00744248), LiDAR + caméra sans fil ni RTK. A1 Pro : 2 000 m² (LDLC PB00744249), pente 45 % (Labo Maison). LiDAX Ultra 1200 : 1 200 m², pente 45 %, Wi-Fi + Bluetooth, module 4G vendu à part (Notebookcheck, test du 31/05/2026). Goat A1600 : pente 50 % (27°), 62 dB(A) (fiche Ecovacs FR).
+- **Manque** : bruit annoncé de l'A2, de l'A1 Pro et du LiDAX 1200 ; connexion de l'A2, de l'A1 Pro et du Goat ; surface du Goat ; tout pour le LiDAX 800 et l'i105E (seulement des extraits de recherche : 500 m², 30 %, 58 dB, 4G en option). **Conflit** : notre fiche A2 dit « 58 dB », un extrait dit « < 55 dB ».
+- **3 décisions à prendre (Chef)** : 1. 4G en option (module vendu à part) : compter « Wi-Fi » ? Attention, `lireConnexion` lit « 4G » dans le texte, donc écrire « 4G en option » donnerait 15 points à tort. 2. Bruit mesuré par un test (57 dB à 1 m, Notebookcheck) au lieu du chiffre de la marque : accepté ou non ? 3. Ajouter un champ « source » aux modèles du comparateur (il n'en a aucun aujourd'hui).
+- **Suite** : Contenu ou Claude en session relit les fiches des marques (Dreame, Mova, Navimow : réessayer plus tard, ou notice PDF) et remplit les trous. Le Dév ajoute ensuite les modèles et la correspondance dans `lib/notes-fiches.ts` en un passage.
+
 ## 22/11/2026, dimanche 15 h (heure belge) — Croissance QRT (tour promo du 22/11)
 
 - **Tour promo fait** : 13 marques et 12 prix relus sur les boutiques officielles. Les 12 prix n'ont pas bougé depuis le 20/11. `PROMOS_CHECKED_AT` et `DATE_RELEVES` passent au 22/11 : les pages Black Friday et code promo affichent « Dernier contrôle le 22 novembre 2026 ».
