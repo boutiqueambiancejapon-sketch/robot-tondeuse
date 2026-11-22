@@ -7,7 +7,7 @@
  * Sans accès aux fichiers : utilisable dans un composant client.
  */
 import { COMPARATEURS } from './comparateur'
-import { lireFiche, noter } from './bareme'
+import { lireFiche, noter, SEUIL_PROPOSER_MIEUX } from './bareme'
 import { cleNom, releves } from './offres-releves'
 
 /** Fiche (content/produits/<slug>.yaml) → modèle du comparateur. Premier lot : seulement les correspondances sûres. */
@@ -24,7 +24,15 @@ export const FICHES_NOTEES: Record<string, { nom: string; produit: string; model
   'bosch-indego-s-plus-500': { nom: 'Bosch Indego S+ 500', produit: 'bosch', modele: 'Indego S+ 500' },
 }
 
-export type NoteFiche = { note: number; prix: number; marchand: 'Cdiscount' | 'Fnac'; date: string; proposerMieux: boolean }
+export type NoteFiche = {
+  note: number
+  prix: number
+  marchand: 'Cdiscount' | 'Fnac'
+  date: string
+  url: string
+  surface: number
+  proposerMieux: boolean
+}
 
 const PAR_NOM = Object.fromEntries(Object.entries(FICHES_NOTEES).map(([slug, f]) => [cleNom(f.nom), slug]))
 
@@ -33,6 +41,11 @@ export function noteFiche(nom: string, slug?: string): NoteFiche | null {
   const s = slug && FICHES_NOTEES[slug] ? slug : PAR_NOM[cleNom(nom)]
   const f = s ? FICHES_NOTEES[s] : undefined
   if (!s || !f) return null
+  return noteSlug(s)
+}
+
+function noteSlug(s: string): NoteFiche | null {
+  const f = FICHES_NOTEES[s]
   const modele = COMPARATEURS[f.produit]?.modeles.find((m) => m.nom === f.modele)
   if (!modele) return null
   const r = releves(f.nom, s)
@@ -45,5 +58,26 @@ export function noteFiche(nom: string, slug?: string): NoteFiche | null {
   const c = lireFiche(bas.prix, modele.specs)
   if (!c) return null
   const { note, proposerMieux } = noter(c)
-  return { note, prix: bas.prix, marchand: bas.marchand, date: bas.date, proposerMieux }
+  return { note, prix: bas.prix, marchand: bas.marchand, date: bas.date, url: bas.url, surface: c.surface, proposerMieux }
+}
+
+export type Alternative = NoteFiche & { slug: string; nom: string }
+
+/**
+ * Règle du barème : sous SEUIL_PROPOSER_MIEUX, montrer jusqu'à 2 robots mieux notés (note ≥ seuil),
+ * de surface annoncée la plus proche. À surface égale, la meilleure note d'abord.
+ */
+export function mieuxNotes(nom: string, slug?: string, combien = 2): Alternative[] {
+  const ici = noteFiche(nom, slug)
+  if (!ici?.proposerMieux) return []
+  const soi = slug && FICHES_NOTEES[slug] ? slug : PAR_NOM[cleNom(nom)]
+  return Object.keys(FICHES_NOTEES)
+    .filter((s) => s !== soi)
+    .map((s) => {
+      const n = noteSlug(s)
+      return n ? { ...n, slug: s, nom: FICHES_NOTEES[s].nom } : null
+    })
+    .filter((a): a is Alternative => Boolean(a && a.note >= SEUIL_PROPOSER_MIEUX && a.note > ici.note))
+    .sort((a, b) => Math.abs(a.surface - ici.surface) - Math.abs(b.surface - ici.surface) || b.note - a.note)
+    .slice(0, combien)
 }

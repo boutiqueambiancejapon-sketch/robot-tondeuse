@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { noteFiche } from '@/lib/notes-fiches'
+import { mieuxNotes, noteFiche } from '@/lib/notes-fiches'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 import { SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 
@@ -7,6 +7,7 @@ import { SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
   const n = noteFiche(nom, slug)
   if (!n) return null
+  const mieux = n.proposerMieux ? mieuxNotes(nom, slug) : []
   return (
     <p className="note-l" data-note={n.note}>
       <span className="score">
@@ -18,7 +19,7 @@ export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
         <Link href="/comment-nous-notons" className="lnk">
           notre barème
         </Link>
-        {n.proposerMieux ? (
+        {n.proposerMieux && !mieux.length ? (
           <>
             {' '}
             · Sous {SEUIL_PROPOSER_MIEUX}&nbsp;: comparez d’abord avec un robot{' '}
@@ -29,6 +30,23 @@ export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
           </>
         ) : null}
       </span>
+      {mieux.length ? (
+        <span className="note-mieux">
+          Sous {SEUIL_PROPOSER_MIEUX}&nbsp;: avant de choisir ce robot, regardez{' '}
+          {mieux.length > 1 ? 'ces 2 robots mieux notés' : 'ce robot mieux noté'}, de surface proche&nbsp;:
+          {mieux.map((a, i) => (
+            <span key={a.slug}>
+              {i ? ' ;' : ''}{' '}
+              <a href={a.url} rel="sponsored nofollow noopener" target="_blank" className="lnk" data-cta="mieux-note" data-robot={a.nom}>
+                {a.nom}
+              </a>{' '}
+              ({a.note}/100, {a.surface.toLocaleString('fr-FR')}&nbsp;m², {formatPrix(a.prix)} chez {a.marchand} le{' '}
+              {formatDate(a.date)})
+            </span>
+          ))}
+          .
+        </span>
+      ) : null}
     </p>
   )
 }
