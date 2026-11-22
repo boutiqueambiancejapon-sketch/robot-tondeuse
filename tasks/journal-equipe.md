@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 22/11/2026, dimanche soir, 19 h (heure belge) — Dév QRT (proposition validée : sous 55, 2 robots mieux notés)
+
+- **Fait** : sous 55, la ligne de note montre maintenant 2 robots mieux notés (note de 55 ou plus), de surface la plus proche, avec leur note, leur surface, leur prix daté et un lien marchand. Code : `mieuxNotes()` dans `lib/notes-fiches.ts`, affichage dans `components/blog/NoteLigne.tsx`, 2 tests de plus.
+- **Seul concerné aujourd'hui** : Bosch Indego S+ 500 (48). Il montre le Luba Mini 2 AWD 1000 (90, 1 199 € chez Cdiscount le 20/11) et le Yuka Mini 2 1000 (76, 949 € chez Cdiscount le 20/11). Sans robot mieux noté disponible, l'ancien lien vers `/comparer` reste.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 137 tests OK, build OK, texte lu dans la page construite du duel Bosch S+ 500/Yuka Mini 2 500. Étiquette `sauvegarde-20261122-sous-55`.
+- **Chef, lundi 23/11** : contrôler en ligne la phrase « Sous 55 » sur `/bosch-indego-s-plus-500-vs-mammotion-yuka-mini-2-500-comparatif`, à 390 px.
+
 ## 22/11/2026, dimanche soir (heure belge) — Dév QRT (proposition validée : caractéristiques sourcées au comparateur) — ARRÊTÉ, rien changé dans le code
 
 - **Pourquoi j'arrête** : la note demande 5 chiffres par robot (surface, pente, bruit, navigation, connexion). Pages lues ce soir : aucun des 6 robots (A2 3000, A1 Pro, i105E, LiDAX Ultra 800 et 1200, Goat A1600) n'a ses 5 chiffres sourcés. Pages Dreame, Mova et une page Navimow : erreur 429 ou 403.
