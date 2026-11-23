@@ -31,12 +31,18 @@ async function shopify(robot) {
 async function jsonld(robot) {
   const html = await lire(robot.page)
   for (const m of html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g)) {
-    let d
-    try { d = JSON.parse(m[1]) } catch { continue }
-    if (d['@type'] !== 'Product') continue
+    let lu
+    try { lu = JSON.parse(m[1]) } catch { continue }
+    // Gardena range la balise Product dans un « @graph » ; les autres la mettent au premier niveau.
+    const d = lu['@type'] === 'Product' ? lu : (lu['@graph'] ?? []).find((x) => x['@type'] === 'Product')
+    if (!d) continue
     const o = Array.isArray(d.offers) ? d.offers[0] : d.offers
     if (!o) continue
-    return { prix: Number(o.price), dispo: /InStock/i.test(String(o.availability ?? '')) }
+    // Prix de référence que la boutique affiche à côté (Gardena : <span class="strike-through list striked-price">).
+    // Lu tel quel, jamais contrôlé : il ne sert pas à confirmer une offre.
+    const barre = html.match(/striked-price">\s*<span class="value" content="([\d.]+)"/)
+    const reference = barre ? Number(barre[1]) : undefined
+    return { prix: Number(o.price), dispo: /InStock/i.test(String(o.availability ?? '')), ...(reference > Number(o.price) ? { reference } : {}) }
   }
   throw new Error('aucune balise Product avec un prix')
 }

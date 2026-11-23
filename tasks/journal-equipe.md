@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi 19 h 30 (heure belge) — Croissance QRT (Sileno sense 400 au relevé)
+
+- **Fait** (proposition validée par le Secrétaire) : le Gardena Smart Sileno sense 400 entre au relevé quotidien. 13 robots suivis au lieu de 12. Premier prix enregistré : 899,99 € le 23/11, référence affichée 999,99 €, en stock.
+- **Script** : `scripts/releve-prix.mjs` lit maintenant la balise Product rangée dans un « @graph » (cas de Gardena) et le prix de référence affiché à côté. Ecovacs relu par la même méthode : 799 €, inchangé.
+- **Effet en ligne** : une ligne Gardena datée, sans prix barré, sur `/black-friday-robot-tondeuse` et `/black-friday-robot-tondeuse/gardena`. Le test des boutiques accepte `www.gardena.com`.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page. Étiquette `sauvegarde-20261123-releve-sileno`.
+- **Croissance, chaque jour** : `npm run releve-prix` donne 13 prix. Une vraie offre Sileno ne pourra être confirmée qu'après 30 jours relevés (vers le 23/12), donc pas pour ce Black Friday. **Chef, 24/11** : lire la ligne Gardena en ligne sur les 2 pages.
+
 ## 23/11/2026, lundi 18 h (heure belge) — Dév QRT (« Notre choix » sous 55)
 
 - **Fait** (proposition validée par le Secrétaire) : la carte du haut des pages d'achat n'écrit plus « Notre choix » au-dessus d'un robot noté sous 55. Elle écrit « Premier robot de l’article ». La note et les 2 robots mieux notés restent affichés.

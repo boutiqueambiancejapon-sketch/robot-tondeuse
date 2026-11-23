@@ -85,7 +85,7 @@ export const PROMOS_CHECKED_AT = '2026-11-23'
 
 export const BLACK_FRIDAY = { year: 2026, date: '2026-11-27', cyberMonday: '2026-11-30' }
 
-/** Relevés du 23/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow et Ecovacs (pages Black Friday et fiches produit). */
+/** Relevés du 23/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow, Ecovacs et Gardena (pages Black Friday et fiches produit). */
 const DATE_RELEVES = '2026-11-23'
 const releve = (slug: string, url: string, price: number, reference: number, cadeau?: string): PrixReleve => ({
   slug, url, price, reference, checkedAt: DATE_RELEVES, ...(cadeau ? { cadeau } : {}),
@@ -126,6 +126,10 @@ export const PROMO_BRANDS: PromoBrand[] = [
     texte: 'Gardena annonce une « Cyber Week » du 23 au 30 novembre 2026 dans sa boutique. Le 23 novembre, elle affiche le Sileno sense 400 m² à 899,99 €, le Sileno sense 600 m² à 989,99 € et le Sileno life 1 500 m² à 649,99 € ; nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours.',
     href: 'https://www.gardena.com/fr/c/promo-jeux-concours/cyber-week',
     source: 'la page « Cyber Week » de Gardena, lue le 23 novembre 2026',
+  }, 'gardena', {
+    releves: [
+      releve('gardena-smart-sileno-sense-400', 'https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-sense-400-m/970818050.html', 899.99, 999.99),
+    ],
   }),
   marque('segway-navimow', 'Segway Navimow', {
     texte: 'Navimow annonce ses offres Black Friday du 10 au 30 novembre 2026. Le 23 novembre, sa boutique indique toujours les i208, i215 et i220 LiDAR en rupture.',
