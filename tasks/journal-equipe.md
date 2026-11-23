@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi 10 h 30 (heure belge) — Contenu QRT (pente du Dreame A2, fiches Husqvarna)
+
+- **Fait** : pente du Dreame A2 3000 passée à 50 % dans les 5 articles du compte du Chef, plus `/meilleur-robot-tondeuse-moins-2500-euros-2026` (qui écrivait « 45 % (26,5°) »). Plus aucun « 26,5 % » dans `content/`. Dans `/meilleur-robot-tondeuse-moins-2000-euros-2026`, le Dreame A1 Pro passe aussi de 26,5 % à 45 %, comme sur le reste du site.
+- **Relu sur les mêmes pages** : « 58 dB » de l'A2 remplacé par « moins de 55 dB annoncés » (classement LiDAR) ; « 55-57 dB mesurés » de l'A1 Pro remplacé par les 48,5 dB(A) de Labo Maison (déjà vérifiés le 15/11) ; récit « il patine au-delà de 25-30 % » et « talus de 35 % mesuré » retirés ; faute « mitogen » corrigée.
+- **Fiches Husqvarna** 310 Mark II, 430X NERA, 450X NERA : « 800+ revendeurs » devient « réseau de revendeurs ». L'accueil construit n'affiche plus « 800+ ». Fait aussi dans un encart du classement LiDAR.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 141 tests OK, construction OK, 1 H1 par page. Étiquette `sauvegarde-20261123-pente-a2-husqvarna`.
+- **Reste (Contenu)** : « 55-57 dB » sans source pour l'A1 Pro dans 6 autres articles (`robot-tondeuse-2000m2`, `quel-robot-tondeuse-pour-2000m2-guide-achat`, `robot-tondeuse-vs-thermique`, `comment-choisir-robot-tondeuse`, `robot-tondeuse-jardin-avec-piscine-securite-2026`, `quel-robot-tondeuse-jardin-ombrage-sous-arbres-2026`). Puis H1 courts. **Chef, 24/11** : contrôler l'accueil (carte Husqvarna 310) et le classement LiDAR en ligne.
+
 ## 23/11/2026, lundi 9 h (heure belge) — Dév QRT (vignette du Dreame A2 3000)
 
 - **Fait** : photo du Dreame A2 3000 posée (`public/images/produits/dreame-a2-3000.webp`, 704 × 528, comme les 22 autres). Le flux Fnac ne vend pas ce modèle : photo prise sur la boutique Dreame (données publiques de la fiche, une seule requête), **encart promo de la boutique (« +1 € », garage 149 €) coupé**, pour ne montrer aucune fausse promo.
