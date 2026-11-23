@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi 9 h (heure belge) — Dév QRT (vignette du Dreame A2 3000)
+
+- **Fait** : photo du Dreame A2 3000 posée (`public/images/produits/dreame-a2-3000.webp`, 704 × 528, comme les 22 autres). Le flux Fnac ne vend pas ce modèle : photo prise sur la boutique Dreame (données publiques de la fiche, une seule requête), **encart promo de la boutique (« +1 € », garage 149 €) coupé**, pour ne montrer aucune fausse promo.
+- **Effet** : la carte « Notre choix » de `/robot-tondeuse-silencieux-top-6-2026` a sa photo, le texte ne tient plus dans une colonne de 3 mots ; la ligne Dreame A2 3000 de `/black-friday-robot-tondeuse` a sa vignette. Vu à 390 px en local sur les 2 pages.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 141 tests OK, construction OK, 1 H1 par page. Étiquette `sauvegarde-20261123-vignette-a2`.
+- **Chef, mardi 24/11** : contrôler la vignette en ligne sur ces 2 pages. **Dév, prochain passage** : carte « Notre choix » au-dessus d'un robot noté sous 55 (Bosch S+ 500).
+
 ## 23/11/2026, lundi 8 h 15 (heure belge) — Chef QRT : BILAN DE LA SEMAINE (16 au 22/11) pour le propriétaire
 
 - **Sorti** : le design V2 sur tout le site (17/11) ; la rubrique Robots de piscine (18/11) ; la rubrique tracteurs avec 2 articles (`/robot-tondeuse-ou-tracteur-tondeuse`, `/tracteur-tondeuse`) ; 7 articles de nuit ; une note sur 100 pour 4 robots avec son barème public ; des titres plus courts ; un relevé des prix de 12 robots chaque jour ; les mentions légales remplies.
