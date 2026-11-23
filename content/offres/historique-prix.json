@@ -128,6 +128,14 @@
     },
     {
       "date": "2026-11-23",
+      "slug": "gardena-smart-sileno-sense-400",
+      "prix": 899.99,
+      "reference": 999.99,
+      "dispo": true,
+      "page": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-sense-400-m/970818050.html"
+    },
+    {
+      "date": "2026-11-23",
       "slug": "mammotion-luba-3-awd-3000",
       "prix": 2149,
       "reference": 2699,
