@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import fs from 'fs'
 import path from 'path'
-import { FICHES_NOTEES, mieuxNotes, noteFiche } from '@/lib/notes-fiches'
+import { etiquetteCarte, FICHES_NOTEES, mieuxNotes, noteFiche } from '@/lib/notes-fiches'
 import { SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 import { COMPARATEURS } from '@/lib/comparateur'
 
@@ -57,5 +57,16 @@ describe('notes des fiches robots', () => {
     const m = mieuxNotes('Bosch Indego S+ 500', 'bosch-indego-s-plus-500')
     expect(m).toHaveLength(2)
     expect(m.map((a) => a.surface).every((s) => s <= 1000)).toBe(true)
+  })
+
+  it('la carte du haut n’écrit jamais « Notre choix » au-dessus d’un robot noté sous le seuil', () => {
+    for (const [slug, f] of Object.entries(FICHES_NOTEES)) {
+      const n = noteFiche(f.nom, slug)
+      const attendu = n && n.note < SEUIL_PROPOSER_MIEUX ? 'Premier robot de l’article' : 'Notre choix'
+      expect(etiquetteCarte(f.nom)).toBe(attendu)
+    }
+    const bosch = noteFiche('Bosch Indego S+ 500')
+    if (bosch && bosch.note < SEUIL_PROPOSER_MIEUX) expect(etiquetteCarte('Bosch Indego S+ 500')).not.toBe('Notre choix')
+    expect(etiquetteCarte('Robot inconnu')).toBe('Notre choix')
   })
 })

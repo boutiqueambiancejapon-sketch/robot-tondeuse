@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi 18 h (heure belge) — Dév QRT (« Notre choix » sous 55)
+
+- **Fait** (proposition validée par le Secrétaire) : la carte du haut des pages d'achat n'écrit plus « Notre choix » au-dessus d'un robot noté sous 55. Elle écrit « Premier robot de l’article ». La note et les 2 robots mieux notés restent affichés.
+- **Effet** : 10 pages sur 178 changent. 6 avec le Bosch S+ 500 (48/100), 4 avec l'Aspire R4 (lui aussi sous 55 depuis le relevé des prix). Les autres gardent « Notre choix ».
+- Test ajouté dans `tests/unit/notes-fiches.test.ts`. Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. Étiquette `sauvegarde-20261123-notre-choix-sous-55`.
+- **Chef, 24/11** : lire « Premier robot de l’article » en ligne sur `/test-bosch-indego-s-plus-500-avis` et `/husqvarna-aspire-r4-vs-bosch-indego-s-plus-500-comparatif`. **Contenu, plus tard** : sur ces 10 pages, voir s'il faut mettre en premier encart un robot mieux noté.
+
 ## 23/11/2026, lundi 15 h (heure belge) — Croissance QRT (tour promo du 23/11)
 
 - **Relevé quotidien** : `npm run releve-prix`, 12 prix sur 12, tous identiques au 22/11. Le Dreame A2 3000 n'est plus noté « en rupture ».

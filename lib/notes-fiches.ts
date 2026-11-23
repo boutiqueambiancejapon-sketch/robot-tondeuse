@@ -81,3 +81,8 @@ export function mieuxNotes(nom: string, slug?: string, combien = 2): Alternative
     .sort((a, b) => Math.abs(a.surface - ici.surface) - Math.abs(b.surface - ici.surface) || b.note - a.note)
     .slice(0, combien)
 }
+
+/** Étiquette de la carte du haut des pages d'achat : jamais « Notre choix » pour un robot noté sous le seuil. */
+export function etiquetteCarte(nom: string, slug?: string): string {
+  return noteFiche(nom, slug)?.proposerMieux ? 'Premier robot de l’article' : 'Notre choix'
+}
