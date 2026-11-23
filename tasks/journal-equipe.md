@@ -2,6 +2,22 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi 8 h 15 (heure belge) — Chef QRT : BILAN DE LA SEMAINE (16 au 22/11) pour le propriétaire
+
+- **Sorti** : le design V2 sur tout le site (17/11) ; la rubrique Robots de piscine (18/11) ; la rubrique tracteurs avec 2 articles (`/robot-tondeuse-ou-tracteur-tondeuse`, `/tracteur-tondeuse`) ; 7 articles de nuit ; une note sur 100 pour 4 robots avec son barème public ; des titres plus courts ; un relevé des prix de 12 robots chaque jour ; les mentions légales remplies.
+- **Cassé** : aucune page cassée en ligne, aucun retour en arrière. Le 19/11, plus de crédits : aucun passage d'agent, et aucun article les nuits du 18 et du 19/11. Une faute dans les mentions légales a bloqué les envois le 21/11, réparée le jour même.
+- **Défauts encore en ligne** : la pente du Dreame A2 reste fausse dans 5 articles (26,5 % au lieu de 50 %) ; « 800+ revendeurs » sans source chez Husqvarna, jusque sur l'accueil ; 1 robot noté 48/100 sous un bandeau « Notre choix ». Les trois corrections sont confiées.
+- **Ce qui vient** : le Black Friday du 27/11, avec un tour des prix chaque jour ; les premiers articles piscine le 01/12 ; plus de robots notés.
+- **Pour vous** : toujours 1 seul point, l'e-mail d'essai vers bonjour@ (avec Claude en session). Revenu d'affiliation : toujours 0 €.
+
+## 23/11/2026, lundi 8 h 15 (heure belge) — Chef QRT (contrôle)
+
+- **En ligne** : 17 adresses lues, toutes en 200 avec 1 H1 (dont `/tracteur-tondeuse`, en ligne depuis la nuit). 5 captures à 390 px (accueil, tracteur, classement silencieux, duel Bosch S+ 500/Yuka Mini 2 500, Black Friday). Aucun lien Amazon sans étiquette, aucun « testé », aucun faux chiffre sur le robot animé. **Rien à annuler.** Types OK, lint 0 erreur (20 avertissements).
+- **Conformes** : les 2 duels A2 (pente 50 % partout, Lavelab cité) ; `/tracteur-tondeuse` (prix datés du 21/11, notice Stiga, « le site n'essaie pas les machines », pas de note, aucun robot dans les encarts) ; « Sous 55 » sur le duel Bosch S+ 500 (2 robots mieux notés, prix Cdiscount du 23/11) ; Black Friday daté du 22/11.
+- **Défauts trouvés** : carte « Notre choix » au-dessus du Bosch S+ 500 noté 48/100 (Dév, point 1 de « Ensuite ») ; H1 du même duel sur 8 lignes à 390 px (Contenu) ; « 800+ revendeurs » sur la carte Husqvarna 310 de l'accueil, qui vient de 3 fiches `content/produits/` (Contenu) ; vignette du Dreame A2 3000 toujours absente (Dév, prochaine étape).
+- **Compte refait** : 5 articles disent encore « 26,5 % » ou « 14,8° » pour la pente (et non 8). Liste exacte dans le tableau.
+- **Propriétaire** : la ligne « prix du jour Cdiscount et Fnac » est retirée de sa liste, car les cartes affichent maintenant « Cdiscount, relevé le 23/11 ».
+
 ## 23/11/2026, lundi matin (heure belge) — Éditeur QRT (passage du lundi)
 
 - **Nuits du 16 au 22/11 vérifiées** : 7 articles, tous pris dans l'ordre du plan et cochés par la rédaction de nuit (dernier : `/tracteur-tondeuse`, nuit du 22/11, avec `h1:` de 32 signes). Aucun article daté du 18 ni du 19/11 (quota épuisé). Novembre : 4 sujets écrits sur 12, 8 restent pour 8 nuits. Prochain sujet : `/avis-dreame-a3-awd-pro`.
