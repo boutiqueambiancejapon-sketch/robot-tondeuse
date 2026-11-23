@@ -6,6 +6,7 @@ import { formatPrix } from '@/lib/offres-format'
 import { amazonHref } from '@/lib/utils/affiliate'
 import { PriceRows } from './PriceRows'
 import { NoteLigne } from './NoteLigne'
+import { etiquetteCarte } from '@/lib/notes-fiches'
 
 /** Carte « Notre choix » du haut des pages d'achat : le premier robot de l'article, ses prix chez chaque vendeur, un bouton. */
 export function NotreChoix({ produit }: { produit: ProduitCite }) {
@@ -13,9 +14,10 @@ export function NotreChoix({ produit }: { produit: ProduitCite }) {
   const amazonBas = prixBas(produit.price)
   const meilleur = autres.find((o) => o.prix !== undefined && (amazonBas === undefined || o.prix < amazonBas))
   const url = meilleur?.url ?? amazonHref(produit.url, produit.name)
+  const etiquette = etiquetteCarte(produit.name)
   const label = meilleur?.prix ? `Voir chez ${meilleur.marchand} · ${formatPrix(meilleur.prix)}` : 'Voir le prix chez Amazon'
   return (
-    <aside className="choix" aria-label={`Notre choix : ${produit.name}`} data-cta="choix-haut" data-place="notre-choix" data-robot={produit.name}>
+    <aside className="choix" aria-label={`${etiquette} : ${produit.name}`} data-cta="choix-haut" data-place="notre-choix" data-robot={produit.name}>
       <div className="choix-top">
         {produit.image ? (
           <span className="choix-img">
@@ -23,7 +25,7 @@ export function NotreChoix({ produit }: { produit: ProduitCite }) {
           </span>
         ) : null}
         <div>
-          <p className="choix-k">Notre choix</p>
+          <p className="choix-k">{etiquette}</p>
           <p className="choix-n">{produit.name}</p>
           <NoteLigne nom={produit.name} />
           {produit.hook ? <p className="choix-h">{produit.hook.split('. ')[0].replace(/\.$/, '')}.</p> : null}
