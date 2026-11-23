@@ -81,12 +81,12 @@ export type PromoRobot = {
 }
 
 /** Date du dernier contrôle de toutes les marques. */
-export const PROMOS_CHECKED_AT = '2026-11-22'
+export const PROMOS_CHECKED_AT = '2026-11-23'
 
 export const BLACK_FRIDAY = { year: 2026, date: '2026-11-27', cyberMonday: '2026-11-30' }
 
-/** Relevés du 22/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow et Ecovacs (pages Black Friday et fiches produit). */
-const DATE_RELEVES = '2026-11-22'
+/** Relevés du 23/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow et Ecovacs (pages Black Friday et fiches produit). */
+const DATE_RELEVES = '2026-11-23'
 const releve = (slug: string, url: string, price: number, reference: number, cadeau?: string): PrixReleve => ({
   slug, url, price, reference, checkedAt: DATE_RELEVES, ...(cadeau ? { cadeau } : {}),
 })
@@ -108,7 +108,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('dreame', 'Dreame', {
     texte: 'Dreame annonce son Black Friday du 16 au 30 novembre 2026, après des remises ouvertes le 30 octobre.',
     href: 'https://fr.dreametech.com/pages/black-friday',
-    source: 'la page Black Friday de Dreame, lue le 22 novembre 2026',
+    source: 'la page Black Friday de Dreame, lue le 23 novembre 2026',
   }, 'dreame', {
     releves: [
       releve('dreame-a1-pro', 'https://fr.dreametech.com/products/robot-tondeuse-dreame-a1-pro', 599, 1099),
@@ -117,16 +117,20 @@ export const PROMO_BRANDS: PromoBrand[] = [
     ],
   }),
   marque('husqvarna', 'Husqvarna', {
-    texte: 'Le 22 novembre, Husqvarna range quatre robots (Aspire R6V, 320 NERA, Aspire R4 et 305) dans sa page « Offres en cours », sans prix lisible chez nous. Il annonce aussi 5 % contre une inscription à sa lettre : nous n’avons pas vérifié si cette remise vaut pour un robot.',
+    texte: 'Le 23 novembre, Husqvarna range quatre robots (Aspire R6V, 320 NERA, Aspire R4 et 305) dans sa page « Offres en cours », sans prix lisible chez nous. Il annonce aussi 5 % contre une inscription à sa lettre : nous n’avons pas vérifié si cette remise vaut pour un robot.',
     href: 'https://www.husqvarna.com/fr/offres-en-cours/',
-    source: 'la page « Offres en cours » de Husqvarna, lue le 22 novembre 2026',
+    source: 'la page « Offres en cours » de Husqvarna, lue le 23 novembre 2026',
   }),
   marque('worx', 'Worx'),
-  marque('gardena', 'Gardena'),
+  marque('gardena', 'Gardena', {
+    texte: 'Gardena annonce une « Cyber Week » du 23 au 30 novembre 2026 dans sa boutique. Le 23 novembre, elle affiche le Sileno sense 400 m² à 899,99 €, le Sileno sense 600 m² à 989,99 € et le Sileno life 1 500 m² à 649,99 € ; nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours.',
+    href: 'https://www.gardena.com/fr/c/promo-jeux-concours/cyber-week',
+    source: 'la page « Cyber Week » de Gardena, lue le 23 novembre 2026',
+  }),
   marque('segway-navimow', 'Segway Navimow', {
-    texte: 'Navimow annonce ses offres Black Friday du 10 au 30 novembre 2026. Le 22 novembre, sa boutique indique toujours les i208, i215 et i220 LiDAR en rupture.',
+    texte: 'Navimow annonce ses offres Black Friday du 10 au 30 novembre 2026. Le 23 novembre, sa boutique indique toujours les i208, i215 et i220 LiDAR en rupture.',
     href: 'https://fr.navimow.com/pages/black-friday',
-    source: 'la page Black Friday de Navimow, lue le 22 novembre 2026',
+    source: 'la page Black Friday de Navimow, lue le 23 novembre 2026',
   }, 'segway', {
     releves: [
       releve('segway-navimow-i105e', 'https://fr.navimow.com/products/navimow-i1-robot-lawn-mower', 699, 799),
@@ -136,7 +140,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('mammotion', 'Mammotion', {
     texte: 'Mammotion annonce ses offres Black Friday du 10 au 30 novembre 2026.',
     href: 'https://fr.mammotion.com/',
-    source: 'la boutique Mammotion, lue le 22 novembre 2026',
+    source: 'la boutique Mammotion, lue le 23 novembre 2026',
   }, 'mammotion', {
     releves: [
       releve('mammotion-luba-mini-2-awd-1000', 'https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000', 1199, 1499),
@@ -145,19 +149,19 @@ export const PROMO_BRANDS: PromoBrand[] = [
     ],
   }),
   marque('stiga', 'Stiga', {
-    texte: 'Stiga annonce 10 % sur un premier achat contre une inscription à sa lettre. Nous n’avons pas vérifié si cette remise s’applique à un robot tondeuse.',
-    href: 'https://www.stiga.com/fr/',
-    source: 'le site de Stiga, lu le 22 novembre 2026',
+    texte: 'Stiga annonce son Black Friday du 23 au 30 novembre 2026. Le 23 novembre, sa boutique affiche l’A 6v à 899 €, l’A 8v à 1 079 € et l’A 10v à 1 249 € ; nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours. Stiga promet aussi 10 % sur un premier achat contre une inscription à sa lettre, sans que nous ayons vérifié si cela vaut pour un robot.',
+    href: 'https://www.stiga.com/fr/black-friday',
+    source: 'la page Black Friday de Stiga, lue le 23 novembre 2026',
   }),
   marque('bosch', 'Bosch', {
     texte: 'Bosch publie le code BLACKFRIDAY26 du 13 novembre au 2 décembre 2026, pour une sélection d’outils 18 V. Aucun robot Indego ne figure parmi les outils affichés et nous n’avons pas essayé le code sur un robot.',
     href: 'https://www.bosch-diy.com/fr/fr/blackweekpromo',
-    source: 'la page « Semaines Black Friday » de Bosch, lue le 22 novembre 2026',
+    source: 'la page « Semaines Black Friday » de Bosch, lue le 23 novembre 2026',
   }),
   marque('ecovacs', 'Ecovacs', {
     texte: 'Ecovacs annonce son Black Friday du 9 au 30 novembre 2026. Pour le Goat A1600 LiDAR Pro, sa boutique indique elle-même 999 € comme prix le plus bas des 30 derniers jours.',
     href: 'https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower',
-    source: 'la boutique Ecovacs, lue le 22 novembre 2026',
+    source: 'la boutique Ecovacs, lue le 23 novembre 2026',
   }, 'ecovacs', {
     releves: [
       releve('ecovacs-goat-a1600-lidar-pro', 'https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower/goat-a1600-lidar-pro', 799, 1499),
@@ -166,7 +170,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('mova', 'Mova', {
     texte: 'Mova annonce ses offres Black Friday du 10 au 30 novembre 2026, après un accès anticipé du 27 octobre au 9 novembre.',
     href: 'https://fr.mova.tech/pages/offre-black-friday',
-    source: 'la page Black Friday de Mova, lue le 22 novembre 2026',
+    source: 'la page Black Friday de Mova, lue le 23 novembre 2026',
   }, 'mova', {
     releves: [
       releve('mova-viax-250', 'https://fr.mova.tech/products/robot-tondeuse-viax-250', 479, 579),
@@ -226,7 +230,7 @@ export function getBrandRobots(brand: PromoBrand): PromoRobot[] {
   return robotsParCategorie.get(brand.categorie) ?? []
 }
 
-/** Prix haut d'une fourchette « 1 599-1 899 € » → 1899 (0 si illisible). */
+/** Prix haut d'une fourchette « 1 599-1 899 € » → 1899 (0 si illisible). */
 function prixHaut(prix: string): number {
   const nombres = prix.replace(/[\s\u00a0\u202f]/g, '').match(/\d+/g)
   return nombres ? Math.max(...nombres.map(Number)) : 0
