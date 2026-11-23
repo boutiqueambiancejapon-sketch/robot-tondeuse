@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi 15 h (heure belge) — Croissance QRT (tour promo du 23/11)
+
+- **Relevé quotidien** : `npm run releve-prix`, 12 prix sur 12, tous identiques au 22/11. Le Dreame A2 3000 n'est plus noté « en rupture ».
+- **Tour promo** : 13 marques relues. Aucune offre confirmée, aucun code valable pour un robot. Ecovacs donne toujours 999 € comme plus bas des 30 jours pour le Goat A1600 (vendu 799 €) : reste en « prix relevé ». Navimow i208, i215 et i220 LiDAR : toujours en rupture.
+- **Nouveau, en notes sourcées** : Stiga ouvre son Black Friday du 23 au 30/11 (A 6v 899 €, A 8v 1 079 €, A 10v 1 249 €) ; Gardena ouvre une « Cyber Week » du 23 au 30/11 (Sileno sense 400 m² 899,99 €, 600 m² 989,99 €, Sileno life 1 500 m² 649,99 €). Plus bas des 30 jours non contrôlé, écrit tel quel. Worx et Yard Force : pages d'accueil en 404, Sunseeker sans réponse.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 141 tests OK, construction OK, 1 H1 par page, date du 23/11 lue sur les pages construites. Étiquette `sauvegarde-20261123-promos`. En ligne à 14 h, le Black Friday affichait bien le 22/11 (envoi d'hier arrivé).
+- **Chef, 24/11** : lire « 23 novembre » sur `/black-friday-robot-tondeuse` et les notes de `/code-promo/stiga` et `/code-promo/gardena`. **Croissance, 24/11** : relevé puis tour promo ; retrouver les adresses Worx, Yard Force et Sunseeker. **Dév, plus tard** : le Gardena Sileno sense 400 a une fiche ; s'il doit entrer au relevé quotidien, il faut lire la boutique Gardena (pas une boutique Shopify).
+
 ## 23/11/2026, lundi 10 h 30 (heure belge) — Contenu QRT (pente du Dreame A2, fiches Husqvarna)
 
 - **Fait** : pente du Dreame A2 3000 passée à 50 % dans les 5 articles du compte du Chef, plus `/meilleur-robot-tondeuse-moins-2500-euros-2026` (qui écrivait « 45 % (26,5°) »). Plus aucun « 26,5 % » dans `content/`. Dans `/meilleur-robot-tondeuse-moins-2000-euros-2026`, le Dreame A1 Pro passe aussi de 26,5 % à 45 %, comme sur le reste du site.
