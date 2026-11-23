@@ -2,18 +2,18 @@
 
 > **Décision du propriétaire, 18/11/2026 : priorité aux produits chers (« high ticket »).** On écrit d'abord ce qui rapporte le plus par vente : 1) les robots tondeuses à plus de 1 000 € (classements, avis de modèles, duels), avant le printemps ; 2) une nouvelle rubrique « Tracteurs et tondeuses autoportées » (1 500 à 4 000 €), pour le même lecteur à grand terrain ; 3) les robots de piscine, avancés à décembre 2026, classements et duels d'abord, guides ensuite. Le gazon, le dépannage et les accessoires bon marché passent derrière ; ceux de saison restent. Cabanons, pergolas et mobilier : pas sur ce site.
 
-Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Éditeur QRT (dernière mise à jour : 18/11/2026). Vue par mois de `tasks/plan-editorial.md` (c'est le plan qui fait foi pour la rédaction de nuit ; ce fichier sert à lire l'année d'un coup d'œil). L'arborescence est dans `tasks/arborescence.md`.
+Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Éditeur QRT (dernière mise à jour : 23/11/2026). Vue par mois de `tasks/plan-editorial.md` (c'est le plan qui fait foi pour la rédaction de nuit ; ce fichier sert à lire l'année d'un coup d'œil). L'arborescence est dans `tasks/arborescence.md`.
 
 ## Comment lire ce calendrier
 
-- **182 sujets datés sur 13 mois**, plus 18 sujets de réserve. Novembre 2026 en compte 12 (un par nuit jusqu'au 30), décembre, janvier et février 27 ou 28 (un par nuit), mars 18 : ce sont surtout les produits chers (128 sujets sur 182 : robots tondeuses, tracteurs, robots de piscine). Les 53 sujets anciens (gazon, dépannage) ne s'écrivent plus que les nuits où le mois en cours est terminé, en commençant par ceux de l'hiver.
+- **183 sujets datés sur 13 mois** (un ajouté le 23/11/2026 : Dreame A4 AWD Pro en mars), plus 18 sujets de réserve. Novembre 2026 en compte 12 (un par nuit jusqu'au 30), décembre, janvier et février 27 ou 28 (un par nuit), mars 19 : ce sont surtout les produits chers (129 sujets sur 183 : robots tondeuses, tracteurs, robots de piscine). Les 53 sujets anciens (gazon, dépannage) ne s'écrivent plus que les nuits où le mois en cours est terminé, en commençant par ceux de l'hiver.
 - **Ordre dans un mois** : la rédaction de nuit prend les sujets de haut en bas. Les produits chers sont en haut ; les sujets de saison et les accessoires ferment le mois.
 - **On écrit avant la saison** : un article met plusieurs semaines à être connu de Google. Les robots chers et les tracteurs sortent de novembre à février pour le pic de mars-avril, la piscine dès décembre pour la remise en eau d'avril, le Black Friday en octobre.
 - **Chaque sujet vise une requête réelle**, relevée dans les suggestions de recherche de Google en français (15/11/2026, puis 18/11/2026 pour les 71 sujets ajoutés ce jour-là : environ 190 débuts de requête), complétée par 11 recherches web le 18/11/2026 (concurrents, prix de lancement, modèles réellement sortis). Aucun volume de recherche n'est donné : nous n'avons pas de chiffre.
-- **Rubriques** : robots tondeuses, gazon, autour du robot et tracteurs sont ouvertes (adresses à la racine). Robots de piscine : à ouvrir par le Dév avant le 01/12/2026 ; tant que ce n'est pas fait, la rédaction saute ces sujets et écrit les suivants. Arrosage en avril, outils sur batterie en septembre (sous condition).
+- **Rubriques** : robots tondeuses, gazon, autour du robot et tracteurs sont ouvertes (adresses à la racine). Robots de piscine : ouverte par le Dév le 18/11/2026 (dossier `content/articles/robot-piscine/`) ; ses sujets démarrent le 01/12/2026. Arrosage en avril, outils sur batterie en septembre (sous condition).
 - **Ce qui existait déjà et n'est pas refait** : les classements par budget (moins de 1 000, 1 200, 1 500, 2 000, 2 500 et 3 000 €), les guides par surface (1 500, 2 000, 2 500, 3 000, 4 000, 5 000 m² et 1 hectare), le classement 4 roues motrices et le classement LiDAR sont en ligne. Ils sont à mettre à jour sur place avant février (Contenu QRT), pas à réécrire. Les nouveaux sujets prennent les angles qui manquaient : haut de gamme, grand terrain, forte pente, LiDAR pour 2 000 m² et plus, 6 000 à 8 000 m², 2 hectares.
 - **Mises à jour précédentes** : 16/11/2026, les pages « code promo » et « Black Friday robot tondeuse » sont sorties du calendrier (elles existent hors des articles, tenues par Croissance QRT).
-- Règles d'honnêteté : aucun « testé », aucune note sans barème, un produit se décrit à partir de sa page officielle, prix indicatifs et datés. Trois sujets ne s'écrivent que si un prix français est publié (Luba 4 AWD, Yarbo, Lymow One Plus).
+- Règles d'honnêteté : aucun « testé », aucune note sans barème, un produit se décrit à partir de sa page officielle, prix indicatifs et datés. Quatre sujets ne s'écrivent que si un prix français est publié (Luba 4 AWD, Dreame A4 AWD Pro, Yarbo, Lymow One Plus). Au 23/11/2026, ni Mammotion ni Dreame n'affichent de prix français.
 
 ## L'année en un tableau
 
@@ -23,7 +23,7 @@ Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Édi
 | Décembre 2026 | Robots de piscine (classements et duels d'abord), robots chers, tracteurs, soldes d'hiver | 27 | Robots tondeuses (10), Robots de piscine (8), Tracteurs et autoportées (6), Autour du robot (2), Promos (1) |
 | Janvier 2027 | Préparer l'achat de printemps : marques, duels de robots chers, tracteurs, suite de la piscine | 28 | Robots tondeuses (14), Robots de piscine (8), Tracteurs et autoportées (6) |
 | Février 2027 | Dernier mois avant le pic : duels et avis de robots chers, marques de tracteurs et de piscine, pose et lames en fin de mois | 27 | Robots tondeuses (10), Tracteurs et autoportées (6), Robots de piscine (6), Autour du robot (4), Gazon et pelouse (1) |
-| Mars 2027 | Pic d'achat des robots tondeuses et des tracteurs, puis ce que le robot ne fait pas | 18 | Robots tondeuses (7), Tracteurs et autoportées (4), Gazon et pelouse (3), Robots de piscine (2), Autour du robot (2) |
+| Mars 2027 | Pic d'achat des robots tondeuses et des tracteurs, puis ce que le robot ne fait pas | 19 | Robots tondeuses (8), Tracteurs et autoportées (4), Gazon et pelouse (3), Robots de piscine (2), Autour du robot (2) |
 | Avril 2027 | Remise en eau des piscines, ouverture de la rubrique Arrosage | 7 | Robots de piscine (4), Arrosage (2), Promos (1) |
 | Mai 2027 | Robots de piscine : le mois où l'on achète | 8 | Robots de piscine (6), Arrosage (2) |
 | Juin 2027 | Piscine : usage et pannes, restrictions d'eau, Prime Day | 8 | Robots de piscine (6), Arrosage (1), Promos (1) |
@@ -39,13 +39,15 @@ Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Édi
 
 Pourquoi maintenant : Décision du 18/11/2026 : les produits chers d'abord. La rédaction de nuit prend ces 12 sujets dès ce soir, avant les sections anciennes (gazon, dépannage). Toutes les adresses sont à la racine du site : rien à attendre du code. Les avis et les duels de robots à plus de 2 000 € sortent quatre mois avant le pic de mars ; la rubrique « Tracteurs et tondeuses autoportées » commence par sa page mère et son classement.
 
+**Avancement au 23/11/2026** : 4 sujets écrits sur 12 (n° 1 à 4, du 20 au 22/11). Aucun article daté du 15, du 18 ni du 19/11 (quota épuisé). Il reste 8 sujets pour 8 nuits (23 au 30/11) : le dernier peut glisser au 1er décembre, avant les sujets piscine.
+
 | # | Sujet | Requête visée | Type de page | Rubrique | Adresse |
 |---|---|---|---|---|---|
-| 1 | Avis Mammotion Luba 3 AWD : pour quel terrain, et quelle version choisir | avis mammotion luba 3 awd | avis d'un robot | Robots tondeuses | `/avis-mammotion-luba-3-awd` |
-| 2 | Meilleur robot tondeuse haut de gamme : la sélection à plus de 2 000 € | meilleur robot tondeuse haut de gamme | classement | Robots tondeuses | `/meilleur-robot-tondeuse-haut-de-gamme` |
-| 3 | Robot tondeuse ou tracteur tondeuse : lequel pour un grand terrain ? | robot tondeuse ou tracteur tondeuse | duel | Tracteurs et autoportées | `/robot-tondeuse-ou-tracteur-tondeuse` |
-| 4 | Tracteur tondeuse : comment choisir (surface, largeur de coupe, moteur, transmission) | quel tracteur tondeuse choisir | guide (page mère de la rubrique) | Tracteurs et autoportées | `/tracteur-tondeuse` |
-| 5 | Avis Dreame A3 AWD Pro : 3500 ou 5000, pour quel jardin | avis dreame a3 awd pro | avis d'un robot | Robots tondeuses | `/avis-dreame-a3-awd-pro` |
+| 1 | Avis Mammotion Luba 3 AWD : pour quel terrain, et quelle version choisir | avis mammotion luba 3 awd | avis d'un robot | Robots tondeuses | `/avis-mammotion-luba-3-awd` ✅ |
+| 2 | Meilleur robot tondeuse haut de gamme : la sélection à plus de 2 000 € | meilleur robot tondeuse haut de gamme | classement | Robots tondeuses | `/meilleur-robot-tondeuse-haut-de-gamme` ✅ |
+| 3 | Robot tondeuse ou tracteur tondeuse : lequel pour un grand terrain ? | robot tondeuse ou tracteur tondeuse | duel | Tracteurs et autoportées | `/robot-tondeuse-ou-tracteur-tondeuse` ✅ |
+| 4 | Tracteur tondeuse : comment choisir (surface, largeur de coupe, moteur, transmission) | quel tracteur tondeuse choisir | guide (page mère de la rubrique) | Tracteurs et autoportées | `/tracteur-tondeuse` ✅ |
+| 5 | Avis Dreame A3 AWD Pro : pour quel jardin, et quels défauts | avis dreame a3 awd pro | avis d'un robot | Robots tondeuses | `/avis-dreame-a3-awd-pro` |
 | 6 | Meilleur tracteur tondeuse 2027 : notre sélection par surface et par budget | meilleur tracteur tondeuse | classement (page mère des classements) | Tracteurs et autoportées | `/meilleur-tracteur-tondeuse` |
 | 7 | Avis Segway Navimow X4 : X420, X430 ou X450, que vaut le 4 roues motrices de Segway | navimow x4 avis | avis d'un robot | Robots tondeuses | `/avis-segway-navimow-x4` |
 | 8 | Meilleur robot tondeuse pour grand terrain : de 2 000 m² à 1 hectare | meilleur robot tondeuse grand terrain | classement | Robots tondeuses | `/meilleur-robot-tondeuse-grand-terrain` |
@@ -178,17 +180,18 @@ Pourquoi maintenant : Mars et avril sont les deux gros mois d'achat du robot ton
 | 5 | Avis Wybot S2 Solar Vision : recharge solaire et caméra, pour quelle piscine ? | avis wybot s2 solar vision | avis d'un produit | Robots de piscine | `/robot-piscine/avis-wybot-s2-solar-vision` |
 | 6 | Cub Cadet ou Husqvarna : quel tracteur tondeuse choisir ? | cub cadet ou husqvarna | duel de marques | Tracteurs et autoportées | `/cub-cadet-vs-husqvarna-tracteur-tondeuse` |
 | 7 | Yarbo ou Mammotion Luba 3 AWD : lequel pour un très grand terrain ? | yarbo vs mammotion luba 3 | duel | Robots tondeuses | `/yarbo-vs-mammotion-luba-3-awd-comparatif` |
-| 8 | Robot tondeuse professionnel : gammes, prix et pour qui | robot tondeuse professionnel | guide | Robots tondeuses | `/robot-tondeuse-professionnel` |
-| 9 | Tracteur tondeuse hydrostatique ou mécanique : quelle transmission choisir ? | tracteur tondeuse hydrostatique c est quoi | guide | Tracteurs et autoportées | `/tracteur-tondeuse-hydrostatique-ou-mecanique` |
-| 10 | Avis tracteur tondeuse MTD : que valent les modèles de grande surface ? | avis tracteur tondeuse mtd | avis de marque | Tracteurs et autoportées | `/avis-tracteur-tondeuse-mtd` |
-| 11 | Avis Eufy : que valent ses robots tondeuses à caméra ? | avis robot tondeuse eufy | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-eufy` |
-| 12 | Avis Anthbot : faut-il faire confiance à cette marque ? | avis anthbot | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-anthbot` |
-| 13 | Avis robot tondeuse Parkside (Lidl) : que vaut-il ? | robot tondeuse parkside avis | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-parkside-lidl` |
-| 14 | Meilleur coupe-bordure sur batterie 2027 : finir ce que le robot laisse | meilleur coupe bordure batterie | classement | Gazon et pelouse | `/meilleur-coupe-bordure-batterie` |
-| 15 | Meilleur gazon de regarnissage 2027 : quel mélange semer | meilleur gazon de regarnissage | classement | Gazon et pelouse | `/meilleur-gazon-regarnissage` |
-| 16 | Meilleur épandeur d'engrais pour gazon : à main ou à roues | meilleur epandeur engrais gazon | classement | Gazon et pelouse | `/meilleur-epandeur-engrais-gazon` |
-| 17 | Enfouir le câble de son robot tondeuse : louer une machine ou le faire à la main | enfouisseur cable robot tondeuse location | guide | Autour du robot | `/enfouisseur-cable-robot-tondeuse-location` |
-| 18 | Lames Mammotion Luba et Yuka : références et remplacement | lames mammotion | accessoire | Autour du robot | `/lames-mammotion-luba-yuka` |
+| 8 | Dreame A4 AWD Pro ou A3 AWD Pro : faut-il attendre le nouveau ? | dreame a4 awd pro | duel (seulement si prix français publié) | Robots tondeuses | `/dreame-a4-awd-pro-vs-a3-awd-pro-comparatif` |
+| 9 | Robot tondeuse professionnel : gammes, prix et pour qui | robot tondeuse professionnel | guide | Robots tondeuses | `/robot-tondeuse-professionnel` |
+| 10 | Tracteur tondeuse hydrostatique ou mécanique : quelle transmission choisir ? | tracteur tondeuse hydrostatique c est quoi | guide | Tracteurs et autoportées | `/tracteur-tondeuse-hydrostatique-ou-mecanique` |
+| 11 | Avis tracteur tondeuse MTD : que valent les modèles de grande surface ? | avis tracteur tondeuse mtd | avis de marque | Tracteurs et autoportées | `/avis-tracteur-tondeuse-mtd` |
+| 12 | Avis Eufy : que valent ses robots tondeuses à caméra ? | avis robot tondeuse eufy | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-eufy` |
+| 13 | Avis Anthbot : faut-il faire confiance à cette marque ? | avis anthbot | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-anthbot` |
+| 14 | Avis robot tondeuse Parkside (Lidl) : que vaut-il ? | robot tondeuse parkside avis | avis de marque | Robots tondeuses | `/avis-robot-tondeuse-parkside-lidl` |
+| 15 | Meilleur coupe-bordure sur batterie 2027 : finir ce que le robot laisse | meilleur coupe bordure batterie | classement | Gazon et pelouse | `/meilleur-coupe-bordure-batterie` |
+| 16 | Meilleur gazon de regarnissage 2027 : quel mélange semer | meilleur gazon de regarnissage | classement | Gazon et pelouse | `/meilleur-gazon-regarnissage` |
+| 17 | Meilleur épandeur d'engrais pour gazon : à main ou à roues | meilleur epandeur engrais gazon | classement | Gazon et pelouse | `/meilleur-epandeur-engrais-gazon` |
+| 18 | Enfouir le câble de son robot tondeuse : louer une machine ou le faire à la main | enfouisseur cable robot tondeuse location | guide | Autour du robot | `/enfouisseur-cable-robot-tondeuse-location` |
+| 19 | Lames Mammotion Luba et Yuka : références et remplacement | lames mammotion | accessoire | Autour du robot | `/lames-mammotion-luba-yuka` |
 
 ## Avril 2027
 
@@ -361,7 +364,7 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 
 | Rubrique | Sujets datés |
 |---|---|
-| Robots tondeuses | 52 |
+| Robots tondeuses | 53 |
 | Tracteurs et autoportées | 27 |
 | Robots de piscine | 49 |
 | Autour du robot | 15 |
@@ -369,4 +372,4 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 | Arrosage | 12 |
 | Outils sur batterie | 9 |
 | Promos | 5 |
-| **Total** | **182** |
+| **Total** | **183** |

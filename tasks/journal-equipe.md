@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 23/11/2026, lundi matin (heure belge) — Éditeur QRT (passage du lundi)
+
+- **Nuits du 16 au 22/11 vérifiées** : 7 articles, tous pris dans l'ordre du plan et cochés par la rédaction de nuit (dernier : `/tracteur-tondeuse`, nuit du 22/11, avec `h1:` de 32 signes). Aucun article daté du 18 ni du 19/11 (quota épuisé). Novembre : 4 sujets écrits sur 12, 8 restent pour 8 nuits. Prochain sujet : `/avis-dreame-a3-awd-pro`.
+- **Plan** : consigne de nuit « `h1:` d'environ 30 signes » écrite dans `tasks/plan-editorial.md`. Titre de l'avis Dreame A3 AWD Pro changé (« pour quel jardin, et quels défauts ») : l'ancien visait la même requête que le guide 3500/5000 déjà en ligne.
+- **Marques** : Luba 4 AWD et Dreame A4 AWD Pro toujours sans prix français (recherches du 23/11). Ajouté en mars 2027 : duel Dreame A4/A3 AWD Pro, seulement si Dreame affiche un prix en France. Husqvarna remplace le 430X NERA par le 430V NERA (vision IA, fiche lue) : section ajoutée à l'avis 430X de décembre, pas de page en plus.
+- **Avance** : 250 sujets non cochés (dont 196 avec adresse), 0 adresse déjà prise par un article ou une page de `app`. Aucune rubrique à ouvrir (Arrosage : avant le 01/04/2027).
+- **Pour le Dév** : quand le 430V NERA ou l'A4 AWD Pro seront vendus en France, il faudra leur fiche. **Pour le Chef** : rien à contrôler en ligne de ma part (fichiers de l'équipe seulement).
+
 ## 22/11/2026, dimanche soir (heure belge) — Croissance QRT (proposition validée : un prix par jour pour les 12 robots du relevé)
 
 - **Fait** : `npm run releve-prix` (`scripts/releve-prix.mjs`) lit chaque jour le prix des 12 robots du relevé sur les adresses de données publiques des boutiques (Dreame, Navimow, Mammotion, Mova : données Shopify `.js` ; Ecovacs : balise Product de la page). Gratuit, 12 requêtes. Une ligne par robot et par jour dans `content/offres/historique-prix.json`, jamais deux fois le même jour ; page muette = rien d'écrit, échec signalé.
