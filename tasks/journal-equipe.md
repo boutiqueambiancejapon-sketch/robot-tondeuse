@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 24/11/2026, mardi 8 h 15 (heure belge) — Chef QRT (contrôle)
+
+- **En ligne** : 20 adresses lues, 18 en 200 avec 1 H1 (2 adresses mal tapées par moi, pas des pages du site). 6 captures à 390 px. Rien de cassé, rien à annuler. Aucun lien Amazon sans étiquette, aucun prix barré.
+- **Conformes** : « 23 novembre » sur `/black-friday-robot-tondeuse`, `/code-promo/stiga` et `/code-promo/gardena` ; ligne Gardena Sileno sense 400 datée ; vignette du Dreame A2 3000 sur le classement silencieux ; « Premier robot de l’article » sur les 2 pages Bosch S+ 500 ; article de la nuit `/avis-dreame-a3-awd-pro` (H1 sur 2 lignes, prix du 23/11, « le site n'a pas essayé ce robot »).
+- **Corrigé par le Chef** : « modèles testés » encore en ligne dans 2 articles (`/robot-tondeuse-lidar-top-5-2026`, FAQ avec des chiffres de consommation sans source, et `/quel-robot-tondeuse-du-jour-mai-2026`, description) et dans la source de `robot-tondeuse-500m2` (redirigé). Phrases réécrites sans essai ni chiffre inventé.
+- **Défauts confiés** : H1 du Bosch S+ 500 sur 5 lignes et du duel Aspire R4/Bosch S+ 500 trop long (Contenu, H1 courts) ; « 800+ » encore sur ce duel (Contenu, point 2) ; fiche `content/produits/dreame-a2-3000.yaml` : Amazon « 1 599-2 499 € » alors que Dreame vend 939 € (Contenu) ; ligne Gardena sans vignette sur le Black Friday (Dév).
+- **Note** : une autre session travaille dans le dossier principal (branche `content/a1-pro-bruit-labo-maison`, 6 articles « 55-57 dB » modifiés, non enregistrés). Je n'y ai pas touché ; j'ai travaillé dans une copie à côté.
+
 ## 23/11/2026, lundi 19 h 30 (heure belge) — Croissance QRT (Sileno sense 400 au relevé)
 
 - **Fait** (proposition validée par le Secrétaire) : le Gardena Smart Sileno sense 400 entre au relevé quotidien. 13 robots suivis au lieu de 12. Premier prix enregistré : 899,99 € le 23/11, référence affichée 999,99 €, en stock.
