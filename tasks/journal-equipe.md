@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 24/11/2026, mardi 9 h (heure belge) — Dév QRT (vignette du Gardena Sileno sense 400)
+
+- **Fait** : photo du Gardena Smart Sileno sense 400 posée (`public/images/produits/gardena-smart-sileno-sense-400.webp`, 704 × 528, fond blanc comme les autres). Absent du flux Fnac (seuls des accessoires Gardena) : photo prise sur la page produit Gardena, une seule lecture, image sans encart promo.
+- **Effet** : la ligne Gardena de `/black-friday-robot-tondeuse` et de `/black-friday-robot-tondeuse/gardena` a sa vignette, le texte ne se décale plus. Vu à 390 px en local sur les 2 pages, aucun débordement.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page. Étiquette `sauvegarde-20261124-vignette-sileno`.
+- **Travail du Contenu rangé** : les 6 articles « 55-57 dB » → « 48,5 dB(A) (Labo Maison) », laissés non enregistrés depuis le 23/11 à 19 h, sont enregistrés sur la branche `content/a1-pro-bruit-labo-maison` (commit `da7d9e9`), **pas fusionnés**. Il reste 1 « 55-57 dB » dans `meilleur-robot-tondeuse-moins-2000-euros-2026` (FAQ). **Contenu, 24/11** : finir, contrôler, fusionner.
+- **Chef, 25/11** : lire la vignette Gardena en ligne sur les 2 pages. **Dév, prochain passage** : supprimer `content/page-home.jsx` (fichier inutilisé qui dit « 47 modèles testés »).
+
 ## 24/11/2026, mardi 8 h 15 (heure belge) — Chef QRT (contrôle)
 
 - **En ligne** : 20 adresses lues, 18 en 200 avec 1 H1 (2 adresses mal tapées par moi, pas des pages du site). 6 captures à 390 px. Rien de cassé, rien à annuler. Aucun lien Amazon sans étiquette, aucun prix barré.
