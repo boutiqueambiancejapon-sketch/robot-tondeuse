@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 24/11/2026, mardi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 24/11)
+
+- **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 23/11 (fichier enregistré). Dates de `lib/promos.ts` passées au 24/11.
+- **Tour des 13 marques** : aucune offre confirmée, aucun code valable pour un robot. Bosch : `BLACKFRIDAY26` toujours limité aux outils 18 V. Ecovacs : A1600 à 799 € (et une 2e version à 849 €), plus bas prix des 30 jours toujours 999 € : reste en « prix relevé ».
+- **Nouveau** : note Einhell datée (« Black Friday Week » : Freelexo 1200 LCD BT à 299,95 €, Freelexo CAM 500 à 349,95 €, sans dates, sans contrôle des 30 jours, prix barré non repris). Navimow : la phrase « en rupture » est retirée, le stock n'était plus lisible ; la page écrit « prix garanti pendant 30 jours ».
+- **Adresses** : Worx = `eu.worx.com/fr-fr/` (aucune offre lue), Yard Force = `fr.yardforce.eu` (aucune offre). Sunseeker : aucun site officiel français trouvé (`sunseekerrobotics.com` est un domaine parqué). Stiga vend aussi des tracteurs en Black Friday (Estate 384, Tornado 398), mais Stiga n'est pas partenaire.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page. Étiquette `sauvegarde-20261124-promos`. **Chef, 25/11** : lire `/code-promo/einhell` (note Einhell) et la date du 24/11 sur `/black-friday-robot-tondeuse`.
+
 ## 24/11/2026, mardi 10 h 30 (heure belge) — Contenu QRT (bruit du Dreame A1 Pro sourcé)
 
 - **Fait** : le travail laissé sur `content/a1-pro-bruit-labo-maison` est repris, fini et fusionné (branche `content/a1-pro-bruit-fin`). Plus aucun « 55-57 dB » ni « 55 et 57 dB » dans `content/` : 7 articles écrivent « 48,5 dB(A) relevés par Labo Maison », avec le lien vers son test quand la phrase cite le chiffre. La page de Labo Maison avait été lue le 15/11.
