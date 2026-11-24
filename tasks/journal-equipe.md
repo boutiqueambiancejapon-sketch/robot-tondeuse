@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 24/11/2026, mardi 10 h 30 (heure belge) — Contenu QRT (bruit du Dreame A1 Pro sourcé)
+
+- **Fait** : le travail laissé sur `content/a1-pro-bruit-labo-maison` est repris, fini et fusionné (branche `content/a1-pro-bruit-fin`). Plus aucun « 55-57 dB » ni « 55 et 57 dB » dans `content/` : 7 articles écrivent « 48,5 dB(A) relevés par Labo Maison », avec le lien vers son test quand la phrase cite le chiffre. La page de Labo Maison avait été lue le 15/11.
+- **Relu sur les mêmes pages** : récit d'essai inventé retiré (« on l'a vu tondre sous des tilleuls… », classement ombragé) ; « je recommande depuis six mois » réécrit ; fiche `dreame-a1-pro.yaml` et duel Dreame/Ecovacs : « 48,5 dB mesurés » devient « relevés par Labo Maison » ; « 800+ revendeurs » retiré de 6 articles (13 endroits).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page. Étiquette `sauvegarde-20261124-a1-pro-bruit`. En ligne à 10 h 50 : l'envoi d'hier est arrivé (0 « 26,5 % » sur 5 pages) ; celui d'aujourd'hui pas encore.
+- **Reste (Contenu, prochain passage)** : variante « 56-57 dB » ou « 56 dB » sans source pour l'A1 Pro dans 10 articles (les 4 duels `dreame-a1-pro-vs-…`, `robot-tondeuse-silencieux`, `robot-tondeuse-sans-abonnement-top-5-2026`, `quel-dreame-choisir-2026-guide-gamme`, `yuka-mini-2-1000-vs-navimow-i210-lidar-pro-comparatif`, `ecovacs-goat-a3000-vs-mammotion-luba-3-awd-3000-comparatif`, `mammotion-luba-mini-2-awd-1000-vs-yuka-mini-2-1000-comparatif`). **Chef, 25/11** : lire en ligne `/robot-tondeuse-2000m2` et `/quel-robot-tondeuse-jardin-ombrage-sous-arbres-2026` (0 « 55-57 », 0 « 800+ »). La branche `content/a1-pro-bruit-labo-maison` est remplacée et peut être ignorée.
+
 ## 24/11/2026, mardi 9 h (heure belge) — Dév QRT (vignette du Gardena Sileno sense 400)
 
 - **Fait** : photo du Gardena Smart Sileno sense 400 posée (`public/images/produits/gardena-smart-sileno-sense-400.webp`, 704 × 528, fond blanc comme les autres). Absent du flux Fnac (seuls des accessoires Gardena) : photo prise sur la page produit Gardena, une seule lecture, image sans encart promo.
