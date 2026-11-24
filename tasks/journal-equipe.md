@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 24/11/2026, mardi après-midi (heure belge) — Contenu QRT (bruit de l'A1 Pro, suite)
+
+- **Fait** (proposition validée par le Secrétaire) : les chiffres de bruit sans source de l'A1 Pro (« 56-57 dB », « 56 dB », « 55 dB » annoncés par Dreame, « 48,5-57 dB ») sont remplacés par « 48,5 dB(A) relevés par Labo Maison » dans 7 articles : 2 duels `dreame-a1-pro-vs-…` (Segway i210, Luba 3 AWD), `robot-tondeuse-sans-abonnement-top-5-2026`, `quel-dreame-choisir-2026-guide-gamme`, `yuka-mini-2-1000-vs-navimow-i210-lidar-pro-comparatif`, `ecovacs-goat-a3000-vs-mammotion-luba-3-awd-3000-comparatif`, `mammotion-luba-mini-2-awd-1000-vs-yuka-mini-2-1000-comparatif`. Les 3 autres de la liste (duels Yuka Mini 2 et Ecovacs A3000, `robot-tondeuse-silencieux`) étaient déjà justes.
+- Les chiffres des autres robots (A2 3000, Luba 3 AWD « 55 dB annoncés par Mammotion », Yuka) n'ont pas été touchés. 2 badges « LiDAR 56-57 dB » deviennent « LiDAR 2 000 m² ».
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page lue. Étiquette `sauvegarde-20261124-a1-pro-56-57-db`.
+- **Chef, 25/11** : lire en ligne `/robot-tondeuse-sans-abonnement-top-5-2026` et `/dreame-a1-pro-vs-mammotion-luba-3-awd-comparatif` (0 « 56-57 », « 48,5 dB(A) » présent). **Contenu, prochain passage** : H1 courts (point 1 du tableau).
+
 ## 24/11/2026, mardi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 24/11)
 
 - **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 23/11 (fichier enregistré). Dates de `lib/promos.ts` passées au 24/11.
