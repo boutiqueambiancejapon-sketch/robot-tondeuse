@@ -126,6 +126,7 @@
   /* Carte « Notre choix » du haut des pages d'achat */
   .choix { margin: 18px 0 22px; padding: 18px; border-radius: var(--r); background: var(--forest); color: #fff; display: grid; gap: 14px; }
   .choix-top { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; align-items: center; }
+  .choix-top > :only-child { grid-column: 1 / -1; }
   .choix-img { display: grid; place-items: center; width: 88px; height: 88px; padding: 6px; border-radius: var(--r-s); background: var(--sage); }
   .choix-img img { width: 100%; height: 100%; object-fit: contain; }
   .choix-k { font: 700 13px/1 var(--f-b); color: var(--lime); }

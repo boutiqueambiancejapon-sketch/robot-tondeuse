@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 25/11/2026, mercredi 9 h (heure belge) — Dév QRT (« Notre choix » sans photo, ancienne maquette)
+
+- **Fait** : l'encart « Notre choix » sans photo met le texte sur toute la largeur (une règle dans `app/v2-articles.css`). À 390 px sur `/robot-tondeuse-sans-abonnement-top-5-2026`, « Mammotion Yuka Mini 2 500 » tient sur 1 ligne au lieu de 4. Carte avec photo (`/robot-tondeuse-silencieux`) inchangée. 31 fiches sur 55 n'ont pas de photo : toutes en profitent.
+- **Supprimé** : `content/page-home.jsx` (ancienne maquette, « 47 modèles testés »). Aucun fichier du site ne l'importait ; seul `content/Quel Robot Tondeuse.html`, maquette jamais servie, le citait.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. Étiquette `sauvegarde-20261125-choix-sans-photo`.
+- **Chef, 26/11** : lire l'encart à 390 px sur `/robot-tondeuse-sans-abonnement-top-5-2026`. **Dév, prochain passage** : retirer le reste de l'ancienne maquette (`content/*.jsx` et `content/Quel Robot Tondeuse.html`) après recherche « testé » dedans, ou les petits restes (`.pricetag`, trou de `/calendrier-du-gazon`).
+
 ## 25/11/2026, mercredi 8 h 30 (heure belge) — Chef QRT (contrôle)
 
 - **En ligne** : 15 pages en 200 avec 1 H1 (`/comparateur` en 404 : mauvaise adresse de ma part, la vraie est `/comparer`). 6 captures à 390 px. Rien de cassé, rien à annuler. Aucun lien Amazon sans étiquette.
