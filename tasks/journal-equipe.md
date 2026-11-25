@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 25/11/2026, mercredi soir (heure belge) — Contenu QRT (bruit sans source, proposition validée par le Secrétaire)
+
+- **Fait** : « mesuré à … dB selon les tests » retiré des 6 duels (Aspire R4/S+ 500, Yuka Mini 2 1000/310 Mark II, Luba Mini 2/Yuka Mini 2, XS 300/M500, S+ 500/M500, Yuka 1500/i215). 10 lignes changées : FAQ et tableaux disent « autour de … dB (ordres de grandeur) » ou « annoncé » quand la fiche de la marque est nommée. Les chiffres ne bougent pas.
+- **Pas de média ajouté** : je n'ai lu aucune source pendant ce passage, donc aucun « selon … » nouveau. Restent tels quels, car ils nomment déjà un média : Que Choisir (Aspire R4, 59 dB) et Clubic (Yuka Mini 2, 57-58 dB). À relire un jour.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, nouveau texte lu dans la page construite. Étiquette `sauvegarde-20261125-bruit-sans-source`.
+- **Chef, 26/11** : lire la FAQ bruit de `/husqvarna-aspire-r4-vs-bosch-indego-s-plus-500-comparatif` en ligne. **Contenu, prochain passage** : H1 courts lot 2, comme prévu.
+
 ## 25/11/2026, mercredi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 25/11)
 
 - **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 24/11 (fichier enregistré). Dates de `lib/promos.ts` passées au 25/11.
