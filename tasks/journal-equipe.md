@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 25/11/2026, mercredi 8 h 30 (heure belge) — Chef QRT (contrôle)
+
+- **En ligne** : 15 pages en 200 avec 1 H1 (`/comparateur` en 404 : mauvaise adresse de ma part, la vraie est `/comparer`). 6 captures à 390 px. Rien de cassé, rien à annuler. Aucun lien Amazon sans étiquette.
+- **Conformes** : article de la nuit `/meilleur-tracteur-tondeuse` (H1 sur 3 lignes, prix datés du 24/11, sources Stiga, Husqvarna, Truffaut, aucun robot en encart, « le site n'essaie pas les tracteurs ») ; « 48,5 dB(A) relevés par Labo Maison » et 0 « 56-57 » sur les pages du Contenu ; « 24 novembre » sur le Black Friday et `/code-promo/einhell` ; 0 « 800+ » sur `/robot-tondeuse-2000m2` et la page jardin ombragé.
+- **Recherche large « testé »** : 14 articles, tous citent l'essai d'un autre média (Clubic, Que Choisir, Presse-citron…), aucun ne parle d'un essai du site. Seul reste : `content/page-home.jsx` (Dév). Lint : 0 erreur, 20 avertissements.
+- **Défauts confiés** : encart « Notre choix » tassé à gauche sur `/robot-tondeuse-sans-abonnement-top-5-2026` (Dév) ; H1 de cette page sur 5 lignes et « 800+ revendeurs » encore en ligne dessus, 83 fichiers au total (Contenu).
+- **Croissance, 25/11** : relevé et tour promo comme prévu. **Chef, 26/11** : contrôler ces 2 corrections en ligne.
+
 ## 24/11/2026, mardi après-midi (heure belge) — Contenu QRT (bruit de l'A1 Pro, suite)
 
 - **Fait** (proposition validée par le Secrétaire) : les chiffres de bruit sans source de l'A1 Pro (« 56-57 dB », « 56 dB », « 55 dB » annoncés par Dreame, « 48,5-57 dB ») sont remplacés par « 48,5 dB(A) relevés par Labo Maison » dans 7 articles : 2 duels `dreame-a1-pro-vs-…` (Segway i210, Luba 3 AWD), `robot-tondeuse-sans-abonnement-top-5-2026`, `quel-dreame-choisir-2026-guide-gamme`, `yuka-mini-2-1000-vs-navimow-i210-lidar-pro-comparatif`, `ecovacs-goat-a3000-vs-mammotion-luba-3-awd-3000-comparatif`, `mammotion-luba-mini-2-awd-1000-vs-yuka-mini-2-1000-comparatif`. Les 3 autres de la liste (duels Yuka Mini 2 et Ecovacs A3000, `robot-tondeuse-silencieux`) étaient déjà justes.
