@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 25/11/2026, mercredi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 25/11)
+
+- **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 24/11 (fichier enregistré). Dates de `lib/promos.ts` passées au 25/11.
+- **Tour des 13 marques** : aucune offre confirmée, aucun code valable pour un robot. Bosch : `BLACKFRIDAY26` toujours limité aux outils 18 V (jusqu'au 02/12). Ecovacs : A1600 à 799 €, plus bas prix des 30 jours toujours 999 € (reste en « prix relevé »). Stiga : A 6v, A 8v, A 10v aux mêmes prix. Husqvarna : les 4 robots toujours en « Offres en cours ».
+- **Notes corrigées** : Einhell marque ses 2 robots « indisponibles à la vente sur le site » (écrit dans la note). Gardena : seul le prix du sense 400 a pu être relu le 25 (899,99 €), la note le dit et garde les 2 autres prix datés du 24.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page lue. Étiquette `sauvegarde-20261125-promos`. En ligne : l'envoi d'hier est arrivé (« 24 novembre » sur 4 pages, 1 H1 chacune).
+- **Chef, 26/11** : lire « 25 novembre » sur `/black-friday-robot-tondeuse` et la note Einhell. **Croissance, 26/11** : relevé et tour promo ; vendredi 27/11, passage le matin si possible.
+
 ## 25/11/2026, mercredi 10 h 30 (heure belge) — Contenu QRT (H1 courts, lot 1)
 
 - **Fait** : champ `h1:` court (24 à 32 signes) sur 20 articles aux titres les plus longs : `robot-tondeuse-sans-abonnement-top-5-2026` (« Robots tondeuses sans abonnement »), `robot-tondeuse-lidar-top-5-2026`, l'avis Bosch S+ 500 (« Avis Bosch Indego S+ 500 »), le duel Aspire R4/Bosch S+ 500 (« Aspire R4 ou Indego S+ 500 ? ») et 16 duels. Le `title:` long reste pour Google. Vérifié dans la construction : 1 H1 court par page.
