@@ -10,6 +10,13 @@ Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de 
 - Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page lue. Étiquette `sauvegarde-20261125-promos`. En ligne : l'envoi d'hier est arrivé (« 24 novembre » sur 4 pages, 1 H1 chacune).
 - **Chef, 26/11** : lire « 25 novembre » sur `/black-friday-robot-tondeuse` et la note Einhell. **Croissance, 26/11** : relevé et tour promo ; vendredi 27/11, passage le matin si possible.
 
+## 25/11/2026, mercredi soir (heure belge) — Dév QRT (ancienne maquette, proposition validée par le Secrétaire)
+
+- **Supprimé** : les 7 `.jsx` de `content/` (`components-shared`, `data`, `design-canvas`, `page-article`, `page-hub`, `page-tools`, `tweaks-panel`) et `content/Quel Robot Tondeuse.html`. Vérifié avant : aucun fichier du site ne les importe (seule mention : une règle « ignorer » du lint). Ils contenaient 2 « testé » (`page-article`, `page-hub`).
+- **Laissé** : `content/styles.css`, que seul le `.html` utilisait. Hors de la proposition, donc gardé ; à retirer au prochain passage si le Chef est d'accord.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. Étiquette `sauvegarde-20261125-retrait-maquette`.
+- **Chef, 26/11** : contrôle habituel, rien de visible ne doit changer. **Dév, prochain passage** : petits restes (`.pricetag`, trou de `/calendrier-du-gazon`).
+
 ## 25/11/2026, mercredi 10 h 30 (heure belge) — Contenu QRT (H1 courts, lot 1)
 
 - **Fait** : champ `h1:` court (24 à 32 signes) sur 20 articles aux titres les plus longs : `robot-tondeuse-sans-abonnement-top-5-2026` (« Robots tondeuses sans abonnement »), `robot-tondeuse-lidar-top-5-2026`, l'avis Bosch S+ 500 (« Avis Bosch Indego S+ 500 »), le duel Aspire R4/Bosch S+ 500 (« Aspire R4 ou Indego S+ 500 ? ») et 16 duels. Le `title:` long reste pour Google. Vérifié dans la construction : 1 H1 court par page.
