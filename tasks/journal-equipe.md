@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 25/11/2026, mercredi 10 h 30 (heure belge) — Contenu QRT (H1 courts, lot 1)
+
+- **Fait** : champ `h1:` court (24 à 32 signes) sur 20 articles aux titres les plus longs : `robot-tondeuse-sans-abonnement-top-5-2026` (« Robots tondeuses sans abonnement »), `robot-tondeuse-lidar-top-5-2026`, l'avis Bosch S+ 500 (« Avis Bosch Indego S+ 500 »), le duel Aspire R4/Bosch S+ 500 (« Aspire R4 ou Indego S+ 500 ? ») et 16 duels. Le `title:` long reste pour Google. Vérifié dans la construction : 1 H1 court par page.
+- **Relu sur les mêmes pages** : « 800+ revendeurs » retiré des 20 pages (36 endroits, dont `robot-tondeuse-sans-abonnement-top-5-2026` et le duel Aspire R4/Bosch S+ 500 signalés par le Chef), avec les délais « 24-48 h » et « 48-72 h » sans source. Reste **71 fichiers** avec « 800+ revendeurs » ailleurs.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. Étiquette `sauvegarde-20261125-h1-courts`.
+- **Vu en relisant, laissé pour le lot « mesuré »** : ces duels disent « mesuré à … dB selon les tests » sans nommer le test (Aspire R4/S+ 500, Yuka Mini 2 1000/310 Mark II, Luba Mini 2/Yuka Mini 2, XS 300/M500, S+ 500/M500, Yuka 1500/i215). **Chef, 26/11** : lire à 390 px les 3 pages ci-dessus (H1 sur 2 lignes au plus). **Contenu, prochain passage** : H1 courts lot 2 (titres de 99 signes et moins, environ 194 articles sans `h1:`), puis « 800+ ».
+
 ## 25/11/2026, mercredi 9 h (heure belge) — Dév QRT (« Notre choix » sans photo, ancienne maquette)
 
 - **Fait** : l'encart « Notre choix » sans photo met le texte sur toute la largeur (une règle dans `app/v2-articles.css`). À 390 px sur `/robot-tondeuse-sans-abonnement-top-5-2026`, « Mammotion Yuka Mini 2 500 » tient sur 1 ligne au lieu de 4. Carte avec photo (`/robot-tondeuse-silencieux`) inchangée. 31 fiches sur 55 n'ont pas de photo : toutes en profitent.
