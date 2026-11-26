@@ -41,6 +41,8 @@ const nextConfig: NextConfig = {
     { source: '/robot-tondeuse-pas-cher',         destination: '/meilleur-robot-tondeuse-pas-cher-top-2026',        permanent: true },
     // Page de 106 mots qui annonçait un guide « publié prochainement » : le quiz répond à la question.
     { source: '/quel-robot-tondeuse-pour-mon-jardin', destination: '/quiz', permanent: true },
+    // Adresses « /test-… » : le site n'essaie pas les robots, elles passent en « /avis-… » (une par passage).
+    { source: '/test-mammotion-yuka-mini-2-avis', destination: '/avis-mammotion-yuka-mini-2', permanent: true },
   ],
   headers: async () => [
     {

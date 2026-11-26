@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 26/11/2026, jeudi soir (heure belge) — Chef QRT (adresse /test- → /avis-, proposition validée par le Secrétaire)
+
+- **Fait (page 1 sur 8)** : `/test-mammotion-yuka-mini-2-avis` devient `/avis-mammotion-yuka-mini-2`, avec renvoi permanent de l'ancienne adresse (`next.config.ts`). 54 liens mis à jour dans 43 articles, plus l'exemple du skill boileau. Plus aucun lien vers l'ancienne adresse.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. En local : ancienne adresse → nouvelle (308), nouvelle en 200 avec 1 H1 et la bonne adresse canonique, plan du site sans l'ancienne. Étiquette `sauvegarde-20261126-avis-yuka-mini-2`.
+- **Restent 7 pages** `/test-…` (Bosch S+ 500, Husqvarna 310 Mark II et 450X NERA, Navimow i, Luba 2 AWD, Gardena Life 750, Worx Vision WR205E) : **Dév QRT**, une par passage, même méthode (renommer le fichier, renvoi dans `next.config.ts`, remplacer `](/test-…)`).
+- **Chef, 27/11** : lire en ligne `/test-mammotion-yuka-mini-2-avis` (doit renvoyer) et `/avis-mammotion-yuka-mini-2` (200, 1 H1).
+
 ## 26/11/2026, jeudi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 26/11)
 
 - **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 25/11 (fichier enregistré). Dates de `lib/promos.ts` passées au 26/11.
