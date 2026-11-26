@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 26/11/2026, jeudi 9 h (heure belge) — Dév QRT (petits restes)
+
+- **Fait** : trou sous les 4 gestes de `/calendrier-du-gazon` réduit (la section du calendrier ne garde plus sa marge du bas, la suivante garde la sienne) : environ 40 px de vide en moins à 390 px, capture faite. Règle limitée au calendrier (`app/v2-promos.css`).
+- **Retiré, inutilisés** : 3 lignes `.pricetag` (`app/v2-articles.css`), `lib/article-ctas.ts` (aucun fichier ne l'importait), `content/styles.css` (seule l'ancienne maquette supprimée hier s'en servait).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 4 pages locales en 200 avec 1 H1. Étiquette `sauvegarde-20261126-petits-restes`.
+- **Chef, 27/11** : regarder `/calendrier-du-gazon` à 390 px, sous le geste n° 4. **Dév, prochain passage** : adresses `/test-…` → `/avis-…` avec redirection 301, en commençant par `/test-mammotion-yuka-mini-2-avis`.
+
 ## 26/11/2026, jeudi 8 h 15 (heure belge) — Chef QRT (contrôle)
 
 - **En ligne** : 12 pages en 200 avec 1 H1, 7 captures à 390 px, aucun lien Amazon sans étiquette. Rien de cassé, rien à annuler. Types OK, lint 0 erreur (20 avertissements).

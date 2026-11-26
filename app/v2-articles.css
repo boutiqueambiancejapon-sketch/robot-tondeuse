@@ -113,9 +113,6 @@
   .author--full .author-n { font-size: 22px; }
 
   /* Prix seul (PriceTag). */
-  .pricetag { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
-  .pricetag--sm .price { font-size: 18px; }
-  .pricetag--lg .price { font-size: 32px; }
 
   /* Barre d'achat de l'article : le texte se replie, le bouton reste sur une ligne. */
   .buybar-t { min-width: 0; }
