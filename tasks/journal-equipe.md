@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 26/11/2026, jeudi 10 h 30 (heure belge) — Contenu QRT (H1 courts lot 2)
+
+- **Fait** : `h1:` court sur 23 articles (24 à 32 signes), dont `/robot-tondeuse-silencieux` (« Robots tondeuses silencieux ») et `/robot-tondeuse-sans-abonnement-top-5-2026` raccourci en « Robots sans abonnement ». Les 21 autres : les titres les plus longs (surtout des duels de robots à plus de 1 000 €).
+- **Dans les mêmes pages** : « 800+ revendeurs » retiré partout (reste 56 fichiers sur le site), délais de réparation sans source retirés (« 48-72 h », « moins de 72 h », « 48 h sur cas documenté »), 14 « mesuré / testé / constaté » sans source remplacés par « autour de … (ordre de grandeur) », « annoncé » ou le média déjà nommé.
+- **Laissé, à reprendre** : duel MOVA LiDAX Ultra 800 / Goat A1600 : « environ 190 m² par charge » vient d'un « test terrain » sans nom, cité 5 fois. Trouver la source ou retirer le chiffre (Contenu, prochain passage).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page lue. Étiquette `sauvegarde-20261126-h1-courts-lot2`.
+- **Chef, 27/11** : H1 de `/robot-tondeuse-silencieux` à 390 px (doit tenir sur 2 lignes). **Contenu, prochain passage** : source du 190 m², puis H1 lot 3 (164 titres de plus de 45 signes sans `h1:`).
+
 ## 26/11/2026, jeudi 9 h (heure belge) — Dév QRT (petits restes)
 
 - **Fait** : trou sous les 4 gestes de `/calendrier-du-gazon` réduit (la section du calendrier ne garde plus sa marge du bas, la suivante garde la sienne) : environ 40 px de vide en moins à 390 px, capture faite. Règle limitée au calendrier (`app/v2-promos.css`).
