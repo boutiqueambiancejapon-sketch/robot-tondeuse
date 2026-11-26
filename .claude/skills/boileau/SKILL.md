@@ -264,7 +264,7 @@ Sur un top X / guide d'achat / comparatif **multi-produits**, tu n'utilises **ja
 3. **2 H3 ciblés > 3 H3 forcés.** Si un produit n'a qu'une vraie question d'arbitrage à 100 €, mets 1 H3 et une seule phrase d'anti-conseil derrière.
 4. Le tableau comparatif global de l'article ne dispense pas des H3 questions par produit — il les complète.
 
-**Exception conservée** : test produit **solo** (un seul modèle dans l'article, ex. `test-mammotion-yuka-mini-2-avis.mdx`), un `**Pour qui.**` final inline reste acceptable s'il est précédé de 3-4 H3 questions variés sur le produit (autonomie, app, bordures, SAV, hivernage…).
+**Exception conservée** : test produit **solo** (un seul modèle dans l'article, ex. `avis-mammotion-yuka-mini-2.mdx`), un `**Pour qui.**` final inline reste acceptable s'il est précédé de 3-4 H3 questions variés sur le produit (autonomie, app, bordures, SAV, hivernage…).
 
 **Exemple correct sur 3 produits consécutifs (varié, GEO-citable) :**
 
