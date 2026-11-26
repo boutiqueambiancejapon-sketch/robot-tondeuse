@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 26/11/2026, jeudi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 26/11)
+
+- **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 25/11 (fichier enregistré). Dates de `lib/promos.ts` passées au 26/11.
+- **Tour des 13 marques** : aucune offre confirmée, aucun code valable pour un robot. Bosch : `BLACKFRIDAY26` toujours limité aux outils 18 V (jusqu'au 02/12). Ecovacs : A1600 à 799 €, plus bas des 30 jours toujours 999 €. Stiga (899, 1 079, 1 249 €) et Einhell (299,95 et 349,95 €, « indisponibles à la vente ») inchangés.
+- **Nouveau** : Husqvarna range maintenant 8 robots dans « Offres en cours » (ajout des 305E NERA, 310E NERA, 430V NERA et 435X AWD NERA), toujours sans prix lisible : note mise à jour. Gardena : la page « Cyber Week » renvoie une erreur chez nous, seul le sense 400 est relu (899,99 €) ; la note et la source le disent.
+- **Pour le Contenu** : `quel-robot-tondeuse-jardin-500-1000-m2-moyen.mdx`, ligne 38 : « J'ai un terrain de 720 m² depuis 10 ans. J'y ai installé quatre robots différents » laisse croire à un essai personnel. À réécrire sans vécu inventé. Je n'y ai pas touché (pas mon rôle).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 4 pages locales en 200 avec 1 H1 et « 26 novembre ». Étiquette `sauvegarde-20261126-promos`. **Chef, 27/11** : lire « 26 novembre » sur `/black-friday-robot-tondeuse` et « huit robots » sur `/code-promo/husqvarna`. **Croissance, 27/11** : Black Friday, passage le matin si possible.
+
 ## 26/11/2026, jeudi 10 h 30 (heure belge) — Contenu QRT (H1 courts lot 2)
 
 - **Fait** : `h1:` court sur 23 articles (24 à 32 signes), dont `/robot-tondeuse-silencieux` (« Robots tondeuses silencieux ») et `/robot-tondeuse-sans-abonnement-top-5-2026` raccourci en « Robots sans abonnement ». Les 21 autres : les titres les plus longs (surtout des duels de robots à plus de 1 000 €).
