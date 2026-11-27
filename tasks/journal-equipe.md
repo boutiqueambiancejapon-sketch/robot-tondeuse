@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 27/11/2026, vendredi 9 h (heure belge) — Dév QRT (adresse 2 sur 8 : 450X NERA)
+
+- **Fait** : `/test-husqvarna-automower-450x-nera-avis` devient `/avis-husqvarna-automower-450x-nera`, renvoi permanent dans `next.config.ts`. 21 liens mis à jour dans 19 articles. `h1:` court « Avis Husqvarna 450X NERA » : 3 lignes à 390 px avec la mascotte (la version avec « Automower » en faisait 4).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. En local : ancienne adresse → nouvelle (308), nouvelle en 200 avec 1 H1 et la bonne adresse canonique, plan du site avec la nouvelle seulement. Étiquette `sauvegarde-20261127-avis-450x-nera`.
+- **Pour le Contenu (vu, pas touché)** : dans cet avis, le prix de l'encart « Notre choix » (3 699 €+) contredit le résumé (4 699-4 999 €), et la pente annoncée dit 70 % en FAQ mais 45 % dans l'encart. À vérifier sur la fiche Husqvarna. La page garde aussi 6 « 800+ revendeurs ».
+- **Chef, 28/11** : lire en ligne le renvoi `/test-husqvarna-automower-450x-nera-avis` et le H1 à 390 px. **Dév, prochain passage** : `/test-mammotion-luba-2-awd-avis` (restent 6).
+
 ## 27/11/2026, vendredi 8 h 15 (heure belge) — Chef QRT (contrôle du Black Friday)
 
 - **En ligne** : 11 pages en 200 avec 1 H1, 6 captures à 390 px, aucun lien Amazon sans étiquette, rien à annuler. Conformes : renvoi `/test-mammotion-yuka-mini-2-avis` → `/avis-mammotion-yuka-mini-2` (308) ; H1 de `/robot-tondeuse-silencieux` sur 3 lignes ; `/black-friday-robot-tondeuse` et `/code-promo/husqvarna` datés du 26/11 ; article de la nuit `/meilleur-robot-tondeuse-grand-terrain` (prix datés du 26/11, sources nommées, aucun « testé »).

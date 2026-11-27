@@ -43,6 +43,7 @@ const nextConfig: NextConfig = {
     { source: '/quel-robot-tondeuse-pour-mon-jardin', destination: '/quiz', permanent: true },
     // Adresses « /test-… » : le site n'essaie pas les robots, elles passent en « /avis-… » (une par passage).
     { source: '/test-mammotion-yuka-mini-2-avis', destination: '/avis-mammotion-yuka-mini-2', permanent: true },
+    { source: '/test-husqvarna-automower-450x-nera-avis', destination: '/avis-husqvarna-automower-450x-nera', permanent: true },
   ],
   headers: async () => [
     {
