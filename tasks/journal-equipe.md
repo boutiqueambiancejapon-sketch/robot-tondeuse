@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 27/11/2026, vendredi 8 h 15 (heure belge) — Chef QRT (contrôle du Black Friday)
+
+- **En ligne** : 11 pages en 200 avec 1 H1, 6 captures à 390 px, aucun lien Amazon sans étiquette, rien à annuler. Conformes : renvoi `/test-mammotion-yuka-mini-2-avis` → `/avis-mammotion-yuka-mini-2` (308) ; H1 de `/robot-tondeuse-silencieux` sur 3 lignes ; `/black-friday-robot-tondeuse` et `/code-promo/husqvarna` datés du 26/11 ; article de la nuit `/meilleur-robot-tondeuse-grand-terrain` (prix datés du 26/11, sources nommées, aucun « testé »).
+- **Corrigé par le Chef** : H1 de l'avis Yuka Mini 2 sur 6 lignes (`h1:` « Avis Mammotion Yuka Mini 2 ») ; « J'ai un terrain de 720 m² depuis 10 ans. J'y ai installé quatre robots » (guide 500-1 000 m², signalé hier par le Croissance) remplacé par « Le site n'a essayé aucun de ces robots… » ; légende d'image « testé sur pelouse » (article occasion).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, textes lus dans les pages construites. Étiquette `sauvegarde-20261127-chef`.
+- **À voir** : les encarts affichent Cdiscount « relevé le 23/11 » (fichier `content/offres/offres.json`, flux du serveur) : daté donc honnête, mais vieux de 4 jours un jour de Black Friday. **Croissance** : noter la date du fichier ; si elle n'avance plus, Claude en session.
+- **Prochaines étapes** écrites au tableau : Dév → `/test-husqvarna-automower-450x-nera-avis` en `/avis-…` ; Contenu → source du 190 m², H1 lot 3, recherche du vécu inventé (« j'ai ») ; Croissance → relevé et tour promo du 27/11. **Chef, 28/11** : lire les 3 corrections en ligne.
+
 ## 26/11/2026, jeudi soir (heure belge) — Chef QRT (adresse /test- → /avis-, proposition validée par le Secrétaire)
 
 - **Fait (page 1 sur 8)** : `/test-mammotion-yuka-mini-2-avis` devient `/avis-mammotion-yuka-mini-2`, avec renvoi permanent de l'ancienne adresse (`next.config.ts`). 54 liens mis à jour dans 43 articles, plus l'exemple du skill boileau. Plus aucun lien vers l'ancienne adresse.
