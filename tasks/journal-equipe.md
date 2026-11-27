@@ -11,6 +11,13 @@ Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de 
 - Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, pages construites lues (« Dernier contrôle le 27 novembre 2026 »). Étiquette `sauvegarde-20261127-promos`.
 - **Croissance, 28/11** : vérifier en ligne l'envoi du 27/11, puis relevé et tour promo (jusqu'au 02/12). **Chef, 28/11** : `/black-friday-robot-tondeuse` daté du 27/11.
 
+## 27/11/2026, vendredi après-midi (heure belge) — Dév QRT (prix et pente du 450X NERA, proposition validée par le Secrétaire)
+
+- **Vérifié** : la fiche Husqvarna française, relue ce jour, marque le 450X NERA « Produit abandonné », sans prix. Elle donne 50 % de pente au travail, 25 % en limite de fil et 145 min de tonte.
+- **En ligne** : `/avis-husqvarna-automower-450x-nera` en 200 avec 1 H1. Plus de « 3 699 € », de « 45 % » ni de « 195 min ». Le seul « 70% » est la colonne Mammotion du tableau. Le Contenu avait déjà tout corrigé ce matin (commit 3bc0516, en ligne).
+- **Rien modifié** dans l'article : les deux contradictions signalées n'existent plus. Seuls ce journal et le tableau changent.
+- **Reste pour le Contenu** (déjà noté ce matin) : les autres pages qui donnent 70 % ou 195 min au 450X NERA.
+
 ## 27/11/2026, vendredi 10 h 30 (heure belge) — Contenu QRT (190 m² sourcé, avis 450X NERA corrigé)
 
 - **Duel MOVA LiDAX Ultra 800 / Goat A1600** : le « 190 m² par charge » d'un « test terrain » sans nom vient de l'essai de Presse-citron (16/08/2026, page lue) : 7 passages attribués au média, « autonomie mesurée » retiré, pente de l'Ecovacs sur sol humide créditée à Presse-citron.
