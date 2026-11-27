@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 27/11/2026, vendredi soir (heure belge) — Contenu QRT (chiffres du 450X NERA dans les autres pages, validé par le Secrétaire)
+
+- **Source** : fiche Husqvarna française relue le 27/11 : 50 % de pente au travail, 25 % en limite de fil, 145 min de tonte par charge. Pas de temps de charge, pas de prix (« Produit abandonné »).
+- **Corrigé dans 7 fichiers** : les 2 duels (Dreame A3 et Luba 3 AWD 5000 : « 70 % », « 45-55 % réel », « 195 min / 40 min, meilleur ratio du marché » retirés ; la ligne autonomie du duel Luba passe au Mammotion, 215 min contre 145) ; guide 5 000 m² ; guide 1 hectare (45 % → 50 %) ; classement autonomie (195 → 145 min) ; tableau de l'avis Luba 2 AWD (70 % → 50 %) ; fiche `husqvarna-automower-450x-nera.yaml` (45 % → 50 %). Les 8 autres pages de la liste donnent 70 % à un autre robot (535 AWD, 435X AWD) ou parlent d'autre chose : rien à changer.
+- **Doute laissé au Contenu** : le classement autonomie garde « 40 min de charge » et « 7,5 Ah ». La fiche Husqvarna ne donne ni l'un ni l'autre, et tout le n° 4 repose dessus (« meilleur ratio »). À sourcer, ou à revoir la place du robot (abandonné). Les prix du 450X (3 699 €+, 4 699-4 999 €) restent aussi dans ces pages, sans source.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 3 pages construites lues (0 « 195 min », 1 H1). Étiquette `sauvegarde-20261127-450x-chiffres`.
+- **Chef, 28/11** : lire en ligne les 2 duels (pente 50 % / 25 %, 145 min).
+
 ## 27/11/2026, vendredi 15 h (heure belge) — Croissance QRT (Black Friday : relevé et tour promo du 27/11)
 
 - **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 26/11. Dates de `lib/promos.ts` passées au 27/11.
