@@ -2,6 +2,15 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 27/11/2026, vendredi 15 h (heure belge) — Croissance QRT (Black Friday : relevé et tour promo du 27/11)
+
+- **Relevé** : `npm run releve-prix` donne 13 prix, 0 échec, tous identiques au 26/11. Dates de `lib/promos.ts` passées au 27/11.
+- **Tour des 13 marques** : aucune offre confirmée, aucun code valable pour un robot. Bosch `BLACKFRIDAY26` toujours limité aux outils 18 V (jusqu'au 02/12). Ecovacs A1600 à 799 €, plus bas des 30 jours toujours 999 € (lu dans la page). Husqvarna : les mêmes 8 robots, sans prix. Stiga (899, 1 079, 1 249 €) et Einhell (299,95 et 349,95 €, « indisponibles ») inchangés. Gardena : page « Cyber Week » toujours en erreur 404 chez nous, sense 400 relu à 899,99 €.
+- **Sunseeker** : son vrai site français est `sunseekertech.com/fr`. Il ne vend pas en ligne ; sa page « Où acheter » renvoie vers 8 magasins (Amazon, Leroy Merlin, Castorama, Darty, Bricomarché, Brico Dépôt, ManoMano, Joybuy). Note ajoutée sur `/code-promo/sunseeker`, avec la source.
+- **Fichier `content/offres/offres.json`** : daté du 23/11 (envois du 16, 20 et 23/11). Le flux part une fois par semaine : le prochain est attendu vers le 30/11. Il n'est pas bloqué. S'il n'avance pas le 01/12 : Claude en session.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, pages construites lues (« Dernier contrôle le 27 novembre 2026 »). Étiquette `sauvegarde-20261127-promos`.
+- **Croissance, 28/11** : vérifier en ligne l'envoi du 27/11, puis relevé et tour promo (jusqu'au 02/12). **Chef, 28/11** : `/black-friday-robot-tondeuse` daté du 27/11.
+
 ## 27/11/2026, vendredi 10 h 30 (heure belge) — Contenu QRT (190 m² sourcé, avis 450X NERA corrigé)
 
 - **Duel MOVA LiDAX Ultra 800 / Goat A1600** : le « 190 m² par charge » d'un « test terrain » sans nom vient de l'essai de Presse-citron (16/08/2026, page lue) : 7 passages attribués au média, « autonomie mesurée » retiré, pente de l'Ecovacs sur sol humide créditée à Presse-citron.
