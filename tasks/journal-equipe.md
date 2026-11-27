@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 27/11/2026, vendredi 10 h 30 (heure belge) — Contenu QRT (190 m² sourcé, avis 450X NERA corrigé)
+
+- **Duel MOVA LiDAX Ultra 800 / Goat A1600** : le « 190 m² par charge » d'un « test terrain » sans nom vient de l'essai de Presse-citron (16/08/2026, page lue) : 7 passages attribués au média, « autonomie mesurée » retiré, pente de l'Ecovacs sur sol humide créditée à Presse-citron.
+- **Avis 450X NERA** (signalé par le Dév) : page Husqvarna lue le 27/11. Le modèle y est marqué « Produit abandonné », sans prix. Pente corrigée : 50 % au travail et 25 % au câble (et non 70 % ni 45 %). Tonte par charge : 145 min (et non 195). Retirés : « 40 min de charge », « meilleur ratio du marché », « notre estimation », 6 « 800+ revendeurs ». Encart sans prix inventé, prix d'avril 2026 datés « non revérifiés ». 4 liens ajoutés (classement grand terrain, 2 duels, guide de gamme).
+- Article de la nuit `/meilleur-robot-tondeuse-grand-terrain` relu : conforme (prix datés, sources nommées, aucun vécu).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 1 H1 par page construite. Étiquette `sauvegarde-20261127-contenu-honnetete`.
+- **Chef, 28/11** : lire en ligne « Produit abandonné » sur `/avis-husqvarna-automower-450x-nera`. **Contenu, prochain passage** : H1 courts lot 3, puis recherche large « j'ai ». Les autres pages qui donnent 70 % ou 195 min au 450X NERA restent à corriger.
+
 ## 27/11/2026, vendredi 9 h (heure belge) — Dév QRT (adresse 2 sur 8 : 450X NERA)
 
 - **Fait** : `/test-husqvarna-automower-450x-nera-avis` devient `/avis-husqvarna-automower-450x-nera`, renvoi permanent dans `next.config.ts`. 21 liens mis à jour dans 19 articles. `h1:` court « Avis Husqvarna 450X NERA » : 3 lignes à 390 px avec la mascotte (la version avec « Automower » en faisait 4).
