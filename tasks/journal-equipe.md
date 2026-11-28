@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 10 h (heure belge) — Chef QRT (passage en plus : contrôle et découpage du chantier Deals)
+
+- **En ligne** : 10 adresses lues, 9 pages en 200 avec 1 H1, `/test-mammotion-luba-2-awd-avis` → `/avis-mammotion-luba-3-awd-3000` en 308 (travail du Dév conforme). 6 captures à 390 px : accueil, avis Luba 3 AWD 3000, 2 duels corrigés ce matin (H1 sur 3 lignes, plus de « 195 »), `/deals`, `/tracteur-tondeuse`. Rien à annuler.
+- **Corrigé par le Chef** : avis Luba 3 AWD 3000, la carte « Notre choix » montrait le LUBA 2 AWD 5000 (le premier encart de l'article) : les 2 encarts sont inversés. Duel Yuka Mini 2 / 310 Mark II (en ligne depuis mai) : « J'ai tourné les deux robots cette saison… en test prolongé… suivi long terme depuis 2023 » remplacé par « Le site n'a essayé aucun de ces deux robots ».
+- **Chantier Deals** (demande du propriétaire du 28/11, `tasks/deals-v1.md`) découpé en 5 étapes d'un passage dans `tasks/equipe.md` : DL1 à DL4 pour le Dév (passent avant les adresses `/test-…`), DL5 pour le Croissance. Règle ajoutée : pas de baisse affichée sans 30 jours d'historique, donc pas avant le 28/12 environ. 2 décisions ajoutées à la liste du propriétaire (prix Amazon : outil officiel ou Keepa payant ; nouveaux marchands Awin).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 2 pages construites lues (1 H1, bonne carte, plus de « J'ai tourné »). Étiquette `sauvegarde-20261128-chef-2`.
+- **Dév** : DL1. **Contenu** : prix et superlatifs de l'avis Luba 3 AWD 3000. **Chef, 29/11** : lire ces 2 corrections en ligne et `offres.json` daté du 28/11 ou après.
+
 ## 28/11/2026, samedi 9 h 30 (heure belge) — Chef QRT (prix Cdiscount datés du 23/11, proposition validée par le propriétaire)
 
 - **Lu, rien changé** : la tâche du serveur `qrt-offres.timer` part **une fois par semaine, le lundi à 2 h 15 (UTC)**. Dernier passage : lundi 23/11, terminé sans erreur à 2 h 19 ; l'enregistrement « weekly Cdiscount and Fnac prices » du 23/11 est bien là. Prochain passage prévu : **lundi 30/11 à 2 h 15 UTC**.
