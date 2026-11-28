@@ -4,7 +4,7 @@
 > produits liés au robot tondeuse, avec un filtre. » · « Analyse des deals à 12 h et à 00 h pour être certain de ne rien rater. »
 
 ## Déjà en place
-- Relevé des flux Awin Cdiscount et Fnac : `~/Toutou/deploy/sites/qrt-offres.sh`, **deux fois par jour à 12 h et minuit (heure de Paris) depuis le 28/11**
+- Relevé des flux Awin Cdiscount et Fnac : `~/Toutou/deploy/sites/qrt-offres.sh`, **toutes les 4 heures (0 h, 4 h, 8 h, 12 h, 16 h, 20 h, heure de Paris) depuis le 28/11**
   (timer `qrt-offres.timer`), écrit `content/offres/offres.json` (scripts/offres-awin.mjs) et pousse sur la branche en ligne.
 - Page `/deals` et `lib/deals.ts` : règle « prix sous le plus bas des 30 jours précédents chez le même marchand », jamais de prix barré,
   de stock ni de compte à rebours. Liste vide aujourd'hui (pas d'historique).
@@ -27,3 +27,11 @@
    ajouter leur flux dans `awin.env` et `offres-awin.mjs` dès l'accord.
 
 Interdits : prix barré non relevé par nous, pourcentage inventé, urgence (compte à rebours, stock), « meilleur prix garanti ».
+
+## Amazon (28/11/2026)
+Le propriétaire a des identifiants de l'API Amazon Creators (remplaçante de PA-API). Dépôt par `bash ~/Toutou/deploy/cle-amazon-creators.sh`
+→ `~/.config/toutou/amazon.env` (AMAZON_CREATORS_ID, AMAZON_CREATORS_SECRET, AMAZON_PARTNER_TAG ; ne jamais afficher). Jeton :
+POST https://api.amazon.co.uk/auth/o2/token (JSON, grant_type client_credentials, scope creatorsapi::default, 1 h, à mettre en cache) ;
+prix : POST https://creatorsapi.amazon/catalog/v1/getItems, en-têtes Authorization Bearer, x-marketplace www.amazon.fr, corps
+{itemIds (10 max), itemIdType ASIN, marketplace www.amazon.fr, partnerTag, resources ["offersV2.listings.price","offersV2.listings.availability"]}.
+Accès au catalogue seulement avec 10 ventes qualifiées sur 30 jours : tant que l'API refuse, garder le bouton « comparer chez Amazon ».

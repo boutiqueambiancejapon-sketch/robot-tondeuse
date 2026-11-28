@@ -71,7 +71,7 @@ Mis à jour par le Chef le 28/11/2026 : 1 point, inchangé. Réglés et retirés
 - ~~Question sur les vrais essais de robots~~ : refusée le 12/11, ne plus la poser. L'équipe écrit partout « nous n'essayons pas les robots ».
 
 ## Chantier « Deals » (28/11/2026) — priorité
-Demande du propriétaire : page Deals façon Dealabs, menu compris, relevé à 12 h et minuit. Détail et étapes : `tasks/deals-v1.md`. Le Chef découpe en étapes d'un passage pour le Dév (historique, périmètre, détection, page) et la Croissance (alerte e-mail).
+Demande du propriétaire : page Deals façon Dealabs, menu compris, relevé toutes les 4 heures. Détail et étapes : `tasks/deals-v1.md`. Le Chef découpe en étapes d'un passage pour le Dév (historique, périmètre, détection, page) et la Croissance (alerte e-mail).
 
 ## Tableau des tâches
 
