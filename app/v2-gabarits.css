@@ -85,6 +85,17 @@
   .g-specs .tbl th small { display: block; font: 500 13px/1.35 var(--f-b); color: var(--muted); }
   .g-specs .tbl td { font-weight: 700; text-align: right; }
 
+  /* Classement commun (components/v2/gabarits/Classement.tsx, TableauClassement.tsx). */
+  .g-lead { margin: 0 0 18px; color: var(--muted); }
+  .g-rang table.tbl { min-width: 0; }
+  .g-rang .tbl th, .g-rang .tbl td { white-space: normal; vertical-align: top; padding: 11px 8px; }
+  .g-rang .tbl th:first-child, .g-rang .tbl td:first-child { position: static; min-width: 0; width: 2.4em; border-right: 0; background: transparent; }
+  .g-rang .tbl tbody th { font-weight: 700; }
+  .g-rang .tbl tbody th a { color: inherit; }
+  .g-rang .tbl small { display: block; font: 500 13px/1.35 var(--f-b); color: var(--muted); }
+  .g-rang .tbl td:nth-child(3), .g-rang .tbl td:nth-child(4), .g-rang .tbl thead th:nth-child(n+3) { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .g-rang__n1 { background: var(--sage); }
+
   @media (min-width: 620px) {
     .g-cards { grid-template-columns: 1fr 1fr; }
   }
