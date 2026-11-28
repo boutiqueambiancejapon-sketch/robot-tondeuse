@@ -50,10 +50,10 @@ describe('calculs des gabarits', () => {
 })
 
 describe('composants des gabarits', () => {
-  it('bouton marchand : prix affiché seulement avec sa date, lien Amazon étiqueté', () => {
+  it('bouton marchand : prix affiché seulement avec sa date, lien Amazon par /go/', () => {
     const { container, rerender } = render(<BoutonMarchand offre={{ marchand: 'Amazon', url: 'https://www.amazon.fr/dp/B0CHX1W1XY', prix: 1899 }} />)
     expect(container.textContent).not.toContain('1 899')
-    expect(screen.getByRole('link').getAttribute('href')).toContain('tag=test-tag-21')
+    expect(screen.getByRole('link').getAttribute('href')).toBe('/go/B0CHX1W1XY/amazon')
     expect(screen.getByRole('link').getAttribute('rel')).toContain('sponsored')
     rerender(<BoutonMarchand offre={{ marchand: 'Cdiscount', url: 'https://www.cdiscount.com/x', prix: 1899, date: '2026-11-28' }} />)
     expect(container.textContent).toMatch(/1\s899\s€ · relevé le 28\/11\/2026/)

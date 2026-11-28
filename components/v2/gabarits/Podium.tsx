@@ -3,7 +3,7 @@
  * Chaque carte : étiquette, photo, nom, note, prix daté, pour qui, un bouton marchand.
  */
 import Link from 'next/link'
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 import { dateCourte, euros } from '@/lib/gabarits'
 import type { OffreGabarit } from './BoutonMarchand'
 import { NoteSur10 } from './NoteSur10'
@@ -33,7 +33,7 @@ export function Podium({ marches, place = 'podium' }: { marches: MarchePodium[];
             </div>
             {pourQui ? <p className="g-meta">{pourQui}</p> : null}
             {offre ? (
-              <a className="btn btn--full g-btn" href={addAffiliateTag(offre.url)} rel="sponsored nofollow noopener" target="_blank">
+              <a className="btn btn--full g-btn" href={affiliateHref(offre.url)} rel="sponsored nofollow noopener" target="_blank">
                 {`Voir chez ${offre.marchand}`}
               </a>
             ) : p.href ? (

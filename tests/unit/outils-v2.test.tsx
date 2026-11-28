@@ -1,3 +1,4 @@
+import { goTarget } from '@/lib/go'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, act } from '@testing-library/react'
 import { QuizEngine } from '@/components/quiz/QuizEngine'
@@ -44,8 +45,8 @@ describe('quiz V2', () => {
     expect(screen.getByText('Moins de 400 m²')).toBeInTheDocument()
     // trois marchands : Amazon compté par /go/, Cdiscount et Fnac par Awin
     expect(screen.getByRole('link', { name: 'Voir le prix chez Amazon' }).getAttribute('href')).toMatch(/^\/go\/[A-Z0-9]{10}\/amazon$/)
-    expect(screen.getByRole('link', { name: 'Voir le prix chez Cdiscount' }).getAttribute('href')).toMatch(/^https:\/\/www\.awin1\.com\/cread\.php\?awinmid=6948&awinaffid=\d+&ued=/)
-    expect(screen.getByRole('link', { name: 'Voir le prix chez Fnac' }).getAttribute('href')).toMatch(/awinmid=12665/)
+    expect(goTarget(screen.getByRole('link', { name: 'Voir le prix chez Cdiscount' }).getAttribute('href') ?? '')).toMatch(/^https:\/\/www\.awin1\.com\/cread\.php\?awinmid=6948&awinaffid=\d+&ued=/)
+    expect(goTarget(screen.getByRole('link', { name: 'Voir le prix chez Fnac' }).getAttribute('href') ?? '')).toMatch(/awinmid=12665/)
   })
 
   it('sans offres fournies, envoie vers le comparateur de la marque', () => {

@@ -48,7 +48,7 @@ describe('notes des fiches robots', () => {
         expect(a.note).toBeGreaterThanOrEqual(SEUIL_PROPOSER_MIEUX)
         expect(a.note).toBeGreaterThan(n.note)
         expect(a.date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
-        expect(a.url).toMatch(/^https:\/\//)
+        expect(a.url).toMatch(/^\/go\/[A-Za-z0-9_-]+$/)
       }
     }
   })
