@@ -17,7 +17,17 @@ type Robot = RobotCatalogue & {
   poids_kg?: number | null
 }
 
-export type PageFiche = { url: string; titre: string; description: string; publie: string; modifie: string; image?: string; site: { nom: string; url: string } }
+export type PageFiche = {
+  url: string
+  titre: string
+  description: string
+  publie: string
+  modifie: string
+  image?: string
+  site: { nom: string; url: string }
+  /** Auteur de la note (personne de la rédaction) ; à défaut, le site. */
+  auteur?: { nom: string; url: string }
+}
 
 const GUIDAGE: Record<string, string> = { rtk: 'GPS RTK', lidar: 'LiDAR', vision: 'caméra', fil: 'câble périphérique' }
 
@@ -88,7 +98,9 @@ export function jsonLdProduit(f: FicheNote, page: PageFiche) {
             '@type': 'Review',
             name: `Note de ${f.nom} sur 10`,
             reviewBody: `Note calculée sur les caractéristiques publiées par ${r.marque}, sans essai. Confiance ${f.note.confiance} %${f.note.manques.length ? ` (${f.note.manques.join(', ')})` : ''}.`,
-            author: { '@type': 'Organization', name: page.site.nom, url: page.site.url },
+            author: page.auteur
+              ? { '@type': 'Person', name: page.auteur.nom, url: page.auteur.url }
+              : { '@type': 'Organization', name: page.site.nom, url: page.site.url },
             publisher: { '@type': 'Organization', name: page.site.nom, url: page.site.url },
             datePublished: page.publie,
             dateModified: page.modifie,

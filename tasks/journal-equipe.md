@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 21 h 05 (heure belge) — Dév QRT (mission « QRT à fond », étape 3 : pages « Avis » de la base, lot 1)
+
+- **Fait** : une page « Avis <robot> » servie depuis `data/robots-tondeuses.json` à `/avis-<id>`, pour les robots sans avis MDX. Ordre : note sur 10 et confiance, prix public daté, offres via `/go/` (Amazon + Cdiscount, Fnac ou boutique quand un relevé daté existe), radar contre 2 rivaux, caractéristiques, points forts et limites tirés des rangs dans la base, « pour qui c'est un mauvais choix », 3 alternatives, 7 questions, carte de Mathias. Product + Review signée Mathias, sans AggregateRating ; « Le site n'a pas essayé ce robot » écrit sur chaque page.
+- **Lot 1 (10 robots, tous au-dessus de 1 400 €)** : Automower 435X AWD NERA, 430V NERA, 320 NERA, Kress KR285E, Luba 2 AWD 5000X, Luba mini AWD LiDAR 1500, Yuka 3000, GOAT A3000 LiDAR, Mova LiDAX Ultra 2000 AWD, Sunseeker S5. Tous ont 9 à 12 caractéristiques sourcées et une note : indexés et dans le plan du site. Titres de 36 à 57 signes, sans année ; la note n'y figure qu'à 100 % de confiance (le Luba 2 AWD 5000X sortait à « 10,0/10 » parce que Mammotion ne publie pas le bruit), sinon surface et pente.
+- **Garde-fou Google** : noindex automatique sous 8 caractéristiques sourcées, sans note (Ambrogio : pas de prix public) ou sans 2 rivaux. Un test empêche de doubler un robot qui a déjà un avis MDX relié par `base`.
+- Contrôles : types OK, lint 0 erreur (21 avertissements anciens), 252 tests (9 nouveaux), construction OK, 0 lien partenaire en clair, 0 « testé ». Captures 390 px : Yuka 3000 et Kress KR285E (H1 sur 3 à 4 lignes pour les noms longs de Kress). Étiquette `sauvegarde-20261128-avis-lot1`.
+- **Pas fait** : IndexNow (aucune clé ni script sur QRT ; minuteur du serveur = Claude en session). Pas de photo pour 9 robots sur 10 : initiale de la marque (règle des photos), aucune image générée.
+- **Dév, prochain passage** : lot 2. Les variantes d'une même gamme (Kress 29, Luba 2 AWD 3000X/5000X…) : une page par gamme, les autres en noindex, pour ne pas faire des pages jumelles. **Chef, 29/11** : lire 2 avis en ligne à 390 px (`/avis-mammotion-yuka-3000`, `/avis-kress-kr285e`).
 ## 28/11/2026, samedi 21 h (heure belge) — Étude niches produits (mission du propriétaire : questions des acheteurs, étape 0)
 
 - **Fait** : `tasks/questions-acheteurs-robot-tondeuse.md` et `tasks/questions-acheteurs-station-electrique.md`. Chacun : 30 questions FR et 30 US, fréquence (nombre de sources), critère chiffré, source et date. 15 recherches web. Aucun message ni pseudo recopié.
