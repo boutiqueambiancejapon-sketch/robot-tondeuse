@@ -25,7 +25,7 @@ Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Édi
 | Décembre 2026 | Robots de piscine (classements et duels d'abord), robots chers, tracteurs, soldes d'hiver | 27 | Robots tondeuses (10), Robots de piscine (8), Tracteurs et autoportées (6), Autour du robot (2), Promos (1) |
 | Janvier 2027 | Préparer l'achat de printemps : marques, duels de robots chers, tracteurs, suite de la piscine, premiers abris de jardin | 31 | Robots tondeuses (14), Robots de piscine (8), Tracteurs et autoportées (6), Abris de jardin (3) |
 | Février 2027 | Dernier mois avant le pic : duels et avis de robots chers, marques de tracteurs et de piscine, pose et lames en fin de mois | 28 | Robots tondeuses (10), Tracteurs et autoportées (6), Robots de piscine (6), Autour du robot (4), Gazon et pelouse (1), Abris de jardin (1) |
-| Mars 2027 | Pic d'achat des robots tondeuses et des tracteurs, puis ce que le robot ne fait pas, abris de jardin avant le pic d'avril-mai | 26 | Robots tondeuses (8), Abris de jardin (7), Tracteurs et autoportées (4), Gazon et pelouse (3), Robots de piscine (2), Autour du robot (2) |
+| Mars 2027 | Pic d'achat des robots tondeuses et des tracteurs, puis ce que le robot ne fait pas, abris de jardin avant le pic d'avril-mai | 28 | Robots tondeuses (8), Abris de jardin (9), Tracteurs et autoportées (4), Gazon et pelouse (3), Robots de piscine (2), Autour du robot (2) |
 | Avril 2027 | Remise en eau des piscines, ouverture de la rubrique Arrosage | 7 | Robots de piscine (4), Arrosage (2), Promos (1) |
 | Mai 2027 | Robots de piscine : le mois où l'on achète | 8 | Robots de piscine (6), Arrosage (2) |
 | Juin 2027 | Piscine : usage et pannes, restrictions d'eau, Prime Day | 8 | Robots de piscine (6), Arrosage (1), Promos (1) |
@@ -41,7 +41,7 @@ Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Édi
 
 Pourquoi maintenant : Décision du 18/11/2026 : les produits chers d'abord. La rédaction de nuit prend ces 12 sujets dès ce soir, avant les sections anciennes (gazon, dépannage). Toutes les adresses sont à la racine du site : rien à attendre du code. Les avis et les duels de robots à plus de 2 000 € sortent quatre mois avant le pic de mars ; la rubrique « Tracteurs et tondeuses autoportées » commence par sa page mère et son classement.
 
-**Avancement au 23/11/2026** : 4 sujets écrits sur 12 (n° 1 à 4, du 20 au 22/11). Aucun article daté du 15, du 18 ni du 19/11 (quota épuisé). Il reste 8 sujets pour 8 nuits (23 au 30/11) : le dernier peut glisser au 1er décembre, avant les sujets piscine.
+**Avancement au 28/11/2026** : 9 sujets écrits sur 12 (n° 1 à 9, du 20 au 27/11, tous dans l'ordre). Il reste 3 sujets pour 3 nuits (28 au 30/11). Avancement au 23/11 : 4 sur 12.
 
 | # | Sujet | Requête visée | Type de page | Rubrique | Adresse |
 |---|---|---|---|---|---|
@@ -49,11 +49,11 @@ Pourquoi maintenant : Décision du 18/11/2026 : les produits chers d'abord. La r
 | 2 | Meilleur robot tondeuse haut de gamme : la sélection à plus de 2 000 € | meilleur robot tondeuse haut de gamme | classement | Robots tondeuses | `/meilleur-robot-tondeuse-haut-de-gamme` ✅ |
 | 3 | Robot tondeuse ou tracteur tondeuse : lequel pour un grand terrain ? | robot tondeuse ou tracteur tondeuse | duel | Tracteurs et autoportées | `/robot-tondeuse-ou-tracteur-tondeuse` ✅ |
 | 4 | Tracteur tondeuse : comment choisir (surface, largeur de coupe, moteur, transmission) | quel tracteur tondeuse choisir | guide (page mère de la rubrique) | Tracteurs et autoportées | `/tracteur-tondeuse` ✅ |
-| 5 | Avis Dreame A3 AWD Pro : pour quel jardin, et quels défauts | avis dreame a3 awd pro | avis d'un robot | Robots tondeuses | `/avis-dreame-a3-awd-pro` |
-| 6 | Meilleur tracteur tondeuse 2027 : notre sélection par surface et par budget | meilleur tracteur tondeuse | classement (page mère des classements) | Tracteurs et autoportées | `/meilleur-tracteur-tondeuse` |
-| 7 | Avis Segway Navimow X4 : X420, X430 ou X450, que vaut le 4 roues motrices de Segway | navimow x4 avis | avis d'un robot | Robots tondeuses | `/avis-segway-navimow-x4` |
-| 8 | Meilleur robot tondeuse pour grand terrain : de 2 000 m² à 1 hectare | meilleur robot tondeuse grand terrain | classement | Robots tondeuses | `/meilleur-robot-tondeuse-grand-terrain` |
-| 9 | Mammotion Luba 3 AWD ou Segway Navimow X4 : lequel choisir ? | luba 3 awd vs navimow x4 | duel | Robots tondeuses | `/mammotion-luba-3-awd-vs-segway-navimow-x4-comparatif` |
+| 5 | Avis Dreame A3 AWD Pro : pour quel jardin, et quels défauts | avis dreame a3 awd pro | avis d'un robot | Robots tondeuses | `/avis-dreame-a3-awd-pro` ✅ |
+| 6 | Meilleur tracteur tondeuse 2027 : notre sélection par surface et par budget | meilleur tracteur tondeuse | classement (page mère des classements) | Tracteurs et autoportées | `/meilleur-tracteur-tondeuse` ✅ |
+| 7 | Avis Segway Navimow X4 : X420, X430 ou X450, que vaut le 4 roues motrices de Segway | navimow x4 avis | avis d'un robot | Robots tondeuses | `/avis-segway-navimow-x4` ✅ |
+| 8 | Meilleur robot tondeuse pour grand terrain : de 2 000 m² à 1 hectare | meilleur robot tondeuse grand terrain | classement | Robots tondeuses | `/meilleur-robot-tondeuse-grand-terrain` ✅ |
+| 9 | Mammotion Luba 3 AWD ou Segway Navimow X4 : lequel choisir ? | luba 3 awd vs navimow x4 | duel | Robots tondeuses | `/mammotion-luba-3-awd-vs-segway-navimow-x4-comparatif` ✅ |
 | 10 | Quel tracteur tondeuse pour 3 000 m² ? | tracteur tondeuse 3000 m2 | guide par surface | Tracteurs et autoportées | `/quel-tracteur-tondeuse-pour-3000m2` |
 | 11 | Quel tracteur tondeuse pour 5 000 m² ? | tracteur tondeuse 5000 m2 | guide par surface | Tracteurs et autoportées | `/quel-tracteur-tondeuse-pour-5000m2` |
 | 12 | Dreame ou Husqvarna : quelle marque de robot tondeuse choisir ? | robot tondeuse dreame ou husqvarna | duel de marques | Robots tondeuses | `/dreame-vs-husqvarna-quelle-marque-choisir` |
@@ -66,7 +66,7 @@ Pourquoi maintenant : La rubrique Robots de piscine est avancée d'un mois : cla
 
 | # | Sujet | Requête visée | Type de page | Rubrique | Adresse |
 |---|---|---|---|---|---|
-| 1 | Meilleur robot de piscine 2027 : notre sélection par type de bassin | meilleur robot piscine | classement (page mère) | Robots de piscine | `/robot-piscine/meilleur-robot-piscine` |
+| 1 | Meilleur robot de piscine 2027 : notre sélection par type de bassin | meilleur robot piscine | classement (page mère) | Robots de piscine | `/robot-piscine/meilleur-robot-piscine` ✅ |
 | 2 | Avis Husqvarna Automower 430X NERA : que vaut-il face aux robots sans fil récents ? | avis husqvarna 430x nera | avis d'un robot | Robots tondeuses | `/avis-husqvarna-automower-430x-nera` |
 | 3 | Quel tracteur tondeuse pour 2 000 m² ? Tracteur ou autoportée compacte | tracteur tondeuse 2000 m2 | guide par surface | Tracteurs et autoportées | `/quel-tracteur-tondeuse-pour-2000m2` |
 | 4 | Meilleur robot de piscine sans fil 2027 | meilleur robot piscine sans fil | classement | Robots de piscine | `/robot-piscine/meilleur-robot-piscine-sans-fil` |
@@ -205,6 +205,8 @@ Pourquoi maintenant : Mars et avril sont les deux gros mois d'achat du robot ton
 | 24 | Abri de jardin de 20 m² : lequel choisir, et quelles démarches ? | abri de jardin 20m2 | guide par taille | Abris de jardin | `/abri-jardin/abri-de-jardin-20m2` |
 | 25 | Abri de jardin en limite de propriété : distance, hauteur, accord du voisin | abri de jardin limite de propriété | guide | Abris de jardin | `/abri-jardin/abri-de-jardin-limite-de-propriete` |
 | 26 | Abri de jardin de moins de 5 m² : ranger sans démarche | abri de jardin moins de 5m2 | guide par taille | Abris de jardin | `/abri-jardin/abri-de-jardin-moins-de-5m2` |
+| 27 | Abri de jardin de 10 m² : bois, métal ou composite, et quelles démarches ? | abri de jardin 10m2 | guide par taille | Abris de jardin | `/abri-jardin/abri-de-jardin-10m2` |
+| 28 | Abri de jardin en composite : plus cher que le bois, pour quel gain ? | abri de jardin composite | classement | Abris de jardin | `/abri-jardin/meilleur-abri-de-jardin-composite` |
 
 ## Avril 2027
 
@@ -372,7 +374,7 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 | Meilleure élagueuse sur batterie : pour l'entretien courant des arbres | élagueuse sur batterie | classement | Outils sur batterie | `/outils-jardin/meilleure-elagueuse-batterie` |
 | Aiper Scuba S1 ou Wybot C2 : lequel choisir ? | aiper scuba s1 ou wybot c2 | duel | Robots de piscine | `/robot-piscine/aiper-scuba-s1-vs-wybot-c2` |
 | Scarificateur électrique, thermique ou sur batterie : lequel choisir ? | scarificateur electrique ou thermique | duel | Gazon et pelouse | `/scarificateur-electrique-thermique-ou-batterie` |
-| Studio et bureau de jardin isolé : prix, démarches, pour qui (à confirmer) | bureau de jardin isolé prix | guide | Abris de jardin | `/abri-jardin/bureau-de-jardin-isole-prix` |
+| Studio et bureau de jardin isolé : prix, démarches, pour qui | bureau de jardin isolé prix | guide | Abris de jardin | `/abri-jardin/bureau-de-jardin-isole-prix` |
 
 ## Répartition sur l'année
 
@@ -386,5 +388,5 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 | Arrosage | 12 |
 | Outils sur batterie | 9 |
 | Promos | 5 |
-| Abris de jardin | 11 |
-| **Total** | **194** |
+| Abris de jardin | 13 |
+| **Total** | **196** |

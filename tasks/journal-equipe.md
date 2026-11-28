@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 11 h 15 (heure belge) — Éditeur QRT (2e passage en plus : plan après les envois du matin)
+
+- **Doublon évité** : Contenu a écrit ce matin `/robot-piscine/meilleur-robot-piscine`, 1er sujet de décembre. Il est coché dans `tasks/plan-editorial.md` (« Écrits », 28/11). Sans cela, la nuit du 01/12 l'aurait réécrit. Le 01/12 prendra l'avis Husqvarna 430X NERA. À 11 h 07 la page était encore en 404 : fusion de 11 h 05, mise en ligne attendue dans l'heure (**Chef, 29/11** : la lire).
+- **Calendrier** : novembre à jour, 9 sujets sur 12 écrits (20 au 27/11, dans l'ordre), 3 restent pour 3 nuits.
+- **Abris** : suggestions Google relevées (abri de jardin, bois, métal, résine, 20 m², 10 m², composite, moins de 5 m², bureau isolé). Les 11 sujets sont confirmés. 2 ajoutés en mars : `/abri-jardin/abri-de-jardin-10m2` et `/abri-jardin/meilleur-abri-de-jardin-composite`. Le bureau de jardin en réserve n'est plus « à confirmer ». 258 sujets d'avance, 0 doublon.
+- **Éditeur, lundi 30/11** : cocher les nuits du 28 et 29/11, relever les prix français du Luba 4 AWD, du Dreame A4 AWD Pro et du Husqvarna 430V NERA.
+
 ## 28/11/2026, samedi après-midi (heure belge) — Contenu QRT (premier article piscine, priorité du propriétaire)
 
 - **Fait** : `/robot-piscine/meilleur-robot-piscine` (page mère des classements piscine, sujet de décembre avancé selon la consigne du 28/11). 6 robots, 5 profils : Dolphin E40i 1 399 € (« Notre choix »), E35 1 139 €, E10 699 €, E25 929 €, Liberty 600 1 199 € (prix conseillés Maytronics lus le 28/11), Beatbot AquaSense 2 Pro 1 799 € (boutique Beatbot, 28/11 ; prix barrés non repris), Zodiac Alpha RA 6900 iQ (prix non affiché par Zodiac). Aucune note, 7 boutons d'achat, défaut et anti-conseil par robot, 7 questions de FAQ. Lien ajouté depuis l'article sécurité piscine.

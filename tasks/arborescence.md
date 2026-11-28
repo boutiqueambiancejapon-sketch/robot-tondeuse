@@ -226,7 +226,7 @@ Même acheteur, même logique de comparaison que le robot tondeuse. Le flux Cdis
 
 - **Page de rubrique** : `/robot-piscine` (gabarit `piscine.html` de la maquette, pose « piscine » de la mascotte).
 - **Ordre d'écriture depuis le 18/11/2026 : classements et duels d'abord, guides ensuite.**
-  1. Décembre 2026 : `/robot-piscine/meilleur-robot-piscine` (classement général, page mère), `…/meilleur-robot-piscine-sans-fil`,
+  1. Décembre 2026 : `/robot-piscine/meilleur-robot-piscine` (classement général, page mère, écrit le 28/11 par Contenu QRT), `…/meilleur-robot-piscine-sans-fil`,
      `…/robot-piscine-sans-fil-ou-filaire`, `…/meilleur-robot-piscine-haut-de-gamme`, `…/dolphin-vs-zodiac`, `…/aiper-vs-wybot`,
      `…/meilleur-robot-piscine-moins-1000-euros`, `…/meilleure-marque-robot-piscine` (mère des avis de marque).
   2. Janvier 2027 : les autres duels, le classement « fond, parois et ligne d'eau », les avis Aiper et Dolphin, puis les
