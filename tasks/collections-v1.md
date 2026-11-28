@@ -67,6 +67,39 @@ Règles : une valeur sans source reste vide (jamais devinée) ; « analysé », 
   Même système sur les pages duels (`/<a>-vs-<b>`) : le radar à deux tracés remplace le tableau seul en haut de page.
 - Dév QRT : dès que `data/robots-tondeuses.json` a au moins 30 modèles ; capture 390 px envoyée au propriétaire avant la mise en ligne générale.
 
+## 3 ter. Note objective et données structurées de chaque fiche (propriétaire, 28/11/2026)
+
+> « Pour les fiches produits il faudra qu'on donne une note objective et donc les données structurées ultra optimisées pour les IA. »
+
+**Note sur 10** (affichée « 7,8/10 »), calculée par `lib/bareme.ts` (barème public, déjà écrit) à partir de `data/robots-tondeuses.json`
+(plus `lib/comparateur.ts`) :
+- Seulement les caractéristiques publiées par la marque, jamais d'essai ni d'avis : « analysé », jamais « testé ».
+- **Indice de confiance** = part du barème couverte par des données sourcées (ex. bruit non publié chez Mammotion = 10 points sur 100
+  manquants → confiance 90 %). Le barème est recalculé sur les critères disponibles. Aucune note sous 60 % de confiance ; aucun badge
+  « meilleur choix » sous 80 %. La confiance s'affiche à côté de la note (« confiance 90 % : bruit non publié »).
+- Sous `SEUIL_PROPOSER_MIEUX`, la fiche propose de meilleurs choix au lieu de vendre le robot (règle existante).
+- Détail par critère visible (points obtenus / points max, phrase du palier) et lien vers `/comment-on-note`. Même note partout
+  (fiche, collections, classements, radar), une seule fonction.
+
+**En haut de la fiche, ce qu'une IA cite** : « Note 7,8/10 · rang 12 sur 53 robots analysés · 2 899 € (prix du jour, Amazon, le …) »,
+puis « L'essentiel en 30 secondes » (pour qui, pour quelle surface et quelle pente, le point fort, le point faible, l'alternative).
+
+**Données structurées (JSON-LD), rendues serveur, toutes vraies** :
+- `Product` : name, brand (`Brand`), model, sku/gtin si publiés, image, description, `additionalProperty` = une `PropertyValue` par
+  caractéristique (surface max en m² avec `unitCode` MTK, pente en %, bruit en dB, autonomie en minutes, guidage, 4G…) : c'est ce que
+  les IA reprennent.
+- `offers` : `Offer` ou `AggregateOffer` (lowPrice/highPrice/offerCount) des marchands réellement relevés, `priceCurrency` EUR,
+  `availability`, `priceValidUntil` (date du relevé + 1 jour), `url` = lien suivi `/go/…`. Aucun prix sans relevé daté.
+- `review` : une `Review` éditoriale du site (author `Organization` Quel Robot Tondeuse, `reviewRating` ratingValue sur 10, bestRating 10,
+  worstRating 0, datePublished/dateModified) ; JAMAIS d'`aggregateRating` (nous n'avons pas d'avis clients).
+- `FAQPage` (3 à 6 vraies questions), `BreadcrumbList`, `WebPage` avec `dateModified` et `speakable` (résumé et essentiel), `Organization`
+  et auteur réel (Mathias) avec page à propos ; `ItemList` sur les collections et classements.
+- Contrôle : test automatique qui valide le JSON-LD de 5 fiches (champs obligatoires, aucun champ vide ou inventé) et l'outil Rich Results
+  de Google sur 3 fiches avant mise en ligne générale.
+
+Ordre (Dév QRT) : après la mise en ligne du radar ; une fiche pilote (LUBA 3 AWD 3000) en capture au propriétaire, puis toutes les fiches
+reliées à la base.
+
 ## 4. Bing et IndexNow (Dév QRT, avant la première collection)
 
 - IndexNow automatique : file vérifiée toutes les 15 min, envoi seulement si le contenu utile change (empreinte du `<main>`), 1 fois par
