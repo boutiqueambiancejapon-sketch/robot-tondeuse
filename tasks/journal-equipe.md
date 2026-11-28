@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 15 h 20 (heure belge) — Dév QRT (mission du propriétaire : note objective, collections § 3 ter, fiche pilote)
+
+- **Fait sur la branche `feat/note-objective` (poussée, PAS fusionnée, rien en ligne)** : note sur 10 calculée par `lib/bareme.ts` sur `data/robots-tondeuses.json`. Un critère non publié est retiré et la note recalculée ; confiance = part du barème couverte ; pas de note sous 60 % ni sans prix public (sinon les robots sans prix montaient à 10/10) ; pas de badge sous 80 %. Haut de fiche : note, rang, prix du jour daté, « L'essentiel en 30 secondes » tiré de la base, détail par critère. Même note sur la carte « Notre choix ». Page `/comment-nous-notons` complétée.
+- **Fiche pilote LUBA 3 AWD 3000** : 9,4/10, rang 3 sur 46 robots notés (53 analysés), confiance 85 % (bruit non publié), 2 149 € chez Cdiscount le 28/11. JSON-LD : Product, 12 caractéristiques (`additionalProperty`), 2 offres datées (Cdiscount, boutique Mammotion), Review du site sur 10, WebPage avec `speakable`, aucun `aggregateRating`. Capture et JSON-LD dans `~/drafts/qrt-note/`.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 184 tests OK (15 nouveaux, dont le JSON-LD de 5 fiches), construction OK. Étiquette `sauvegarde-20261128-note-pilote`.
+- **À vérifier (Contenu, Catalogue)** : l'avis LUBA 3 AWD 3000 dit « Mammotion annonce 55 dB » mais la base n'a pas de bruit pour ce robot : sourcer ou retirer. L'ASIN du bouton Amazon de l'article (B0GCZSSZRZ) diffère de celui de la base (B0GN6J68V4).
+- **Dév, ensuite** : si le propriétaire valide, fusionner puis relier toutes les fiches à la base (l'ancienne note sur 100 de `lib/notes-fiches.ts` disparaît), et l'outil Rich Results de Google sur 3 fiches (Claude en session). Sinon DL3.
+
 ## 28/11/2026, samedi 14 h 20 (heure belge) — Dév QRT (mission du propriétaire : graphe radar, collections § 3 bis)
 
 - **Fait sur la branche `feat/radar` (poussée, PAS fusionnée, rien en ligne)** : `lib/radar.ts` note 6 axes de 0 à 10 par rang parmi les 53 robots de la base (surface, pente, silence inversé, autonomie, connexion et antivol, prix inversé) ; axe sans valeur = pas de point. SVG rendu serveur (`components/v2/radar/`), `role="img"` avec toutes les notes, tableau repliable, 2 concurrents par défaut (même famille de guidage, autre marque, prix le plus proche), ajout ou retrait (3 au plus) et `?vs=` en JavaScript. Canonical sans paramètre.
