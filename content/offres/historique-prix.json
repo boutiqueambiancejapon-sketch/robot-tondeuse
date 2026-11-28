@@ -609,6 +609,109 @@
       "reference": 1599,
       "dispo": true,
       "page": "https://fr.navimow.com/products/navimow-i2-lidar-pro-robot-lawn-mower"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "dreame-a1-pro",
+      "prix": 599,
+      "reference": 1099,
+      "dispo": true,
+      "page": "https://fr.dreametech.com/products/robot-tondeuse-dreame-a1-pro"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "dreame-a2-3000",
+      "prix": 939,
+      "reference": 1999,
+      "dispo": true,
+      "page": "https://fr.dreametech.com/products/a2"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "dreame-a3-awd-pro-3500",
+      "prix": 1999,
+      "reference": 2599,
+      "dispo": true,
+      "page": "https://fr.dreametech.com/products/dreame-robot-tondeuse-a3-awd-pro-3500"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "ecovacs-goat-a1600-lidar-pro",
+      "prix": 799,
+      "dispo": true,
+      "page": "https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower/goat-a1600-lidar-pro"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "gardena-smart-sileno-sense-400",
+      "prix": 899.99,
+      "reference": 999.99,
+      "dispo": true,
+      "page": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-sense-400-m/970818050.html"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "mammotion-luba-3-awd-3000",
+      "prix": 2149,
+      "reference": 2699,
+      "dispo": true,
+      "page": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "mammotion-luba-3-awd-5000",
+      "prix": 2599,
+      "reference": 3199,
+      "dispo": true,
+      "page": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "mammotion-luba-mini-2-awd-1000",
+      "prix": 1199,
+      "reference": 1499,
+      "dispo": true,
+      "page": "https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "mova-lidax-ultra-1200",
+      "prix": 749,
+      "reference": 1099,
+      "dispo": true,
+      "page": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "mova-lidax-ultra-800",
+      "prix": 699,
+      "reference": 949,
+      "dispo": true,
+      "page": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "mova-viax-250",
+      "prix": 479,
+      "reference": 579,
+      "dispo": true,
+      "page": "https://fr.mova.tech/products/robot-tondeuse-viax-250"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "segway-navimow-i105e",
+      "prix": 699,
+      "reference": 799,
+      "dispo": true,
+      "page": "https://fr.navimow.com/products/navimow-i1-robot-lawn-mower"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "segway-navimow-i210-lidar-pro",
+      "prix": 1199,
+      "reference": 1599,
+      "dispo": true,
+      "page": "https://fr.navimow.com/products/navimow-i2-lidar-pro-robot-lawn-mower"
     }
   ]
 }

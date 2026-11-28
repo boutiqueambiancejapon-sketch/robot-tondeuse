@@ -17,6 +17,18 @@ describe('promos', () => {
     }
   })
 
+  it('un code annoncé vient du site de la marque, porte sa fin et sa source, et n’est pas compté comme vérifié', () => {
+    const today = new Date().toISOString().slice(0, 10)
+    for (const b of PROMO_BRANDS) {
+      for (const a of b.annonces) {
+        expect(a.jusquau >= today, `${b.slug} ${a.code}`).toBe(true)
+        expect(a.source, a.code).toMatch(/lue le \d+ \S+ 20\d\d/)
+        expect(new URL(a.href).hostname, a.code).toContain(b.slug.split('-')[0])
+        expect(b.codes.map((c) => c.code), a.code).not.toContain(a.code)
+      }
+    }
+  })
+
   it('une offre Black Friday est sous le plus bas des 30 jours précédents', () => {
     for (const b of PROMO_BRANDS) for (const o of b.offers) expect(o.price < o.lowest30d, `${b.slug} ${o.slug}`).toBe(true)
   })

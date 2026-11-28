@@ -39,7 +39,9 @@ const etat = (slug: string): string => {
   const n = brand?.codes.length ?? 0
   const robots = brand ? getBrandRobots(brand).length : 0
   const codes = n === 0 ? 'Aucun code vérifié' : `${n} code${n > 1 ? 's' : ''} vérifié${n > 1 ? 's' : ''}`
-  return robots > 0 ? `${codes} · ${robots} robot${robots > 1 ? 's' : ''} avec prix indicatif` : codes
+  const annonces = brand?.annonces.length ?? 0
+  const lus = annonces > 0 ? ` · ${annonces} code${annonces > 1 ? 's' : ''} annoncé${annonces > 1 ? 's' : ''} par la marque` : ''
+  return robots > 0 ? `${codes}${lus} · ${robots} robot${robots > 1 ? 's' : ''} avec prix indicatif` : `${codes}${lus}`
 }
 
 export default function CodePromoPage() {
