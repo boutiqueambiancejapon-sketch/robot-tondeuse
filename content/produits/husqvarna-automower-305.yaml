@@ -1,4 +1,5 @@
 name: "Husqvarna Automower 305"
+base: "husqvarna-automower-305"
 categorie: "husqvarna"
 prix: "989-1 199 €"
 badge: "Filaire 600 m²"

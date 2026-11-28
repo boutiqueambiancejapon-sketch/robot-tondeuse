@@ -1,4 +1,5 @@
 name: "Segway Navimow i210 LiDAR Pro"
+base: "segway-navimow-i210-lidar-pro"
 categorie: "segway"
 prix: "1 599 €"
 badge: "Tri-Fusion AWD"

@@ -33,6 +33,8 @@ export type StandaloneArticleMeta = {
   stickyCta?: StickyCTAData[]
   stickyCtaMessage?: string
   draft?: boolean
+  /** Id (ou ids d'une même gamme, le principal en premier) de data/robots-tondeuses.json, posé à la main. */
+  base?: string | string[]
 }
 
 function withPageType(meta: StandaloneArticleMeta): StandaloneArticleMeta {

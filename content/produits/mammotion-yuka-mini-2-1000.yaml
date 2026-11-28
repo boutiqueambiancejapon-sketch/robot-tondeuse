@@ -1,4 +1,5 @@
 name: "Mammotion Yuka Mini 2 1000"
+base: "mammotion-yuka-mini-2-1000"
 categorie: "mammotion"
 prix: "1 299 €"
 badge: "LiDAR entrée de gamme"

@@ -54,9 +54,11 @@ type Props = {
   after?: ReactNode
   /** Robots cités dans l'article (encarts ProductCTA), pour la carte « Notre choix » et le tableau des prix. */
   produits?: ProduitCite[]
+  /** Graphe radar des fiches robots reliées à data/robots-tondeuses.json (components/v2/radar). */
+  radar?: ReactNode
 }
 
-export function ArticleView({ slug, meta, catLabel, toc, related, children, after, produits = [] }: Props) {
+export function ArticleView({ slug, meta, catLabel, toc, related, children, after, produits = [], radar }: Props) {
   const authorSlug = niche.author.slug || 'auteur'
   const authorName = niche.author.name || 'Auteur'
   // Ligne d'achat du haut et barre du bas : seulement sur les guides d'achat et les comparatifs (D8).
@@ -119,6 +121,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
           </nav>
         ) : null}
 
+        {radar}
         <div className="prose">{children}</div>
         {vend ? <PrixCompares produits={produits} /> : null}
         {after}
