@@ -19,7 +19,7 @@ export function Podium({ marches, place = 'podium' }: { marches: MarchePodium[];
       {marches.map(({ label, produit: p, pourQui, offre }) => {
         const prix = p.prix && p.prixDate ? p.prix : null
         return (
-          <article key={label} className="g-pod">
+          <article key={`${label}-${p.id}`} className="g-pod">
             <p className="g-pod__lab">{label}</p>
             <VignetteProduit nom={p.nom} marque={p.marque} photo={p.photo} img={p.img} format="large" sizes="(min-width: 700px) 240px, 90vw" />
             <h3>{p.href ? <Link href={p.href}>{p.nom}</Link> : p.nom}</h3>

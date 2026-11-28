@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 20 h 25 (heure belge) — Dév QRT (site modèle, étape 2a : gabarit CLASSEMENT, mission « QRT à fond »)
+
+- **Vérifié** : l'étape 1 (un dossier par site + fiche produit) est fusionnée en ligne (`5ce8b09`).
+- **Fait, site modèle** : gabarit CLASSEMENT commun (`components/v2/gabarits/Classement.tsx`, `TableauClassement.tsx`, `lib/modele/classement.ts`) servi à `/meilleur-<catégorie>`. Podium calculé : meilleur choix (meilleure note), meilleur prix (mieux noté sous le prix médian), haut de gamme (mieux noté dans le quart le plus cher) ; seuls les produits notés avec un prix daté y montent. Top 10, méthode en 2 lignes, barre « Notre n° 1 », ItemList. Rien sur QRT (pas de fiches au format commun).
+- **Fait, QRT** : sur les 25 classements (`meilleur-…`, `…-top-N…`) qui citent au moins 3 robots, la carte « Notre choix » devient le podium de la maquette : les 3 premiers robots de l'article, dans son ordre, avec son étiquette (badge de l'encart), note sur 10 de la base, prix seulement s'il est relevé et daté. Le 1er garde la règle « jamais Notre choix sous le seuil ». Adresses inchangées, tableau des prix du bas inchangé.
+- Contrôles : types OK, lint 0 erreur (21 avertissements anciens), 243 tests (8 nouveaux), construction QRT OK (505 pages, comme avant), construction du modèle OK. 0 lien partenaire en clair. Captures 390 px : `/meilleur-produits` (modèle), `/meilleur-robot-tondeuse-2026`, `/robot-tondeuse-lidar-top-5-2026`. Étiquette `sauvegarde-20261128-gabarit-classement`.
+- **Dév, prochains passages** : étape 2b COLLECTION par critères (facettes, résumé chiffré), puis 2c DUEL A contre B (verdict, radar à 2 couleurs, différences seulement). **Chef, 29/11** : regarder le podium en ligne sur 2 classements ; un robot sans note y affiche « —/10 », comme dans la maquette.
+
 ## 28/11/2026, samedi 19 h 50 (heure belge) — Dév QRT (site modèle, étape 1 : un dossier par site + gabarit FICHE PRODUIT)
 
 - **Fait** : `niches/_modele/` (site, thème en variables seules, polices, 6 produits d'exemple, barème, caractéristiques, collections, partenaires) et `niches/robot-tondeuse/` (réglages de l'ancien `niche.config.ts` repris tels quels ; catalogue, barème et filtres pointent vers les fichiers actuels). Le site lu est choisi par `NEXT_PUBLIC_SITE` à la construction, QRT par défaut ; polices et thème par `next.config.ts`. Le modèle n'est jamais indexé (`noindex`, robots.txt « Disallow: / »), sans étiquette partenaire.

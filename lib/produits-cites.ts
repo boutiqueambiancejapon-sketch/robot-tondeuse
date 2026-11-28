@@ -4,7 +4,7 @@
  */
 import { getProductImageByName } from '@/lib/products'
 
-export type ProduitCite = { name: string; url: string; price?: string; hook?: string; image?: string }
+export type ProduitCite = { name: string; url: string; price?: string; hook?: string; image?: string; badge?: string }
 
 const attr = (tag: string, key: string) => new RegExp(`\\b${key}="([^"]*)"`).exec(tag)?.[1]
 
@@ -16,7 +16,7 @@ export function produitsCites(content: string): ProduitCite[] {
     const url = attr(m[0], 'url')
     if (!name || !url || seen.has(name.toLowerCase())) continue
     seen.add(name.toLowerCase())
-    out.push({ name, url, price: attr(m[0], 'price'), hook: attr(m[0], 'hook'), image: attr(m[0], 'image') || getProductImageByName(name) })
+    out.push({ name, url, price: attr(m[0], 'price'), hook: attr(m[0], 'hook'), badge: attr(m[0], 'badge'), image: attr(m[0], 'image') || getProductImageByName(name) })
   }
   return out
 }

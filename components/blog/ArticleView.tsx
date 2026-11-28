@@ -19,6 +19,7 @@ import { HubArtwork } from './HubArtwork'
 import { ArticleEnd } from './ArticleEnd'
 import { ArticleBuyRows } from './ArticleBuyRows'
 import { NotreChoix } from './NotreChoix'
+import { estClassementArticle, PodiumArticle } from './PodiumArticle'
 import { PrixCompares } from './PrixCompares'
 import type { ProduitCite } from '@/lib/produits-cites'
 import { StickyCTA } from './StickyCTA'
@@ -67,6 +68,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
   const buyLinks = showsBuyBar(meta.pageType) && meta.stickyCta?.length ? meta.stickyCta : null
   // Carte « Notre choix » (premier robot cité) et tableau des prix : pages d'achat et comparatifs seulement.
   const vend = showsBuyBar(meta.pageType) && produits.length > 0
+  const podium = estClassementArticle(slug) && produits.length >= 3
   // Rubrique piscine : son fil d'Ariane, sa mascotte, et pas de photo de robot tondeuse à défaut d'image.
   const piscine = meta.dossier === PISCINE_DOSSIER
   const crumbs = piscine
@@ -102,7 +104,8 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
 
         {meta.aiSummary?.length ? <EnBref points={meta.aiSummary} /> : null}
 
-        {vend ? <NotreChoix produit={produits[0]} /> : null}
+        {/* Classements à 3 robots ou plus : podium du gabarit commun (maquette validée le 28/11/2026). */}
+        {vend ? podium ? <PodiumArticle produits={produits} /> : <NotreChoix produit={produits[0]} /> : null}
 
         {meta.featureImage ? (
           <figure className="cover">
