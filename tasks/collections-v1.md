@@ -57,7 +57,7 @@ Règles : une valeur sans source reste vide (jamais devinée) ; « analysé », 
 - Collection : le même radar en petit sur chaque carte, et un radar « médiane de la collection contre médiane du catalogue » en haut.
 - Rendu serveur en SVG dans le HTML (lisible sans JS par Google et les IA), `role="img"` + `aria-label` qui dit les 6 notes, et un tableau
   repliable avec les mêmes valeurs (citable). Couleurs : variables CSS du site uniquement, contraste vérifié, `prefers-reduced-motion` respecté.
-- Composant unique (≤ 150 lignes), calcul dans `lib/` (fonction pure testée), barème expliqué sur `/comment-on-note` (« comparé à N robots analysés »).
+- Composant unique (≤ 150 lignes), calcul dans `lib/` (fonction pure testée) (« comparé à N robots analysés », sans page de méthode).
 - **Comparaison superposée (propriétaire, 28/11/2026)** : sur la même fiche, le visiteur ajoute 2 ou 3 autres robots au radar, chacun avec
   sa couleur, tracés par-dessus. Par défaut, 2 concurrents proposés (même collection principale, prix le plus proche) ; un sélecteur
   (recherche par nom, 3 au plus) en ajoute ou en retire. Légende cliquable, tableau des valeurs à côté (une colonne par robot) et bouton
@@ -78,7 +78,7 @@ Règles : une valeur sans source reste vide (jamais devinée) ; « analysé », 
   manquants → confiance 90 %). Le barème est recalculé sur les critères disponibles. Aucune note sous 60 % de confiance ; aucun badge
   « meilleur choix » sous 80 %. La confiance s'affiche à côté de la note (« confiance 90 % : bruit non publié »).
 - Sous `SEUIL_PROPOSER_MIEUX`, la fiche propose de meilleurs choix au lieu de vendre le robot (règle existante).
-- Détail par critère visible (points obtenus / points max, phrase du palier) et lien vers `/comment-on-note`. Même note partout
+- Détail par critère visible (points obtenus / points max, phrase du palier). **Pas de page « comment nous notons » ni de lien « notre barème »** : supprimée à la demande du propriétaire le 28/11/2026 (« typique d'un site fait à l'IA »). Même note partout
   (fiche, collections, classements, radar), une seule fonction.
 
 **En haut de la fiche, ce qu'une IA cite** : « Note 7,8/10 · rang 12 sur 53 robots analysés · 2 899 € (prix du jour, Amazon, le …) »,

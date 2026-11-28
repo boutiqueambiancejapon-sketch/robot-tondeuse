@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
     ],
   },
   redirects: async () => [
+    // Page « comment nous notons » supprimée à la demande du propriétaire (28/11/2026).
+    { source: '/comment-nous-notons', destination: '/', permanent: true },
     // Migration DA Atelier Vert : /simulateur → /superficie (slug SEO-friendly)
     { source: '/simulateur', destination: '/superficie', permanent: true },
 

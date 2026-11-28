@@ -15,10 +15,7 @@ export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
         <small>/100</small>
       </span>{' '}
       <span className="dated">
-        Note calculée avec le prix {n.marchand} du {formatDate(n.date)} ({formatPrix(n.prix)}) ·{' '}
-        <Link href="/comment-nous-notons" className="lnk">
-          notre barème
-        </Link>
+        Note calculée avec le prix {n.marchand} du {formatDate(n.date)} ({formatPrix(n.prix)})
         {n.proposerMieux && !mieux.length ? (
           <>
             {' '}
