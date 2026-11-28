@@ -1,0 +1,13 @@
+# Chaque soir à 21 h 10 (Paris). Créneau choisi le 28/11/2026 d'après systemctl list-timers :
+# après qrt-offres et toutou-article-soir (20 h, finis vers 20 h 08), avant controle-menage (22 h 15)
+# et beebo-prices (23 h 59) ; hors de toutou-amazon-prix (à la 5e minute de chaque heure, même clé Amazon, verrou commun).
+# Le site garde l'adresse 24 heures au plus : un relevé par jour suffit.
+[Unit]
+Description=Adresses des photos Amazon de Quel Robot Tondeuse, chaque soir
+
+[Timer]
+OnCalendar=*-*-* 21:10:00 Europe/Paris
+Persistent=true
+
+[Install]
+WantedBy=timers.target

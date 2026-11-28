@@ -21,7 +21,7 @@ export function Podium({ marches, place = 'podium' }: { marches: MarchePodium[];
         return (
           <article key={label} className="g-pod">
             <p className="g-pod__lab">{label}</p>
-            <VignetteProduit nom={p.nom} img={p.img} format="large" sizes="(min-width: 700px) 240px, 90vw" />
+            <VignetteProduit nom={p.nom} marque={p.marque} photo={p.photo} img={p.img} format="large" sizes="(min-width: 700px) 240px, 90vw" />
             <h3>{p.href ? <Link href={p.href}>{p.nom}</Link> : p.nom}</h3>
             <div className="g-card__row">
               <NoteSur10 note={p.note} />

@@ -14,7 +14,7 @@ export function CarteProduit({ produit: p, filtres, enPlus }: Props) {
   const prix = p.prix && p.prixDate ? p.prix : null
   const corps = (
     <>
-      <VignetteProduit nom={p.nom} img={p.img} />
+      <VignetteProduit nom={p.nom} marque={p.marque} photo={p.photo} img={p.img} />
       <div className="g-card__t">
         <h3>{p.nom}</h3>
         {p.meta ? <p className="g-meta">{p.meta}</p> : null}

@@ -1,0 +1,19 @@
+# quel-robot-tondeuse.com : adresses des photos Amazon relevées chaque soir avec les prix (getItems, images.primary.large).
+# Installation (Claude en session, jamais un agent) :
+#   sudo install -m 755 deploy/qrt-photos-amazon.sh /usr/local/sbin/qrt-photos-amazon
+#   sudo cp deploy/qrt-photos-amazon.service deploy/qrt-photos-amazon.timer /etc/systemd/system/
+#   sudo mkdir -p /etc/systemd/system/qrt-photos-amazon.service.d
+#   printf '[Service]\nSlice=background.slice\nOOMScoreAdjust=300\n' | sudo tee /etc/systemd/system/qrt-photos-amazon.service.d/safeguard.conf
+#   sudo systemctl daemon-reload && sudo systemctl enable --now qrt-photos-amazon.timer
+# Premier essai : sudo systemctl start qrt-photos-amazon.service && journalctl -u qrt-photos-amazon -n 20
+[Unit]
+Description=Quel Robot Tondeuse : adresses des photos Amazon (avec les prix, 24 h au plus)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=administrator
+Nice=10
+# Clés Amazon lues par systemd dans le coffre (jamais affichées, jamais copiées dans le dépôt).
+EnvironmentFile=/srv/toutou/shared/.env
+ExecStart=/bin/bash -euo pipefail /usr/local/sbin/qrt-photos-amazon
