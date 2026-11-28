@@ -74,12 +74,19 @@ export function indexable(r: RobotBase, catalogue: RobotBase[]): { ok: boolean; 
   return { ok: true, raison: null }
 }
 
-/** « Avis Automower 435X AWD NERA : 8,1/10, 5 000 m² », 60 signes au plus, sans année. */
+/**
+ * « Avis Automower 435X AWD NERA : 7,6/10, 5 000 m² », 60 signes au plus, sans année. La note n'entre dans le titre
+ * qu'à 100 % de confiance : un critère non publié peut gonfler la note (un robot sans bruit publié a eu 10/10).
+ * Sinon, surface et pente annoncées.
+ */
 export function titreAvis(r: RobotBase): string {
-  const note = noteObjective(r).note
-  const chiffre = note !== null ? `${noteFr(note)}/10` : r.surface_m2 ? `${nf.format(r.surface_m2)} m²` : 'fiche chiffrée'
-  const surface = note !== null && r.surface_m2 ? `, ${nf.format(r.surface_m2)} m²` : ''
-  const essais = [`Avis ${nomRobot(r)} : ${chiffre}${surface}`, `Avis ${nomRobot(r)} : ${chiffre}`, `Avis ${r.modele} : ${chiffre}${surface}`, `Avis ${r.modele} : ${chiffre}`]
+  const n = noteObjective(r)
+  const surface = r.surface_m2 ? `${nf.format(r.surface_m2)}\u00a0m²` : null
+  const pente = r.pente_pct ? `${r.pente_pct}\u00a0% de pente` : null
+  const long = n.note !== null && n.confiance === 100 ? [`${noteFr(n.note)}/10`, surface] : [surface, pente]
+  const court = long.filter(Boolean).slice(0, 1)
+  const fin = (x: (string | null)[]) => x.filter(Boolean).join(', ') || 'fiche chiffrée'
+  const essais = [`Avis ${nomRobot(r)} : ${fin(long)}`, `Avis ${nomRobot(r)} : ${fin(court)}`, `Avis ${r.modele} : ${fin(long)}`, `Avis ${r.modele} : ${fin(court)}`]
   return essais.find((t) => t.length <= 60) ?? essais[essais.length - 1].slice(0, 60)
 }
 
