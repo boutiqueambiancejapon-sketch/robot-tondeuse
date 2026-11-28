@@ -6384,5 +6384,358 @@
         "note": "page officielle « Spécifications V3 Plus » de Sunseeker France : technologie Vision AI, surface maximale 1000 m², pente maximale 42% / 22°, hauteur 20-60 mm, largeur 18 cm, bruit 55 dB(A), IPX5, multi-zones 3, connectivité APP / Wi-Fi / Bluetooth, module 4G + antivol N, transmission intégrale non listée, système de transmission Propulsion arrière, poids 9.4 kg ; autonomie non publiée"
       }
     ]
+  },
+  {
+    "id": "mova-600-kit",
+    "marque": "Mova",
+    "modele": "600 Kit",
+    "surface_m2": 600,
+    "pente_pct": 45,
+    "guidage": "lidar",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 60,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 10,
+    "prix_eur": 1099,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 599 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/mova-600-kit-rlm-spring-special",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : tableau commun MOVA 600/1000 : capacité de tonte MOVA 600 600 m², pente 45 % (24°), largeur 20 cm, hauteur 2 à 6 cm, bruit < 60 dB, IPX6, poids MOVA 600 10 kg, détection UltraView™ et évitement par LiDAR 3D ; autonomie et connectivité non publiées ; kit = robot + 72 lames"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ]
+  },
+  {
+    "id": "mova-viax-250",
+    "marque": "Mova",
+    "modele": "ViAX 250",
+    "surface_m2": 250,
+    "pente_pct": 40,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 50,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": null,
+    "prix_eur": 579,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 479 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-viax-250",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : capacité de surface 250 m², UltraEyes™ 1.0 (2 caméras couleur HDR), pente 40 % (22°), largeur 20 cm, hauteur 2 à 6 cm, traction avant + 1 roue universelle, temps de tonte par charge 50 min, « niveau sonore inférieur à 57 dB » (page) ; indice IP et connectivité non publiés"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ]
+  },
+  {
+    "id": "mova-viax-500",
+    "marque": "Mova",
+    "modele": "ViAX 500",
+    "surface_m2": 600,
+    "pente_pct": 40,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 90,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": null,
+    "prix_eur": 749,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 549 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-viax-500",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : surface de tonte maximale 600 ㎡ (le nom dit 500), UltraEyes™ 2.0 : vision double IA + LiDAR 360°, pente 40 % (22°), hauteur et largeur 2 à 6 cm, 20 cm, traction avant + 1 roue universelle, temps de tonte par charge 90-100 min (valeur basse reprise), IPX6, « faible niveau sonore < 57 dB », module Link (4G) en option"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ],
+    "option_4g": true
+  },
+  {
+    "id": "mova-lidax-ultra-800",
+    "marque": "Mova",
+    "modele": "LiDAX Ultra 800",
+    "surface_m2": 800,
+    "pente_pct": 45,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      100
+    ],
+    "autonomie_min": 60,
+    "zones_max": 150,
+    "ip": "IPX6",
+    "poids_kg": 13.7,
+    "prix_eur": 949,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 699 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : variante LiDAX Ultra 800 : superficie max de cartographie 800 m², UltraView™ 2.0 LiDAR 3D 360° + vision IA, pente 45 % (24°), largeur 20 cm, hauteur 3-10 cm, traction arrière, temps de tonte par charge 60-80 min (valeur basse reprise), IPX6, poids 13.7 kg, module Link (4G) : Optionnel ; « tond à moins de 57 dB » (mode standard) ; jusqu’à 150 zones (description de la boutique)"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ],
+    "option_4g": true
+  },
+  {
+    "id": "mova-lidax-ultra-1200",
+    "marque": "Mova",
+    "modele": "LiDAX Ultra 1200",
+    "surface_m2": 1200,
+    "pente_pct": 45,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      100
+    ],
+    "autonomie_min": 70,
+    "zones_max": 150,
+    "ip": "IPX6",
+    "poids_kg": 13.8,
+    "prix_eur": 1099,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 749 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : variante LiDAX Ultra 1200 : superficie max de cartographie 1200 m², UltraView™ 2.0 LiDAR 3D 360° + vision IA, pente 45 % (24°), largeur 20 cm, hauteur 3-10 cm, traction arrière, temps de tonte par charge 70-90 min (valeur basse reprise), IPX6, poids 13.8 kg, module Link (4G) : Optionnel ; « tond à moins de 57 dB » (mode standard) ; jusqu’à 150 zones (description de la boutique)"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ],
+    "option_4g": true
+  },
+  {
+    "id": "mova-lidax-ultra-1600",
+    "marque": "Mova",
+    "modele": "LiDAX Ultra 1600",
+    "surface_m2": 1600,
+    "pente_pct": 45,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 57,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      100
+    ],
+    "autonomie_min": 70,
+    "zones_max": 150,
+    "ip": "IPX6",
+    "poids_kg": 13.8,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 788 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : variante LiDAX Ultra 1600 : superficie max de cartographie 1600 m², UltraView™ 2.0 LiDAR 3D 360° + vision IA, pente 45 % (24°), largeur 20 cm, hauteur 3-10 cm, traction arrière, temps de tonte par charge 70-90 min (valeur basse reprise), IPX6, poids 13.8 kg, module Link (4G) : Oui (1 an gratuit) ; « tond à moins de 57 dB » (mode standard) ; jusqu’à 150 zones (description de la boutique)"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ]
+  },
+  {
+    "id": "mova-lidax-ultra-1000-awd",
+    "marque": "Mova",
+    "modele": "LiDAX Ultra 1000 AWD",
+    "surface_m2": 1000,
+    "pente_pct": 80,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 66,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      30,
+      100
+    ],
+    "autonomie_min": 150,
+    "zones_max": 150,
+    "ip": "IPX6",
+    "poids_kg": 23.6,
+    "prix_eur": 1599,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 1299 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra-awd",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : variante 1000 AWD : zone de cartographie 1000 m² (modèle simple), UltraView™ 3.0 (LiDAR 3D à 360° + double vision IA), AWD avec 4 moteurs à moyeu, pente maximale 80 %, largeur 40 cm (2 disques), hauteur 3-10 cm électronique, autonomie par charge 150-170 min (valeur basse reprise), services 4G gratuits pendant 3 ans, jusqu’à 150 zones, IPX6, poids 23,6 kg ; « 66 dB correspond au niveau sonore de la tondeuse en mode de coupe standard »"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ]
+  },
+  {
+    "id": "mova-lidax-ultra-1600-awd",
+    "marque": "Mova",
+    "modele": "LiDAX Ultra 1600 AWD",
+    "surface_m2": 1600,
+    "pente_pct": 80,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 66,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      30,
+      100
+    ],
+    "autonomie_min": 150,
+    "zones_max": 150,
+    "ip": "IPX6",
+    "poids_kg": 23.6,
+    "prix_eur": 1899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 1399 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra-awd",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : variante 1600 AWD : zone de cartographie 1600 m² (modèle simple), UltraView™ 3.0 (LiDAR 3D à 360° + double vision IA), AWD avec 4 moteurs à moyeu, pente maximale 80 %, largeur 40 cm (2 disques), hauteur 3-10 cm électronique, autonomie par charge 150-170 min (valeur basse reprise), services 4G gratuits pendant 3 ans, jusqu’à 150 zones, IPX6, poids 23,6 kg ; « 66 dB correspond au niveau sonore de la tondeuse en mode de coupe standard »"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ]
+  },
+  {
+    "id": "mova-lidax-ultra-2000-awd",
+    "marque": "Mova",
+    "modele": "LiDAX Ultra 2000 AWD",
+    "surface_m2": 2000,
+    "pente_pct": 80,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 66,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      30,
+      100
+    ],
+    "autonomie_min": 150,
+    "zones_max": 150,
+    "ip": "IPX6",
+    "poids_kg": 23.6,
+    "prix_eur": 2199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) de la boutique officielle fr.mova.tech le 28/11/2026, 1699 € en promotion du Black Friday",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://fr.mova.tech/products/robot-tondeuse-lidax-ultra-awd",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Mova FR, « Caractéristiques techniques » : variante 2000 AWD : zone de cartographie 2000 m² (modèle simple), UltraView™ 3.0 (LiDAR 3D à 360° + double vision IA), AWD avec 4 moteurs à moyeu, pente maximale 80 %, largeur 40 cm (2 disques), hauteur 3-10 cm électronique, autonomie par charge 150-170 min (valeur basse reprise), services 4G gratuits pendant 3 ans, jusqu’à 150 zones, IPX6, poids 23,6 kg ; « 66 dB correspond au niveau sonore de la tondeuse en mode de coupe standard »"
+      },
+      {
+        "url": "https://fr.mova.tech/products.json",
+        "lu_le": "2026-11-28",
+        "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
+      }
+    ]
   }
 ]
