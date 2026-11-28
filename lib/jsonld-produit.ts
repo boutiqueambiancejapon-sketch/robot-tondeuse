@@ -86,7 +86,7 @@ export function jsonLdProduit(f: FicheNote, page: PageFiche) {
       ? {
           review: {
             '@type': 'Review',
-            name: `Note de ${f.nom} selon le barème public`,
+            name: `Note de ${f.nom} sur 10`,
             reviewBody: `Note calculée sur les caractéristiques publiées par ${r.marque}, sans essai. Confiance ${f.note.confiance} %${f.note.manques.length ? ` (${f.note.manques.join(', ')})` : ''}.`,
             author: { '@type': 'Organization', name: page.site.nom, url: page.site.url },
             publisher: { '@type': 'Organization', name: page.site.nom, url: page.site.url },

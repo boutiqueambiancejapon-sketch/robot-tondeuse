@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- lecture libre du JSON-LD produit dans le test */
 import { describe, it, expect } from 'vitest'
+import { readdirSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { noteObjective, rangDansCatalogue, navigationDe, connexionDe } from '@/lib/note-objective'
 import { ficheNote } from '@/lib/fiche-note'
 import { jsonLdProduit, lendemain } from '@/lib/jsonld-produit'
@@ -84,8 +86,19 @@ function vides(o: unknown, chemin = ''): string[] {
   return []
 }
 
-describe('JSON-LD Product de 5 fiches', () => {
-  const ids = ['mammotion-luba-3-awd-3000', 'segway-navimow-x450', 'husqvarna-automower-430v-nera', 'mammotion-yuka-mini-2-1000', 'husqvarna-automower-aspire-r4']
+/** Robot principal (premier id du champ `base`) de chaque fiche reliée à la base. */
+function robotsDesFiches(): string[] {
+  const fichiers = readdirSync('content', { recursive: true, encoding: 'utf8' }).filter((f) => f.endsWith('.mdx'))
+  const ids = fichiers.flatMap((f) => {
+    const m = readFileSync(join('content', f), 'utf8').match(/^base:\s*\[?\s*"([^"]+)"/m)
+    return m ? [m[1]] : []
+  })
+  return [...new Set(ids)]
+}
+
+describe('JSON-LD Product de toutes les fiches reliées à la base', () => {
+  const ids = [...new Set([...robotsDesFiches(), 'segway-navimow-x450', 'husqvarna-automower-430v-nera'])]
+  it('au moins 5 robots de fiches reliées', () => expect(robotsDesFiches().length).toBeGreaterThanOrEqual(5))
   const page = (id: string) => ({
     url: `https://quel-robot-tondeuse.com/${id}`,
     titre: id,

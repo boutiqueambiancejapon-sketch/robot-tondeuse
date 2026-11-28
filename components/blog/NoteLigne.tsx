@@ -1,17 +1,21 @@
 import Link from 'next/link'
 import { mieuxNotes, noteFiche, slugFiche } from '@/lib/notes-fiches'
-import { FICHES_NOTE_OBJECTIVE, noteFr, noteObjective } from '@/lib/note-objective'
+import { noteFr, noteObjective } from '@/lib/note-objective'
 import { CATALOGUE } from '@/lib/radar-fiche'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 import { SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 
-/** Note sur 100 d'une fiche, avec le prix et la date utilisés, et le lien vers le barème. Rien si la fiche n'est pas notée. */
+/**
+ * Note d'un robot sur une carte produit. Robot de data/robots-tondeuses.json : la note sur 10, la même
+ * que le haut de sa fiche (rien si elle n'est pas calculable). Sinon, l'ancienne note sur 100 avec le
+ * prix et la date utilisés. Rien si le robot n'est pas noté.
+ */
 export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
-  // Fiche pilote de la note sur 10 : la même note que le haut de sa fiche, partout.
-  const id = slugFiche(nom, slug)
-  const robot = id && FICHES_NOTE_OBJECTIVE.includes(id) ? CATALOGUE.find((r) => r.id === id) : undefined
-  const n10 = robot ? noteObjective(robot) : null
-  if (n10?.note != null) {
+  const id = slug && CATALOGUE.some((r) => r.id === slug) ? slug : slugFiche(nom, slug)
+  const robot = id ? CATALOGUE.find((r) => r.id === id) : undefined
+  if (robot) {
+    const n10 = noteObjective(robot)
+    if (n10.note === null) return null
     return (
       <p className="note-l" data-note={n10.note}>
         <span className="score">
@@ -19,10 +23,7 @@ export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
           <small>/10</small>
         </span>{' '}
         <span className="dated">
-          Confiance {n10.confiance}&nbsp;% ·{' '}
-          <Link href="/comment-nous-notons" className="lnk">
-            notre barème
-          </Link>
+          Confiance {n10.confiance}&nbsp;%{n10.manques.length ? ` (${n10.manques.join(', ')})` : ''}, d&apos;après la fiche de {robot.marque}
         </span>
       </p>
     )

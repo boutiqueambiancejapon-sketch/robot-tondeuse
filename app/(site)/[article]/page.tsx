@@ -16,7 +16,6 @@ import { compileArticle } from '@/components/blog/compile-article'
 import { CATALOGUE, robotsDeLaFiche } from '@/lib/radar-fiche'
 import { RadarFiche } from '@/components/v2/radar/RadarFiche'
 import { ficheNote } from '@/lib/fiche-note'
-import { FICHES_NOTE_OBJECTIVE } from '@/lib/note-objective'
 import { jsonLdProduit } from '@/lib/jsonld-produit'
 import { NoteFiche } from '@/components/v2/note/NoteFiche'
 import { getProduct } from '@/lib/products'
@@ -90,8 +89,8 @@ export default async function StandaloneArticlePage({ params }: { params: Params
   const { body, end } = await compileArticle(content, meta)
 
   const robots = robotsDeLaFiche(meta.base)
-  // Note sur 10 et données Product : fiche pilote seulement, en attente de l'accord du propriétaire.
-  const fiche = robots[0] && FICHES_NOTE_OBJECTIVE.includes(robots[0].id) ? ficheNote(robots[0], CATALOGUE) : null
+  // Note sur 10 et données Product : toutes les fiches reliées à la base (accord du propriétaire, 28/11/2026).
+  const fiche = robots[0] ? ficheNote(robots[0], CATALOGUE) : null
   const imageProduit = fiche ? getProduct(fiche.robot.id)?.image : undefined
   const catLabel = CATEGORY_LABELS[meta.categorie] ?? meta.categorie
   const related = getRelatedArticles(meta.categorie, slug, 3)

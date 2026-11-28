@@ -1,6 +1,7 @@
 /**
  * lib/note-objective.ts — note sur 10 et indice de confiance d'un robot de data/robots-tondeuses.json
- * (tasks/collections-v1.md § 3 ter). Barème : lib/bareme.ts (public sur /comment-nous-notons).
+ * (tasks/collections-v1.md § 3 ter). Barème : lib/bareme.ts. Pas de page de méthode (propriétaire, 28/11/2026) :
+ * le détail critère par critère est sur chaque fiche.
  *
  * Seulement les caractéristiques publiées par la marque. Un critère sans donnée sourcée est retiré
  * du barème (jamais compté 0) : la note est recalculée sur les critères disponibles et l'indice de
@@ -15,9 +16,6 @@ import type { RobotCatalogue } from './radar'
 
 export const CONFIANCE_MIN_NOTE = 60
 export const CONFIANCE_MIN_BADGE = 80
-
-/** Fiches où la note est affichée. Pilote seul, en attente de l'accord du propriétaire. */
-export const FICHES_NOTE_OBJECTIVE = ['mammotion-luba-3-awd-3000']
 
 /** « rtk+lidar+vision » → deux repères ou plus. « fil » seul ne dit pas si le trajet est guidé : non noté. */
 export function navigationDe(guidage: string): Navigation | null {

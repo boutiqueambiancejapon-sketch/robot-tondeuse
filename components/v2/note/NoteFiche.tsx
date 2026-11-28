@@ -3,10 +3,9 @@
  * prix du jour daté, « L'essentiel en 30 secondes » et détail du barème (tasks/collections-v1.md § 3 ter).
  * Server Component, sans JavaScript ni animation. Les ids note-resume et essentiel-liste servent au speakable.
  */
-import Link from 'next/link'
 import type { FicheNote } from '@/lib/fiche-note'
 import { dateFr } from '@/lib/fiche-note'
-import { noteFr } from '@/lib/note-objective'
+import { CONFIANCE_MIN_NOTE, noteFr } from '@/lib/note-objective'
 
 const nf = new Intl.NumberFormat('fr-FR')
 
@@ -32,7 +31,11 @@ export function NoteFiche({ fiche }: { fiche: FicheNote }) {
             ) : null}
           </>
         ) : (
-          <span>Pas de note : trop peu de caractéristiques publiées (confiance {note.confiance} %).</span>
+          <span>
+            {note.confiance >= CONFIANCE_MIN_NOTE
+              ? `Pas de note : ${robot.marque} ne publie pas de prix public.`
+              : `Pas de note : trop peu de caractéristiques publiées (confiance ${note.confiance} %).`}
+          </span>
         )}
         {jour ? (
           <span>
@@ -42,7 +45,7 @@ export function NoteFiche({ fiche }: { fiche: FicheNote }) {
       </p>
       <p className="note-conf">
         Confiance {note.confiance} %{note.manques.length ? ` : ${note.manques.join(', ')}` : ' : toutes les caractéristiques du barème sont publiées'}.
-        {' '}Note calculée sur la fiche de {robot.marque}, sans essai. <Link href="/comment-nous-notons">Voir le barème</Link>.
+        {' '}{note.note !== null ? `Note calculée sur la fiche de ${robot.marque}, sans essai.` : `Données lues sur la fiche de ${robot.marque}.`}
       </p>
 
       <h2 id="essentiel" className="h-sm">
