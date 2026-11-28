@@ -5168,5 +5168,794 @@
         "note": "liste officielle des robots Kress FR : nom et prix"
       }
     ]
+  },
+  {
+    "id": "kress-kr250e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 500 m² KR250E",
+    "surface_m2": 500,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.3,
+    "prix_eur": 999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 749 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/robot-tondeuse-kress-eyepilot-rtk%e2%81%bf-500-m%c2%b2-kr250e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 500 m² Robot tondeuse », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur 20-60 mm, IPX6, poids 11.3 kg, batterie 4 Ah, Wi-Fi/Bluetooth oui, 4G non listé ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr250es",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 500 m² KR250ES",
+    "surface_m2": 500,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.3,
+    "prix_eur": 1199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1019 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/kress-eyepilot-rtk%e2%81%bf-500-m%c2%b2-robot-tondeuse-4g-kr250es/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 500 m² Robot tondeuse - 4G », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur 20-60 mm, IPX6, poids 11.3 kg, batterie 4 Ah, Wi-Fi/Bluetooth oui, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr251e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 1000 m² KR251E",
+    "surface_m2": 1000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.8,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1124 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/robot-tondeuse-kress-eyepilot-rtk%e2%81%bf-1000-m%c2%b2-kr251e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 1000 m² Robot tondeuse », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur 20-60 mm, IPX6, poids 11.8 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G non listé ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; entraînement « propulsion arrière » ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr251es",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 1000 m² KR251ES",
+    "surface_m2": 1000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.8,
+    "prix_eur": 1699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1444 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/robot-tondeuse-kress-eyepilot-rtk%e2%81%bf-1000-m%c2%b2-kr251es/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Robot tondeuse Kress EyePilot RTKⁿ 1000 m² », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur 20-60 mm, IPX6, poids 11.8 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; entraînement « propulsion arrière » ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr260e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 700 m² KR260E",
+    "surface_m2": 700,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.3,
+    "prix_eur": 1299,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 974 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/kress-eyepilot-rtk%e2%81%bf-700-m%c2%b2-robot-tondeuse-avec-zerotrim-kr260e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 700 m² robot tondeuse avec ZeroTrim », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur non publiée en plage, IPX6, poids 11.3 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G non listé ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr260es",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 700 m² KR260ES",
+    "surface_m2": 700,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.3,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1274 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/kress-eyepilot-rtk%e2%81%bf-700-m%c2%b2-robot-tondeuse-4g-et-zerotrim-kr260es/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 700 m² robot tondeuse - 4G et ZeroTrim », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur non publiée en plage, IPX6, poids 11.3 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr261e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 1000 m² KR261E",
+    "surface_m2": 1000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.8,
+    "prix_eur": 2199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1649 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/robot-tondeuse-kress-eyepilot-rtk%e2%81%bf-1000-m%c2%b2-avec-zerotrim-kr261e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 1000 m² robot tondeuse avec ZeroTrim », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur 20 – 60 mm, IPX6, poids 11.8 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G non listé ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr261es",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 1000 m² KR261ES",
+    "surface_m2": 1000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.8,
+    "prix_eur": 2399,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 2039 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/kress-eyepilot-rtk%e2%81%bf-1000-m%c2%b2-robot-tondeuse-4g-et-zerotrim-kr261es/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 1000 m² robot tondeuse - 4G et ZeroTrim », pente maximale 40%, niveau sonore perçu 58 db, largeur 20 cm, hauteur 20 – 60 mm, IPX6, poids 11.8 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr271e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 1500 m² KR271E",
+    "surface_m2": 1500,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 11.8,
+    "prix_eur": 2499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 2124 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/kress-eyepilot-rtk%e2%81%bf-1500-m%c2%b2-robot-tondeuse-4g-et-zerotrim-kr271e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 1500 m² robot tondeuse - 4G et ZeroTrim », pente maximale 40%, niveau sonore perçu 58 db, largeur 22 cm, hauteur 20 – 60 mm, IPX6, poids 11.8 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr272e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 2000 m² KR272E",
+    "surface_m2": 2000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 12.1,
+    "prix_eur": 2899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 2464 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-eyepilot-rtk%e2%81%bf-2000-m%c2%b2-avec-zerotrim-et-4g-integre-kr272e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress EyePilot RTKⁿ 2000 m² avec ZeroTrim et 4G intégré », pente maximale 40%, niveau sonore perçu 58 db, largeur 22 cm, hauteur 20 – 60 mm, IPX6, poids 12.1 kg, batterie 6 Ah, Wi-Fi/Bluetooth oui, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr273e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 3000 m² KR273E",
+    "surface_m2": 3000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 12.1,
+    "prix_eur": 3299,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 2804 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/kress-eyepilot-rtk%e2%81%bf-3000-m%c2%b2-robot-tondeuse-4g-et-zerotrim-kr273e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Kress EyePilot RTKⁿ 3000 m² robot tondeuse - 4G et ZeroTrim », pente maximale 40%, niveau sonore perçu 58 db, largeur 22 cm, hauteur 20-60 mm, IPX6, poids 12.1 kg, batterie 6 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr274e",
+    "marque": "Kress",
+    "modele": "EyePilot RTKⁿ 5000 m² KR274E",
+    "surface_m2": 5000,
+    "pente_pct": 40,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 62,
+    "largeur_coupe_cm": 24,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX6",
+    "poids_kg": 12.1,
+    "prix_eur": 3999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 3399 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/robot-tondeuse-kress-eyepilot-rtk%e2%81%bf-10000-m%c2%b2-avec-zerotrim-kr274e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Robot tondeuse Kress EyePilot® RTKⁿ 5000 m² avec ZeroTrim », pente maximale 40%, niveau sonore perçu 62 db, largeur 24 cm, hauteur 20 – 60 mm mm, IPX6, poids 12.1 kg, batterie 6 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; guidage : RTKⁿ (réseau de correction) + caméra EyePilot"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr160e",
+    "marque": "Kress",
+    "modele": "RTKⁿ 600 m² KR160E",
+    "surface_m2": 600,
+    "pente_pct": 40,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 12,
+    "prix_eur": 799,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 479.4 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-rtk%e2%81%bf-600-m%c2%b2-kr160e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress RTKⁿ 600 m² », pente maximale 40%, niveau sonore perçu 59 db, largeur 20 cm, hauteur 30 - 60 mm, IPX5, poids 12 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr160ea",
+    "marque": "Kress",
+    "modele": "RTKⁿ 600 m² KR160E.A",
+    "surface_m2": 600,
+    "pente_pct": 40,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 12,
+    "prix_eur": 899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 539.4 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-rtk%e2%81%bf-de-600-m%c2%b2-avec-oas-obstacle-avoidance-system-kr160e-a/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress RTKⁿ de 600 m² avec OAS (Obstacle Avoidance System) », pente maximale 40%, niveau sonore perçu 59 db, largeur 20 cm, hauteur 30 - 60 mm, IPX5, poids 12 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui, surface maximale (coupe toutes les 72 h) 600 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr171e",
+    "marque": "Kress",
+    "modele": "RTKⁿ 1500 m² KR171E",
+    "surface_m2": 1500,
+    "pente_pct": 40,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 12,
+    "prix_eur": 1699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1019.4 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-rtk%e2%81%bf-de-1-500-m%c2%b2-avec-oas-obstacle-avoidance-system-kr171e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress RTKⁿ de 1 500 m² avec OAS (Obstacle Avoidance System) », pente maximale 40%, niveau sonore perçu 59 db, largeur 20 cm, hauteur 30 - 60 mm, IPX5, poids 12 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui, surface maximale (coupe toutes les 72 h) 1500 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr172e",
+    "marque": "Kress",
+    "modele": "RTKⁿ 2000 m² KR172E",
+    "surface_m2": 2000,
+    "pente_pct": 40,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 12,
+    "prix_eur": 1699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1019.4 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-rtk%e2%81%bf-de-2-000-m%c2%b2-kr172e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress RTKⁿ de 2 000 m² », pente maximale 40%, niveau sonore perçu 59 db, largeur 20 cm, hauteur 30 - 60 mm, IPX5, poids 12 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui, surface maximale (coupe toutes les 72 h) 3000 ㎡, surface recommandée (coupe toutes les 48 h) 2000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr172ea",
+    "marque": "Kress",
+    "modele": "RTKⁿ 2000 m² KR172E.A",
+    "surface_m2": 2000,
+    "pente_pct": 40,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 12,
+    "prix_eur": 1899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1139.4 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-rtk%e2%81%bf-de-2-000-m%c2%b2-avec-oas-obstacle-avoidance-system-kr172e-a/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress RTKⁿ de 2 000 m² avec OAS (Obstacle Avoidance System) », pente maximale 40%, niveau sonore perçu 59 db, largeur 20 cm, hauteur 30 - 60 mm, IPX5, poids 12 kg, batterie 4 Ah, Wi-Fi/Bluetooth non listé, 4G oui, surface maximale (coupe toutes les 72 h) 3000 ㎡, surface recommandée (coupe toutes les 48 h) 2000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr174e",
+    "marque": "Kress",
+    "modele": "RTKⁿ 5000 m² KR174E",
+    "surface_m2": 5000,
+    "pente_pct": 40,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "4g"
+    ],
+    "bruit_db": 68,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 12.6,
+    "prix_eur": 2999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 1799.4 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuse-robotisee-kress-rtk%e2%81%bf-de-5-000-m%c2%b2-avec-oas-obstacle-avoidance-system-kr174e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « Tondeuse robotisée Kress RTKⁿ de 5 000 m² avec OAS (Obstacle Avoidance System) », pente maximale 40%, niveau sonore perçu 68 db, largeur 22 cm, hauteur 30 - 60 mm, IPX5, poids 12.6 kg, batterie 6 Ah, Wi-Fi/Bluetooth non listé, 4G oui, surface maximale (coupe toutes les 72 h) 7500 ㎡, surface recommandée (coupe toutes les 48 h) 5000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr101e",
+    "marque": "Kress",
+    "modele": "Mission Nano KR101E",
+    "surface_m2": 1000,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 67,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 8.95,
+    "prix_eur": 599,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 210 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-compacte-kress-mission-nano-gere-les-pelouses-jusqua-1-000-m%c2%b2-kr101e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot compacte Kress Mission Nano gère les pelouses jusqu'à 1 000 m² », pente maximale 35% (20°), niveau sonore perçu 67 db, largeur 18 cm, hauteur 30 mm, IPX4, poids 8.95 kg, batterie 2.5 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 1000 ㎡, surface recommandée (coupe toutes les 48 h) 600 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr120e",
+    "marque": "Kress",
+    "modele": "Mission KR120E",
+    "surface_m2": 1500,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 61,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 11.6,
+    "prix_eur": 699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 245 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-kress-mission-gere-des-pelouses-jusqua-1-500-m%c2%b2-kr120e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot Kress Mission gère des pelouses jusqu'à 1 500 m² », pente maximale 35% (20°), niveau sonore perçu 61 db, largeur 22 cm, hauteur 30 mm, IPX4, poids 11.6 kg, batterie 4 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 1500 ㎡, surface recommandée (coupe toutes les 48 h) 1000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
   }
 ]
