@@ -8,6 +8,7 @@ import { createInterface } from 'node:readline'
 const [cdiscountFeed, fnacFeed] = process.argv.slice(2)
 const map = JSON.parse(readFileSync('content/offres/correspondances.json', 'utf8'))
 import { readdirSync } from 'node:fs'
+import { ajouterReleve, ecrireHistorique } from './historique-awin.mjs'
 
 // Clé commune : nom en minuscules, sans accents ni ponctuation, « + » lu « plus ».
 export const cle = (n) => n.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\+/g, ' plus ').replace(/[^a-z0-9]+/g, ' ').trim()
@@ -107,4 +108,9 @@ for (const slug of [...cles].sort()) {
   if (Object.keys(o).length) offres[slug] = o
 }
 writeFileSync('content/offres/offres.json', `${JSON.stringify(offres, null, 2)}\n`)
+// Historique daté (date et heure UTC, à la minute) pour la page Deals : 90 jours glissants.
+const HISTO = 'content/offres/historique-awin.json'
+const quand = `${new Date().toISOString().slice(0, 16)}Z`
+const avant = existsSync(HISTO) ? JSON.parse(readFileSync(HISTO, 'utf8')) : []
+writeFileSync(HISTO, ecrireHistorique(ajouterReleve(avant, offres, quand)))
 console.log(`offres relevées le ${today} : ${Object.keys(offres).length} robots`, Object.fromEntries(Object.entries(offres).map(([k, v]) => [k, Object.keys(v).join('+')])))
