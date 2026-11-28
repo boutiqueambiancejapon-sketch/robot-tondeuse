@@ -13,8 +13,13 @@ import { extractToc } from '@/lib/toc'
 import { ArticleView } from '@/components/blog/ArticleView'
 import { produitsCites } from '@/lib/produits-cites'
 import { compileArticle } from '@/components/blog/compile-article'
-import { robotsDeLaFiche } from '@/lib/radar-fiche'
+import { CATALOGUE, robotsDeLaFiche } from '@/lib/radar-fiche'
 import { RadarFiche } from '@/components/v2/radar/RadarFiche'
+import { ficheNote } from '@/lib/fiche-note'
+import { FICHES_NOTE_OBJECTIVE } from '@/lib/note-objective'
+import { jsonLdProduit } from '@/lib/jsonld-produit'
+import { NoteFiche } from '@/components/v2/note/NoteFiche'
+import { getProduct } from '@/lib/products'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -85,6 +90,9 @@ export default async function StandaloneArticlePage({ params }: { params: Params
   const { body, end } = await compileArticle(content, meta)
 
   const robots = robotsDeLaFiche(meta.base)
+  // Note sur 10 et données Product : fiche pilote seulement, en attente de l'accord du propriétaire.
+  const fiche = robots[0] && FICHES_NOTE_OBJECTIVE.includes(robots[0].id) ? ficheNote(robots[0], CATALOGUE) : null
+  const imageProduit = fiche ? getProduct(fiche.robot.id)?.image : undefined
   const catLabel = CATEGORY_LABELS[meta.categorie] ?? meta.categorie
   const related = getRelatedArticles(meta.categorie, slug, 3)
 
@@ -137,6 +145,17 @@ export default async function StandaloneArticlePage({ params }: { params: Params
           })),
         }]
       : []),
+    ...(fiche
+      ? jsonLdProduit(fiche, {
+          url: `${SITE_URL}/${slug}`,
+          titre: meta.title,
+          description: meta.description,
+          publie: meta.publishedAt,
+          modifie: meta.updatedAt ?? meta.publishedAt,
+          image: imageProduit ? absolutizeImageUrl(imageProduit) : articleImages[0],
+          site: { nom: niche.siteName, url: SITE_URL },
+        })
+      : []),
   ]
 
   return (
@@ -144,7 +163,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       {jsonLd.map((schema, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
-      <ArticleView produits={produitsCites(content)} slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end} radar={robots.length ? <RadarFiche robots={robots} /> : null}>
+      <ArticleView produits={produitsCites(content)} slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end} radar={robots.length ? <RadarFiche robots={robots} /> : null} note={fiche ? <NoteFiche fiche={fiche} /> : null}>
         {body}
       </ArticleView>
     </>
