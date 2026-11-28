@@ -1,4 +1,5 @@
 name: "Husqvarna Automower 310 Mark II"
+base: "husqvarna-automower-310-mark-ii"
 categorie: "husqvarna"
 prix: "1 399-1 599 €"
 badge: "La fiabilité Husqvarna"
