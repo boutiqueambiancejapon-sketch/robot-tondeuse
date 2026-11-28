@@ -20,6 +20,7 @@ import { jsonLdProduit } from '@/lib/jsonld-produit'
 import { NoteFiche } from '@/components/v2/note/NoteFiche'
 import { getProduct } from '@/lib/products'
 import { siteActif } from '@/niches'
+import { estClassement, metaClassement, PageClassement, slugsClassement } from './classement-modele'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -30,7 +31,8 @@ type Params = Promise<{ article: string }>
 export function generateStaticParams() {
   // + catégories des fiches du gabarit commun (/<categorie>/<produit>) ; aucune sur QRT (siteActif.fiches = null).
   const categories = [...new Set((siteActif.fiches?.catalogue ?? []).map((p) => p.categorie))]
-  return [...getAllStandaloneSlugs(), ...categories].map((article) => ({ article }))
+  // + classements du gabarit commun (/meilleur-<categorie>) ; aucun sur QRT.
+  return [...getAllStandaloneSlugs(), ...categories, ...slugsClassement()].map((article) => ({ article }))
 }
 
 /** Normalise une URL d'image en URL absolue à partir de SITE_URL. */
@@ -53,6 +55,7 @@ function extractBodyImageUrls(content: string): string[] {
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { article: slug } = await params
+  if (estClassement(slug)) return metaClassement(slug)
   const data = getStandaloneArticle(slug)
   if (!data) return {}
 
@@ -84,6 +87,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function StandaloneArticlePage({ params }: { params: Params }) {
   const { article: slug } = await params
+  if (estClassement(slug)) return <PageClassement slug={slug} />
   const data = getStandaloneArticle(slug)
   if (!data) notFound()
 

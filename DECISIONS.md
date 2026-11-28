@@ -161,3 +161,8 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 - Choix du site à la construction par `NEXT_PUBLIC_SITE` (QRT par défaut). Les données passent par `niches/index.ts` ; les polices et le thème, qui sont des fichiers chargés par le layout, par un alias Turbopack (`@site-actif/fonts`, `@site-actif/theme.css`, déclarés dans `niches/site-actif.d.ts`) : ainsi QRT ne charge ni les polices ni le thème du modèle.
 - Le thème d'un site ne contient que des variables (`:root` et `.v2`) ; celui de QRT est vide, ses valeurs restent la base de `app/globals.css` et `app/v2.css`.
 - Fiches du gabarit commun à `/<catégorie>/<produit>` (règle de `tasks/gabarits-affiliation.md`), sous `[article]` car Next refuse deux noms de paramètre au même niveau.
+
+## 28/11/2026 — Gabarit CLASSEMENT commun (site modèle, étape 2a)
+- Modèle : `/meilleur-<catégorie>` calculé depuis le dossier du site (`lib/modele/classement.ts`). Podium : meilleur choix = meilleure note ; meilleur prix = mieux noté sous le prix médian ; haut de gamme = mieux noté dans le quart le plus cher. Seuls les produits notés avec un prix daté montent ; une marche sans candidat est retirée.
+- QRT : ses classements restent des articles (le texte choisit les robots). Le podium reprend donc l'ordre et les étiquettes (badge) de l'article, pas le calcul du modèle, pour ne pas contredire le texte. Seuil : 3 robots cités au moins, sinon la carte « Notre choix » reste.
+- Fond : celui des cartes V2 (`--white`, liseré `--line`), ligne du n° 1 sur `--sage` ; aucune animation.
