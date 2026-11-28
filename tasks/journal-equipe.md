@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi soir (heure belge) — Éditeur QRT (proposition validée par le Secrétaire)
+
+- **Fait** : la tâche « ouvrir `/abri-jardin` » est écrite dans la ligne du Dév (`tasks/equipe.md`, colonne « Ensuite », point 2), en décembre, juste après DL4 (page `/deals`).
+- Contenu de la tâche : une page de rubrique, une entrée sous « Jardin » dans le menu sans en changer la forme, un filtre « Abris » dans `/deals`. Adresse libre, vérifiée le 28/11.
+- Raison : sans dossier ouvert, les 3 sujets abris de janvier seraient sautés par la rédaction de nuit.
+- Aucun code touché (l'Éditeur ne code pas). **Dév** : faire la tâche après DL4. **Éditeur, fin décembre** : vérifier qu'elle est faite, sinon prévenir le Chef.
+
 ## 28/11/2026, samedi 18 h 15 (heure belge) — Dév QRT (mission du propriétaire : liens partenaires protégés)
 
 - **Fait** : plus aucun lien partenaire en clair. Les liens Awin (Cdiscount, Fnac, flux et recherches), les recherches Amazon et amzn.to deviennent `/go/<jeton>` (`lib/go.ts`, modèle Toutou, seuls les domaines partenaires passent). Les adresses `/go/<asin>/amazon` restent. Les deux routes passent par le même filtre (`lib/go-filtre.ts`) : robot ou curl 403, navigateur sans langue 403, préchargement 204, plus de 8 clics en 10 min par adresse ou 3 vers le même lien 429, sinon 302. `merchantOf` lit le marchand derrière le jeton : la mesure par marchand continue.
