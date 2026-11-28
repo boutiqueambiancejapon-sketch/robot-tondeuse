@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 15 h (heure belge) — Catalogue QRT (2e passage : Segway Navimow et Husqvarna)
+
+- **Fait** : `data/robots-tondeuses.json` passe à **53 modèles** : + **Segway Navimow 18** (i1, i2 AWD, i2 LiDAR, i2 LiDAR Pro, X3, X4) et + **Husqvarna 14** (gamme particuliers du site FR). Sources : tableau « Spécifications & Comparaison » Navimow et tableaux « Spécifications » Husqvarna, lus dans un navigateur le 28/11. Prix = prix normal de la marque, hors Black Friday (Aspire R4 : aucun prix affiché). i2 AWD et i2 LiDAR Pro : « 3 AWD » noté `3rm`, pas compté en 4 roues motrices. Variantes i206, i210 AWD, i210 LiDAR, X430 : valeurs communes de la gamme, autonomie et poids vides. Gamme X3 : tableau non publié, seuls surface, pente et guidage remplis. Série H Navimow : plus en vente, pas ajoutée.
+- **Contrôle** : `catalogue-check.mjs` accepte `3rm` et filtre les doublons (70 % de modèles en commun) : 1 016 combinaisons, **65 collections** réelles. Types, lint (0 erreur), 156 tests, construction OK.
+- **Dév** : le seuil de 30 modèles pour le radar est passé. **Claude en session** : ASIN des 53 modèles (API interdite aux agents).
+- **Contenu, fiches à corriger** : `lib/comparateur.ts` Aspire R4 pente 40 % → 25 %, autonomie 60 → 70 min ; `husqvarna-automower-aspire-r4.yaml` 7 kg → 5,9 kg ; `segway-navimow-i220-lidar.yaml` « dual LiDAR » → un LiDAR 3D + vision ; 310 Mark II, 415X, 430X NERA, 450X NERA absents de la gamme FR du 28/11 (remplacés par 315 Mark II, 430V, 450V…).
+- **Catalogue, prochain passage** : Worx et Gardena, puis Bosch.
+
 ## 28/11/2026, samedi 14 h (heure belge) — Catalogue QRT (1er passage : base produits, Mammotion)
 
 - **Fait** : `data/robots-tondeuses.json` ouvert avec **Mammotion, 21 modèles** (Luba 4, Luba 3, Luba mini 2, Luba mini AWD LiDAR, Luba 2, Yuka, Yuka mini, Yuka mini 2). Source : le tableau technique officiel du site FR (fichier de données de la page « Comparez », lu le 28/11) et les fiches `fr.mammotion.com/products/…`. `prix_eur` = prix normal affiché par la boutique (hors promotion du Black Friday), 15 modèles ; Luba 4 et Yuka mini (1re génération) n'y sont pas en vente, prix vide. `bruit_db` vide : Mammotion ne publie pas de chiffre par modèle. Champ ajouté `option_4g: true` quand le module 4G est vendu à part (pas compté « 4G »).
