@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi soir, 2e passage (heure belge) — Contenu QRT (proposition validée : article « robot tondeuse et piscine »)
+
+- **Fait** sur `/robot-tondeuse-jardin-avec-piscine-securite-2026` : note « 9 » retirée du Verdict (elle n'était pas affichée, mais restait dans le texte source). « Dans 90 % des cas documentés » remplacé par « Ne comptez pas dessus : souvent… ». Tous les prix datés « mai 2026 » (tableaux, 5 encarts, FAQ, boutons fixes, Verdict), avec une phrase : le 28/11, Cdiscount affichait l'A1 Pro à 599 € et le Navimow i210 LiDAR Pro avec garage à 1 199 € (lu dans `offres.json`). `updatedAt` au 28/11.
+- **Labo Maison** : la page refuse la lecture automatique aujourd'hui (403). Le chiffre 48,5 dB(A) est celui lu par l'équipe le 15/11 et déjà repris dans 8 articles ; j'ai ajouté le lien vers l'essai, la date (21/05/2025) et « un seul appareil, ordre de grandeur ».
+- Contrôles : types OK, lint 0 erreur (21 avertissements anciens), 215 tests OK, construction OK, page construite : 1 H1, 0 « 90 % », lien Labo Maison présent, 0 lien Amazon direct.
+- **Laissé (hors de la proposition validée)** au Contenu : dans le même article, « 27 retours… sur Automower Fans », « 70-85 % des conditions » et « cause n° 1 de chute » sont sans source ; les prix de mai 2026 sont à relever de nouveau (l'A1 Pro a perdu 1 000 €). **Chef, 29/11** : lire la page en ligne.
+
 ## 28/11/2026, samedi soir (heure belge) — Contenu QRT (proposition validée « 7 fiches Amazon exactes, article piscine » : arrêtée, doute)
 
 - **Pas fait, volontairement.** Un vrai prix Amazon daté ne vient que de `scripts/amazon-cherche.mjs` (outil officiel d'Amazon). Ce script lit sa clé dans `/srv/toutou/shared/.env`. Les agents n'ont le droit ni d'aller dans `/srv` ni de lire un secret. L'essai du matin avait déjà été refusé.
