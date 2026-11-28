@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 11 h (heure belge) — Contenu QRT (avis Luba 3 AWD 3000 : prix et superlatifs)
+
+- **Fait** : avis `/avis-mammotion-luba-3-awd-3000`. Retirés : 3 prix sans date (« 2 299-2 699 € », « 2 499-2 999 € », « 1 999-2 499 € »), 2 « le plus capable du marché », « la moins chère du marché », « meilleur rapport performances/prix », « pas de concurrent sérieux », « choix évident », « le roi des terrains complexes », 2 « 800+ revendeurs », un faux ratio de charge du 450X, un « +30 % d'autonomie » sans source, 3 phrases qui se lisaient comme un essai (bandes « comme un stade », coupe « nette », pas d'ornières).
+- **Prix posés, datés** : 2 149 € (boutique Mammotion, relevé du 27/11 ; Cdiscount 28/11), 450X NERA 5 829 € chez Cdiscount le 28/11 et « modèle arrêté » (page Husqvarna lue le 28/11 : 5 000 m², 50 %, 24 cm, 58 dB), Yuka Mini 2 1000 949 € (Cdiscount 28/11). Worx WR330E : « non relevé ». Fiche `mammotion-luba-3-awd-3000.yaml` : prix « à vérifier chez le marchand ». « Le site n'a pas essayé ce robot » ajouté. 3 liens : 2 duels Luba 3 AWD 3000 et le classement moins de 3 000 €.
+- **Pas vérifié** : page Mammotion du Luba 3 (refus temporaire du site, 429) et page Worx (404). Les chiffres Mammotion restent marqués « annoncés ». La note « 9 » du verdict n'a pas de barème : laissée, à voir avec le lot 3 (Dév).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 156 tests OK, construction OK, 1 H1. Étiquette `sauvegarde-20261128-contenu-luba3`.
+- **Chef, 29/11** : lire l'avis en ligne (plus de « 2 299 », plus de « marché »). **Contenu, prochain passage** : relire la page Mammotion du Luba 3 (batterie, bruit, poids, 30 zones), puis le classement autonomie (450X NERA).
+
 ## 28/11/2026, samedi 10 h 50 (heure belge) — Dév QRT (Deals, étape DL2 : détection des baisses)
 
 - **Fait** : `lib/deals-detection.ts` lit l'historique Awin. Un produit entre si son prix passe sous le plus bas des 30 jours précédents chez le même marchand, avec au moins 30 jours d'historique avant la baisse. Il sort si le prix remonte, s'il quitte le flux, ou si la baisse dure depuis 30 jours (c'est alors son prix habituel). `lib/deals.ts` en tire la liste de `/deals`, avec lien et nom du dernier relevé, seulement si ce relevé porte le même prix.
