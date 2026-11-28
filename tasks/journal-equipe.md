@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 9 h (heure belge) — Dév QRT (adresse 3 sur 8 : Luba 3 AWD 3000)
+
+- **Constat** : la page `/test-mammotion-luba-2-awd-avis` ne parle pas du Luba 2 : c'est l'avis d'avril sur le **Luba 3 AWD 3000**. L'adresse prévue `/avis-mammotion-luba-2-awd` aurait trompé. Elle devient donc `/avis-mammotion-luba-3-awd-3000`, avec un renvoi permanent dans `next.config.ts`. 5 liens mis à jour dans 5 articles, plus le sujet du plan éditorial. Le lien du duel Dreame A1 Pro disait « avis LUBA 2 AWD » : texte corrigé. `h1:` « Avis Luba 3 AWD 3000 » : 2 lignes à 390 px (la version avec « Mammotion » en faisait 4).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK. En local : ancienne adresse → nouvelle (308), nouvelle en 200 avec 1 H1 et la bonne adresse canonique, plan du site avec la nouvelle seulement. Renvoi 450X d'hier contrôlé en ligne (308). Étiquette `sauvegarde-20261128-avis-luba-3-awd-3000`.
+- **Pour le Contenu (vu, pas touché)** : dans cet avis, l'encart « Notre choix » montre le **LUBA 2 AWD 5000** (1 999-2 499 €, lien Amazon B0CQRGMKSR) au lieu du Luba 3 AWD 3000. Et cette page double en partie `/avis-mammotion-luba-3-awd` (20/11, toutes versions) : à fusionner un jour (renvoi vers la page du 20/11) ou à recentrer sur la seule version 3000.
+- **Chef, 29/11** : lire en ligne le renvoi `/test-mammotion-luba-2-awd-avis` et le H1. **Dév, prochain passage** : `/test-segway-navimow-i-series-avis` (restent 5 : Navimow i, Bosch S+ 500, 310 Mark II, Life 750, Worx WR205E).
+
 ## 28/11/2026, samedi 8 h 15 (heure belge) — Chef QRT (contrôle du samedi)
 
 - **En ligne** : 12 adresses lues, 11 pages en 200 avec 1 H1, aucun lien Amazon sans étiquette. Renvoi `/test-husqvarna-automower-450x-nera-avis` → `/avis-…` (308) et H1 « Avis Husqvarna 450X NERA » conformes. `/black-friday-robot-tondeuse` daté du 27/11. 6 captures à 390 px. Article de la nuit `/mammotion-luba-3-awd-vs-segway-navimow-x4-comparatif` conforme (H1 sur 2 lignes, prix datés, note avec barème, aucun vécu).

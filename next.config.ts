@@ -44,6 +44,8 @@ const nextConfig: NextConfig = {
     // Adresses « /test-… » : le site n'essaie pas les robots, elles passent en « /avis-… » (une par passage).
     { source: '/test-mammotion-yuka-mini-2-avis', destination: '/avis-mammotion-yuka-mini-2', permanent: true },
     { source: '/test-husqvarna-automower-450x-nera-avis', destination: '/avis-husqvarna-automower-450x-nera', permanent: true },
+    // Ancienne adresse « luba-2 » d'un avis qui porte sur le Luba 3 AWD 3000.
+    { source: '/test-mammotion-luba-2-awd-avis', destination: '/avis-mammotion-luba-3-awd-3000', permanent: true },
   ],
   headers: async () => [
     {
