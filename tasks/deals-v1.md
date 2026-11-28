@@ -29,8 +29,8 @@
 Interdits : prix barré non relevé par nous, pourcentage inventé, urgence (compte à rebours, stock), « meilleur prix garanti ».
 
 ## Amazon (28/11/2026)
-Le propriétaire a des identifiants de l'API Amazon Creators (remplaçante de PA-API). Dépôt par `bash ~/Toutou/deploy/cle-amazon-creators.sh`
-→ `~/.config/toutou/amazon.env` (AMAZON_CREATORS_ID, AMAZON_CREATORS_SECRET, AMAZON_PARTNER_TAG ; ne jamais afficher). Jeton :
+Le propriétaire a des identifiants de l'API Amazon Creators (remplaçante de PA-API). Dépôt par le propriétaire dans le Coffre à clés du centre de contrôle (service « Amazon (API Creators) »)
+→ `/srv/toutou/shared/.env` (AMAZON_CREATORS_ID, AMAZON_CREATORS_SECRET, AMAZON_PARTNER_TAG ; lire avec sudo, ne jamais afficher). Jeton :
 POST https://api.amazon.co.uk/auth/o2/token (JSON, grant_type client_credentials, scope creatorsapi::default, 1 h, à mettre en cache) ;
 prix : POST https://creatorsapi.amazon/catalog/v1/getItems, en-têtes Authorization Bearer, x-marketplace www.amazon.fr, corps
 {itemIds (10 max), itemIdType ASIN, marketplace www.amazon.fr, partnerTag, resources ["offersV2.listings.price","offersV2.listings.availability"]}.
