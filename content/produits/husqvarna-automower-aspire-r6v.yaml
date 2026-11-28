@@ -1,4 +1,5 @@
 name: "Husqvarna Automower Aspire R6V"
+base: "husqvarna-automower-aspire-r6v"
 categorie: "husqvarna"
 prix: "1 099 €"
 badge: "Sans fil IA Vision"

@@ -22,6 +22,8 @@ export type Product = {
   active: boolean
   stickyCta?: string
   links?: ProductLink[]
+  /** Id du même modèle dans data/robots-tondeuses.json, posé à la main. */
+  base?: string
 }
 
 const PRODUITS_DIR = path.join(process.cwd(), 'content/produits')

@@ -1,4 +1,5 @@
 name: "Husqvarna Automower Aspire R4"
+base: "husqvarna-automower-aspire-r4"
 categorie: "husqvarna"
 prix: "649-699 €"
 badge: "Compact filaire 400 m²"

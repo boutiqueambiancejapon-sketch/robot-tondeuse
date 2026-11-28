@@ -1,4 +1,5 @@
 name: "Segway Navimow i215 LiDAR"
+base: "segway-navimow-i215-lidar"
 categorie: "segway"
 prix: "1 199-1 399 €"
 badge: "LiDAR 1 500 m²"

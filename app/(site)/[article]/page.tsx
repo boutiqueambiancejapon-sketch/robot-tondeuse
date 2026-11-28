@@ -13,7 +13,7 @@ import { extractToc } from '@/lib/toc'
 import { ArticleView } from '@/components/blog/ArticleView'
 import { produitsCites } from '@/lib/produits-cites'
 import { compileArticle } from '@/components/blog/compile-article'
-import { robotDeLaFiche } from '@/lib/radar-fiche'
+import { robotsDeLaFiche } from '@/lib/radar-fiche'
 import { RadarFiche } from '@/components/v2/radar/RadarFiche'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
@@ -84,7 +84,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
   const toc = extractToc(content)
   const { body, end } = await compileArticle(content, meta)
 
-  const robot = robotDeLaFiche(slug, meta.title)
+  const robots = robotsDeLaFiche(meta.base)
   const catLabel = CATEGORY_LABELS[meta.categorie] ?? meta.categorie
   const related = getRelatedArticles(meta.categorie, slug, 3)
 
@@ -144,7 +144,7 @@ export default async function StandaloneArticlePage({ params }: { params: Params
       {jsonLd.map((schema, i) => (
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
-      <ArticleView produits={produitsCites(content)} slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end} radar={robot ? <RadarFiche robot={robot} /> : null}>
+      <ArticleView produits={produitsCites(content)} slug={slug} meta={meta} catLabel={catLabel} toc={toc} related={related} after={end} radar={robots.length ? <RadarFiche robots={robots} /> : null}>
         {body}
       </ArticleView>
     </>

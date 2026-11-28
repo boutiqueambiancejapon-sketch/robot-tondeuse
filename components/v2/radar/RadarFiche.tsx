@@ -4,8 +4,9 @@ import { donneesRadar } from '@/lib/radar-fiche'
 import { Radar } from './Radar'
 import { RadarChoix } from './RadarChoix'
 
-export function RadarFiche({ robot }: { robot: RobotCatalogue }) {
-  const { principal, defaut, toutes, total } = donneesRadar(robot)
+export function RadarFiche({ robots }: { robots: RobotCatalogue[] }) {
+  const [robot, ...gamme] = robots
+  const { principal, defaut, toutes, total } = donneesRadar(robot, undefined, gamme)
   return (
     <section className="radar-sec" aria-labelledby="radar-titre">
       <h2 id="radar-titre" className="h-md">

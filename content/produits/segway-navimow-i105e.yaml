@@ -1,4 +1,5 @@
 name: "Segway Navimow i105E"
+base: "segway-navimow-i105e"
 categorie: "segway"
 prix: "799-999 €"
 badge: "RTK + Vision 58 dB"

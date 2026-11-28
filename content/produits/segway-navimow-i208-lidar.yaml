@@ -1,4 +1,5 @@
 name: "Segway Navimow i208 LiDAR"
+base: "segway-navimow-i208-lidar"
 categorie: "segway"
 prix: "999-1 149 €"
 badge: "LiDAR 800 m² + 4G"

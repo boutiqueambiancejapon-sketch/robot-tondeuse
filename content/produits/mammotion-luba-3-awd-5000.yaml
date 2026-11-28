@@ -1,4 +1,5 @@
 name: "Mammotion Luba 3 AWD 5000"
+base: "mammotion-luba-3-awd-5000"
 categorie: "mammotion"
 prix: "3 199 €"
 badge: "Tri-Fusion 4WD 5 000 m²"

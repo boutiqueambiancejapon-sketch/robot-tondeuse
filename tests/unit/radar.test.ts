@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest'
 import { nomRobot, rangCentile, serieRadar, concurrentsParDefaut, lireVs, pointsConnexion, type RobotCatalogue } from '@/lib/radar'
-import { robotDeLaFiche, donneesRadar, CATALOGUE } from '@/lib/radar-fiche'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { robotsDeLaFiche, donneesRadar, CATALOGUE } from '@/lib/radar-fiche'
 
 const r = (id: string, o: Partial<RobotCatalogue> = {}): RobotCatalogue => ({
   id, marque: 'M', modele: id, surface_m2: 1000, pente_pct: 40, guidage: 'rtk+vision',
@@ -70,13 +73,30 @@ describe('lireVs', () => {
 })
 
 describe('catalogue réel', () => {
-  it('relie l’avis LUBA 3 AWD 3000 par son adresse', () => {
-    expect(robotDeLaFiche('avis-mammotion-luba-3-awd-3000', '')?.id).toBe('mammotion-luba-3-awd-3000')
+  it('relie une fiche par son champ base, jamais par le nom ni l’adresse', () => {
+    expect(robotsDeLaFiche('mammotion-luba-3-awd-3000').map((r) => r.id)).toEqual(['mammotion-luba-3-awd-3000'])
+    expect(robotsDeLaFiche(['segway-navimow-x420', 'segway-navimow-x430']).map((r) => r.id)).toEqual(['segway-navimow-x420', 'segway-navimow-x430'])
+    expect(robotsDeLaFiche(undefined)).toEqual([])
+    expect(robotsDeLaFiche('husqvarna-automower-450x-nera')).toEqual([])
+    expect(robotsDeLaFiche(['mammotion-luba-3-awd-3000', 'id-inconnu'])).toEqual([])
   })
-  it('pas de radar sans correspondance (450X NERA absent de la base, page qui n’est pas une fiche)', () => {
-    expect(robotDeLaFiche('avis-husqvarna-automower-450x-nera', 'Husqvarna Automower 450X NERA avis')).toBeNull()
-    expect(robotDeLaFiche('avis-mammotion-luba-3-awd', 'Avis Mammotion Luba 3 AWD : quelle version choisir')).toBeNull()
-    expect(robotDeLaFiche('guide-mammotion-luba-3-awd-3000', 'Mammotion LUBA 3 AWD 3000')).toBeNull()
+  it('une gamme remplace les concurrents par défaut', () => {
+    const [p, ...g] = robotsDeLaFiche(['mammotion-luba-3-awd-3000', 'mammotion-luba-3-awd-1500', 'mammotion-luba-3-awd-5000'])
+    expect(donneesRadar(p, CATALOGUE, g).defaut.map((s) => s.id)).toEqual(['mammotion-luba-3-awd-1500', 'mammotion-luba-3-awd-5000'])
+  })
+  it('chaque champ base des articles et des fiches produits existe dans la base', () => {
+    const lus: string[] = []
+    for (const dir of ['content/articles', 'content/produits']) {
+      for (const f of fs.readdirSync(dir).filter((x) => /\.(mdx|yaml)$/.test(x))) {
+        const raw = fs.readFileSync(path.join(dir, f), 'utf-8')
+        const { data } = matter(f.endsWith('.yaml') ? `---\n${raw}\n---` : raw)
+        if (data.base === undefined) continue
+        const ids: string[] = Array.isArray(data.base) ? data.base : [data.base]
+        for (const id of ids) expect(CATALOGUE.some((r) => r.id === id), `${f} : ${id}`).toBe(true)
+        lus.push(f)
+      }
+    }
+    expect(lus.length).toBeGreaterThanOrEqual(19)
   })
   it('notes entre 0 et 10 et 2 concurrents pour chaque robot', () => {
     for (const robot of CATALOGUE) {
