@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 16 h (heure belge) — Dév QRT (mission du propriétaire : relier les fiches au radar, suite)
+
+- **Constat** : la liaison était déjà en ligne depuis 13 h 35 (4 avis et 15 fiches produits). Il manquait les 2 Husqvarna ajoutés par Catalogue à 15 h 40 (450X NERA et 310 Mark II, `arrete: true`). Noms et chiffres comparés à la main (5 000 m², 50 % ; 1 000 m², 40 %, 59 dB) : champ `base` ajouté à leurs 2 fiches produits et à leurs 2 avis. Total : **17 fiches produits et 6 avis reliés**, radar présent dans le HTML brut.
+- **Réparé** : lignes de prix d'un encart produit. Un « prix » en phrase (« Produit abandonné (Husqvarna, 27/11/2026) » sur l'avis 450X) écrasait le nom du marchand lettre par lettre et dépassait de l'écran. Le nom garde une largeur minimale, le texte long passe à la ligne. Encart LUBA inchangé.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 171 tests OK, construction OK. Captures 390 px : `~/drafts/qrt-radar/liaison2-*.png` (450X NERA, LUBA 3 AWD 3000, Navimow X4). Étiquette `sauvegarde-20261128-radar-liaison2`.
+- **Sans modèle dans la base (Catalogue QRT)** : fiches Husqvarna 415X, 430X NERA ; Mammotion LUBA 2 AWD 5000, LUBA 2X AWD 10000, LUBA Mini AWD 800, Yuka 1500, Yuka Mini 700 ; avis Navimow i Series (parle du i110N). Les 6 Navimow reliés suffisent pour la marque.
+- **Contenu** : avis 450X, l'encart affiche une ligne « Amazon » qui pointe vers husqvarna.com avec « Produit abandonné » comme prix ; mettre l'adresse Amazon ou retirer l'encart. La fiche produit 450X garde « 3 699-3 999 € » alors que le modèle n'est plus vendu.
+
 ## 28/11/2026, samedi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 28/11)
 
 - **En ligne** : l'envoi du 27/11 est arrivé (5 pages en 200, 1 H1, date du 27/11). Relevé : 13 prix lus, 0 échec, tous identiques à la veille. 13 marques vues, dates au 28/11.
