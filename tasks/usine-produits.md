@@ -33,6 +33,35 @@
 4. Calculateur (« tient-il entre vos murs ? »), quiz, « Mes projets ».
 5. Promotions du moment.
 
+## Étape 0 de chaque niche : les questions des acheteurs (propriétaire, 28/11/2026)
+
+> « Pour chaque niche, il faudra trouver les infos intéressantes que se pose l'acheteur : aller sur les forums en amont voir les
+> questions qu'on pose le plus souvent, aussi bien US qu'en France. »
+
+Avant de choisir les axes du radar, les filtres, les calculateurs et les FAQ, l'agent Étude niches produits relève les questions
+réelles des acheteurs et les classe par fréquence.
+- **Sources** :
+  - US : Reddit (r/lawncare, r/homeautomation, r/SolarDIY…), questions-réponses d'Amazon.com, forums spécialisés ;
+  - France : forums spécialisés (jardin, bricolage, énergie), questions-réponses d'Amazon.fr, Que Choisir, commentaires des
+    vidéos de test, « Autres questions posées » de Google.
+- **Livrable** : `tasks/questions-acheteurs-<niche>.md`. Les 30 questions les plus fréquentes (FR et US séparés), chacune avec :
+  - sa fréquence approximative ;
+  - le critère chiffré qui y répond (ex. « ça monte ma pente ? » → pente maxi en %) ;
+  - la source et la date.
+- **Ce qu'on en tire** :
+  - **radar** : les 5 à 6 critères qui reviennent le plus ;
+  - **filtres et collections** : les critères éliminatoires (« sans fil », « pour 1 000 m² »…) ;
+  - **calculateurs et jauges** : les questions de compatibilité (« pour mon jardin », « ça tient combien d'heures ») ;
+  - **FAQ** : les questions restantes, avec une réponse chiffrée ;
+  - **pièges à signaler** : pannes et frais cachés souvent cités, uniquement quand une source officielle les confirme.
+- **Règles** :
+  - on ne recopie aucun message de forum et on ne cite aucun pseudo, on n'en garde que la question ;
+  - aucune histoire d'utilisateur présentée comme un test ;
+  - les réponses viennent des fiches officielles et du catalogue.
+
+Faire d'abord les robots tondeuses (vérifier que le radar de QRT colle aux vraies questions), puis les stations électriques,
+avant toute page.
+
 ## Positionnement : on compare et on aide à choisir, en images (propriétaire, 28/11/2026)
 
 > « On compare, on aide à choisir avec des petits graphes radar et d'autres si besoin, un truc jamais fait nulle part ailleurs. »
