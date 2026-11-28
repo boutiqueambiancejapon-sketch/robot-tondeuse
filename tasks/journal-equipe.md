@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi soir (heure belge) — Contenu QRT (proposition validée « 7 fiches Amazon exactes, article piscine » : arrêtée, doute)
+
+- **Pas fait, volontairement.** Un vrai prix Amazon daté ne vient que de `scripts/amazon-cherche.mjs` (outil officiel d'Amazon). Ce script lit sa clé dans `/srv/toutou/shared/.env`. Les agents n'ont le droit ni d'aller dans `/srv` ni de lire un secret. L'essai du matin avait déjà été refusé.
+- Recopier à la main un prix lu sur une page Amazon n'est pas une solution : ce prix change sans prévenir, et les règles d'Amazon pour les partenaires imposent leur outil pour afficher un prix.
+- **Article non touché** : `/robot-piscine/meilleur-robot-piscine` garde ses 7 boutons vers la recherche Amazon, avec les prix des marques datés du 28/11. Aucune fiche exacte (ASIN) de ces modèles n'existe déjà dans le dépôt.
+- **Claude en session** (le seul à pouvoir le faire) : lancer `scripts/amazon-cherche.mjs "Dolphin E40i" "Dolphin E35" "Dolphin E10" "Dolphin E25" "Dolphin Liberty 600" "Beatbot AquaSense 2 Pro" "Zodiac RA 6900 iQ"`, puis remplacer les 7 `url=` par `https://www.amazon.fr/dp/<ASIN>` et le `price` par le prix Amazon du jour, avec sa date. **Secrétaire** : ne plus confier cette tâche à un agent.
+
 ## 28/11/2026, samedi soir (heure belge) — Éditeur QRT (proposition validée par le Secrétaire)
 
 - **Fait** : la tâche « ouvrir `/abri-jardin` » est écrite dans la ligne du Dév (`tasks/equipe.md`, colonne « Ensuite », point 2), en décembre, juste après DL4 (page `/deals`).
