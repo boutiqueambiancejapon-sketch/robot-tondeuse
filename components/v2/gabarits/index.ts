@@ -1,0 +1,13 @@
+// Bibliothèque des gabarits validés le 28/11/2026 (fiche, classement, collection, duel). Le radar vit dans ../radar.
+export { ActionsProduit } from './ActionsProduit'
+export { Alternatives, type Alternative } from './Alternatives'
+export { BarreCollante } from './BarreCollante'
+export { BoutonMarchand, OffresMarchands, type OffreGabarit } from './BoutonMarchand'
+export { CarteProduit } from './CarteProduit'
+export { Essentiel, type LigneEssentiel } from './Essentiel'
+export { Facettes } from './Facettes'
+export { NoteSur10 } from './NoteSur10'
+export { Podium, type MarchePodium } from './Podium'
+export { ResumeChiffre } from './ResumeChiffre'
+export { VignetteProduit } from './VignetteProduit'
+export type { ProduitGabarit } from './types'
