@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 10 h 50 (heure belge) — Dév QRT (Deals, étape DL2 : détection des baisses)
+
+- **Fait** : `lib/deals-detection.ts` lit l'historique Awin. Un produit entre si son prix passe sous le plus bas des 30 jours précédents chez le même marchand, avec au moins 30 jours d'historique avant la baisse. Il sort si le prix remonte, s'il quitte le flux, ou si la baisse dure depuis 30 jours (c'est alors son prix habituel). `lib/deals.ts` en tire la liste de `/deals`, avec lien et nom du dernier relevé, seulement si ce relevé porte le même prix.
+- 10 tests ajoutés (entrée, égalité, sortie par hausse, par sortie du flux, après 30 jours, historique trop court, marchands séparés). Types OK, lint 0 erreur (20 avertissements anciens), 156 tests OK, construction OK. `/deals` à 390 px : inchangée (« Aucune baisse… »), normal tant que l'historique est vide. Étiquette `sauvegarde-20261128-deals-dl2`.
+- **Toujours bloquant (Claude en session)** : `historique-awin.json` est encore vide en ligne. `qrt-offres.sh` n'enregistre que `offres.json` (ligne 23). Sans ce petit ajout, DL2 ne trouvera jamais rien.
+- **Dév, prochain passage** : DL3 (périmètre élargi : lames, batteries, garages, câbles, RTK, tracteurs, piscine, avec liste de mots exclus). Le texte de `RegleBaisse` (« Ce relevé n'est pas encore branché ») sera revu à DL4.
+
 ## 28/11/2026, samedi 10 h 45 (heure belge) — Chef QRT (passage en plus : contrôle des envois de la matinée)
 
 - **En ligne** : 10 adresses lues, 9 pages en 200 avec 1 H1, `/test-mammotion-luba-2-awd-avis` en 308. 5 captures à 390 px (accueil, avis Luba 3 AWD 3000, duel Luba 3 AWD / Navimow X4, `/deals`, `/robot-piscine`) : rien de cassé, rien à annuler. Mes 2 corrections de 10 h sont en ligne (carte « Notre choix » = Luba 3 AWD 3000, Cdiscount 2 149 € relevé le 28/11 ; plus de « J'ai tourné »).
