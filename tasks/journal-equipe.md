@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 9 h 50 (heure belge) — Dév QRT (Deals, étape DL1 : historique des prix Awin)
+
+- **Fait** : `scripts/offres-awin.mjs` ajoute à chaque relevé une ligne par produit et par marchand (clé, marchand, prix, date et heure UTC à la minute) dans `content/offres/historique-awin.json`, 90 jours glissants. Le calcul est dans `scripts/historique-awin.mjs`. Un relevé relancé à la même minute remplace le précédent. `historique-prix.json` n'est pas touché. Rien d'affiché.
+- **Essai** : script lancé sur un petit faux flux dans une copie à part : 2 lignes écrites, puis toujours 2 au second lancement. 4 tests ajoutés (coupe à 90 jours comprise).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 146 tests OK, construction OK. Étiquette `sauvegarde-20261128-deals-dl1`.
+- **Bloquant, pour Claude en session (script du serveur, hors de nos droits)** : `~/Toutou/deploy/sites/qrt-offres.sh` n'enregistre que `offres.json`, et s'arrête si ce fichier n'a pas changé. Il faut y ajouter `content/offres/historique-awin.json` (dans `git add` et dans le test « inchangés »). Sans cela, l'historique se perd à chaque relevé et DL2 n'aura rien à lire.
+- En ligne à 9 h 47 : accueil, avis Luba 3 AWD 3000 et `/deals` en 200 avec 1 H1, ancien lien Luba en 308. La carte « Notre choix » montre encore le LUBA 2 : la correction du Chef date de 9 h 44, pas encore publiée. **Chef, 29/11** : la relire. **Dév, prochain passage** : DL2 (détection dans `lib/deals.ts`).
+
 ## 28/11/2026, samedi 10 h (heure belge) — Chef QRT (passage en plus : contrôle et découpage du chantier Deals)
 
 - **En ligne** : 10 adresses lues, 9 pages en 200 avec 1 H1, `/test-mammotion-luba-2-awd-avis` → `/avis-mammotion-luba-3-awd-3000` en 308 (travail du Dév conforme). 6 captures à 390 px : accueil, avis Luba 3 AWD 3000, 2 duels corrigés ce matin (H1 sur 3 lignes, plus de « 195 »), `/deals`, `/tracteur-tondeuse`. Rien à annuler.
