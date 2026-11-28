@@ -1,0 +1,839 @@
+[
+  {
+    "id": "mammotion-luba-4-awd-3000f",
+    "marque": "Mammotion",
+    "modele": "LUBA 4 AWD 3000F",
+    "surface_m2": 3000,
+    "pente_pct": 80,
+    "guidage": "rtk+lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 44,
+    "hauteur_coupe_mm": [
+      25,
+      95
+    ],
+    "autonomie_min": 120,
+    "zones_max": 30,
+    "ip": "IPX6",
+    "poids_kg": 24.5,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-4-awd-6000f",
+    "marque": "Mammotion",
+    "modele": "LUBA 4 AWD 6000F",
+    "surface_m2": 6000,
+    "pente_pct": 80,
+    "guidage": "rtk+lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 44,
+    "hauteur_coupe_mm": [
+      25,
+      95
+    ],
+    "autonomie_min": 185,
+    "zones_max": 50,
+    "ip": "IPX6",
+    "poids_kg": 24.5,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-4-awd-12000f",
+    "marque": "Mammotion",
+    "modele": "LUBA 4 AWD 12000F",
+    "surface_m2": 12000,
+    "pente_pct": 80,
+    "guidage": "rtk+lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 53,
+    "hauteur_coupe_mm": [
+      25,
+      85
+    ],
+    "autonomie_min": 160,
+    "zones_max": 100,
+    "ip": "IPX6",
+    "poids_kg": 26.6,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-3-awd-5000",
+    "marque": "Mammotion",
+    "modele": "LUBA 3 AWD 5000",
+    "surface_m2": 5000,
+    "pente_pct": 80,
+    "guidage": "rtk+lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      25,
+      70
+    ],
+    "autonomie_min": 215,
+    "zones_max": 50,
+    "ip": "IPX6",
+    "poids_kg": 19.35,
+    "prix_eur": 3199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-3-awd-3000",
+    "marque": "Mammotion",
+    "modele": "LUBA 3 AWD 3000",
+    "surface_m2": 3000,
+    "pente_pct": 80,
+    "guidage": "rtk+lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      25,
+      70
+    ],
+    "autonomie_min": 175,
+    "zones_max": 30,
+    "ip": "IPX6",
+    "poids_kg": 19.0,
+    "prix_eur": 2699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-3-awd-1500",
+    "marque": "Mammotion",
+    "modele": "LUBA 3 AWD 1500",
+    "surface_m2": 1500,
+    "pente_pct": 80,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      25,
+      70
+    ],
+    "autonomie_min": 135,
+    "zones_max": 15,
+    "ip": "IPX6",
+    "poids_kg": 19.0,
+    "prix_eur": 2299,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-3-awd",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-mini-2-awd-1500",
+    "marque": "Mammotion",
+    "modele": "LUBA Mini 2 AWD 1500",
+    "surface_m2": 1500,
+    "pente_pct": 80,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      65
+    ],
+    "autonomie_min": 150,
+    "zones_max": 20,
+    "ip": "IPX6",
+    "poids_kg": 17.2,
+    "prix_eur": 1899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1500",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-mini-2-awd-1000",
+    "marque": "Mammotion",
+    "modele": "LUBA Mini 2 AWD 1000",
+    "surface_m2": 1000,
+    "pente_pct": 80,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      65
+    ],
+    "autonomie_min": 150,
+    "zones_max": 10,
+    "ip": "IPX6",
+    "poids_kg": 15.0,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-2-1000",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 2 1000",
+    "surface_m2": 1000,
+    "pente_pct": 45,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "option_4g": true,
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 135,
+    "zones_max": 10,
+    "ip": "IPX6",
+    "poids_kg": 10.9,
+    "prix_eur": 1299,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka-mini-2-1000",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-2-800",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 2 800",
+    "surface_m2": 800,
+    "pente_pct": 45,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 120,
+    "zones_max": 5,
+    "ip": "IPX6",
+    "poids_kg": 10.6,
+    "prix_eur": 999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka-mini-2-800",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-2-800-lidar",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 2 800 LiDAR",
+    "surface_m2": 800,
+    "pente_pct": 45,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "option_4g": true,
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 120,
+    "zones_max": 5,
+    "ip": "IPX6",
+    "poids_kg": 10.9,
+    "prix_eur": 1099,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka-mini-2-800-lidar",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-2-500",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 2 500",
+    "surface_m2": 500,
+    "pente_pct": 45,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "option_4g": true,
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 120,
+    "zones_max": 5,
+    "ip": "IPX6",
+    "poids_kg": 10.6,
+    "prix_eur": 799,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka-mini-2-500",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-2-awd-5000x",
+    "marque": "Mammotion",
+    "modele": "LUBA 2 AWD 5000X",
+    "surface_m2": 5000,
+    "pente_pct": 80,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      25,
+      70
+    ],
+    "autonomie_min": 190,
+    "zones_max": 50,
+    "ip": "IPX6",
+    "poids_kg": 18.6,
+    "prix_eur": 2999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-2-awd",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-2-awd-3000x",
+    "marque": "Mammotion",
+    "modele": "LUBA 2 AWD 3000X",
+    "surface_m2": 3000,
+    "pente_pct": 80,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 40,
+    "hauteur_coupe_mm": [
+      25,
+      70
+    ],
+    "autonomie_min": 190,
+    "zones_max": 30,
+    "ip": "IPX6",
+    "poids_kg": 18.6,
+    "prix_eur": 2599,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-2-awd",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-luba-mini-awd-lidar-1500",
+    "marque": "Mammotion",
+    "modele": "LUBA Mini AWD LiDAR 1500",
+    "surface_m2": 1500,
+    "pente_pct": 80,
+    "guidage": "rtk+lidar+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      65
+    ],
+    "autonomie_min": 150,
+    "zones_max": 20,
+    "ip": "IPX6",
+    "poids_kg": 16.5,
+    "prix_eur": 2299,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-luba-mini-awd-lidar",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-3000",
+    "marque": "Mammotion",
+    "modele": "YUKA 3000",
+    "surface_m2": 3000,
+    "pente_pct": 45,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 32,
+    "hauteur_coupe_mm": [
+      20,
+      90
+    ],
+    "autonomie_min": 130,
+    "zones_max": 30,
+    "ip": "IPX6",
+    "poids_kg": 17.2,
+    "prix_eur": 1999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-2000",
+    "marque": "Mammotion",
+    "modele": "YUKA 2000",
+    "surface_m2": 2000,
+    "pente_pct": 45,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 32,
+    "hauteur_coupe_mm": [
+      20,
+      90
+    ],
+    "autonomie_min": 65,
+    "zones_max": 20,
+    "ip": "IPX6",
+    "poids_kg": 16.4,
+    "prix_eur": 1699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-1000",
+    "marque": "Mammotion",
+    "modele": "YUKA 1000",
+    "surface_m2": 1000,
+    "pente_pct": 45,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 32,
+    "hauteur_coupe_mm": [
+      20,
+      90
+    ],
+    "autonomie_min": 65,
+    "zones_max": 10,
+    "ip": "IPX6",
+    "poids_kg": 16.4,
+    "prix_eur": 1399,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par la boutique Mammotion FR (hors promotion)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      },
+      {
+        "url": "https://fr.mammotion.com/products/robot-tondeuse-yuka",
+        "lu_le": "2026-11-28"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-800",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 800",
+    "surface_m2": 800,
+    "pente_pct": 50,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 150,
+    "zones_max": 15,
+    "ip": "IPX6",
+    "poids_kg": 10.6,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-600",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 600",
+    "surface_m2": 600,
+    "pente_pct": 50,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "option_4g": true,
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 55,
+    "zones_max": 15,
+    "ip": "IPX6",
+    "poids_kg": 10.6,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      }
+    ]
+  },
+  {
+    "id": "mammotion-yuka-mini-500",
+    "marque": "Mammotion",
+    "modele": "YUKA Mini 500",
+    "surface_m2": 500,
+    "pente_pct": 50,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "option_4g": true,
+    "bruit_db": null,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": 55,
+    "zones_max": 15,
+    "ip": "IPX6",
+    "poids_kg": 10.6,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://cdn.shopify.com/s/files/1/0745/1436/6753/files/compare-models-data_V5.json",
+        "lu_le": "2026-11-28",
+        "note": "tableau technique officiel Mammotion (site FR, généré le 19/11/2026), utilisé par https://fr.mammotion.com/pages/robots-tondeuses-comparez"
+      }
+    ]
+  }
+]

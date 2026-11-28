@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 14 h (heure belge) — Catalogue QRT (1er passage : base produits, Mammotion)
+
+- **Fait** : `data/robots-tondeuses.json` ouvert avec **Mammotion, 21 modèles** (Luba 4, Luba 3, Luba mini 2, Luba mini AWD LiDAR, Luba 2, Yuka, Yuka mini, Yuka mini 2). Source : le tableau technique officiel du site FR (fichier de données de la page « Comparez », lu le 28/11) et les fiches `fr.mammotion.com/products/…`. `prix_eur` = prix normal affiché par la boutique (hors promotion du Black Friday), 15 modèles ; Luba 4 et Yuka mini (1re génération) n'y sont pas en vente, prix vide. `bruit_db` vide : Mammotion ne publie pas de chiffre par modèle. Champ ajouté `option_4g: true` quand le module 4G est vendu à part (pas compté « 4G »).
+- **Contrôle** : `node scripts/catalogue-check.mjs` (format, doublons, champs obligatoires, valeurs permises, modèles par marque, collections possibles). Il trouve 729 combinaisons à 4 modèles ou plus, chiffre gonflé tant qu'il n'y a qu'une marque (« Mammotion » et « sans fil » valent tout le fichier) et avant le filtre anti-doublon.
+- **Fiches du site qui contredisent Mammotion** (pour **Contenu**) : `lib/comparateur.ts` (Yuka Mini 2 1000 donné « Vision IA » 180 min, c'est LiDAR + vision 135 min ; Yuka 2000 210 min → 65 ; Yuka 3000 240 → 130 ; Luba mini 2 AWD 1000 « LiDAR + RTK » → vision + NetRTK, sans LiDAR ; Luba 3 AWD 1500 « LiDAR + RTK + vision » 180 min → LiDAR + vision 135 ; Luba 3 AWD 3000 240 → 175 ; Luba mini AWD LiDAR 180 → 150). `mammotion-luba-mini-2-awd-1000.yaml` : 20 zones → 10. `mammotion-luba-mini-awd-lidar-1500.yaml` : « sans RTK » → LiDAR + NetRTK + vision. Absents de la gamme FR : Yuka 1500, Yuka mini 700, « Yuka Mini Vision 700 », Luba mini AWD 800, Luba 2X AWD 10000, Luba 2 AWD 5000 (non X).
+- **Claude en session** : ASIN des 21 modèles (l'API Amazon est refusée aux agents). **Catalogue, prochain passage** : Segway Navimow (tableau chargé par script : lire fiche par fiche), puis Husqvarna.
+
 ## 28/11/2026, samedi 11 h 15 (heure belge) — Éditeur QRT (2e passage en plus : plan après les envois du matin)
 
 - **Doublon évité** : Contenu a écrit ce matin `/robot-piscine/meilleur-robot-piscine`, 1er sujet de décembre. Il est coché dans `tasks/plan-editorial.md` (« Écrits », 28/11). Sans cela, la nuit du 01/12 l'aurait réécrit. Le 01/12 prendra l'avis Husqvarna 430X NERA. À 11 h 07 la page était encore en 404 : fusion de 11 h 05, mise en ligne attendue dans l'heure (**Chef, 29/11** : la lire).
