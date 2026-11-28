@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 21 h (heure belge) — Catalogue QRT (5e passage, mission « catalogue à fond » : 5 lots envoyés)
+
+- **Fait** : `data/robots-tondeuses.json` passe de 121 à **190 modèles, 15 marques**, en 5 lots (étiquettes `sauvegarde-20261128-catalogue-lot1` à `lot5`) : + **Ambrogio 16** (gamme particuliers, ligne Professional écartée), + **Kress 29** (EyePilot, EyePilot 4×4, RTKⁿ, Mission ; séries 8 000 m² et plus écartées ; KR173E.2 sans tableau, pas ajouté), + **Sunseeker 6**, + **Mova 9**, + **Stihl 2**, + **Einhell 7**. Fiches officielles FR lues le 28/11. Prix = prix normal de la marque (promotion du Black Friday notée dans `prix_source`) ; Ambrogio ne publie aucun prix (revendeurs).
+- **Nouveau champ `photo_flux`** (image du flux Fnac/Awin) : rempli pour Sunseeker S4, V1 et V3, les seuls des nouveaux robots présents dans le flux.
+- **Champs vides** : autonomie et zones chez Kress (29), Einhell (7), Stihl (2) ; bruit, IP chez Stihl ; transmission chez Ambrogio hors 4WD ; Sunseeker V1 : le tableau dit « propulsion arrière », la page « traction avant » → vide. **303 collections** possibles (180 avant). Types, lint (0 erreur), 243 tests, construction OK à chaque lot.
+- **Yarbo pas ajouté** : tableau technique en image sur fr.yarbo.com, mode d'emploi réservé aux clients connectés. **Contenu** : `mova-viax-250.yaml` dit 60 min d'autonomie, Mova publie 50 min.
+- **Claude en session** : ASIN des 69 nouveaux (`scripts/catalogue-asin.mjs`). **Chef, 29/11** : lire 1 avis en ligne (la base y passe de 121 à 190 robots : rangs et notes bougent, c'est normal). **Catalogue, prochain passage** : Yarbo (PDF), puis Lymow, Anthbot, AL-KO, Wolf-Garten, Honda, Ryobi, Greenworks, Makita, Yard Force.
+
 ## 28/11/2026, samedi 20 h 25 (heure belge) — Dév QRT (site modèle, étape 2a : gabarit CLASSEMENT, mission « QRT à fond »)
 
 - **Vérifié** : l'étape 1 (un dossier par site + fiche produit) est fusionnée en ligne (`5ce8b09`).
