@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 17 h 45 (heure belge) — Dév QRT (mission du propriétaire : photos des produits)
+
+- **Fait** : règle du 28/11 dans `lib/photos-produits.ts` : 1) photo hébergée `public/images/produits/<id>.webp` (24 fichiers, dont 14 aux id de la base) ; 2) sinon adresse Amazon de `content/offres/photos-amazon.json`, ignorée après 24 h, seulement `m.media-amazon.com` ; 3) sinon l'initiale de la marque. `VignetteProduit` affiche la photo Amazon telle qu'Amazon la sert (sans passer par l'optimiseur, donc jamais copiée chez nous). Nouveau `PhotoFiche` (haut de fiche, « Photo : Amazon.fr » sous une photo Amazon) et `produitGabarit()` (robot de la base → carte, podium, fiche).
+- **Script de nuit écrit, pas lancé** (clé interdite à l'agent) : `scripts/photos-amazon.mjs` fait une demande getItems par paquet de 10 ASIN, avec la photo ET le prix dans la même demande (28 ASIN → 3 demandes), et réécrit le fichier en entier. `deploy/qrt-photos-amazon.sh`, `.service` (clés lues par systemd dans le coffre, verrou Amazon commun), `.timer` à 21 h 10 (Paris) : après `qrt-offres` et `toutou-article-soir` (20 h, finis vers 20 h 08), avant `controle-menage` (22 h 15), hors de `toutou-amazon-prix` (à la 5e minute de chaque heure).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 206 tests (10 nouveaux), construction OK, capture 390 px (2 photos hébergées, initiale « E » pour l'Ecovacs GOAT A3000). Rien n'est branché sur une page : le site en ligne ne change pas.
+- **Claude en session** : installer et lancer une fois le service (marche à suivre en tête de `deploy/qrt-photos-amazon.service`), puis vérifier que le fichier compte des photos et que `flock` ouvre bien `/run/lock/amazon-api.lock` avec l'utilisateur administrator. **Dév, prochain passage** : gabarits étape 2, la fiche avec `PhotoFiche` en haut.
+
 ## 28/11/2026, samedi 17 h 35 (heure belge) — Dév QRT (gabarits validés par le propriétaire, étape 1 : bibliothèque)
 
 - **Fait** : `components/v2/gabarits/` (11 composants de 10 à 55 lignes, styles dans `app/v2-gabarits.css`, variables du site, cuivre seul pour l'action) et `lib/gabarits.ts` (résumé chiffré : note moyenne, nombre de modèles, prix médian des seuls prix datés ; nombres par filtre). Bouton marchand : aucun prix sans date, liens Amazon par `addAffiliateTag`, texte jamais sur deux lignes. Alerte de prix affichée seulement si une vraie inscription existe (DL5).
