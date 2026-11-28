@@ -7,14 +7,23 @@ restant au centre**.
 > **Décision du propriétaire, 18/11/2026 : priorité aux produits chers (« high ticket »).** Robots tondeuses à plus de
 > 1 000 € d'abord ; nouvelle rubrique « Tracteurs et tondeuses autoportées » (1 500 à 4 000 €), ouverte le 18/11/2026 ;
 > robots de piscine avancés à décembre 2026. Gazon, dépannage et accessoires bon marché passent derrière.
-> Cabanons, pergolas et mobilier : pas sur ce site (futur site jardin).
+> ~~Cabanons, pergolas et mobilier : pas sur ce site (futur site jardin).~~ Remplacé le 28/11/2026 (ci-dessous).
+
+> **Décision du propriétaire, 28/11/2026 : « Grâce à Amazon, on peut attaquer un max de nouveaux clusters high ticket :
+> robot piscine, mais aussi cabane et tout ce qui concerne le jardin. »** Ordre : 1) robots de piscine (ouverte) ;
+> 2) **abris et cabanes de jardin** (500 à 3 000 €, rubrique 4.4 bis, dossier `/abri-jardin/`, sujets dès janvier 2027) ;
+> 3) les autres produits chers du jardin, un à la fois, après les deux premiers (pergolas et carports, serres, barbecues
+> et planchas haut de gamme, spas, nettoyeurs haute pression, débroussailleuses et taille-haies sur batterie, mobilier).
+> Prix et disponibilité lus à l'API Amazon Creators, jamais inventés. Le menu reste celui du design V2 (nouvelles
+> rubriques sous « Jardin »). Détail dans `tasks/equipe.md`.
 
 Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de nuit), `tasks/calendrier-editorial.md`
 (la vue par mois), `tasks/design-v2.md` (les gabarits visuels : avis, marque, classement, duel, guide, outil, promos, rubrique).
 
 ## 1. Le principe en cinq lignes
 
-1. **Sept rubriques au plus**, plus un service « Promos » qui les traverse. Pas de mobilier, de barbecue ni d'éclairage.
+1. **Une rubrique par famille de produits**, plus un service « Promos » qui les traverse. Depuis le 28/11/2026, le jardin
+   haut de gamme entre sur le site, une rubrique à la fois (abris d'abord ; mobilier et barbecues seulement à leur tour).
 2. **Aucune adresse existante ne change.** Les 213 articles restent à la racine du site (`/mon-article`).
 3. **Les rubriques déjà vivantes restent à la racine** (robots tondeuses, accessoires, gazon), ainsi que les **tracteurs
    et tondeuses autoportées** (même lecteur, rien à attendre du code). **Trois rubriques ont leur dossier** :
@@ -51,6 +60,10 @@ Fichiers liés : `tasks/plan-editorial.md` (les sujets, lus par la rédaction de
 │    /robot-piscine                 rubrique
 │    /robot-piscine/<page>          classements, avis de marque, duels, guides
 │
+├─ 4 bis. ABRIS DE JARDIN           (décision du 28/11/2026 ; dossier à ouvrir par le Dév avant le 01/01/2027)
+│    /abri-jardin                   rubrique
+│    /abri-jardin/<page>            classements par matériau et par taille, démarches, fondation, taxe
+│
 ├─ 5. ARROSAGE                      (à ouvrir en avril 2027)
 │    /arrosage                      rubrique
 │    /arrosage/<page>
@@ -76,6 +89,7 @@ C'est le **Dév QRT** qui change « fermée » en « ouverte » le jour où le d
 | Gazon et pelouse | racine | ouverte | `content/articles/<adresse>.mdx` |
 | Promos | racine | ouverte | `content/articles/<adresse>.mdx` |
 | Robots de piscine | `/robot-piscine/` | **ouverte** (18/11/2026) | `content/articles/robot-piscine/<adresse>.mdx`, où `<adresse>` est la fin de l'adresse (`/robot-piscine/dolphin-vs-zodiac` → `dolphin-vs-zodiac.mdx`). En-tête facultatif : `bassins: [hors-sol, enterree, ligne-eau, sans-fil]` pour le filtre de la page de rubrique. Liens internes écrits avec le dossier (`/robot-piscine/…`) |
+| Abris de jardin | `/abri-jardin/` | **fermée** (à ouvrir avant le 01/01/2027) | à noter par le Dév |
 | Arrosage | `/arrosage/` | **fermée** (à ouvrir avant le 01/04/2027) | à noter par le Dév |
 | Outils sur batterie | `/outils-jardin/` | **fermée** (à ouvrir avant le 01/09/2027, sous condition) | à noter par le Dév |
 
@@ -236,6 +250,36 @@ Même acheteur, même logique de comparaison que le robot tondeuse. Le flux Cdis
 - **Hors champ** : traitement de l'eau, pompes, filtres à sable, chauffage, bâches, la piscine elle-même. On ne parle de
   l'eau que pour dire quand sortir le robot.
 
+### 4.4 bis Abris et cabanes de jardin (décision du propriétaire du 28/11/2026)
+
+Panier de 500 à 3 000 €, vendu sur Amazon, Cdiscount et Fnac (prix lus à l'API Amazon Creators). Le lecteur est le
+propriétaire d'un jardin, souvent le même que celui du robot : il cherche où ranger tondeuse, outils et vélos.
+
+- **Page de rubrique** : `/abri-jardin` (Dév, gabarit « rubrique » du design V2, entrée sous « Jardin » dans le menu,
+  sans changer la forme du menu). **Page mère des articles** : `/abri-jardin/meilleur-abri-de-jardin` (premier sujet).
+- **Ordre d'écriture** : janvier 2027, la page mère, la page démarches (déclaration préalable ou permis) et le duel des
+  matériaux ; février, le classement bois ; mars, métal, résine, fondation, taxe, 20 m², limite de propriété, moins de
+  5 m² (pic d'achat d'avril-mai). Le studio de jardin isolé (9 500 € et plus) reste en réserve.
+- **Gabarits** :
+
+| Type de page | Gabarit | Exemple |
+|---|---|---|
+| Classement | `/abri-jardin/meilleur-abri-de-jardin-<matériau ou critère>` | `/abri-jardin/meilleur-abri-de-jardin-bois` |
+| Guide par taille | `/abri-jardin/abri-de-jardin-<taille>` | `/abri-jardin/abri-de-jardin-20m2` |
+| Duel | `/abri-jardin/abri-de-jardin-<a>-ou-<b>` · `/abri-jardin/<marque-a>-vs-<marque-b>` | `/abri-jardin/abri-de-jardin-bois-metal-ou-resine` |
+| Démarches, taxe, pose | `/abri-jardin/<sujet-en-clair>` | `/abri-jardin/taxe-amenagement-abri-de-jardin` |
+
+- **Honnêteté** : aucune note ; surface hors tout et surface utile toujours distinguées ; démarches et taxe seulement
+  d'après service-public.gouv.fr, economie.gouv.fr ou justice.fr, avec renvoi à la mairie et au PLU ; chiffres de vendeurs
+  présentés comme tels.
+- **Liens** : chaque page renvoie à `/abri-jardin/meilleur-abri-de-jardin` ; le guide sous 5 m² et le classement général
+  renvoient à `/abri-garage-robot-tondeuse-faut-il-en-acheter-2026` (ranger le robot l'hiver). Ne pas doubler cet article :
+  le garage du robot reste dans « Autour du robot ».
+- **Hors champ pour l'instant** : carports, pergolas, serres, chalets habitables, maisons de jardin de plus de 20 m²
+  (permis de construire), pose par un artisan. Ils viendront avec le cluster 3, un à la fois.
+- **Critère de suite** : comme les tracteurs, après les 10 premiers articles, le Chef regarde les visites venues de Google
+  et les clics marchands ; le cluster suivant (pergolas et carports, ou serres) ne s'ouvre qu'ensuite.
+
 ### 4.5 Arrosage
 
 - **Page de rubrique** : `/arrosage`. **Pages mères à écrire en premier** (avril 2027) :
@@ -286,6 +330,7 @@ Bosch, Einhell Power X-Change, Kress).
 | 0 bis | Tracteurs et autoportées | 18/11/2026 | décision du propriétaire : produit cher, même lecteur, adresses à la racine |
 | 1 | Autour du robot | décembre 2026 | aucune attente : adresses à la racine ; derrière les produits chers |
 | 2 | Robots de piscine | décembre 2026 (décision du 18/11/2026) | 4 mois d'avance sur la remise en eau d'avril |
+| 2 bis | Abris de jardin | janvier 2027 (décision du 28/11/2026) | 3 mois d'avance sur le pic d'achat d'avril-mai ; exception au critère ci-dessous, comme les tracteurs |
 | 3 | Arrosage | avril 2027 | 2 mois d'avance sur les premières chaleurs |
 | 4 | Outils sur batterie | septembre 2027 | saison des haies et des feuilles ; **seulement si le critère est rempli** |
 
@@ -336,8 +381,10 @@ récent renvoie au plus ancien pour la partie déjà traitée.
 
 ## 7. Ce qu'on ne couvre pas
 
-- **Mobilier de jardin, barbecues, éclairage extérieur, abris et serres, potager, plantes et graines** (hors gazon),
-  anti-nuisibles pris pour eux-mêmes : trop loin du robot, même si le flux Cdiscount en est plein.
+- **Potager, plantes et graines** (hors gazon), éclairage extérieur, anti-nuisibles pris pour eux-mêmes : trop loin du
+  robot, même si le flux Cdiscount en est plein. **Depuis le 28/11/2026, les abris de jardin entrent (4.4 bis)** ; mobilier,
+  barbecues, serres, pergolas et spas attendent leur tour dans le cluster 3 (décision du propriétaire), pas avant que les
+  abris aient fait leurs preuves.
 - **La piscine elle-même** (bassins, traitement de l'eau, pompes, chauffage) et les spas.
 - **Les aspirateurs robots de maison**, même quand la marque est la même.
 - **Le matériel thermique** et le matériel professionnel, sauf pour une comparaison ponctuelle. **Exception depuis le
@@ -356,8 +403,8 @@ récent renvoie au plus ancien pour la partie déjà traitée.
   `/hivernage-robot-tondeuse`, `/robot-tondeuse-pas-cher`, `/simulateur`.
 - **Les pages datées « 2026 »** restent à leur adresse et sont mises à jour sur place (titre et contenu), sans nouvelle
   page « 2027 » sur le même sujet. Les nouvelles pages n'ont pas d'année dans l'adresse.
-- Un nouveau dossier (`/robot-piscine/`, `/arrosage/`, `/outils-jardin/`) ne doit pas porter le nom d'un article existant :
-  vérifié le 15/11/2026, aucun article ne s'appelle ainsi.
+- Un nouveau dossier (`/robot-piscine/`, `/abri-jardin/`, `/arrosage/`, `/outils-jardin/`) ne doit pas porter le nom d'un
+  article existant : vérifié le 15/11/2026, puis le 28/11/2026 pour `/abri-jardin` (ni article ni page de ce nom dans `app/`).
 
 ## 9. Ce qu'il faut pour que ça tourne (hors rédaction)
 
@@ -370,6 +417,8 @@ récent renvoie au plus ancien pour la partie déjà traitée.
 | Rubrique tracteurs : entrée de menu et gabarit « rubrique » pour `/tracteur-tondeuse` | Dév QRT | quand 5 articles tracteurs sont en ligne |
 | Mettre à jour sur place les classements par budget, par surface, 4 roues motrices et LiDAR (prix datés, modèles 2027, lien vers les nouveaux avis) | Contenu QRT | 01/02/2027 |
 | Trouver quel marchand partenaire vend des tracteurs tondeuses (Cdiscount, Amazon, autre) ; sans marchand, la rubrique ne rapporte rien | Croissance QRT, puis propriétaire s'il faut un nouveau programme | 15/12/2026 |
+| Ouvrir `/abri-jardin` : page de rubrique, pages `/abri-jardin/<page>`, entrée sous « Jardin » dans le menu, plan du site, puis passer la ligne à « ouverte » au point 3 | Dév QRT | 01/01/2027 |
+| Filtre « Abris de jardin » dans `/deals`, prix et disponibilité lus à l'API Amazon Creators | Dév QRT (chantier Deals) | quand la rubrique est ouverte |
 | Ouvrir `/arrosage` (même travail) | Dév QRT | 01/04/2027 |
 | Ouvrir `/outils-jardin` si le critère est rempli | Dév QRT, sur avis du Chef | 01/09/2027 |
 | Revérifier les pages code promo (`lib/promos.ts`) : chaque jour du 20/11 au 02/12/2026, puis le 1er du mois | Croissance QRT | dès maintenant |
@@ -410,6 +459,14 @@ Tant que la première ligne n'est pas faite, la rédaction de nuit saute les suj
   1 hectare), par **budget** (2 000 €, 3 000 €), par **marque** (Husqvarna, John Deere, Cub Cadet, Stiga, MTD, Alpina)
   et par **type** (électrique, rider, rayon de braquage zéro, pente). Pour les robots chers : **« avis + modèle »**
   (Luba 3 AWD, Dreame A3 AWD Pro, Navimow X4, 430X NERA) et **« A vs B »** entre ces mêmes modèles.
+- **Passage du samedi 28/11/2026 (Éditeur QRT, décision « jardin haut de gamme »)** : 11 recherches web sur les abris de
+  jardin. Lu : comparatifs (futura-sciences.com, meilleurtest.fr par matériau et pour 5 m², lebontri.fr de juin 2026,
+  prolead.fr), démarches (service-public.gouv.fr fiche F662, justice.fr, ANIL, fiches de mairies), taxe d'aménagement
+  (economie.gouv.fr, PAP, Bricomarché), fondations (Bricomarché, Castorama, ootravaux, Keter), limite de propriété (PAP,
+  SeLoger), fiches de marques (Keter, Lifetime, Duramax, Habrita, Solid). La demande se range par **matériau** (bois,
+  métal, résine), par **taille** (moins de 5 m², 20 m²) et par **démarche** (déclaration préalable, taxe, limite de
+  propriété). Aucun duel direct Keter contre Lifetime trouvé : pas de sujet de duel de marques pour l'instant. Suggestions
+  de Google non relevées ce jour-là.
 
 Ce que les suggestions montrent, en bref : la demande piscine se range par **type de bassin** (hors-sol, coque, liner,
 carrelage, 8x4, 10x5), par **budget** (moins de 200, 500, 1 000 €), par **marque** (Dolphin, Zodiac, Aiper, Wybot, Beatbot,

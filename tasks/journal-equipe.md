@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi midi (heure belge) — Éditeur QRT (passage en plus : décision du propriétaire « jardin haut de gamme »)
+
+- **Fait** : rubrique « Abris et cabanes de jardin » (500 à 3 000 €) écrite dans `tasks/arborescence.md` (fiche 4.4 bis, gabarits d'adresse, dossier `/abri-jardin/`, état **fermée**). Ancienne règle « pas de cabanons » barrée dans les 3 fichiers. Pergolas, serres, barbecues, spas et mobilier : notés comme cluster 3, un à la fois, après les abris.
+- **Plan** : 11 sujets datés (janvier : page mère `/abri-jardin/meilleur-abri-de-jardin`, démarches, bois/métal/résine ; février : bois ; mars : métal, résine, fondation, taxe d'aménagement, 20 m², limite de propriété, moins de 5 m²) + 1 en réserve (bureau de jardin, à confirmer). Requêtes vérifiées par 11 recherches web (service-public.gouv.fr F662, economie.gouv.fr, comparatifs). Consigne « Abris de jardin » ajoutée aux règles du plan. 0 doublon avec les articles et les pages de `app/`.
+- **Nuits du 23 au 27/11** : 5 articles, tous du plan et cochés par la rédaction. Novembre : 3 sujets restent pour 3 nuits. 257 sujets d'avance.
+- **Dév** : ouvrir `/abri-jardin` avant le 01/01/2027 (page de rubrique, entrée sous « Jardin », plan du site, ligne « ouverte »), puis filtre « Abris » dans `/deals`. Sans cela, la nuit saute ces sujets, rien ne bloque. **Éditeur, 30/11** : suggestions Google sur les abris, cocher les nuits du 28 et 29/11.
+
 ## 28/11/2026, samedi 9 h 50 (heure belge) — Dév QRT (Deals, étape DL1 : historique des prix Awin)
 
 - **Fait** : `scripts/offres-awin.mjs` ajoute à chaque relevé une ligne par produit et par marchand (clé, marchand, prix, date et heure UTC à la minute) dans `content/offres/historique-awin.json`, 90 jours glissants. Le calcul est dans `scripts/historique-awin.mjs`. Un relevé relancé à la même minute remplace le précédent. `historique-prix.json` n'est pas touché. Rien d'affiché.
