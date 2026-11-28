@@ -106,6 +106,16 @@ export const CADENCE_SQL = `UPDATE analytics.hits SET kind = 'scraper', bot = 'c
     SELECT visitor, date_trunc('hour', ts) FROM analytics.hits
      WHERE kind IN ('human', 'scraper') AND ts >= $1 AND visitor IS NOT NULL GROUP BY 1, 2 HAVING count(*) > 30)`
 
+/** Faux référents (propriétaire, 28/11/2026 : « Instagram, work.mercor… ») : un robot charge une page sans référent puis, moins de
+ *  3 s après, la même page avec un site externe en référent (instagram.com, facebook.com, work.mercor.com…). Aucune visite Google
+ *  n'a cette forme : les moteurs de recherche sont exclus. Les deux lignes passent en robots (from $1). */
+export const FAKE_REF_SQL = `WITH f AS (
+    SELECT h.id AS a, x.id AS b FROM analytics.hits h JOIN analytics.hits x
+      ON x.visitor = h.visitor AND x.path = h.path AND x.ref_host IS NULL AND x.ts BETWEEN h.ts - interval '3 seconds' AND h.ts - interval '1 millisecond'
+     WHERE h.kind = 'human' AND h.ts >= $1 AND h.ref_host IS NOT NULL
+       AND h.ref_host !~ '(^|\\.)(google|bing|duckduckgo|yahoo|ecosia|qwant|brave|yandex|baidu|startpage|chatgpt|perplexity|openai)\\.')
+  UPDATE analytics.hits SET kind = 'scraper', bot = 'faux référent' WHERE kind = 'human' AND id IN (SELECT a FROM f UNION SELECT b FROM f)`
+
 /** One Caddy log line → one analytics.hits row (visitor still to hash), or null. */
 function toHit(entry) {
   const req = entry.request
@@ -265,6 +275,8 @@ async function main() {
   if (!DRY) {
     const re = await pool.query(CADENCE_SQL, [new Date(Date.now() - 2 * 3600_000).toISOString()])
     if (re.rowCount) console.log(`[ingest] ${re.rowCount} page views reclassified as scrapers (cadence)`)
+    const fr = await pool.query(FAKE_REF_SQL, [new Date(Date.now() - 2 * 3600_000).toISOString()])
+    if (fr.rowCount) console.log(`[ingest] ${fr.rowCount} page views with a fake referrer reclassified as scrapers`)
     await pool.query(`DELETE FROM analytics.hits WHERE ts < now() - interval '${RETENTION_DAYS} days'`)
     await pool.query(`DELETE FROM analytics.events WHERE ts < now() - interval '400 days'`)
     await pool.query(`DELETE FROM analytics.visitor_salt WHERE day < (now() AT TIME ZONE 'UTC')::date - 1`)
