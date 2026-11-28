@@ -5957,5 +5957,432 @@
         "note": "liste officielle des robots Kress FR : nom et prix"
       }
     ]
+  },
+  {
+    "id": "kress-kr121e",
+    "marque": "Kress",
+    "modele": "Mission KR121E",
+    "surface_m2": 1500,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 61,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 11.8,
+    "prix_eur": 799,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 280 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-kress-mission-gere-des-pelouses-jusqua-1-500-m%c2%b2-avec-loas-kr121e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot Kress Mission gère des pelouses jusqu'à 1 500 m² avec l'OAS », pente maximale 35% (20°), niveau sonore perçu 61 db, largeur 22 cm, hauteur 30 mm, IPX4, poids 11.8 kg, batterie 4 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 1500 ㎡, surface recommandée (coupe toutes les 48 h) 1000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr122e",
+    "marque": "Kress",
+    "modele": "Mission KR122E",
+    "surface_m2": 2000,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 61,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 12,
+    "prix_eur": 1099,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 385 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-kress-mission-gere-des-pelouses-jusqua-2-000-m%c2%b2-grace-au-systeme-oas-obstacle-avoidance-system-kr122e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot Kress Mission gère des pelouses jusqu'à 2 000 m² grâce au système OAS (Obstacle Avoidance System) », pente maximale 35% (20°), niveau sonore perçu 61 db, largeur 22 cm, hauteur 30 mm, IPX4, poids 12 kg, batterie 4 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 2000 ㎡, surface recommandée (coupe toutes les 48 h) 1500 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr123e",
+    "marque": "Kress",
+    "modele": "Mission KR123E",
+    "surface_m2": 2500,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 61,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 12.1,
+    "prix_eur": 1399,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 490 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-kress-mission-gere-des-pelouses-jusqua-2-500-m%c2%b2-grace-au-systeme-oas-obstacle-avoidance-system-kr123e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot Kress Mission gère des pelouses jusqu'à 2 500 m² grâce au système OAS (Obstacle Avoidance System) », pente maximale 35% (20°), niveau sonore perçu 61 db, largeur 22 cm, hauteur 30 mm, IPX4, poids 12.1 kg, batterie 5 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 2500 ㎡, surface recommandée (coupe toutes les 48 h) 2000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr133e",
+    "marque": "Kress",
+    "modele": "Mission Mega KR133E",
+    "surface_m2": 4400,
+    "pente_pct": 45,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 35,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 19,
+    "prix_eur": 1999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 700 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-kress-mission-mega-gere-des-pelouses-jusqua-4-400-m%c2%b2-grace-au-systeme-oas-obstacle-avoidance-system-kr133e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot Kress Mission Mega gère des pelouses jusqu'à 4 400 m² grâce au système OAS (Obstacle Avoidance System) », pente maximale 45% (24°), niveau sonore perçu 59 db, largeur 35 cm, hauteur 30 mm, IPX5, poids 19 kg, batterie 6 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 4400 ㎡, surface recommandée (coupe toutes les 48 h) 3000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "kress-kr136e",
+    "marque": "Kress",
+    "modele": "Mission Mega KR136E",
+    "surface_m2": 6500,
+    "pente_pct": 45,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 35,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 19.5,
+    "prix_eur": 2499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché (prix barré) sur kress.com/fr-fr le 28/11/2026, 875 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.kress.com/fr-fr/la-tondeuse-robot-kress-mission-mega-gere-des-pelouses-jusqua-6-500-m%c2%b2-grace-au-systeme-oas-obstacle-avoidance-system-kr136e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Kress FR (« Spécifications techniques ») : nom « La tondeuse robot Kress Mission Mega gère des pelouses jusqu'à 6 500 m² grâce au système OAS (Obstacle Avoidance System) », pente maximale 45% (24°), niveau sonore perçu 59 db, largeur 35 cm, hauteur 30 mm, IPX5, poids 19.5 kg, batterie 10 Ah, Wi-Fi/Bluetooth oui, 4G non listé, surface maximale (coupe toutes les 72 h) 6500 ㎡, surface recommandée (coupe toutes les 48 h) 5000 ㎡ ; surface_m2 = surface du nom du produit ; autonomie et nombre de zones non publiés ; hauteur de coupe publiée en une seule valeur (30 mm) : laissée vide"
+      },
+      {
+        "url": "https://www.kress.com/fr-fr/tondeuses-a-gazon-robotisees/",
+        "lu_le": "2026-11-28",
+        "note": "liste officielle des robots Kress FR : nom et prix"
+      }
+    ]
+  },
+  {
+    "id": "sunseeker-s3",
+    "marque": "Sunseeker",
+    "modele": "S3",
+    "surface_m2": 800,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 60,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": 60,
+    "ip": "IPX5",
+    "poids_kg": 11.8,
+    "prix_eur": 899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par Sunseeker sur sa page officielle FR le 28/11/2026 (pas de boutique de la marque : vente chez les revendeurs)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://sunseekertech.com/fr/s3/specs",
+        "lu_le": "2026-11-28",
+        "note": "page officielle « Spécifications S3 » de Sunseeker France : technologie RTK + VSLAM, surface maximale 800 m², pente maximale 30% / 17°, hauteur 20-60 mm, largeur 18 cm, bruit 60 dB (A), IPX5, multi-zones 60, connectivité Wifi/Blutooth, module 4G + antivol Facultatif, transmission intégrale N, système de transmission non listé, poids 11.8 kg ; autonomie non publiée ; transmission : seulement « transmission intégrale : N », laissée vide"
+      }
+    ],
+    "option_4g": true
+  },
+  {
+    "id": "sunseeker-s4",
+    "marque": "Sunseeker",
+    "modele": "S4",
+    "surface_m2": 1000,
+    "pente_pct": 42,
+    "guidage": "lidar+vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 60,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": 100,
+    "ip": "IPX6",
+    "poids_kg": 11,
+    "prix_eur": 1099,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par Sunseeker sur sa page officielle FR le 28/11/2026 (pas de boutique de la marque : vente chez les revendeurs)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://sunseekertech.com/fr/s4/specs",
+        "lu_le": "2026-11-28",
+        "note": "page officielle « Spécifications S4 » de Sunseeker France : technologie LiDAR 3D 360° + vision IA (L-SLAM + V-SLAM), surface maximale 1000 m², pente maximale 42% / 22°, hauteur 20-60 mm, largeur 18 cm, bruit 60 dB(A), IPX6, multi-zones 100, connectivité Wi-Fi / Bluetooth, module 4G + antivol Facultatif, transmission intégrale non listée, système de transmission Propulsion roues arrière, poids 11.0 kg ; autonomie non publiée"
+      },
+      {
+        "url": "https://www.awin.com/",
+        "lu_le": "2026-11-28",
+        "note": "photo_flux : image du flux produits Fnac (Awin) téléchargé par le serveur le 28/11/2026"
+      }
+    ],
+    "option_4g": true,
+    "photo_flux": "https://static.fnac-static.com/multimedia/Images/FR/MDM/e2/36/be/29243106/1505-1/tsp20261016192206/Robot-tondeuse-sans-fil-Sunseeker-S4-Noir.jpg"
+  },
+  {
+    "id": "sunseeker-s5",
+    "marque": "Sunseeker",
+    "modele": "S5",
+    "surface_m2": 1600,
+    "pente_pct": 60,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 60,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": 80,
+    "ip": "IPX5",
+    "poids_kg": 12.5,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par Sunseeker sur sa page officielle FR le 28/11/2026 (pas de boutique de la marque : vente chez les revendeurs)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://sunseekertech.com/fr/s5/specs",
+        "lu_le": "2026-11-28",
+        "note": "page officielle « Spécifications S5 » de Sunseeker France : technologie RTK + VSLAM, surface maximale 1600 m², pente maximale 60% / 30°, hauteur 20-60 mm, largeur 20 cm, bruit 60 dB (A), IPX5, multi-zones 80, connectivité Wi-Fi / Bluetooth, module 4G + antivol Facultatif, transmission intégrale O, système de transmission non listé, poids 12.5 kg ; autonomie non publiée"
+      }
+    ],
+    "option_4g": true
+  },
+  {
+    "id": "sunseeker-v1",
+    "marque": "Sunseeker",
+    "modele": "V1",
+    "surface_m2": 300,
+    "pente_pct": 27,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 55,
+    "largeur_coupe_cm": 16,
+    "hauteur_coupe_mm": [
+      20,
+      50
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 6.7,
+    "prix_eur": 499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par Sunseeker sur sa page officielle FR le 28/11/2026 (pas de boutique de la marque : vente chez les revendeurs)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://sunseekertech.com/fr/v1/specs",
+        "lu_le": "2026-11-28",
+        "note": "page officielle « Spécifications V1 » de Sunseeker France : technologie Vision AI, surface maximale 300 m², pente maximale 15°/27%, hauteur 20-50 mm, largeur 16 cm, bruit 55 dB (A), IPX5, multi-zones N, connectivité App / Wi-Fi / Bluetooth, module 4G + antivol N, transmission intégrale non listée, système de transmission Propulsion arrière, poids 6.7 kg ; autonomie non publiée ; zones « N » : laissé vide ; transmission : le tableau dit « propulsion arrière » mais la page produit /fr/v1 dit « traction avant » : laissée vide"
+      },
+      {
+        "url": "https://www.awin.com/",
+        "lu_le": "2026-11-28",
+        "note": "photo_flux : image du flux produits Fnac (Awin) téléchargé par le serveur le 28/11/2026"
+      }
+    ],
+    "photo_flux": "https://static.fnac-static.com/multimedia/Images/FR/MDM/e3/36/be/29243107/1505-1/tsp20261016192206/Robot-tondeuse-Sunseeker-V1-300-M2-Noir.jpg"
+  },
+  {
+    "id": "sunseeker-v3",
+    "marque": "Sunseeker",
+    "modele": "V3",
+    "surface_m2": 600,
+    "pente_pct": 42,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 55,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": 3,
+    "ip": "IPX5",
+    "poids_kg": 9.2,
+    "prix_eur": 749,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par Sunseeker sur sa page officielle FR le 28/11/2026 (pas de boutique de la marque : vente chez les revendeurs)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://sunseekertech.com/fr/v3/specs",
+        "lu_le": "2026-11-28",
+        "note": "page officielle « Spécifications V3 » de Sunseeker France : technologie Vision AI, surface maximale 600 m², pente maximale 42% / 22°, hauteur 20-60 mm, largeur 18 cm, bruit 55 dB(A), IPX5, multi-zones 3, connectivité APP / Wi-Fi / Bluetooth, module 4G + antivol N, transmission intégrale non listée, système de transmission Propulsion arrière, poids 9.2 kg ; autonomie non publiée"
+      },
+      {
+        "url": "https://www.awin.com/",
+        "lu_le": "2026-11-28",
+        "note": "photo_flux : image du flux produits Fnac (Awin) téléchargé par le serveur le 28/11/2026"
+      }
+    ],
+    "photo_flux": "https://static.fnac-static.com/multimedia/Images/FR/MDM/e4/36/be/29243108/1505-1/tsp20261016192206/Robot-tondeuse-sans-fil-Sunseeker-V3-Gris.jpg"
+  },
+  {
+    "id": "sunseeker-v3-plus",
+    "marque": "Sunseeker",
+    "modele": "V3 Plus",
+    "surface_m2": 1000,
+    "pente_pct": 42,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": "2rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 55,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": 3,
+    "ip": "IPX5",
+    "poids_kg": 9.4,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": "aucun prix affiché pour le V3 Plus sur sunseekertech.com/fr le 28/11/2026",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://sunseekertech.com/fr/v3/specs",
+        "lu_le": "2026-11-28",
+        "note": "page officielle « Spécifications V3 Plus » de Sunseeker France : technologie Vision AI, surface maximale 1000 m², pente maximale 42% / 22°, hauteur 20-60 mm, largeur 18 cm, bruit 55 dB(A), IPX5, multi-zones 3, connectivité APP / Wi-Fi / Bluetooth, module 4G + antivol N, transmission intégrale non listée, système de transmission Propulsion arrière, poids 9.4 kg ; autonomie non publiée"
+      }
+    ]
   }
 ]
