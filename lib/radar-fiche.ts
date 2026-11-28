@@ -4,7 +4,7 @@
  * Correspondance posée à la main dans le champ `base` de la fiche, jamais devinée.
  */
 import catalogueJson from '@/data/robots-tondeuses.json'
-import { concurrentsParDefaut, nomRobot, serieRadar, type RobotCatalogue, type SerieRadar } from './radar'
+import { concurrentsParDefaut, serieRadar, type RobotCatalogue, type SerieRadar } from './radar'
 
 export const CATALOGUE = catalogueJson as RobotCatalogue[]
 
