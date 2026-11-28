@@ -1,10 +1,32 @@
 import Link from 'next/link'
-import { mieuxNotes, noteFiche } from '@/lib/notes-fiches'
+import { mieuxNotes, noteFiche, slugFiche } from '@/lib/notes-fiches'
+import { FICHES_NOTE_OBJECTIVE, noteFr, noteObjective } from '@/lib/note-objective'
+import { CATALOGUE } from '@/lib/radar-fiche'
 import { formatDate, formatPrix } from '@/lib/offres-format'
 import { SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
 
 /** Note sur 100 d'une fiche, avec le prix et la date utilisés, et le lien vers le barème. Rien si la fiche n'est pas notée. */
 export function NoteLigne({ nom, slug }: { nom: string; slug?: string }) {
+  // Fiche pilote de la note sur 10 : la même note que le haut de sa fiche, partout.
+  const id = slugFiche(nom, slug)
+  const robot = id && FICHES_NOTE_OBJECTIVE.includes(id) ? CATALOGUE.find((r) => r.id === id) : undefined
+  const n10 = robot ? noteObjective(robot) : null
+  if (n10?.note != null) {
+    return (
+      <p className="note-l" data-note={n10.note}>
+        <span className="score">
+          {noteFr(n10.note)}
+          <small>/10</small>
+        </span>{' '}
+        <span className="dated">
+          Confiance {n10.confiance}&nbsp;% ·{' '}
+          <Link href="/comment-nous-notons" className="lnk">
+            notre barème
+          </Link>
+        </span>
+      </p>
+    )
+  }
   const n = noteFiche(nom, slug)
   if (!n) return null
   const mieux = n.proposerMieux ? mieuxNotes(nom, slug) : []

@@ -29,7 +29,7 @@ export const SEUIL_PROPOSER_MIEUX = 55
 export const CRITERES: Critere[] = [
   { id: 'navigation', titre: 'Navigation', max: 30, paliers: [
     { points: 30, texte: 'sans fil, deux repères combinés (RTK, caméra ou LiDAR)' },
-    { points: 22, texte: 'sans fil, un seul repère (caméra seule)' },
+    { points: 22, texte: 'sans fil, un seul repère (RTK, caméra ou LiDAR seul)' },
     { points: 14, texte: 'câble périphérique et trajet guidé' },
     { points: 6, texte: 'câble périphérique et trajet au hasard' },
   ] },
@@ -70,16 +70,28 @@ const palier = (seuils: number[], points: number[], v: number, croissant: boolea
 export type Detail = { id: Critere['id']; points: number; max: number }
 export type Resultat = { note: number; details: Detail[]; proposerMieux: boolean }
 
+const MAX: Record<Critere['id'], number> = Object.fromEntries(CRITERES.map((c) => [c.id, c.max])) as Record<Critere['id'], number>
+
+/**
+ * Points de chaque critère ; `null` quand la caractéristique n'est pas publiée (le critère est alors
+ * retiré du barème, jamais compté 0). Seule fonction de calcul : noter() et la note sur 10 l'utilisent.
+ */
+export function pointsCriteres(c: Partial<Caracteristiques>): { id: Critere['id']; points: number | null; max: number }[] {
+  const nav = c.navigation ? { 'sans-fil-multi': 30, 'sans-fil-simple': 22, 'fil-guide': 14, 'fil-aleatoire': 6 }[c.navigation] : null
+  const prix100 = c.prix && c.surface ? (c.prix / c.surface) * 100 : null
+  const pts: Record<Critere['id'], number | null> = {
+    navigation: nav,
+    prixParSurface: prix100 === null ? null : palier([60, 90, 130, 180], [25, 20, 15, 10, 5], prix100, false),
+    pente: c.pente ? palier([70, 45, 35, 25], [15, 12, 9, 6, 3], c.pente, true) : null,
+    bruit: c.bruit ? palier([55, 58, 60, 62], [15, 12, 9, 6, 3], c.bruit, false) : null,
+    connexion: c.connexion ? { '4g': 15, wifi: 10, bluetooth: 4, aucune: 0 }[c.connexion] : null,
+    surface: null,
+  }
+  return CRITERES.map((k) => ({ id: k.id, points: pts[k.id], max: MAX[k.id] }))
+}
+
 export function noter(c: Caracteristiques): Resultat {
-  const nav = { 'sans-fil-multi': 30, 'sans-fil-simple': 22, 'fil-guide': 14, 'fil-aleatoire': 6 }[c.navigation]
-  const prix100 = (c.prix / c.surface) * 100
-  const details: Detail[] = [
-    { id: 'navigation', points: nav, max: 30 },
-    { id: 'prixParSurface', points: palier([60, 90, 130, 180], [25, 20, 15, 10, 5], prix100, false), max: 25 },
-    { id: 'pente', points: palier([70, 45, 35, 25], [15, 12, 9, 6, 3], c.pente, true), max: 15 },
-    { id: 'bruit', points: palier([55, 58, 60, 62], [15, 12, 9, 6, 3], c.bruit, false), max: 15 },
-    { id: 'connexion', points: { '4g': 15, wifi: 10, bluetooth: 4, aucune: 0 }[c.connexion], max: 15 },
-  ]
+  const details = pointsCriteres(c).map((d) => ({ ...d, points: d.points ?? 0 }))
   const note = details.reduce((s, d) => s + d.points, 0)
   return { note, details, proposerMieux: note < SEUIL_PROPOSER_MIEUX }
 }

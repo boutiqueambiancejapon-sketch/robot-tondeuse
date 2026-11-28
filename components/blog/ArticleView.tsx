@@ -56,9 +56,11 @@ type Props = {
   produits?: ProduitCite[]
   /** Graphe radar des fiches robots reliées à data/robots-tondeuses.json (components/v2/radar). */
   radar?: ReactNode
+  /** Note sur 10 et « L'essentiel en 30 secondes » (components/v2/note), sous la signature. */
+  note?: ReactNode
 }
 
-export function ArticleView({ slug, meta, catLabel, toc, related, children, after, produits = [], radar }: Props) {
+export function ArticleView({ slug, meta, catLabel, toc, related, children, after, produits = [], radar, note }: Props) {
   const authorSlug = niche.author.slug || 'auteur'
   const authorName = niche.author.name || 'Auteur'
   // Ligne d'achat du haut et barre du bas : seulement sur les guides d'achat et les comparatifs (D8).
@@ -93,6 +95,7 @@ export function ArticleView({ slug, meta, catLabel, toc, related, children, afte
           updatedAt={meta.updatedAt}
           readingTimeMin={meta.readingTimeMin}
         />
+        {note}
 
         {/* Avis, classements et comparatifs : le bouton marchand est dans le premier écran. */}
         {vend ? null : buyLinks ? <ArticleBuyRows items={buyLinks} message={meta.stickyCtaMessage} /> : null}

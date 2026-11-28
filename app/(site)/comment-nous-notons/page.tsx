@@ -9,6 +9,8 @@ import Link from 'next/link'
 import { niche } from '@/niche.config'
 import { PageTitle } from '@/components/v2/PageTitle'
 import { CRITERES, SEUIL_PROPOSER_MIEUX } from '@/lib/bareme'
+import { CONFIANCE_MIN_BADGE, CONFIANCE_MIN_NOTE } from '@/lib/note-objective'
+import { CATALOGUE } from '@/lib/radar-fiche'
 
 export const metadata: Metadata = {
   title: { absolute: `Comment nous notons les robots tondeuses | ${niche.siteName}` },
@@ -84,6 +86,23 @@ export default function CommentNousNotonsPage() {
               qui a servi au calcul et de sa date. Le prix retenu est le plus bas relevé chez Cdiscount ou
               Fnac. Un robot sans prix daté n’a pas de note&nbsp;: le prix Amazon affiché n’a pas de date, nous
               ne l’utilisons donc pas.
+            </p>
+          </section>
+
+          <section>
+            <h2>Note sur 10 et indice de confiance</h2>
+            <p>
+              Sur la fiche du Mammotion LUBA 3 AWD 3000, la note passe sur 10 et s’appuie sur notre base de{' '}
+              {CATALOGUE.length} robots, avec le prix public de chaque marque, daté. Un critère que la marque
+              ne publie pas est retiré du barème, au lieu de bloquer la note, et la note est recalculée sur
+              les autres critères.
+            </p>
+            <p>
+              L’indice de confiance donne la part du barème couverte par des chiffres publiés. Mammotion ne
+              publie pas le bruit de ce robot&nbsp;: 15 points sur 100 manquent, la confiance est donc de
+              85&nbsp;%. Sous {CONFIANCE_MIN_NOTE}&nbsp;%, pas de note. Sous {CONFIANCE_MIN_BADGE}&nbsp;%, jamais de
+              mention «&nbsp;meilleur choix&nbsp;». Sans prix public, pas de note non plus&nbsp;: le prix pèse
+              25 points, et l’ôter donnerait 10/10 à un robot dont la marque cache son tarif.
             </p>
           </section>
 
