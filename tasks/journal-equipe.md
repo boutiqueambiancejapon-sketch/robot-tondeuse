@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 21 h (heure belge) — Étude niches produits (mission du propriétaire : questions des acheteurs, étape 0)
+
+- **Fait** : `tasks/questions-acheteurs-robot-tondeuse.md` et `tasks/questions-acheteurs-station-electrique.md`. Chacun : 30 questions FR et 30 US, fréquence (nombre de sources), critère chiffré, source et date. 15 recherches web. Aucun message ni pseudo recopié.
+- **Inaccessibles** : Reddit (403), questions-réponses Amazon, « Autres questions posées » de Google, commentaires de vidéos. Notés « non vérifié ». La liste US repose sur les guides et FAQ anglais.
+- **Radar QRT** : surface, pente et prix collent aux 3 premières questions. Manquent le guidage (3e question des deux pays, pas un axe) et les bordures (4e en France, aucun champ dans la base). L'autonomie sert peu : 95 robots sur 190 seulement ont la donnée. Proposé : surface, pente, navigation, silence, prix, puis bordures quand `bord_cm` couvre 60 % de la base.
+- **Laissé** : au **propriétaire**, valider ce radar ; au **Catalogue QRT**, ajouter `bord_cm`, `capteur_pluie`, `mode_nuit_faune`, `passage_min_cm`, `batterie_remplacable`, `garantie_ans` (source officielle, sinon vide) ; au **Dév QRT**, changer les axes après accord ; à **Claude en session**, relire Reddit et Amazon depuis un navigateur.
+
 ## 28/11/2026, samedi 21 h (heure belge) — Catalogue QRT (5e passage, mission « catalogue à fond » : 5 lots envoyés)
 
 - **Fait** : `data/robots-tondeuses.json` passe de 121 à **190 modèles, 15 marques**, en 5 lots (étiquettes `sauvegarde-20261128-catalogue-lot1` à `lot5`) : + **Ambrogio 16** (gamme particuliers, ligne Professional écartée), + **Kress 29** (EyePilot, EyePilot 4×4, RTKⁿ, Mission ; séries 8 000 m² et plus écartées ; KR173E.2 sans tableau, pas ajouté), + **Sunseeker 6**, + **Mova 9**, + **Stihl 2**, + **Einhell 7**. Fiches officielles FR lues le 28/11. Prix = prix normal de la marque (promotion du Black Friday notée dans `prix_source`) ; Ambrogio ne publie aucun prix (revendeurs).
