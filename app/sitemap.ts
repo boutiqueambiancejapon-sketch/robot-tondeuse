@@ -4,6 +4,7 @@ import { getAllArticles, articleHref, getCategories } from '@/lib/blog'
 import { getPiscineArticles } from '@/lib/piscine'
 import { PISCINE_DOSSIER } from '@/lib/utils/piscine'
 import { PRODUIT_SLUGS } from '@/lib/comparateur'
+import { avisBaseIndexables } from '@/lib/server/avis-base'
 import { PROMO_BRANDS, PROMOS_CHECKED_AT, getBlackFridayBrands } from '@/lib/promos'
 
 const SITE_URL =
@@ -77,6 +78,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     })
+  }
+
+  // ── Avis des robots de la base (/avis-<id>) : seulement les pages indexables (lib/avis-base.ts) ──
+  for (const a of avisBaseIndexables()) {
+    entries.push({ url: `${SITE_URL}/${a.slug}`, lastModified: new Date(a.modifie), changeFrequency: 'monthly', priority: 0.7 })
   }
 
   // ── Rubrique « Robots de piscine » : page de rubrique + ses articles (/robot-piscine/<adresse>) ──

@@ -21,6 +21,7 @@ import { NoteFiche } from '@/components/v2/note/NoteFiche'
 import { getProduct } from '@/lib/products'
 import { siteActif } from '@/niches'
 import { estClassement, metaClassement, PageClassement, slugsClassement } from './classement-modele'
+import { estAvisBase, metaAvisBase, PageAvisBase, slugsAvisBase } from './avis-base'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -32,7 +33,8 @@ export function generateStaticParams() {
   // + catégories des fiches du gabarit commun (/<categorie>/<produit>) ; aucune sur QRT (siteActif.fiches = null).
   const categories = [...new Set((siteActif.fiches?.catalogue ?? []).map((p) => p.categorie))]
   // + classements du gabarit commun (/meilleur-<categorie>) ; aucun sur QRT.
-  return [...getAllStandaloneSlugs(), ...categories, ...slugsClassement()].map((article) => ({ article }))
+  // + avis des robots de la base sans avis MDX (/avis-<id>, lots de data/avis-lots.json).
+  return [...getAllStandaloneSlugs(), ...categories, ...slugsClassement(), ...slugsAvisBase()].map((article) => ({ article }))
 }
 
 /** Normalise une URL d'image en URL absolue à partir de SITE_URL. */
@@ -56,6 +58,7 @@ function extractBodyImageUrls(content: string): string[] {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { article: slug } = await params
   if (estClassement(slug)) return metaClassement(slug)
+  if (estAvisBase(slug)) return metaAvisBase(slug)
   const data = getStandaloneArticle(slug)
   if (!data) return {}
 
@@ -88,6 +91,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function StandaloneArticlePage({ params }: { params: Params }) {
   const { article: slug } = await params
   if (estClassement(slug)) return <PageClassement slug={slug} />
+  if (estAvisBase(slug)) return <PageAvisBase slug={slug} />
   const data = getStandaloneArticle(slug)
   if (!data) notFound()
 

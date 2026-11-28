@@ -1,0 +1,21 @@
+{
+  "regle": "Pages « Avis » servies depuis data/robots-tondeuses.json (lib/avis-base.ts), publiées par lots de 10 au plus. Un robot qui a déjà un avis MDX (champ base) n'est jamais listé ici.",
+  "lots": [
+    {
+      "n": 1,
+      "publie_le": "2026-11-28",
+      "ids": [
+        "husqvarna-automower-435x-awd-nera",
+        "husqvarna-automower-430v-nera",
+        "kress-kr285e",
+        "mammotion-luba-2-awd-5000x",
+        "husqvarna-automower-320-nera",
+        "ecovacs-goat-a3000-lidar",
+        "mova-lidax-ultra-2000-awd",
+        "mammotion-yuka-3000",
+        "mammotion-luba-mini-awd-lidar-1500",
+        "sunseeker-s5"
+      ]
+    }
+  ]
+}
