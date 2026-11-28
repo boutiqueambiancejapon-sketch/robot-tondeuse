@@ -39,6 +39,13 @@ enregistre une étape propre et on décrit la suite dans le journal pour le lend
   redirection du site (par exemple `/go/<robot>/<marchand>`), comptée dans les journaux du serveur et lue
   par le centre de contrôle.
 
+## Pas de page de méthode (propriétaire, 28/11/2026)
+
+> « Ta page comment nous notons, c'est typique d'un site fait à l'IA : supprime-la. »
+
+`/comment-nous-notons` supprimée (301 vers l'accueil), plus aucun lien « notre barème » ni « voir le barème ». La note et son détail
+critère par critère restent sur les fiches.
+
 ## Collections longue traîne (décision du propriétaire, 28/11/2026) — PRIORITÉ N° 1
 
 Tout est dans `tasks/collections-v1.md`. **Catalogue QRT** (nouvel agent) construit la base des robots tondeuses ; **Dév QRT** met
