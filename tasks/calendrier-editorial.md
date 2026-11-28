@@ -1,12 +1,14 @@
 # Calendrier éditorial — novembre 2026 à novembre 2027
 
-> **Décision du propriétaire, 18/11/2026 : priorité aux produits chers (« high ticket »).** On écrit d'abord ce qui rapporte le plus par vente : 1) les robots tondeuses à plus de 1 000 € (classements, avis de modèles, duels), avant le printemps ; 2) une nouvelle rubrique « Tracteurs et tondeuses autoportées » (1 500 à 4 000 €), pour le même lecteur à grand terrain ; 3) les robots de piscine, avancés à décembre 2026, classements et duels d'abord, guides ensuite. Le gazon, le dépannage et les accessoires bon marché passent derrière ; ceux de saison restent. Cabanons, pergolas et mobilier : pas sur ce site.
+> **Décision du propriétaire, 18/11/2026 : priorité aux produits chers (« high ticket »).** On écrit d'abord ce qui rapporte le plus par vente : 1) les robots tondeuses à plus de 1 000 € (classements, avis de modèles, duels), avant le printemps ; 2) une nouvelle rubrique « Tracteurs et tondeuses autoportées » (1 500 à 4 000 €), pour le même lecteur à grand terrain ; 3) les robots de piscine, avancés à décembre 2026, classements et duels d'abord, guides ensuite. Le gazon, le dépannage et les accessoires bon marché passent derrière ; ceux de saison restent. ~~Cabanons, pergolas et mobilier : pas sur ce site.~~
 
-Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Éditeur QRT (dernière mise à jour : 23/11/2026). Vue par mois de `tasks/plan-editorial.md` (c'est le plan qui fait foi pour la rédaction de nuit ; ce fichier sert à lire l'année d'un coup d'œil). L'arborescence est dans `tasks/arborescence.md`.
+> **Décision du propriétaire, 28/11/2026 : le jardin haut de gamme entre sur le site grâce à Amazon.** Après les robots de piscine, la rubrique « Abris de jardin » (500 à 3 000 €, dossier `/abri-jardin/`) démarre en janvier 2027 : 11 sujets datés (3 en janvier, 1 en février, 7 en mars) et 1 en réserve. Pergolas, serres, barbecues, spas et mobilier viendront ensuite, un cluster à la fois.
+
+Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Éditeur QRT (dernière mise à jour : 28/11/2026). Vue par mois de `tasks/plan-editorial.md` (c'est le plan qui fait foi pour la rédaction de nuit ; ce fichier sert à lire l'année d'un coup d'œil). L'arborescence est dans `tasks/arborescence.md`.
 
 ## Comment lire ce calendrier
 
-- **183 sujets datés sur 13 mois** (un ajouté le 23/11/2026 : Dreame A4 AWD Pro en mars), plus 18 sujets de réserve. Novembre 2026 en compte 12 (un par nuit jusqu'au 30), décembre, janvier et février 27 ou 28 (un par nuit), mars 19 : ce sont surtout les produits chers (129 sujets sur 183 : robots tondeuses, tracteurs, robots de piscine). Les 53 sujets anciens (gazon, dépannage) ne s'écrivent plus que les nuits où le mois en cours est terminé, en commençant par ceux de l'hiver.
+- **194 sujets datés sur 13 mois** (un ajouté le 23/11/2026 : Dreame A4 AWD Pro en mars ; 11 abris de jardin ajoutés le 28/11/2026, en janvier, février et mars), plus 19 sujets de réserve. Les chiffres par mois qui suivent datent du 23/11/2026 ; le tableau ci-dessous est à jour. Novembre 2026 en compte 12 (un par nuit jusqu'au 30), décembre, janvier et février 27 ou 28 (un par nuit), mars 19 : ce sont surtout les produits chers (129 sujets sur 183 : robots tondeuses, tracteurs, robots de piscine). Les 53 sujets anciens (gazon, dépannage) ne s'écrivent plus que les nuits où le mois en cours est terminé, en commençant par ceux de l'hiver.
 - **Ordre dans un mois** : la rédaction de nuit prend les sujets de haut en bas. Les produits chers sont en haut ; les sujets de saison et les accessoires ferment le mois.
 - **On écrit avant la saison** : un article met plusieurs semaines à être connu de Google. Les robots chers et les tracteurs sortent de novembre à février pour le pic de mars-avril, la piscine dès décembre pour la remise en eau d'avril, le Black Friday en octobre.
 - **Chaque sujet vise une requête réelle**, relevée dans les suggestions de recherche de Google en français (15/11/2026, puis 18/11/2026 pour les 71 sujets ajoutés ce jour-là : environ 190 débuts de requête), complétée par 11 recherches web le 18/11/2026 (concurrents, prix de lancement, modèles réellement sortis). Aucun volume de recherche n'est donné : nous n'avons pas de chiffre.
@@ -21,9 +23,9 @@ Rédigé le 15/11/2026 par le responsable éditorial, tenu chaque lundi par Édi
 |---|---|---|---|
 | Novembre 2026 | Priorité aux produits chers : robots à plus de 1 000 € et tracteurs tondeuses | 12 | Robots tondeuses (7), Tracteurs et autoportées (5) |
 | Décembre 2026 | Robots de piscine (classements et duels d'abord), robots chers, tracteurs, soldes d'hiver | 27 | Robots tondeuses (10), Robots de piscine (8), Tracteurs et autoportées (6), Autour du robot (2), Promos (1) |
-| Janvier 2027 | Préparer l'achat de printemps : marques, duels de robots chers, tracteurs, suite de la piscine | 28 | Robots tondeuses (14), Robots de piscine (8), Tracteurs et autoportées (6) |
-| Février 2027 | Dernier mois avant le pic : duels et avis de robots chers, marques de tracteurs et de piscine, pose et lames en fin de mois | 27 | Robots tondeuses (10), Tracteurs et autoportées (6), Robots de piscine (6), Autour du robot (4), Gazon et pelouse (1) |
-| Mars 2027 | Pic d'achat des robots tondeuses et des tracteurs, puis ce que le robot ne fait pas | 19 | Robots tondeuses (8), Tracteurs et autoportées (4), Gazon et pelouse (3), Robots de piscine (2), Autour du robot (2) |
+| Janvier 2027 | Préparer l'achat de printemps : marques, duels de robots chers, tracteurs, suite de la piscine, premiers abris de jardin | 31 | Robots tondeuses (14), Robots de piscine (8), Tracteurs et autoportées (6), Abris de jardin (3) |
+| Février 2027 | Dernier mois avant le pic : duels et avis de robots chers, marques de tracteurs et de piscine, pose et lames en fin de mois | 28 | Robots tondeuses (10), Tracteurs et autoportées (6), Robots de piscine (6), Autour du robot (4), Gazon et pelouse (1), Abris de jardin (1) |
+| Mars 2027 | Pic d'achat des robots tondeuses et des tracteurs, puis ce que le robot ne fait pas, abris de jardin avant le pic d'avril-mai | 26 | Robots tondeuses (8), Abris de jardin (7), Tracteurs et autoportées (4), Gazon et pelouse (3), Robots de piscine (2), Autour du robot (2) |
 | Avril 2027 | Remise en eau des piscines, ouverture de la rubrique Arrosage | 7 | Robots de piscine (4), Arrosage (2), Promos (1) |
 | Mai 2027 | Robots de piscine : le mois où l'on achète | 8 | Robots de piscine (6), Arrosage (2) |
 | Juin 2027 | Piscine : usage et pannes, restrictions d'eau, Prime Day | 8 | Robots de piscine (6), Arrosage (1), Promos (1) |
@@ -128,6 +130,9 @@ Pourquoi maintenant : Les acheteurs comparent les marques avant mars. On finit l
 | 26 | Louer un robot tondeuse : location, leasing, à quel prix ? | robot tondeuse location | guide | Robots tondeuses | `/location-robot-tondeuse-leasing-prix` |
 | 27 | Prix d'installation d'un robot tondeuse : forfaits et devis | prix installation robot tondeuse | guide | Robots tondeuses | `/prix-installation-robot-tondeuse` |
 | 28 | Batterie remplaçable en 2027 : ce que la règle européenne change pour les robots tondeuses | batterie remplaçable 2027 | guide | Robots tondeuses | `/reglement-europeen-batterie-remplacable-robot-tondeuse` |
+| 29 | Meilleur abri de jardin : la sélection par matériau et par taille | meilleur abri de jardin | classement (page mère) | Abris de jardin | `/abri-jardin/meilleur-abri-de-jardin` |
+| 30 | Abri de jardin : déclaration préalable ou permis de construire ? | abri de jardin déclaration préalable | guide | Abris de jardin | `/abri-jardin/abri-de-jardin-declaration-prealable-permis` |
+| 31 | Abri de jardin en bois, en métal ou en résine : lequel choisir ? | abri de jardin bois ou métal ou résine | duel | Abris de jardin | `/abri-jardin/abri-de-jardin-bois-metal-ou-resine` |
 
 ## Février 2027
 
@@ -164,6 +169,7 @@ Pourquoi maintenant : Dernier mois avant le pic d'achat des robots tondeuses et 
 | 25 | Lames Gardena SILENO : lesquelles pour quel modèle | lames gardena sileno | accessoire | Autour du robot | `/lames-gardena-sileno` |
 | 26 | Antenne RTK : où la placer, quel support, quelle rallonge | support antenne rtk | accessoire | Autour du robot | `/antenne-rtk-robot-tondeuse-support-rallonge` |
 | 27 | Meilleur scarificateur électrique 2027 : pour quelle pelouse | meilleur scarificateur électrique | classement | Gazon et pelouse | `/meilleur-scarificateur-electrique` |
+| 28 | Meilleur abri de jardin en bois : madriers de 28 mm ou plus épais ? | meilleur abri de jardin bois | classement | Abris de jardin | `/abri-jardin/meilleur-abri-de-jardin-bois` |
 
 ## Mars 2027
 
@@ -192,6 +198,13 @@ Pourquoi maintenant : Mars et avril sont les deux gros mois d'achat du robot ton
 | 17 | Meilleur épandeur d'engrais pour gazon : à main ou à roues | meilleur epandeur engrais gazon | classement | Gazon et pelouse | `/meilleur-epandeur-engrais-gazon` |
 | 18 | Enfouir le câble de son robot tondeuse : louer une machine ou le faire à la main | enfouisseur cable robot tondeuse location | guide | Autour du robot | `/enfouisseur-cable-robot-tondeuse-location` |
 | 19 | Lames Mammotion Luba et Yuka : références et remplacement | lames mammotion | accessoire | Autour du robot | `/lames-mammotion-luba-yuka` |
+| 20 | Meilleur abri de jardin en métal : acier galvanisé, ancrage, condensation | meilleur abri de jardin métal | classement | Abris de jardin | `/abri-jardin/meilleur-abri-de-jardin-metal` |
+| 21 | Meilleur abri de jardin en résine : Keter, Lifetime et les autres | meilleur abri de jardin résine | classement | Abris de jardin | `/abri-jardin/meilleur-abri-de-jardin-resine` |
+| 22 | Dalle, plots ou plancher : sur quoi poser son abri de jardin ? | dalle abri de jardin | guide | Abris de jardin | `/abri-jardin/fondation-abri-de-jardin-dalle-ou-plots` |
+| 23 | Taxe d'aménagement d'un abri de jardin : comment elle se calcule | abri de jardin taxe d'aménagement | guide | Abris de jardin | `/abri-jardin/taxe-amenagement-abri-de-jardin` |
+| 24 | Abri de jardin de 20 m² : lequel choisir, et quelles démarches ? | abri de jardin 20m2 | guide par taille | Abris de jardin | `/abri-jardin/abri-de-jardin-20m2` |
+| 25 | Abri de jardin en limite de propriété : distance, hauteur, accord du voisin | abri de jardin limite de propriété | guide | Abris de jardin | `/abri-jardin/abri-de-jardin-limite-de-propriete` |
+| 26 | Abri de jardin de moins de 5 m² : ranger sans démarche | abri de jardin moins de 5m2 | guide par taille | Abris de jardin | `/abri-jardin/abri-de-jardin-moins-de-5m2` |
 
 ## Avril 2027
 
@@ -359,6 +372,7 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 | Meilleure élagueuse sur batterie : pour l'entretien courant des arbres | élagueuse sur batterie | classement | Outils sur batterie | `/outils-jardin/meilleure-elagueuse-batterie` |
 | Aiper Scuba S1 ou Wybot C2 : lequel choisir ? | aiper scuba s1 ou wybot c2 | duel | Robots de piscine | `/robot-piscine/aiper-scuba-s1-vs-wybot-c2` |
 | Scarificateur électrique, thermique ou sur batterie : lequel choisir ? | scarificateur electrique ou thermique | duel | Gazon et pelouse | `/scarificateur-electrique-thermique-ou-batterie` |
+| Studio et bureau de jardin isolé : prix, démarches, pour qui (à confirmer) | bureau de jardin isolé prix | guide | Abris de jardin | `/abri-jardin/bureau-de-jardin-isole-prix` |
 
 ## Répartition sur l'année
 
@@ -372,4 +386,5 @@ Pourquoi maintenant : Le Black Friday tombe fin novembre : les pages promo sont 
 | Arrosage | 12 |
 | Outils sur batterie | 9 |
 | Promos | 5 |
-| **Total** | **183** |
+| Abris de jardin | 11 |
+| **Total** | **194** |
