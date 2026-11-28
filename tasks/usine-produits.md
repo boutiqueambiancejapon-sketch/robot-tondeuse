@@ -18,6 +18,14 @@
 - **Contenu** : guides par les agents (une intention = une page, au plus quelques pages par nuit), GEO (réponse chiffrée en tête),
   IndexNow + Bing, mesure dans le tableau de bord commun du centre de contrôle. Jamais de page de méthode, jamais « testé ».
 
+## Photos des produits (décision du propriétaire, 28/11/2026)
+1. D'abord des photos qu'on a le droit d'héberger : flux marchands Awin (Fnac, déjà sur 22 fiches) et photos officielles des marques
+   (kits presse / revendeurs), conditions de chaque programme ou marque vérifiées avant usage.
+2. Sinon la photo Amazon, **jamais stockée chez nous** (règle du Partenariat Amazon : seule l'adresse peut être gardée, 24 h au plus,
+   image servie depuis les serveurs d'Amazon). Son adresse est relevée dans la MÊME demande que le prix (getItems, ressource
+   images.primary.large, 10 produits par demande) : aucun appel en plus ; relevé de nuit, adresse remplacée chaque jour.
+3. Sans photo : l'initiale de la marque (comme la maquette), jamais une image inventée.
+
 ## Ce que quel-canape.fr fait et que QRT n'a pas encore (relevé du 28/11/2026)
 1. Catalogue large (1 664 canapés, 112 fauteuils) tiré des flux marchands.
 2. Méga-menu par critère avec le nombre de modèles (« Canapés d'angle 549 »).
