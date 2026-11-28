@@ -2,6 +2,7 @@
  * /code-promo/[marque] — « Code promo {Marque} : y en a-t-il un en {mois année} ? ».
  * Données : lib/promos.ts. La réponse (code contrôlé ou non, date du contrôle) tient dans la première ligne.
  */
+import { CodesAnnonces } from '@/components/promos/CodesAnnonces'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -83,7 +84,7 @@ export default async function CodePromoMarquePage({ params }: { params: Params }
             <h2 id="existe">Existe-t-il un code promo {m} ?</h2>
             {brand.codes.length === 0 ? (
               <p>
-                Nous ne publions un code que s’il vient de la marque ou d’un marchand, et que nous avons pu le saisir dans un panier pour voir le total baisser. Au {date}, nous n’en avons aucun à publier pour {m}. Cette page changera le jour où un code passera ce contrôle, avec sa date et ses conditions.
+                Nous ne publions un code comme vérifié que s’il vient de la marque ou d’un marchand, et que nous avons pu le saisir dans un panier pour voir le total baisser. Au {date}, aucun code {m} n’a passé ce contrôle.
               </p>
             ) : (
               <ul className="puces">
@@ -94,6 +95,7 @@ export default async function CodePromoMarquePage({ params }: { params: Params }
                 ))}
               </ul>
             )}
+            <CodesAnnonces marque={m} annonces={brand.annonces} />
           </section>
 
           <section className="prose" aria-labelledby="coupon">

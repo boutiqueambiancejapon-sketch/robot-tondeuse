@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 15 h (heure belge) — Croissance QRT (relevé et tour promo du 28/11)
+
+- **En ligne** : l'envoi du 27/11 est arrivé (5 pages en 200, 1 H1, date du 27/11). Relevé : 13 prix lus, 0 échec, tous identiques à la veille. 13 marques vues, dates au 28/11.
+- **Nouveau** : Husqvarna publie le code **BF2026** (−30 % sur la gamme Aspire, robot Aspire R6V compris, à 769,30 € annoncé contre 1 099 € sur sa fiche, sauf l'Aspire R4, jusqu'au 30/11). Pas saisi dans un panier, donc **pas compté comme vérifié** : nouveau champ `annonces` dans `lib/promos.ts`, bloc `CodesAnnonces` sur `/code-promo/husqvarna` (« lu, pas saisi dans un panier »), ligne « 1 code annoncé par la marque » sur `/code-promo`. Le bloc disparaît seul après sa date de fin. 1 test ajouté.
+- Stiga : A 15v ajouté (1 499 €). Einhell : 3e robot (Freelexo Smart 750 à 599,95 €, indisponible). Les autres marques : pas de code. Les pages des boutiques Dreame, Navimow, Mammotion et Mova répondent avec un en-tête de navigateur complet.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 171 tests OK, construction OK. Étiquette `sauvegarde-20261128-promos`.
+- **Croissance, 29/11** : vérifier l'envoi en ligne, relevé et tour promo. **Le 01/12** : retirer le code BF2026 s'il reste (il part seul), puis les notes Black Friday périmées. **Chef** : lire `/code-promo/husqvarna` à 390 px.
+
 ## 28/11/2026, samedi 15 h 40 (heure belge) — Catalogue QRT (3e passage : Worx, Gardena, Bosch)
 
 - **Fait** : `data/robots-tondeuses.json` passe à **93 modèles** : + **Worx 24** (Landroid fil, Vision AI, Vision Cloud, Vision Cloud 4WD), + **Gardena 12** (smart SILENO free, life, max, pro, sense), + **Bosch 2** (VISIMOW 18V-100 et 18V-200), + **Husqvarna 450X NERA et 310 Mark II** avec `arrete: true` (demande du Dév pour le radar ; leur fiche officielle renvoie vers l'assistance). Le test du radar qui prenait le 450X NERA comme exemple d'id absent prend maintenant `husqvarna-automower-415x`. Sources : fiches officielles FR lues le 28/11. Prix = prix normal de la marque : Gardena, prix barré quand une réduction s'affiche ; Bosch, kit avec batterie (prix conseillé du fabricant).

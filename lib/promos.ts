@@ -52,6 +52,17 @@ export type PrixReleve = {
   checkedAt: string
 }
 
+/** Code publié par la marque sur son site, lu à une date donnée, mais pas saisi dans un panier : jamais compté comme vérifié. */
+export type CodeAnnonce = {
+  code: string
+  /** Ce que la marque promet, avec ses exclusions, tel qu'écrit sur sa page. */
+  effet: string
+  /** Fin de validité annoncée, AAAA-MM-JJ. */
+  jusquau: string
+  href: string
+  source: string
+}
+
 export type PromoNote = { texte: string; href: string; source: string }
 
 export type PromoBrand = {
@@ -62,6 +73,8 @@ export type PromoBrand = {
   codes: PromoCode[]
   offers: BlackFridayOffer[]
   releves: PrixReleve[]
+  /** Codes annoncés par la marque, non saisis dans un panier. */
+  annonces: CodeAnnonce[]
   checkedAt: string
   note?: PromoNote
 }
@@ -81,25 +94,29 @@ export type PromoRobot = {
 }
 
 /** Date du dernier contrôle de toutes les marques. */
-export const PROMOS_CHECKED_AT = '2026-11-27'
+export const PROMOS_CHECKED_AT = '2026-11-28'
 
 export const BLACK_FRIDAY = { year: 2026, date: '2026-11-27', cyberMonday: '2026-11-30' }
 
-/** Relevés du 27/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow, Ecovacs et Gardena (pages Black Friday et fiches produit). */
-const DATE_RELEVES = '2026-11-27'
+/** Relevés du 28/11/2026 : boutiques officielles de Dreame, Mammotion, Mova, Navimow, Ecovacs et Gardena (pages Black Friday et fiches produit). */
+const DATE_RELEVES = '2026-11-28'
 const releve = (slug: string, url: string, price: number, reference: number, cadeau?: string): PrixReleve => ({
   slug, url, price, reference, checkedAt: DATE_RELEVES, ...(cadeau ? { cadeau } : {}),
 })
+
+/** Date du jour, AAAA-MM-JJ : un code annoncé disparaît après sa date de fin, même sans nouveau contrôle. */
+const aujourdhui = (): string => new Date().toISOString().slice(0, 10)
 
 const marque = (
   slug: string,
   label: string,
   note?: PromoNote,
   categorie = slug,
-  suivi: { checkedAt?: string; releves?: PrixReleve[] } = {},
+  suivi: { checkedAt?: string; releves?: PrixReleve[]; annonces?: CodeAnnonce[] } = {},
 ): PromoBrand => ({
   slug, label, categorie, codes: [], offers: [],
   releves: suivi.releves ?? [],
+  annonces: (suivi.annonces ?? []).filter((a) => a.jusquau >= aujourdhui()),
   checkedAt: suivi.checkedAt ?? PROMOS_CHECKED_AT,
   ...(note ? { note } : {}),
 })
@@ -108,7 +125,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('dreame', 'Dreame', {
     texte: 'Dreame annonce son Black Friday du 16 au 30 novembre 2026, après des remises ouvertes le 30 octobre.',
     href: 'https://fr.dreametech.com/pages/black-friday',
-    source: 'la page Black Friday de Dreame, lue le 27 novembre 2026',
+    source: 'la page Black Friday de Dreame, lue le 28 novembre 2026',
   }, 'dreame', {
     releves: [
       releve('dreame-a1-pro', 'https://fr.dreametech.com/products/robot-tondeuse-dreame-a1-pro', 599, 1099),
@@ -117,24 +134,32 @@ export const PROMO_BRANDS: PromoBrand[] = [
     ],
   }),
   marque('husqvarna', 'Husqvarna', {
-    texte: 'Le 27 novembre, Husqvarna range huit robots (Aspire R6V, 305E NERA, 310E NERA, 320 NERA, 430V NERA, 435X AWD NERA, Aspire R4 et 305) dans sa page « Offres en cours », sans prix lisible chez nous. Il annonce aussi 5 % contre une inscription à sa lettre : nous n’avons pas vérifié si cette remise vaut pour un robot.',
+    texte: 'Le 28 novembre, Husqvarna publie le code BF2026, valable jusqu’au lundi 30 novembre : −30 % sur sa gamme à batterie Aspire, robot Aspire R6V compris, mais pas l’Aspire R4. Sa page Aspire annonce le R6V à 769,30 € avec ce code ; sa fiche le vend 1 099 € sans code. Nous n’avons pas essayé le code dans un panier. Husqvarna range aussi huit robots (Aspire R6V, 305E NERA, 310E NERA, 320 NERA, 430V NERA, 435X AWD NERA, Aspire R4 et 305) dans sa page « Offres en cours », sans autre prix lisible chez nous. Il annonce enfin 5 % contre une inscription à sa lettre : nous n’avons pas vérifié si cette remise vaut pour un robot.',
     href: 'https://www.husqvarna.com/fr/offres-en-cours/',
-    source: 'la page « Offres en cours » de Husqvarna, lue le 27 novembre 2026',
+    source: 'la page « Offres en cours », la page Aspire et la fiche de l’Aspire R6V de Husqvarna, lues le 28 novembre 2026',
+  }, 'husqvarna', {
+    annonces: [{
+      code: 'BF2026',
+      effet: '−30 % sur la gamme à batterie Aspire, robot Aspire R6V compris (annoncé à 769,30 € ; sa fiche affiche 1 099 € sans code), sauf l’Aspire R4',
+      jusquau: '2026-11-30',
+      href: 'https://www.husqvarna.com/fr/apprendre-et-decouvrir/aspire/',
+      source: 'la page Aspire de Husqvarna, lue le 28 novembre 2026',
+    }],
   }),
   marque('worx', 'Worx'),
   marque('gardena', 'Gardena', {
-    texte: 'Gardena annonce une « Cyber Week » du 23 au 30 novembre 2026 dans sa boutique. Le 24 novembre, elle affichait le Sileno sense 400 m² à 899,99 €, le Sileno sense 600 m² à 989,99 € et le Sileno life 1 500 m² à 649,99 €. Du 25 au 27 novembre, nous n’avons pu relire que le prix du sense 400, toujours à 899,99 €. Nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours.',
+    texte: 'Gardena annonce une « Cyber Week » du 23 au 30 novembre 2026 dans sa boutique. Le 24 novembre, elle affichait le Sileno sense 400 m² à 899,99 €, le Sileno sense 600 m² à 989,99 € et le Sileno life 1 500 m² à 649,99 €. Du 25 au 28 novembre, nous n’avons pu relire que le prix du sense 400, toujours à 899,99 €. Nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours.',
     href: 'https://www.gardena.com/fr/c/promo-jeux-concours/cyber-week',
-    source: 'la page « Cyber Week » de Gardena, lue le 24 novembre 2026, et la fiche du sense 400, relue le 27 novembre 2026',
+    source: 'la page « Cyber Week » de Gardena, lue le 24 novembre 2026, et la fiche du sense 400, relue le 28 novembre 2026',
   }, 'gardena', {
     releves: [
       releve('gardena-smart-sileno-sense-400', 'https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-sense-400-m/970818050.html', 899.99, 999.99),
     ],
   }),
   marque('segway-navimow', 'Segway Navimow', {
-    texte: 'Navimow annonce ses offres Black Friday du 10 au 30 novembre 2026, avec un « prix garanti pendant 30 jours » écrit sur sa page. Nous n’avons pas pu y lire le stock des i208, i215 et i220 LiDAR le 27 novembre.',
+    texte: 'Navimow annonce ses offres Black Friday du 10 au 30 novembre 2026, avec un « prix garanti pendant 30 jours » écrit sur sa page. Nous n’avons pas pu y lire le stock des i208, i215 et i220 LiDAR le 28 novembre.',
     href: 'https://fr.navimow.com/pages/black-friday',
-    source: 'la page Black Friday de Navimow, lue le 27 novembre 2026',
+    source: 'la page Black Friday de Navimow, lue le 28 novembre 2026',
   }, 'segway', {
     releves: [
       releve('segway-navimow-i105e', 'https://fr.navimow.com/products/navimow-i1-robot-lawn-mower', 699, 799),
@@ -144,7 +169,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('mammotion', 'Mammotion', {
     texte: 'Mammotion annonce ses offres Black Friday du 10 au 30 novembre 2026.',
     href: 'https://fr.mammotion.com/',
-    source: 'la boutique Mammotion, lue le 27 novembre 2026',
+    source: 'la boutique Mammotion, lue le 28 novembre 2026',
   }, 'mammotion', {
     releves: [
       releve('mammotion-luba-mini-2-awd-1000', 'https://fr.mammotion.com/products/robot-tondeuse-luba-mini-2-awd-1000', 1199, 1499),
@@ -153,19 +178,19 @@ export const PROMO_BRANDS: PromoBrand[] = [
     ],
   }),
   marque('stiga', 'Stiga', {
-    texte: 'Stiga annonce son Black Friday du 23 au 30 novembre 2026. Le 27 novembre, sa boutique affiche l’A 6v à 899 €, l’A 8v à 1 079 € et l’A 10v à 1 249 € ; nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours. Stiga promet aussi 10 % sur un premier achat contre une inscription à sa lettre, sans que nous ayons vérifié si cela vaut pour un robot.',
+    texte: 'Stiga annonce son Black Friday du 23 au 30 novembre 2026. Le 28 novembre, sa boutique affiche l’A 6v à 899 €, l’A 8v à 1 079 €, l’A 10v à 1 249 € et l’A 15v à 1 499 € ; nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours. Stiga promet aussi 10 % sur un premier achat contre une inscription à sa lettre, sans que nous ayons vérifié si cela vaut pour un robot.',
     href: 'https://www.stiga.com/fr/black-friday',
-    source: 'la page Black Friday de Stiga, lue le 27 novembre 2026',
+    source: 'la page Black Friday de Stiga, lue le 28 novembre 2026',
   }),
   marque('bosch', 'Bosch', {
     texte: 'Bosch publie le code BLACKFRIDAY26 du 13 novembre au 2 décembre 2026, pour une sélection d’outils 18 V. Aucun robot Indego ne figure parmi les outils affichés et nous n’avons pas essayé le code sur un robot.',
     href: 'https://www.bosch-diy.com/fr/fr/blackweekpromo',
-    source: 'la page « Semaines Black Friday » de Bosch, lue le 27 novembre 2026',
+    source: 'la page « Semaines Black Friday » de Bosch, lue le 28 novembre 2026',
   }),
   marque('ecovacs', 'Ecovacs', {
     texte: 'Ecovacs annonce son Black Friday du 9 au 30 novembre 2026. Pour le Goat A1600 LiDAR Pro, sa boutique indique elle-même 999 € comme prix le plus bas des 30 derniers jours.',
     href: 'https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower',
-    source: 'la boutique Ecovacs, lue le 27 novembre 2026',
+    source: 'la boutique Ecovacs, lue le 28 novembre 2026',
   }, 'ecovacs', {
     releves: [
       releve('ecovacs-goat-a1600-lidar-pro', 'https://www.ecovacs.com/fr/shop/goat-robotic-lawn-mower/goat-a1600-lidar-pro', 799, 1499),
@@ -174,7 +199,7 @@ export const PROMO_BRANDS: PromoBrand[] = [
   marque('mova', 'Mova', {
     texte: 'Mova annonce ses offres Black Friday du 10 au 30 novembre 2026, après un accès anticipé du 27 octobre au 9 novembre.',
     href: 'https://fr.mova.tech/pages/offre-black-friday',
-    source: 'la page Black Friday de Mova, lue le 27 novembre 2026',
+    source: 'la page Black Friday de Mova, lue le 28 novembre 2026',
   }, 'mova', {
     releves: [
       releve('mova-viax-250', 'https://fr.mova.tech/products/robot-tondeuse-viax-250', 479, 579),
@@ -183,14 +208,14 @@ export const PROMO_BRANDS: PromoBrand[] = [
     ],
   }),
   marque('einhell', 'Einhell', {
-    texte: 'Le 27 novembre, Einhell range deux robots dans sa « Black Friday Week » : le Freelexo 1200 LCD BT à 299,95 € et le Freelexo CAM 500 à 349,95 €. La page ne donne pas de dates et marque les deux robots « indisponibles à la vente sur le site ». Nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours.',
+    texte: 'Le 28 novembre, Einhell range trois robots dans sa « Black Friday Week » : le Freelexo 1200 LCD BT à 299,95 €, le Freelexo CAM 500 à 349,95 € et le Freelexo Smart 750 à 599,95 €. La page ne donne pas de dates et marque les trois robots « indisponibles à la vente sur le site ». Nous n’avons pas contrôlé leur plus bas prix des 30 derniers jours.',
     href: 'https://www.einhell.fr/promotions/',
-    source: 'la page « Promotions » d’Einhell, lue le 27 novembre 2026',
+    source: 'la page « Promotions » d’Einhell, lue le 28 novembre 2026',
   }),
   marque('sunseeker', 'Sunseeker', {
-    texte: 'Le site français de Sunseeker ne vend pas en ligne : sa page « Où acheter » renvoie vers Amazon, Leroy Merlin, Castorama, Darty, Bricomarché, Brico Dépôt, ManoMano et Joybuy. Le 27 novembre, nous n’y avons lu ni code ni offre Black Friday de la marque.',
+    texte: 'Le site français de Sunseeker ne vend pas en ligne : sa page « Où acheter » renvoie vers Amazon, Leroy Merlin, Castorama, Darty, Bricomarché, Brico Dépôt, ManoMano et Joybuy. Le 28 novembre, nous n’y avons lu ni code ni offre Black Friday de la marque.',
     href: 'https://sunseekertech.com/fr/where-to-buy',
-    source: 'la page « Où acheter » de Sunseeker, lue le 27 novembre 2026',
+    source: 'la page « Où acheter » de Sunseeker, lue le 28 novembre 2026',
   }),
   marque('yard-force', 'Yard Force'),
 ]
