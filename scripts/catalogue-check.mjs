@@ -37,7 +37,7 @@ for (const [i, r] of base.entries()) {
     if (parts.some((p) => !GUIDAGES.includes(p))) erreurs.push(`${nom} : guidage « ${r.guidage} » inconnu (${GUIDAGES.join(', ')}, combinés par +)`)
     if (typeof r.sans_fil === 'boolean' && r.sans_fil !== !parts.includes('fil')) erreurs.push(`${nom} : sans_fil contredit le guidage`)
   }
-  if (!vide(r.transmission) && !['2rm', '4rm'].includes(r.transmission)) erreurs.push(`${nom} : transmission « ${r.transmission} » inconnue`)
+  if (!vide(r.transmission) && !['2rm', '3rm', '4rm'].includes(r.transmission)) erreurs.push(`${nom} : transmission « ${r.transmission} » inconnue`)
   if (!vide(r.connectivite) && (!Array.isArray(r.connectivite) || r.connectivite.some((c) => !['wifi', 'bluetooth', '4g', 'lora'].includes(c)))) erreurs.push(`${nom} : connectivite invalide`)
   for (const c of ['pente_pct', 'bruit_db', 'largeur_coupe_cm', 'autonomie_min', 'zones_max', 'prix_eur']) if (!vide(r[c]) && typeof r[c] !== 'number') erreurs.push(`${nom} : ${c} doit être un nombre`)
   if (!vide(r.hauteur_coupe_mm) && !(Array.isArray(r.hauteur_coupe_mm) && r.hauteur_coupe_mm.length === 2)) erreurs.push(`${nom} : hauteur_coupe_mm doit être [min, max]`)
@@ -81,8 +81,9 @@ const parTaille = [0, 0, 0]
 const compte = (sel, taille) => {
   let ens = sel[0].ok
   for (const c of sel.slice(1)) ens = new Set([...ens].filter((id) => c.ok.has(id)))
-  if (ens.size >= MIN_MODELES) { total++; parTaille[taille - 1]++ }
+  if (ens.size >= MIN_MODELES) { total++; parTaille[taille - 1]++; trouvees.push({ taille, ens }) }
 }
+const trouvees = []
 for (let i = 0; i < crit.length; i++) {
   compte([crit[i]], 1)
   for (let j = i + 1; j < crit.length; j++) {
@@ -95,6 +96,14 @@ for (let i = 0; i < crit.length; i++) {
   }
 }
 console.log(`Collections possibles (≥ ${MIN_MODELES} modèles en vente) : ${total} (1 critère ${parTaille[0]}, 2 critères ${parTaille[1]}, 3 critères ${parTaille[2]}), avant le filtre anti-doublon`)
+
+// Anti-doublon (§ 2) : les moins de critères d'abord ; une collection est écartée si elle et une collection gardée ont ≥ 70 % de modèles en commun (rapporté à la plus grande des deux : une sous-sélection nette reste permise).
+const gardees = []
+for (const c of trouvees.sort((a, b) => a.taille - b.taille || b.ens.size - a.ens.size)) {
+  const doublon = gardees.some((g) => [...c.ens].filter((id) => g.has(id)).length / Math.max(c.ens.size, g.size) >= 0.7)
+  if (!doublon) gardees.push(c.ens)
+}
+console.log(`Après le filtre anti-doublon (70 % de modèles en commun) : ${gardees.length} collections`)
 
 if (erreurs.length) {
   console.error(`\n${erreurs.length} erreur(s) :`)
