@@ -45,3 +45,11 @@ Secret déposé par le propriétaire, **catalogue accessible** : getItems et sea
 - À corriger (Contenu/Dév) : plusieurs ASIN du site sont « Actuellement indisponible » sur Amazon.fr (Husqvarna 310 Mark II
   B0BWKF1VWS, Mammotion YUKA Mini 2 1000 B0GJ4TWVVV, LUBA 3 AWD 3000 B0GCZSSZRZ) : vérifier chaque lien Amazon avec getItems et
   remplacer par l'ASIN vendu ou masquer le bouton Amazon quand le produit n'est pas disponible.
+
+### ASIN automatiques (propriétaire, 28/11/2026)
+- Plus de recherche d'ASIN à la main : searchItems (marque + modèle) trouve l'ASIN de chaque produit du site et de chaque deal.
+- Garder une fiche seulement si son titre contient la marque et le modèle exacts et si elle est disponible (IN_STOCK).
+- **Plusieurs fiches valables pour le même modèle (kit, pack, couleur, vendeur) : prendre la plus chère** (décision du propriétaire).
+  Le prix et le nom affichés sont toujours ceux de cette fiche-là : si c'est un kit ou un pack, le libellé le dit.
+- À chaque relevé (toutes les 4 heures), revérifier les ASIN : fiche indisponible → passer à la fiche valable suivante (la plus chère),
+  sinon masquer le bouton Amazon.
