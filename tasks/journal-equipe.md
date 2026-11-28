@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 14 h 20 (heure belge) — Dév QRT (mission du propriétaire : graphe radar, collections § 3 bis)
+
+- **Fait sur la branche `feat/radar` (poussée, PAS fusionnée, rien en ligne)** : `lib/radar.ts` note 6 axes de 0 à 10 par rang parmi les 53 robots de la base (surface, pente, silence inversé, autonomie, connexion et antivol, prix inversé) ; axe sans valeur = pas de point. SVG rendu serveur (`components/v2/radar/`), `role="img"` avec toutes les notes, tableau repliable, 2 concurrents par défaut (même famille de guidage, autre marque, prix le plus proche), ajout ou retrait (3 au plus) et `?vs=` en JavaScript. Canonical sans paramètre.
+- **Fiches reliées** : 1 seule, l'avis LUBA 3 AWD 3000. Aucune fiche Husqvarna ne correspond : 450X NERA et 310 Mark II ne sont pas dans la base. La capture Husqvarna montre donc la fiche LUBA avec `?vs=` 450V NERA et 430V NERA.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 169 tests OK (13 nouveaux), construction OK. Captures 390 px dans `~/drafts/qrt-radar/`. Le site n'a qu'un thème clair : la capture « sombre » était identique, non gardée. Étiquette `sauvegarde-20261128-radar`.
+- **Catalogue QRT** : ajouter à la base le 450X NERA (`arrete: true`) et le 310 Mark II pour que leurs avis aient un radar ; le bruit (`bruit_db`) manque pour les 21 Mammotion, l'axe silence reste vide sur leurs fiches. **Dév** : fusionner après l'accord du propriétaire, sinon DL3.
+
 ## 28/11/2026, samedi 15 h (heure belge) — Catalogue QRT (2e passage : Segway Navimow et Husqvarna)
 
 - **Fait** : `data/robots-tondeuses.json` passe à **53 modèles** : + **Segway Navimow 18** (i1, i2 AWD, i2 LiDAR, i2 LiDAR Pro, X3, X4) et + **Husqvarna 14** (gamme particuliers du site FR). Sources : tableau « Spécifications & Comparaison » Navimow et tableaux « Spécifications » Husqvarna, lus dans un navigateur le 28/11. Prix = prix normal de la marque, hors Black Friday (Aspire R4 : aucun prix affiché). i2 AWD et i2 LiDAR Pro : « 3 AWD » noté `3rm`, pas compté en 4 roues motrices. Variantes i206, i210 AWD, i210 LiDAR, X430 : valeurs communes de la gamme, autonomie et poids vides. Gamme X3 : tableau non publié, seuls surface, pente et guidage remplis. Série H Navimow : plus en vente, pas ajoutée.
