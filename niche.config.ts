@@ -161,6 +161,8 @@ export const niche: NicheConfig = {
     tone: ['direct', 'pragmatique', 'technique'],
     noGo: ['révolutionnaire', 'incroyable', 'game-changer'],
     formulations: ['Concrètement,', 'Le vrai critère :', 'Sur le terrain,'],
+    // Avatar illustré de Mathias en bricoleur de jardin (demande du propriétaire, 28/11/2026).
+    photo: '/images/auteur-mathias.webp',
   },
 
   affiliateTag: 'ambiancejap0a-21',
