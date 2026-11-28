@@ -50,8 +50,23 @@ On écrit d'abord ce qui rapporte le plus par vente. Tout est dans `tasks/calend
 - **Robots tondeuses à plus de 1 000 €** : avis de modèles (`/avis-<marque>-<modèle>`), duels, classements haut de gamme et grand terrain, avant le printemps.
 - **Nouvelle rubrique « Tracteurs et tondeuses autoportées »** (1 500 à 4 000 €), ouverte le 18/11/2026, adresses à la racine, page mère `/tracteur-tondeuse`. Seule exception à la règle « pas de thermique ».
 - **Robots de piscine avancés à décembre 2026** : rubrique `/robot-piscine` **ouverte par le Dév le 18/11/2026** (articles dans `content/articles/robot-piscine/`).
-- Gazon, dépannage et accessoires bon marché passent derrière ; ceux de saison restent. Cabanons, pergolas, mobilier : pas sur ce site.
+- Gazon, dépannage et accessoires bon marché passent derrière ; ceux de saison restent. ~~Cabanons, pergolas, mobilier : pas sur ce site.~~ **Remplacé le 28/11/2026, voir ci-dessous.**
 - **Contenu QRT** : mettre à jour sur place, avant février, les classements par budget, par surface, 4 roues motrices et LiDAR. **Croissance QRT** : trouver quel marchand partenaire vend des tracteurs. **Chef QRT** : au premier article tracteur, contrôler qu'aucun encart automatique ne montre un robot à la place d'un tracteur.
+
+
+## Jardin haut de gamme grâce à Amazon (décision du propriétaire, 28/11/2026) — remplace « pas de cabanons sur ce site »
+
+> « Grâce à Amazon, on peut attaquer un max de nouveaux clusters high ticket : robot piscine, mais aussi cabane et tout ce qui concerne le jardin. »
+
+L'API Amazon Creators est ouverte (clés dans le coffre, `/srv/toutou/shared/.env`, voir `tasks/deals-v1.md`) : prix, disponibilité et page exacte
+de tout produit Amazon.fr, sans recherche d'ASIN à la main (règle : en cas de doute entre plusieurs fiches valables, la plus chère).
+Ordre des rubriques (Éditeur : `tasks/arborescence.md`, `tasks/plan-editorial.md`, `tasks/calendrier-editorial.md`) :
+1. **Robots de piscine** (rubrique `/robot-piscine` déjà ouverte) : classements par budget et taille de bassin, avis de modèles, duels.
+2. **Abris et cabanes de jardin** (bois, métal, résine ; 500 à 3 000 €) : page mère, guides par taille et matériau, permis de construire/déclaration préalable (sources officielles service-public.fr), classements.
+3. **Autres produits chers du jardin**, un cluster à la fois, après les deux premiers : pergolas et carports, serres, barbecues et planchas haut de gamme, spas gonflables et rigides, nettoyeurs haute pression, débroussailleuses et taille-haies sur batterie, mobilier de jardin.
+Chaque cluster : page mère, une page par intention (règle « des articles de blog existent = on rédige »), deals Amazon/Cdiscount/Fnac
+dans la page Deals avec un filtre par catégorie, prix et disponibilité lus à l'API, jamais inventés. Le menu reste celui du design V2 :
+nouvelles rubriques sous « Jardin » sans refonte (maquette au propriétaire si le menu change de forme).
 
 ## Design V2 validé (15/11/2026)
 
