@@ -1,0 +1,69 @@
+# Collections longue traîne (chantier du 28/11/2026, priorité n° 1 de l'équipe)
+
+Décision du propriétaire (28/11/2026), inspirée de quel-canape.fr (post d'Affiseo du 13/11/2026 : 22 → 275 visites par jour depuis
+ChatGPT en un mois, 12,5 clics marchands pour 100 visites IA contre 7,3 pour Google). Accord sur : robots tondeuses d'abord, robots
+piscine ensuite ; adresses `/robot-tondeuse/<critères>/` ; 3 à 5 pages par nuit.
+
+## 1. Base produits (agent Catalogue QRT)
+
+Fichier unique `data/robots-tondeuses.json` (un objet par modèle vendu en France en 2026, 100 à 150 visés) :
+
+| Champ | Exemple | Source obligatoire |
+|---|---|---|
+| `id`, `marque`, `modele` | `mammotion-luba-2-awd-3000` | page officielle |
+| `surface_m2` | 3000 | fiche technique officielle |
+| `pente_pct` | 80 | idem |
+| `guidage` | `fil` · `rtk` · `vision` · `lidar` · `rtk+vision` | idem |
+| `sans_fil` | true | déduit du guidage |
+| `transmission` | `2rm` · `4rm` | idem |
+| `connectivite` | `["wifi","bluetooth","4g"]` | idem |
+| `bruit_db`, `largeur_coupe_cm`, `hauteur_coupe_mm`, `autonomie_min`, `zones_max`, `ip` | | idem |
+| `prix_eur` | 1899 | prix public conseillé de la marque, daté ; prix du jour : API Amazon / flux Awin (jamais écrit à la main) |
+| `asin`, `awin` | | API Amazon Creators (`scripts/amazon-cherche.mjs`), flux Awin |
+| `sources` | `[{url, lu_le}]` | — |
+
+Règles : une valeur sans source reste vide (jamais devinée) ; « analysé », jamais « testé » ; un modèle arrêté reste avec `arrete: true`.
+
+## 2. Moteur de collections (Dév QRT)
+
+- Familles de critères (une valeur par famille au plus) : surface (≤ 500, 1000, 1500, 2000, 3000, 5000 m²), pente (≥ 35, 45, 70 %),
+  guidage (fil, sans fil, RTK, vision, LiDAR), 4 roues motrices, 4G/antivol, silencieux (≤ 58 dB), budget (< 500, 800, 1000, 1500, 2000 €),
+  marque, usage (petit jardin, grand terrain, terrain en pente, jardin complexe multi-zones).
+- Une page existe dès que **4 modèles réels** correspondent, de 1 à 3 critères combinés. Le volume de recherche décide l'ORDRE, jamais
+  l'existence.
+- Anti-doublon : une page qui partage ≥ 70 % de ses modèles avec une page existante n'est pas créée ; titre, H1 et requête cible uniques ;
+  similarité de texte faible (blocs de 6 mots) ; liens vers et depuis les pages sœurs.
+- Une page naît en `noindex`, hors plan du site ; elle devient indexable quand son texte, sa FAQ et son illustration sont écrits et relus.
+- Rythme : 3 à 5 pages par nuit (après la rédaction de nuit, quota Claude gardé, voir `equipe.md`).
+- Adresse : `/robot-tondeuse/<slug-des-critères>/` (ex. `/robot-tondeuse/sans-fil-1000-m2/`, `/robot-tondeuse/pente-45-moins-1000-euros/`).
+
+## 3. Anatomie d'une page (ce qu'une IA cite)
+
+1. H1 = la question exacte (« Quel robot tondeuse sans fil pour 1000 m² ? »).
+2. Résumé chiffré : note moyenne /10 · nombre de modèles analysés · prix médian · mis à jour le …
+3. « L'essentiel en 30 secondes » : réponse autonome, 3 à 5 puces.
+4. Grille notée des modèles (barème public `lib/bareme.ts`), bouton marchand suivi (`/go/…`), prix du jour daté.
+5. Comparaison critère par critère avec tout le catalogue.
+6. Un outil : « ce robot convient-il à mon jardin ? » (surface, pente, zones).
+7. FAQ (FAQPage), ItemList, Product/Offer, BreadcrumbList ; méthode et date.
+
+## 4. Bing et IndexNow (Dév QRT, avant la première collection)
+
+- IndexNow automatique : file vérifiée toutes les 15 min, envoi seulement si le contenu utile change (empreinte du `<main>`), 1 fois par
+  heure au plus par adresse, passage complet du plan du site à l'aube. Clé à la racine.
+- Bing Webmaster Tools : site vérifié, plan du site soumis (le propriétaire valide le compte si besoin).
+- Robots : `robots.txt` ET réponse réelle du serveur contrôlés chaque matin pour OAI-SearchBot, ChatGPT-User, PerplexityBot,
+  Claude-SearchBot, Claude-User, Bingbot, Googlebot (200 vérifié le 28/11/2026 sur une page d'article).
+
+## 5. Mesure
+
+Visites venues des IA (référent chatgpt.com, perplexity.ai, claude.ai, gemini, copilot ; `utm_source=chatgpt.com`), clics marchands
+pour 100 visites IA contre Google, pages d'arrivée IA. Alimente le futur tableau de bord commun (chantier « tableaux de bord »).
+
+## Ordre
+
+1. Catalogue QRT : base produits (plusieurs passages, marques par marques : Mammotion, Segway Navimow, Husqvarna, Worx, Gardena, Bosch,
+   Ecovacs, Dreame, Stiga, Ambrogio, Kress, Sunseeker, Yarbo…).
+2. Dév QRT : IndexNow + mesure IA, puis moteur de collections et gabarit de page (maquette au propriétaire seulement si le design change).
+3. Contenu QRT : textes, FAQ et relecture de chaque collection avant indexation.
+4. Ensuite : robots piscine, même méthode.

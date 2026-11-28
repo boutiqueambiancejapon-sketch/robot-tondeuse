@@ -39,6 +39,12 @@ enregistre une étape propre et on décrit la suite dans le journal pour le lend
   redirection du site (par exemple `/go/<robot>/<marchand>`), comptée dans les journaux du serveur et lue
   par le centre de contrôle.
 
+## Collections longue traîne (décision du propriétaire, 28/11/2026) — PRIORITÉ N° 1
+
+Tout est dans `tasks/collections-v1.md`. **Catalogue QRT** (nouvel agent) construit la base des robots tondeuses ; **Dév QRT** met
+IndexNow et la mesure des visites IA, puis le moteur de collections ; **Contenu QRT** écrit et relit chaque collection avant indexation.
+Le reste (CRO, haut de gamme, piscine, jardin) continue derrière.
+
 ## Chantier CRO (18/11/2026) — priorité de l'équipe
 
 Le site ne rapporte rien en affiliation. Tout est dans `tasks/chantier-cro.md` : **Contenu QRT** ajoute les encarts produits aux 32 articles d'achat qui n'en ont pas et corrige les 6 fiches Amazon fausses ; **Dév QRT** compte les clics Cdiscount et Fnac ; **Chef QRT** contrôle et suit les clics par bloc. Passe avant le ménage du design (étape 13).
