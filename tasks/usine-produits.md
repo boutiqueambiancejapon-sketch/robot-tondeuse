@@ -33,6 +33,28 @@
 4. Calculateur (« tient-il entre vos murs ? »), quiz, « Mes projets ».
 5. Promotions du moment.
 
+## Positionnement : on compare et on aide à choisir, en images (propriétaire, 28/11/2026)
+
+> « On compare, on aide à choisir avec des petits graphes radar et d'autres si besoin, un truc jamais fait nulle part ailleurs. »
+
+C'est notre différence face aux sites d'avis, puisqu'on ne teste pas : des données sourcées, montrées en petits graphiques
+lisibles sur iPhone. Chaque graphique est un composant du site modèle, servi à tous les sites, et suit les règles dataviz :
+une seule échelle, la couleur suit le produit, une légende, un tableau en secours.
+1. **Mini-radar sur chaque carte** (classements, collections, marque) : la forme du produit se voit au premier coup d'œil.
+2. **Comparer 2 à 4 produits** : tiroir « Comparer » sur toutes les listes. Radars superposés, un par couleur, et tableau
+   des seules différences.
+3. **Carte du marché** : un point par produit, prix en abscisse, note en ordonnée. Les bonnes affaires sautent aux yeux.
+   Dans chaque classement et chaque page marque.
+4. **Jauge « pour ton jardin »** : surface, pente et passages comparés aux limites du produit (vert, orange, rouge), pilotée
+   par le calculateur.
+5. **Historique du prix** : petite courbe des 90 derniers jours, avec le prix le plus bas vu et la date.
+6. **Coût sur 5 ans** : achat, lames et batterie, en barres empilées. La donnée doit être sourcée, sinon le graphique
+   n'est pas affiché.
+7. **Choisir en 3 questions** : surface, pente, budget. Le site répond par 3 robots, avec leurs radars superposés.
+
+Ordre : 1 et 2 avec les gabarits classement et collection, puis 3 et 4, puis 5 à 7. Graphiques dessinés en SVG côté
+serveur (lisibles par Google et les IA, aucun JS pour les voir), interaction légère seulement pour le tiroir Comparer.
+
 ## Site modèle de base (propriétaire, 28/11/2026)
 
 > « Il faut qu'on crée un site template de base avec toutes les typologies de base pour copier-coller rapidement, avec une DA
