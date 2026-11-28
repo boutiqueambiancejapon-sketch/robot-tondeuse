@@ -47,6 +47,19 @@ Règles : une valeur sans source reste vide (jamais devinée) ; « analysé », 
 6. Un outil : « ce robot convient-il à mon jardin ? » (surface, pente, zones).
 7. FAQ (FAQPage), ItemList, Product/Offer, BreadcrumbList ; méthode et date.
 
+## 3 bis. Graphe radar sur chaque fiche produit et chaque collection (propriétaire, 28/11/2026)
+
+> « quel-canape ajoute à chaque page produit un graphe radar »
+
+- Fiche robot (`/avis-…`, fiches produits) : radar à 6 axes, notés de 0 à 10 par rapport à TOUT le catalogue (rang centile, pas un avis) :
+  surface couverte, pente, silence (dB inversés), autonomie, connectivité et antivol (4G, GPS, app), prix (inversé : moins cher = plus haut).
+  Deux tracés : le robot (couleur d'accent du site) et la médiane du catalogue (gris). Un axe sans donnée sourcée n'est pas tracé (jamais 0 inventé).
+- Collection : le même radar en petit sur chaque carte, et un radar « médiane de la collection contre médiane du catalogue » en haut.
+- Rendu serveur en SVG dans le HTML (lisible sans JS par Google et les IA), `role="img"` + `aria-label` qui dit les 6 notes, et un tableau
+  repliable avec les mêmes valeurs (citable). Couleurs : variables CSS du site uniquement, contraste vérifié, `prefers-reduced-motion` respecté.
+- Composant unique (≤ 150 lignes), calcul dans `lib/` (fonction pure testée), barème expliqué sur `/comment-on-note` (« comparé à N robots analysés »).
+- Dév QRT : dès que `data/robots-tondeuses.json` a au moins 30 modèles ; capture 390 px envoyée au propriétaire avant la mise en ligne générale.
+
 ## 4. Bing et IndexNow (Dév QRT, avant la première collection)
 
 - IndexNow automatique : file vérifiée toutes les 15 min, envoi seulement si le contenu utile change (empreinte du `<main>`), 1 fois par
