@@ -15,11 +15,35 @@
       "date": "2026-11-28"
     }
   },
+  "nom:beatbot aquasense 2 pro": {
+    "cdiscount": {
+      "prix": 1699,
+      "url": "https://www.awin1.com/pclick.php?p=46885313798&a=1112904&m=6948",
+      "nom": "Robot nettoyeur de piscine - Beatbot - AquaSense 2 PRO - Automatique - 12 m - Noir",
+      "date": "2026-11-28"
+    }
+  },
   "nom:bosch indego s plus 500": {
     "cdiscount": {
       "prix": 635.98,
       "url": "https://www.awin1.com/pclick.php?p=46409528885&a=1112904&m=6948",
       "nom": "Tondeuse robot BOSCH - Indego S+ 500 - Tondeuse Robot - Sur batterie - Éjection Mulching",
+      "date": "2026-11-28"
+    }
+  },
+  "nom:dolphin e35": {
+    "cdiscount": {
+      "prix": 999,
+      "url": "https://www.awin1.com/pclick.php?p=43113743546&a=1112904&m=6948",
+      "nom": "Robot de Piscine Maytronics Dolphin E35 - avec Swivel et Chariot Nettoyage fond parois ligne deau compatible tous revêtements",
+      "date": "2026-11-28"
+    }
+  },
+  "nom:dolphin e40i": {
+    "cdiscount": {
+      "prix": 947.01,
+      "url": "https://www.awin1.com/pclick.php?p=44409821047&a=1112904&m=6948",
+      "nom": "Robot de piscine électrique E40i - Dolphin",
       "date": "2026-11-28"
     }
   },
@@ -183,6 +207,22 @@
       "date": "2026-11-28"
     }
   },
+  "nom:stiga estate 384": {
+    "cdiscount": {
+      "prix": 1699,
+      "url": "https://www.awin1.com/pclick.php?p=42316059804&a=1112904&m=6948",
+      "nom": "Tondeuse autoportée STIGA Estate 384 M - 414cc - 84cm - Bac 200L + Mulching",
+      "date": "2026-11-28"
+    }
+  },
+  "nom:stiga estate 384 m": {
+    "cdiscount": {
+      "prix": 1699,
+      "url": "https://www.awin1.com/pclick.php?p=42316059804&a=1112904&m=6948",
+      "nom": "Tondeuse autoportée STIGA Estate 384 M - 414cc - 84cm - Bac 200L + Mulching",
+      "date": "2026-11-28"
+    }
+  },
   "nom:sunseeker v1": {
     "cdiscount": {
       "prix": 309.99,
@@ -192,7 +232,7 @@
     },
     "fnac": {
       "prix": 309.99,
-      "url": "https://www.awin1.com/pclick.php?p=45438828712&a=1112904&m=12665",
+      "url": "https://www.awin1.com/pclick.php?p=45436157432&a=1112904&m=12665",
       "nom": "Robot tondeuse Sunseeker V1 300 M2 Noir",
       "date": "2026-11-28"
     }
@@ -214,7 +254,7 @@
     },
     "fnac": {
       "prix": 309.99,
-      "url": "https://www.awin1.com/pclick.php?p=45438828712&a=1112904&m=12665",
+      "url": "https://www.awin1.com/pclick.php?p=45436157432&a=1112904&m=12665",
       "nom": "Robot tondeuse Sunseeker V1 300 M2 Noir",
       "date": "2026-11-28"
     }
