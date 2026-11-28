@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 17 h 35 (heure belge) — Dév QRT (gabarits validés par le propriétaire, étape 1 : bibliothèque)
+
+- **Fait** : `components/v2/gabarits/` (11 composants de 10 à 55 lignes, styles dans `app/v2-gabarits.css`, variables du site, cuivre seul pour l'action) et `lib/gabarits.ts` (résumé chiffré : note moyenne, nombre de modèles, prix médian des seuls prix datés ; nombres par filtre). Bouton marchand : aucun prix sans date, liens Amazon par `addAffiliateTag`, texte jamais sur deux lignes. Alerte de prix affichée seulement si une vraie inscription existe (DL5).
+- Rien n'est branché sur une page : le site en ligne ne change pas. Aperçu local jamais envoyé, capture `~/drafts/qrt-gabarits/bibliotheque-390.png` : 2 défauts corrigés (podium sans photo = grand cadre vide ; filtre qui garde tous les modèles, retiré).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 196 tests (8 nouveaux), construction OK. Étiquette `sauvegarde-20261128-gabarits-bibliotheque`.
+- **Dév, prochain passage** : étape 2, gabarit fiche produit sur les 6 avis reliés à la base, adresses inchangées. Puis classement, collection, duel. DL3 (Deals) passe après, l'historique Awin restant vide de toute façon.
+
 ## 28/11/2026, samedi 17 h 30 (heure belge) — Étude niches produits (demande du propriétaire du 28/11)
 
 - **Fait** : `tasks/etude-niches-produits.md`. 7 niches étudiées (stations électriques, café à grain, robots aspirateurs laveurs, vélos et trottinettes électriques, plus spas gonflables et tapis de course). 29 recherches web, page officielle des taux Amazon.fr lue, WHOIS public. Rien acheté, site inchangé.
