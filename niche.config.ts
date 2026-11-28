@@ -76,7 +76,7 @@ export type NicheConfig = {
     tone: string[]          // ["direct", "honnête", "expert"]
     noGo: string[]          // ["révolutionnaire", "incroyable"]
     formulations: string[]  // ["Honnêtement,", "Le vrai tip :"]
-    photo?: string          // chemin relatif depuis public/ — ex: '/images/auteur-thomas-portrait.jpeg'
+    photo?: string          // chemin relatif depuis public/ — ex: '/images/auteur-portrait.webp'
   }
 
   // Affiliation
@@ -153,14 +153,14 @@ export const niche: NicheConfig = {
   fonts: { display: 'Instrument Serif', body: 'Inter' },
 
   author: {
-    name: 'Thomas',
-    slug: 'thomas',
-    title: 'Expert robots tondeuses',
+    // 28/11/2026 : l'auteur est le vrai propriétaire du site (demande du propriétaire), plus le prénom « Thomas ».
+    name: 'Mathias',
+    slug: 'mathias',
+    title: 'Fondateur de Quel Robot Tondeuse',
     bio: 'Je compare les robots tondeuses à partir des fiches des fabricants, des notices et des retours de propriétaires publiés, avec les mêmes critères pour chaque modèle.',
     tone: ['direct', 'pragmatique', 'technique'],
     noGo: ['révolutionnaire', 'incroyable', 'game-changer'],
     formulations: ['Concrètement,', 'Le vrai critère :', 'Sur le terrain,'],
-    photo: '/images/auteur-thomas-portrait.jpeg',
   },
 
   affiliateTag: 'ambiancejap0a-21',
