@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 17 h 30 (heure belge) — Étude niches produits (demande du propriétaire du 28/11)
+
+- **Fait** : `tasks/etude-niches-produits.md`. 7 niches étudiées (stations électriques, café à grain, robots aspirateurs laveurs, vélos et trottinettes électriques, plus spas gonflables et tapis de course). 29 recherches web, page officielle des taux Amazon.fr lue, WHOIS public. Rien acheté, site inchangé.
+- **Verdict** : stations électriques portables, domaine `quelle-station-electrique.com` (semble libre, .fr pris). EcoFlow FR 5 % et Bluetti FR jusqu'à 10 % sur Awin ; aucun comparateur toutes marques trouvé. 2e choix : robots aspirateurs laveurs (29 contre 26 sur 35).
+- **Non vérifié** : prix et part à plus de 300 € sur Amazon.fr (l'agent ne lit pas Amazon), catégorie Amazon de chaque produit, 4 à 9 recherches longue traîne par niche.
+- **Claude en session** : relever par l'API Amazon les 50 premiers résultats « station électrique portable » (prix, part > 300 €). **Propriétaire** : choisir le domaine (WHOIS à revérifier le jour de l'achat).
+
 ## 28/11/2026, samedi 17 h 15 (heure belge) — Dév QRT (mission du propriétaire : note sur 10 sur toutes les fiches)
 
 - **Fait** : `feat/note-objective` remise sur la version en ligne (radar compris). Les liens « notre barème » et « Voir le barème » sont retirés (page de méthode supprimée le 28/11). La note sur 10, le résumé chiffré et le JSON-LD Product s'affichent sur les 6 avis reliés à la base, plus sur la seule fiche pilote.
