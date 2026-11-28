@@ -33,8 +33,52 @@
 4. Calculateur (« tient-il entre vos murs ? »), quiz, « Mes projets ».
 5. Promotions du moment.
 
+## Site modèle de base (propriétaire, 28/11/2026)
+
+> « Il faut qu'on crée un site template de base avec toutes les typologies de base pour copier-coller rapidement, avec une DA
+> spécifique à chaque site. »
+
+**Principe, comme l'usine voyage** : un seul code, et un dossier par site. Créer un site = copier `niches/_modele/` en
+`niches/<site>/`, puis changer la DA et les données. On ne copie pas le code d'un dépôt à l'autre : une correction faite
+une fois sert à tous les sites.
+
+- `niches/_modele/` : le site modèle, complet, avec des produits d'exemple neutres. Il contient les 22 types de pages de
+  `tasks/gabarits-affiliation.md` (accueil, hub, collection, classement, budget, fiche, duel, comparateur, marque, alternatives,
+  guide, question, bons plans, outil, mon espace, confiance…), tous branchés sur la bibliothèque de composants
+  (`feat/gabarits-composants`).
+- **DA par site, dans le dossier du site** :
+  - `theme.css` : couleurs, rayons, ombres ; uniquement des variables, aucune valeur en dur dans les composants ;
+  - `fonts.ts` : 2 familles au plus ;
+  - `mascotte` et images ;
+  - `site.ts` : nom, domaine, auteur, ton.
+- **Données par site** :
+  - `catalogue.json` : caractéristiques et ASIN ;
+  - `bareme.ts` : note sur 10 et axes du radar ;
+  - `collections.ts` ;
+  - `calculateurs.ts` ;
+  - `partenaires.ts` : Amazon d'abord.
+- **Contrôles communs**, repris de l'usine voyage et lancés sur chaque site avant sa mise en ligne :
+  - lancement : chaque type de page servi, H1 et premier paragraphe sans JS, données structurées Product valides ;
+  - qa : 390 px, contraste, débordements, boutons sur une ligne ;
+  - parité avec le modèle.
+- **QRT devient le premier site** (`niches/robot-tondeuse/`) sans changer ses adresses ni son rendu. La 2e niche (stations
+  électriques) se crée ensuite par copie du modèle, en quelques heures.
+
+**Rythme (au fil de l'eau, pas tout d'un coup)** : un type de page par nuit, dans l'ordre des revenus :
+1. fiche produit, classement, collection, duel (maquettes validées) ;
+2. hub, budget, marque, alternatives, comparateur ;
+3. guide, question, bons plans, outil ;
+4. accueil, mon espace, pages de confiance.
+
+Chaque nuit, le Dév QRT :
+- construit le type de page dans `_modele` puis le branche sur QRT ;
+- vérifie le build et les contrôles ;
+- consigne le résultat dans `tasks/journal-equipe.md`.
+
+Pas de nouveau domaine avant que le modèle tienne les 4 premiers types.
+
 ## Ordre
 1. **QRT pilote** (Dév QRT, après le radar et la note) : collections de `tasks/collections-v1.md` + menu avec nombres + calculateur de
    surface + bons plans avec historique ; catalogue complété par Catalogue QRT (toutes marques).
-2. **Extraction du moteur** : ce qui est propre à la tonte → données de niche ; QRT identique.
+2. **Site modèle de base** (`niches/_modele/`, section ci-dessus) : un type de page par nuit ; QRT devient le premier site, identique.
 3. **2e niche** choisie par l'étude (agent Étude niches produits → `tasks/etude-niches-produits.md`), nouveau domaine, même code.
