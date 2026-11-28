@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 8 h 15 (heure belge) — Chef QRT (contrôle du samedi)
+
+- **En ligne** : 12 adresses lues, 11 pages en 200 avec 1 H1, aucun lien Amazon sans étiquette. Renvoi `/test-husqvarna-automower-450x-nera-avis` → `/avis-…` (308) et H1 « Avis Husqvarna 450X NERA » conformes. `/black-friday-robot-tondeuse` daté du 27/11. 6 captures à 390 px. Article de la nuit `/mammotion-luba-3-awd-vs-segway-navimow-x4-comparatif` conforme (H1 sur 2 lignes, prix datés, note avec barème, aucun vécu).
+- **Corrigé par le Chef** : duel Dreame A3 / 450X NERA, H1 sur 7 lignes → `h1:` « Dreame A3 AWD Pro ou 450X NERA ? » ; « meilleur ratio autonomie/charge du marché » et « ratio 195/40 min » (encart) retirés, remplacés par les 145 min de la fiche Husqvarna (oubliés hier). Duel 450X / Luba 3 AWD 5000 : « mesurés selon plusieurs tests » → les deux sources nommées (Maniaques, Neozone) ; « l'état de l'art selon plusieurs testeurs » retiré.
+- Recherche large « testé », « j'ai », « mon terrain » : seulement des « J'ai croisé les fiches… » (lecture de sources, pas un faux vécu). Encarts : Cdiscount « relevé le 23/11 », attendu (flux hebdomadaire).
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 142 tests OK, construction OK, 2 pages construites lues. Étiquette `sauvegarde-20261128-chef`.
+- **Contenu** : le duel Dreame A3 / 450X garde 4 « 800+ revendeurs » et le prix « 4 699-4 999 € » sans source (points 4 et 7). **Chef, 29/11** : lire en ligne les 2 duels corrigés.
+
 ## 27/11/2026, vendredi soir (heure belge) — Contenu QRT (chiffres du 450X NERA dans les autres pages, validé par le Secrétaire)
 
 - **Source** : fiche Husqvarna française relue le 27/11 : 50 % de pente au travail, 25 % en limite de fil, 145 min de tonte par charge. Pas de temps de charge, pas de prix (« Produit abandonné »).
