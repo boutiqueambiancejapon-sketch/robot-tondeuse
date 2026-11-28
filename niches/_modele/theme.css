@@ -1,0 +1,53 @@
+/*
+ * Thème du site modèle : uniquement des variables, qui remplacent les valeurs de base de app/globals.css.
+ * :root pour les anciens styles, .v2 pour le design V2 (app/v2.css). Pour un nouveau site : changer ces valeurs, rien d'autre.
+ * Contrastes : voir tests/unit/modele.test.ts (texte, texte discret et bouton au-dessus de 4,5:1).
+ */
+:root {
+  --forest-deep: #1b2430;
+  --forest:      #253246;
+  --moss:        #3d5a80;
+  --sage:        #9fb3c8;
+  --sage-light:  #d3dce8;
+  --sage-pale:   #e6ecf4;
+
+  --cream:     #e9edf3;
+  --ivory:     #ffffff;
+  --paper:     #f4f6f9;
+
+  --copper:        #2f5bd3;
+  --copper-bright: #4a74e8;
+  --copper-pale:   #dbe4fb;
+
+  --text-secondary: #3c4656;
+  --text-muted:     #5f6b7a;
+
+  --line:      #d5dbe4;
+  --line-soft: #e6eaf0;
+
+  --shadow-sm: 0 1px 3px rgba(27, 36, 48, 0.07), 0 1px 2px rgba(27, 36, 48, 0.04);
+  --shadow-md: 0 6px 16px rgba(27, 36, 48, 0.09), 0 2px 4px rgba(27, 36, 48, 0.05);
+  --shadow-xl: 0 28px 70px rgba(27, 36, 48, 0.2);
+
+  --radius-md: 10px;
+}
+
+.v2 {
+  --ink: #1b2430;
+  --forest: #253246;
+  --moss: #2f4f7a;
+  --grass: #3d6fd6;
+  --lime: #b9d4ff;
+  --best: #dbe7fb;
+  --sage: #e3e9f2;
+  --sage-2: #cdd7e5;
+  --paper: #f4f6f9;
+  --white: #ffffff;
+  --line: #d5dbe4;
+  --copper: #2f5bd3;
+  --copper-dark: #1f43a8;
+  --copper-pale: #dbe4fb;
+  --muted: #566273;
+  --r: 12px;
+  --r-s: 8px;
+}

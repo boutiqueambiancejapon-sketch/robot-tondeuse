@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 19 h 50 (heure belge) — Dév QRT (site modèle, étape 1 : un dossier par site + gabarit FICHE PRODUIT)
+
+- **Fait** : `niches/_modele/` (site, thème en variables seules, polices, 6 produits d'exemple, barème, caractéristiques, collections, partenaires) et `niches/robot-tondeuse/` (réglages de l'ancien `niche.config.ts` repris tels quels ; catalogue, barème et filtres pointent vers les fichiers actuels). Le site lu est choisi par `NEXT_PUBLIC_SITE` à la construction, QRT par défaut ; polices et thème par `next.config.ts`. Le modèle n'est jamais indexé (`noindex`, robots.txt « Disallow: / »), sans étiquette partenaire.
+- **Gabarit FICHE PRODUIT** : `components/v2/gabarits/FicheProduit.tsx` + `lib/modele/fiche.ts` (note par barème, rang, essentiel, offres via `/go/`, alternatives, données Product), adresse `/<catégorie>/<produit>`. QRT n'a aucune fiche à ce format (`fiches: null`) : aucune adresse nouvelle.
+- **Preuves** : build QRT avant/après = mêmes 505 pages, HTML visible et données structurées identiques sur les 505 (seuls les noms techniques des polices changent), plan du site identique hors dates. Capture 390 px de l'avis Luba 3 AWD 3000 : 0 pixel différent. Build du modèle : 6 fiches servies (`/produits/marque-alpha-a1` en 200, H1 sans JS, Product valide, 9/10), capture 390 px vue (j'ai corrigé les tableaux coupés à droite). 20 tests ajoutés (235 au total, 30 fichiers), types OK, lint 0 erreur. Étiquette `sauvegarde-20261128-modele-fiche`.
+- **Pas encore commun** : le radar (6 axes du robot écrits en dur), l'en-tête, le pied de page et la mascotte (encore ceux de QRT sur le modèle), le plan du site.
+- **Dév, nuit prochaine** : étape 2 = gabarit CLASSEMENT dans `_modele` puis branché sur QRT (Podium, résumé chiffré), avec le radar rendu générique (axes lus dans `bareme.ts`). Construire le modèle : `vps-build -- env NEXT_PUBLIC_SITE=_modele npm run build`.
+
 ## 28/11/2026, samedi soir, 2e passage (heure belge) — Contenu QRT (proposition validée : article « robot tondeuse et piscine »)
 
 - **Fait** sur `/robot-tondeuse-jardin-avec-piscine-securite-2026` : note « 9 » retirée du Verdict (elle n'était pas affichée, mais restait dans le texte source). « Dans 90 % des cas documentés » remplacé par « Ne comptez pas dessus : souvent… ». Tous les prix datés « mai 2026 » (tableaux, 5 encarts, FAQ, boutons fixes, Verdict), avec une phrase : le 28/11, Cdiscount affichait l'A1 Pro à 599 € et le Navimow i210 LiDAR Pro avec garage à 1 199 € (lu dans `offres.json`). `updatedAt` au 28/11.

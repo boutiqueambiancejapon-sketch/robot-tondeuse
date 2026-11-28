@@ -155,3 +155,9 @@ Branche `claude/review-design-files-HKwEE`. Migration en 8 batches commit par co
 | 2026-11-21 | Cinquième tuile d’Aujourd’hui = inscriptions à la lettre | QRT n’a pas de comptes |
 | 2026-11-21 | Tâches de nuit en `administrator` avec droits limités aux tables SEO ; scripts TS en Node pur (`ts-register.mjs`) même si tsx est installé | `server-only` doit être neutralisé hors Next ; même runner que 10min |
 | 2026-11-21 | Mascotte robot (une pose par écran) à la place de la pastille « 10 » | Identité V2 de QRT |
+
+## 28/11/2026 — Un code, un dossier par site (site modèle, étape 1)
+- `niches/<site>/` porte les réglages et les données d'un site ; `niche.config.ts` ne fait plus que lire le site actif.
+- Choix du site à la construction par `NEXT_PUBLIC_SITE` (QRT par défaut). Les données passent par `niches/index.ts` ; les polices et le thème, qui sont des fichiers chargés par le layout, par un alias Turbopack (`@site-actif/fonts`, `@site-actif/theme.css`, déclarés dans `niches/site-actif.d.ts`) : ainsi QRT ne charge ni les polices ni le thème du modèle.
+- Le thème d'un site ne contient que des variables (`:root` et `.v2`) ; celui de QRT est vide, ses valeurs restent la base de `app/globals.css` et `app/v2.css`.
+- Fiches du gabarit commun à `/<catégorie>/<produit>` (règle de `tasks/gabarits-affiliation.md`), sous `[article]` car Next refuse deux noms de paramètre au même niveau.

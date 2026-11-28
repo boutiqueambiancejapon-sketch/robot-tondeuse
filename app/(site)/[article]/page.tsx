@@ -19,6 +19,7 @@ import { ficheNote } from '@/lib/fiche-note'
 import { jsonLdProduit } from '@/lib/jsonld-produit'
 import { NoteFiche } from '@/components/v2/note/NoteFiche'
 import { getProduct } from '@/lib/products'
+import { siteActif } from '@/niches'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${niche.domain}`
 
@@ -27,7 +28,9 @@ export const revalidate = 86400
 type Params = Promise<{ article: string }>
 
 export function generateStaticParams() {
-  return getAllStandaloneSlugs().map((article) => ({ article }))
+  // + catégories des fiches du gabarit commun (/<categorie>/<produit>) ; aucune sur QRT (siteActif.fiches = null).
+  const categories = [...new Set((siteActif.fiches?.catalogue ?? []).map((p) => p.categorie))]
+  return [...getAllStandaloneSlugs(), ...categories].map((article) => ({ article }))
 }
 
 /** Normalise une URL d'image en URL absolue à partir de SITE_URL. */

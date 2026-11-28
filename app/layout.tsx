@@ -1,38 +1,12 @@
 import type { Metadata } from 'next'
-import { Schibsted_Grotesk, Hanken_Grotesk } from 'next/font/google'
+import { fontDisplay, fontPrimary, fontMono } from '@site-actif/fonts'
 import { niche } from '@/niche.config'
+import { siteActif } from '@/niches'
 import './globals.css'
+// Thème du site actif (variables seulement), après les valeurs de base : niches/<site>/theme.css.
+import '@site-actif/theme.css'
 
-// ── Polices : Schibsted Grotesk (titres) + Hanken Grotesk (texte) ──
-
-const fontDisplay = Schibsted_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '700', '800', '900'],
-  style: ['normal', 'italic'],
-  variable: '--next-font-display',
-  adjustFontFallback: true,
-  preload: true,
-  display: 'swap',
-})
-
-const fontPrimary = Hanken_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--next-font-primary',
-  adjustFontFallback: true,
-  preload: true,
-  display: 'swap',
-})
-
-// Design V2 (15/11/2026) : plus de police à chasse fixe. Les anciens styles qui la demandent reçoivent la police de texte.
-const fontMono = Hanken_Grotesk({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--next-font-mono',
-  adjustFontFallback: true,
-  preload: false,
-  display: 'swap',
-})
+// Polices du site actif : niches/<site>/fonts.ts (choisi par next.config.ts).
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -45,9 +19,9 @@ export const metadata: Metadata = {
   description: niche.tagline,
   twitter: { card: 'summary_large_image' },
   robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true },
+    index: siteActif.indexable,
+    follow: siteActif.indexable,
+    googleBot: { index: siteActif.indexable, follow: siteActif.indexable },
   },
   alternates: {
     canonical: '/',
