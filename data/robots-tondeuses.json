@@ -6737,5 +6737,315 @@
         "note": "données de la boutique officielle Mova FR (variantes, prix normal et prix promotionnel)"
       }
     ]
+  },
+  {
+    "id": "stihl-imow-5-evo",
+    "marque": "Stihl",
+    "modele": "iMOW 5 EVO",
+    "surface_m2": 1500,
+    "pente_pct": 45,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth",
+      "4g"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 28,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 14.8,
+    "prix_eur": 1199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché sur stihl.fr le 28/11/2026 (achat chez le revendeur, « le prix en magasin peut différer »)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.stihl.fr/fr/p/robots-de-tonte-imow-5-evo-164692",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Stihl FR : « pelouses jusqu'à 1 500 m² et pentes jusqu'à 45 % », fil périmétrique, « WIFI, Bluetooth® et 4G » (4G intégrée), caractéristiques techniques : poids 14,8 kg, largeur 28 cm, hauteur 20-60 mm (réglage électrique) ; bruit, IP, autonomie et zones non publiés"
+      }
+    ]
+  },
+  {
+    "id": "stihl-imow-7",
+    "marque": "Stihl",
+    "modele": "iMOW 7",
+    "surface_m2": 5000,
+    "pente_pct": 40,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 28,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 15,
+    "prix_eur": 1599,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché sur stihl.fr le 28/11/2026 (achat chez le revendeur, « le prix en magasin peut différer »)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.stihl.fr/fr/p/robots-de-tonte-imow-7-164512",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Stihl FR : « pelouses jusqu'à 5.000 m² et pentes jusqu'à 40 % », fil périmétrique, Wi-Fi et Bluetooth (4G réservée aux modèles EVO), caractéristiques techniques : poids 15 kg, largeur 28 cm, hauteur 20-60 mm ; bruit, IP, autonomie et zones non publiés"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-500",
+    "marque": "Einhell",
+    "modele": "FREELEXO 500",
+    "surface_m2": 500,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 61,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 9.89,
+    "prix_eur": 449.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix TTC affiché sur einhell.fr le 28/11/2026",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/3413935-freelexo-500/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 500 m², pente max. 35 %, largeur 18 cm, niveau de puissance sonore 61 dB(A), IPX5, poids 9,89 kg ; câble périphérique fourni ; connectivité : wifi, bluetooth ; hauteur de coupe non publiée en plage ; autonomie et zones non publiées"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-1000",
+    "marque": "Einhell",
+    "modele": "FREELEXO 1000",
+    "surface_m2": 1000,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 61,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 8.7,
+    "prix_eur": 599.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix TTC affiché sur einhell.fr le 28/11/2026",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/3413938-freelexo-1000/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 1000 m², pente max. 35 %, largeur 18 cm, niveau de puissance sonore 61 dB(A), IPX5, poids 8,7 kg ; câble périphérique fourni ; connectivité : wifi, bluetooth ; hauteur de coupe non publiée en plage ; autonomie et zones non publiées"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-450-bt-solo",
+    "marque": "Einhell",
+    "modele": "FREELEXO 450 BT Solo",
+    "surface_m2": 450,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 59.4,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 14.3,
+    "prix_eur": 649.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix TTC affiché sur einhell.fr le 28/11/2026",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/3413944-freelexo-450-bt-solo/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 450 m², pente max. 35 %, largeur 18 cm, niveau de puissance sonore 59,4 dB(A), IPX4, poids 14,3 kg ; câble périphérique fourni ; connectivité : bluetooth ; « Solo » : vendu sans batterie ; autonomie et zones non publiées"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-1200-lcd-bt",
+    "marque": "Einhell",
+    "modele": "FREELEXO 1200 LCD BT",
+    "surface_m2": 1200,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 59.4,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 14.3,
+    "prix_eur": 849.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) affiché sur einhell.fr le 28/11/2026, 299,95 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/4326368-freelexo-1200-lcd-bt/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 1200 m², pente max. 35 %, largeur 18 cm, niveau de puissance sonore 59,4 dB(A), IPX4, poids 14,3 kg ; câble périphérique fourni ; connectivité : bluetooth ; autonomie et zones non publiées"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-smart-750",
+    "marque": "Einhell",
+    "modele": "FREELEXO Smart 750",
+    "surface_m2": 750,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 13.79,
+    "prix_eur": 999.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) affiché sur einhell.fr le 28/11/2026, 599,95 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/3413811-freelexo-smart-750/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 750 m², pente max. 35 %, largeur 18 cm, niveau de puissance sonore 57 dB(A), IPX4, poids 13,79 kg ; câble périphérique fourni ; connectivité : non reprise (la fiche dit « connexion Internet mobile », réseau non précisé : non compté) ; autonomie et zones non publiées"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-cam-500",
+    "marque": "Einhell",
+    "modele": "FREELEXO CAM 500",
+    "surface_m2": 500,
+    "pente_pct": 25,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 11.75,
+    "prix_eur": 649.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix barré (prix normal) affiché sur einhell.fr le 28/11/2026, 349,95 € en promotion",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/3413991-freelexo-cam-500/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 500 m², pente max. 25 %, largeur 18 cm, niveau de puissance sonore 57 dB(A), IPX4, poids 11,75 kg ; caméra, sans câble périphérique (ruban magnétique pour les zones interdites) ; connectivité : non reprise (« App mobile : false ») ; autonomie et zones non publiées"
+      }
+    ]
+  },
+  {
+    "id": "einhell-freelexo-cam-plus-600",
+    "marque": "Einhell",
+    "modele": "FREELEXO CAM PLUS 600",
+    "surface_m2": 600,
+    "pente_pct": 25,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi"
+    ],
+    "bruit_db": 57,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX4",
+    "poids_kg": 9.65,
+    "prix_eur": 699.95,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix TTC affiché sur einhell.fr le 28/11/2026",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.einhell.fr/p/3413975-freelexo-cam-plus-600/",
+        "lu_le": "2026-11-28",
+        "note": "fiche officielle Einhell FR, « Informations techniques » : surface de gazon max. recommandée 600 m², pente max. 25 %, largeur 18 cm, niveau de puissance sonore 57 dB(A), IPX4, poids 9,65 kg ; caméra, sans câble périphérique (ruban magnétique pour les zones interdites) ; connectivité : wifi ; autonomie et zones non publiées"
+      }
+    ]
   }
 ]
