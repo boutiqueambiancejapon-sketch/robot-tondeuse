@@ -75,6 +75,16 @@
   .g-facets em { font-style: normal; font-weight: 500; color: var(--muted); margin-left: 2px; }
   .g-facets button.on em { color: var(--sage-2); }
 
+  /* Fiche produit commune (components/v2/gabarits/FicheProduit.tsx). */
+  .g-fiche__haut { margin-top: 16px; }
+  .g-fiche__note { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0; }
+  .g-fiche__offres { margin-top: 14px; }
+  .g-specs table.tbl { min-width: 0; }
+  .g-specs .tbl th, .g-specs .tbl td { white-space: normal; vertical-align: top; }
+  .g-specs .tbl th:first-child { width: 60%; min-width: 0; }
+  .g-specs .tbl th small { display: block; font: 500 13px/1.35 var(--f-b); color: var(--muted); }
+  .g-specs .tbl td { font-weight: 700; text-align: right; }
+
   @media (min-width: 620px) {
     .g-cards { grid-template-columns: 1fr 1fr; }
   }

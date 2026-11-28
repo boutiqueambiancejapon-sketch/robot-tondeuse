@@ -1,5 +1,10 @@
 import type { NextConfig } from 'next'
 
+// Site lu par le moteur (niches/<site>/) : NEXT_PUBLIC_SITE=_modele npm run build ; Quel Robot Tondeuse par défaut.
+// Polices et thème du site sont des fichiers : ils sont choisis ici, le reste par niches/index.ts.
+const SITE = process.env.NEXT_PUBLIC_SITE || 'robot-tondeuse'
+if (!/^[a-z0-9_-]+$/.test(SITE)) throw new Error(`NEXT_PUBLIC_SITE invalide : ${SITE}`)
+
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -12,6 +17,12 @@ const csp = [
 ].join('; ')
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    resolveAlias: {
+      '@site-actif/fonts': `./niches/${SITE}/fonts.ts`,
+      '@site-actif/theme.css': `./niches/${SITE}/theme.css`,
+    },
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },

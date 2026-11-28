@@ -1,0 +1,195 @@
+[
+ {
+  "id": "marque-alpha-a1",
+  "marque": "Marque Alpha",
+  "modele": "A1",
+  "categorie": "produits",
+  "exemple": true,
+  "caracteristiques": {
+   "puissance_w": 1600,
+   "autonomie_min": 70,
+   "poids_kg": 3.8,
+   "bruit_db": 68,
+   "garantie_ans": 3
+  },
+  "prix_eur": 449,
+  "prix_lu_le": "2026-11-28",
+  "prix_source": "prix d’exemple",
+  "asin": null,
+  "lienMarchand": null,
+  "sources": [
+   {
+    "label": "Donnée d’exemple, aucune source réelle",
+    "url": "https://modele.example/sources",
+    "lu_le": "2026-11-28"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Ce produit existe-t-il vraiment ?",
+    "r": "Non : c’est une fiche d’exemple du site modèle, à remplacer par un produit réel et ses sources."
+   }
+  ],
+  "pourQui": "Usage d’exemple : petites surfaces, rangement facile."
+ },
+ {
+  "id": "marque-alpha-a2",
+  "marque": "Marque Alpha",
+  "modele": "A2",
+  "categorie": "produits",
+  "exemple": true,
+  "caracteristiques": {
+   "puissance_w": 1100,
+   "autonomie_min": 45,
+   "poids_kg": 4.6,
+   "bruit_db": 70,
+   "garantie_ans": 2
+  },
+  "prix_eur": 329,
+  "prix_lu_le": "2026-11-28",
+  "prix_source": "prix d’exemple",
+  "asin": null,
+  "lienMarchand": null,
+  "sources": [
+   {
+    "label": "Donnée d’exemple, aucune source réelle",
+    "url": "https://modele.example/sources",
+    "lu_le": "2026-11-28"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Ce produit existe-t-il vraiment ?",
+    "r": "Non : c’est une fiche d’exemple du site modèle, à remplacer par un produit réel et ses sources."
+   }
+  ]
+ },
+ {
+  "id": "marque-beta-b1",
+  "marque": "Marque Bêta",
+  "modele": "B1",
+  "categorie": "produits",
+  "exemple": true,
+  "caracteristiques": {
+   "puissance_w": 1800,
+   "autonomie_min": 90,
+   "poids_kg": 6.4,
+   "bruit_db": 78,
+   "garantie_ans": 5
+  },
+  "prix_eur": 599,
+  "prix_lu_le": "2026-11-28",
+  "prix_source": "prix d’exemple",
+  "asin": null,
+  "lienMarchand": null,
+  "sources": [
+   {
+    "label": "Donnée d’exemple, aucune source réelle",
+    "url": "https://modele.example/sources",
+    "lu_le": "2026-11-28"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Ce produit existe-t-il vraiment ?",
+    "r": "Non : c’est une fiche d’exemple du site modèle, à remplacer par un produit réel et ses sources."
+   }
+  ]
+ },
+ {
+  "id": "marque-beta-b2",
+  "marque": "Marque Bêta",
+  "modele": "B2",
+  "categorie": "produits",
+  "exemple": true,
+  "caracteristiques": {
+   "puissance_w": 700,
+   "autonomie_min": 35,
+   "poids_kg": 2.9,
+   "bruit_db": null,
+   "garantie_ans": 2
+  },
+  "prix_eur": 199,
+  "prix_lu_le": "2026-11-28",
+  "prix_source": "prix d’exemple",
+  "asin": null,
+  "lienMarchand": null,
+  "sources": [
+   {
+    "label": "Donnée d’exemple, aucune source réelle",
+    "url": "https://modele.example/sources",
+    "lu_le": "2026-11-28"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Ce produit existe-t-il vraiment ?",
+    "r": "Non : c’est une fiche d’exemple du site modèle, à remplacer par un produit réel et ses sources."
+   }
+  ]
+ },
+ {
+  "id": "marque-gamma-g1",
+  "marque": "Marque Gamma",
+  "modele": "G1",
+  "categorie": "produits",
+  "exemple": true,
+  "caracteristiques": {
+   "puissance_w": 1300,
+   "autonomie_min": 60,
+   "poids_kg": 4.2,
+   "bruit_db": 67,
+   "garantie_ans": 3
+  },
+  "prix_eur": 389,
+  "prix_lu_le": "2026-11-28",
+  "prix_source": "prix d’exemple",
+  "asin": null,
+  "lienMarchand": null,
+  "sources": [
+   {
+    "label": "Donnée d’exemple, aucune source réelle",
+    "url": "https://modele.example/sources",
+    "lu_le": "2026-11-28"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Ce produit existe-t-il vraiment ?",
+    "r": "Non : c’est une fiche d’exemple du site modèle, à remplacer par un produit réel et ses sources."
+   }
+  ]
+ },
+ {
+  "id": "marque-gamma-g2",
+  "marque": "Marque Gamma",
+  "modele": "G2",
+  "categorie": "produits",
+  "exemple": true,
+  "caracteristiques": {
+   "puissance_w": null,
+   "autonomie_min": null,
+   "poids_kg": 5.1,
+   "bruit_db": null,
+   "garantie_ans": 2
+  },
+  "prix_eur": null,
+  "prix_lu_le": null,
+  "prix_source": null,
+  "asin": null,
+  "lienMarchand": null,
+  "sources": [
+   {
+    "label": "Donnée d’exemple, aucune source réelle",
+    "url": "https://modele.example/sources",
+    "lu_le": "2026-11-28"
+   }
+  ],
+  "faq": [
+   {
+    "q": "Ce produit existe-t-il vraiment ?",
+    "r": "Non : c’est une fiche d’exemple du site modèle, à remplacer par un produit réel et ses sources."
+   }
+  ]
+ }
+]

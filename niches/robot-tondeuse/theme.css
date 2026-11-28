@@ -1,0 +1,5 @@
+/*
+ * Thème de Quel Robot Tondeuse. Ses couleurs, rayons et ombres sont les valeurs de base du moteur, dans
+ * app/globals.css (:root) : ce fichier ne surcharge donc rien. Un autre site met ici ses propres variables,
+ * et seulement des variables (voir niches/_modele/theme.css).
+ */
