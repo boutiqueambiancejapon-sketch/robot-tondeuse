@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 9 h 30 (heure belge) — Chef QRT (prix Cdiscount datés du 23/11, proposition validée par le propriétaire)
+
+- **Lu, rien changé** : la tâche du serveur `qrt-offres.timer` part **une fois par semaine, le lundi à 2 h 15 (UTC)**. Dernier passage : lundi 23/11, terminé sans erreur à 2 h 19 ; l'enregistrement « weekly Cdiscount and Fnac prices » du 23/11 est bien là. Prochain passage prévu : **lundi 30/11 à 2 h 15 UTC**.
+- **Conclusion** : rien n'est bloqué. La date du 23/11 est normale pour un relevé hebdomadaire. Le relevé du 20/11 était un envoi en plus, fait à la main.
+- Le journal détaillé de la tâche n'est pas lisible par notre compte : seul son état (« réussi ») a été lu.
+- **Chef, 30/11** : vérifier que `content/offres/offres.json` porte la date du 30/11. Sinon, Claude en session.
+
 ## 28/11/2026, samedi 9 h (heure belge) — Dév QRT (adresse 3 sur 8 : Luba 3 AWD 3000)
 
 - **Constat** : la page `/test-mammotion-luba-2-awd-avis` ne parle pas du Luba 2 : c'est l'avis d'avril sur le **Luba 3 AWD 3000**. L'adresse prévue `/avis-mammotion-luba-2-awd` aurait trompé. Elle devient donc `/avis-mammotion-luba-3-awd-3000`, avec un renvoi permanent dans `next.config.ts`. 5 liens mis à jour dans 5 articles, plus le sujet du plan éditorial. Le lien du duel Dreame A1 Pro disait « avis LUBA 2 AWD » : texte corrigé. `h1:` « Avis Luba 3 AWD 3000 » : 2 lignes à 390 px (la version avec « Mammotion » en faisait 4).
