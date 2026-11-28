@@ -54,6 +54,18 @@ On écrit d'abord ce qui rapporte le plus par vente. Tout est dans `tasks/calend
 - **Contenu QRT** : mettre à jour sur place, avant février, les classements par budget, par surface, 4 roues motrices et LiDAR. **Croissance QRT** : trouver quel marchand partenaire vend des tracteurs. **Chef QRT** : au premier article tracteur, contrôler qu'aucun encart automatique ne montre un robot à la place d'un tracteur.
 
 
+
+## CRO et piscine : priorité absolue (propriétaire, 28/11/2026) — « tu mets aucun CRO sur ces pages ? … piscine est vide, comment tu veux que je fasse des ventes »
+1. **Chaque produit cité = un bouton d'achat.** Toute page qui nomme un produit (guides d'achat, classements, avis, duels, tracteurs) porte un `<ProductCTA>`
+   par produit, juste sous son intertitre, vers Amazon (page exacte trouvée avec `scripts/amazon-cherche.mjs`, prix et date du relevé dans `hook`),
+   sinon Cdiscount ou Fnac (flux Awin), sinon la boutique de la marque si elle a un programme partenaire. Exemple fait le 28/11 :
+   `/meilleur-tracteur-tondeuse` (4 blocs ; TC 112 et Estate 7122 W absents d'Amazon). En cas de doute entre plusieurs fiches valables : la plus chère.
+   **Contenu QRT** : passer toutes les pages de produits, les plus visitées d'abord (Search Console), et lister celles sans bouton.
+2. **Robots de piscine maintenant, pas en décembre** : 5 premiers articles cette semaine (meilleur robot piscine, sans fil, pas cher, fond et parois,
+   Dolphin ou Beatbot), chacun avec ses `<ProductCTA>` Amazon ; la page `/robot-piscine` liste les articles et un tableau « nos choix » avec boutons.
+   **Éditeur** : avancer ces sujets en tête du plan de nuit. **Contenu QRT** : écrire le premier dès son prochain passage.
+3. Prix toujours lus le jour même (API Amazon, flux Awin, site de la marque), datés ; jamais de prix barré non relevé, jamais d'urgence inventée.
+
 ## Jardin haut de gamme grâce à Amazon (décision du propriétaire, 28/11/2026) — remplace « pas de cabanons sur ce site »
 
 > « Grâce à Amazon, on peut attaquer un max de nouveaux clusters high ticket : robot piscine, mais aussi cabane et tout ce qui concerne le jardin. »
