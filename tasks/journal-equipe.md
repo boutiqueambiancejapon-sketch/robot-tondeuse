@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 17 h (heure belge) — Catalogue QRT (4e passage : Ecovacs, Dreame, Stiga)
+
+- **Fait** : `data/robots-tondeuses.json` passe à **121 modèles** : + **Ecovacs 13** (GOAT A1600 / A3000 LiDAR PRO, O1200 LiDAR PRO, A3000 LiDAR, A1600 RTK, O1200 / O800 / O600 RTK, O500 Panorama, G1, G1-800, G1-2000, GX-600), + **Dreame 7** (A1 Pro, A2 1200, A2 3000, A3 AWD 1000 et 2000, A3 AWD Pro 3500 et 5000), + **Stiga 8** (A 6v à A 140v ; l'édition « Stade Toulousain » = A 15v, pas ajoutée). Sources : fiches officielles FR, pages GOAT A et GOAT O d'Ecovacs, et manuels Ecovacs (surface des 3 modèles PRO, absente des fiches), lus le 28/11. Prix = prix normal de la marque (prix barré hors Black Friday) ; vide quand seul un pack ou rien n'est affiché.
+- **Champs vides** : Dreame ne publie pas l'autonomie (7 sur 7, le tableau donne le temps de charge) ; Ecovacs : autonomie 8, zones 11, prix 7 (modèles 2025 « pas disponibles ») ; Stiga : bruit, IP et transmission (8 sur 8). Ecovacs G1 : balises UWB notées « vision » (aucune valeur permise pour les balises). 4G en option sur les GOAT LiDAR PRO (`option_4g`).
+- **Contrôle** : `catalogue-check.mjs` : 1 515 combinaisons, **180 collections** après le filtre anti-doublon (130 avant). Types, lint (0 erreur), 171 tests, construction OK.
+- **Contenu, fiches à corriger** : `dreame-a2-3000.yaml` « 58 dB » → Dreame annonce < 55 dB ; `ecovacs-goat-g1-2000.yaml` « 50 % de pente, 8 balises » → 45 % et 4 balises (fiche FR).
+- **Claude en session** : ASIN des 28 nouveaux (`scripts/catalogue-asin.mjs`). **Catalogue, prochain passage** : Ambrogio, Kress, Sunseeker, puis Yarbo.
+
 ## 28/11/2026, samedi 16 h (heure belge) — Dév QRT (mission du propriétaire : relier les fiches au radar, suite)
 
 - **Constat** : la liaison était déjà en ligne depuis 13 h 35 (4 avis et 15 fiches produits). Il manquait les 2 Husqvarna ajoutés par Catalogue à 15 h 40 (450X NERA et 310 Mark II, `arrete: true`). Noms et chiffres comparés à la main (5 000 m², 50 % ; 1 000 m², 40 %, 59 dB) : champ `base` ajouté à leurs 2 fiches produits et à leurs 2 avis. Total : **17 fiches produits et 6 avis reliés**, radar présent dans le HTML brut.
