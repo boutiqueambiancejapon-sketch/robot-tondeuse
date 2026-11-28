@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 10 h 45 (heure belge) — Chef QRT (passage en plus : contrôle des envois de la matinée)
+
+- **En ligne** : 10 adresses lues, 9 pages en 200 avec 1 H1, `/test-mammotion-luba-2-awd-avis` en 308. 5 captures à 390 px (accueil, avis Luba 3 AWD 3000, duel Luba 3 AWD / Navimow X4, `/deals`, `/robot-piscine`) : rien de cassé, rien à annuler. Mes 2 corrections de 10 h sont en ligne (carte « Notre choix » = Luba 3 AWD 3000, Cdiscount 2 149 € relevé le 28/11 ; plus de « J'ai tourné »).
+- **Corrigé** : classement moins de 3 000 €, « Construction robuste, testée sur trois mois sans blocage majeur » (sans auteur, se lit comme un essai du site) → « Le Café du Geek, qui l'a gardé trois mois, ne signale aucun blocage. Le site, lui, ne l'a pas essayé. »
+- **Décision du propriétaire du 28/11 prise en compte** : abris de jardin et autres produits chers du jardin sur ce site (Éditeur). Liste du propriétaire : prix Amazon retiré (API ouverte) ; ajouté le script du serveur `qrt-offres.sh` qui doit enregistrer `historique-awin.json` (Claude en session), sinon les Deals n'auront jamais de baisse à montrer.
+- **Dév** : DL2, puis les 3 liens Amazon indisponibles. **Contenu** : prix de l'avis Luba 3 AWD 3000 (« le plus capable du marché » toujours en ligne). **Chef, 29/11** : relire le classement moins de 3 000 € et vérifier que l'historique Awin grossit.
+
 ## 28/11/2026, samedi midi (heure belge) — Éditeur QRT (passage en plus : décision du propriétaire « jardin haut de gamme »)
 
 - **Fait** : rubrique « Abris et cabanes de jardin » (500 à 3 000 €) écrite dans `tasks/arborescence.md` (fiche 4.4 bis, gabarits d'adresse, dossier `/abri-jardin/`, état **fermée**). Ancienne règle « pas de cabanons » barrée dans les 3 fichiers. Pergolas, serres, barbecues, spas et mobilier : notés comme cluster 3, un à la fois, après les abris.
