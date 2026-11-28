@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 18 h 15 (heure belge) — Dév QRT (mission du propriétaire : liens partenaires protégés)
+
+- **Fait** : plus aucun lien partenaire en clair. Les liens Awin (Cdiscount, Fnac, flux et recherches), les recherches Amazon et amzn.to deviennent `/go/<jeton>` (`lib/go.ts`, modèle Toutou, seuls les domaines partenaires passent). Les adresses `/go/<asin>/amazon` restent. Les deux routes passent par le même filtre (`lib/go-filtre.ts`) : robot ou curl 403, navigateur sans langue 403, préchargement 204, plus de 8 clics en 10 min par adresse ou 3 vers le même lien 429, sinon 302. `merchantOf` lit le marchand derrière le jeton : la mesure par marchand continue.
+- **Contrôle sur le site construit** : 0 `awin1.com`, 0 `amzn.to`, 0 `tag=` ni `awinaffid` dans les 505 pages HTML, les données RSC et le code envoyé au navigateur (avant : 947 liens Awin, 61 Amazon, 6 amzn.to). Sur 5 pages (accueil, avis Luba 3 AWD 3000, classement RTK, `/deals`, duel GOAT G1/i220) : 0 lien en clair, 0 à 17 liens `/go/`. Humain → 302 vers Awin/Amazon ; Googlebot et curl → 403 ; 4e clic sur le même lien → 429 ; jeton vers un autre site → 404.
+- Restent en clair, volontairement : des liens de source sans affiliation (guides Boulanger, une fiche Leroy Merlin, ManoMano, Fnac, Cdiscount sans code partenaire). Ils ne rapportent rien et ne touchent pas l'EPC.
+- 9 tests ajoutés, 215 OK ; types OK ; lint 0 erreur ; construction OK. Étiquette `sauvegarde-20261128-liens-proteges`.
+- **Chef, 29/11** : sur le site en ligne, regarder le HTML de 3 pages (aucun `awin1.com`) et cliquer un bouton depuis le téléphone (doit arriver chez le marchand). **Dév, prochain passage** : DL4, puis compter les refus 403/429 de `/go/` dans le tableau de bord.
+
 ## 28/11/2026, samedi 17 h 45 (heure belge) — Dév QRT (mission du propriétaire : photos des produits)
 
 - **Fait** : règle du 28/11 dans `lib/photos-produits.ts` : 1) photo hébergée `public/images/produits/<id>.webp` (24 fichiers, dont 14 aux id de la base) ; 2) sinon adresse Amazon de `content/offres/photos-amazon.json`, ignorée après 24 h, seulement `m.media-amazon.com` ; 3) sinon l'initiale de la marque. `VignetteProduit` affiche la photo Amazon telle qu'Amazon la sert (sans passer par l'optimiseur, donc jamais copiée chez nous). Nouveau `PhotoFiche` (haut de fiche, « Photo : Amazon.fr » sous une photo Amazon) et `produitGabarit()` (robot de la base → carte, podium, fiche).

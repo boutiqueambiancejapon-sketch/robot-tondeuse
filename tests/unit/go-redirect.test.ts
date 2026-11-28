@@ -6,9 +6,12 @@ vi.mock('@/niche.config', () => ({
 
 const { affiliateHref } = await import('@/lib/utils/affiliate')
 const { GET } = await import('@/app/go/[robot]/[marchand]/route')
+const { goTarget } = await import('@/lib/go')
+const { _resetFiltre } = await import('@/lib/go-filtre')
 
 function call(robot: string, marchand: string) {
-  return GET(new Request(`http://localhost/go/${robot}/${marchand}`), {
+  _resetFiltre()
+  return GET(new Request(`http://localhost/go/${robot}/${marchand}`, { headers: { 'user-agent': 'Mozilla/5.0 (iPhone)', 'accept-language': 'fr-FR' } }), {
     params: Promise.resolve({ robot, marchand }),
   })
 }
@@ -18,8 +21,10 @@ describe('affiliateHref', () => {
     expect(affiliateHref('https://www.amazon.fr/dp/B0GCCLW2PL')).toBe('/go/B0GCCLW2PL/amazon')
     expect(affiliateHref('https://www.amazon.fr/Mammotion-LUBA/dp/B0GR8MRCYC?ref=x')).toBe('/go/B0GR8MRCYC/amazon')
   })
-  it('garde l’étiquette en direct pour une recherche Amazon', () => {
-    expect(affiliateHref('https://www.amazon.fr/s?k=robot')).toContain('tag=test-tag-21')
+  it('cache une recherche Amazon derrière /go/<jeton>, étiquette comprise', () => {
+    const href = affiliateHref('https://www.amazon.fr/s?k=robot')
+    expect(href).toMatch(/^\/go\/[A-Za-z0-9_-]+$/)
+    expect(goTarget(href)).toContain('tag=test-tag-21')
   })
   it('ne touche ni aux liens internes ni aux autres sites', () => {
     expect(affiliateHref('/quiz')).toBe('/quiz')

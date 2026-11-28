@@ -7,6 +7,7 @@
 import awin from '@/content/offres/awin.json'
 import { getProduct, getPrimaryLink } from '@/lib/products'
 import { affiliateHref } from '@/lib/utils/affiliate'
+import { toGo } from '@/lib/go'
 
 import type { Offre } from './offres-format'
 export type { Offre } from './offres-format'
@@ -21,7 +22,7 @@ const SEARCH: Record<'Cdiscount' | 'Fnac', (q: string) => string> = {
 /** Lien partenaire Awin vers n'importe quelle page du marchand (recherche comprise). */
 function awinLink(marchand: 'Cdiscount' | 'Fnac', target: string): string {
   const mid = marchand === 'Cdiscount' ? awin.cdiscount : awin.fnac
-  return `https://www.awin1.com/cread.php?awinmid=${mid}&awinaffid=${awin.affid}&ued=${encodeURIComponent(target)}`
+  return toGo(`https://www.awin1.com/cread.php?awinmid=${mid}&awinaffid=${awin.affid}&ued=${encodeURIComponent(target)}`)
 }
 
 /** Les trois offres d'un robot, dans l'ordre : prix relevés d'abord (du moins cher au plus cher), puis recherches. */

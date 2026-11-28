@@ -4,7 +4,7 @@
  * Elle apparaît après 400 px de défilement, sans animation si prefers-reduced-motion (style .buybar).
  */
 import { useEffect, useState } from 'react'
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 import type { OffreGabarit } from './BoutonMarchand'
 
 type Props = { titre: string; detail: string; offre: OffreGabarit; libelle?: string; place?: string }
@@ -23,7 +23,7 @@ export function BarreCollante({ titre, detail, offre, libelle = 'Voir l’offre'
         <b>{titre}</b>
         <span>{detail}</span>
       </div>
-      <a className="btn g-btn" href={addAffiliateTag(offre.url)} rel="sponsored nofollow noopener" target="_blank">
+      <a className="btn g-btn" href={affiliateHref(offre.url)} rel="sponsored nofollow noopener" target="_blank">
         {libelle}
       </a>
     </div>

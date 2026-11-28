@@ -4,9 +4,15 @@
  */
 import offresData from '@/content/offres/offres.json'
 import type { Offre } from './offres-format'
+import { toGo } from './go'
 
 export type Releve = { prix: number; url: string; date: string }
-const RELEVES = offresData as Record<string, { cdiscount?: Releve; fnac?: Releve }>
+type Releves = Record<string, { cdiscount?: Releve; fnac?: Releve }>
+const protege = (r?: Releve): Releve | undefined => (r ? { ...r, url: toGo(r.url) } : undefined)
+/** Liens Awin du flux protégés une fois pour toutes : /go/<jeton>, jamais en clair dans la page (lib/go.ts). */
+const RELEVES: Releves = Object.fromEntries(
+  Object.entries(offresData as Releves).map(([k, v]) => [k, { cdiscount: protege(v.cdiscount), fnac: protege(v.fnac) }]),
+)
 
 /** Même clé que scripts/offres-awin.mjs : minuscules, sans accents ni ponctuation, « + » lu « plus ». */
 export const cleNom = (n: string) =>

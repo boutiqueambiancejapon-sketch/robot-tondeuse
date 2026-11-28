@@ -1,3 +1,4 @@
+import { toGo } from '@/lib/go'
 import { describe, expect, it } from 'vitest'
 import { detecterBaisses, type LigneHistorique } from '@/lib/deals-detection'
 import { dealsDepuisHistorique } from '@/lib/deals'
@@ -58,7 +59,7 @@ describe('détection des baisses (DL2)', () => {
     const h = [...jours('2026-10-01', '2026-11-05', 700), ...jours('2026-11-06', '2026-11-06', 640)]
     const url = 'https://www.awin1.com/pclick.php?p=1'
     expect(dealsDepuisHistorique(h, { x: { cdiscount: { prix: 640, url, nom: 'Robot X' } } })).toEqual([
-      { slug: 'x', name: 'Robot X', store: 'Cdiscount', url, price: 640, lowest30d: 700, checkedAt: '2026-11-06', checkedAtTime: '2026-11-06T12:00:00.000Z' },
+      { slug: 'x', name: 'Robot X', store: 'Cdiscount', url: toGo(url), price: 640, lowest30d: 700, checkedAt: '2026-11-06', checkedAtTime: '2026-11-06T12:00:00.000Z' },
     ])
     expect(dealsDepuisHistorique(h, { x: { cdiscount: { prix: 655, url } } })).toEqual([])
   })

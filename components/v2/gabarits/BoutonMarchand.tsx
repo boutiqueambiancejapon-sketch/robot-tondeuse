@@ -1,9 +1,9 @@
 /**
  * BoutonMarchand — une offre : nom du marchand, prix et date du relevé, bouton cuivre (seul accent d'action).
  * Sans date de relevé, aucun prix n'est affiché : seulement « Voir le prix ». Bouton sur une seule ligne.
- * Les liens Amazon passent par addAffiliateTag. data-place sert au comptage des clics.
+ * Les liens partenaires passent par affiliateHref (/go/…, jamais en clair). data-place sert au comptage des clics.
  */
-import { addAffiliateTag } from '@/lib/utils/affiliate'
+import { affiliateHref } from '@/lib/utils/affiliate'
 import { dateCourte, euros } from '@/lib/gabarits'
 
 export type OffreGabarit = { marchand: string; url: string; prix?: number | null; date?: string | null }
@@ -20,7 +20,7 @@ export function BoutonMarchand({ offre, principal = true, place = 'bouton-marcha
       </div>
       <a
         className={`btn g-btn${principal ? '' : ' btn--ivory'}`}
-        href={addAffiliateTag(offre.url)}
+        href={affiliateHref(offre.url)}
         rel="sponsored nofollow noopener"
         target="_blank"
       >

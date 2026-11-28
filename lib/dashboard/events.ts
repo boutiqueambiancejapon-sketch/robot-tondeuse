@@ -1,3 +1,4 @@
+import { goTarget } from '@/lib/go'
 // Names of the first-party events (analytics.events) and the merchants of an affiliate click.
 // Browser: affiliate_click, quiz_result, web_vital (POST /api/e). Server: tool_use (/api/m/<outil>),
 // newsletter_signup (/api/inscription, contact accepted by Brevo).
@@ -27,6 +28,9 @@ const AWIN_MID: Record<string, Merchant> = { '6948': 'cdiscount', '12665': 'fnac
 
 /** Merchant of an outgoing link, or null when the link is not a partner link. */
 export function merchantOf(href: string, base = 'https://quel-robot-tondeuse.com'): Merchant | null {
+  // Lien protégé /go/<jeton> (lib/go.ts) : la mesure lit l'adresse du marchand cachée derrière.
+  const cache = goTarget(href)
+  if (cache) return merchantOf(cache, base)
   let url: URL
   try {
     url = new URL(href, base)

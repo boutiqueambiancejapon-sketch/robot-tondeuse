@@ -8,6 +8,7 @@
  * explique la règle. Jamais de prix barré, de stock ni de compte à rebours.
  */
 import historiqueData from '@/content/offres/historique-awin.json'
+import { toGo } from './go'
 import offresData from '@/content/offres/offres.json'
 import { detecterBaisses, type LigneHistorique } from './deals-detection'
 
@@ -45,7 +46,7 @@ export function dealsDepuisHistorique(historique: LigneHistorique[], offres: Off
       slug: b.cle,
       name: offre.nom ?? b.cle,
       store: MARCHANDS[b.marchand] ?? b.marchand,
-      url: offre.url,
+      url: toGo(offre.url),
       price: b.prix,
       lowest30d: b.plusBas30j,
       checkedAt: b.quand.slice(0, 10),

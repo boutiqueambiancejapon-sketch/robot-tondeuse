@@ -1,4 +1,5 @@
 import { niche } from '@/niche.config'
+import { toGo } from '@/lib/go'
 
 const AMAZON_TAG = process.env.NEXT_PUBLIC_AMAZON_TAG ?? niche.affiliateTag
 const AMAZON_DOMAINS = /amazon\.(fr|com|co\.uk|de|es|it)/i
@@ -33,7 +34,8 @@ export function amazonProductUrl(asin: string): string {
 /**
  * Lien à mettre dans la page. Une fiche Amazon.fr (/dp/<ASIN>) passe par
  * /go/<ASIN>/amazon : le clic est compté dans les journaux du serveur, sans cookie.
- * Les autres liens Amazon (recherche, autres pays) gardent l'étiquette en direct.
+ * Tout autre lien partenaire (recherche Amazon, amzn.to, Awin) devient /go/<jeton> (lib/go.ts) :
+ * aucun lien affilié en clair dans les pages (décision du propriétaire, 28/11/2026).
  */
 export function affiliateHref(href: string): string {
   try {
@@ -45,7 +47,7 @@ export function affiliateHref(href: string): string {
   } catch {
     // Pas une URL absolue : on laisse addAffiliateTag décider
   }
-  return addAffiliateTag(href)
+  return toGo(addAffiliateTag(href))
 }
 
 /**
@@ -59,5 +61,5 @@ export function amazonHref(url: string | undefined, name: string): string {
   } catch {
     // adresse relative ou invalide : recherche
   }
-  return addAffiliateTag(`https://www.amazon.fr/s?k=${encodeURIComponent(name)}`)
+  return affiliateHref(`https://www.amazon.fr/s?k=${encodeURIComponent(name)}`)
 }

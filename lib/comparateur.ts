@@ -1,6 +1,6 @@
 /**
  * lib/comparateur.ts — données statiques de tous les comparateurs produit.
- * Toujours passer amazonUrl via AffiliateLink / addAffiliateTag().
+ * Toujours passer amazonUrl via AffiliateLink / affiliateHref() (/go/…).
  */
 
 export type ModeleComparateur = {
