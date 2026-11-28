@@ -113,6 +113,25 @@ Pour chaque type : **intention**, **SEO** (titre, H1, indexation, données struc
 - Auteur réel (Mathias, avatar illustré) et à propos indexés ; mentions, confidentialité, contact en noindex ; recherche et 404 qui proposent
   hub, classement et outil. **Aucune page de méthode** (décision du 28/11/2026).
 
+## 2 bis. Les bonnes pratiques du e-commerce, à la sauce affiliation (propriétaire, 28/11/2026)
+
+> « En gros on mixe les bonnes recos e-commerce, tournées à la sauce affiliation. »
+
+| Pratique e-commerce | Version affiliation |
+|---|---|
+| Méga-menu par rayon avec nombres | méga-menu par critère avec le nombre de modèles (« Sans fil · 52 ») |
+| Filtres à facettes + tri | filtres (surface, pente, guidage, budget, marque) et tri (note, prix, surface) sur les collections et le hub |
+| Fiche produit : galerie, prix, stock, « ajouter au panier » collant | photo, note, prix du jour daté, disponibilité relevée, bouton marchand collant |
+| Comparaison de prix / options | comparateur multi-marchands, « prix le plus bas » à taille égale |
+| Guide des tailles | calculateur (« quelle surface, quelle pente ») qui filtre les modèles |
+| « Souvent achetés ensemble » / « vous aimerez aussi » | « souvent comparé avec » (duels) et alternatives ; accessoires utiles (garage, lames) |
+| Vus récemment | « vus récemment » et favoris gardés dans le navigateur |
+| Panier | comparateur (jusqu'à 4) et « mon espace » |
+| Avis clients | jamais de faux avis : note du site sur dossier + liens vers les avis publiés chez les marchands |
+| Badges promo, compte à rebours | vraie baisse datée (plus bas des 30 jours) ; pas de compte à rebours |
+| Relance panier abandonné | alerte de prix et e-mail « baisse sur ton favori » |
+| Vue rapide | aperçu en un toucher depuis une grille (note, prix, pour qui) sans quitter la liste |
+
 ## 3. Bibliothèque de widgets de conversion (un composant chacun, réutilisé partout)
 
 | Widget | Pages |
