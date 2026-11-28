@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi après-midi (heure belge) — Contenu QRT (premier article piscine, priorité du propriétaire)
+
+- **Fait** : `/robot-piscine/meilleur-robot-piscine` (page mère des classements piscine, sujet de décembre avancé selon la consigne du 28/11). 6 robots, 5 profils : Dolphin E40i 1 399 € (« Notre choix »), E35 1 139 €, E10 699 €, E25 929 €, Liberty 600 1 199 € (prix conseillés Maytronics lus le 28/11), Beatbot AquaSense 2 Pro 1 799 € (boutique Beatbot, 28/11 ; prix barrés non repris), Zodiac Alpha RA 6900 iQ (prix non affiché par Zodiac). Aucune note, 7 boutons d'achat, défaut et anti-conseil par robot, 7 questions de FAQ. Lien ajouté depuis l'article sécurité piscine.
+- **Limite** : la recherche Amazon par l'API m'a été refusée (lecture de la clé dans /srv bloquée). Les 7 boutons ouvrent donc une **recherche** Amazon, et le prix affiché dit sa source (« chez Maytronics »). Aiper (pas de prix sur ses fiches) et Wybot (boutique UE en 429) sont cités sans classement.
+- Copie `content/authors/thomas.yaml` : « J'ai testé plus de 30 robots » retiré (la bio en ligne était déjà honnête). Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 156 tests OK, construction OK, 1 H1. Étiquette `sauvegarde-20261128-contenu-piscine`.
+- **Claude en session** : passer les 7 boutons sur la fiche Amazon exacte avec le prix du jour (`scripts/amazon-cherche.mjs` « Dolphin E40i », « Dolphin E35 », « Dolphin E10 », « Dolphin E25 », « Dolphin Liberty 600 », « Beatbot AquaSense 2 Pro », « Zodiac RA 6900 iQ »). **Éditeur** : cocher ce sujet dans le plan. **Contenu, prochain passage** : article sécurité piscine (note « 9 » sans barème, « 90 % des cas documentés », 48,5 dB « Labo Maison » à vérifier, prix sans date), puis le 2e article piscine (sans fil).
+
 ## 28/11/2026, samedi 11 h (heure belge) — Contenu QRT (avis Luba 3 AWD 3000 : prix et superlatifs)
 
 - **Fait** : avis `/avis-mammotion-luba-3-awd-3000`. Retirés : 3 prix sans date (« 2 299-2 699 € », « 2 499-2 999 € », « 1 999-2 499 € »), 2 « le plus capable du marché », « la moins chère du marché », « meilleur rapport performances/prix », « pas de concurrent sérieux », « choix évident », « le roi des terrains complexes », 2 « 800+ revendeurs », un faux ratio de charge du 450X, un « +30 % d'autonomie » sans source, 3 phrases qui se lisaient comme un essai (bandes « comme un stade », coupe « nette », pas d'ornières).
