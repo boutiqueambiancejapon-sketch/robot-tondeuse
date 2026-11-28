@@ -58,6 +58,13 @@ Règles : une valeur sans source reste vide (jamais devinée) ; « analysé », 
 - Rendu serveur en SVG dans le HTML (lisible sans JS par Google et les IA), `role="img"` + `aria-label` qui dit les 6 notes, et un tableau
   repliable avec les mêmes valeurs (citable). Couleurs : variables CSS du site uniquement, contraste vérifié, `prefers-reduced-motion` respecté.
 - Composant unique (≤ 150 lignes), calcul dans `lib/` (fonction pure testée), barème expliqué sur `/comment-on-note` (« comparé à N robots analysés »).
+- **Comparaison superposée (propriétaire, 28/11/2026)** : sur la même fiche, le visiteur ajoute 2 ou 3 autres robots au radar, chacun avec
+  sa couleur, tracés par-dessus. Par défaut, 2 concurrents proposés (même collection principale, prix le plus proche) ; un sélecteur
+  (recherche par nom, 3 au plus) en ajoute ou en retire. Légende cliquable, tableau des valeurs à côté (une colonne par robot) et bouton
+  marchand de chaque robot comparé. Le rendu par défaut (robot + 2 concurrents) est servi par le serveur ; seul l'ajout ou le retrait
+  est en JavaScript (sous-composant client, jamais la page). Adresse partageable : `?vs=<id>,<id>` (canonical sans paramètre).
+  Couleurs : 4 au plus, distinctes pour les daltoniens (variables CSS du site), motif de trait différent en plus de la couleur.
+  Même système sur les pages duels (`/<a>-vs-<b>`) : le radar à deux tracés remplace le tableau seul en haut de page.
 - Dév QRT : dès que `data/robots-tondeuses.json` a au moins 30 modèles ; capture 390 px envoyée au propriétaire avant la mise en ligne générale.
 
 ## 4. Bing et IndexNow (Dév QRT, avant la première collection)
