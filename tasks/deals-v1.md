@@ -35,3 +35,13 @@ POST https://api.amazon.co.uk/auth/o2/token (JSON, grant_type client_credentials
 prix : POST https://creatorsapi.amazon/catalog/v1/getItems, en-têtes Authorization Bearer, x-marketplace www.amazon.fr, corps
 {itemIds (10 max), itemIdType ASIN, marketplace www.amazon.fr, partnerTag, resources ["offersV2.listings.price","offersV2.listings.availability"]}.
 Accès au catalogue seulement avec 10 ventes qualifiées sur 30 jours : tant que l'API refuse, garder le bouton « comparer chez Amazon ».
+
+### Amazon ouvert (28/11/2026, 10 h)
+Secret déposé par le propriétaire, **catalogue accessible** : getItems et searchItems répondent (prix en EUR, disponibilité). Testé :
+« robot tondeuse » renvoie 10 produits avec prix (Ecovacs GOAT O600 RTK 349 €, A1600 LiDAR Pro 799 €, MOVA LiDAX Ultra 800 599 €…).
+- Amazon devient un marchand des deals comme Cdiscount et Fnac, au même relevé toutes les 4 heures (searchItems par mots-clés et
+  marques pour le périmètre, getItems par lots de 10 ASIN pour le suivi ; jeton mis en cache 1 h).
+- `savingBasis` (prix de référence d'Amazon) n'est **jamais** affiché comme ancien prix : seule notre règle des 30 jours compte.
+- À corriger (Contenu/Dév) : plusieurs ASIN du site sont « Actuellement indisponible » sur Amazon.fr (Husqvarna 310 Mark II
+  B0BWKF1VWS, Mammotion YUKA Mini 2 1000 B0GJ4TWVVV, LUBA 3 AWD 3000 B0GCZSSZRZ) : vérifier chaque lien Amazon avec getItems et
+  remplacer par l'ASIN vendu ou masquer le bouton Amazon quand le produit n'est pas disponible.
