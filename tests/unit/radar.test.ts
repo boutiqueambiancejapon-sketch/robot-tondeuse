@@ -77,7 +77,7 @@ describe('catalogue réel', () => {
     expect(robotsDeLaFiche('mammotion-luba-3-awd-3000').map((r) => r.id)).toEqual(['mammotion-luba-3-awd-3000'])
     expect(robotsDeLaFiche(['segway-navimow-x420', 'segway-navimow-x430']).map((r) => r.id)).toEqual(['segway-navimow-x420', 'segway-navimow-x430'])
     expect(robotsDeLaFiche(undefined)).toEqual([])
-    expect(robotsDeLaFiche('husqvarna-automower-450x-nera')).toEqual([])
+    expect(robotsDeLaFiche('husqvarna-automower-415x')).toEqual([])
     expect(robotsDeLaFiche(['mammotion-luba-3-awd-3000', 'id-inconnu'])).toEqual([])
   })
   it('une gamme remplace les concurrents par défaut', () => {

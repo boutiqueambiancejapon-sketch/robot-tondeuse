@@ -2031,5 +2031,1401 @@
         "note": "fiche produit officielle Husqvarna FR, tableau « Spécifications » (lu dans un navigateur)"
       }
     ]
+  },
+  {
+    "id": "worx-landroid-l1000-wr147e-1",
+    "marque": "Worx",
+    "modele": "Landroid L1000 (WR147E.1)",
+    "surface_m2": 1000,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 67,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 12,
+    "prix_eur": 899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-classic-pour-jardins-jusqua-1000-m2-wr147e-1/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-l2000-wr155e",
+    "marque": "Worx",
+    "modele": "Landroid L2000 (WR155E)",
+    "surface_m2": 2000,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi"
+    ],
+    "bruit_db": 67,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 12,
+    "prix_eur": 1199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-s-robot-tondeuse-pour-pelouses-jusqua-2000-m2-wr155e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-s250-wr168e",
+    "marque": "Worx",
+    "modele": "Landroid S250 (WR168E)",
+    "surface_m2": 250,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi"
+    ],
+    "bruit_db": 67,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 8,
+    "prix_eur": 469,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-s-robot-tondeuse-pour-pelouses-jusqua-250-m2-wr168e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-m500-plus-wr165e",
+    "marque": "Worx",
+    "modele": "Landroid M500 Plus (WR165E)",
+    "surface_m2": 500,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 67,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 9.5,
+    "prix_eur": 599,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-s-robot-tondeuse-pour-pelouses-jusqua-500-m2-wr165e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-m600-plus-wr166e",
+    "marque": "Worx",
+    "modele": "Landroid M600 Plus (WR166E)",
+    "surface_m2": 600,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 67,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 9.5,
+    "prix_eur": 649,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-s-robot-tondeuse-pour-pelouses-jusqua-600-m2-wr166e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-ai-l1300-wr213e",
+    "marque": "Worx",
+    "modele": "Landroid Vision AI L1300 (WR213E)",
+    "surface_m2": 1300,
+    "pente_pct": 30,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": null,
+    "prix_eur": 1799,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-ai-pour-pelouses-jusqua-1300-m2-wr213e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel » ; poids publié sans batterie (15.1 kg), non repris"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-ai-l1600-wr216e",
+    "marque": "Worx",
+    "modele": "Landroid Vision AI L1600 (WR216E)",
+    "surface_m2": 1600,
+    "pente_pct": 30,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": null,
+    "prix_eur": 1999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-ai-pour-pelouses-jusqua-1600-m2-wr216e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel » ; poids publié sans batterie (14 kg), non repris"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-ai-s250-wr202e",
+    "marque": "Worx",
+    "modele": "Landroid Vision AI S250 (WR202E)",
+    "surface_m2": 250,
+    "pente_pct": null,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": null,
+    "largeur_coupe_cm": null,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": null,
+    "prix_eur": 849,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-ai-pour-pelouses-jusqua-250-m2-wr202e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR : surface lue dans le titre (« jusqu’à 250 m² »), la page ne publie pas de tableau technique complet"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-ai-m600-wr206e",
+    "marque": "Worx",
+    "modele": "Landroid Vision AI M600 (WR206E)",
+    "surface_m2": 600,
+    "pente_pct": 30,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": null,
+    "prix_eur": 1099,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-ai-pour-pelouses-jusqua-600-m2-wr206e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-ai-m800-wr208e",
+    "marque": "Worx",
+    "modele": "Landroid Vision AI M800 (WR208E)",
+    "surface_m2": 800,
+    "pente_pct": 30,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": 59,
+    "largeur_coupe_cm": 19,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": null,
+    "prix_eur": 1399,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-ai-pour-pelouses-jusqua-800-m2-wr208e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel » ; poids publié sans batterie (13.5 kg), non repris"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-4wd-1000-m2-wr341e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 4WD 1000 m² (WR341E)",
+    "surface_m2": 1000,
+    "pente_pct": 84,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      70
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 16.9,
+    "prix_eur": 1999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-4wd-pour-pelouses-jusqua-1000-m2-wr341e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-4wd-2000-m2-wr342e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 4WD 2000 m² (WR342E)",
+    "surface_m2": 2000,
+    "pente_pct": 84,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      70
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 16.9,
+    "prix_eur": 2499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-4wd-pour-pelouses-jusqua-2000-m2-wr342e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-4wd-4000-m2-wr344e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 4WD 4000 m² (WR344E)",
+    "surface_m2": 4000,
+    "pente_pct": 84,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      70
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 18.1,
+    "prix_eur": 2999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-4wd-pour-pelouses-jusqua-4000-m2-wr344e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-4wd-600-m2-wr340e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 4WD 600 m² (WR340E)",
+    "surface_m2": 600,
+    "pente_pct": 84,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": "4rm",
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 20,
+    "hauteur_coupe_mm": [
+      20,
+      70
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 16.9,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-4wd-pour-pelouses-jusqua-600-m2-wr340e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-1200-m2-wr312e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 1200 m² (WR312E)",
+    "surface_m2": 1200,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 14.3,
+    "prix_eur": 1199,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-1200-m2-wr312e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-1800-m2-wr318e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 1800 m² (WR318E)",
+    "surface_m2": 1800,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 14.3,
+    "prix_eur": 1499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-1800-m2-wr318e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-300-m2-wr303e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 300 m² (WR303E)",
+    "surface_m2": 300,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 11.2,
+    "prix_eur": 699,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-300-m2-wr303e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-3000-m2-wr330e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 3000 m² (WR330E)",
+    "surface_m2": 3000,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 14.3,
+    "prix_eur": 2499,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-3000-m2-wr330e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-400-m2-wr304e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 400 m² (WR304E)",
+    "surface_m2": 400,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 11.1,
+    "prix_eur": 749,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-400-m2-wr304e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-500-m2-wr305e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 500 m² (WR305E)",
+    "surface_m2": 500,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 11.4,
+    "prix_eur": 799,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-500-m2-wr305e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-600-m2-wr306e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 600 m² (WR306E)",
+    "surface_m2": 600,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 12.8,
+    "prix_eur": 899,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-600-m2-wr306e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-650-m2-cut-to-zero-wr365e-1",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 650 m² Cut-to-Zero (WR365E.1)",
+    "surface_m2": 650,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 12.8,
+    "prix_eur": 999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-650-m2-wr365e-1/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-650-m2-wr365e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 650 m² (WR365E)",
+    "surface_m2": 650,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 11.4,
+    "prix_eur": 849,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-650-m2-wr365e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "worx-landroid-vision-cloud-800-m2-wr308e",
+    "marque": "Worx",
+    "modele": "Landroid Vision Cloud 800 m² (WR308E)",
+    "surface_m2": 800,
+    "pente_pct": 30,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "bluetooth"
+    ],
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      30,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 12.8,
+    "prix_eur": 999,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix affiché par la boutique officielle eu.worx.com/fr-fr (aucune remise affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://eu.worx.com/fr-fr/robot-tondeuse-landroid-vision-cloud-pour-pelouses-jusqua-800-m2-wr308e/",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Worx FR, bloc « Spécifications techniques et manuel »"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-free-1200",
+    "marque": "Gardena",
+    "modele": "smart SILENO free 1200 m²",
+    "surface_m2": 1200,
+    "pente_pct": 30,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 140,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.8,
+    "prix_eur": 1599.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-free-1200-m/970801450.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; pilotage par l’application smart via la smart Gateway (passerelle radio), connectivité du robot non détaillée ; guidage « RTK+GPS » sans antenne ni balise (texte de la fiche) ; réf. 19923-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-free-600",
+    "marque": "Gardena",
+    "modele": "smart SILENO free 600 m²",
+    "surface_m2": 600,
+    "pente_pct": 30,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 140,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.8,
+    "prix_eur": 999.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-free-600-m/970620950.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; pilotage par l’application smart via la smart Gateway (passerelle radio), connectivité du robot non détaillée ; guidage « RTK+GPS » sans antenne ni balise (texte de la fiche) ; réf. 19921-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-free-650",
+    "marque": "Gardena",
+    "modele": "smart SILENO free 650 m²",
+    "surface_m2": 650,
+    "pente_pct": 30,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 140,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.8,
+    "prix_eur": 1099.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-free-650-m/970813547.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; pilotage par l’application smart via la smart Gateway (passerelle radio), connectivité du robot non détaillée ; guidage « RTK+GPS » sans antenne ni balise (texte de la fiche) ; réf. 19930-94"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-free-800",
+    "marque": "Gardena",
+    "modele": "smart SILENO free 800 m²",
+    "surface_m2": 800,
+    "pente_pct": 30,
+    "guidage": "rtk",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 140,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.8,
+    "prix_eur": 1299.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-free-800-m/970716150.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; pilotage par l’application smart via la smart Gateway (passerelle radio), connectivité du robot non détaillée ; guidage « RTK+GPS » sans antenne ni balise (texte de la fiche) ; réf. 19922-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-life-1500",
+    "marque": "Gardena",
+    "modele": "smart SILENO life 1500 m²",
+    "surface_m2": 1500,
+    "pente_pct": 35,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 57,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      20,
+      50
+    ],
+    "autonomie_min": 65,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 8.3,
+    "prix_eur": 1299.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (prix barré de la fiche, hors réduction du 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-life-1500-m/970573206.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; pilotage par l’application smart via la smart Gateway (passerelle radio), connectivité du robot non détaillée ; réf. 19704-66"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-max-1000",
+    "marque": "Gardena",
+    "modele": "smart SILENO max 1000 m²",
+    "surface_m2": 1000,
+    "pente_pct": 30,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 50,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.3,
+    "prix_eur": 924.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-max-1000-m/970802347.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; réf. 19906-94"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-max-1200",
+    "marque": "Gardena",
+    "modele": "smart SILENO max 1200 m²",
+    "surface_m2": 1200,
+    "pente_pct": 30,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 50,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.3,
+    "prix_eur": 999.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-max-1200-m/970713050.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; réf. 19902-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-max-1500",
+    "marque": "Gardena",
+    "modele": "smart SILENO max 1500 m²",
+    "surface_m2": 1500,
+    "pente_pct": 30,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 50,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.3,
+    "prix_eur": 1149.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-max-1500-m/970713150.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; réf. 19903-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-max-800",
+    "marque": "Gardena",
+    "modele": "smart SILENO max 800 m²",
+    "surface_m2": 800,
+    "pente_pct": 30,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 58,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 50,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 10.3,
+    "prix_eur": 849.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-max-800-m/970620850.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; réf. 19901-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-pro-500",
+    "marque": "Gardena",
+    "modele": "smart SILENO pro 500 m²",
+    "surface_m2": 500,
+    "pente_pct": 25,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": [
+      "bluetooth"
+    ],
+    "bruit_db": 57,
+    "largeur_coupe_cm": 16,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 50,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 8.6,
+    "prix_eur": 699.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (aucune réduction affichée le 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-pro-500-m/970814947.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; réf. 19803-94"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-sense-400",
+    "marque": "Gardena",
+    "modele": "smart SILENO sense 400 m²",
+    "surface_m2": 400,
+    "pente_pct": 25,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "4g"
+    ],
+    "bruit_db": 57,
+    "largeur_coupe_cm": 16,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 40,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 9.5,
+    "prix_eur": 999.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (prix barré de la fiche, hors réduction du 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-sense-400-m/970818050.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; guidage satellite GPS/RTK + caméra à vision IA, SIM intégrée (texte de la fiche) ; réf. 19941-26"
+      }
+    ]
+  },
+  {
+    "id": "gardena-smart-sileno-sense-600",
+    "marque": "Gardena",
+    "modele": "smart SILENO sense 600 m²",
+    "surface_m2": 600,
+    "pente_pct": 25,
+    "guidage": "rtk+vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": [
+      "wifi",
+      "4g"
+    ],
+    "bruit_db": 57,
+    "largeur_coupe_cm": 16,
+    "hauteur_coupe_mm": [
+      25,
+      45
+    ],
+    "autonomie_min": 90,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 9.5,
+    "prix_eur": 1099.99,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix normal affiché par gardena.com/fr (prix barré de la fiche, hors réduction du 28/11/2026)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.gardena.com/fr/outils-jardin/entretien-pelouses/tondeuses-robots/tondeuse-robot-smart-sileno-sense-600-m/970817850.html",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Gardena FR, tableau « Caractéristiques techniques » ; guidage satellite GPS/RTK + caméra à vision IA, SIM intégrée (texte de la fiche) ; réf. 19942-26"
+      }
+    ]
+  },
+  {
+    "id": "husqvarna-automower-450x-nera",
+    "marque": "Husqvarna",
+    "modele": "Automower 450X NERA",
+    "surface_m2": 5000,
+    "pente_pct": 50,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 58,
+    "largeur_coupe_cm": 24,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": 145,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 15,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "arrete": true,
+    "sources": [
+      {
+        "url": "https://www.husqvarna.com/fr/assistance/robots-tondeuses/automower-450x-nera/",
+        "lu_le": "2026-11-28",
+        "note": "page d’assistance officielle Husqvarna FR, tableau « Spécifications » (l’ancienne fiche produit redirige vers l’assistance : modèle plus vendu par la marque) ; pente = inclinaison maximale au travail ; réf. 970 53 53-12"
+      }
+    ]
+  },
+  {
+    "id": "husqvarna-automower-310-mark-ii",
+    "marque": "Husqvarna",
+    "modele": "Automower 310 Mark II",
+    "surface_m2": 1000,
+    "pente_pct": 40,
+    "guidage": "fil",
+    "sans_fil": false,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": 59,
+    "largeur_coupe_cm": 22,
+    "hauteur_coupe_mm": null,
+    "autonomie_min": 60,
+    "zones_max": null,
+    "ip": "IPX5",
+    "poids_kg": 9.4,
+    "prix_eur": null,
+    "prix_lu_le": null,
+    "prix_source": null,
+    "asin": null,
+    "awin": null,
+    "arrete": true,
+    "sources": [
+      {
+        "url": "https://www.husqvarna.com/fr/assistance/robots-tondeuses/automower-310-mark-ii/",
+        "lu_le": "2026-11-28",
+        "note": "page d’assistance officielle Husqvarna FR, tableau « Spécifications » (l’ancienne fiche produit redirige vers l’assistance : modèle plus vendu par la marque) ; pente = inclinaison maximale au travail ; réf. 970 52 67-12"
+      }
+    ]
+  },
+  {
+    "id": "bosch-visimow-18v-100",
+    "marque": "Bosch",
+    "modele": "VISIMOW 18V-100",
+    "surface_m2": 100,
+    "pente_pct": 35,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": null,
+    "largeur_coupe_cm": 16,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": null,
+    "prix_eur": 482.72,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix de vente conseillé TTC du fabricant affiché par bosch-diy.com/fr, kit avec batterie 4,0 Ah et chargeur (réf. 06008E1000) ; 433,52 € sans batterie ni chargeur (réf. 06008E1001)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.bosch-diy.com/fr/fr/p/visimow18v-100-06008e1001",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Bosch DIY FR, bloc « Caractéristiques techniques » ; guidage SmartVision (caméra) + capteurs à ultrasons et de chocs, sans câble ni antenne RTK ; fonctionnement « semi-autonome » (batterie 18 V amovible) ; les tondeuses Indego ne sont plus listées sur bosch-diy.com/fr le 28/11/2026"
+      }
+    ]
+  },
+  {
+    "id": "bosch-visimow-18v-200",
+    "marque": "Bosch",
+    "modele": "VISIMOW 18V-200",
+    "surface_m2": 200,
+    "pente_pct": 35,
+    "guidage": "vision",
+    "sans_fil": true,
+    "transmission": null,
+    "connectivite": null,
+    "bruit_db": null,
+    "largeur_coupe_cm": 18,
+    "hauteur_coupe_mm": [
+      20,
+      60
+    ],
+    "autonomie_min": null,
+    "zones_max": null,
+    "ip": null,
+    "poids_kg": 6.9,
+    "prix_eur": 581.12,
+    "prix_lu_le": "2026-11-28",
+    "prix_source": "prix de vente conseillé TTC du fabricant affiché par bosch-diy.com/fr, kit avec batterie 5,0 Ah et chargeur (réf. 06008E1100) ; 531,92 € sans batterie ni chargeur (réf. 06008E1101)",
+    "asin": null,
+    "awin": null,
+    "sources": [
+      {
+        "url": "https://www.bosch-diy.com/fr/fr/p/visimow18v-200-06008e1101",
+        "lu_le": "2026-11-28",
+        "note": "fiche produit officielle Bosch DIY FR, bloc « Caractéristiques techniques » ; guidage SmartVision (caméra) + capteurs à ultrasons et de chocs, sans câble ni antenne RTK ; fonctionnement « semi-autonome » (batterie 18 V amovible) ; les tondeuses Indego ne sont plus listées sur bosch-diy.com/fr le 28/11/2026"
+      }
+    ]
   }
 ]

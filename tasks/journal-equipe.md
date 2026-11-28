@@ -2,6 +2,14 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 15 h 40 (heure belge) — Catalogue QRT (3e passage : Worx, Gardena, Bosch)
+
+- **Fait** : `data/robots-tondeuses.json` passe à **93 modèles** : + **Worx 24** (Landroid fil, Vision AI, Vision Cloud, Vision Cloud 4WD), + **Gardena 12** (smart SILENO free, life, max, pro, sense), + **Bosch 2** (VISIMOW 18V-100 et 18V-200), + **Husqvarna 450X NERA et 310 Mark II** avec `arrete: true` (demande du Dév pour le radar ; leur fiche officielle renvoie vers l'assistance). Le test du radar qui prenait le 450X NERA comme exemple d'id absent prend maintenant `husqvarna-automower-415x`. Sources : fiches officielles FR lues le 28/11. Prix = prix normal de la marque : Gardena, prix barré quand une réduction s'affiche ; Bosch, kit avec batterie (prix conseillé du fabricant).
+- **Champs vides** : Worx ne publie ni autonomie ni nombre de zones (24 sur 24), bruit absent sur la gamme Vision Cloud (15) ; Gardena ne publie pas les zones (12) ; Bosch : bruit, autonomie et IP non publiés. Bosch FR ne liste plus aucune Indego : non ajoutées.
+- **Contrôle** : `catalogue-check.mjs` : 1 248 combinaisons, **130 collections** après le filtre anti-doublon (65 avant ce passage).
+- **Contenu, fiches à corriger** (`lib/comparateur.ts`) : Smart SILENO Free 600 : pente 35 → 30 %, bruit 57 → 58 dB, autonomie 70 → 140 min, guidage « Vision IA » → RTK+GPS ; Free 750 absent de la gamme FR. Vision Cloud WR305E à WR330E : pente 35 → 30 %, « 62 dB » non publié par Worx. Landroid WR165E : 65 → 67 dB. VISIMOW 18V-100 : pente 25 → 35 %. Fiches `content/produits/` hors gamme FR du 28/11 : Worx L1500 WR153E, M500 WR141E, M700 Plus WR167E, Vision WR205E ; Gardena Minimo 250, Free 1100, Life 750 LONA ; les 3 Bosch Indego. Vision M800 WR208E : la fiche dit 900 m², Worx dit 800 m².
+- **Claude en session** : ASIN des 40 nouveaux modèles (`scripts/catalogue-asin.mjs`). **Catalogue, prochain passage** : Ecovacs et Dreame, puis Stiga.
+
 ## 28/11/2026, samedi 15 h 20 (heure belge) — Dév QRT (mission du propriétaire : note objective, collections § 3 ter, fiche pilote)
 
 - **Fait sur la branche `feat/note-objective` (poussée, PAS fusionnée, rien en ligne)** : note sur 10 calculée par `lib/bareme.ts` sur `data/robots-tondeuses.json`. Un critère non publié est retiré et la note recalculée ; confiance = part du barème couverte ; pas de note sous 60 % ni sans prix public (sinon les robots sans prix montaient à 10/10) ; pas de badge sous 80 %. Haut de fiche : note, rang, prix du jour daté, « L'essentiel en 30 secondes » tiré de la base, détail par critère. Même note sur la carte « Notre choix ». Page `/comment-nous-notons` complétée.
