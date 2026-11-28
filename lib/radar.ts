@@ -17,6 +17,8 @@ export type RobotCatalogue = {
   bruit_db: number | null
   autonomie_min: number | null
   prix_eur: number | null
+  prix_lu_le?: string
+  sans_fil?: boolean
   arrete?: boolean
 }
 

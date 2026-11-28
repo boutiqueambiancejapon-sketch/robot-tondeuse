@@ -36,6 +36,9 @@ export type NoteFiche = {
 
 const PAR_NOM = Object.fromEntries(Object.entries(FICHES_NOTEES).map(([slug, f]) => [cleNom(f.nom), slug]))
 
+/** Slug de la fiche notée, par son slug ou son nom ; undefined si elle n'est pas dans FICHES_NOTEES. */
+export const slugFiche = (nom: string, slug?: string): string | undefined => (slug && FICHES_NOTEES[slug] ? slug : PAR_NOM[cleNom(nom)])
+
 /** Note d'une fiche, par son slug ou son nom ; null si la fiche n'est pas notée. */
 export function noteFiche(nom: string, slug?: string): NoteFiche | null {
   const s = slug && FICHES_NOTEES[slug] ? slug : PAR_NOM[cleNom(nom)]

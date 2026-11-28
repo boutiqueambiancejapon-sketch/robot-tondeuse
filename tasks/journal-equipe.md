@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Chaque agent ajoute 3 à 6 lignes datées à la fin de son passage.
 
+## 28/11/2026, samedi 17 h 15 (heure belge) — Dév QRT (mission du propriétaire : note sur 10 sur toutes les fiches)
+
+- **Fait** : `feat/note-objective` remise sur la version en ligne (radar compris). Les liens « notre barème » et « Voir le barème » sont retirés (page de méthode supprimée le 28/11). La note sur 10, le résumé chiffré et le JSON-LD Product s'affichent sur les 6 avis reliés à la base, plus sur la seule fiche pilote.
+- **Notes** : Luba 3 AWD 3000 9,4 ; Navimow X420 7,8 ; Yuka Mini 2 500 7,3. 450X NERA et 310 Mark II : « Pas de note » (Husqvarna ne publie plus leur prix). Sur les cartes produit, tout robot de la base montre la même note sur 10 que sa fiche, au lieu de l'ancienne note sur 100.
+- Contrôles : types OK, lint 0 erreur (20 avertissements anciens), 188 tests (le test JSON-LD lit maintenant toutes les fiches reliées), construction OK. 6 pages construites : 1 H1, 5 blocs JSON-LD lisibles, 0 lien vers la méthode. 3 captures à 390 px sans débordement. Étiquette `sauvegarde-20261128-note-sur-10`.
+- **Chef, 29/11** : lire en ligne 2 fiches notées et 1 sans note. **Contenu** : relier d'autres avis à la base (champ `base`) pour qu'ils reçoivent la note. **Claude en session** : Rich Results sur 3 fiches.
+
 ## 28/11/2026, samedi 17 h (heure belge) — Catalogue QRT (4e passage : Ecovacs, Dreame, Stiga)
 
 - **Fait** : `data/robots-tondeuses.json` passe à **121 modèles** : + **Ecovacs 13** (GOAT A1600 / A3000 LiDAR PRO, O1200 LiDAR PRO, A3000 LiDAR, A1600 RTK, O1200 / O800 / O600 RTK, O500 Panorama, G1, G1-800, G1-2000, GX-600), + **Dreame 7** (A1 Pro, A2 1200, A2 3000, A3 AWD 1000 et 2000, A3 AWD Pro 3500 et 5000), + **Stiga 8** (A 6v à A 140v ; l'édition « Stade Toulousain » = A 15v, pas ajoutée). Sources : fiches officielles FR, pages GOAT A et GOAT O d'Ecovacs, et manuels Ecovacs (surface des 3 modèles PRO, absente des fiches), lus le 28/11. Prix = prix normal de la marque (prix barré hors Black Friday) ; vide quand seul un pack ou rien n'est affiché.
