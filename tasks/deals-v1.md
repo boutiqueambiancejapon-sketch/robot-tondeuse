@@ -53,3 +53,12 @@ Secret déposé par le propriétaire, **catalogue accessible** : getItems et sea
   Le prix et le nom affichés sont toujours ceux de cette fiche-là : si c'est un kit ou un pack, le libellé le dit.
 - À chaque relevé (toutes les 4 heures), revérifier les ASIN : fiche indisponible → passer à la fiche valable suivante (la plus chère),
   sinon masquer le bouton Amazon.
+
+### Règles de l'API Amazon (doc officielle, 28/11/2026) — obligatoires
+- **1 requête par seconde pour tout le compte (Toutou + QRT)**, 8 640 par jour au départ. Tout script qui appelle l'API tourne sous le verrou commun :
+  `flock -w 1200 /run/lock/amazon-api.lock <commande>` et espace ses requêtes d'au moins 1,1 s ; sur un refus 429, attendre (retryAfterSeconds) puis réessayer.
+  `scripts/amazon-cherche.mjs` aussi : `flock /run/lock/amazon-api.lock node scripts/amazon-cherche.mjs …`.
+- **Un prix Amazon ne se garde pas plus d'1 heure** : un prix affiché a moins de 70 minutes, sinon le bouton reste sans prix. Pour les deals : relire les
+  prix des ASIN suivis chaque heure (getItems, 10 ASIN par requête) ; les blocs `<ProductCTA>` des articles gardent le prix daté dans le texte (« … sur
+  Amazon le 28 novembre 2026 ») et le bouton ne montre pas de prix fixe.
+- Sans vente qualifiée 30 jours de suite, Amazon coupe l'accès (retour 2 jours après la prochaine vente expédiée).
